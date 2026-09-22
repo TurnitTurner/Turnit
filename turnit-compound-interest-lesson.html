@@ -624,7 +624,6 @@
     #tn-ci .ci-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
     #tn-ci .ci-vol-branchrow{flex-direction:column;}
     #tn-ci .ci-bsub{display:none;}
-    #tn-ci .ci-nav-hint{display:none;}
     #tn-ci .ci-nav-btn{padding:11px 16px; font-size:13.5px;}
   }
   @media (prefers-reduced-motion:reduce){
@@ -636,6 +635,26 @@
     /* the whole spectacle is skipped for anyone who asked for less motion */
     #tn-ci .ci-chaos{display:none !important;}
     #tn-ci .ci-quake{animation:none !important;}
+  }
+
+  /* ===== NAV-FIT PATCH v1 ===== */
+  #tn-ci .ci-nav{position:sticky; bottom:-1px; z-index:40; flex-wrap:wrap;
+    margin-top:18px; padding:12px 0 calc(13px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);
+    border-top:1px solid var(--line); box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-ci .ci-nav-hint{font-size:13px; font-weight:600; color:var(--ink2); line-height:1.4;}
+  #tn-ci .ci-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-ci .ci-top{margin-bottom:8px;}
+  #tn-ci .ci-topbar{margin-bottom:8px;}
+  #tn-ci .ci-sec{padding-top:10px;}
+  @media (max-width:540px){
+    #tn-ci .ci-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ci .ci-nav-hint:empty{display:none;}
+    #tn-ci .ci-nav{padding-top:10px; row-gap:0;}
+  }
+  @media (max-height:720px){
+    #tn-ci .ci-h2{font-size:clamp(21px,3.4vw,27px); margin-bottom:8px;}
+    #tn-ci .ci-p{margin-bottom:12px;}
   }
 </style>
 <script>
