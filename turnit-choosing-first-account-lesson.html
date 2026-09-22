@@ -1,0 +1,715 @@
+<!-- ============================================================
+     TURNIT — CHOOSING YOUR FIRST ACCOUNT: A DECISION GUIDE  (Module 2 · Lesson 6)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-cg. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 The Priority Ranking        2 The Match Multiplier
+       3 Soon or Far Off?            4 The Decision Wizard
+       5 Match the Resume            6 The Live Poll
+       7 Your Game Plan Checklist    8 Recap
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-cg">
+  <div class="cg-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="cg-top">
+      <div class="cg-topbar">
+        <div class="cg-brand"><span class="cg-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M9 18l6-6-6-6"/><path d="M4 4v16"/></svg></span><span class="cg-word">TURNIT</span><span class="cg-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="cg-progress"><span id="cg-bar"></span></div>
+      <div class="cg-meta"><span id="cg-slide-label">The Priority Ranking</span><span id="cg-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · THE PRIORITY RANKING ========== -->
+    <section class="cg-sec cg-reveal" data-step="1">
+      <p class="cg-kicker">The Priority Ranking · 1 / 9</p>
+      <h2 class="cg-h2">Where would you start?</h2>
+      <p class="cg-p">Tap these three in the order you'd personally prioritize them.</p>
+
+      <div class="cg-rank-pool" id="cg-rank-pool">
+        <button type="button" class="cg-rank-item" data-k="match">🤝<span>Employer 401(k) Match</span></button>
+        <button type="button" class="cg-rank-item" data-k="ira">🏦<span>Tax-Advantaged IRA</span></button>
+        <button type="button" class="cg-rank-item" data-k="brokerage">📈<span>Flexible Brokerage</span></button>
+      </div>
+
+      <div class="cg-rank-slots">
+        <div class="cg-rank-slot"><span>1st</span><b id="cg-slot-1">—</b></div>
+        <div class="cg-rank-slot"><span>2nd</span><b id="cg-slot-2">—</b></div>
+        <div class="cg-rank-slot"><span>3rd</span><b id="cg-slot-3">—</b></div>
+      </div>
+      <div class="cg-rank-result" id="cg-rank-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 2 · THE MATCH MULTIPLIER ========== -->
+    <section class="cg-sec cg-reveal" data-step="2">
+      <p class="cg-kicker">The Match Multiplier · 2 / 9</p>
+      <h2 class="cg-h2">The closest thing to free money</h2>
+      <p class="cg-p">A 401(k) is a retirement account offered through your employer. Some employers match part of what you contribute — tap to see why that usually comes first.</p>
+
+      <div class="cg-panel cg-center">
+        <div class="cg-coin-stage">
+          <div class="cg-coin-block"><span class="cg-coin-emoji">💵</span><span class="cg-coin-lab">You Contribute</span></div>
+          <div class="cg-coin-op">+</div>
+          <div class="cg-coin-block" id="cg-coin-match"><span class="cg-coin-emoji" id="cg-coin-match-emoji">❔</span><span class="cg-coin-lab">Employer Matches</span></div>
+          <div class="cg-coin-op">=</div>
+          <div class="cg-coin-block" id="cg-coin-total"><span class="cg-coin-emoji">—</span><span class="cg-coin-lab">Your Result</span></div>
+        </div>
+        <button type="button" class="cg-match-btn" id="cg-match-btn">Show Me the Match</button>
+        <div class="cg-match-note" id="cg-match-note">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · SOON OR FAR OFF? ========== -->
+    <section class="cg-sec cg-reveal" data-step="3">
+      <p class="cg-kicker">Soon or Far Off? · 3 / 9</p>
+      <h2 class="cg-h2">When will you actually need this money?</h2>
+      <p class="cg-p">Tap both to see how the timeline changes the answer.</p>
+
+      <div class="cg-soon-btns">
+        <button type="button" class="cg-soon-btn" id="cg-soon-btn">🏃<span>Soon<br>(next few years)</span></button>
+        <button type="button" class="cg-soon-btn" id="cg-far-btn">🌅<span>Far Off<br>(retirement)</span></button>
+      </div>
+      <div class="cg-soon-result" id="cg-soon-result"><b>Tap an option above</b><span>Your timeline changes which account actually makes sense.</span></div>
+    </section>
+
+    <!-- ========== 4 · THE DECISION WIZARD ========== -->
+    <section class="cg-sec cg-reveal" data-step="4">
+      <p class="cg-kicker">The Decision Wizard · 4 / 9</p>
+      <h2 class="cg-h2">Answer three questions. Get a real answer.</h2>
+      <p class="cg-p">This is everything from the last few lessons, working together.</p>
+
+      <div class="cg-panel">
+        <div class="cg-wizard-progress" id="cg-wizard-progress">Question 1 of 3</div>
+        <div class="cg-wizard" id="cg-wizard">
+          <p class="cg-wizard-q" id="cg-wizard-q">Do you have an employer 401(k) match available?</p>
+          <div class="cg-wizard-btns" id="cg-wizard-btns">
+            <button type="button" data-v="yes">Yes</button>
+            <button type="button" data-v="no">No / Not Sure</button>
+          </div>
+        </div>
+        <div class="cg-wizard-result" id="cg-wizard-result" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · MATCH THE RESUME ========== -->
+    <section class="cg-sec cg-reveal" data-step="5">
+      <p class="cg-kicker">Match the Resume · 5 / 9</p>
+      <h2 class="cg-h2">Which account fits their situation?</h2>
+      <p class="cg-p">Tap the right account for each person.</p>
+
+      <div class="cg-resumes" id="cg-resumes">
+        <div class="cg-resume-card" data-answer="roth">
+          <p class="cg-resume-name">🧑 Mia, 23</p>
+          <p class="cg-resume-detail">Just started her first job earning $35k. No employer match offered. Wants to start saving for retirement.</p>
+          <div class="cg-resume-btns"><button data-p="brokerage">Brokerage</button><button data-p="roth">Roth IRA</button><button data-p="trad">Traditional IRA</button></div>
+          <p class="cg-resume-why"></p>
+        </div>
+        <div class="cg-resume-card" data-answer="brokerage">
+          <p class="cg-resume-name">🧑 James, 45</p>
+          <p class="cg-resume-detail">Needs access to a chunk of these savings within the next 2 years for a home down payment.</p>
+          <div class="cg-resume-btns"><button data-p="brokerage">Brokerage</button><button data-p="roth">Roth IRA</button><button data-p="trad">Traditional IRA</button></div>
+          <p class="cg-resume-why"></p>
+        </div>
+        <div class="cg-resume-card" data-answer="trad">
+          <p class="cg-resume-name">🧑 Priya, 34</p>
+          <p class="cg-resume-detail">High earner right now, and expects a similar or lower tax rate once retired.</p>
+          <div class="cg-resume-btns"><button data-p="brokerage">Brokerage</button><button data-p="roth">Roth IRA</button><button data-p="trad">Traditional IRA</button></div>
+          <p class="cg-resume-why"></p>
+        </div>
+      </div>
+      <p class="cg-count" id="cg-resumes-count">Matched 0 of 3</p>
+    </section>
+
+    <!-- ========== 6 · THE LIVE POLL ========== -->
+    <section class="cg-sec cg-reveal" data-step="6">
+      <p class="cg-kicker">The Live Poll · 6 / 9</p>
+      <h2 class="cg-h2">Myth or fact?</h2>
+      <p class="cg-p">Tap your answer, then watch your result fill in.</p>
+
+      <div class="cg-poll-stage" id="cg-poll-stage">
+        <p class="cg-poll-q" id="cg-poll-q">Loading...</p>
+        <div class="cg-poll-btns" id="cg-poll-btns">
+          <button type="button" data-p="myth">Myth</button>
+          <button type="button" data-p="fact">Fact</button>
+        </div>
+        <div class="cg-poll-bar-track" id="cg-poll-bar-track" style="display:none;"><span class="cg-poll-bar-fill" id="cg-poll-bar-fill"></span></div>
+        <p class="cg-poll-feedback" id="cg-poll-feedback">&nbsp;</p>
+      </div>
+      <p class="cg-count" id="cg-poll-count">Question 1 of 4</p>
+    </section>
+
+    <!-- ========== 7 · YOUR GAME PLAN CHECKLIST ========== -->
+    <section class="cg-sec cg-reveal" data-step="7">
+      <p class="cg-kicker">Your Game Plan · 7 / 9</p>
+      <h2 class="cg-h2">Check off your next steps</h2>
+      <p class="cg-p">Tap each item as you mentally check it off.</p>
+
+      <div class="cg-checklist" id="cg-checklist">
+        <button type="button" class="cg-check-item"><span class="cg-check-box"></span>Check if my employer offers a 401(k) match</button>
+        <button type="button" class="cg-check-item"><span class="cg-check-box"></span>Decide: Roth, Traditional, or Brokerage first</button>
+        <button type="button" class="cg-check-item"><span class="cg-check-box"></span>Pick a provider to open the account</button>
+        <button type="button" class="cg-check-item"><span class="cg-check-box"></span>Set up my first contribution</button>
+      </div>
+      <p class="cg-count" id="cg-checklist-count">Checked 0 of 4</p>
+    </section>
+
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="cg-sec cg-reveal" data-step="8">
+      <p class="cg-kicker">Recap · 8 / 9</p>
+      <h2 class="cg-h2">Here's what you now know</h2>
+      <p class="cg-p">The whole lesson, in six lines.</p>
+
+      <div class="cg-recap">
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>If your employer offers a 401(k) match, that usually comes first — it's close to guaranteed free money.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>Money you'll need soon shouldn't be locked into a retirement account — a brokerage keeps it accessible.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>For long-term money, your current vs. expected future tax bracket points toward Roth or Traditional.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>There's no single "right" account — the right one depends on your actual situation.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>Most people eventually end up using more than one account type at once.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>The best account is the one you actually open and use — not the theoretically perfect one you never start.</span></div>
+      </div>
+      <div class="cg-next-move">Your next move: <b>use today's answers to pick one account, and carry it into the next lesson to actually open it.</b></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="cg-sec cg-center cg-reveal" data-step="9">
+      <p class="cg-kicker center">Certified · 9 / 9</p>
+      <div class="cg-cert">
+        <div class="cg-cert-border"></div>
+        <span class="cg-cert-pill">🏆 Certificate of Completion</span>
+        <p class="cg-cert-cert">This certifies that</p>
+        <h2 class="cg-cert-name">Decision Made</h2>
+        <p class="cg-cert-body">has completed <span class="cg-tw">TURNIT</span> Financial Foundations: Choosing Your First Account, and now has a real framework for deciding what to open first.</p>
+        <div class="cg-cert-line"></div>
+        <div class="cg-done-row streak"><div class="cg-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="cg-done-row ach"><div class="cg-done-ico">🏆</div><div><b>Achievement: Decision Certified</b><span>You built your own account decision framework.</span></div></div>
+        <div class="cg-done-btns">
+          <a class="cg-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="cg-btn ghost" id="cg-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="cg-quote">"IN ANY MOMENT OF DECISION, THE BEST THING YOU CAN DO IS <span class="cg-green">THE RIGHT THING.</span>"<br><span class="cg-quote-by">— THEODORE ROOSEVELT</span></p>
+    </section>
+
+    <p class="cg-disclaimer">TURNIT is for educational purposes only and is not financial advice. This decision guide offers general, illustrative guidance — not personalized recommendations. Employer plan details, tax situations, and account rules vary, so consider speaking with a qualified professional for your specific circumstances.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="cg-nav" id="cg-nav">
+      <button type="button" class="cg-nav-btn prev" id="cg-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="cg-nav-hint" id="cg-nav-hint"></span>
+      <button type="button" class="cg-nav-btn next" id="cg-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-cg{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-cg *,#tn-cg *::before,#tn-cg *::after{box-sizing:border-box;}
+  #tn-cg .cg-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-cg .cg-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-cg .cg-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-cg .cg-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-cg .cg-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-cg .cg-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-cg .cg-bico{display:flex;}
+  #tn-cg .cg-word,#tn-cg .cg-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-cg .cg-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-cg .cg-bsub{color:var(--ink2); font-weight:500;}
+  #tn-cg .cg-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-cg #cg-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-cg .cg-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-cg .cg-meta #cg-slide-label{color:var(--ink2);}
+  #tn-cg .cg-meta #cg-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-cg .cg-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-cg .cg-sec.cg-hide{display:none;}
+  #tn-cg .cg-center{text-align:center;}
+  #tn-cg .cg-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-cg .cg-kicker.center{text-align:center;}
+  #tn-cg .cg-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-cg .cg-h2.center{text-align:center;}
+  #tn-cg .cg-tw{font-style:italic;}
+  #tn-cg .cg-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-cg .cg-p b{color:var(--ink); font-weight:700;}
+  #tn-cg .cg-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-cg .cg-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-cg .cg-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+
+  /* ---- slide 1: priority ranking ---- */
+  #tn-cg .cg-rank-pool{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; margin-bottom:18px;}
+  #tn-cg .cg-rank-item{display:flex; flex-direction:column; align-items:center; gap:6px; font-size:26px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 6px; cursor:pointer; transition:all .18s;}
+  #tn-cg .cg-rank-item span{font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600; color:var(--ink2); text-align:center; line-height:1.3;}
+  #tn-cg .cg-rank-item:disabled{opacity:.35; cursor:default;}
+  #tn-cg .cg-rank-slots{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; margin-bottom:14px;}
+  #tn-cg .cg-rank-slot{background:#fff; border:1.5px dashed var(--cardbd); border-radius:12px; padding:12px 6px; text-align:center;}
+  #tn-cg .cg-rank-slot span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-cg .cg-rank-slot b{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:var(--ink);}
+  #tn-cg .cg-rank-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:14px 16px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 2: match multiplier ---- */
+  #tn-cg .cg-coin-stage{display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:16px; flex-wrap:wrap;}
+  #tn-cg .cg-coin-block{display:flex; flex-direction:column; align-items:center; gap:4px; background:#fff; border:1.5px solid var(--line); border-radius:12px; padding:14px 10px; min-width:88px;}
+  #tn-cg .cg-coin-emoji{font-size:26px; transition:transform .3s cubic-bezier(.4,1.8,.5,1);}
+  #tn-cg .cg-coin-lab{font-size:10px; font-weight:600; color:var(--ink2); text-align:center;}
+  #tn-cg .cg-coin-op{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--mut);}
+  #tn-cg .cg-coin-block.pop .cg-coin-emoji{transform:scale(1.3);}
+  #tn-cg .cg-match-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px 24px; cursor:pointer; transition:transform .15s;}
+  #tn-cg .cg-match-btn:hover{transform:translateY(-2px);}
+  #tn-cg .cg-match-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-cg .cg-match-note{margin-top:16px; font-size:13.5px; color:var(--ink2); line-height:1.55; text-align:left; max-width:460px; margin-left:auto; margin-right:auto;}
+  #tn-cg .cg-match-note b{color:var(--ink);}
+
+  /* ---- slide 3: soon or far off ---- */
+  #tn-cg .cg-soon-btns{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;}
+  #tn-cg .cg-soon-btn{display:flex; flex-direction:column; align-items:center; gap:6px; font-size:32px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:20px 10px; cursor:pointer; transition:all .18s;}
+  #tn-cg .cg-soon-btn span{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); text-align:center; line-height:1.3;}
+  #tn-cg .cg-soon-btn.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-cg .cg-soon-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; text-align:center;}
+  #tn-cg .cg-soon-result b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:4px;}
+  #tn-cg .cg-soon-result span{font-size:13.5px; color:var(--ink2); line-height:1.55;}
+
+  /* ---- slide 4: decision wizard ---- */
+  #tn-cg .cg-wizard-progress{text-align:center; font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.05em; text-transform:uppercase; margin-bottom:14px;}
+  #tn-cg .cg-wizard-q{font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; color:var(--ink); text-align:center; margin:0 0 16px; line-height:1.4;}
+  #tn-cg .cg-wizard-btns{display:flex; flex-direction:column; gap:9px;}
+  #tn-cg .cg-wizard-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:14px; cursor:pointer; transition:all .18s;}
+  #tn-cg .cg-wizard-btns button:hover{border-color:var(--b); background:var(--tint);}
+  #tn-cg .cg-wizard-result{background:var(--tint); border:1.5px solid var(--selbd); border-radius:14px; padding:18px 20px; text-align:left;}
+  #tn-cg .cg-wizard-result-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; color:var(--g); margin:0 0 8px;}
+  #tn-cg .cg-wizard-result-d{font-size:13.5px; color:var(--ink2); line-height:1.6; margin:0;}
+  #tn-cg .cg-wizard-result-d b{color:var(--ink);}
+
+  /* ---- slide 5: match the resume ---- */
+  #tn-cg .cg-resumes{display:flex; flex-direction:column; gap:12px;}
+  #tn-cg .cg-resume-card{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:15px 17px; transition:background .2s ease, border-color .2s ease;}
+  #tn-cg .cg-resume-card.correct{background:var(--tint); border-color:var(--selbd);}
+  #tn-cg .cg-resume-card.wrong{background:var(--nobg); border-color:var(--nobd);}
+  #tn-cg .cg-resume-name{font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); margin:0 0 4px;}
+  #tn-cg .cg-resume-detail{font-size:13px; color:var(--ink2); margin:0 0 10px; line-height:1.45;}
+  #tn-cg .cg-resume-btns{display:flex; gap:6px; flex-wrap:wrap;}
+  #tn-cg .cg-resume-btns button{flex:1; min-width:80px; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; padding:9px 4px; border-radius:9px; cursor:pointer; background:#fff; border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-cg .cg-resume-card.done .cg-resume-btns button{opacity:.4; pointer-events:none;}
+  #tn-cg .cg-resume-card.done .cg-resume-btns button.picked{opacity:1;}
+  #tn-cg .cg-resume-why{font-size:12.5px; color:var(--ink2); line-height:1.45; margin:8px 0 0; display:none;}
+  #tn-cg .cg-resume-why b{font-family:'Poppins',sans-serif;}
+  #tn-cg .cg-resume-card.done .cg-resume-why{display:block;}
+
+  /* ---- slide 6: live poll ---- */
+  #tn-cg .cg-poll-stage{background:var(--mist); border:1px solid var(--line); border-radius:16px; padding:24px 18px; text-align:center;}
+  #tn-cg .cg-poll-q{font-family:'Poppins',sans-serif; font-weight:700; font-size:15.5px; color:var(--ink); margin:0 0 16px; line-height:1.4;}
+  #tn-cg .cg-poll-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-cg .cg-poll-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:13px 8px; border-radius:12px; cursor:pointer; border:1.5px solid; background:#fff; transition:all .15s;}
+  #tn-cg .cg-poll-btns button[data-p="myth"]{color:var(--no); border-color:var(--nobd);}
+  #tn-cg .cg-poll-btns button[data-p="myth"]:hover{background:var(--nobg);}
+  #tn-cg .cg-poll-btns button[data-p="fact"]{color:var(--g); border-color:var(--selbd);}
+  #tn-cg .cg-poll-btns button[data-p="fact"]:hover{background:var(--tint);}
+  #tn-cg .cg-poll-btns button:disabled{opacity:.5; cursor:default;}
+  #tn-cg .cg-poll-bar-track{height:20px; border-radius:10px; background:#E9EFF4; overflow:hidden; margin-top:16px;}
+  #tn-cg .cg-poll-bar-fill{display:block; height:100%; width:0%; border-radius:10px; transition:width .6s ease;}
+  #tn-cg .cg-poll-bar-fill.correct{background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-cg .cg-poll-bar-fill.wrong{background:linear-gradient(90deg,var(--gold),var(--no));}
+  #tn-cg .cg-poll-feedback{font-size:13px; color:var(--ink2); margin-top:12px; line-height:1.5; min-height:18px;}
+
+  /* ---- slide 7: checklist ---- */
+  #tn-cg .cg-checklist{display:flex; flex-direction:column; gap:9px;}
+  #tn-cg .cg-check-item{display:flex; align-items:center; gap:12px; text-align:left; font-family:inherit; font-size:14px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; cursor:pointer; transition:all .18s;}
+  #tn-cg .cg-check-box{width:22px; height:22px; border-radius:7px; border:2px solid var(--cardbd); flex:none; position:relative; transition:all .18s;}
+  #tn-cg .cg-check-item.checked{background:var(--tint); border-color:var(--selbd); color:var(--ink2); text-decoration:line-through;}
+  #tn-cg .cg-check-item.checked .cg-check-box{background:var(--g); border-color:var(--g);}
+  #tn-cg .cg-check-item.checked .cg-check-box::after{content:"\2713"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:800;}
+
+  /* recap */
+  #tn-cg .cg-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-cg .cg-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-cg .cg-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-cg .cg-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-cg .cg-recap-item b{font-weight:700;}
+  #tn-cg .cg-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-cg .cg-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-cg .cg-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-cg .cg-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-cg .cg-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-cg .cg-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-cg .cg-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-cg .cg-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-cg .cg-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-cg .cg-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-cg .cg-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-cg .cg-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-cg .cg-done-ico{font-size:20px; flex:none;}
+  #tn-cg .cg-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-cg .cg-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-cg .cg-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-cg .cg-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-cg .cg-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-cg .cg-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-cg .cg-btn:hover{transform:translateY(-2px);}
+  #tn-cg .cg-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-cg .cg-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-cg .cg-green{color:var(--g);}
+  #tn-cg .cg-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-cg .cg-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-cg .cg-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-cg .cg-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-cg .cg-nav-btn.prev{color:var(--ink2);}
+  #tn-cg .cg-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-cg .cg-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-cg .cg-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-cg .cg-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-cg .cg-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-cg .cg-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-cg .cg-wrap{padding:12px 14px 30px;}
+    #tn-cg .cg-soon-btns{grid-template-columns:1fr;}
+    #tn-cg .cg-poll-btns{grid-template-columns:1fr;}
+    #tn-cg .cg-resume-btns{flex-direction:column;}
+    #tn-cg .cg-bsub{display:none;}
+    #tn-cg .cg-nav-hint{display:none;}
+    #tn-cg .cg-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-cg .cg-reveal{opacity:1 !important; transform:none !important;}
+    #tn-cg #cg-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-cg'); if(!root) return;
+  root.querySelectorAll('.cg-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 1 · the priority ranking ============ */
+  var rankLabels={match:'Employer 401(k) Match', ira:'Tax-Advantaged IRA', brokerage:'Flexible Brokerage'};
+  var rankOrder=[], rankResult=root.querySelector('#cg-rank-result');
+  root.querySelectorAll('#cg-rank-pool .cg-rank-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      if(item.disabled) return;
+      item.disabled=true;
+      var k=item.getAttribute('data-k');
+      rankOrder.push(k);
+      var slot=root.querySelector('#cg-slot-'+rankOrder.length);
+      slot.textContent=rankLabels[k];
+      if(rankOrder.length>=3){
+        var matchesGeneral=(rankOrder[0]==='match');
+        rankResult.innerHTML='General guidance: capture any <b>employer match</b> first (it\u2019s close to guaranteed free money), then a <b>tax-advantaged IRA</b>, then a <b>flexible brokerage</b> for anything beyond that \u2014 though your personal order can vary depending on your situation.'+(matchesGeneral?' You led with the match \u2014 that lines up with the common guidance!':'');
+      }
+      postHeight();
+    });
+  });
+
+  /* ============ 2 · the match multiplier ============ */
+  var matchBtn=root.querySelector('#cg-match-btn'), matchEmoji=root.querySelector('#cg-coin-match-emoji'),
+      matchBlock=root.querySelector('#cg-coin-match'), totalBlock=root.querySelector('#cg-coin-total'),
+      matchNote=root.querySelector('#cg-match-note');
+  if(matchBtn) matchBtn.addEventListener('click',function(){
+    matchBtn.disabled=true;
+    matchBlock.classList.add('pop');
+    matchEmoji.textContent='💵';
+    setTimeout(function(){
+      totalBlock.classList.add('pop');
+      totalBlock.querySelector('.cg-coin-emoji').textContent='💵💵';
+      totalBlock.querySelector('.cg-coin-lab').textContent='Instantly Doubled';
+      matchNote.innerHTML='If your employer matches, say, dollar-for-dollar up to a certain amount, that\u2019s an immediate <b>100% return</b> before the money is even invested. It usually makes sense to contribute at least enough to get the <b>full match</b> before funding an IRA or brokerage account.';
+      postHeight();
+    },500);
+    postHeight();
+  });
+
+  /* ============ 3 · soon or far off ============ */
+  var soonBtn=root.querySelector('#cg-soon-btn'), farBtn=root.querySelector('#cg-far-btn'),
+      soonResult=root.querySelector('#cg-soon-result');
+  if(soonBtn) soonBtn.addEventListener('click',function(){
+    soonBtn.classList.add('on'); farBtn.classList.remove('on');
+    soonResult.innerHTML='<b>Lean toward a Brokerage (or plain savings)</b><span>Money you\u2019ll need soon shouldn\u2019t be locked into a retirement account \u2014 keep it liquid and accessible instead.</span>';
+    postHeight();
+  });
+  if(farBtn) farBtn.addEventListener('click',function(){
+    farBtn.classList.add('on'); soonBtn.classList.remove('on');
+    soonResult.innerHTML='<b>Lean toward a Roth or Traditional IRA</b><span>With decades of runway, a retirement account can put its tax advantages to full use.</span>';
+    postHeight();
+  });
+
+  /* ============ 4 · the decision wizard ============ */
+  var wizardState={match:null, timeline:null, bracket:null};
+  var wizardStep=1;
+  var wizardQ=root.querySelector('#cg-wizard-q'), wizardBtns=root.querySelector('#cg-wizard-btns'),
+      wizardProgress=root.querySelector('#cg-wizard-progress'), wizardResult=root.querySelector('#cg-wizard-result'),
+      wizardBox=root.querySelector('#cg-wizard');
+  function renderWizardStep(){
+    if(wizardStep===1){
+      wizardQ.textContent='Do you have an employer 401(k) match available?';
+      wizardBtns.innerHTML='<button data-v="yes">Yes</button><button data-v="no">No / Not Sure</button>';
+    } else if(wizardStep===2){
+      wizardQ.textContent='Will you need this specific money in the next few years?';
+      wizardBtns.innerHTML='<button data-v="yes">Yes</button><button data-v="no">No, this is long-term</button>';
+    } else if(wizardStep===3){
+      wizardQ.textContent='Do you expect a higher or lower tax rate in retirement?';
+      wizardBtns.innerHTML='<button data-v="higher">Higher</button><button data-v="lower">Lower</button><button data-v="unsure">Not Sure</button>';
+    }
+    wizardProgress.textContent='Question '+Math.min(wizardStep,3)+' of 3';
+    bindWizardButtons();
+    postHeight();
+  }
+  function bindWizardButtons(){
+    wizardBtns.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var v=btn.getAttribute('data-v');
+        if(wizardStep===1) wizardState.match=v;
+        else if(wizardStep===2) wizardState.timeline=v;
+        else if(wizardStep===3){ wizardState.bracket=v; }
+        if(wizardStep<3){ wizardStep++; renderWizardStep(); }
+        else { showWizardResult(); }
+      });
+    });
+  }
+  function showWizardResult(){
+    wizardBox.style.display='none';
+    wizardProgress.style.display='none';
+    wizardResult.style.display='block';
+    var lines=[];
+    if(wizardState.match==='yes') lines.push('Start by contributing enough to your <b>401(k)</b> to capture the full employer match.');
+    if(wizardState.timeline==='yes'){
+      lines.push('Since you\u2019ll need this specific money soon, a <b>Brokerage account</b> keeps it flexible and accessible, without early-withdrawal restrictions.');
+    } else {
+      if(wizardState.bracket==='higher') lines.push('With a higher expected tax rate later, a <b>Roth IRA</b> tends to make sense \u2014 pay tax now at today\u2019s lower rate.');
+      else if(wizardState.bracket==='lower') lines.push('With a lower expected tax rate later, a <b>Traditional IRA</b> tends to make sense \u2014 take the deduction now.');
+      else lines.push('Not sure yet? A <b>Roth IRA</b> is a common default when the future is uncertain, though either can work.');
+    }
+    wizardResult.innerHTML='<p class="cg-wizard-result-t">Your Starting Point</p><p class="cg-wizard-result-d">'+lines.join(' ')+'</p>';
+    postHeight();
+  }
+  renderWizardStep();
+
+  /* ============ 5 · match the resume ============ */
+  var resumesMatched=0, resumesCount=root.querySelector('#cg-resumes-count');
+  var resumeWhy={
+    roth:'No employer match, and decades of runway ahead \u2014 a Roth IRA lets tax-free growth work for a long time.',
+    brokerage:'Needing the money within 2 years means it shouldn\u2019t be locked into a retirement account \u2014 flexibility wins here.',
+    trad:'A high current tax rate paired with an expected lower rate later is the classic case for a Traditional IRA\u2019s upfront deduction.'
+  };
+  root.querySelectorAll('#cg-resumes .cg-resume-card').forEach(function(card){
+    var ans=card.getAttribute('data-answer');
+    var whyEl=card.querySelector('.cg-resume-why');
+    card.querySelectorAll('.cg-resume-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(card.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        card.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(correct?'Correct.':'The better fit:')+'</b> '+resumeWhy[ans];
+        resumesMatched++;
+        resumesCount.textContent='Matched '+resumesMatched+' of 3';
+        postHeight();
+      });
+    });
+  });
+
+  /* ============ 6 · the live poll ============ */
+  var pollQ=[
+    {q:'If your employer offers a match, you should max out an IRA before contributing enough to get that match.', a:'myth', why:'Capturing the match first is usually the better move \u2014 it\u2019s an immediate, guaranteed return.'},
+    {q:'The "right" account to open first can be different for different people.', a:'fact', why:'Income, timeline, and employer benefits all shift the answer from person to person.'},
+    {q:'A brokerage account is a bad choice for everyone, since it has no special tax perks.', a:'myth', why:'It\u2019s still valuable for flexibility and shorter-term goals, tax perks aside.'},
+    {q:'It\u2019s common for people to eventually use more than one account type at once.', a:'fact', why:'Many people combine a 401(k), an IRA, and a brokerage account over time.'}
+  ];
+  var pollIdx=0;
+  var pollStage=root.querySelector('#cg-poll-stage'), pollQEl=root.querySelector('#cg-poll-q'),
+      pollBtns=root.querySelector('#cg-poll-btns'), pollBarTrack=root.querySelector('#cg-poll-bar-track'),
+      pollBarFill=root.querySelector('#cg-poll-bar-fill'), pollFeedback=root.querySelector('#cg-poll-feedback'),
+      pollCount=root.querySelector('#cg-poll-count');
+  function renderPoll(){
+    if(pollIdx>=pollQ.length){
+      pollQEl.textContent='All done! \ud83c\udf89';
+      pollBtns.style.display='none';
+      pollBarTrack.style.display='none';
+      pollFeedback.textContent='';
+      postHeight();
+      return;
+    }
+    pollQEl.textContent=pollQ[pollIdx].q;
+    pollBtns.style.display='grid';
+    pollBtns.querySelectorAll('button').forEach(function(b){ b.disabled=false; });
+    pollBarTrack.style.display='none';
+    pollBarFill.style.width='0%';
+    pollFeedback.textContent='';
+    pollCount.textContent='Question '+(pollIdx+1)+' of '+pollQ.length;
+    postHeight();
+  }
+  function answerPoll(val){
+    if(pollIdx>=pollQ.length) return;
+    var item=pollQ[pollIdx];
+    var correct=item.a===val;
+    pollBtns.querySelectorAll('button').forEach(function(b){ b.disabled=true; });
+    pollBarTrack.style.display='block';
+    pollBarFill.className='cg-poll-bar-fill '+(correct?'correct':'wrong');
+    setTimeout(function(){ pollBarFill.style.width=correct?'100%':'35%'; },30);
+    pollFeedback.innerHTML='<b>'+(item.a==='fact'?'Fact.':'Myth.')+'</b> '+item.why;
+    postHeight();
+    setTimeout(function(){ pollIdx++; renderPoll(); },1400);
+  }
+  root.querySelectorAll('#cg-poll-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){ answerPoll(btn.getAttribute('data-p')); });
+  });
+  renderPoll();
+
+  /* ============ 7 · game plan checklist ============ */
+  root.querySelectorAll('#cg-checklist .cg-check-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      item.classList.toggle('checked');
+      postHeight();
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-cg'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#cg-bar');
+  var labelEl=root.querySelector('#cg-slide-label');
+  var countEl=root.querySelector('#cg-slide-count');
+  var prevBtn=root.querySelector('#cg-prev');
+  var nextBtn=root.querySelector('#cg-next');
+  var hintEl=root.querySelector('#cg-nav-hint');
+  var disclaimer=root.querySelector('.cg-disclaimer');
+
+  var labels={1:'The Priority Ranking',2:'The Match Multiplier',3:'Soon or Far Off?',4:'The Decision Wizard',5:'Match the Resume',6:'The Live Poll',7:'Your Game Plan',8:'Recap',9:'Certified'};
+  var reqHints={1:'Rank all 3 to continue',2:'Reveal the match to continue',3:'Explore both options',4:'Answer all 3 questions',5:'Match all 3 to continue',6:'Answer all 4 to continue',7:'Check off all 4 to continue'};
+
+  var done={8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.cg-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('cg-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('cg-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · all 3 ranked
+  var rankPlaced=0;
+  root.querySelectorAll('#cg-rank-pool .cg-rank-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      rankPlaced++;
+      if(rankPlaced>=3) markDone(1); else liveHint(1,'Ranked '+rankPlaced+' of 3 — keep going');
+    });
+  });
+
+  // 2 · match revealed
+  var matchBtn2=root.querySelector('#cg-match-btn');
+  if(matchBtn2) matchBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(2); },550); });
+
+  // 3 · both timeline options explored
+  var timelineState={soon:false, far:false};
+  var soonBtn2=root.querySelector('#cg-soon-btn'), farBtn2=root.querySelector('#cg-far-btn');
+  if(soonBtn2) soonBtn2.addEventListener('click',function(){ timelineState.soon=true;
+    if(timelineState.soon&&timelineState.far) markDone(3); else liveHint(3,'Now try the other option too'); });
+  if(farBtn2) farBtn2.addEventListener('click',function(){ timelineState.far=true;
+    if(timelineState.soon&&timelineState.far) markDone(3); else liveHint(3,'Now try the other option too'); });
+
+  // 4 · wizard completed (all 3 questions answered)
+  var wizardAnswered=0;
+  root.querySelector('#cg-wizard-btns').addEventListener('click', function(e){
+    if(e.target && e.target.tagName==='BUTTON'){
+      wizardAnswered++;
+      if(wizardAnswered>=3) markDone(4); else liveHint(4,'Answered '+wizardAnswered+' of 3 — keep going');
+    }
+  });
+
+  // 5 · all 3 resumes matched
+  root.querySelectorAll('#cg-resumes .cg-resume-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var n=count('#cg-resumes .cg-resume-card.done');
+      if(n>=3) markDone(5); else liveHint(5,'Matched '+n+' of 3 — keep going');
+    });
+  });
+
+  // 6 · all 4 poll questions answered
+  var pollAnswered=0;
+  root.querySelector('#cg-poll-btns').addEventListener('click', function(e){
+    if(e.target && e.target.tagName==='BUTTON'){
+      pollAnswered++;
+      if(pollAnswered>=4) markDone(6); else liveHint(6,'Answered '+pollAnswered+' of 4 — keep going');
+    }
+  });
+
+  // 7 · all 4 checklist items checked
+  var checklistItems=root.querySelectorAll('#cg-checklist .cg-check-item');
+  function checklistGateCheck(){
+    var n=count('#cg-checklist .cg-check-item.checked');
+    if(n>=4) markDone(7); else liveHint(7,'Checked '+n+' of 4 — keep going');
+  }
+  checklistItems.forEach(function(item){
+    item.addEventListener('click', function(){ setTimeout(checklistGateCheck,20); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#cg-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

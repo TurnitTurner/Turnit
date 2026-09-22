@@ -1,0 +1,1264 @@
+<!-- ============================================================
+     TURNIT — THE POWER OF COMPOUND INTEREST  (Module 1 · Lesson 2)
+     SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ci. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     10 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Title & Key Vocabulary (optional, never gated)
+       2 Hook — Simple Vs Compound         3 The Four Ingredients (chips)
+       4 The Growth Calculator (pie chart) 5 The Rule of 72
+       6 The Volatility Simulator          7 Myth Or Fact
+       8 Habits That Matter                9 Recap
+       10 Complete (scroll-down prompt)
+     >> Every one-way activity has its own Start Over button. Once a slide has
+        been unlocked it stays unlocked — replaying never re-locks Next. The
+        sliders and the chip rows are already reversible, so they need none.
+     >> SLIDE 6 CRASH SEQUENCE: pressing "Simulate Market Crash" runs a ~4s
+        full-screen spectacle — siren lights, strobing red, a tornado, flying
+        debris, a slamming MARKET CRASH stamp, and an optional siren tone.
+        Set CHAOS_SOUND=false in the script to mute it. The whole sequence is
+        skipped entirely under prefers-reduced-motion; the lesson still works.
+        NOTE: #ci-chaos deliberately sits OUTSIDE .ci-wrap — the screen-shake
+        puts a transform on .ci-wrap, and a transformed ancestor would trap
+        position:fixed children inside it.
+     >> The last slide directs the learner to GHL's own "Mark As Complete"
+        and "Next Lesson" buttons below the iframe, since this widget can't
+        reach outside its own frame to trigger them directly. Wording swaps
+        automatically if the lesson is expanded to full screen.
+     ============================================================ -->
+<div id="tn-ci">
+  <div class="ci-wrap" id="ci-wrap">
+    <!-- TOP HEADER -->
+    <div class="ci-top">
+      <div class="ci-topbar">
+        <div class="ci-brand"><span class="ci-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 2v20M8 6a4 4 0 0 0 0 8h8a4 4 0 0 1 0 8H6"/></svg></span><span class="ci-word">TURNIT</span><span class="ci-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="ci-progress"><span id="ci-bar"></span></div>
+      <div class="ci-meta"><span id="ci-slide-label">Key Vocabulary</span><span id="ci-slide-count">Slide 1 of 10</span></div>
+    </div>
+    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <section class="ci-sec ci-center ci-reveal" data-step="1">
+      <p class="ci-kicker center">Compound Interest · 1 / 10</p>
+      <h1 class="ci-hero-title">THE POWER OF <span class="ci-hero-grad">COMPOUND INTEREST</span></h1>
+      <p class="ci-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
+      <div class="ci-vocab-teaser">
+        <span class="ci-vocab-label">Key Terms In This Lesson</span>
+        <div class="ci-vocab-chips" id="ci-vocab-chips">
+          <button type="button" class="ci-vocab-chip" data-t="Compound Interest" data-def="Interest earned on your original amount and on the interest it has already earned — the engine behind the snowball.">Compound Interest</button>
+          <button type="button" class="ci-vocab-chip" data-t="Principal" data-def="The amount of money you start with, before any growth is added.">Principal</button>
+          <button type="button" class="ci-vocab-chip" data-t="Rate of Return" data-def="How fast your money grows each year, usually shown as a percentage.">Rate of Return</button>
+          <button type="button" class="ci-vocab-chip" data-t="Rule of 72" data-def="A quick shortcut: divide 72 by your rate of return to estimate how many years it takes money to double.">Rule of 72</button>
+          <button type="button" class="ci-vocab-chip" data-t="Volatility" data-def="How much an investment's value swings up and down over time.">Volatility</button>
+          <button type="button" class="ci-vocab-chip" data-t="Consistency" data-def="Adding to your investment on a regular schedule, without stopping.">Consistency</button>
+        </div>
+        <div class="ci-vocab-def" id="ci-vocab-def">Tap a term above to see what it means.</div>
+        <span class="ci-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
+      </div>
+      <div class="ci-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
+    </section>
+    <!-- ========== 2 · HOOK — SIMPLE VS COMPOUND ========== -->
+    <section class="ci-sec ci-reveal" data-step="2">
+      <p class="ci-kicker">Simple Vs Compound · 2 / 10</p>
+      <h2 class="ci-h2">Interest That Earns Interest</h2>
+      <p class="ci-p">Same $10,000, same 8% rate, same 20 years — but one grows in a straight line, and the other snowballs. Tap each to see the difference.</p>
+      <div class="ci-hook" id="ci-hook">
+        <div class="ci-hook-opts">
+          <button type="button" class="ci-hook-opt" data-k="simple">Simple Interest<span>Only On The Original Amount</span></button>
+          <button type="button" class="ci-hook-opt" data-k="compound">Compound Interest<span>On The Amount + Past Growth</span></button>
+        </div>
+        <div class="ci-hook-panel">
+          <div class="ci-hook-cap" id="ci-hook-cap">$10,000 at 8% for 20 years</div>
+          <div class="ci-hook-grid">
+            <div class="ci-hook-box"><span>You Start With</span><b>$10,000</b></div>
+            <div class="ci-hook-box green"><span>After 20 Years</span><b id="ci-hook-final">—</b></div>
+          </div>
+          <div class="ci-note" id="ci-hook-note">Tap both options to compare where the same $10,000 ends up.</div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== 3 · THE FOUR INGREDIENTS ========== -->
+    <section class="ci-sec ci-reveal" data-step="3">
+      <p class="ci-kicker">The Four Ingredients · 3 / 10</p>
+      <h2 class="ci-h2">What Compounding Actually Needs</h2>
+      <p class="ci-p">Four things drive how big your snowball gets. Tap each to see how it contributes.</p>
+      <div class="ci-fico" id="ci-ingredients">
+        <button type="button" class="ci-fchip" data-t="Principal" data-d="The amount you start with. It matters, but it is usually the least powerful of the four — time and consistency tend to matter more.">
+          <i class="d1"></i>Principal</button>
+        <button type="button" class="ci-fchip" data-t="Rate of Return" data-d="How fast your money grows each year. A higher rate helps, but it is also the least predictable and the least controllable of the four.">
+          <i class="d2"></i>Rate of Return</button>
+        <button type="button" class="ci-fchip" data-t="Time" data-d="How long your money stays invested. This is the single biggest lever most people have — a few extra years can outweigh almost everything else.">
+          <i class="d3"></i>Time</button>
+        <button type="button" class="ci-fchip" data-t="Consistency" data-d="Adding to your investment on a regular schedule, without stopping. Consistent contributions give compounding fresh fuel every single year.">
+          <i class="d4"></i>Consistency</button>
+      </div>
+      <div class="ci-reveal-box" id="ci-ingredients-box"><b id="ci-ingredients-t">Tap An Ingredient Above</b><span id="ci-ingredients-d">Each one plays a different role in how big your snowball gets.</span></div>
+      <p class="ci-count" id="ci-ingredients-count">Reviewed 0 Of 4</p>
+    </section>
+    <!-- ========== 4 · THE GROWTH CALCULATOR (PIE CHART) ========== -->
+    <section class="ci-sec ci-reveal" data-step="4">
+      <p class="ci-kicker">The Growth Calculator · 4 / 10</p>
+      <h2 class="ci-h2">How Much Of Your Balance Is Actually Growth?</h2>
+      <p class="ci-p">Starting with $1,000, move both sliders and watch the pie shift — as time goes on, growth does more and more of the work.</p>
+      <div class="ci-panel">
+        <div class="ci-pie3-wrap">
+          <svg viewBox="0 0 300 300" width="190" height="190" id="ci-pie3-svg">
+            <path id="ci-pie3-contrib"></path>
+            <path id="ci-pie3-growth"></path>
+          </svg>
+          <div class="ci-pie3-total"><span>Total Balance</span><b id="ci-pie3-total-v">$0</b></div>
+        </div>
+        <div class="ci-hook-grid ci-pie3-grid">
+          <div class="ci-hook-box"><span>Money You Put In</span><b id="ci-pie3-contrib-v">—</b></div>
+          <div class="ci-hook-box green"><span>Growth Earned</span><b id="ci-pie3-growth-v">—</b></div>
+        </div>
+        <div class="ci-slide-row">
+          <div class="ci-slide-top"><label for="ci-contrib">Monthly Contribution</label><span class="ci-slide-v green" id="ci-contrib-v">$200/mo</span></div>
+          <input id="ci-contrib" class="ci-range good" type="range" min="50" max="500" value="200" step="10" aria-label="Monthly contribution">
+        </div>
+        <div class="ci-slide-row">
+          <div class="ci-slide-top"><label for="ci-years3">Years Invested</label><span class="ci-slide-v orange" id="ci-years3-v">20 yrs</span></div>
+          <input id="ci-years3" class="ci-range bad" type="range" min="1" max="40" value="20" step="1" aria-label="Years invested">
+        </div>
+        <div class="ci-note">A rough 8% average annual return is used for this projection — a hypothetical illustration, not a promise.</div>
+      </div>
+    </section>
+    <!-- ========== 5 · THE RULE OF 72 ========== -->
+    <section class="ci-sec ci-reveal" data-step="5">
+      <p class="ci-kicker">The Rule of 72 · 5 / 10</p>
+      <h2 class="ci-h2">A Shortcut Worth Knowing</h2>
+      <p class="ci-p">Divide 72 by your annual rate of return and you get roughly how many years it takes your money to double. Slide to try it yourself.</p>
+      <div class="ci-panel">
+        <div class="ci-slide-top"><label for="ci-rate72">Annual Rate Of Return</label><span class="ci-slide-v blue" id="ci-rate72-v">8%</span></div>
+        <input id="ci-rate72" class="ci-range" type="range" min="1" max="15" value="8" step="1" aria-label="Annual rate of return">
+        <div class="ci-scale"><span>1%</span><span>15%</span></div>
+        <div class="ci-trap">
+          <div class="ci-trap-box"><div class="ci-trap-lab">72 ÷ Rate</div><div class="ci-trap-v" id="ci-rate72-formula">72 ÷ 8</div></div>
+          <div class="ci-trap-box green"><div class="ci-trap-lab">Years To Double</div><div class="ci-trap-v" id="ci-rate72-years">9.0 yrs</div></div>
+        </div>
+        <div class="ci-note">It is a quick estimate, not an exact formula — but it is a handy way to eyeball how a given rate of return plays out over time.</div>
+      </div>
+    </section>
+    <!-- ========== 6 · THE VOLATILITY SIMULATOR ========== -->
+    <section class="ci-sec ci-reveal" data-step="6">
+      <p class="ci-kicker">The Volatility Simulator · 6 / 10</p>
+      <h2 class="ci-h2">What Happens When The Market Drops?</h2>
+      <p class="ci-p" id="ci-vol-intro">Starting with $5,000 and adding $200/month at a hypothetical 8% average return, your snowball is on track for a healthy projection over 30 years. But markets don't move in a straight line. Let's see what a downturn does to it.</p>
+      <div class="ci-panel" id="ci-vol-panel">
+        <div class="ci-vol-flash" id="ci-vol-flash"></div>
+        <div class="ci-vol-summary" id="ci-vol-summary">
+          <div class="ci-hook-box"><span>Starting</span><b>$5,000</b></div>
+          <div class="ci-hook-box"><span>Monthly</span><b>$200/mo</b></div>
+          <div class="ci-hook-box green"><span>Year 30 Projection</span><b id="ci-vol-ideal-final">—</b></div>
+        </div>
+        <div class="ci-volchart" id="ci-volchart"></div>
+        <div class="ci-scale"><span>Year 0</span><span>Year 15</span><span>Year 30</span></div>
+        <button type="button" class="ci-vol-trigger" id="ci-vol-trigger">⚠️ Simulate Market Crash</button>
+        <div class="ci-vol-alert" id="ci-vol-alert" style="display:none;">
+          <p class="ci-vol-alert-t"><span class="ci-vol-siren-emoji">📉</span> Market Downturn: Portfolio Drops 30%</p>
+          <p class="ci-vol-alert-d">At Year 15, the market takes a sharp hit. Your paper losses are real — now what do you do?</p>
+        </div>
+        <div class="ci-vol-branchrow" id="ci-vol-branchrow" style="display:none;">
+          <button type="button" class="ci-vol-branchbtn risky" id="ci-vol-panic">Panic Sell To Cash</button>
+          <button type="button" class="ci-vol-branchbtn safe" id="ci-vol-hold">Maintain Auto-Invest</button>
+        </div>
+        <div class="ci-vol-result" id="ci-vol-result" style="display:none;"></div>
+      </div>
+      <p class="ci-count" id="ci-vol-count">Tested 0 Of 2 Reactions</p>
+      <div class="ci-reset-row"><button type="button" class="ci-reset-btn" id="ci-vol-reset">↺ Start Over</button></div>
+      <p class="ci-disclaimer-inline">This is a simplified, hypothetical simulation built to illustrate a behavioral concept — not real historical market data, and not a prediction of any specific crash or recovery.</p>
+    </section>
+    <!-- ========== 7 · MYTH OR FACT ========== -->
+    <section class="ci-sec ci-reveal" data-step="7">
+      <p class="ci-kicker">Myth Or Fact · 7 / 10</p>
+      <h2 class="ci-h2">Myth Or Fact?</h2>
+      <p class="ci-p">Eight statements about compounding — some true, some the exact thing people get wrong. Tap your answer on each, in any order, and the reasoning appears underneath.</p>
+      <div class="ci-sort" id="ci-myth">
+        <div class="ci-sort-row ci-mrow" data-answer="myth"><span>Compound interest only really matters if you're starting with a lot of money.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Myth.</b> Compounding works on small amounts too — starting early with modest contributions often beats starting late with more money.</p></div>
+        <div class="ci-sort-row ci-mrow" data-answer="fact"><span>The earlier you start, the more time compounding has to work in your favor.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Fact.</b> Time is the single biggest lever in the compounding formula — a head start of even a few years can be hard to catch up to later.</p></div>
+        <div class="ci-sort-row ci-mrow" data-answer="myth"><span>Interest is only ever calculated on your original deposit, never on interest you've already earned.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Myth.</b> That describes simple interest. Compound interest is calculated on your original deposit <em>plus</em> all the interest it has already earned — that is the whole engine.</p></div>
+        <div class="ci-sort-row ci-mrow" data-answer="fact"><span>Compounding can work against you too — a credit card balance compounds in exactly the same way.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Fact.</b> The same maths that grows an investment grows a balance you owe. That is why carrying a card balance month to month gets expensive so quickly.</p></div>
+        <div class="ci-sort-row ci-mrow" data-answer="myth"><span>Skipping contributions in your twenties is easy to make up later by contributing more in your fifties.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Myth.</b> Every dollar you skipped early had decades left to compound. A dollar added at fifty has far less time, so catching up usually costs several times what the gap saved you.</p></div>
+        <div class="ci-sort-row ci-mrow" data-answer="myth"><span>A higher rate of return always beats a longer time horizon.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Myth.</b> Not usually. Time compounds every single year, and a rate advantage has to hold for decades to overcome someone else's head start — while the higher rate is the part you control least.</p></div>
+        <div class="ci-sort-row ci-mrow" data-answer="fact"><span>Reinvesting dividends and interest, rather than taking them as cash, speeds compounding up.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Fact.</b> Each reinvested payout buys more, and that more goes on to earn its own growth. Taking the payout as cash quietly removes it from the engine.</p></div>
+        <div class="ci-sort-row ci-mrow" data-answer="fact"><span>Compound growth looks slow at first and then accelerates.</span><div class="ci-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ci-myth-why"><b>Fact.</b> Early on, growth is small next to what you are putting in. The curve steepens later — which is exactly why so many people quit before the interesting part.</p></div>
+      </div>
+      <p class="ci-count" id="ci-myth-count">Answered 0 Of 8</p>
+      <div class="ci-reset-row"><button type="button" class="ci-reset-btn" id="ci-myth-reset">↺ Start Over</button></div>
+    </section>
+    <!-- ========== 8 · HABITS THAT MATTER ========== -->
+    <section class="ci-sec ci-reveal" data-step="8">
+      <p class="ci-kicker">Habits That Matter · 8 / 10</p>
+      <h2 class="ci-h2">Habits That Help — And Hurt — Your Snowball</h2>
+      <p class="ci-p">Some habits keep compounding running at full strength. Others quietly interrupt it. Tap each tile to reveal which is which.</p>
+      <div class="ci-traps" id="ci-traps">
+        <button type="button" class="ci-trap-tile" data-verdict="safe" data-d="Automatically reinvesting dividends means every payout buys more shares, which then earn their own growth — the engine never stops running.">Reinvesting Dividends Automatically</button>
+        <button type="button" class="ci-trap-tile" data-verdict="risky" data-d="Cashing out growth early breaks the chain. That money, and everything it would have gone on to earn, stops compounding immediately.">Cashing Out Growth Early</button>
+        <button type="button" class="ci-trap-tile" data-verdict="safe" data-d="Leaving your investments alone for decades gives compounding the one thing it needs most: uninterrupted time.">Letting Your Investments Run For Decades</button>
+        <button type="button" class="ci-trap-tile" data-verdict="risky" data-d="Pausing contributions during a downturn means missing out on buying at lower prices — often exactly when future growth is being set up.">Pausing Contributions During A Downturn</button>
+      </div>
+      <p class="ci-count" id="ci-traps-count">Revealed 0 Of 4</p>
+      <div class="ci-reset-row"><button type="button" class="ci-reset-btn" id="ci-traps-reset">↺ Start Over</button></div>
+    </section>
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="ci-sec ci-reveal" data-step="9">
+      <p class="ci-kicker">Recap · 9 / 10</p>
+      <h2 class="ci-h2">Here's What You Now Know</h2>
+      <p class="ci-p">The whole lesson, in six lines.</p>
+      <div class="ci-recap">
+        <div class="ci-recap-item"><span class="ci-recap-check">✓</span><span>Compound interest earns interest on <b>interest</b>, not just on your original deposit — that's what makes it snowball.</span></div>
+        <div class="ci-recap-item"><span class="ci-recap-check">✓</span><span>Four ingredients drive it: <b>principal, rate, time,</b> and <b>consistency</b> — and time usually matters most.</span></div>
+        <div class="ci-recap-item"><span class="ci-recap-check">✓</span><span>The <b>Rule of 72</b> gives you a quick way to estimate how long it takes money to double at a given rate.</span></div>
+        <div class="ci-recap-item"><span class="ci-recap-check">✓</span><span>Panic-selling during a downturn locks in losses and stops the engine — staying invested lets it recover and keep compounding.</span></div>
+        <div class="ci-recap-item"><span class="ci-recap-check">✓</span><span>Reinvesting and staying consistent, even through dips, keeps the snowball rolling.</span></div>
+        <div class="ci-recap-item"><span class="ci-recap-check">✓</span><span>The biggest risk to compounding usually isn't the market — it's interrupting it.</span></div>
+      </div>
+      <div class="ci-next-move">Your next move: <b>let your contributions run on autopilot, especially when the market gets rocky.</b> That's when compounding needs you the most.</div>
+    </section>
+    <!-- ========== 10 · COMPLETE ========== -->
+    <section class="ci-sec ci-center ci-reveal" data-step="10">
+      <p class="ci-kicker center">Lesson Complete · 10 / 10</p>
+      <span class="ci-hero-ico">🚀</span>
+      <h2 class="ci-h2 center">You've Finished The Lesson</h2>
+      <p class="ci-sub center">You now understand how compounding works, what drives it, and why staying invested matters most when it is hardest to.</p>
+      <!-- Continue prompt. Wording swaps automatically if the lesson is in full screen. -->
+      <div class="ci-finish">
+        <span class="ci-finish-arrow" id="ci-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ci-finish-lead" id="ci-fin-lead">Scroll Down To Continue</p>
+        <p class="ci-finish-sub" id="ci-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ci-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ci-quote">"COMPOUND INTEREST IS THE EIGHTH WONDER OF THE WORLD. HE WHO UNDERSTANDS IT, <span class="ci-green">EARNS IT.</span>"<br><span class="ci-quote-by">— ATTRIBUTED TO ALBERT EINSTEIN</span></p>
+    </section>
+    <p class="ci-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Growth projections, the volatility simulator, and Rule of 72 estimates in this lesson are simplified, hypothetical illustrations, not real historical data or a prediction.</p>
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="ci-nav" id="ci-nav">
+      <button type="button" class="ci-nav-btn prev" id="ci-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ci-nav-hint" id="ci-nav-hint"></span>
+      <button type="button" class="ci-nav-btn next" id="ci-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CRASH CHAOS OVERLAY — deliberately OUTSIDE .ci-wrap.
+       The screen-shake applies a transform to .ci-wrap, and any
+       position:fixed descendant of a transformed element gets
+       trapped inside that element's box instead of the viewport.
+       Keeping this as a sibling is what lets it cover the screen.
+       ============================================================ -->
+  <div class="ci-chaos" id="ci-chaos" aria-hidden="true">
+    <div class="ci-chaos-flash"></div>
+    <div class="ci-siren l"></div>
+    <div class="ci-siren r"></div>
+    <div class="ci-chaos-vignette"></div>
+    <div class="ci-tornado" id="ci-tornado"><span>🌪️</span></div>
+    <!-- act 1: the dog -->
+    <div class="ci-dog" id="ci-dog">🐕
+      <span class="ci-woof w1">WOOF!</span>
+      <span class="ci-woof w2">WOOF!</span>
+      <span class="ci-woof w3">BARK!</span>
+    </div>
+    <!-- act 2: the screaming man -->
+    <div class="ci-runner" id="ci-runner">🏃<span class="ci-runner-face">😱</span></div>
+    <div class="ci-scream" id="ci-scream">AAAAAAAH!</div>
+    <!-- act 3: the car crash -->
+    <div class="ci-car" id="ci-car">🚗</div>
+    <div class="ci-impact" id="ci-impact">💥</div>
+    <svg class="ci-cracks" id="ci-cracks" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="rgba(255,255,255,.92)" fill="none" stroke-linecap="round">
+        <path d="M200,150 L120,60"   stroke-width="3"/>
+        <path d="M200,150 L285,55"   stroke-width="3"/>
+        <path d="M200,150 L95,175"   stroke-width="3.5"/>
+        <path d="M200,150 L320,190"  stroke-width="3"/>
+        <path d="M200,150 L165,265"  stroke-width="3.5"/>
+        <path d="M200,150 L255,270"  stroke-width="2.5"/>
+        <path d="M200,150 L30,120"   stroke-width="2"/>
+        <path d="M200,150 L375,120"  stroke-width="2"/>
+        <path d="M120,60 L150,30 M120,60 L70,45"   stroke-width="1.6"/>
+        <path d="M285,55 L300,20 M285,55 L330,80"  stroke-width="1.6"/>
+        <path d="M95,175 L45,215 M95,175 L60,140"  stroke-width="1.6"/>
+        <path d="M320,190 L370,230 M320,190 L350,155" stroke-width="1.6"/>
+        <path d="M165,265 L130,295 M255,270 L280,298" stroke-width="1.6"/>
+      </g>
+    </svg>
+    <div class="ci-crash-stamp" id="ci-crash-stamp">MARKET CRASH</div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ci{
+    --b:#1568AE; --g:#209B73; --teal:#12a08a; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbg:#EAF7F1; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --warn:#B7791F; --peachbg:#FBEEE6; --peachbd:#F3D9C8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-ci *,#tn-ci *::before,#tn-ci *::after{box-sizing:border-box;}
+  #tn-ci .ci-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ci .ci-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ci .ci-reveal.in{opacity:1; transform:none;}
+  /* header */
+  #tn-ci .ci-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ci .ci-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ci .ci-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-ci .ci-bico{display:flex;}
+  #tn-ci .ci-word{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent; font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-ci .ci-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ci .ci-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ci #ci-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ci .ci-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ci .ci-meta #ci-slide-label{color:var(--ink2);}
+  #tn-ci .ci-meta #ci-slide-count{color:var(--mut);}
+  /* sections + type */
+  #tn-ci .ci-sec{padding:20px 0 8px;}
+  #tn-ci .ci-sec.ci-hide{display:none;}
+  #tn-ci .ci-center{text-align:center;}
+  #tn-ci .ci-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ci .ci-kicker.center{text-align:center;}
+  #tn-ci .ci-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-ci .ci-h2.center{text-align:center;}
+  #tn-ci .ci-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ci .ci-p b{color:var(--ink); font-weight:700;}
+  #tn-ci .ci-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ci .ci-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5); overflow:hidden;}
+  #tn-ci .ci-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-ci .ci-note b{color:var(--ink); font-weight:700;}
+  #tn-ci .ci-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ci .ci-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  /* reset buttons */
+  #tn-ci .ci-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ci .ci-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ci .ci-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title & vocabulary slide */
+  #tn-ci .ci-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,7vw,44px); line-height:1.15; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
+  #tn-ci .ci-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ci .ci-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ci .ci-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ci .ci-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ci .ci-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ci .ci-vocab-chip:hover{background:#DCF0E5;}
+  #tn-ci .ci-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ci .ci-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ci .ci-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ci .ci-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  /* hook */
+  #tn-ci .ci-hook{margin-top:4px;}
+  #tn-ci .ci-hook-opts{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;}
+  #tn-ci .ci-hook-opt{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 12px; cursor:pointer; text-align:center; line-height:1.2; transition:all .18s;}
+  #tn-ci .ci-hook-opt span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:12px; color:var(--mut); margin-top:3px;}
+  #tn-ci .ci-hook-opt.on{border-color:var(--g); background:var(--tint);}
+  #tn-ci .ci-hook-panel{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:16px; padding:18px 16px;}
+  #tn-ci .ci-hook-cap{text-align:center; font-size:12.5px; color:var(--ink2); font-weight:600; margin-bottom:12px;}
+  #tn-ci .ci-hook-grid{display:flex; gap:10px;}
+  #tn-ci .ci-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center;}
+  #tn-ci .ci-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-ci .ci-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,4.2vw,19px); color:var(--ink);}
+  #tn-ci .ci-hook-box.green{background:var(--tint); border-color:var(--selbd);}
+  #tn-ci .ci-hook-box.green b{color:var(--g);}
+  /* factor chips (four ingredients) */
+  #tn-ci .ci-fico{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-ci .ci-fchip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; font-size:13.5px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-ci .ci-fchip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-ci .ci-fchip .d1{background:#209B73;} #tn-ci .ci-fchip .d2{background:#1f8f9b;} #tn-ci .ci-fchip .d3{background:#1568AE;} #tn-ci .ci-fchip .d4{background:#E0952F;}
+  #tn-ci .ci-fchip.on{border-color:var(--g); background:var(--tint);}
+  #tn-ci .ci-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ci .ci-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-ci .ci-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* growth calculator pie chart */
+  #tn-ci .ci-pie3-wrap{display:flex; flex-direction:column; align-items:center; gap:4px;}
+  #tn-ci #ci-pie3-svg{display:block;}
+  #tn-ci #ci-pie3-contrib{fill:var(--b); stroke:#fff; stroke-width:3;}
+  #tn-ci #ci-pie3-growth{fill:var(--g); stroke:#fff; stroke-width:3;}
+  #tn-ci .ci-pie3-total{text-align:center; margin-top:6px;}
+  #tn-ci .ci-pie3-total span{display:block; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); font-weight:700;}
+  #tn-ci .ci-pie3-total b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(20px,5.2vw,26px); color:var(--ink);}
+  #tn-ci .ci-pie3-grid{margin-top:16px;}
+  /* slider rows / ranges */
+  #tn-ci .ci-slide-row{margin-top:16px;}
+  #tn-ci .ci-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-ci .ci-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-ci .ci-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-ci .ci-slide-v.green{color:var(--g);} #tn-ci .ci-slide-v.orange{color:var(--warn);} #tn-ci .ci-slide-v.blue{color:var(--b);}
+  #tn-ci .ci-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-ci .ci-range.good{background:linear-gradient(90deg,#C0392B,#E0A93C,#209B73);}
+  #tn-ci .ci-range.bad{background:linear-gradient(90deg,#209B73,#E0A93C,#C0392B);}
+  #tn-ci .ci-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-ci .ci-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-ci .ci-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+  /* sorter */
+  #tn-ci .ci-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ci .ci-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ci .ci-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-ci .ci-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ci .ci-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; padding:7px 15px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ci .ci-sort-btns button[data-p="myth"]{border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-ci .ci-sort-btns button[data-p="fact"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-ci .ci-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ci .ci-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ci .ci-sort-row.done .ci-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ci .ci-sort-row.done .ci-sort-btns button.picked{opacity:1;}
+  #tn-ci .ci-mrow{flex-wrap:wrap;}
+  #tn-ci .ci-myth-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-ci .ci-myth-why b{font-family:'Poppins',sans-serif;}
+  #tn-ci .ci-sort-row.done .ci-myth-why{display:block;}
+  /* rule-of-72 boxes */
+  #tn-ci .ci-trap{display:flex; gap:10px; margin-top:16px;}
+  #tn-ci .ci-trap-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:13px; padding:16px 12px; text-align:center;}
+  #tn-ci .ci-trap-box.green{background:var(--tint); border-color:var(--selbd);}
+  #tn-ci .ci-trap-lab{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:6px;}
+  #tn-ci .ci-trap-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(20px,5.4vw,26px); color:var(--ink);}
+  #tn-ci .ci-trap-box.green .ci-trap-v{color:var(--g);}
+  /* spot-the-habit tiles */
+  #tn-ci .ci-traps{display:grid; grid-template-columns:1fr 1fr; gap:11px;}
+  #tn-ci .ci-trap-tile{position:relative; text-align:left; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:15px; padding:18px 16px; min-height:92px; cursor:pointer; transition:all .2s;}
+  #tn-ci .ci-trap-tile::after{content:"Tap to reveal"; display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--mut); margin-top:6px;}
+  #tn-ci .ci-trap-tile.safe{border-color:var(--selbd); background:var(--tint);}
+  #tn-ci .ci-trap-tile.risky{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ci .ci-trap-tile.done::after{content:attr(data-reveal); color:var(--ink2); font-size:12.5px; line-height:1.4;}
+  #tn-ci .ci-trap-badge{position:absolute; top:12px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; padding:3px 9px; border-radius:99px; text-transform:uppercase; letter-spacing:.04em;}
+  #tn-ci .ci-trap-tile.safe .ci-trap-badge{background:var(--g); color:#fff;}
+  #tn-ci .ci-trap-tile.risky .ci-trap-badge{background:var(--no); color:#fff;}
+  /* volatility simulator */
+  #tn-ci .ci-vol-flash{position:absolute; inset:0; background:rgba(192,57,43,.45); border-radius:18px; pointer-events:none; opacity:0; z-index:5;}
+  #tn-ci .ci-vol-flash.active{animation:ci-flash-in .6s ease-out;}
+  #tn-ci .ci-vol-summary{display:flex; gap:10px; margin-bottom:16px;}
+  #tn-ci .ci-volchart{display:flex; align-items:flex-end; gap:2px; height:170px; margin-top:4px;}
+  #tn-ci .ci-volbar{flex:1; min-width:2px; border-radius:3px 3px 0 0; transition:height .35s ease, background .3s ease; background:linear-gradient(180deg,var(--b),var(--g));}
+  #tn-ci .ci-volbar.crash-bar{background:var(--no); box-shadow:0 0 12px rgba(192,57,43,.7);}
+  #tn-ci .ci-volbar.panic-bar{background:#D9A5A0;}
+  #tn-ci .ci-volbar.hold-bar{background:linear-gradient(180deg,var(--g),#5BA86B);}
+  #tn-ci .ci-volbar.placeholder{background:var(--cardbd); opacity:.5;}
+  #tn-ci .ci-vol-trigger{display:block; width:100%; margin-top:18px; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--no),#E0685C); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s; animation:ci-pulse-glow 1.8s ease-in-out infinite;}
+  #tn-ci .ci-vol-trigger:hover{transform:translateY(-2px);}
+  #tn-ci .ci-vol-alert{background:var(--nobg); border:1.5px solid var(--nobd); border-radius:14px; padding:15px 16px; margin-top:16px; text-align:center;}
+  #tn-ci .ci-vol-alert.siren{animation:ci-siren-bg .55s ease-in-out 4;}
+  #tn-ci .ci-vol-alert-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--no); margin:0 0 4px;}
+  #tn-ci .ci-vol-siren-emoji{display:inline-block; animation:ci-siren-scale .55s ease-in-out 5;}
+  #tn-ci .ci-vol-alert-d{font-size:13px; color:var(--ink2); margin:0; line-height:1.5;}
+  #tn-ci .ci-vol-branchrow{display:flex; gap:10px; margin-top:16px;}
+  #tn-ci .ci-vol-branchbtn{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:13px 10px; border-radius:12px; cursor:pointer; transition:all .18s; border:1.5px solid;}
+  #tn-ci .ci-vol-branchbtn.risky{background:#fff; color:var(--no); border-color:var(--nobd);}
+  #tn-ci .ci-vol-branchbtn.risky:hover, #tn-ci .ci-vol-branchbtn.risky.active{background:var(--nobg);}
+  #tn-ci .ci-vol-branchbtn.safe{background:#fff; color:var(--g); border-color:var(--selbd);}
+  #tn-ci .ci-vol-branchbtn.safe:hover, #tn-ci .ci-vol-branchbtn.safe.active{background:var(--tint);}
+  #tn-ci .ci-vol-result{border-radius:14px; padding:16px 18px; margin-top:16px; text-align:left;}
+  #tn-ci .ci-vol-result.panic{background:var(--nobg); border:1.5px solid var(--nobd);}
+  #tn-ci .ci-vol-result.hold{background:var(--tint); border:1.5px solid var(--selbd);}
+  #tn-ci .ci-vol-result-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-ci .ci-vol-result.panic .ci-vol-result-t{color:var(--no);}
+  #tn-ci .ci-vol-result.hold .ci-vol-result-t{color:var(--g);}
+  #tn-ci .ci-vol-result-d{font-size:13.5px; color:var(--ink2); line-height:1.55; margin:0;}
+  #tn-ci .ci-vol-result-d b{color:var(--ink);}
+
+  /* ================= CRASH CHAOS (slide 6) ================= */
+  #tn-ci .ci-chaos{position:fixed; inset:0; z-index:9999; pointer-events:none; display:none; overflow:hidden;}
+  #tn-ci .ci-chaos.on{display:block;}
+  #tn-ci .ci-chaos-flash{position:absolute; inset:0; background:rgba(210,45,30,.5); opacity:0; animation:ci-redflash .38s steps(1,end) infinite;}
+  #tn-ci .ci-chaos-vignette{position:absolute; inset:0; box-shadow:inset 0 0 150px 45px rgba(150,20,10,.8);}
+  #tn-ci .ci-siren{position:absolute; top:0; bottom:0; width:38%;}
+  #tn-ci .ci-siren.l{left:0;  background:radial-gradient(ellipse at 0% 50%,   rgba(255,45,25,.9),  rgba(255,45,25,0) 72%);  animation:ci-siren-l .8s ease-in-out infinite;}
+  #tn-ci .ci-siren.r{right:0; background:radial-gradient(ellipse at 100% 50%, rgba(40,90,255,.85), rgba(40,90,255,0) 72%); animation:ci-siren-r .8s ease-in-out infinite;}
+  #tn-ci .ci-debris{position:absolute; line-height:1; will-change:transform,opacity; opacity:0;}
+  #tn-ci .ci-tornado{position:absolute; bottom:2%; left:-16%; font-size:clamp(64px,13vw,120px); line-height:1; filter:drop-shadow(0 0 22px rgba(0,0,0,.5)); animation:ci-tornado-move 3.9s cubic-bezier(.4,0,.6,1) forwards;}
+  #tn-ci .ci-tornado span{display:inline-block; animation:ci-tornado-spin .42s linear infinite;}
+  #tn-ci .ci-crash-stamp{position:absolute; left:50%; top:40%; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(30px,9.5vw,84px); letter-spacing:.05em; color:#fff; white-space:nowrap;
+    text-shadow:0 0 24px rgba(255,40,20,1), 0 5px 0 #7d1710, 0 9px 22px rgba(0,0,0,.6);
+    transform:translate(-50%,-50%) rotate(-7deg) scale(3.6); opacity:0;
+    animation:ci-stamp .55s cubic-bezier(.2,1.5,.35,1) forwards, ci-stamp-buzz .11s ease-in-out .55s 14;}
+  #tn-ci .ci-quake{animation:ci-shake-hard .46s linear infinite;}
+
+  /* --- act 1: the dog --- */
+  #tn-ci .ci-dog{position:absolute; bottom:6%; left:-14%; font-size:clamp(40px,7vw,68px); line-height:1; opacity:0;}
+  #tn-ci .ci-chaos.on .ci-dog{animation:ci-dog-run 1.9s cubic-bezier(.35,0,.5,1) .05s forwards;}
+  #tn-ci .ci-woof{position:absolute; bottom:110%; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,2.6vw,24px); color:#fff; white-space:nowrap; opacity:0;
+    text-shadow:0 0 12px rgba(0,0,0,.9), 0 2px 0 #7d1710;}
+  #tn-ci .ci-woof.w1{left:78%;}
+  #tn-ci .ci-woof.w2{left:92%; bottom:150%;}
+  #tn-ci .ci-woof.w3{left:66%; bottom:190%;}
+  #tn-ci .ci-chaos.on .ci-woof.w1{animation:ci-woof-pop .5s ease-out .30s forwards;}
+  #tn-ci .ci-chaos.on .ci-woof.w2{animation:ci-woof-pop .5s ease-out .62s forwards;}
+  #tn-ci .ci-chaos.on .ci-woof.w3{animation:ci-woof-pop .5s ease-out .94s forwards;}
+
+  /* --- act 2: the screaming man --- */
+  #tn-ci .ci-runner{position:absolute; bottom:5%; left:-12%; font-size:clamp(44px,8vw,78px); line-height:1; opacity:0;}
+  #tn-ci .ci-runner-face{position:absolute; left:60%; bottom:72%; font-size:.6em;}
+  #tn-ci .ci-chaos.on .ci-runner{animation:ci-runner-run 2.0s cubic-bezier(.3,0,.55,1) 1.05s forwards;}
+  #tn-ci .ci-scream{position:absolute; left:50%; top:22%; transform:translateX(-50%) scale(.5); opacity:0;
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,7vw,62px); letter-spacing:.06em; color:#fff; white-space:nowrap;
+    text-shadow:0 0 20px rgba(255,60,30,.95), 0 4px 0 #7d1710;}
+  #tn-ci .ci-chaos.on .ci-scream{animation:ci-scream-in .34s ease-out 1.15s forwards, ci-scream-wobble .13s ease-in-out 1.49s 9;}
+
+  /* --- act 3: the car crash --- */
+  #tn-ci .ci-car{position:absolute; top:46%; right:-24%; font-size:clamp(52px,11vw,104px); line-height:1; opacity:0; transform:scaleX(-1);}
+  #tn-ci .ci-chaos.on .ci-car{animation:ci-car-in .62s cubic-bezier(.5,0,.9,.6) 2.45s forwards;}
+  #tn-ci .ci-impact{position:absolute; left:46%; top:44%; font-size:clamp(70px,17vw,180px); line-height:1; opacity:0; transform:translate(-50%,-50%) scale(.2);}
+  #tn-ci .ci-chaos.on .ci-impact{animation:ci-impact-boom .85s cubic-bezier(.2,1.4,.4,1) 3.02s forwards;}
+  #tn-ci .ci-cracks{position:absolute; inset:0; width:100%; height:100%; opacity:0;
+    filter:drop-shadow(0 0 6px rgba(0,0,0,.85));}
+  #tn-ci .ci-chaos.on .ci-cracks{animation:ci-crack-in .16s steps(1,end) 3.05s forwards;}
+  #tn-ci .ci-cracks g{stroke-dasharray:340; stroke-dashoffset:340;}
+  #tn-ci .ci-chaos.on .ci-cracks g{animation:ci-crack-draw .38s ease-out 3.05s forwards;}
+
+  @keyframes ci-dog-run{
+    0%{opacity:0; left:-14%; transform:translateY(0) scaleX(1);}
+    6%{opacity:1;}
+    25%{transform:translateY(-16px) scaleX(1);}
+    40%{transform:translateY(0) scaleX(1);}
+    60%{transform:translateY(-13px) scaleX(1);}
+    80%{transform:translateY(0) scaleX(1);}
+    94%{opacity:1;}
+    100%{opacity:0; left:108%; transform:translateY(0) scaleX(1);}
+  }
+  @keyframes ci-woof-pop{
+    0%{opacity:0; transform:scale(.4) rotate(-8deg);}
+    45%{opacity:1; transform:scale(1.25) rotate(4deg);}
+    100%{opacity:0; transform:scale(1) rotate(-3deg) translateY(-26px);}
+  }
+  @keyframes ci-runner-run{
+    0%{opacity:0; left:-12%; transform:translateY(0) rotate(-4deg);}
+    6%{opacity:1;}
+    20%{transform:translateY(-20px) rotate(4deg);}
+    38%{transform:translateY(0) rotate(-4deg);}
+    56%{transform:translateY(-17px) rotate(5deg);}
+    74%{transform:translateY(0) rotate(-3deg);}
+    92%{opacity:1;}
+    100%{opacity:0; left:106%; transform:translateY(-8px) rotate(3deg);}
+  }
+  @keyframes ci-scream-in{to{opacity:1; transform:translateX(-50%) scale(1);}}
+  @keyframes ci-scream-wobble{0%,100%{margin-top:0; letter-spacing:.06em;} 50%{margin-top:-7px; letter-spacing:.13em;}}
+  @keyframes ci-car-in{
+    0%{opacity:0; right:-24%; transform:scaleX(-1) rotate(0deg);}
+    10%{opacity:1;}
+    85%{opacity:1; right:44%; transform:scaleX(-1) rotate(-3deg);}
+    100%{opacity:1; right:46%; transform:scaleX(-1) rotate(-16deg) translateY(6px);}
+  }
+  @keyframes ci-impact-boom{
+    0%{opacity:0; transform:translate(-50%,-50%) scale(.2) rotate(-14deg);}
+    30%{opacity:1; transform:translate(-50%,-50%) scale(1.45) rotate(6deg);}
+    70%{opacity:1; transform:translate(-50%,-50%) scale(1.15) rotate(-3deg);}
+    100%{opacity:0; transform:translate(-50%,-50%) scale(1.35) rotate(2deg);}
+  }
+  @keyframes ci-crack-in{to{opacity:1;}}
+  @keyframes ci-crack-draw{to{stroke-dashoffset:0;}}
+  @keyframes ci-redflash{0%,49%{opacity:0;} 50%,100%{opacity:1;}}
+  @keyframes ci-siren-l{0%,100%{opacity:.12;} 50%{opacity:1;}}
+  @keyframes ci-siren-r{0%,100%{opacity:1;} 50%{opacity:.12;}}
+  @keyframes ci-tornado-spin{to{transform:rotate(360deg);}}
+  @keyframes ci-tornado-move{
+    0%{left:-16%; bottom:2%;}
+    35%{bottom:9%;}
+    65%{bottom:1%;}
+    100%{left:106%; bottom:6%;}
+  }
+  @keyframes ci-stamp{to{opacity:1; transform:translate(-50%,-50%) rotate(-7deg) scale(1);}}
+  @keyframes ci-stamp-buzz{0%,100%{margin-left:0;} 50%{margin-left:6px;}}
+  @keyframes ci-fly{
+    0%{transform:translate3d(0,0,0) rotate(0deg); opacity:0;}
+    7%{opacity:1;}
+    88%{opacity:1;}
+    100%{transform:translate3d(var(--dx),var(--dy),0) rotate(var(--rot)); opacity:0;}
+  }
+  @keyframes ci-shake-hard{
+    0%,100%{transform:translate(0,0) rotate(0);}
+    10%{transform:translate(-10px,5px) rotate(-1.5deg);}
+    20%{transform:translate(9px,-6px) rotate(1.3deg);}
+    30%{transform:translate(-8px,-4px) rotate(-1.1deg);}
+    40%{transform:translate(10px,5px) rotate(1.4deg);}
+    50%{transform:translate(-9px,4px) rotate(-1.2deg);}
+    60%{transform:translate(8px,-5px) rotate(1deg);}
+    70%{transform:translate(-7px,5px) rotate(-1.3deg);}
+    80%{transform:translate(9px,-4px) rotate(1.1deg);}
+    90%{transform:translate(-6px,3px) rotate(-.8deg);}
+  }
+  /* recap */
+  #tn-ci .ci-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ci .ci-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-ci .ci-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ci .ci-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-ci .ci-recap-item b{font-weight:700;}
+  #tn-ci .ci-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-ci .ci-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-ci .ci-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  /* scroll-down prompt (last slide) */
+  #tn-ci .ci-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ci .ci-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ci-bob 1.6s ease-in-out infinite;}
+  #tn-ci .ci-finish-arrow.up{animation:ci-bob-up 1.6s ease-in-out infinite;}
+  #tn-ci .ci-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--ink); margin:10px 0 6px;}
+  #tn-ci .ci-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ci .ci-finish-sub b{color:var(--ink); font-weight:700;}
+  #tn-ci .ci-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ci .ci-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-ci .ci-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ci .ci-green{color:var(--g);}
+  #tn-ci .ci-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* bottom nav */
+  #tn-ci .ci-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-ci .ci-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ci .ci-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ci .ci-nav-btn.prev{color:var(--ink2);}
+  #tn-ci .ci-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ci .ci-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-ci .ci-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ci .ci-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ci .ci-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ci .ci-nav-btn.next.locked:hover{transform:none;}
+  /* keyframes */
+  @keyframes ci-flash-in{0%{opacity:1;}100%{opacity:0;}}
+  @keyframes ci-shake{
+    10%,90%{transform:translateX(-6px);}
+    20%,80%{transform:translateX(7px);}
+    30%,50%,70%{transform:translateX(-5px);}
+    40%,60%{transform:translateX(5px);}
+  }
+  #tn-ci .ci-shake{animation:ci-shake .5s ease;}
+  @keyframes ci-pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.45);} 50%{box-shadow:0 0 0 10px rgba(192,57,43,0);}}
+  @keyframes ci-siren-bg{0%,100%{background:var(--nobg);} 50%{background:#F6B9B0;}}
+  @keyframes ci-siren-scale{0%,100%{transform:scale(1);} 50%{transform:scale(1.3);}}
+  @keyframes ci-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ci-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  @media (max-width:540px){
+    #tn-ci .ci-wrap{padding:12px 14px 30px;}
+    #tn-ci .ci-fico{grid-template-columns:1fr;}
+    #tn-ci .ci-traps{grid-template-columns:1fr;}
+    #tn-ci .ci-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ci .ci-vol-branchrow{flex-direction:column;}
+    #tn-ci .ci-bsub{display:none;}
+    #tn-ci .ci-nav-hint{display:none;}
+    #tn-ci .ci-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ci .ci-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ci #ci-bar{transition:none;}
+    #tn-ci .ci-vol-trigger,#tn-ci .ci-shake,#tn-ci .ci-vol-flash.active,#tn-ci .ci-vol-alert.siren,#tn-ci .ci-vol-siren-emoji{animation:none !important;}
+    #tn-ci .ci-vol-flash.active{opacity:0 !important;}
+    #tn-ci .ci-finish-arrow,#tn-ci .ci-finish-arrow.up{animation:none !important;}
+    /* the whole spectacle is skipped for anyone who asked for less motion */
+    #tn-ci .ci-chaos{display:none !important;}
+    #tn-ci .ci-quake{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
+(function(){
+  var root=document.getElementById('tn-ci'); if(!root) return;
+  root.querySelectorAll('.ci-reveal').forEach(function(el){ el.classList.add('in'); });
+  function money(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k, v); root.dispatchEvent(new CustomEvent('ci-state')); }
+  function keys(o){ return Object.keys(o).length; }
+  function fvMonthly(pmt, annualRate, months){
+    var i=annualRate/12;
+    if(i===0) return pmt*months;
+    return pmt*((Math.pow(1+i,months)-1)/i);
+  }
+  function pieArcPath(cx,cy,r,startPct,endPct){
+    startPct=Math.max(0,Math.min(100,startPct)); endPct=Math.max(0,Math.min(100,endPct));
+    if(endPct-startPct>=99.999){ endPct=startPct+99.999; } /* avoid a degenerate full-circle path */
+    var startAngle=(startPct/100)*2*Math.PI - Math.PI/2;
+    var endAngle=(endPct/100)*2*Math.PI - Math.PI/2;
+    var x1=cx+r*Math.cos(startAngle), y1=cy+r*Math.sin(startAngle);
+    var x2=cx+r*Math.cos(endAngle), y2=cy+r*Math.sin(endAngle);
+    var largeArc=(endAngle-startAngle)>Math.PI ? 1 : 0;
+    return 'M '+cx+' '+cy+' L '+x1+' '+y1+' A '+r+' '+r+' 0 '+largeArc+' 1 '+x2+' '+y2+' Z';
+  }
+
+  /* ---------- 1 · vocabulary chips (optional, never gated) ---------- */
+  var vocabDef=root.querySelector('#ci-vocab-def');
+  root.querySelectorAll('#ci-vocab-chips .ci-vocab-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      root.querySelectorAll('#ci-vocab-chips .ci-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
+      chip.classList.add('on');
+      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* ---------- 2 · hook: simple vs compound ---------- */
+  var hookSeen={}, hookNote=root.querySelector('#ci-hook-note'), hookFinal=root.querySelector('#ci-hook-final');
+  root.querySelectorAll('#ci-hook .ci-hook-opt').forEach(function(o){
+    o.addEventListener('click',function(){
+      root.querySelectorAll('#ci-hook .ci-hook-opt').forEach(function(x){ x.classList.remove('on'); });
+      o.classList.add('on');
+      var principal=10000, rate=0.08, years=20, final;
+      if(o.getAttribute('data-k')==='simple') final = principal*(1+rate*years);
+      else final = principal*Math.pow(1+rate,years);
+      hookFinal.textContent=money(final);
+      hookSeen[o.getAttribute('data-k')]=1;
+      if(keys(hookSeen)>=2) hookNote.textContent='Same starting amount, same rate, same 20 years — compounding pulls ahead because it earns growth on top of growth.';
+      state('hook', keys(hookSeen));
+      postHeight();
+    });
+  });
+
+  /* ---------- 3 · the four ingredients ---------- */
+  var ingSeen={}, ingT=root.querySelector('#ci-ingredients-t'),
+      ingD=root.querySelector('#ci-ingredients-d'), ingCount=root.querySelector('#ci-ingredients-count');
+  root.querySelectorAll('#ci-ingredients .ci-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ci-ingredients .ci-fchip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      ingT.textContent=c.getAttribute('data-t'); ingD.textContent=c.getAttribute('data-d');
+      ingSeen[c.getAttribute('data-t')]=1;
+      ingCount.textContent='Reviewed '+keys(ingSeen)+' Of 4';
+      state('ingredients', keys(ingSeen));
+      postHeight();
+    });
+  });
+
+  /* ---------- 4 · growth calculator (contributed vs growth) ---------- */
+  var contrib=root.querySelector('#ci-contrib'), years3=root.querySelector('#ci-years3'),
+      contribV=root.querySelector('#ci-contrib-v'), years3V=root.querySelector('#ci-years3-v'),
+      pie3Contrib=root.querySelector('#ci-pie3-contrib'), pie3Growth=root.querySelector('#ci-pie3-growth'),
+      pie3TotalV=root.querySelector('#ci-pie3-total-v'), pie3ContribV=root.querySelector('#ci-pie3-contrib-v'),
+      pie3GrowthV=root.querySelector('#ci-pie3-growth-v');
+  var calcMoved={};
+  function projCalc(){
+    var c=+contrib.value, y=+years3.value;
+    contribV.textContent='$'+c+'/mo'; years3V.textContent=y+' yrs';
+    var startingPrincipal=1000;
+    var finalBalance=startingPrincipal*Math.pow(1.08,y)+fvMonthly(c,0.08,y*12);
+    var totalContributed=startingPrincipal+c*12*y;
+    var totalGrowth=Math.max(0, finalBalance-totalContributed);
+    var contribPct=(totalContributed/finalBalance)*100;
+    pie3Contrib.setAttribute('d', pieArcPath(150,150,120,0,contribPct));
+    pie3Growth.setAttribute('d', pieArcPath(150,150,120,contribPct,100));
+    pie3TotalV.textContent=money(finalBalance);
+    pie3ContribV.textContent=money(totalContributed)+' ('+contribPct.toFixed(0)+'%)';
+    pie3GrowthV.textContent=money(totalGrowth)+' ('+(100-contribPct).toFixed(0)+'%)';
+    postHeight();
+  }
+  if(contrib && years3){
+    contrib.addEventListener('input',function(){ calcMoved.contrib=1; projCalc(); state('calc', keys(calcMoved)); });
+    years3.addEventListener('input',function(){ calcMoved.years=1; projCalc(); state('calc', keys(calcMoved)); });
+    projCalc();
+  }
+
+  /* ---------- 5 · rule of 72 ---------- */
+  var rate72=root.querySelector('#ci-rate72'), rate72V=root.querySelector('#ci-rate72-v'),
+      formula72=root.querySelector('#ci-rate72-formula'), years72=root.querySelector('#ci-rate72-years');
+  function rule72Calc(){
+    var r=+rate72.value;
+    rate72V.textContent=r+'%';
+    formula72.textContent='72 ÷ '+r;
+    years72.textContent=(72/r).toFixed(1)+' yrs';
+    state('rule72', 1);
+    postHeight();
+  }
+  if(rate72){ rate72.addEventListener('input',rule72Calc); rule72Calc(); }
+
+  /* ---------- 6 · volatility simulator ---------- */
+  var volChart=root.querySelector('#ci-volchart');
+  var barEls=[];
+  for(var y=0;y<=30;y++){
+    var bar=document.createElement('div');
+    bar.className='ci-volbar normal-bar';
+    volChart.appendChild(bar);
+    barEls.push(bar);
+  }
+  function buildIdealPath(){
+    var balance=5000, contribAmt=2400, rate=0.08;
+    var path=[balance];
+    for(var yy=1;yy<=30;yy++){ balance=(balance+contribAmt)*(1+rate); path.push(balance); }
+    return path;
+  }
+  var idealPath=buildIdealPath();
+  var crashedBase=idealPath.slice(0,16);      /* years 0..15 */
+  crashedBase[15]=crashedBase[15]*0.7;        /* 30% drop at year 15 */
+  function buildPanicPath(){
+    var arr=crashedBase.slice();
+    for(var yy=16;yy<=30;yy++){ arr.push(arr[15]); }   /* flat: no growth, no contributions */
+    return arr;
+  }
+  function buildHoldPath(){
+    var arr=crashedBase.slice();
+    var balance=arr[15], contribAmt=2400;
+    for(var yy=16;yy<=30;yy++){
+      var rate=(yy<=21)?0.16:0.08;                     /* simplified rebound, then baseline */
+      balance=(balance+contribAmt)*(1+rate);
+      arr.push(balance);
+    }
+    return arr;
+  }
+  var panicPath=buildPanicPath(), holdPath=buildHoldPath();
+  var maxVal=Math.max.apply(null, idealPath.concat(panicPath).concat(holdPath));
+  root.querySelector('#ci-vol-ideal-final').textContent=money(idealPath[30]);
+  function renderVolChart(mode){
+    var dataset = mode==='ideal' ? idealPath : mode==='crashed' ? crashedBase : mode==='panic' ? panicPath : holdPath;
+    for(var yy=0;yy<=30;yy++){
+      var v=dataset[yy], bar=barEls[yy];
+      if(v===undefined){
+        bar.style.height='4%';
+        bar.className='ci-volbar placeholder';
+      } else {
+        bar.style.height=Math.max(4,(v/maxVal)*100)+'%';
+        var cls='ci-volbar';
+        if(yy===15 && mode!=='ideal') cls+=' crash-bar';
+        else if(mode==='panic' && yy>15) cls+=' panic-bar';
+        else if(mode==='hold' && yy>15) cls+=' hold-bar';
+        else cls+=' normal-bar';
+        bar.className=cls;
+      }
+    }
+    postHeight();
+  }
+  renderVolChart('ideal');
+
+  /* ===================== CRASH CHAOS ===================== */
+  /* Set this to false to run the crash silently. */
+  var CHAOS_SOUND = true;
+
+  var chaos=root.querySelector('#ci-chaos'),
+      ciWrap=root.querySelector('#ci-wrap'),
+      tornadoEl=root.querySelector('#ci-tornado'),
+      stampEl=root.querySelector('#ci-crash-stamp');
+  var chaosTimers=[], audioCtx=null;
+  var DEBRIS=['📉','💸','📊','🪙','📰','🏦','💼','🧾','💵','📈','🗞️','💰','🐻','📋'];
+
+  function reducedMotion(){
+    try{ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+    catch(e){ return false; }
+  }
+
+  /* A two-tone siren built with an oscillator, so there is no audio file to
+     host. It is gated behind the button press, which satisfies browser
+     autoplay rules, and it fades itself out after ~3.4s. */
+  function playSiren(){
+    if(!CHAOS_SOUND) return;
+    try{
+      var ctxS=ac(); if(!ctxS) return;
+      var osc=ctxS.createOscillator(), gain=ctxS.createGain();
+      osc.type='sawtooth';
+      osc.connect(gain); gain.connect(ctxS.destination);
+      var t=ctxS.currentTime;
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.exponentialRampToValueAtTime(0.05, t+0.09);
+      for(var i=0;i<5;i++){
+        var s=t+i*0.66;
+        osc.frequency.setValueAtTime(600, s);
+        osc.frequency.exponentialRampToValueAtTime(950, s+0.33);
+        osc.frequency.exponentialRampToValueAtTime(600, s+0.66);
+      }
+      gain.gain.setValueAtTime(0.05, t+3.0);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t+3.4);
+      osc.start(t); osc.stop(t+3.5);
+    }catch(e){}
+  }
+
+  function stopSiren(){
+    if(audioCtx){ try{ audioCtx.close(); }catch(e){} audioCtx=null; }
+  }
+
+  /* ---- the rest of the soundtrack, all synthesised (no audio files) ----
+     A shared context so one close() tears everything down. Each sound is
+     built from noise bursts and filters:
+       bark  = short filtered noise + a falling pitched body
+       scream = harmonic stack with vibrato, sweeping up then down
+       crash = broadband noise slam + low thud + metallic ring
+     Honest limitation: the scream reads as a wail, not a human voice.
+     Oscillators cannot fake vocal cords. See the note in chat. */
+  function ac(){
+    try{
+      if(!audioCtx){
+        var AC=window.AudioContext||window.webkitAudioContext;
+        if(!AC) return null;
+        audioCtx=new AC();
+      }
+      return audioCtx;
+    }catch(e){ return null; }
+  }
+
+  function noiseBuffer(ctx, secs){
+    var len=Math.max(1, Math.floor(ctx.sampleRate*secs));
+    var buf=ctx.createBuffer(1, len, ctx.sampleRate);
+    var data=buf.getChannelData(0);
+    for(var i=0;i<len;i++) data[i]=Math.random()*2-1;
+    return buf;
+  }
+
+  function bark(ctx, at){
+    try{
+      /* noisy transient */
+      var src=ctx.createBufferSource(); src.buffer=noiseBuffer(ctx,0.22);
+      var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=1.4;
+      bp.frequency.setValueAtTime(1100, at);
+      bp.frequency.exponentialRampToValueAtTime(420, at+0.18);
+      var ng=ctx.createGain();
+      ng.gain.setValueAtTime(0.0001, at);
+      ng.gain.exponentialRampToValueAtTime(0.5, at+0.012);
+      ng.gain.exponentialRampToValueAtTime(0.0001, at+0.2);
+      src.connect(bp); bp.connect(ng); ng.connect(ctx.destination);
+      src.start(at); src.stop(at+0.24);
+      /* pitched body underneath, falling — the "rrruff" */
+      var o=ctx.createOscillator(); o.type='sawtooth';
+      o.frequency.setValueAtTime(360, at);
+      o.frequency.exponentialRampToValueAtTime(150, at+0.17);
+      var og=ctx.createGain();
+      og.gain.setValueAtTime(0.0001, at);
+      og.gain.exponentialRampToValueAtTime(0.28, at+0.015);
+      og.gain.exponentialRampToValueAtTime(0.0001, at+0.19);
+      o.connect(og); og.connect(ctx.destination);
+      o.start(at); o.stop(at+0.21);
+    }catch(e){}
+  }
+
+  function scream(ctx, at, dur){
+    try{
+      var out=ctx.createGain();
+      out.gain.setValueAtTime(0.0001, at);
+      out.gain.exponentialRampToValueAtTime(0.16, at+0.09);
+      out.gain.setValueAtTime(0.16, at+dur*0.72);
+      out.gain.exponentialRampToValueAtTime(0.0001, at+dur);
+      /* a rough formant-ish shape */
+      var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=4.5;
+      bp.frequency.setValueAtTime(900, at);
+      bp.frequency.linearRampToValueAtTime(1800, at+dur*0.4);
+      bp.frequency.linearRampToValueAtTime(700, at+dur);
+      bp.connect(out); out.connect(ctx.destination);
+      /* vibrato */
+      var lfo=ctx.createOscillator(), lfoG=ctx.createGain();
+      lfo.frequency.value=11; lfoG.gain.value=38;
+      lfo.connect(lfoG);
+      [1,2,3].forEach(function(mult,idx){
+        var o=ctx.createOscillator();
+        o.type = idx===0 ? 'sawtooth' : 'square';
+        var base=430*mult;
+        o.frequency.setValueAtTime(base*0.85, at);
+        o.frequency.linearRampToValueAtTime(base*1.35, at+dur*0.35);
+        o.frequency.linearRampToValueAtTime(base*0.7,  at+dur);
+        lfoG.connect(o.frequency);
+        var g=ctx.createGain(); g.gain.value = idx===0 ? 1 : (idx===1 ? 0.4 : 0.2);
+        o.connect(g); g.connect(bp);
+        o.start(at); o.stop(at+dur+0.05);
+      });
+      lfo.start(at); lfo.stop(at+dur+0.05);
+    }catch(e){}
+  }
+
+  function carCrash(ctx, at){
+    try{
+      /* broadband slam */
+      var src=ctx.createBufferSource(); src.buffer=noiseBuffer(ctx,1.5);
+      var lp=ctx.createBiquadFilter(); lp.type='lowpass';
+      lp.frequency.setValueAtTime(7000, at);
+      lp.frequency.exponentialRampToValueAtTime(320, at+1.1);
+      var g=ctx.createGain();
+      g.gain.setValueAtTime(0.0001, at);
+      g.gain.exponentialRampToValueAtTime(0.62, at+0.014);
+      g.gain.exponentialRampToValueAtTime(0.0001, at+1.15);
+      src.connect(lp); lp.connect(g); g.connect(ctx.destination);
+      src.start(at); src.stop(at+1.5);
+      /* low thud — the chassis */
+      var t=ctx.createOscillator(); t.type='sine';
+      t.frequency.setValueAtTime(150, at);
+      t.frequency.exponentialRampToValueAtTime(38, at+0.42);
+      var tg=ctx.createGain();
+      tg.gain.setValueAtTime(0.0001, at);
+      tg.gain.exponentialRampToValueAtTime(0.55, at+0.02);
+      tg.gain.exponentialRampToValueAtTime(0.0001, at+0.55);
+      t.connect(tg); tg.connect(ctx.destination);
+      t.start(at); t.stop(at+0.6);
+      /* metallic ring / glass, a beat later */
+      var mSrc=ctx.createBufferSource(); mSrc.buffer=noiseBuffer(ctx,1.0);
+      var hp=ctx.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=2600;
+      var mg=ctx.createGain();
+      mg.gain.setValueAtTime(0.0001, at+0.05);
+      mg.gain.exponentialRampToValueAtTime(0.22, at+0.09);
+      mg.gain.exponentialRampToValueAtTime(0.0001, at+0.95);
+      mSrc.connect(hp); hp.connect(mg); mg.connect(ctx.destination);
+      mSrc.start(at+0.05); mSrc.stop(at+1.05);
+    }catch(e){}
+  }
+
+  /* schedules the whole soundtrack against one clock, so audio and the CSS
+     animation delays stay locked together */
+  function playChaosAudio(){
+    if(!CHAOS_SOUND) return;
+    var ctx=ac(); if(!ctx) return;
+    var t=ctx.currentTime;
+    playSiren();                       /* siren runs under everything */
+    bark(ctx, t+0.30);                 /* act 1 — matches WOOF! pops */
+    bark(ctx, t+0.62);
+    bark(ctx, t+0.94);
+    scream(ctx, t+1.15, 1.30);         /* act 2 */
+    carCrash(ctx, t+3.02);             /* act 3 — lands on the 💥 */
+  }
+
+  function spawnDebris(n){
+    for(var i=0;i<n;i++){
+      var d=document.createElement('div');
+      d.className='ci-debris';
+      d.textContent=DEBRIS[Math.floor(Math.random()*DEBRIS.length)];
+      var fromLeft=Math.random()<0.5;
+      d.style.left=(fromLeft?-10:106)+'%';
+      d.style.top=(Math.random()*88)+'%';
+      d.style.fontSize=(18+Math.random()*40)+'px';
+      d.style.setProperty('--dx', ((fromLeft?1:-1)*(95+Math.random()*45))+'vw');
+      d.style.setProperty('--dy', ((Math.random()*2-1)*45)+'vh');
+      d.style.setProperty('--rot', ((Math.random()<0.5?-1:1)*(540+Math.random()*1440))+'deg');
+      d.style.animation='ci-fly '+(1.5+Math.random()*1.9)+'s linear '+(Math.random()*1.7)+'s forwards';
+      chaos.appendChild(d);
+    }
+  }
+
+  function endChaos(){
+    chaosTimers.forEach(clearTimeout); chaosTimers=[];
+    stopSiren();
+    chaos.classList.remove('on');
+    ciWrap.classList.remove('ci-quake');
+    chaos.querySelectorAll('.ci-debris').forEach(function(d){ d.remove(); });
+  }
+
+  function runChaos(){
+    if(reducedMotion()) return;   /* skip the whole spectacle */
+    endChaos();                   /* clear any run already in flight */
+    /* restart the tornado + stamp animations by forcing a reflow */
+    tornadoEl.style.animation='none'; stampEl.style.animation='none';
+    void tornadoEl.offsetWidth;
+    tornadoEl.style.animation=''; stampEl.style.animation='';
+    chaos.classList.add('on');
+    ciWrap.classList.add('ci-quake');
+    spawnDebris(30);
+    playChaosAudio();
+    chaosTimers.push(setTimeout(function(){ ciWrap.classList.remove('ci-quake'); }, 2500));
+    chaosTimers.push(setTimeout(endChaos, 4300));
+  }
+
+  var volPanel=root.querySelector('#ci-vol-panel'),
+      trigger=root.querySelector('#ci-vol-trigger'), flash=root.querySelector('#ci-vol-flash'),
+      alertPanel=root.querySelector('#ci-vol-alert'), branchRow=root.querySelector('#ci-vol-branchrow'),
+      panicBtn=root.querySelector('#ci-vol-panic'), holdBtn=root.querySelector('#ci-vol-hold'),
+      resultPanel=root.querySelector('#ci-vol-result'), volIntro=root.querySelector('#ci-vol-intro'),
+      volCount=root.querySelector('#ci-vol-count'), volReset=root.querySelector('#ci-vol-reset');
+  var VOL_INTRO='Starting with $5,000 and adding $200/month at a hypothetical 8% average return, your snowball is on track for a healthy projection over 30 years. But markets don’t move in a straight line. Let’s see what a downturn does to it.';
+  var volSeen={}, volShakeTimer=null;
+  if(trigger) trigger.addEventListener('click',function(){
+    trigger.style.display='none';
+    /* the full-screen spectacle */
+    runChaos();
+    /* the original in-panel effects still run underneath it */
+    volPanel.classList.remove('ci-shake'); void volPanel.offsetWidth; volPanel.classList.add('ci-shake');
+    if(volShakeTimer) clearTimeout(volShakeTimer);
+    volShakeTimer=setTimeout(function(){ volShakeTimer=null; volPanel.classList.remove('ci-shake'); },550);
+    flash.classList.remove('active'); void flash.offsetWidth; flash.classList.add('active');
+    alertPanel.style.display='block';
+    alertPanel.classList.remove('siren'); void alertPanel.offsetWidth; alertPanel.classList.add('siren');
+    branchRow.style.display='flex';
+    volIntro.textContent='At Year 15, this portfolio just took a sudden 30% hit. Try both reactions below to see how each one plays out by Year 30.';
+    renderVolChart('crashed');
+    postHeight();
+  });
+  function volTally(){
+    volCount.textContent='Tested '+keys(volSeen)+' Of 2 Reactions';
+    state('vol', keys(volSeen));
+  }
+  if(panicBtn) panicBtn.addEventListener('click',function(){
+    panicBtn.classList.add('active'); holdBtn.classList.remove('active');
+    renderVolChart('panic');
+    var lost=holdPath[30]-panicPath[30];
+    resultPanel.className='ci-vol-result panic';
+    resultPanel.style.display='block';
+    resultPanel.innerHTML='<p class="ci-vol-result-t">❌ Losses Locked In</p><p class="ci-vol-result-d">By panicking and moving to cash, this portfolio missed the recovery entirely. It flatlines at <b>'+money(panicPath[30])+'</b> by Year 30 — over <b>'+money(lost)+'</b> less than staying invested.</p>';
+    volSeen.panic=1; volTally(); postHeight();
+  });
+  if(holdBtn) holdBtn.addEventListener('click',function(){
+    holdBtn.classList.add('active'); panicBtn.classList.remove('active');
+    renderVolChart('hold');
+    resultPanel.className='ci-vol-result hold';
+    resultPanel.style.display='block';
+    resultPanel.innerHTML='<p class="ci-vol-result-t">✅ Wealth Momentum Maintained</p><p class="ci-vol-result-d">By leaving contributions on, this portfolio kept buying while prices were down. When the recovery came, growth accelerated past the original path, reaching <b>'+money(holdPath[30])+'</b> by Year 30.</p>';
+    volSeen.hold=1; volTally(); postHeight();
+  });
+  if(volReset) volReset.addEventListener('click',function(){
+    if(volShakeTimer){ clearTimeout(volShakeTimer); volShakeTimer=null; }
+    endChaos();
+    volSeen={};
+    volPanel.classList.remove('ci-shake');
+    flash.classList.remove('active');
+    alertPanel.classList.remove('siren');
+    alertPanel.style.display='none';
+    branchRow.style.display='none';
+    resultPanel.style.display='none'; resultPanel.className='ci-vol-result'; resultPanel.innerHTML='';
+    panicBtn.classList.remove('active'); holdBtn.classList.remove('active');
+    trigger.style.display='block';
+    volIntro.textContent=VOL_INTRO;
+    volCount.textContent='Tested 0 Of 2 Reactions';
+    renderVolChart('ideal');
+    postHeight();
+  });
+  /* if the learner navigates away mid-crash, kill the spectacle */
+  root.addEventListener('ci-slide-change', endChaos);
+
+  /* ---------- 7 · myth or fact ---------- */
+  var mythCount=root.querySelector('#ci-myth-count'), mythReset=root.querySelector('#ci-myth-reset');
+  root.querySelectorAll('#ci-myth .ci-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ci-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ci-myth .ci-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 8';
+        state('myth', n);
+        postHeight();
+      });
+    });
+  });
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#ci-myth .ci-sort-row').forEach(function(row){
+      row.classList.remove('done','correct','wrong');
+      row.querySelectorAll('.ci-sort-btns button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 8';
+    postHeight();
+  });
+
+  /* ---------- 8 · habits that matter ---------- */
+  var trapsCount=root.querySelector('#ci-traps-count'), trapsReset=root.querySelector('#ci-traps-reset');
+  root.querySelectorAll('#ci-traps .ci-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      if(t.classList.contains('done')) return;
+      var v=t.getAttribute('data-verdict');
+      t.classList.add('done', v);
+      t.setAttribute('data-reveal', t.getAttribute('data-d'));
+      var badge=document.createElement('span'); badge.className='ci-trap-badge'; badge.textContent=(v==='safe'?'Safe':'Risky');
+      t.appendChild(badge);
+      var n=root.querySelectorAll('#ci-traps .ci-trap-tile.done').length;
+      trapsCount.textContent='Revealed '+n+' Of 4';
+      state('traps', n);
+      postHeight();
+    });
+  });
+  if(trapsReset) trapsReset.addEventListener('click',function(){
+    root.querySelectorAll('#ci-traps .ci-trap-tile').forEach(function(t){
+      t.classList.remove('done','safe','risky');
+      t.removeAttribute('data-reveal');
+      var b=t.querySelector('.ci-trap-badge'); if(b) b.remove();
+    });
+    trapsCount.textContent='Revealed 0 Of 4';
+    postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ============================================================
+     FULL-SCREEN AWARE PROMPT (last slide)
+     If the lesson is expanded to full screen, "scroll down" is
+     wrong — the learner has to close it first. This swaps the
+     wording and flips the arrow upward toward the ✕ button.
+     ============================================================ */
+(function(){
+  var arrow=document.getElementById('ci-fin-arrow');
+  var lead=document.getElementById('ci-fin-lead');
+  var sub=document.getElementById('ci-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={
+    normal:{ arrow:'↓', up:false, lead:'Scroll Down To Continue',
+             sub:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.' },
+    full:{   arrow:'↑', up:true,  lead:'Close Full Screen To Continue',
+             sub:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.' }
+  };
+  var last=null;
+  function isFullScreen(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{
+      if(!window.screen) return false;
+      var h=window.screen.availHeight||window.screen.height;
+      var w=window.screen.availWidth||window.screen.width;
+      return (window.innerHeight >= h-130) && (window.innerWidth >= w-60);
+    }catch(e){ return false; }
+  }
+  function apply(){
+    var key=isFullScreen()?'full':'normal';
+    if(key===last) return;
+    last=key;
+    var c=COPY[key];
+    arrow.textContent=c.arrow;
+    arrow.classList.toggle('up', c.up);
+    lead.textContent=c.lead;
+    sub.innerHTML=c.sub;
+  }
+  window.addEventListener('resize',apply);
+  document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700);
+  apply();
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ci'); if(!root) return;
+  var TOTAL=10, current=1;
+  var bar=root.querySelector('#ci-bar');
+  var labelEl=root.querySelector('#ci-slide-label');
+  var countEl=root.querySelector('#ci-slide-count');
+  var prevBtn=root.querySelector('#ci-prev');
+  var nextBtn=root.querySelector('#ci-next');
+  var hintEl=root.querySelector('#ci-nav-hint');
+  var disclaimer=root.querySelector('.ci-disclaimer');
+  var labels={1:'Key Vocabulary',2:'Simple Vs Compound',3:'The Four Ingredients',4:'Growth Calculator',5:'The Rule of 72',6:'Volatility Simulator',7:'Myth Or Fact',8:'Habits That Matter',9:'Recap',10:'Complete'};
+  var reqHints={2:'Compare both to continue',3:'Review all 4 to continue',4:'Move both sliders to continue',5:'Move the slider to continue',6:'Test both reactions to continue',7:'Answer all 8 to continue',8:'Reveal all 4 to continue'};
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.ci-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    /* tell the content script to tear down anything still animating */
+    root.dispatchEvent(new CustomEvent('ci-slide-change'));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ci-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ci-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+  /* Gating is sticky: once a slide is unlocked, replaying its activity with
+     Start Over never re-locks Next. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  /* Gating reads state the content script publishes on the container, so
+     tapping a button with no real progress behind it can never unlock a slide. */
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'hook',        need:2, hint:function(){ return 'Now tap the other option to compare'; }},
+    {step:3, key:'ingredients', need:4, hint:function(n){ return 'Reviewed '+n+' of 4 — review them all to continue'; }},
+    {step:4, key:'calc',        need:2, hint:function(n){ return n<1 ? 'Move both sliders to continue' : 'Now move the other slider too'; }},
+    {step:5, key:'rule72',      need:1, hint:function(){ return 'Move the slider to continue'; }},
+    {step:6, key:'vol',         need:2, hint:function(n){ return n<1 ? 'Crash the market, then test both reactions' : 'Now test the other reaction too'; }},
+    {step:7, key:'myth',        need:8, hint:function(n){ return 'Answered '+n+' of 8 — answer them all to continue'; }},
+    {step:8, key:'traps',       need:4, hint:function(n){ return 'Revealed '+n+' of 4 — reveal them all to continue'; }}
+  ];
+  root.addEventListener('ci-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

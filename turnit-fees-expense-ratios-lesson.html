@@ -1,0 +1,583 @@
+<!-- ============================================================
+     TURNIT — UNDERSTANDING FEES AND EXPENSE RATIOS
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-fe. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Fee drag over TIME was already covered twice (Index Funds lesson,
+     Common Beginner Mistakes). This lesson goes elsewhere: the full fee
+     taxonomy, visible vs. invisible fees, the growing-balance problem,
+     load fees, and actual comparison-shopping skill.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview          2 The Fee Family Tree
+       3 Visible vs. Invisible    4 The Growing Balance Problem
+       5 The Entrance and Exit Fee 6 Comparison Shopping
+       7 The Fee Inspector        8 Recap
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-fe">
+  <div class="fe-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="fe-top">
+      <div class="fe-topbar">
+        <div class="fe-brand"><span class="fe-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5M12 17h.01"/></svg></span><span class="fe-word">TURNIT</span><span class="fe-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="fe-progress"><span id="fe-bar"></span></div>
+      <div class="fe-meta"><span id="fe-slide-label">Lesson Overview</span><span id="fe-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="fe-sec fe-reveal" data-step="1">
+      <p class="fe-kicker">Welcome · 1 / 9</p>
+      <h2 class="fe-h2">You've seen the fee-drag math already</h2>
+      <p class="fe-p">Two earlier lessons already showed how a small fee compounds into a big gap over decades. This one goes somewhere new — the fee types you haven't met, and how to actually spot them.</p>
+
+      <div class="fe-recap">
+        <div class="fe-recap-item"><span class="fe-recap-check">1</span><span>The full family of fees, beyond just the expense ratio.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">2</span><span>Why some fees are easy to see, and some you'll never get a bill for.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">3</span><span>How the same fee grows in real dollars as your balance grows.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">4</span><span>Load fees — a charge some funds take just for buying or selling.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">5</span><span>How to actually compare fees before you buy.</span></div>
+      </div>
+      <div class="fe-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE FEE FAMILY TREE ========== -->
+    <section class="fe-sec fe-reveal" data-step="2">
+      <p class="fe-kicker">The Fee Family Tree · 2 / 9</p>
+      <h2 class="fe-h2">Expense ratio has relatives</h2>
+      <p class="fe-p">Not every provider charges every one of these — plenty of popular platforms today charge $0 for several. Tap each branch to see what it actually is, when it applies.</p>
+
+      <div class="fe-tree">
+        <div class="fe-tree-trunk">💰 Investing Fees</div>
+        <div class="fe-tree-branches" id="fe-tree-branches">
+          <button type="button" class="fe-branch" data-t="Expense Ratio" data-d="An annual fee a fund charges, shown as a percentage of your investment — deducted automatically from the fund's performance.">Expense Ratio</button>
+          <button type="button" class="fe-branch" data-t="Trading Commissions" data-d="A flat or percentage charge some brokers apply each time you buy or sell — many providers today charge $0 for basic stock trades.">Trading Commissions</button>
+          <button type="button" class="fe-branch" data-t="Account Fees" data-d="A flat annual or monthly charge some providers apply just for maintaining the account itself, separate from anything you actually invest in.">Account Fees</button>
+          <button type="button" class="fe-branch" data-t="Advisor Fees" data-d="If you use a human financial advisor, they typically charge a percentage of the assets they manage for you each year.">Advisor Fees</button>
+        </div>
+      </div>
+      <div class="fe-tree-result" id="fe-tree-result">&nbsp;</div>
+      <p class="fe-count" id="fe-tree-count">Explored 0 of 4</p>
+    </section>
+
+    <!-- ========== 3 · VISIBLE VS. INVISIBLE ========== -->
+    <section class="fe-sec fe-reveal" data-step="3">
+      <p class="fe-kicker">Visible vs. Invisible · 3 / 9</p>
+      <h2 class="fe-h2">One fee sends you a bill. One doesn't.</h2>
+      <p class="fe-p">Tap the magnifying glass to find the one that's hiding.</p>
+
+      <div class="fe-panel">
+        <div class="fe-vis-grid">
+          <div class="fe-vis-card">
+            <span class="fe-vis-lab">Account Fee (If Charged)</span>
+            <div class="fe-invoice">📄<span>Annual Statement</span><b>$50.00 Account Fee</b></div>
+          </div>
+          <div class="fe-vis-card">
+            <span class="fe-vis-lab">Expense Ratio</span>
+            <div class="fe-hidden-stage" id="fe-hidden-stage">
+              <div class="fe-fund-box" id="fe-fund-box">📈<span>Your Fund</span></div>
+              <button type="button" class="fe-magnify-btn" id="fe-magnify-btn">🔍 Look Closer</button>
+            </div>
+          </div>
+        </div>
+        <div class="fe-note" id="fe-vis-note">Plenty of providers charge no account fee at all — this one's just an example of the type, if a provider does charge it. One fee arrives as a line item you can read. The other is already subtracted before you ever see a number.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · THE GROWING BALANCE PROBLEM ========== -->
+    <section class="fe-sec fe-reveal" data-step="4">
+      <p class="fe-kicker">The Growing Balance Problem · 4 / 9</p>
+      <h2 class="fe-h2">The same 1% doesn't stay the same size</h2>
+      <p class="fe-p">Slide through account sizes — the percentage never changes, but watch the dollars.</p>
+
+      <div class="fe-panel">
+        <div class="fe-slide-row">
+          <div class="fe-slide-top"><label for="fe-balance-slider">Account Balance</label><span class="fe-slide-v blue" id="fe-balance-slider-v">$1,000</span></div>
+          <input id="fe-balance-slider" class="fe-range" type="range" min="1000" max="100000" value="1000" step="1000" aria-label="Account balance">
+        </div>
+        <div class="fe-scale"><span>$1,000</span><span>$100,000</span></div>
+
+        <div class="fe-hook-grid">
+          <div class="fe-hook-box"><span>Fee Rate</span><b>1.00%</b></div>
+          <div class="fe-hook-box gold"><span>This Year, in Dollars</span><b id="fe-balance-dollars">$10</b></div>
+        </div>
+        <div class="fe-note">Same percentage, every single time — but the real dollar cost climbs right alongside your balance.</div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · THE ENTRANCE AND EXIT FEE ========== -->
+    <section class="fe-sec fe-reveal" data-step="5">
+      <p class="fe-kicker">Load Fees · 5 / 9</p>
+      <h2 class="fe-h2">Some funds charge you at the door</h2>
+      <p class="fe-p">A <b>load fee</b> is a sales charge some mutual funds apply just for buying or selling. Tap each turnstile.</p>
+
+      <div class="fe-turnstile-stage">
+        <button type="button" class="fe-turnstile" id="fe-turnstile-front" data-t="Front-Load" data-d="A percentage taken right when you buy in — invest $1,000 with a 5% front-load, and only $950 actually gets invested.">🚧<span>Front-Load</span></button>
+        <div class="fe-turnstile-path">💵 → → →</div>
+        <button type="button" class="fe-turnstile" id="fe-turnstile-back" data-t="Back-Load" data-d="A percentage taken when you sell or withdraw instead — often shrinking the longer you stay invested, but still a real cost on the way out.">🚧<span>Back-Load</span></button>
+      </div>
+      <div class="fe-turnstile-result" id="fe-turnstile-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 6 · COMPARISON SHOPPING ========== -->
+    <section class="fe-sec fe-reveal" data-step="6">
+      <p class="fe-kicker">Comparison Shopping · 6 / 9</p>
+      <h2 class="fe-h2">Same strategy, different price tags</h2>
+      <p class="fe-p">Three funds, all tracking the same broad index. Tap each to compare.</p>
+
+      <div class="fe-shop-grid" id="fe-shop-grid">
+        <button type="button" class="fe-shop-card" data-t="GreenLeaf Broad Market Fund" data-r="0.03%" data-c="on $10,000: $3/yr">🌿<b>GreenLeaf Broad Market</b><span id="fe-tag-1">0.03%</span></button>
+        <button type="button" class="fe-shop-card" data-t="Anchor Total Market Fund" data-r="0.45%" data-c="on $10,000: $45/yr">⚓<b>Anchor Total Market</b><span id="fe-tag-2">0.45%</span></button>
+        <button type="button" class="fe-shop-card" data-t="Summit Index Fund" data-r="0.85%" data-c="on $10,000: $85/yr">🏔️<b>Summit Index Fund</b><span id="fe-tag-3">0.85%</span></button>
+      </div>
+      <div class="fe-shop-result" id="fe-shop-result">&nbsp;</div>
+      <p class="fe-count" id="fe-shop-count">Compared 0 of 3</p>
+    </section>
+
+    <!-- ========== 7 · THE FEE INSPECTOR ========== -->
+    <section class="fe-sec fe-reveal" data-step="7">
+      <p class="fe-kicker">The Fee Inspector · 7 / 9</p>
+      <h2 class="fe-h2">Confirm it, or flag it</h2>
+      <p class="fe-p">Tap your ruling on each claim.</p>
+
+      <div class="fe-sort" id="fe-inspector">
+        <div class="fe-sort-row" data-answer="confirm"><span>An expense ratio is deducted automatically, without ever sending you a bill.</span><div class="fe-sort-btns"><button data-p="flag">🚩 Flag It</button><button data-p="confirm">✅ Confirm It</button></div><p class="fe-sort-why"></p></div>
+        <div class="fe-sort-row" data-answer="flag"><span>A 1% fee costs the exact same number of dollars no matter how large your account gets.</span><div class="fe-sort-btns"><button data-p="flag">🚩 Flag It</button><button data-p="confirm">✅ Confirm It</button></div><p class="fe-sort-why"></p></div>
+        <div class="fe-sort-row" data-answer="confirm"><span>A front-load fee is taken at the moment you buy into a fund.</span><div class="fe-sort-btns"><button data-p="flag">🚩 Flag It</button><button data-p="confirm">✅ Confirm It</button></div><p class="fe-sort-why"></p></div>
+        <div class="fe-sort-row" data-answer="flag"><span>Two funds tracking the exact same index always charge the exact same fee.</span><div class="fe-sort-btns"><button data-p="flag">🚩 Flag It</button><button data-p="confirm">✅ Confirm It</button></div><p class="fe-sort-why"></p></div>
+      </div>
+      <p class="fe-count" id="fe-inspector-count">Ruled 0 of 4</p>
+    </section>
+
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="fe-sec fe-reveal" data-step="8">
+      <p class="fe-kicker">Recap · 8 / 9</p>
+      <h2 class="fe-h2">Here's what you now know</h2>
+      <p class="fe-p">The whole lesson, in six lines.</p>
+
+      <div class="fe-recap">
+        <div class="fe-recap-item"><span class="fe-recap-check">✓</span><span>Expense ratios, trading commissions, account fees, and advisor fees are all different things.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">✓</span><span>Some fees arrive as a bill you can read. Others are quietly subtracted before you ever see a number.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">✓</span><span>The same fee percentage costs more real dollars every year as your balance grows.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">✓</span><span>Load fees are sales charges taken at the door — either going in or coming out.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">✓</span><span>Funds tracking the exact same strategy can still charge very different fees.</span></div>
+        <div class="fe-recap-item"><span class="fe-recap-check">✓</span><span>Checking a fund's expense ratio before buying takes seconds and can matter for decades.</span></div>
+      </div>
+      <div class="fe-next-move">Your next move: <b>look up the expense ratio on anything you already own — you may be surprised what you find.</b></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="fe-sec fe-center fe-reveal" data-step="9">
+      <p class="fe-kicker center">Certified · 9 / 9</p>
+      <div class="fe-cert">
+        <div class="fe-cert-border"></div>
+        <span class="fe-cert-pill">🏆 Certificate of Completion</span>
+        <p class="fe-cert-cert">This certifies that</p>
+        <h2 class="fe-cert-name">Fee Fluent</h2>
+        <p class="fe-cert-body">has completed <span class="fe-tw">TURNIT</span> Financial Foundations: Understanding Fees and Expense Ratios, and now knows exactly what to look for before buying in.</p>
+        <div class="fe-cert-line"></div>
+        <div class="fe-done-row streak"><div class="fe-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="fe-done-row ach"><div class="fe-done-ico">🏆</div><div><b>Achievement: Fee Fluent</b><span>You mastered the full family of investing fees.</span></div></div>
+        <div class="fe-done-btns">
+          <a class="fe-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="fe-btn ghost" id="fe-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="fe-quote">"IN INVESTING, <span class="fe-green">YOU GET WHAT YOU DON'T PAY FOR.</span>"<br><span class="fe-quote-by">— JOHN C. BOGLE</span></p>
+    </section>
+
+    <p class="fe-disclaimer">TURNIT is for educational purposes only and is not financial advice. Fund names, fees, and figures shown are fictional examples for illustration, not real market data or a recommendation. Fee structures vary widely by provider — many charge $0 for trading commissions and account fees, and not all funds carry load fees. Always check a specific provider's or fund's actual fee disclosure before investing.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="fe-nav" id="fe-nav">
+      <button type="button" class="fe-nav-btn prev" id="fe-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="fe-nav-hint" id="fe-nav-hint"></span>
+      <button type="button" class="fe-nav-btn next" id="fe-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-fe{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-fe *,#tn-fe *::before,#tn-fe *::after{box-sizing:border-box;}
+  #tn-fe .fe-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-fe .fe-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-fe .fe-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-fe .fe-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-fe .fe-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-fe .fe-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-fe .fe-bico{display:flex;}
+  #tn-fe .fe-word,#tn-fe .fe-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-fe .fe-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-fe .fe-bsub{color:var(--ink2); font-weight:500;}
+  #tn-fe .fe-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-fe #fe-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-fe .fe-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-fe .fe-meta #fe-slide-label{color:var(--ink2);}
+  #tn-fe .fe-meta #fe-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-fe .fe-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-fe .fe-sec.fe-hide{display:none;}
+  #tn-fe .fe-center{text-align:center;}
+  #tn-fe .fe-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-fe .fe-kicker.center{text-align:center;}
+  #tn-fe .fe-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-fe .fe-h2.center{text-align:center;}
+  #tn-fe .fe-tw{font-style:italic;}
+  #tn-fe .fe-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-fe .fe-p b{color:var(--ink); font-weight:700;}
+  #tn-fe .fe-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-fe .fe-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-fe .fe-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-fe .fe-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-fe .fe-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-fe .fe-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-fe .fe-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+  #tn-fe .fe-slide-row{margin-top:6px;}
+  #tn-fe .fe-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-fe .fe-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-fe .fe-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-fe .fe-slide-v.blue{color:var(--b);}
+
+  #tn-fe .fe-hook-grid{display:flex; gap:10px; margin-top:16px;}
+  #tn-fe .fe-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center;}
+  #tn-fe .fe-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-fe .fe-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,4.2vw,19px); color:var(--ink);}
+  #tn-fe .fe-hook-box.gold{background:var(--goldbg); border-color:var(--goldbd);}
+  #tn-fe .fe-hook-box.gold b{color:var(--gold);}
+
+  /* ---- slide 2: family tree ---- */
+  #tn-fe .fe-tree-trunk{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px; margin-bottom:14px;}
+  #tn-fe .fe-tree-branches{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-fe .fe-branch{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--b); background:#fff; border:1.5px solid #B9CFE4; border-radius:12px; padding:13px 10px; cursor:pointer; transition:all .18s;}
+  #tn-fe .fe-branch.on{background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-fe .fe-tree-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 3: visible/invisible ---- */
+  #tn-fe .fe-vis-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:6px;}
+  #tn-fe .fe-vis-card{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  #tn-fe .fe-vis-lab{font-size:11.5px; font-weight:700; color:var(--ink2);}
+  #tn-fe .fe-invoice{background:#fff; border:1.5px dashed var(--cardbd); border-radius:12px; padding:14px 10px; text-align:center; font-size:22px; width:100%;}
+  #tn-fe .fe-invoice span{display:block; font-family:'Inter',sans-serif; font-size:10px; color:var(--mut); font-weight:600; margin:6px 0 4px;}
+  #tn-fe .fe-invoice b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--no);}
+  #tn-fe .fe-hidden-stage{position:relative; width:100%;}
+  #tn-fe .fe-fund-box{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:14px 10px; text-align:center; font-size:22px; margin-bottom:8px; transition:all .3s ease;}
+  #tn-fe .fe-fund-box span{display:block; font-family:'Inter',sans-serif; font-size:10px; color:var(--mut); font-weight:600; margin-top:6px;}
+  #tn-fe .fe-fund-box.revealed{background:var(--nobg); border-color:var(--nobd);}
+  #tn-fe .fe-magnify-btn{width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--b); background:#fff; border:1.5px solid #B9CFE4; border-radius:10px; padding:9px 6px; cursor:pointer; transition:all .18s;}
+  #tn-fe .fe-magnify-btn:disabled{opacity:.5; cursor:default;}
+
+  /* ---- slide 5: turnstiles ---- */
+  #tn-fe .fe-turnstile-stage{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:16px;}
+  #tn-fe .fe-turnstile{display:flex; flex-direction:column; align-items:center; gap:6px; font-size:30px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 10px; cursor:pointer; transition:all .18s; flex:1;}
+  #tn-fe .fe-turnstile span{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--ink);}
+  #tn-fe .fe-turnstile.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-fe .fe-turnstile-path{font-size:16px; color:var(--mut); flex:none;}
+  #tn-fe .fe-turnstile-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 6: comparison shopping ---- */
+  #tn-fe .fe-shop-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px;}
+  #tn-fe .fe-shop-card{display:flex; flex-direction:column; align-items:center; gap:6px; font-size:26px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 6px; cursor:pointer; transition:all .18s;}
+  #tn-fe .fe-shop-card b{font-family:'Poppins',sans-serif; font-size:11px; color:var(--ink); text-align:center; line-height:1.3;}
+  #tn-fe .fe-shop-card span{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--b); background:#fff; border-radius:8px; padding:3px 8px; margin-top:2px;}
+  #tn-fe .fe-shop-card.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-fe .fe-shop-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* sorter (shared) */
+  #tn-fe .fe-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-fe .fe-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-fe .fe-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-fe .fe-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-fe .fe-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; padding:8px 12px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s; border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-fe .fe-sort-btns button[data-p="flag"]{border-color:#F5C6BE; color:var(--no);}
+  #tn-fe .fe-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-fe .fe-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-fe .fe-sort-row.done .fe-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-fe .fe-sort-row.done .fe-sort-btns button.picked{opacity:1;}
+  #tn-fe .fe-sort-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-fe .fe-sort-why b{font-family:'Poppins',sans-serif;}
+  #tn-fe .fe-sort-row.done .fe-sort-why{display:block;}
+
+  /* recap */
+  #tn-fe .fe-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-fe .fe-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-fe .fe-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-fe .fe-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-fe .fe-recap-item b{font-weight:700;}
+  #tn-fe .fe-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-fe .fe-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-fe .fe-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-fe .fe-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-fe .fe-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-fe .fe-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-fe .fe-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-fe .fe-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-fe .fe-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-fe .fe-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-fe .fe-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-fe .fe-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-fe .fe-done-ico{font-size:20px; flex:none;}
+  #tn-fe .fe-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-fe .fe-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-fe .fe-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-fe .fe-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-fe .fe-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-fe .fe-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-fe .fe-btn:hover{transform:translateY(-2px);}
+  #tn-fe .fe-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-fe .fe-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-fe .fe-green{color:var(--g);}
+  #tn-fe .fe-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-fe .fe-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-fe .fe-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-fe .fe-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-fe .fe-nav-btn.prev{color:var(--ink2);}
+  #tn-fe .fe-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-fe .fe-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-fe .fe-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-fe .fe-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-fe .fe-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-fe .fe-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-fe .fe-wrap{padding:12px 14px 30px;}
+    #tn-fe .fe-vis-grid{grid-template-columns:1fr;}
+    #tn-fe .fe-shop-grid{grid-template-columns:1fr;}
+    #tn-fe .fe-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-fe .fe-bsub{display:none;}
+    #tn-fe .fe-nav-hint{display:none;}
+    #tn-fe .fe-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-fe .fe-reveal{opacity:1 !important; transform:none !important;}
+    #tn-fe #fe-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-fe'); if(!root) return;
+  root.querySelectorAll('.fe-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · the fee family tree ============ */
+  var treeReviewed={}, treeResult=root.querySelector('#fe-tree-result'), treeCount=root.querySelector('#fe-tree-count');
+  root.querySelectorAll('#fe-tree-branches .fe-branch').forEach(function(branch){
+    branch.addEventListener('click',function(){
+      root.querySelectorAll('#fe-tree-branches .fe-branch').forEach(function(b){ b.classList.remove('on'); });
+      branch.classList.add('on');
+      treeResult.innerHTML='<b>'+branch.getAttribute('data-t')+':</b> '+branch.getAttribute('data-d');
+      treeReviewed[branch.getAttribute('data-t')]=1;
+      treeCount.textContent='Explored '+Object.keys(treeReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* ============ 3 · visible vs invisible ============ */
+  var magnifyBtn=root.querySelector('#fe-magnify-btn'), fundBox=root.querySelector('#fe-fund-box'), visNote=root.querySelector('#fe-vis-note');
+  if(magnifyBtn) magnifyBtn.addEventListener('click',function(){
+    magnifyBtn.disabled=true;
+    fundBox.classList.add('revealed');
+    fundBox.innerHTML='📉<span>0.65% Expense Ratio, Quietly Deducted</span>';
+    visNote.textContent='There it was the whole time \u2014 no invoice, no notification. It\u2019s simply subtracted before the fund\u2019s performance ever reaches you.';
+    postHeight();
+  });
+
+  /* ============ 4 · the growing balance problem ============ */
+  var balanceSlider=root.querySelector('#fe-balance-slider'), balanceSliderV=root.querySelector('#fe-balance-slider-v'),
+      balanceDollars=root.querySelector('#fe-balance-dollars');
+  function balanceCalc(){
+    var bal=+balanceSlider.value;
+    balanceSliderV.textContent=moneyRound(bal);
+    balanceDollars.textContent=moneyRound(bal*0.01);
+    postHeight();
+  }
+  if(balanceSlider){ balanceSlider.addEventListener('input',balanceCalc); balanceCalc(); }
+
+  /* ============ 5 · the entrance and exit fee ============ */
+  var turnstileFront=root.querySelector('#fe-turnstile-front'), turnstileBack=root.querySelector('#fe-turnstile-back'),
+      turnstileResult=root.querySelector('#fe-turnstile-result');
+  if(turnstileFront) turnstileFront.addEventListener('click',function(){
+    turnstileFront.classList.add('on'); turnstileBack.classList.remove('on');
+    turnstileResult.innerHTML='<b>Front-Load:</b> '+turnstileFront.getAttribute('data-d');
+    postHeight();
+  });
+  if(turnstileBack) turnstileBack.addEventListener('click',function(){
+    turnstileBack.classList.add('on'); turnstileFront.classList.remove('on');
+    turnstileResult.innerHTML='<b>Back-Load:</b> '+turnstileBack.getAttribute('data-d');
+    postHeight();
+  });
+
+  /* ============ 6 · comparison shopping ============ */
+  var shopCompared={}, shopResult=root.querySelector('#fe-shop-result'), shopCount=root.querySelector('#fe-shop-count');
+  root.querySelectorAll('#fe-shop-grid .fe-shop-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      card.classList.add('on');
+      shopResult.innerHTML='<b>'+card.getAttribute('data-t')+'</b> charges '+card.getAttribute('data-r')+' \u2014 '+card.getAttribute('data-c')+'.';
+      shopCompared[card.getAttribute('data-t')]=1;
+      shopCount.textContent='Compared '+Object.keys(shopCompared).length+' of 3';
+      if(Object.keys(shopCompared).length>=3){
+        shopResult.innerHTML+=' All three track the same broad market \u2014 same general exposure, very different long-term cost.';
+      }
+      postHeight();
+    });
+  });
+
+  /* ============ 7 · the fee inspector ============ */
+  var inspectorDone=0, inspectorCount=root.querySelector('#fe-inspector-count');
+  var inspectorWhy={
+    confirm_0:'True \u2014 an expense ratio is simply subtracted from the fund\u2019s performance, with no separate invoice ever sent.',
+    flag_1:'False \u2014 the same 1% costs more real dollars as the account balance itself grows larger.',
+    confirm_2:'True \u2014 a front-load is taken right at the moment of purchase.',
+    flag_3:'False \u2014 funds tracking identical strategies can still charge very different fees, as the comparison just showed.'
+  };
+  root.querySelectorAll('#fe-inspector .fe-sort-row').forEach(function(row,i){
+    var ans=row.getAttribute('data-answer');
+    var whyEl=row.querySelector('.fe-sort-why');
+    row.querySelectorAll('.fe-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        row.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(ans==='confirm'?'Confirmed.':'Flagged.')+'</b> '+inspectorWhy[ans+'_'+i];
+        inspectorDone++;
+        inspectorCount.textContent='Ruled '+inspectorDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-fe'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#fe-bar');
+  var labelEl=root.querySelector('#fe-slide-label');
+  var countEl=root.querySelector('#fe-slide-count');
+  var prevBtn=root.querySelector('#fe-prev');
+  var nextBtn=root.querySelector('#fe-next');
+  var hintEl=root.querySelector('#fe-nav-hint');
+  var disclaimer=root.querySelector('.fe-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'The Fee Family Tree',3:'Visible vs. Invisible',4:'The Growing Balance Problem',5:'Load Fees',6:'Comparison Shopping',7:'The Fee Inspector',8:'Recap',9:'Certified'};
+  var reqHints={2:'Explore all 4 to continue',3:'Look closer to continue',4:'Move the slider to continue',5:'Explore both fee types',6:'Compare all 3 to continue',7:'Rule on all 4 to continue'};
+
+  var done={1:true,8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.fe-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('fe-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('fe-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · all 4 branches explored
+  var treeSeen={};
+  root.querySelectorAll('#fe-tree-branches .fe-branch').forEach(function(branch){
+    branch.addEventListener('click',function(){ treeSeen[branch.getAttribute('data-t')]=1;
+      if(keys(treeSeen)>=4) markDone(2); else liveHint(2,'Explored '+keys(treeSeen)+' of 4 — keep going'); });
+  });
+
+  // 3 · magnify clicked
+  var magnifyBtn2=root.querySelector('#fe-magnify-btn');
+  if(magnifyBtn2) magnifyBtn2.addEventListener('click',function(){ markDone(3); });
+
+  // 4 · balance slider moved
+  var balanceSlider2=root.querySelector('#fe-balance-slider');
+  if(balanceSlider2) balanceSlider2.addEventListener('input',function(){ markDone(4); });
+
+  // 5 · both load fee types explored
+  var loadSeen={};
+  var turnstileFront2=root.querySelector('#fe-turnstile-front'), turnstileBack2=root.querySelector('#fe-turnstile-back');
+  if(turnstileFront2) turnstileFront2.addEventListener('click',function(){ loadSeen.front=1;
+    if(loadSeen.front&&loadSeen.back) markDone(5); else liveHint(5,'Now tap the other turnstile too'); });
+  if(turnstileBack2) turnstileBack2.addEventListener('click',function(){ loadSeen.back=1;
+    if(loadSeen.front&&loadSeen.back) markDone(5); else liveHint(5,'Now tap the other turnstile too'); });
+
+  // 6 · all 3 funds compared
+  var shopSeen={};
+  root.querySelectorAll('#fe-shop-grid .fe-shop-card').forEach(function(card){
+    card.addEventListener('click',function(){ shopSeen[card.getAttribute('data-t')]=1;
+      if(keys(shopSeen)>=3) markDone(6); else liveHint(6,'Compared '+keys(shopSeen)+' of 3 — keep going'); });
+  });
+
+  // 7 · all 4 inspector rulings made
+  root.querySelectorAll('#fe-inspector .fe-sort-btns button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#fe-inspector .fe-sort-row.done');
+      if(n>=4) markDone(7); else liveHint(7,'Ruled '+n+' of 4 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#fe-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

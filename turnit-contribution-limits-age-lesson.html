@@ -1,0 +1,741 @@
+<!-- ============================================================
+     TURNIT — THE RULES: CONTRIBUTION LIMITS & AGE REQUIREMENTS  (Module 2 · Lesson 4)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-cl. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 The Contribution Meter       2 The Earned Income Checkpoint
+       3 The Age Timeline Scrubber    4 The RMD Alarm Clock
+       5 The Penalty Receipt          6 Quick Fire Grid
+       7 The Calendar Stamp           8 The Cheat Sheet
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-cl">
+  <div class="cl-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="cl-top">
+      <div class="cl-topbar">
+        <div class="cl-brand"><span class="cl-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></svg></span><span class="cl-word">TURNIT</span><span class="cl-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="cl-progress"><span id="cl-bar"></span></div>
+      <div class="cl-meta"><span id="cl-slide-label">The Contribution Meter</span><span id="cl-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · THE CONTRIBUTION METER ========== -->
+    <section class="cl-sec cl-reveal" data-step="1">
+      <p class="cl-kicker">The Contribution Meter · 1 / 9</p>
+      <h2 class="cl-h2">Your IRA has a hard ceiling</h2>
+      <p class="cl-p">This one's specific to IRAs — a Roth or Traditional. Tap to add contributions and watch the meter fill. See what happens if you try to go past the limit.</p>
+
+      <div class="cl-panel">
+        <div class="cl-meter-track"><span class="cl-meter-fill" id="cl-meter-fill"></span><span class="cl-meter-cap-mark"></span></div>
+        <div class="cl-meter-readout"><b id="cl-meter-total">$0</b><span id="cl-meter-cap-lab">of ~$7,000 annual IRA limit</span></div>
+
+        <label class="cl-catchup-toggle"><input type="checkbox" id="cl-catchup"> I'm 50 or older (catch-up eligible)</label>
+
+        <div class="cl-meter-btns">
+          <button type="button" class="cl-meter-btn" id="cl-add-500">+ $500</button>
+          <button type="button" class="cl-meter-btn" id="cl-add-1000">+ $1,000</button>
+          <button type="button" class="cl-meter-btn ghost" id="cl-meter-reset">↺ Reset</button>
+        </div>
+        <div class="cl-meter-warning" id="cl-meter-warning">&nbsp;</div>
+        <div class="cl-note">Illustrative limit shown — always check the current IRS limit, since it's adjusted periodically.</div>
+      </div>
+    </section>
+
+    <!-- ========== 2 · THE EARNED INCOME CHECKPOINT ========== -->
+    <section class="cl-sec cl-reveal" data-step="2">
+      <p class="cl-kicker">The Earned Income Checkpoint · 2 / 9</p>
+      <h2 class="cl-h2">You can't contribute more than you earned</h2>
+      <p class="cl-p">That IRA limit is a ceiling — not a target. Tap each person to check their real cap.</p>
+
+      <div class="cl-people-grid" id="cl-people-grid">
+        <div class="cl-person-card">
+          <div class="cl-person-ico">🧑‍🎓</div>
+          <p class="cl-person-name">Summer Job Teen</p>
+          <p class="cl-person-detail">Earned $3,000 this year</p>
+          <button type="button" class="cl-person-check" data-earned="3000">Check Their Limit</button>
+          <div class="cl-stamp" id="cl-stamp-0">&nbsp;</div>
+        </div>
+        <div class="cl-person-card">
+          <div class="cl-person-ico">🧓</div>
+          <p class="cl-person-name">Retiree, No Job</p>
+          <p class="cl-person-detail">$0 in earned income this year</p>
+          <button type="button" class="cl-person-check" data-earned="0">Check Their Limit</button>
+          <div class="cl-stamp" id="cl-stamp-1">&nbsp;</div>
+        </div>
+        <div class="cl-person-card">
+          <div class="cl-person-ico">👩‍💼</div>
+          <p class="cl-person-name">Full-Time Worker</p>
+          <p class="cl-person-detail">Earned $60,000 this year</p>
+          <button type="button" class="cl-person-check" data-earned="60000">Check Their Limit</button>
+          <div class="cl-stamp" id="cl-stamp-2">&nbsp;</div>
+        </div>
+      </div>
+      <p class="cl-count" id="cl-people-count">Checked 0 of 3</p>
+    </section>
+
+    <!-- ========== 3 · THE AGE TIMELINE SCRUBBER ========== -->
+    <section class="cl-sec cl-reveal" data-step="3">
+      <p class="cl-kicker">The Age Timeline Scrubber · 3 / 9</p>
+      <h2 class="cl-h2">Drag through a lifetime of rules</h2>
+      <p class="cl-p">Scrub through ages 10 to 90 and watch the rules change.</p>
+
+      <div class="cl-panel">
+        <div class="cl-timeline-age" id="cl-timeline-age">Age 10</div>
+        <div class="cl-timeline-track">
+          <span class="cl-timeline-zone z1" style="left:0%; width:55.1%"></span>
+          <span class="cl-timeline-zone z2" style="left:55.1%; width:17.5%"></span>
+          <span class="cl-timeline-zone z3" style="left:72.6%; width:27.4%"></span>
+          <span class="cl-timeline-mark" style="left:55.1%"></span>
+          <span class="cl-timeline-mark" style="left:72.6%"></span>
+        </div>
+        <input id="cl-timeline-slider" class="cl-range" type="range" min="10" max="90" value="10" step="1" aria-label="Age">
+        <div class="cl-scale"><span>10</span><span>59½</span><span>73</span><span>90</span></div>
+        <div class="cl-timeline-rule" id="cl-timeline-rule">Any age with earned income can contribute — no minimum age at all.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · THE RMD ALARM CLOCK ========== -->
+    <section class="cl-sec cl-center cl-reveal" data-step="4">
+      <p class="cl-kicker center">The RMD Alarm Clock · 4 / 9</p>
+      <h2 class="cl-h2 center">Eventually, the IRS wants its cut</h2>
+      <p class="cl-sub center">Tap the alarm to see what happens around age 73.</p>
+
+      <div class="cl-alarm-stage">
+        <div class="cl-alarm-clock" id="cl-alarm-clock">⏰</div>
+        <button type="button" class="cl-alarm-btn" id="cl-alarm-btn">Tap to Silence the Alarm</button>
+        <div class="cl-alarm-fact" id="cl-alarm-fact" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · THE PENALTY RECEIPT ========== -->
+    <section class="cl-sec cl-reveal" data-step="5">
+      <p class="cl-kicker">The Penalty Receipt · 5 / 9</p>
+      <h2 class="cl-h2">What withdrawing early from an IRA actually costs</h2>
+      <p class="cl-p">Set an amount and toggle the timing to see the real receipt.</p>
+
+      <div class="cl-panel">
+        <div class="cl-slide-row">
+          <div class="cl-slide-top"><label for="cl-receipt-amt">Withdrawal Amount</label><span class="cl-slide-v blue" id="cl-receipt-amt-v">$1,000</span></div>
+          <input id="cl-receipt-amt" class="cl-range" type="range" min="500" max="5000" value="1000" step="250" aria-label="Withdrawal amount">
+        </div>
+        <label class="cl-catchup-toggle"><input type="checkbox" id="cl-receipt-early"> Withdrawing before age 59½</label>
+
+        <div class="cl-receipt">
+          <p class="cl-receipt-title">🧾 Withdrawal Receipt</p>
+          <div class="cl-receipt-line"><span>Withdrawal Amount</span><b id="cl-r-amt">$1,000</b></div>
+          <div class="cl-receipt-line"><span>Income Tax (~22%, illustrative)</span><b id="cl-r-tax">-$220</b></div>
+          <div class="cl-receipt-line penalty" id="cl-r-penalty-line" style="display:none;"><span>Early Withdrawal Penalty (~10%)</span><b id="cl-r-penalty">-$100</b></div>
+          <div class="cl-receipt-line total"><span>You Actually Receive</span><b id="cl-r-net">$780</b></div>
+        </div>
+        <div class="cl-note">Simplified, illustrative figures — not real tax or penalty advice.</div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · QUICK FIRE GRID ========== -->
+    <section class="cl-sec cl-reveal" data-step="6">
+      <p class="cl-kicker">Quick Fire Grid · 6 / 9</p>
+      <h2 class="cl-h2">Myth or fact?</h2>
+      <p class="cl-p">Tap your answer on each card — any order.</p>
+
+      <div class="cl-grid-quiz" id="cl-grid-quiz">
+        <div class="cl-quiz-card" data-answer="fact"><p class="cl-quiz-q">The annual limit is shared across your Roth and Traditional IRA combined.</p><div class="cl-quiz-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="cl-quiz-why"></p></div>
+        <div class="cl-quiz-card" data-answer="myth"><p class="cl-quiz-q">You can contribute more to an IRA than you actually earned that year.</p><div class="cl-quiz-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="cl-quiz-why"></p></div>
+        <div class="cl-quiz-card" data-answer="fact"><p class="cl-quiz-q">There's no maximum age to contribute, as long as you have earned income.</p><div class="cl-quiz-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="cl-quiz-why"></p></div>
+        <div class="cl-quiz-card" data-answer="myth"><p class="cl-quiz-q">Withdrawing before 59½ always means losing 100% of the money.</p><div class="cl-quiz-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="cl-quiz-why"></p></div>
+        <div class="cl-quiz-card" data-answer="fact"><p class="cl-quiz-q">People 50 and older can contribute extra "catch-up" money above the normal limit.</p><div class="cl-quiz-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="cl-quiz-why"></p></div>
+      </div>
+      <p class="cl-count" id="cl-quiz-count">Answered 0 of 5</p>
+    </section>
+
+    <!-- ========== 7 · THE CALENDAR STAMP ========== -->
+    <section class="cl-sec cl-center cl-reveal" data-step="7">
+      <p class="cl-kicker center">The Calendar Stamp · 7 / 9</p>
+      <h2 class="cl-h2 center">Set the whole year on autopilot</h2>
+      <p class="cl-sub center">Tap once and watch every month check itself off.</p>
+
+      <div class="cl-calendar-grid" id="cl-calendar-grid">
+        <span class="cl-cal-month">Jan</span><span class="cl-cal-month">Feb</span><span class="cl-cal-month">Mar</span>
+        <span class="cl-cal-month">Apr</span><span class="cl-cal-month">May</span><span class="cl-cal-month">Jun</span>
+        <span class="cl-cal-month">Jul</span><span class="cl-cal-month">Aug</span><span class="cl-cal-month">Sep</span>
+        <span class="cl-cal-month">Oct</span><span class="cl-cal-month">Nov</span><span class="cl-cal-month">Dec</span>
+      </div>
+      <button type="button" class="cl-cal-btn" id="cl-cal-btn">📅 Automate This Year's Contributions</button>
+      <p class="cl-cal-msg" id="cl-cal-msg">&nbsp;</p>
+    </section>
+
+    <!-- ========== 8 · THE CHEAT SHEET ========== -->
+    <section class="cl-sec cl-reveal" data-step="8">
+      <p class="cl-kicker">Recap · 8 / 9</p>
+      <h2 class="cl-h2">Build your cheat sheet</h2>
+      <p class="cl-p">Tap to add each point, one at a time.</p>
+
+      <div class="cl-notecard">
+        <p class="cl-notecard-title">📝 The Rules, At a Glance</p>
+        <div class="cl-notecard-lines" id="cl-notecard-lines"></div>
+      </div>
+      <button type="button" class="cl-notecard-btn" id="cl-notecard-btn">+ Add Next Point</button>
+      <p class="cl-count" id="cl-notecard-count">0 of 6 added</p>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="cl-sec cl-center cl-reveal" data-step="9">
+      <p class="cl-kicker center">Certified · 9 / 9</p>
+      <div class="cl-cert">
+        <div class="cl-cert-border"></div>
+        <span class="cl-cert-pill">🏆 Certificate of Completion</span>
+        <p class="cl-cert-cert">This certifies that</p>
+        <h2 class="cl-cert-name">Rules Mastered</h2>
+        <p class="cl-cert-body">has completed <span class="cl-tw">TURNIT</span> Financial Foundations: The Rules — Contribution Limits & Age Requirements, and now understands the real numbers behind IRA accounts.</p>
+        <div class="cl-cert-line"></div>
+        <div class="cl-done-row streak"><div class="cl-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="cl-done-row ach"><div class="cl-done-ico">🏆</div><div><b>Achievement: Rules Certified</b><span>You mastered contribution limits and age requirements.</span></div></div>
+        <div class="cl-done-btns">
+          <a class="cl-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="cl-btn ghost" id="cl-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="cl-quote">"A GOAL WITHOUT A DEADLINE <span class="cl-green">IS JUST A DREAM.</span>"<br><span class="cl-quote-by">— NAPOLEON HILL</span></p>
+    </section>
+
+    <p class="cl-disclaimer">TURNIT is for educational purposes only and is not financial or tax advice. Contribution limits, penalties, and age thresholds shown are simplified, illustrative figures based on commonly cited rules — these numbers are adjusted periodically, so always verify the current limits directly with the IRS or a qualified professional.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="cl-nav" id="cl-nav">
+      <button type="button" class="cl-nav-btn prev" id="cl-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="cl-nav-hint" id="cl-nav-hint"></span>
+      <button type="button" class="cl-nav-btn next" id="cl-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-cl{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-cl *,#tn-cl *::before,#tn-cl *::after{box-sizing:border-box;}
+  #tn-cl .cl-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-cl .cl-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-cl .cl-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-cl .cl-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-cl .cl-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-cl .cl-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-cl .cl-bico{display:flex;}
+  #tn-cl .cl-word,#tn-cl .cl-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-cl .cl-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-cl .cl-bsub{color:var(--ink2); font-weight:500;}
+  #tn-cl .cl-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-cl #cl-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-cl .cl-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-cl .cl-meta #cl-slide-label{color:var(--ink2);}
+  #tn-cl .cl-meta #cl-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-cl .cl-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-cl .cl-sec.cl-hide{display:none;}
+  #tn-cl .cl-center{text-align:center;}
+  #tn-cl .cl-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-cl .cl-kicker.center{text-align:center;}
+  #tn-cl .cl-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-cl .cl-h2.center{text-align:center;}
+  #tn-cl .cl-tw{font-style:italic;}
+  #tn-cl .cl-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-cl .cl-p b{color:var(--ink); font-weight:700;}
+  #tn-cl .cl-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-cl .cl-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-cl .cl-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-cl .cl-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+
+  /* slide rows / ranges (shared) */
+  #tn-cl .cl-slide-row{margin-top:6px;}
+  #tn-cl .cl-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-cl .cl-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-cl .cl-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-cl .cl-slide-v.blue{color:var(--b);}
+  #tn-cl .cl-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-cl .cl-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-cl .cl-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-cl .cl-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+  #tn-cl .cl-catchup-toggle{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink2); font-weight:600; margin:14px 0; cursor:pointer;}
+  #tn-cl .cl-catchup-toggle input{width:17px; height:17px; accent-color:var(--g);}
+
+  /* ---- slide 1: contribution meter ---- */
+  #tn-cl .cl-meter-track{position:relative; height:26px; border-radius:13px; background:var(--cardbg); border:1px solid var(--line); overflow:visible;}
+  #tn-cl .cl-meter-fill{display:block; height:100%; width:0%; border-radius:13px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .3s ease, background .3s ease;}
+  #tn-cl .cl-meter-fill.over{background:linear-gradient(90deg,var(--gold),var(--no));}
+  #tn-cl .cl-meter-cap-mark{position:absolute; top:-4px; bottom:-4px; left:100%; width:2px; background:var(--ink);}
+  #tn-cl .cl-meter-readout{text-align:center; margin:10px 0 4px;}
+  #tn-cl .cl-meter-readout b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,6vw,30px); color:var(--ink);}
+  #tn-cl .cl-meter-readout span{font-size:12.5px; color:var(--mut); font-weight:600;}
+  #tn-cl .cl-meter-btns{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:8px;}
+  #tn-cl .cl-meter-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:10px; padding:12px 6px; cursor:pointer; transition:transform .15s;}
+  #tn-cl .cl-meter-btn:hover{transform:translateY(-2px);}
+  #tn-cl .cl-meter-btn.ghost{background:#fff; color:var(--ink2); border:1.5px solid var(--cardbd);}
+  #tn-cl .cl-meter-warning{text-align:center; font-size:13px; font-weight:700; color:var(--no); min-height:18px; margin-top:12px;}
+
+  /* ---- slide 2: earned income checkpoint ---- */
+  #tn-cl .cl-people-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;}
+  #tn-cl .cl-person-card{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 8px; text-align:center;}
+  #tn-cl .cl-person-ico{font-size:28px; margin-bottom:6px;}
+  #tn-cl .cl-person-name{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--ink); margin:0 0 3px;}
+  #tn-cl .cl-person-detail{font-size:10.5px; color:var(--ink2); margin:0 0 10px;}
+  #tn-cl .cl-person-check{font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; color:var(--b); background:#fff; border:1.5px solid var(--cardbd); border-radius:9px; padding:8px 4px; cursor:pointer; width:100%; transition:all .15s;}
+  #tn-cl .cl-person-check:hover{background:var(--tint);}
+  #tn-cl .cl-person-check:disabled{opacity:.4; cursor:default;}
+  #tn-cl .cl-stamp{margin-top:8px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; min-height:32px; display:flex; align-items:center; justify-content:center; text-align:center; line-height:1.3; transform:scale(0) rotate(-15deg); transition:transform .3s cubic-bezier(.4,1.8,.5,1);}
+  #tn-cl .cl-stamp.show{transform:scale(1) rotate(-8deg);}
+  #tn-cl .cl-stamp.ok{color:var(--g);}
+  #tn-cl .cl-stamp.limited{color:var(--gold);}
+
+  /* ---- slide 3: age timeline scrubber ---- */
+  #tn-cl .cl-timeline-age{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:24px; color:var(--ink); margin-bottom:10px;}
+  #tn-cl .cl-timeline-track{position:relative; height:14px; border-radius:7px; overflow:hidden; margin-bottom:4px;}
+  #tn-cl .cl-timeline-zone{position:absolute; top:0; bottom:0;}
+  #tn-cl .cl-timeline-zone.z1{background:var(--tint);}
+  #tn-cl .cl-timeline-zone.z2{background:var(--goldbg);}
+  #tn-cl .cl-timeline-zone.z3{background:var(--nobg);}
+  #tn-cl .cl-timeline-mark{position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--ink); opacity:.5;}
+  #tn-cl .cl-timeline-rule{background:var(--mist); border:1px solid var(--line); border-radius:12px; padding:14px 16px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.5; margin-top:16px; min-height:20px;}
+
+  /* ---- slide 4: alarm clock ---- */
+  #tn-cl .cl-alarm-stage{background:var(--mist); border:1px solid var(--line); border-radius:18px; padding:30px 20px; text-align:center;}
+  #tn-cl .cl-alarm-clock{font-size:56px; display:inline-block; margin-bottom:16px; transition:transform .1s;}
+  #tn-cl .cl-alarm-clock.ring{animation:cl-ring .5s ease 3;}
+  @keyframes cl-ring{0%,100%{transform:rotate(0);}20%{transform:rotate(-15deg);}40%{transform:rotate(15deg);}60%{transform:rotate(-10deg);}80%{transform:rotate(10deg);}}
+  #tn-cl .cl-alarm-btn{display:block; width:100%; max-width:320px; margin:0 auto; font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-cl .cl-alarm-btn:hover{transform:translateY(-2px);}
+  #tn-cl .cl-alarm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-cl .cl-alarm-fact{margin-top:16px; font-size:13.5px; color:var(--ink2); line-height:1.55; text-align:left; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; max-width:460px; margin-left:auto; margin-right:auto;}
+  #tn-cl .cl-alarm-fact b{color:var(--ink);}
+
+  /* ---- slide 5: receipt ---- */
+  #tn-cl .cl-receipt{background:#fff; border:1.5px dashed var(--cardbd); border-radius:12px; padding:16px 18px; margin-top:16px;}
+  #tn-cl .cl-receipt-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin:0 0 10px; text-align:center;}
+  #tn-cl .cl-receipt-line{display:flex; justify-content:space-between; font-size:13px; color:var(--ink2); padding:7px 0; border-bottom:1px dashed var(--line);}
+  #tn-cl .cl-receipt-line b{font-family:'Poppins',sans-serif; color:var(--ink); font-weight:700;}
+  #tn-cl .cl-receipt-line.penalty b{color:var(--no);}
+  #tn-cl .cl-receipt-line.total{border-bottom:none; padding-top:10px; font-weight:700;}
+  #tn-cl .cl-receipt-line.total span{color:var(--ink); font-family:'Poppins',sans-serif; font-weight:700;}
+  #tn-cl .cl-receipt-line.total b{color:var(--g); font-size:16px;}
+
+  /* ---- slide 6: quick fire grid ---- */
+  #tn-cl .cl-grid-quiz{display:flex; flex-direction:column; gap:10px;}
+  #tn-cl .cl-quiz-card{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:background .2s ease, border-color .2s ease;}
+  #tn-cl .cl-quiz-card.correct{background:var(--tint); border-color:var(--selbd);}
+  #tn-cl .cl-quiz-card.wrong{background:var(--nobg); border-color:var(--nobd);}
+  #tn-cl .cl-quiz-q{font-size:14px; color:var(--ink); font-weight:500; margin:0 0 10px; line-height:1.4;}
+  #tn-cl .cl-quiz-btns{display:flex; gap:8px;}
+  #tn-cl .cl-quiz-btns button{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:8px 6px; border-radius:9px; cursor:pointer; background:#fff; border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-cl .cl-quiz-btns button[data-p="myth"]{border-color:#F5C6BE; color:var(--no);}
+  #tn-cl .cl-quiz-card.done .cl-quiz-btns button{opacity:.4; pointer-events:none;}
+  #tn-cl .cl-quiz-card.done .cl-quiz-btns button.picked{opacity:1;}
+  #tn-cl .cl-quiz-why{font-size:12.5px; color:var(--ink2); line-height:1.45; margin:8px 0 0; display:none;}
+  #tn-cl .cl-quiz-why b{font-family:'Poppins',sans-serif;}
+  #tn-cl .cl-quiz-card.done .cl-quiz-why{display:block;}
+
+  /* ---- slide 7: calendar stamp ---- */
+  #tn-cl .cl-calendar-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; max-width:340px; margin:0 auto 20px;}
+  #tn-cl .cl-cal-month{position:relative; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:10px; padding:14px 4px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--ink2); text-align:center; transition:all .25s;}
+  #tn-cl .cl-cal-month.done{background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-cl .cl-cal-month.done::after{content:"\2713"; position:absolute; top:2px; right:5px; font-size:11px; color:var(--g);}
+  #tn-cl .cl-cal-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px 24px; cursor:pointer; transition:transform .15s;}
+  #tn-cl .cl-cal-btn:hover{transform:translateY(-2px);}
+  #tn-cl .cl-cal-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-cl .cl-cal-msg{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--g); margin-top:16px; min-height:20px;}
+
+  /* ---- slide 8: cheat sheet ---- */
+  #tn-cl .cl-notecard{background:#FFFDF5; border:1.5px solid var(--goldbd); border-radius:14px; padding:20px 20px 14px; box-shadow:0 10px 24px -18px rgba(0,0,0,.25); min-height:190px;}
+  #tn-cl .cl-notecard-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin:0 0 12px;}
+  #tn-cl .cl-notecard-line{display:flex; align-items:flex-start; gap:8px; font-size:13.5px; color:var(--ink2); line-height:1.45; margin-bottom:9px; opacity:0; transform:translateY(6px); animation:cl-line-in .35s ease forwards;}
+  @keyframes cl-line-in{to{opacity:1; transform:translateY(0);}}
+  #tn-cl .cl-notecard-line b{color:var(--g); flex:none;}
+  #tn-cl .cl-notecard-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:13px; cursor:pointer; transition:transform .15s; margin-top:16px;}
+  #tn-cl .cl-notecard-btn:hover{transform:translateY(-2px);}
+  #tn-cl .cl-notecard-btn:disabled{opacity:.5; cursor:default; transform:none;}
+
+  /* certificate */
+  #tn-cl .cl-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-cl .cl-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-cl .cl-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-cl .cl-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-cl .cl-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-cl .cl-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-cl .cl-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-cl .cl-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-cl .cl-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-cl .cl-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-cl .cl-done-ico{font-size:20px; flex:none;}
+  #tn-cl .cl-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-cl .cl-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-cl .cl-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-cl .cl-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-cl .cl-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-cl .cl-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-cl .cl-btn:hover{transform:translateY(-2px);}
+  #tn-cl .cl-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-cl .cl-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-cl .cl-green{color:var(--g);}
+  #tn-cl .cl-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-cl .cl-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-cl .cl-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-cl .cl-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-cl .cl-nav-btn.prev{color:var(--ink2);}
+  #tn-cl .cl-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-cl .cl-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-cl .cl-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-cl .cl-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-cl .cl-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-cl .cl-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-cl .cl-wrap{padding:12px 14px 30px;}
+    #tn-cl .cl-people-grid{grid-template-columns:1fr;}
+    #tn-cl .cl-calendar-grid{grid-template-columns:repeat(3,1fr);}
+    #tn-cl .cl-bsub{display:none;}
+    #tn-cl .cl-nav-hint{display:none;}
+    #tn-cl .cl-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-cl .cl-reveal{opacity:1 !important; transform:none !important;}
+    #tn-cl #cl-bar{transition:none;}
+    #tn-cl .cl-alarm-clock.ring{animation:none !important;}
+    #tn-cl .cl-notecard-line{animation:none !important; opacity:1 !important; transform:none !important;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-cl'); if(!root) return;
+  root.querySelectorAll('.cl-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 1 · the contribution meter ============ */
+  var meterFill=root.querySelector('#cl-meter-fill'), meterTotal=root.querySelector('#cl-meter-total'),
+      meterCapLab=root.querySelector('#cl-meter-cap-lab'), meterWarning=root.querySelector('#cl-meter-warning'),
+      catchup=root.querySelector('#cl-catchup'), addBtn500=root.querySelector('#cl-add-500'),
+      addBtn1000=root.querySelector('#cl-add-1000'), resetBtn=root.querySelector('#cl-meter-reset');
+  var meterTotalVal=0;
+  function meterCap(){ return catchup.checked ? 8000 : 7000; }
+  function meterRender(){
+    var cap=meterCap();
+    meterCapLab.textContent='of ~'+moneyRound(cap)+' annual IRA limit'+(catchup.checked?' (with catch-up)':'');
+    meterTotal.textContent=moneyRound(meterTotalVal);
+    var pct=Math.min(100,(meterTotalVal/cap)*100);
+    meterFill.style.width=pct+'%';
+    if(meterTotalVal>cap){
+      meterFill.classList.add('over');
+      meterWarning.textContent='\u26a0\ufe0f Over the limit by '+moneyRound(meterTotalVal-cap)+' \u2014 the IRS won\u2019t let this contribution go through.';
+    } else {
+      meterFill.classList.remove('over');
+      meterWarning.textContent='';
+    }
+    postHeight();
+  }
+  if(addBtn500) addBtn500.addEventListener('click',function(){ meterTotalVal+=500; meterRender(); });
+  if(addBtn1000) addBtn1000.addEventListener('click',function(){ meterTotalVal+=1000; meterRender(); });
+  if(resetBtn) resetBtn.addEventListener('click',function(){ meterTotalVal=0; meterRender(); });
+  if(catchup) catchup.addEventListener('change',meterRender);
+  meterRender();
+
+  /* ============ 2 · the earned income checkpoint ============ */
+  var CONTRIB_CAP=7000;
+  var peopleChecked=0, peopleCount=root.querySelector('#cl-people-count');
+  root.querySelectorAll('#cl-people-grid .cl-person-check').forEach(function(btn,i){
+    btn.addEventListener('click',function(){
+      var earned=+btn.getAttribute('data-earned');
+      var allowed=Math.min(earned, CONTRIB_CAP);
+      var stamp=root.querySelector('#cl-stamp-'+i);
+      if(earned===0){
+        stamp.className='cl-stamp show limited';
+        stamp.textContent='$0 \u2014 NO EARNED INCOME';
+      } else if(allowed<CONTRIB_CAP){
+        stamp.className='cl-stamp show limited';
+        stamp.textContent='LIMITED TO '+moneyRound(allowed);
+      } else {
+        stamp.className='cl-stamp show ok';
+        stamp.textContent='UP TO '+moneyRound(allowed)+' OK';
+      }
+      btn.disabled=true;
+      peopleChecked++;
+      peopleCount.textContent='Checked '+peopleChecked+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 3 · the age timeline scrubber ============ */
+  var timelineSlider=root.querySelector('#cl-timeline-slider'), timelineAge=root.querySelector('#cl-timeline-age'),
+      timelineRule=root.querySelector('#cl-timeline-rule');
+  function timelineCalc(){
+    var age=+timelineSlider.value;
+    timelineAge.textContent='Age '+age;
+    if(age<59.5){
+      timelineRule.textContent='Any age with earned income can contribute \u2014 no minimum age at all. But withdrawing money now would generally trigger the early withdrawal penalty.';
+    } else if(age<73){
+      timelineRule.textContent='Past 59\u00bd, withdrawals are penalty-free. You can still keep contributing too, as long as you have earned income.';
+    } else {
+      timelineRule.textContent='Around age 73, Traditional IRAs require you to start taking Required Minimum Distributions (RMDs) \u2014 Roth IRAs don\u2019t have this requirement.';
+    }
+    postHeight();
+  }
+  if(timelineSlider){ timelineSlider.addEventListener('input',timelineCalc); timelineCalc(); }
+
+  /* ============ 4 · the RMD alarm clock ============ */
+  var alarmClock=root.querySelector('#cl-alarm-clock'), alarmBtn=root.querySelector('#cl-alarm-btn'),
+      alarmFact=root.querySelector('#cl-alarm-fact');
+  if(alarmBtn) alarmBtn.addEventListener('click',function(){
+    alarmClock.classList.add('ring');
+    alarmBtn.disabled=true;
+    setTimeout(function(){
+      alarmClock.textContent='\u2705';
+      alarmFact.style.display='block';
+      alarmFact.innerHTML='Around age 73, <b>Traditional IRAs</b> require you to start withdrawing a minimum amount each year \u2014 these are called <b>Required Minimum Distributions (RMDs)</b>. <b>Roth IRAs have no RMDs</b> during the original owner\u2019s lifetime.';
+      postHeight();
+    },1500);
+  });
+
+  /* ============ 5 · the penalty receipt ============ */
+  var receiptAmt=root.querySelector('#cl-receipt-amt'), receiptAmtV=root.querySelector('#cl-receipt-amt-v'),
+      receiptEarly=root.querySelector('#cl-receipt-early'), rAmt=root.querySelector('#cl-r-amt'),
+      rTax=root.querySelector('#cl-r-tax'), rPenaltyLine=root.querySelector('#cl-r-penalty-line'),
+      rPenalty=root.querySelector('#cl-r-penalty'), rNet=root.querySelector('#cl-r-net');
+  function receiptCalc(){
+    var amt=+receiptAmt.value;
+    receiptAmtV.textContent=moneyRound(amt);
+    var tax=amt*0.22;
+    var penalty=receiptEarly.checked ? amt*0.10 : 0;
+    var net=amt-tax-penalty;
+    rAmt.textContent=moneyRound(amt);
+    rTax.textContent='-'+moneyRound(tax);
+    rPenaltyLine.style.display=receiptEarly.checked?'flex':'none';
+    rPenalty.textContent='-'+moneyRound(penalty);
+    rNet.textContent=moneyRound(net);
+    postHeight();
+  }
+  if(receiptAmt){ receiptAmt.addEventListener('input',receiptCalc); }
+  if(receiptEarly){ receiptEarly.addEventListener('change',receiptCalc); }
+  receiptCalc();
+
+  /* ============ 6 · quick fire grid ============ */
+  var quizAnswered=0, quizCount=root.querySelector('#cl-quiz-count');
+  var quizWhyMap=[
+    'The combined cap applies across both account types together, not separately for each.',
+    'You can only contribute up to what you actually earned that year, even if the general limit is higher.',
+    'There\u2019s no maximum age \u2014 only a requirement that you have earned income.',
+    'Only the growth (and for Roth, sometimes contributions too) is affected by the penalty \u2014 not the whole balance.',
+    'A "catch-up" contribution lets people 50+ add extra above the standard annual limit.'
+  ];
+  root.querySelectorAll('#cl-grid-quiz .cl-quiz-card').forEach(function(card,i){
+    var ans=card.getAttribute('data-answer');
+    var whyEl=card.querySelector('.cl-quiz-why');
+    card.querySelectorAll('.cl-quiz-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(card.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        card.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(ans==='fact'?'Fact.':'Myth.')+'</b> '+quizWhyMap[i];
+        quizAnswered++;
+        quizCount.textContent='Answered '+quizAnswered+' of 5';
+        postHeight();
+      });
+    });
+  });
+
+  /* ============ 7 · the calendar stamp ============ */
+  var calBtn=root.querySelector('#cl-cal-btn'), calMsg=root.querySelector('#cl-cal-msg');
+  var calMonths=root.querySelectorAll('#cl-calendar-grid .cl-cal-month');
+  if(calBtn) calBtn.addEventListener('click',function(){
+    calBtn.disabled=true;
+    calMonths.forEach(function(m,i){
+      setTimeout(function(){ m.classList.add('done'); postHeight(); },i*90);
+    });
+    setTimeout(function(){
+      calMsg.textContent='Every month, automatically \u2014 no more remembering, no more deciding.';
+      postHeight();
+    }, calMonths.length*90+300);
+  });
+
+  /* ============ 8 · the cheat sheet ============ */
+  var notecardItems=[
+    'The annual IRA contribution limit is shared across Roth + Traditional combined.',
+    'You can never contribute more than you actually earned that year.',
+    'No minimum or maximum age to contribute \u2014 as long as you have earned income.',
+    'Age 59\u00bd is the line for penalty-free withdrawals.',
+    'Traditional IRAs require RMDs starting around age 73. Roths don\u2019t, during your lifetime.',
+    'A standard brokerage account has none of these rules \u2014 no limits, no ages, ever.'
+  ];
+  var notecardIdx=0;
+  var notecardLines=root.querySelector('#cl-notecard-lines'), notecardBtn=root.querySelector('#cl-notecard-btn'),
+      notecardCount=root.querySelector('#cl-notecard-count');
+  if(notecardBtn) notecardBtn.addEventListener('click',function(){
+    if(notecardIdx>=notecardItems.length) return;
+    var line=document.createElement('div');
+    line.className='cl-notecard-line';
+    line.innerHTML='<b>\u2713</b><span>'+notecardItems[notecardIdx]+'</span>';
+    notecardLines.appendChild(line);
+    notecardIdx++;
+    notecardCount.textContent=notecardIdx+' of '+notecardItems.length+' added';
+    if(notecardIdx>=notecardItems.length){ notecardBtn.disabled=true; notecardBtn.textContent='Cheat Sheet Complete'; }
+    postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-cl'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#cl-bar');
+  var labelEl=root.querySelector('#cl-slide-label');
+  var countEl=root.querySelector('#cl-slide-count');
+  var prevBtn=root.querySelector('#cl-prev');
+  var nextBtn=root.querySelector('#cl-next');
+  var hintEl=root.querySelector('#cl-nav-hint');
+  var disclaimer=root.querySelector('.cl-disclaimer');
+
+  var labels={1:'The Contribution Meter',2:'Earned Income Checkpoint',3:'The Age Timeline',4:'The RMD Alarm Clock',5:'The Penalty Receipt',6:'Quick Fire Grid',7:'The Calendar Stamp',8:'The Cheat Sheet',9:'Certified'};
+  var reqHints={1:'Add contributions past the limit to continue',2:'Check all 3 people',3:'Explore all 3 age zones',4:'Tap the alarm to continue',5:'Toggle early withdrawal both ways',6:'Answer all 5 to continue',7:'Automate the year to continue'};
+
+  var done={8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.cl-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('cl-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('cl-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · must exceed the cap at least once
+  var meterOverSeen=false;
+  var addBtn500b=root.querySelector('#cl-add-500'), addBtn1000b=root.querySelector('#cl-add-1000');
+  var meterTotal2=0;
+  function meterGateCheck(added){
+    meterTotal2+=added;
+    var catchup2=root.querySelector('#cl-catchup');
+    var cap=catchup2&&catchup2.checked?8000:7000;
+    if(meterTotal2>cap){ meterOverSeen=true; }
+    if(meterOverSeen) markDone(1); else liveHint(1,'Keep adding past the limit to see what happens');
+  }
+  if(addBtn500b) addBtn500b.addEventListener('click',function(){ meterGateCheck(500); });
+  if(addBtn1000b) addBtn1000b.addEventListener('click',function(){ meterGateCheck(1000); });
+  var resetBtn2=root.querySelector('#cl-meter-reset');
+  if(resetBtn2) resetBtn2.addEventListener('click',function(){ meterTotal2=0; });
+
+  // 2 · all 3 people checked
+  var peopleChecked2=0;
+  root.querySelectorAll('#cl-people-grid .cl-person-check').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      peopleChecked2++;
+      if(peopleChecked2>=3) markDone(2); else liveHint(2,'Checked '+peopleChecked2+' of 3 — keep going');
+    });
+  });
+
+  // 3 · all 3 age zones explored
+  var zoneState={z1:false,z2:false,z3:false};
+  var timelineSlider2=root.querySelector('#cl-timeline-slider');
+  if(timelineSlider2) timelineSlider2.addEventListener('input',function(){
+    var age=+timelineSlider2.value;
+    if(age<59.5) zoneState.z1=true;
+    else if(age<73) zoneState.z2=true;
+    else zoneState.z3=true;
+    if(zoneState.z1&&zoneState.z2&&zoneState.z3) markDone(3);
+    else {
+      var missing=[];
+      if(!zoneState.z1) missing.push('under 59\u00bd');
+      if(!zoneState.z2) missing.push('59\u00bd\u201373');
+      if(!zoneState.z3) missing.push('73+');
+      liveHint(3,'Still need: '+missing.join(', '));
+    }
+  });
+
+  // 4 · alarm tapped
+  var alarmBtn2=root.querySelector('#cl-alarm-btn');
+  if(alarmBtn2) alarmBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(4); },1550); });
+
+  // 5 · early toggle switched both ways
+  var receiptState={off:true, on:false};
+  var receiptEarly2=root.querySelector('#cl-receipt-early');
+  if(receiptEarly2) receiptEarly2.addEventListener('change',function(){
+    if(receiptEarly2.checked) receiptState.on=true; else receiptState.off=true;
+    if(receiptState.on&&receiptState.off) markDone(5);
+    else liveHint(5, !receiptState.on ? 'Now toggle it on to see the penalty' : 'Now toggle it off to compare');
+  });
+
+  // 6 · all 5 quiz cards answered
+  root.querySelectorAll('#cl-grid-quiz .cl-quiz-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var n=count('#cl-grid-quiz .cl-quiz-card.done');
+      if(n>=5) markDone(6); else liveHint(6,'Answered '+n+' of 5 — answer all to continue');
+    });
+  });
+
+  // 7 · calendar automated
+  var calBtn2=root.querySelector('#cl-cal-btn');
+  if(calBtn2) calBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(7); },12*90+350); });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#cl-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

@@ -1,0 +1,609 @@
+<!-- ============================================================
+     TURNIT — BUILDING A SIMPLE 3-FUND STARTER PORTFOLIO
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-tf. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Practical synthesis lesson — pulls together diversification layers,
+     index funds, and fee comparison (all taught separately) into one
+     actionable portfolio. Slide 2 uses a realistic dark portfolio
+     dashboard to preview the finished result before teaching how to build it.
+
+     10 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview          2 The Three Funds
+       3 Why Just Three?          4 Picking Your Mix
+       5 Choosing the Funds       6 Building It, Step by Step
+       7 Keeping It Simple        8 Quick Check
+       9 Recap                    10 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-tf">
+  <div class="tf-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="tf-top">
+      <div class="tf-topbar">
+        <div class="tf-brand"><span class="tf-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span><span class="tf-word">TURNIT</span><span class="tf-bsub">The Stock Market Explained</span></div>
+      </div>
+      <div class="tf-progress"><span id="tf-bar"></span></div>
+      <div class="tf-meta"><span id="tf-slide-label">Lesson Overview</span><span id="tf-slide-count">Slide 1 of 10</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="tf-sec tf-reveal" data-step="1">
+      <p class="tf-kicker">Welcome · 1 / 10</p>
+      <h2 class="tf-h2">Everything you've learned, assembled</h2>
+      <p class="tf-p">Diversification, index funds, low fees — you've learned all of it separately. This lesson puts it together into one simple, real, buildable portfolio.</p>
+
+      <div class="tf-recap">
+        <div class="tf-recap-item"><span class="tf-recap-check">1</span><span>What the 3-fund portfolio actually is, and why just three.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">2</span><span>Picking your stock-to-bond mix based on your own timeline.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">3</span><span>Choosing low-cost funds for each of the three slots.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">4</span><span>Actually building it out with real dollar amounts.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">5</span><span>What little maintenance it actually needs going forward.</span></div>
+      </div>
+      <div class="tf-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE THREE FUNDS ========== -->
+    <section class="tf-sec tf-reveal" data-step="2">
+      <p class="tf-kicker">The Three Funds · 2 / 10</p>
+      <h2 class="tf-h2">Here's what we're building toward</h2>
+      <p class="tf-p">A real portfolio dashboard. Tap each holding.</p>
+
+      <div class="tf-dash">
+        <div class="tf-dash-head"><span>Total Portfolio Value</span><b>$10,000.00</b></div>
+        <div class="tf-dash-holdings" id="tf-dash-holdings">
+          <button type="button" class="tf-holding" data-t="US Total Stock Market Fund" data-d="Owns a broad slice of thousands of U.S. companies, large and small, in one purchase.">
+            <span class="tf-h-name">US Total Stock Market</span><span class="tf-h-pct">60%</span><span class="tf-h-val">$6,000.00</span>
+          </button>
+          <button type="button" class="tf-holding" data-t="International Stock Fund" data-d="Extends that same ownership overseas — companies across Europe, Asia, and beyond, all in one purchase.">
+            <span class="tf-h-name">International Stock</span><span class="tf-h-pct">30%</span><span class="tf-h-val">$3,000.00</span>
+          </button>
+          <button type="button" class="tf-holding" data-t="Total Bond Fund" data-d="Owns a broad mix of bonds — the steadier, income-generating counterweight to the stock funds.">
+            <span class="tf-h-name">Total Bond Market</span><span class="tf-h-pct">10%</span><span class="tf-h-val">$1,000.00</span>
+          </button>
+        </div>
+      </div>
+      <div class="tf-dash-result" id="tf-dash-result">&nbsp;</div>
+      <p class="tf-count" id="tf-dash-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 3 · WHY JUST THREE? ========== -->
+    <section class="tf-sec tf-reveal" data-step="3">
+      <p class="tf-kicker">Why Just Three? · 3 / 10</p>
+      <h2 class="tf-h2">Three funds, every layer covered</h2>
+      <p class="tf-p">Tap to check off each layer of diversification you've already learned.</p>
+
+      <div class="tf-layer-list" id="tf-layer-list">
+        <button type="button" class="tf-layer-item" data-t="Asset Class" data-d="Stocks and bonds react differently to the same news — covered by having both fund types at all.">🏛️ Asset Class Diversification</button>
+        <button type="button" class="tf-layer-item" data-t="Within Each Class" data-d="Each fund alone holds hundreds or thousands of individual companies or bonds.">🏢 Within-Class Diversification</button>
+        <button type="button" class="tf-layer-item" data-t="Geography" data-d="Splitting stocks between U.S. and international funds spreads risk across countries and regions too.">🌍 Geographic Diversification</button>
+      </div>
+      <div class="tf-layer-result" id="tf-layer-result">&nbsp;</div>
+      <p class="tf-count" id="tf-layer-count">Checked 0 of 3</p>
+    </section>
+
+    <!-- ========== 4 · PICKING YOUR MIX ========== -->
+    <section class="tf-sec tf-reveal" data-step="4">
+      <p class="tf-kicker">Picking Your Mix · 4 / 10</p>
+      <h2 class="tf-h2">Your timeline shapes your split</h2>
+      <p class="tf-p">Slide your age — this is just one common starting heuristic, not a rule.</p>
+
+      <div class="tf-panel">
+        <div class="tf-slide-row">
+          <div class="tf-slide-top"><label for="tf-age-slider">Your Age</label><span class="tf-slide-v blue" id="tf-age-slider-v">30</span></div>
+          <input id="tf-age-slider" class="tf-range" type="range" min="20" max="70" value="30" step="5" aria-label="Age">
+        </div>
+        <div class="tf-mix-bar">
+          <span class="tf-mix-stock" id="tf-mix-stock">80% Stocks</span>
+          <span class="tf-mix-bond" id="tf-mix-bond">20% Bonds</span>
+        </div>
+        <div class="tf-note">One common starting point: <b>110 minus your age</b> = your stock percentage. Younger, more time to ride out swings — closer to retirement, a bit more stability.</div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · CHOOSING THE FUNDS ========== -->
+    <section class="tf-sec tf-reveal" data-step="5">
+      <p class="tf-kicker">Choosing the Funds · 5 / 10</p>
+      <h2 class="tf-h2">Same slot, different price tags</h2>
+      <p class="tf-p">For each slot, tap the option you'd actually pick.</p>
+
+      <div class="tf-shop" id="tf-shop">
+        <div class="tf-shop-row" data-slot="US Stock"><span>US Stock Fund</span><div class="tf-shop-opts"><button data-r="0.03%">GreenLeaf · 0.03%</button><button data-r="0.65%">Anchor · 0.65%</button></div><p class="tf-shop-why"></p></div>
+        <div class="tf-shop-row" data-slot="International"><span>International Fund</span><div class="tf-shop-opts"><button data-r="0.06%">GreenLeaf · 0.06%</button><button data-r="0.80%">Summit · 0.80%</button></div><p class="tf-shop-why"></p></div>
+        <div class="tf-shop-row" data-slot="Bond"><span>Bond Fund</span><div class="tf-shop-opts"><button data-r="0.04%">GreenLeaf · 0.04%</button><button data-r="0.55%">Anchor · 0.55%</button></div><p class="tf-shop-why"></p></div>
+      </div>
+      <p class="tf-count" id="tf-shop-count">Chosen 0 of 3</p>
+    </section>
+
+    <!-- ========== 6 · BUILDING IT, STEP BY STEP ========== -->
+    <section class="tf-sec tf-reveal" data-step="6">
+      <p class="tf-kicker">Building It, Step by Step · 6 / 10</p>
+      <h2 class="tf-h2">Turn the percentages into real dollars</h2>
+      <p class="tf-p">Slide your total investment amount and watch the split.</p>
+
+      <div class="tf-panel">
+        <div class="tf-slide-row">
+          <div class="tf-slide-top"><label for="tf-total-slider">Total to Invest</label><span class="tf-slide-v green" id="tf-total-slider-v">$5,000</span></div>
+          <input id="tf-total-slider" class="tf-range good" type="range" min="500" max="20000" value="5000" step="500" aria-label="Total to invest">
+        </div>
+        <div class="tf-build-grid">
+          <div class="tf-build-box"><span>US Stock (60%)</span><b id="tf-build-us">$3,000</b></div>
+          <div class="tf-build-box"><span>Int'l Stock (20%)</span><b id="tf-build-intl">$1,000</b></div>
+          <div class="tf-build-box"><span>Bonds (20%)</span><b id="tf-build-bond">$1,000</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · KEEPING IT SIMPLE ========== -->
+    <section class="tf-sec tf-center tf-reveal" data-step="7">
+      <p class="tf-kicker center">Keeping It Simple · 7 / 10</p>
+      <h2 class="tf-h2 center">This isn't a full-time job</h2>
+      <p class="tf-sub center">Tap to see what it actually takes to maintain.</p>
+
+      <button type="button" class="tf-confirm-btn" id="tf-maint-btn">Reveal the Maintenance</button>
+      <div class="tf-maint-result" id="tf-maint-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 8 · QUICK CHECK ========== -->
+    <section class="tf-sec tf-reveal" data-step="8">
+      <p class="tf-kicker">Quick Check · 8 / 10</p>
+      <h2 class="tf-h2">Myth or fact?</h2>
+      <p class="tf-p">Tap your answer for each.</p>
+
+      <div class="tf-sort" id="tf-quiz">
+        <div class="tf-sort-row" data-answer="fact"><span>A 3-fund portfolio can cover asset class, within-class, and geographic diversification at once.</span><div class="tf-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tf-sort-why"></p></div>
+        <div class="tf-sort-row" data-answer="myth"><span>Everyone should use the exact same stock-to-bond split, regardless of age.</span><div class="tf-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tf-sort-why"></p></div>
+        <div class="tf-sort-row" data-answer="fact"><span>Two funds tracking the same market can still carry very different fees.</span><div class="tf-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tf-sort-why"></p></div>
+        <div class="tf-sort-row" data-answer="myth"><span>A 3-fund portfolio needs to be checked and adjusted every single day.</span><div class="tf-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tf-sort-why"></p></div>
+      </div>
+      <p class="tf-count" id="tf-quiz-count">Answered 0 of 4</p>
+    </section>
+
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="tf-sec tf-reveal" data-step="9">
+      <p class="tf-kicker">Recap · 9 / 10</p>
+      <h2 class="tf-h2">Here's what you now know</h2>
+      <p class="tf-p">The whole lesson, in six lines.</p>
+
+      <div class="tf-recap">
+        <div class="tf-recap-item"><span class="tf-recap-check">✓</span><span>A 3-fund portfolio typically combines a US stock fund, an international stock fund, and a bond fund.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">✓</span><span>Just three funds can cover asset class, within-class, and geographic diversification at once.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">✓</span><span>Your stock-to-bond split is personal — timeline and comfort with risk both matter.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">✓</span><span>The exact same market exposure can come with very different fees — it pays to check.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">✓</span><span>Percentages turn into real dollar amounts the moment you decide how much to invest.</span></div>
+        <div class="tf-recap-item"><span class="tf-recap-check">✓</span><span>A simple portfolio like this needs an occasional check-in, not daily attention.</span></div>
+      </div>
+      <div class="tf-next-move">Your next move: <b>sketch out your own three slots and a starting split that fits your timeline.</b></div>
+    </section>
+
+    <!-- ========== 10 · CERTIFICATE ========== -->
+    <section class="tf-sec tf-center tf-reveal" data-step="10">
+      <p class="tf-kicker center">Certified · 10 / 10</p>
+      <div class="tf-cert">
+        <div class="tf-cert-border"></div>
+        <span class="tf-cert-pill">🏆 Certificate of Completion</span>
+        <p class="tf-cert-cert">This certifies that</p>
+        <h2 class="tf-cert-name">Portfolio Builder</h2>
+        <p class="tf-cert-body">has completed <span class="tf-tw">TURNIT</span> The Stock Market Explained: Building a Simple 3-Fund Starter Portfolio, and can now put everything you've learned into one real, buildable plan.</p>
+        <div class="tf-cert-line"></div>
+        <div class="tf-done-row streak"><div class="tf-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="tf-done-row ach"><div class="tf-done-ico">🏆</div><div><b>Achievement: Portfolio Builder</b><span>You assembled a full, diversified starter portfolio.</span></div></div>
+        <div class="tf-done-btns">
+          <a class="tf-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="tf-btn ghost" id="tf-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="tf-quote">"SIMPLICITY IS THE <span class="tf-green">MASTER KEY TO FINANCIAL SUCCESS.</span>"<br><span class="tf-quote-by">— JOHN C. BOGLE</span></p>
+    </section>
+
+    <p class="tf-disclaimer">TURNIT is for educational purposes only and is not financial advice. Fund names, allocations, and figures shown are fictional examples for illustration, not real market data or a recommendation. The age-based heuristic shown is one common starting point, not personalized advice.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="tf-nav" id="tf-nav">
+      <button type="button" class="tf-nav-btn prev" id="tf-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="tf-nav-hint" id="tf-nav-hint"></span>
+      <button type="button" class="tf-nav-btn next" id="tf-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-tf{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-tf *,#tn-tf *::before,#tn-tf *::after{box-sizing:border-box;}
+  #tn-tf .tf-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-tf .tf-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-tf .tf-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-tf .tf-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-tf .tf-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-tf .tf-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-tf .tf-bico{display:flex;}
+  #tn-tf .tf-word,#tn-tf .tf-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-tf .tf-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-tf .tf-bsub{color:var(--ink2); font-weight:500;}
+  #tn-tf .tf-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-tf #tf-bar{display:block; height:100%; width:9%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-tf .tf-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-tf .tf-meta #tf-slide-label{color:var(--ink2);}
+  #tn-tf .tf-meta #tf-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-tf .tf-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-tf .tf-sec.tf-hide{display:none;}
+  #tn-tf .tf-center{text-align:center;}
+  #tn-tf .tf-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-tf .tf-kicker.center{text-align:center;}
+  #tn-tf .tf-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-tf .tf-h2.center{text-align:center;}
+  #tn-tf .tf-tw{font-style:italic;}
+  #tn-tf .tf-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-tf .tf-p b{color:var(--ink); font-weight:700;}
+  #tn-tf .tf-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-tf .tf-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-tf .tf-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-tf .tf-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-tf .tf-note b{color:var(--ink); font-weight:700;}
+  #tn-tf .tf-confirm-btn{display:block; width:100%; max-width:320px; margin:0 auto; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-tf .tf-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-tf .tf-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-tf .tf-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-tf .tf-range.good{background:linear-gradient(90deg,#9AA8B6,#209B73);}
+  #tn-tf .tf-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-tf .tf-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-tf .tf-slide-row{margin-top:6px;}
+  #tn-tf .tf-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-tf .tf-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-tf .tf-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-tf .tf-slide-v.blue{color:var(--b);} #tn-tf .tf-slide-v.green{color:var(--g);}
+
+  /* ---- slide 2: dark market dashboard ---- */
+  #tn-tf .tf-dash{background:var(--ink); border-radius:18px; padding:20px 18px; color:#fff;}
+  #tn-tf .tf-dash-head{display:flex; flex-direction:column; margin-bottom:16px;}
+  #tn-tf .tf-dash-head span{font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:#8296A8; font-weight:700; margin-bottom:3px;}
+  #tn-tf .tf-dash-head b{font-family:'Poppins',sans-serif; font-weight:800; font-size:26px;}
+  #tn-tf .tf-dash-holdings{display:flex; flex-direction:column; gap:8px;}
+  #tn-tf .tf-holding{display:flex; align-items:center; justify-content:space-between; gap:8px; text-align:left; font-family:inherit; background:rgba(255,255,255,.06); border:1.5px solid rgba(255,255,255,.1); border-radius:12px; padding:12px 14px; cursor:pointer; transition:all .18s;}
+  #tn-tf .tf-holding.on{border-color:var(--g); background:rgba(32,155,115,.18);}
+  #tn-tf .tf-h-name{flex:1; font-size:12.5px; font-weight:700; color:#fff;}
+  #tn-tf .tf-h-pct{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:#5FD9A4; flex:none;}
+  #tn-tf .tf-h-val{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#B9C6D3; flex:none; min-width:76px; text-align:right;}
+  #tn-tf .tf-dash-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 3: layer checklist ---- */
+  #tn-tf .tf-layer-list{display:flex; flex-direction:column; gap:9px;}
+  #tn-tf .tf-layer-item{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:14px 16px; cursor:pointer; text-align:left; transition:all .18s;}
+  #tn-tf .tf-layer-item.on{border-color:var(--selbd); background:var(--tint);}
+  #tn-tf .tf-layer-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 4: mix bar ---- */
+  #tn-tf .tf-mix-bar{display:flex; height:34px; border-radius:10px; overflow:hidden; margin:16px 0; border:1px solid var(--line);}
+  #tn-tf .tf-mix-stock{background:var(--b); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11.5px; font-weight:700; width:80%; transition:width .4s ease;}
+  #tn-tf .tf-mix-bond{background:var(--gold); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11.5px; font-weight:700; width:20%; transition:width .4s ease;}
+
+  /* ---- slide 5: shopping ---- */
+  #tn-tf .tf-shop{display:flex; flex-direction:column; gap:10px;}
+  #tn-tf .tf-shop-row{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px;}
+  #tn-tf .tf-shop-row span{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink); margin-bottom:9px;}
+  #tn-tf .tf-shop-opts{display:flex; gap:8px;}
+  #tn-tf .tf-shop-opts button{flex:1; font-family:inherit; font-weight:600; font-size:12.5px; padding:10px 6px; border-radius:10px; cursor:pointer; background:#fff; border:1.5px solid var(--cardbd); color:var(--ink2); transition:all .18s;}
+  #tn-tf .tf-shop-row.done .tf-shop-opts button{opacity:.4; pointer-events:none;}
+  #tn-tf .tf-shop-row.done .tf-shop-opts button.picked{opacity:1; border-color:var(--selbd); background:var(--tint); color:var(--g); font-weight:700;}
+  #tn-tf .tf-shop-why{font-size:12.5px; color:var(--ink2); line-height:1.45; margin:8px 0 0; display:none;}
+  #tn-tf .tf-shop-why b{font-family:'Poppins',sans-serif;}
+  #tn-tf .tf-shop-row.done .tf-shop-why{display:block;}
+
+  /* ---- slide 6: build grid ---- */
+  #tn-tf .tf-build-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; margin-top:16px;}
+  #tn-tf .tf-build-box{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 6px; text-align:center;}
+  #tn-tf .tf-build-box span{display:block; font-size:9.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-tf .tf-build-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(13px,4vw,16px); color:var(--ink);}
+
+  /* ---- slide 7: maintenance ---- */
+  #tn-tf .tf-maint-result{max-width:460px; margin:18px auto 0; font-size:14px; color:var(--ink2); line-height:1.6; text-align:left; background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:18px 20px; min-height:20px;}
+  #tn-tf .tf-maint-result:empty{display:none;}
+  #tn-tf .tf-maint-result b{color:var(--g); font-family:'Poppins',sans-serif;}
+
+  /* sorter (shared) */
+  #tn-tf .tf-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-tf .tf-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-tf .tf-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-tf .tf-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-tf .tf-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; padding:7px 15px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s; border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-tf .tf-sort-btns button[data-p="fact"]{border-color:#BFE6D6; color:var(--g);}
+  #tn-tf .tf-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-tf .tf-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-tf .tf-sort-row.done .tf-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-tf .tf-sort-row.done .tf-sort-btns button.picked{opacity:1;}
+  #tn-tf .tf-sort-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-tf .tf-sort-why b{font-family:'Poppins',sans-serif;}
+  #tn-tf .tf-sort-row.done .tf-sort-why{display:block;}
+
+  /* recap */
+  #tn-tf .tf-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-tf .tf-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-tf .tf-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-tf .tf-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-tf .tf-recap-item b{font-weight:700;}
+  #tn-tf .tf-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-tf .tf-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-tf .tf-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-tf .tf-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-tf .tf-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-tf .tf-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-tf .tf-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-tf .tf-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-tf .tf-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-tf .tf-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-tf .tf-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-tf .tf-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-tf .tf-done-ico{font-size:20px; flex:none;}
+  #tn-tf .tf-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-tf .tf-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-tf .tf-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-tf .tf-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-tf .tf-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-tf .tf-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-tf .tf-btn:hover{transform:translateY(-2px);}
+  #tn-tf .tf-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-tf .tf-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-tf .tf-green{color:var(--g);}
+  #tn-tf .tf-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-tf .tf-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-tf .tf-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-tf .tf-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-tf .tf-nav-btn.prev{color:var(--ink2);}
+  #tn-tf .tf-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-tf .tf-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-tf .tf-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-tf .tf-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-tf .tf-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-tf .tf-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-tf .tf-wrap{padding:12px 14px 30px;}
+    #tn-tf .tf-holding{flex-wrap:wrap;}
+    #tn-tf .tf-h-val{text-align:left;}
+    #tn-tf .tf-bsub{display:none;}
+    #tn-tf .tf-nav-hint{display:none;}
+    #tn-tf .tf-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-tf .tf-reveal{opacity:1 !important; transform:none !important;}
+    #tn-tf #tf-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-tf'); if(!root) return;
+  root.querySelectorAll('.tf-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · the three funds ============ */
+  var dashSeen={}, dashResult=root.querySelector('#tf-dash-result'), dashCount=root.querySelector('#tf-dash-count');
+  root.querySelectorAll('#tf-dash-holdings .tf-holding').forEach(function(h){
+    h.addEventListener('click',function(){
+      root.querySelectorAll('#tf-dash-holdings .tf-holding').forEach(function(x){ x.classList.remove('on'); });
+      h.classList.add('on');
+      dashResult.innerHTML='<b>'+h.getAttribute('data-t')+':</b> '+h.getAttribute('data-d');
+      dashSeen[h.getAttribute('data-t')]=1;
+      dashCount.textContent='Explored '+Object.keys(dashSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 3 · why just three ============ */
+  var layerSeen={}, layerResult=root.querySelector('#tf-layer-result'), layerCount=root.querySelector('#tf-layer-count');
+  root.querySelectorAll('#tf-layer-list .tf-layer-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      item.classList.add('on');
+      layerResult.innerHTML='<b>'+item.getAttribute('data-t')+':</b> '+item.getAttribute('data-d');
+      layerSeen[item.getAttribute('data-t')]=1;
+      layerCount.textContent='Checked '+Object.keys(layerSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 4 · picking your mix ============ */
+  var ageSlider=root.querySelector('#tf-age-slider'), ageSliderV=root.querySelector('#tf-age-slider-v'),
+      mixStock=root.querySelector('#tf-mix-stock'), mixBond=root.querySelector('#tf-mix-bond');
+  function ageCalc(){
+    var age=+ageSlider.value;
+    ageSliderV.textContent=age;
+    var stockPct=Math.max(20,Math.min(90,110-age));
+    var bondPct=100-stockPct;
+    mixStock.style.width=stockPct+'%'; mixStock.textContent=stockPct+'% Stocks';
+    mixBond.style.width=bondPct+'%'; mixBond.textContent=bondPct+'% Bonds';
+    postHeight();
+  }
+  if(ageSlider){ ageSlider.addEventListener('input',ageCalc); ageCalc(); }
+
+  /* ============ 5 · choosing the funds ============ */
+  var shopDone=0, shopCount=root.querySelector('#tf-shop-count');
+  var shopWhy={
+    low:'Great pick \u2014 same broad market exposure, a fraction of the cost.',
+    high:'Still a valid choice \u2014 but notice you\u2019re paying more for essentially the same market exposure.'
+  };
+  root.querySelectorAll('#tf-shop .tf-shop-row').forEach(function(row){
+    var whyEl=row.querySelector('.tf-shop-why');
+    row.querySelectorAll('.tf-shop-opts button').forEach(function(btn,idx){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done');
+        var kind = idx===0 ? 'low' : 'high';
+        whyEl.innerHTML='<b>'+btn.getAttribute('data-r')+' selected.</b> '+shopWhy[kind];
+        shopDone++;
+        shopCount.textContent='Chosen '+shopDone+' of 3';
+        postHeight();
+      });
+    });
+  });
+
+  /* ============ 6 · building it, step by step ============ */
+  var totalSlider=root.querySelector('#tf-total-slider'), totalSliderV=root.querySelector('#tf-total-slider-v'),
+      buildUs=root.querySelector('#tf-build-us'), buildIntl=root.querySelector('#tf-build-intl'), buildBond=root.querySelector('#tf-build-bond');
+  function totalCalc(){
+    var total=+totalSlider.value;
+    totalSliderV.textContent=moneyRound(total);
+    buildUs.textContent=moneyRound(total*0.6);
+    buildIntl.textContent=moneyRound(total*0.2);
+    buildBond.textContent=moneyRound(total*0.2);
+    postHeight();
+  }
+  if(totalSlider){ totalSlider.addEventListener('input',totalCalc); totalCalc(); }
+
+  /* ============ 7 · keeping it simple ============ */
+  var maintBtn=root.querySelector('#tf-maint-btn'), maintResult=root.querySelector('#tf-maint-result');
+  if(maintBtn) maintBtn.addEventListener('click',function(){
+    maintBtn.disabled=true;
+    maintResult.innerHTML='<b>Not much, honestly.</b> Automatic contributions keep it growing. An occasional check-in \u2014 once or twice a year is plenty \u2014 lets you rebalance back to your target mix if it\u2019s drifted. That\u2019s the whole job.';
+    postHeight();
+  });
+
+  /* ============ 8 · quick check ============ */
+  var quizDone=0, quizCount=root.querySelector('#tf-quiz-count');
+  root.querySelectorAll('#tf-quiz .tf-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.tf-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        row.classList.add('done', pick===ans?'correct':'wrong');
+        quizDone++; quizCount.textContent='Answered '+quizDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-tf'); if(!root) return;
+  var TOTAL=10, current=1;
+
+  var bar=root.querySelector('#tf-bar');
+  var labelEl=root.querySelector('#tf-slide-label');
+  var countEl=root.querySelector('#tf-slide-count');
+  var prevBtn=root.querySelector('#tf-prev');
+  var nextBtn=root.querySelector('#tf-next');
+  var hintEl=root.querySelector('#tf-nav-hint');
+  var disclaimer=root.querySelector('.tf-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'The Three Funds',3:'Why Just Three?',4:'Picking Your Mix',5:'Choosing the Funds',6:'Building It, Step by Step',7:'Keeping It Simple',8:'Quick Check',9:'Recap',10:'Certified'};
+  var reqHints={2:'Explore all 3 holdings',3:'Check all 3 layers',4:'Move the slider to continue',5:'Choose all 3 funds',6:'Move the slider to continue',7:'Reveal the maintenance',8:'Answer all 4 to continue'};
+
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.tf-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('tf-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('tf-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · all 3 holdings explored
+  var dashSeen2={};
+  root.querySelectorAll('#tf-dash-holdings .tf-holding').forEach(function(h){
+    h.addEventListener('click',function(){ dashSeen2[h.getAttribute('data-t')]=1;
+      if(keys(dashSeen2)>=3) markDone(2); else liveHint(2,'Explored '+keys(dashSeen2)+' of 3 — keep going'); });
+  });
+
+  // 3 · all 3 layers checked
+  var layerSeen2={};
+  root.querySelectorAll('#tf-layer-list .tf-layer-item').forEach(function(item){
+    item.addEventListener('click',function(){ layerSeen2[item.getAttribute('data-t')]=1;
+      if(keys(layerSeen2)>=3) markDone(3); else liveHint(3,'Checked '+keys(layerSeen2)+' of 3 — keep going'); });
+  });
+
+  // 4 · age slider moved
+  var ageSlider2=root.querySelector('#tf-age-slider');
+  if(ageSlider2) ageSlider2.addEventListener('input',function(){ markDone(4); });
+
+  // 5 · all 3 fund slots chosen
+  root.querySelectorAll('#tf-shop .tf-shop-opts button').forEach(function(btn){
+    btn.addEventListener('click',function(){ var n=count('#tf-shop .tf-shop-row.done');
+      if(n>=3) markDone(5); else liveHint(5,'Chosen '+n+' of 3 — keep going'); });
+  });
+
+  // 6 · total slider moved
+  var totalSlider2=root.querySelector('#tf-total-slider');
+  if(totalSlider2) totalSlider2.addEventListener('input',function(){ markDone(6); });
+
+  // 7 · maintenance revealed
+  var maintBtn2=root.querySelector('#tf-maint-btn');
+  if(maintBtn2) maintBtn2.addEventListener('click',function(){ markDone(7); });
+
+  // 8 · all 4 quiz answered
+  root.querySelectorAll('#tf-quiz .tf-sort-btns button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#tf-quiz .tf-sort-row.done');
+      if(n>=4) markDone(8); else liveHint(8,'Answered '+n+' of 4 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#tf-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

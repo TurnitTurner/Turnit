@@ -1,0 +1,127 @@
+<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1568AE"/>
+      <stop offset="100%" stop-color="#209B73"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0A93C"/>
+      <stop offset="100%" stop-color="#C98A22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
+
+  <!-- faint dot grid texture -->
+  <g fill="#ffffff" opacity="0.07">
+    <circle cx="90" cy="90" r="3"/><circle cx="160" cy="90" r="3"/><circle cx="230" cy="90" r="3"/>
+    <circle cx="90" cy="160" r="3"/><circle cx="160" cy="160" r="3"/><circle cx="230" cy="160" r="3"/>
+    <circle cx="990" cy="560" r="3"/><circle cx="1060" cy="560" r="3"/><circle cx="1130" cy="560" r="3"/>
+    <circle cx="990" cy="490" r="3"/><circle cx="1060" cy="490" r="3"/><circle cx="1130" cy="490" r="3"/>
+  </g>
+
+  <!-- TURNIT wordmark badge, top-left -->
+  <g transform="translate(56,50)">
+    <rect x="-14" y="-30" width="176" height="56" rx="16" fill="#0F1720" opacity="0.28"/>
+    <svg viewBox="0 0 24 24" width="26" height="26" x="0" y="-16" fill="none" stroke="#ffffff" stroke-width="2">
+      <rect x="3" y="11" width="4" height="9"/><rect x="10" y="6" width="4" height="14"/><rect x="17" y="3" width="4" height="17"/>
+    </svg>
+    <text x="34" y="4" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-style="italic" font-size="26" fill="#ffffff">TURNIT</text>
+  </g>
+
+  <!-- automation cycle ring behind the bull -->
+  <g transform="translate(600,300)" opacity="0.9">
+    <circle r="185" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="14" stroke-dasharray="6 20" stroke-linecap="round"/>
+    <path d="M 600,115 A185,185 0 0 1 758,240" transform="translate(-600,-300)" fill="none" stroke="#E0A93C" stroke-width="14" stroke-linecap="round"/>
+    <!-- arrowhead at end of gold arc -->
+    <polygon points="0,-14 20,4 -6,14" transform="translate(158,-108) rotate(60)" fill="#E0A93C"/>
+  </g>
+
+  <!-- small gear accents -->
+  <g fill="none" opacity="0.85">
+    <g transform="translate(400,150)">
+      <path d="M -6,-30 L 6,-30 L 8,-20 L -8,-20 Z" fill="#ffffff"/>
+      <path d="M -6,30 L 6,30 L 8,20 L -8,20 Z" fill="#ffffff"/>
+      <path d="M -30,-6 L -30,6 L -20,8 L -20,-8 Z" fill="#ffffff"/>
+      <path d="M 30,-6 L 30,6 L 20,8 L 20,-8 Z" fill="#ffffff"/>
+      <path d="M -25,-19 L -17,-11 L -21,-3 L -33,-15 Z" fill="#ffffff"/>
+      <path d="M 25,19 L 17,11 L 21,3 L 33,15 Z" fill="#ffffff"/>
+      <path d="M -25,19 L -17,11 L -21,3 L -33,15 Z" fill="#ffffff"/>
+      <path d="M 25,-19 L 17,-11 L 21,-3 L 33,-15 Z" fill="#ffffff"/>
+      <circle r="21" fill="#ffffff"/>
+      <circle r="9" fill="#1568AE"/>
+    </g>
+    <g transform="translate(838,446) scale(0.72)">
+      <path d="M -6,-30 L 6,-30 L 8,-20 L -8,-20 Z" fill="#ffffff"/>
+      <path d="M -6,30 L 6,30 L 8,20 L -8,20 Z" fill="#ffffff"/>
+      <path d="M -30,-6 L -30,6 L -20,8 L -20,-8 Z" fill="#ffffff"/>
+      <path d="M 30,-6 L 30,6 L 20,8 L 20,-8 Z" fill="#ffffff"/>
+      <path d="M -25,-19 L -17,-11 L -21,-3 L -33,-15 Z" fill="#ffffff"/>
+      <path d="M 25,19 L 17,11 L 21,3 L 33,15 Z" fill="#ffffff"/>
+      <path d="M -25,19 L -17,11 L -21,3 L -33,15 Z" fill="#ffffff"/>
+      <path d="M 25,-19 L 17,-11 L 21,-3 L 33,-15 Z" fill="#ffffff"/>
+      <circle r="21" fill="#ffffff"/>
+      <circle r="9" fill="#209B73"/>
+    </g>
+  </g>
+
+  <!-- ===== TURNIT bull mascot, simple geometric line-art ===== -->
+  <g transform="translate(600,300)">
+    <!-- ears: large, wing-like, horizontal, mid-head -->
+    <path d="M -122,4 C -190,-4 -212,26 -196,54 C -168,58 -128,36 -104,10 Z" fill="#ffffff"/>
+    <path d="M 122,4 C 190,-4 212,26 196,54 C 168,58 128,36 104,10 Z" fill="#ffffff"/>
+    <path d="M -152,20 C -174,20 -184,34 -176,46" fill="none" stroke="#E8EEF4" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 152,20 C 174,20 184,34 176,46" fill="none" stroke="#E8EEF4" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- horns -->
+    <path d="M -58,-78 C -132,-108 -172,-72 -158,-24" fill="none" stroke="#E0A93C" stroke-width="22" stroke-linecap="round"/>
+    <path d="M 58,-78 C 132,-108 172,-72 158,-24" fill="none" stroke="#E0A93C" stroke-width="22" stroke-linecap="round"/>
+    <path d="M -58,-78 C -132,-108 -172,-72 -158,-24" fill="none" stroke="#C98A22" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- head: broader, flatter-topped, squarer jowls -->
+    <path d="M0,-62
+             C 70,-62 108,-32 114,10
+             C 120,50 116,84 100,110
+             C 84,136 -84,136 -100,110
+             C -116,84 -120,50 -114,10
+             C -108,-32 -70,-62 0,-62 Z"
+          fill="#ffffff"/>
+
+    <!-- forelock -->
+    <path d="M -22,-66 Q 0,-88 22,-66 Q 4,-56 0,-44 Q -4,-56 -22,-66 Z" fill="#16202B"/>
+
+    <!-- brow ridge -->
+    <path d="M -78,-2 Q -46,-22 -14,-4" fill="none" stroke="#DDE6EE" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 78,-2 Q 46,-22 14,-4" fill="none" stroke="#DDE6EE" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <ellipse cx="-52" cy="14" rx="14" ry="17" fill="#16202B"/>
+    <ellipse cx="52" cy="14" rx="14" ry="17" fill="#16202B"/>
+    <circle cx="-47" cy="8" r="4.5" fill="#ffffff"/>
+    <circle cx="57" cy="8" r="4.5" fill="#ffffff"/>
+
+    <!-- muzzle: wide, flat, rectangular like a bull -->
+    <path d="M -74,66 C -80,100 -50,130 0,130 C 50,130 80,100 74,66
+             C 68,44 -68,44 -74,66 Z" fill="#F5F8FB" stroke="#E8EEF4" stroke-width="3"/>
+    <path d="M -74,66 C -68,44 68,44 74,66" fill="none" stroke="#DDE6EE" stroke-width="3"/>
+    <ellipse cx="-26" cy="78" rx="9" ry="14" fill="#16202B" opacity="0.85"/>
+    <ellipse cx="26" cy="78" rx="9" ry="14" fill="#16202B" opacity="0.85"/>
+
+    <!-- mouth line -->
+    <path d="M -22,116 Q 0,124 22,116" fill="none" stroke="#B9C6D3" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- nose ring, automation nod: a small closed loop -->
+    <circle cx="0" cy="106" r="15" fill="none" stroke="#209B73" stroke-width="7"/>
+  </g>
+
+  <!-- title text band -->
+  <rect x="0" y="522" width="1200" height="153" fill="#0F1720" opacity="0.34"/>
+  <text x="600" y="590" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="46" fill="#ffffff">Automating Your Investments</text>
+  <text x="600" y="628" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="21" fill="#DCEFE6">Financial Foundations · TURNIT</text>
+</svg>

@@ -1,0 +1,469 @@
+<!-- ============================================================
+     TURNIT — MYTHS AND MISCONCEPTIONS ABOUT INVESTING (Overheard Edition)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-oh. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     No myth/fact framing anywhere. Each slide is a real-life "overheard" line,
+     presented as a chat thread — pick a reply, send it, then see the real story.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview             2 Overheard at Thanksgiving
+       3 Overheard at the Office     4 Overheard From a Coworker
+       5 Overheard on Social Media   6 Overheard From a Friend
+       7 Overheard at a Party        8 Your Saved Replies
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-oh">
+  <div class="oh-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="oh-top">
+      <div class="oh-topbar">
+        <div class="oh-brand"><span class="oh-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span class="oh-word">TURNIT</span><span class="oh-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="oh-progress"><span id="oh-bar"></span></div>
+      <div class="oh-meta"><span id="oh-slide-label">Lesson Overview</span><span id="oh-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="oh-sec oh-reveal" data-step="1">
+      <p class="oh-kicker">Welcome · 1 / 9</p>
+      <h2 class="oh-h2">You'll hear this stuff constantly</h2>
+      <p class="oh-p">Not from a textbook — from your cousin, your coworker, your group chat. This lesson isn't a quiz. It's practice for real conversations you'll actually have.</p>
+
+      <div class="oh-recap">
+        <div class="oh-recap-item"><span class="oh-recap-check">1</span><span>Someone brags about a lucky day-trade — how do you respond?</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">2</span><span>Someone says you need to be a genius — how do you respond?</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">3</span><span>Someone checks their portfolio 20 times a day — how do you respond?</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">4</span><span>Someone says the whole game is rigged — how do you respond?</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">5</span><span>Someone says a hot fund is a "sure thing" — how do you respond?</span></div>
+      </div>
+      <div class="oh-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · OVERHEARD AT THANKSGIVING ========== -->
+    <section class="oh-sec oh-reveal" data-step="2">
+      <p class="oh-kicker">Overheard at Thanksgiving · 2 / 9</p>
+      <h2 class="oh-h2">Your cousin has news</h2>
+
+      <div class="oh-thread" id="oh-thread-1">
+        <div class="oh-context">👵 Family group chat</div>
+        <div class="oh-bubble in">My cousin made a killing day-trading meme stocks last month. Might try it myself.</div>
+
+        <div class="oh-replies" id="oh-replies-1">
+          <button type="button" data-r="a">Wow, maybe I should try that too!</button>
+          <button type="button" data-r="b">That's just gambling, don't do it.</button>
+          <button type="button" data-r="c">That's possible short-term, but most day-traders lose money once you count fees and taxes.</button>
+        </div>
+        <div class="oh-sent" id="oh-sent-1"></div>
+        <div class="oh-truth" id="oh-truth-1">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · OVERHEARD AT THE OFFICE ========== -->
+    <section class="oh-sec oh-reveal" data-step="3">
+      <p class="oh-kicker">Overheard at the Office · 3 / 9</p>
+      <h2 class="oh-h2">Your coworker has doubts</h2>
+
+      <div class="oh-thread" id="oh-thread-2">
+        <div class="oh-context">💼 Break room</div>
+        <div class="oh-bubble in">Honestly, you have to be some kind of genius to pick the right stocks. That's not me.</div>
+
+        <div class="oh-replies" id="oh-replies-2">
+          <button type="button" data-r="a">Yeah, it's probably too complicated for either of us.</button>
+          <button type="button" data-r="b">Not really — simple, diversified approaches have held up well, even against professionals.</button>
+          <button type="button" data-r="c">You just need a good tip from someone in the know.</button>
+        </div>
+        <div class="oh-sent" id="oh-sent-2"></div>
+        <div class="oh-truth" id="oh-truth-2">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · OVERHEARD FROM A COWORKER ========== -->
+    <section class="oh-sec oh-reveal" data-step="4">
+      <p class="oh-kicker">Overheard From a Coworker · 4 / 9</p>
+      <h2 class="oh-h2">Someone's very dedicated</h2>
+
+      <div class="oh-thread" id="oh-thread-3">
+        <div class="oh-context">💼 Slack DM</div>
+        <div class="oh-bubble in">I check my portfolio like 20 times a day. Gotta stay on top of it.</div>
+
+        <div class="oh-replies" id="oh-replies-3">
+          <button type="button" data-r="a">Smart, staying that on top of things.</button>
+          <button type="button" data-r="b">Constant checking tends to trigger more emotional decisions, not better ones.</button>
+          <button type="button" data-r="c">Honestly, you should probably just sell everything.</button>
+        </div>
+        <div class="oh-sent" id="oh-sent-3"></div>
+        <div class="oh-truth" id="oh-truth-3">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · OVERHEARD ON SOCIAL MEDIA ========== -->
+    <section class="oh-sec oh-reveal" data-step="5">
+      <p class="oh-kicker">Overheard on Social Media · 5 / 9</p>
+      <h2 class="oh-h2">A comment section take</h2>
+
+      <div class="oh-thread" id="oh-thread-4">
+        <div class="oh-context">📱 Comments section</div>
+        <div class="oh-bubble in">The whole stock market is rigged for rich people anyway. Little guy never wins.</div>
+
+        <div class="oh-replies" id="oh-replies-4">
+          <button type="button" data-r="a">Yeah, there's basically no point trying.</button>
+          <button type="button" data-r="b">It's completely fair — everyone has the exact same shot.</button>
+          <button type="button" data-r="c">Institutions have some real edges, but individual investors can buy the same shares at the same prices.</button>
+        </div>
+        <div class="oh-sent" id="oh-sent-4"></div>
+        <div class="oh-truth" id="oh-truth-4">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · OVERHEARD FROM A FRIEND ========== -->
+    <section class="oh-sec oh-reveal" data-step="6">
+      <p class="oh-kicker">Overheard From a Friend · 6 / 9</p>
+      <h2 class="oh-h2">A hot tip arrives</h2>
+
+      <div class="oh-thread" id="oh-thread-5">
+        <div class="oh-context">🙋 Text message</div>
+        <div class="oh-bubble in">This fund has crushed it for 5 years straight. Basically a no-brainer at this point.</div>
+
+        <div class="oh-replies" id="oh-replies-5">
+          <button type="button" data-r="a">Sounds like a safe bet, I'm in.</button>
+          <button type="button" data-r="b">Past results are just history — they don't guarantee what happens next.</button>
+          <button type="button" data-r="c">Funds like that always just keep winning.</button>
+        </div>
+        <div class="oh-sent" id="oh-sent-5"></div>
+        <div class="oh-truth" id="oh-truth-5">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · OVERHEARD AT A PARTY ========== -->
+    <section class="oh-sec oh-reveal" data-step="7">
+      <p class="oh-kicker">Overheard at a Party · 7 / 9</p>
+      <h2 class="oh-h2">Someone's feeling philosophical</h2>
+
+      <div class="oh-thread" id="oh-thread-6">
+        <div class="oh-context">🎉 Kitchen conversation</div>
+        <div class="oh-bubble in">Investing is basically gambling if you think about it. It's all just luck.</div>
+
+        <div class="oh-replies" id="oh-replies-6">
+          <button type="button" data-r="a">Yeah, might as well just go to a casino.</button>
+          <button type="button" data-r="b">Kind of, but with slightly better odds I guess.</button>
+          <button type="button" data-r="c">Not really — investing means owning real, productive businesses, not placing a bet with a built-in house edge.</button>
+        </div>
+        <div class="oh-sent" id="oh-sent-6"></div>
+        <div class="oh-truth" id="oh-truth-6">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 8 · YOUR SAVED REPLIES ========== -->
+    <section class="oh-sec oh-reveal" data-step="8">
+      <p class="oh-kicker">Recap · 8 / 9</p>
+      <h2 class="oh-h2">Your saved replies</h2>
+      <p class="oh-p">Six situations, six comebacks you now actually have ready.</p>
+
+      <div class="oh-recap">
+        <div class="oh-recap-item"><span class="oh-recap-check">✓</span><span>Lucky trades happen — but the math and evidence favor patient, long-term investing.</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">✓</span><span>You don't need genius insight — simple, diversified approaches hold up remarkably well.</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">✓</span><span>Checking constantly fuels emotional decisions, not better ones.</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">✓</span><span>Institutions have real edges, but individual investors have genuine, structural access too.</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">✓</span><span>Past performance is context, never a guarantee.</span></div>
+        <div class="oh-recap-item"><span class="oh-recap-check">✓</span><span>Investing means owning real businesses — a fundamentally different game than a bet with a built-in house edge.</span></div>
+      </div>
+      <div class="oh-next-move">Your next move: <b>the next time you hear one of these, you'll already know exactly what to say.</b></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="oh-sec oh-center oh-reveal" data-step="9">
+      <p class="oh-kicker center">Certified · 9 / 9</p>
+      <div class="oh-cert">
+        <div class="oh-cert-border"></div>
+        <span class="oh-cert-pill">🏆 Certificate of Completion</span>
+        <p class="oh-cert-cert">This certifies that</p>
+        <h2 class="oh-cert-name">Myth Buster</h2>
+        <p class="oh-cert-body">has completed <span class="oh-tw">TURNIT</span> Financial Foundations: Myths and Misconceptions About Investing, and now has real answers ready for the next overheard conversation.</p>
+        <div class="oh-cert-line"></div>
+        <div class="oh-done-row streak"><div class="oh-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="oh-done-row ach"><div class="oh-done-ico">🏆</div><div><b>Achievement: Myth Buster</b><span>You separated investing fact from fiction.</span></div></div>
+        <div class="oh-done-btns">
+          <a class="oh-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="oh-btn ghost" id="oh-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="oh-quote">"THE BIG MONEY IS NOT IN THE BUYING AND THE SELLING, <span class="oh-green">BUT IN THE WAITING.</span>"<br><span class="oh-quote-by">— CHARLIE MUNGER</span></p>
+    </section>
+
+    <p class="oh-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Conversations shown are fictional examples for illustration.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="oh-nav" id="oh-nav">
+      <button type="button" class="oh-nav-btn prev" id="oh-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="oh-nav-hint" id="oh-nav-hint"></span>
+      <button type="button" class="oh-nav-btn next" id="oh-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-oh{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-oh *,#tn-oh *::before,#tn-oh *::after{box-sizing:border-box;}
+  #tn-oh .oh-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-oh .oh-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-oh .oh-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-oh .oh-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-oh .oh-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-oh .oh-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-oh .oh-bico{display:flex;}
+  #tn-oh .oh-word,#tn-oh .oh-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-oh .oh-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-oh .oh-bsub{color:var(--ink2); font-weight:500;}
+  #tn-oh .oh-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-oh #oh-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-oh .oh-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-oh .oh-meta #oh-slide-label{color:var(--ink2);}
+  #tn-oh .oh-meta #oh-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-oh .oh-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-oh .oh-sec.oh-hide{display:none;}
+  #tn-oh .oh-center{text-align:center;}
+  #tn-oh .oh-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-oh .oh-kicker.center{text-align:center;}
+  #tn-oh .oh-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 16px; color:var(--ink);}
+  #tn-oh .oh-h2.center{text-align:center;}
+  #tn-oh .oh-tw{font-style:italic;}
+  #tn-oh .oh-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-oh .oh-p b{color:var(--ink); font-weight:700;}
+
+  /* ---- chat thread (shared across slides 2-7) ---- */
+  #tn-oh .oh-thread{background:var(--mist); border:1px solid var(--line); border-radius:18px; padding:18px 16px;}
+  #tn-oh .oh-context{font-size:11.5px; font-weight:700; color:var(--mut); text-transform:uppercase; letter-spacing:.05em; margin-bottom:12px; text-align:center;}
+  #tn-oh .oh-bubble{max-width:82%; padding:12px 15px; border-radius:16px; font-size:14.5px; line-height:1.45; margin-bottom:16px;}
+  #tn-oh .oh-bubble.in{background:#fff; border:1px solid var(--line); border-bottom-left-radius:4px; color:var(--ink); margin-right:auto;}
+  #tn-oh .oh-bubble.out{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff; border-bottom-right-radius:4px; margin-left:auto; margin-bottom:16px; opacity:0; transform:translateX(16px); transition:opacity .35s ease, transform .35s ease;}
+  #tn-oh .oh-bubble.out.show{opacity:1; transform:translateX(0);}
+  #tn-oh .oh-replies{display:flex; flex-direction:column; gap:8px; margin-bottom:4px;}
+  #tn-oh .oh-replies button{font-family:inherit; font-size:13.5px; font-weight:600; color:var(--b); background:#fff; border:1.5px solid #B9CFE4; border-radius:99px; padding:11px 16px; cursor:pointer; text-align:left; transition:all .18s;}
+  #tn-oh .oh-replies button:hover{background:var(--tint);}
+  #tn-oh .oh-replies button:disabled{opacity:.35; cursor:default;}
+  #tn-oh .oh-replies.answered{display:none;}
+  #tn-oh .oh-truth{background:#fff; border:1.5px dashed var(--selbd); border-radius:14px; padding:15px 16px; margin-top:4px; font-size:13.5px; color:var(--ink2); line-height:1.55; opacity:0; max-height:0; overflow:hidden; transition:opacity .4s ease .1s, max-height .4s ease .1s, margin .4s ease .1s;}
+  #tn-oh .oh-truth.show{opacity:1; max-height:260px; margin-top:14px;}
+  #tn-oh .oh-truth b{color:var(--g); font-family:'Poppins',sans-serif;}
+
+  /* recap */
+  #tn-oh .oh-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-oh .oh-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-oh .oh-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-oh .oh-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-oh .oh-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-oh .oh-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-oh .oh-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-oh .oh-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-oh .oh-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-oh .oh-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-oh .oh-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-oh .oh-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-oh .oh-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-oh .oh-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-oh .oh-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-oh .oh-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-oh .oh-done-ico{font-size:20px; flex:none;}
+  #tn-oh .oh-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-oh .oh-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-oh .oh-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-oh .oh-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-oh .oh-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-oh .oh-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-oh .oh-btn:hover{transform:translateY(-2px);}
+  #tn-oh .oh-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-oh .oh-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-oh .oh-green{color:var(--g);}
+  #tn-oh .oh-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-oh .oh-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-oh .oh-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-oh .oh-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-oh .oh-nav-btn.prev{color:var(--ink2);}
+  #tn-oh .oh-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-oh .oh-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-oh .oh-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-oh .oh-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-oh .oh-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-oh .oh-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-oh .oh-wrap{padding:12px 14px 30px;}
+    #tn-oh .oh-bubble{max-width:92%;}
+    #tn-oh .oh-bsub{display:none;}
+    #tn-oh .oh-nav-hint{display:none;}
+    #tn-oh .oh-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-oh .oh-reveal{opacity:1 !important; transform:none !important;}
+    #tn-oh #oh-bar{transition:none;}
+    #tn-oh .oh-bubble.out{transition:none !important;}
+    #tn-oh .oh-truth{transition:none !important;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-oh'); if(!root) return;
+  root.querySelectorAll('.oh-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  var threadData={
+    1:{
+      a:{reply:"Wow, maybe I should try that too!", truth:"Lucky short-term trades definitely happen \u2014 but once fees and taxes are counted, most day-traders actually lose money over time. It's exciting to hear about, risky to copy."},
+      b:{reply:"That's just gambling, don't do it.", truth:"Fair instinct, but it's not quite that simple \u2014 investing itself isn't gambling. It's specifically the rapid, speculative trading that carries the worst odds."},
+      c:{reply:"That's possible short-term, but most day-traders lose money once you count fees and taxes.", truth:"Exactly right. Lucky short-term trades happen, but the math and evidence strongly favor steady, long-term investing over trying to replicate a lucky streak."}
+    },
+    2:{
+      a:{reply:"Yeah, it's probably too complicated for either of us.", truth:"Totally understandable feeling, but it's not actually accurate \u2014 you don't need genius-level insight to participate well."},
+      b:{reply:"Not really \u2014 simple, diversified approaches have held up well, even against professionals.", truth:"Exactly right. Simple, low-cost, diversified approaches have historically been tough for even trained professionals to consistently beat."},
+      c:{reply:"You just need a good tip from someone in the know.", truth:"Tempting to believe, but chasing tips is closer to speculation than investing \u2014 there's no reliable shortcut around a sound, simple plan."}
+    },
+    3:{
+      a:{reply:"Smart, staying that on top of things.", truth:"It feels responsible, but it usually backfires \u2014 constant checking tends to fuel emotional, short-term decisions rather than better ones."},
+      b:{reply:"Constant checking tends to trigger more emotional decisions, not better ones.", truth:"Exactly right. Checking less often naturally filters out day-to-day noise and helps you focus on the trend that actually matters."},
+      c:{reply:"Honestly, you should probably just sell everything.", truth:"That's an overreaction \u2014 the real issue isn't whether to invest, it's how often to check. Less frequent checking is usually the better fix."}
+    },
+    4:{
+      a:{reply:"Yeah, there's basically no point trying.", truth:"Understandable frustration, but it gives up too much \u2014 individual investors do have genuine, structural access to the same market."},
+      b:{reply:"It's completely fair \u2014 everyone has the exact same shot.", truth:"Not quite \u2014 large institutions do have real advantages, like faster information and bigger research teams. It's not perfectly equal."},
+      c:{reply:"Institutions have some real edges, but individual investors can buy the same shares at the same prices.", truth:"Exactly right. It's complicated, not hopeless \u2014 simple, low-cost strategies genuinely don't require beating anyone at their own game."}
+    },
+    5:{
+      a:{reply:"Sounds like a safe bet, I'm in.", truth:"Worth slowing down here \u2014 a 5-year run is real history, but it's not a promise about what comes next."},
+      b:{reply:"Past results are just history \u2014 they don't guarantee what happens next.", truth:"Exactly right. Conditions change, and yesterday's winner can easily become tomorrow's laggard. That's exactly why every disclaimer says it."},
+      c:{reply:"Funds like that always just keep winning.", truth:"That's the riskiest read of all \u2014 assuming a streak will simply continue is how a lot of people end up disappointed."}
+    },
+    6:{
+      a:{reply:"Yeah, might as well just go to a casino.", truth:"It feels like a punchline, but it's not accurate \u2014 investing and casino gambling work on fundamentally different mechanics."},
+      b:{reply:"Kind of, but with slightly better odds I guess.", truth:"Closer, but still off \u2014 it's not a matter of degree. Owning a real business is a different kind of activity than betting against a house edge."},
+      c:{reply:"Not really \u2014 investing means owning real, productive businesses, not placing a bet with a built-in house edge.", truth:"Exactly right. A casino game has a mathematical edge for the house built in. Owning part of a real, productive business is a fundamentally different game."}
+    }
+  };
+
+  Object.keys(threadData).forEach(function(id){
+    var repliesEl=root.querySelector('#oh-replies-'+id), sentEl=root.querySelector('#oh-sent-'+id), truthEl=root.querySelector('#oh-truth-'+id);
+    if(!repliesEl) return;
+    repliesEl.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var choice=threadData[id][btn.getAttribute('data-r')];
+        repliesEl.querySelectorAll('button').forEach(function(b){ b.disabled=true; });
+        repliesEl.classList.add('answered');
+        var bubble=document.createElement('div');
+        bubble.className='oh-bubble out';
+        bubble.textContent=choice.reply;
+        sentEl.appendChild(bubble);
+        setTimeout(function(){ bubble.classList.add('show'); postHeight(); },30);
+        setTimeout(function(){
+          truthEl.innerHTML='<b>The real story:</b> '+choice.truth;
+          truthEl.classList.add('show');
+          postHeight();
+        },380);
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-oh'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#oh-bar');
+  var labelEl=root.querySelector('#oh-slide-label');
+  var countEl=root.querySelector('#oh-slide-count');
+  var prevBtn=root.querySelector('#oh-prev');
+  var nextBtn=root.querySelector('#oh-next');
+  var hintEl=root.querySelector('#oh-nav-hint');
+  var disclaimer=root.querySelector('.oh-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'Overheard at Thanksgiving',3:'Overheard at the Office',4:'Overheard From a Coworker',5:'Overheard on Social Media',6:'Overheard From a Friend',7:'Overheard at a Party',8:'Your Saved Replies',9:'Certified'};
+  var reqHints={2:'Send a reply to continue',3:'Send a reply to continue',4:'Send a reply to continue',5:'Send a reply to continue',6:'Send a reply to continue',7:'Send a reply to continue'};
+
+  var done={1:true,8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.oh-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('oh-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('oh-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+
+  // 2-7 · any reply sent in each thread marks that slide done
+  for(var i=2;i<=7;i++){
+    (function(step){
+      var repliesEl=root.querySelector('#oh-replies-'+(step-1));
+      if(!repliesEl) return;
+      repliesEl.querySelectorAll('button').forEach(function(btn){
+        btn.addEventListener('click',function(){ markDone(step); });
+      });
+    })(i);
+  }
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#oh-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

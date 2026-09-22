@@ -1,0 +1,742 @@
+<!-- ============================================================
+     TURNIT — ROTH IRA VS. TRADITIONAL IRA  (Module 2 · Lesson 3)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ri. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Open Both Envelopes         2 The Tax Bracket Seesaw
+       3 The Paycheck Splitter       4 The Scenario Slot Machine
+       5 The Sorting Hat             6 Flip Cards: Fact Check
+       7 Set It on Autopilot         8 The Highlight Reel
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-ri">
+  <div class="ri-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="ri-top">
+      <div class="ri-topbar">
+        <div class="ri-brand"><span class="ri-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 2v20M8 6a4 4 0 0 0 0 8h8a4 4 0 0 1 0 8H6"/></svg></span><span class="ri-word">TURNIT</span><span class="ri-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="ri-progress"><span id="ri-bar"></span></div>
+      <div class="ri-meta"><span id="ri-slide-label">Open Both Envelopes</span><span id="ri-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · OPEN BOTH ENVELOPES ========== -->
+    <section class="ri-sec ri-reveal" data-step="1">
+      <p class="ri-kicker">Two Envelopes · 1 / 9</p>
+      <h2 class="ri-h2">Two envelopes, two promises</h2>
+      <p class="ri-p">Tap each envelope to open it and read what's inside.</p>
+
+      <div class="ri-env-grid">
+        <button type="button" class="ri-envelope" id="ri-env-roth">
+          <span class="ri-env-flap"></span>
+          <span class="ri-env-front">🔴 Roth IRA</span>
+          <span class="ri-env-letter">Pay taxes today, on this contribution. In exchange, every dollar of growth comes out completely tax-free in retirement.</span>
+        </button>
+        <button type="button" class="ri-envelope" id="ri-env-trad">
+          <span class="ri-env-flap"></span>
+          <span class="ri-env-front">🔵 Traditional IRA</span>
+          <span class="ri-env-letter">Skip the tax bill today — this contribution lowers your taxable income right now. Ordinary income tax is paid later, when you withdraw in retirement.</span>
+        </button>
+      </div>
+      <p class="ri-count" id="ri-env-count">Opened 0 of 2</p>
+    </section>
+
+    <!-- ========== 2 · THE TAX BRACKET SEESAW ========== -->
+    <section class="ri-sec ri-reveal" data-step="2">
+      <p class="ri-kicker">The Tax Bracket Seesaw · 2 / 9</p>
+      <h2 class="ri-h2">Which side is heavier?</h2>
+      <p class="ri-p">Set your tax rate today and your best guess for retirement. Watch which side wins.</p>
+
+      <div class="ri-panel">
+        <div class="ri-seesaw-wrap">
+          <div class="ri-seesaw-beam" id="ri-seesaw-beam">
+            <div class="ri-seesaw-pan left"><span>Today</span><b id="ri-seesaw-today-v">22%</b></div>
+            <div class="ri-seesaw-pan right"><span>Retirement</span><b id="ri-seesaw-retire-v">22%</b></div>
+          </div>
+          <div class="ri-seesaw-fulcrum"></div>
+        </div>
+        <p class="ri-seesaw-verdict" id="ri-seesaw-verdict">Balanced — either could work</p>
+
+        <div class="ri-slide-row">
+          <div class="ri-slide-top"><label for="ri-seesaw-today">Tax Rate Today</label><span class="ri-slide-v blue" id="ri-seesaw-today-lab">22%</span></div>
+          <input id="ri-seesaw-today" class="ri-range" type="range" min="10" max="37" value="22" step="1" aria-label="Tax rate today">
+        </div>
+        <div class="ri-slide-row">
+          <div class="ri-slide-top"><label for="ri-seesaw-retire">Guessed Tax Rate in Retirement</label><span class="ri-slide-v green" id="ri-seesaw-retire-lab">22%</span></div>
+          <input id="ri-seesaw-retire" class="ri-range good" type="range" min="10" max="37" value="22" step="1" aria-label="Guessed tax rate in retirement">
+        </div>
+        <div class="ri-note">Illustrative rates only — a rough way to feel the trade-off, not real tax brackets.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · THE PAYCHECK SPLITTER ========== -->
+    <section class="ri-sec ri-reveal" data-step="3">
+      <p class="ri-kicker">The Paycheck Splitter · 3 / 9</p>
+      <h2 class="ri-h2">The Traditional IRA's instant discount</h2>
+      <p class="ri-p">A Traditional IRA contribution isn't taxed today — it lowers the income you're taxed on this year. Slide to watch it happen.</p>
+
+      <div class="ri-panel">
+        <div class="ri-paystub"><span>Gross Monthly Income</span><b>$4,000</b></div>
+
+        <div class="ri-slide-row">
+          <div class="ri-slide-top"><label for="ri-splitter">Traditional IRA Contribution</label><span class="ri-slide-v green" id="ri-splitter-v">$0/mo</span></div>
+          <input id="ri-splitter" class="ri-range good" type="range" min="0" max="500" value="0" step="25" aria-label="Traditional IRA contribution">
+        </div>
+
+        <div class="ri-hook-grid">
+          <div class="ri-hook-box"><span>Taxable Income This Month</span><b id="ri-splitter-taxable">$4,000</b></div>
+          <div class="ri-hook-box green"><span>Tax Savings This Month</span><b id="ri-splitter-savings">$0</b></div>
+        </div>
+        <div class="ri-note">A simplified ~22% illustrative tax rate is used here — your actual savings depend on your real tax bracket.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · THE SCENARIO SLOT MACHINE ========== -->
+    <section class="ri-sec ri-reveal" data-step="4">
+      <p class="ri-kicker">The Scenario Slot Machine · 4 / 9</p>
+      <h2 class="ri-h2">Spin for a life stage</h2>
+      <p class="ri-p">Pull the lever and see which account tends to fit that scenario.</p>
+
+      <div class="ri-panel ri-center">
+        <div class="ri-slot-window"><div class="ri-slot-reel" id="ri-slot-reel">🎓 Just Started Career</div></div>
+        <button type="button" class="ri-slot-btn" id="ri-slot-btn">🎰 Spin</button>
+        <div class="ri-slot-result" id="ri-slot-result">&nbsp;</div>
+      </div>
+      <p class="ri-count" id="ri-slot-count">Spun 0 of 2</p>
+    </section>
+
+    <!-- ========== 5 · THE SORTING HAT ========== -->
+    <section class="ri-sec ri-reveal" data-step="5">
+      <p class="ri-kicker">The Sorting Hat · 5 / 9</p>
+      <h2 class="ri-h2">Which hat does it belong under?</h2>
+      <p class="ri-p">Read the card, then send it to the right hat.</p>
+
+      <div class="ri-hat-row">
+        <button type="button" class="ri-hat" id="ri-hat-roth">🎩<span>Roth</span></button>
+        <button type="button" class="ri-hat" id="ri-hat-trad">🎩<span>Traditional</span></button>
+      </div>
+
+      <div class="ri-hat-stage">
+        <div class="ri-hat-card" id="ri-hat-card" data-idx="0">Withdrawals in retirement are completely tax-free</div>
+      </div>
+      <p class="ri-count" id="ri-hat-count">Sorted 0 of 4</p>
+    </section>
+
+    <!-- ========== 6 · FLIP CARDS: FACT CHECK ========== -->
+    <section class="ri-sec ri-reveal" data-step="6">
+      <p class="ri-kicker">Flip Cards: Fact Check · 6 / 9</p>
+      <h2 class="ri-h2">Guess, then flip to check</h2>
+      <p class="ri-p">Tap Myth or Fact on each card to flip it and see the real answer.</p>
+
+      <div class="ri-flip-grid" id="ri-flip-grid">
+        <div class="ri-flip-card" data-answer="fact">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">A Roth IRA and a Traditional IRA share the same basic contribution limit.</p>
+              <div class="ri-flip-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">FACT</p><p class="ri-flip-why">They share the same annual cap — the exact number is covered in an upcoming lesson.</p></div>
+          </div>
+        </div>
+        <div class="ri-flip-card" data-answer="myth">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">With a Traditional IRA, you pay tax on your contribution the year you make it.</p>
+              <div class="ri-flip-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">MYTH</p><p class="ri-flip-why">You get a deduction now — the tax bill comes later, when you withdraw.</p></div>
+          </div>
+        </div>
+        <div class="ri-flip-card" data-answer="fact">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">Both account types can hold stocks, bonds, ETFs, and mutual funds.</p>
+              <div class="ri-flip-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">FACT</p><p class="ri-flip-why">Same range of investments fits inside either one.</p></div>
+          </div>
+        </div>
+        <div class="ri-flip-card" data-answer="myth">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">Whichever account is "better" is exactly the same for absolutely everyone.</p>
+              <div class="ri-flip-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">MYTH</p><p class="ri-flip-why">It usually comes down to your tax bracket now versus your best guess about retirement.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="ri-count" id="ri-flip-count">Flipped 0 of 4</p>
+    </section>
+
+    <!-- ========== 7 · SET IT ON AUTOPILOT ========== -->
+    <section class="ri-sec ri-center ri-reveal" data-step="7">
+      <p class="ri-kicker center">Set It on Autopilot · 7 / 9</p>
+      <h2 class="ri-h2 center">Schedule it once. Done forever.</h2>
+      <p class="ri-sub center">Tap the button and watch every future payday line up automatically.</p>
+
+      <div class="ri-domino-row" id="ri-domino-row">
+        <span class="ri-domino">💵</span><span class="ri-domino">💵</span><span class="ri-domino">💵</span>
+        <span class="ri-domino">💵</span><span class="ri-domino">💵</span><span class="ri-domino">💵</span>
+      </div>
+      <button type="button" class="ri-domino-btn" id="ri-domino-btn">🗓️ Schedule Automatic Contributions</button>
+      <p class="ri-domino-msg" id="ri-domino-msg">&nbsp;</p>
+    </section>
+
+    <!-- ========== 8 · THE HIGHLIGHT REEL ========== -->
+    <section class="ri-sec ri-reveal" data-step="8">
+      <p class="ri-kicker">Recap · 8 / 9</p>
+      <h2 class="ri-h2">The highlight reel</h2>
+      <p class="ri-p">Tap through for a quick recap.</p>
+
+      <div class="ri-reel-card" id="ri-reel-card">
+        <p class="ri-reel-icon" id="ri-reel-icon">🚧</p>
+        <p class="ri-reel-text" id="ri-reel-text">A Roth taxes your contribution today. A Traditional taxes your withdrawal later. Someone always pays the toll.</p>
+      </div>
+      <div class="ri-reel-dots" id="ri-reel-dots"></div>
+      <button type="button" class="ri-reel-btn" id="ri-reel-next">Next Highlight →</button>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="ri-sec ri-center ri-reveal" data-step="9">
+      <p class="ri-kicker center">Certified · 9 / 9</p>
+      <div class="ri-cert">
+        <div class="ri-cert-border"></div>
+        <span class="ri-cert-pill">🏆 Certificate of Completion</span>
+        <p class="ri-cert-cert">This certifies that</p>
+        <h2 class="ri-cert-name">Tax Timing Mastered</h2>
+        <p class="ri-cert-body">has completed <span class="ri-tw">TURNIT</span> Financial Foundations: Roth IRA vs. Traditional IRA, and now understands the core trade-off between paying taxes now or later.</p>
+        <div class="ri-cert-line"></div>
+        <div class="ri-done-row streak"><div class="ri-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="ri-done-row ach"><div class="ri-done-ico">🏆</div><div><b>Achievement: IRA Certified</b><span>You mastered Roth vs. Traditional.</span></div></div>
+        <div class="ri-done-btns">
+          <a class="ri-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="ri-btn ghost" id="ri-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="ri-quote">"IN THIS WORLD NOTHING IS CERTAIN EXCEPT <span class="ri-green">DEATH AND TAXES.</span>"<br><span class="ri-quote-by">— BENJAMIN FRANKLIN</span></p>
+    </section>
+
+    <p class="ri-disclaimer">TURNIT is for educational purposes only and is not financial advice or tax advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Figures in this lesson are simplified, hypothetical illustrations. Contribution limits and age requirements are covered in a dedicated upcoming lesson.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="ri-nav" id="ri-nav">
+      <button type="button" class="ri-nav-btn prev" id="ri-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ri-nav-hint" id="ri-nav-hint"></span>
+      <button type="button" class="ri-nav-btn next" id="ri-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-ri{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-ri *,#tn-ri *::before,#tn-ri *::after{box-sizing:border-box;}
+  #tn-ri .ri-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ri .ri-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ri .ri-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-ri .ri-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ri .ri-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ri .ri-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-ri .ri-bico{display:flex;}
+  #tn-ri .ri-word,#tn-ri .ri-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ri .ri-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-ri .ri-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ri .ri-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ri #ri-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ri .ri-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ri .ri-meta #ri-slide-label{color:var(--ink2);}
+  #tn-ri .ri-meta #ri-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-ri .ri-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-ri .ri-sec.ri-hide{display:none;}
+  #tn-ri .ri-center{text-align:center;}
+  #tn-ri .ri-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ri .ri-kicker.center{text-align:center;}
+  #tn-ri .ri-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-ri .ri-h2.center{text-align:center;}
+  #tn-ri .ri-tw{font-style:italic;}
+  #tn-ri .ri-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ri .ri-p b{color:var(--ink); font-weight:700;}
+  #tn-ri .ri-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ri .ri-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-ri .ri-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-ri .ri-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+
+  #tn-ri .ri-hook-grid{display:flex; gap:10px; margin-top:14px;}
+  #tn-ri .ri-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center;}
+  #tn-ri .ri-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-ri .ri-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,4.2vw,19px); color:var(--ink);}
+  #tn-ri .ri-hook-box.green{background:var(--tint); border-color:var(--selbd);}
+  #tn-ri .ri-hook-box.green b{color:var(--g);}
+
+  /* slide rows / ranges (shared) */
+  #tn-ri .ri-slide-row{margin-top:16px;}
+  #tn-ri .ri-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-ri .ri-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-ri .ri-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-ri .ri-slide-v.green{color:var(--g);} #tn-ri .ri-slide-v.blue{color:var(--b);}
+  #tn-ri .ri-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-ri .ri-range.good{background:linear-gradient(90deg,#9AA8B6,#209B73);}
+  #tn-ri .ri-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-ri .ri-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+
+  /* ---- slide 1: envelopes ---- */
+  #tn-ri .ri-env-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  #tn-ri .ri-envelope{position:relative; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:0 0 14px 14px; padding:40px 12px 16px; cursor:pointer; overflow:hidden; min-height:170px; text-align:center; font-family:inherit;}
+  #tn-ri .ri-env-flap{position:absolute; top:0; left:0; right:0; height:70px; background:linear-gradient(135deg,var(--cardbd),var(--cardbg)); clip-path:polygon(0 0,100% 0,50% 65%); transform-origin:top center; transition:transform .5s cubic-bezier(.4,1.6,.6,1); z-index:2;}
+  #tn-ri .ri-envelope.open .ri-env-flap{transform:rotateX(180deg);}
+  #tn-ri .ri-env-front{position:relative; z-index:1; display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); margin-top:20px;}
+  #tn-ri .ri-env-letter{display:block; font-size:12.5px; color:var(--ink2); line-height:1.5; max-height:0; opacity:0; overflow:hidden; transition:max-height .4s ease .15s, opacity .4s ease .15s; margin-top:8px;}
+  #tn-ri .ri-envelope.open .ri-env-letter{max-height:220px; opacity:1;}
+  #tn-ri .ri-envelope.open{border-color:var(--selbd); background:var(--tint);}
+
+  /* ---- slide 2: seesaw ---- */
+  #tn-ri .ri-seesaw-wrap{position:relative; margin:10px auto 6px; max-width:340px;}
+  #tn-ri .ri-seesaw-beam{display:flex; justify-content:space-between; align-items:center; transition:transform .4s ease; transform-origin:center; padding:0 6px;}
+  #tn-ri .ri-seesaw-pan{background:#fff; border:1.5px solid var(--line); border-radius:12px; padding:12px 14px; text-align:center; min-width:90px;}
+  #tn-ri .ri-seesaw-pan span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:3px;}
+  #tn-ri .ri-seesaw-pan b{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:var(--ink);}
+  #tn-ri .ri-seesaw-fulcrum{width:0; height:0; border-left:16px solid transparent; border-right:16px solid transparent; border-bottom:22px solid var(--ink2); margin:0 auto;}
+  #tn-ri .ri-seesaw-verdict{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--g); margin:10px 0 4px;}
+
+  /* ---- slide 3: paystub ---- */
+  #tn-ri .ri-paystub{display:flex; justify-content:space-between; align-items:center; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:14px 16px; margin-bottom:6px;}
+  #tn-ri .ri-paystub span{font-size:12.5px; font-weight:700; color:var(--ink2); text-transform:uppercase; letter-spacing:.04em;}
+  #tn-ri .ri-paystub b{font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; color:var(--ink);}
+
+  /* ---- slide 4: slot machine ---- */
+  #tn-ri .ri-slot-window{background:var(--ink); border-radius:14px; padding:22px 16px; margin-bottom:16px; overflow:hidden;}
+  #tn-ri .ri-slot-reel{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:#fff; text-align:center;}
+  #tn-ri .ri-slot-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px 26px; cursor:pointer; transition:transform .15s;}
+  #tn-ri .ri-slot-btn:hover{transform:translateY(-2px);}
+  #tn-ri .ri-slot-result{margin-top:14px; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:20px; max-width:460px; margin-left:auto; margin-right:auto;}
+
+  /* ---- slide 5: sorting hat ---- */
+  #tn-ri .ri-hat-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px;}
+  #tn-ri .ri-hat{display:flex; flex-direction:column; align-items:center; gap:4px; font-size:36px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:16px 8px; cursor:pointer; transition:all .2s;}
+  #tn-ri .ri-hat span{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2);}
+  #tn-ri .ri-hat.glow-good{border-color:var(--selbd); background:var(--tint); transform:scale(1.05);}
+  #tn-ri .ri-hat.glow-bad{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ri .ri-hat-stage{position:relative; min-height:100px; display:flex; align-items:center; justify-content:center;}
+  #tn-ri .ri-hat-card{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:20px 18px; text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); max-width:420px; transition:transform .4s ease, opacity .4s ease;}
+  #tn-ri .ri-hat-card.fly-left{transform:translate(-160px,-60px) scale(.4) rotate(-20deg); opacity:0;}
+  #tn-ri .ri-hat-card.fly-right{transform:translate(160px,-60px) scale(.4) rotate(20deg); opacity:0;}
+  #tn-ri .ri-hat-card.done-all{display:none;}
+
+  /* ---- slide 6: flip cards ---- */
+  #tn-ri .ri-flip-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  #tn-ri .ri-flip-card{perspective:1000px; height:170px;}
+  #tn-ri .ri-flip-inner{position:relative; width:100%; height:100%; transition:transform .6s cubic-bezier(.4,.2,.2,1); transform-style:preserve-3d;}
+  #tn-ri .ri-flip-card.flipped .ri-flip-inner{transform:rotateY(180deg);}
+  #tn-ri .ri-flip-front,#tn-ri .ri-flip-back{position:absolute; inset:0; backface-visibility:hidden; border-radius:14px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;}
+  #tn-ri .ri-flip-front{background:var(--cardbg); border:1.5px solid var(--cardbd);}
+  #tn-ri .ri-flip-q{font-size:12.5px; font-weight:600; color:var(--ink); line-height:1.4; margin:0;}
+  #tn-ri .ri-flip-btns{display:flex; gap:6px;}
+  #tn-ri .ri-flip-btns button{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; padding:8px 4px; border-radius:8px; cursor:pointer; background:#fff; border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-ri .ri-flip-btns button[data-p="myth"]{border-color:#F5C6BE; color:var(--no);}
+  #tn-ri .ri-flip-back{background:var(--tint); border:1.5px solid var(--selbd); transform:rotateY(180deg); align-items:center; text-align:center; justify-content:center;}
+  #tn-ri .ri-flip-card[data-answer="myth"] .ri-flip-back{background:var(--nobg); border-color:var(--nobd);}
+  #tn-ri .ri-flip-answer{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--g); margin:0 0 6px;}
+  #tn-ri .ri-flip-card[data-answer="myth"] .ri-flip-answer{color:var(--no);}
+  #tn-ri .ri-flip-why{font-size:11.5px; color:var(--ink2); line-height:1.4; margin:0;}
+
+  /* ---- slide 7: domino automate ---- */
+  #tn-ri .ri-domino-row{display:flex; justify-content:center; gap:10px; margin-bottom:20px;}
+  #tn-ri .ri-domino{font-size:26px; opacity:.3; transform:scale(.8); transition:opacity .25s ease, transform .25s ease;}
+  #tn-ri .ri-domino.lit{opacity:1; transform:scale(1.15);}
+  #tn-ri .ri-domino-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px 24px; cursor:pointer; transition:transform .15s;}
+  #tn-ri .ri-domino-btn:hover{transform:translateY(-2px);}
+  #tn-ri .ri-domino-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-ri .ri-domino-msg{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--g); margin-top:16px; min-height:20px;}
+
+  /* ---- slide 8: highlight reel ---- */
+  #tn-ri .ri-reel-card{background:var(--mist); border:1px solid var(--line); border-radius:16px; padding:26px 20px; text-align:center; min-height:120px; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+  #tn-ri .ri-reel-icon{font-size:34px; margin:0 0 10px;}
+  #tn-ri .ri-reel-text{font-size:14.5px; color:var(--ink); font-weight:500; line-height:1.55; margin:0; max-width:440px;}
+  #tn-ri .ri-reel-dots{display:flex; justify-content:center; gap:6px; margin:14px 0;}
+  #tn-ri .ri-reel-dots span{width:7px; height:7px; border-radius:50%; background:var(--cardbd);}
+  #tn-ri .ri-reel-dots span.on{background:var(--g);}
+  #tn-ri .ri-reel-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:13px; cursor:pointer; transition:transform .15s;}
+  #tn-ri .ri-reel-btn:hover{transform:translateY(-2px);}
+
+  /* certificate */
+  #tn-ri .ri-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-ri .ri-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-ri .ri-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-ri .ri-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-ri .ri-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-ri .ri-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-ri .ri-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-ri .ri-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-ri .ri-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-ri .ri-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-ri .ri-done-ico{font-size:20px; flex:none;}
+  #tn-ri .ri-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-ri .ri-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-ri .ri-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-ri .ri-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-ri .ri-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-ri .ri-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-ri .ri-btn:hover{transform:translateY(-2px);}
+  #tn-ri .ri-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-ri .ri-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ri .ri-green{color:var(--g);}
+  #tn-ri .ri-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-ri .ri-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-ri .ri-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ri .ri-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ri .ri-nav-btn.prev{color:var(--ink2);}
+  #tn-ri .ri-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ri .ri-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-ri .ri-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ri .ri-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ri .ri-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ri .ri-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-ri .ri-wrap{padding:12px 14px 30px;}
+    #tn-ri .ri-flip-grid{grid-template-columns:1fr;}
+    #tn-ri .ri-flip-card{height:150px;}
+    #tn-ri .ri-domino-row{flex-wrap:wrap;}
+    #tn-ri .ri-bsub{display:none;}
+    #tn-ri .ri-nav-hint{display:none;}
+    #tn-ri .ri-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ri .ri-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ri #ri-bar{transition:none;}
+    #tn-ri .ri-env-flap{transition:none !important;}
+    #tn-ri .ri-flip-inner{transition:none !important;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-ri'); if(!root) return;
+  root.querySelectorAll('.ri-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 1 · open both envelopes ============ */
+  var envCount=root.querySelector('#ri-env-count'), envOpened=0;
+  root.querySelectorAll('.ri-envelope').forEach(function(env){
+    env.addEventListener('click',function(){
+      if(env.classList.contains('open')) return;
+      env.classList.add('open');
+      envOpened++;
+      envCount.textContent='Opened '+envOpened+' of 2';
+      postHeight();
+      setTimeout(postHeight,450);
+    });
+  });
+
+  /* ============ 2 · the tax bracket seesaw ============ */
+  var seesawToday=root.querySelector('#ri-seesaw-today'), seesawRetire=root.querySelector('#ri-seesaw-retire'),
+      seesawTodayV=root.querySelector('#ri-seesaw-today-v'), seesawRetireV=root.querySelector('#ri-seesaw-retire-v'),
+      seesawTodayLab=root.querySelector('#ri-seesaw-today-lab'), seesawRetireLab=root.querySelector('#ri-seesaw-retire-lab'),
+      seesawBeam=root.querySelector('#ri-seesaw-beam'), seesawVerdict=root.querySelector('#ri-seesaw-verdict');
+  function seesawCalc(){
+    var t=+seesawToday.value, r=+seesawRetire.value;
+    seesawTodayV.textContent=t+'%'; seesawRetireV.textContent=r+'%';
+    seesawTodayLab.textContent=t+'%'; seesawRetireLab.textContent=r+'%';
+    var diff=r-t;
+    var angle=Math.max(-12,Math.min(12,diff*0.8));
+    seesawBeam.style.transform='rotate('+angle+'deg)';
+    if(diff>3){ seesawVerdict.textContent='Tips toward Roth \u2014 pay the lower rate now'; seesawVerdict.style.color='#C0392B'; }
+    else if(diff<-3){ seesawVerdict.textContent='Tips toward Traditional \u2014 take the deduction now'; seesawVerdict.style.color='#1568AE'; }
+    else { seesawVerdict.textContent='Balanced \u2014 either could work'; seesawVerdict.style.color='#209B73'; }
+    postHeight();
+  }
+  if(seesawToday&&seesawRetire){ seesawToday.addEventListener('input',seesawCalc); seesawRetire.addEventListener('input',seesawCalc); seesawCalc(); }
+
+  /* ============ 3 · the paycheck splitter ============ */
+  var splitter=root.querySelector('#ri-splitter'), splitterV=root.querySelector('#ri-splitter-v'),
+      splitterTaxable=root.querySelector('#ri-splitter-taxable'), splitterSavings=root.querySelector('#ri-splitter-savings');
+  function splitterCalc(){
+    var c=+splitter.value;
+    splitterV.textContent='$'+c+'/mo';
+    splitterTaxable.textContent=moneyRound(4000-c);
+    splitterSavings.textContent=moneyRound(c*0.22);
+    postHeight();
+  }
+  if(splitter){ splitter.addEventListener('input',splitterCalc); splitterCalc(); }
+
+  /* ============ 4 · the scenario slot machine ============ */
+  var slotScenarios=[
+    {icon:'\ud83c\udf93', label:'Just Started Career', d:'Early career, likely a lower tax bracket today. A Roth is popular here \u2014 pay the low rate now, enjoy tax-free growth for decades.'},
+    {icon:'\ud83d\udcbc', label:'Peak Earning Years', d:'Income (and tax rate) is often at its highest here. A Traditional\u2019s upfront deduction can be especially valuable in this stretch.'},
+    {icon:'\ud83c\udf05', label:'Near Retirement', d:'Less time for tax-free growth to compound, but the decision still comes down to today\u2019s bracket versus your expected retirement bracket.'}
+  ];
+  var slotReel=root.querySelector('#ri-slot-reel'), slotBtn=root.querySelector('#ri-slot-btn'),
+      slotResult=root.querySelector('#ri-slot-result'), slotCount=root.querySelector('#ri-slot-count'), slotSpins=0;
+  if(slotBtn) slotBtn.addEventListener('click',function(){
+    slotBtn.disabled=true;
+    var ticks=0, maxTicks=16;
+    var timer=setInterval(function(){
+      var s=slotScenarios[Math.floor(Math.random()*slotScenarios.length)];
+      slotReel.textContent=s.icon+' '+s.label;
+      ticks++;
+      if(ticks>=maxTicks){
+        clearInterval(timer);
+        var finalIdx=Math.floor(Math.random()*slotScenarios.length);
+        var f=slotScenarios[finalIdx];
+        slotReel.textContent=f.icon+' '+f.label;
+        slotResult.textContent=f.d;
+        slotBtn.disabled=false;
+        slotSpins++;
+        slotCount.textContent='Spun '+Math.min(slotSpins,2)+' of 2';
+        postHeight();
+      }
+      postHeight();
+    },70);
+  });
+
+  /* ============ 5 · the sorting hat ============ */
+  var hatCards=[
+    {t:'Withdrawals in retirement are completely tax-free', a:'roth'},
+    {t:'Contributions lower this year\u2019s taxable income', a:'trad'},
+    {t:'You pay tax on the money before it ever goes in', a:'roth'},
+    {t:'Withdrawals are taxed as ordinary income later', a:'trad'}
+  ];
+  var hatIdx=0, hatSortedCount=0;
+  var hatCardEl=root.querySelector('#ri-hat-card'), hatRoth=root.querySelector('#ri-hat-roth'),
+      hatTrad=root.querySelector('#ri-hat-trad'), hatCount=root.querySelector('#ri-hat-count');
+  function renderHatCard(){
+    if(hatIdx>=hatCards.length){
+      hatCardEl.textContent='All sorted! \ud83c\udf89';
+      hatCardEl.classList.add('done-all');
+      postHeight();
+      return;
+    }
+    hatCardEl.className='ri-hat-card';
+    hatCardEl.textContent=hatCards[hatIdx].t;
+    postHeight();
+  }
+  function sortHat(choice){
+    if(hatIdx>=hatCards.length) return;
+    var correct=hatCards[hatIdx].a===choice;
+    var targetHat = choice==='roth' ? hatRoth : hatTrad;
+    targetHat.classList.add(correct?'glow-good':'glow-bad');
+    hatCardEl.classList.add(choice==='roth' ? 'fly-left' : 'fly-right');
+    setTimeout(function(){
+      targetHat.classList.remove('glow-good','glow-bad');
+      hatIdx++;
+      hatSortedCount++;
+      hatCount.textContent='Sorted '+hatSortedCount+' of 4';
+      renderHatCard();
+    },420);
+  }
+  if(hatRoth) hatRoth.addEventListener('click',function(){ sortHat('roth'); });
+  if(hatTrad) hatTrad.addEventListener('click',function(){ sortHat('trad'); });
+
+  /* ============ 6 · flip cards fact check ============ */
+  var flipCount=root.querySelector('#ri-flip-count'), flipFlipped=0;
+  root.querySelectorAll('#ri-flip-grid .ri-flip-card').forEach(function(card){
+    card.querySelectorAll('.ri-flip-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(card.classList.contains('flipped')) return;
+        card.classList.add('flipped');
+        flipFlipped++;
+        flipCount.textContent='Flipped '+flipFlipped+' of 4';
+        postHeight();
+        setTimeout(postHeight,650);
+      });
+    });
+  });
+
+  /* ============ 7 · set it on autopilot ============ */
+  var dominoBtn=root.querySelector('#ri-domino-btn'), dominoMsg=root.querySelector('#ri-domino-msg');
+  var dominoes=root.querySelectorAll('#ri-domino-row .ri-domino');
+  if(dominoBtn) dominoBtn.addEventListener('click',function(){
+    dominoBtn.disabled=true;
+    dominoes.forEach(function(d,i){
+      setTimeout(function(){ d.classList.add('lit'); postHeight(); },i*150);
+    });
+    setTimeout(function(){
+      dominoMsg.textContent='Automatic contributions scheduled \u2014 every payday, from now on, with no decision required.';
+      postHeight();
+    }, dominoes.length*150+250);
+  });
+
+  /* ============ 8 · the highlight reel ============ */
+  var reelItems=[
+    {icon:'\ud83d\udea7', t:'A Roth taxes your contribution today. A Traditional taxes your withdrawal later. Someone always pays the toll.'},
+    {icon:'\ud83c\udf89', t:'Qualified Roth withdrawals in retirement come out with zero tax owed on the growth.'},
+    {icon:'\ud83d\udcb5', t:'A Traditional contribution lowers your taxable income the same year you make it.'},
+    {icon:'\ud83e\uddfa', t:'Both account types can hold stocks, bonds, ETFs, and mutual funds.'},
+    {icon:'\ud83d\udd12', t:'Both are designed to stay invested until retirement age \u2014 early growth withdrawals usually come at a cost.'},
+    {icon:'\u2696\ufe0f', t:'The better choice usually comes down to your tax bracket now versus your best guess about retirement.'}
+  ];
+  var reelIdx=0;
+  var reelIcon=root.querySelector('#ri-reel-icon'), reelText=root.querySelector('#ri-reel-text'),
+      reelDots=root.querySelector('#ri-reel-dots'), reelNext=root.querySelector('#ri-reel-next');
+  function buildDots(){
+    reelDots.innerHTML='';
+    reelItems.forEach(function(_,i){
+      var d=document.createElement('span');
+      if(i===reelIdx) d.className='on';
+      reelDots.appendChild(d);
+    });
+  }
+  function renderReel(){
+    reelIcon.textContent=reelItems[reelIdx].icon;
+    reelText.textContent=reelItems[reelIdx].t;
+    buildDots();
+    postHeight();
+  }
+  if(reelNext) reelNext.addEventListener('click',function(){
+    reelIdx=(reelIdx+1)%reelItems.length;
+    renderReel();
+  });
+  renderReel();
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ri'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#ri-bar');
+  var labelEl=root.querySelector('#ri-slide-label');
+  var countEl=root.querySelector('#ri-slide-count');
+  var prevBtn=root.querySelector('#ri-prev');
+  var nextBtn=root.querySelector('#ri-next');
+  var hintEl=root.querySelector('#ri-nav-hint');
+  var disclaimer=root.querySelector('.ri-disclaimer');
+
+  var labels={1:'Open Both Envelopes',2:'The Tax Bracket Seesaw',3:'The Paycheck Splitter',4:'The Scenario Slot Machine',5:'The Sorting Hat',6:'Flip Cards: Fact Check',7:'Set It on Autopilot',8:'The Highlight Reel',9:'Certified'};
+  var reqHints={1:'Open both envelopes',2:'Move both sliders to continue',3:'Move the slider to continue',4:'Spin at least twice',5:'Sort all 4 cards',6:'Flip all 4 cards',7:'Schedule it to continue'};
+
+  var done={8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.ri-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ri-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ri-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · both envelopes opened
+  var envOpenCount=0;
+  root.querySelectorAll('.ri-envelope').forEach(function(env){
+    env.addEventListener('click',function(){
+      if(env.classList.contains('was-counted')) return;
+      env.classList.add('was-counted');
+      envOpenCount++;
+      if(envOpenCount>=2) markDone(1); else liveHint(1,'Now open the other envelope too');
+    });
+  });
+
+  // 2 · both seesaw sliders moved
+  var seesawState={today:false,retire:false};
+  var seesawToday2=root.querySelector('#ri-seesaw-today'), seesawRetire2=root.querySelector('#ri-seesaw-retire');
+  if(seesawToday2) seesawToday2.addEventListener('input',function(){ seesawState.today=true;
+    if(seesawState.today&&seesawState.retire) markDone(2); else liveHint(2,'Now move the retirement slider too'); });
+  if(seesawRetire2) seesawRetire2.addEventListener('input',function(){ seesawState.retire=true;
+    if(seesawState.today&&seesawState.retire) markDone(2); else liveHint(2,'Now move the today slider too'); });
+
+  // 3 · splitter slider moved
+  var splitter2=root.querySelector('#ri-splitter');
+  if(splitter2) splitter2.addEventListener('input',function(){ markDone(3); });
+
+  // 4 · spun at least twice
+  var slotBtn2=root.querySelector('#ri-slot-btn'), slotSpinCount=0;
+  if(slotBtn2) slotBtn2.addEventListener('click',function(){
+    setTimeout(function(){
+      slotSpinCount++;
+      if(slotSpinCount>=2) markDone(4); else liveHint(4,'Spin once more to continue');
+    },1250);
+  });
+
+  // 5 · all 4 hat cards sorted
+  var hatRoth2=root.querySelector('#ri-hat-roth'), hatTrad2=root.querySelector('#ri-hat-trad'), hatSorted2=0;
+  function hatGateCheck(){
+    hatSorted2++;
+    if(hatSorted2>=4) markDone(5); else liveHint(5,'Sorted '+hatSorted2+' of 4 — keep going');
+  }
+  if(hatRoth2) hatRoth2.addEventListener('click',hatGateCheck);
+  if(hatTrad2) hatTrad2.addEventListener('click',hatGateCheck);
+
+  // 6 · all 4 flip cards flipped
+  root.querySelectorAll('#ri-flip-grid .ri-flip-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var n=count('#ri-flip-grid .ri-flip-card.flipped');
+      // account for the click that is about to flip this card (content script flips it synchronously first)
+      if(n>=4) markDone(6); else liveHint(6,'Flipped '+n+' of 4 — flip all to continue');
+    });
+  });
+
+  // 7 · autopilot scheduled
+  var dominoBtn2=root.querySelector('#ri-domino-btn');
+  if(dominoBtn2) dominoBtn2.addEventListener('click',function(){
+    setTimeout(function(){ markDone(7); }, 6*150+300);
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#ri-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

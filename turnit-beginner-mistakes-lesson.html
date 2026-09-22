@@ -1,0 +1,601 @@
+<!-- ============================================================
+     TURNIT — COMMON BEGINNER MISTAKES TO AVOID
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-bm. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Distinct from the Myths lesson: myths are false BELIEFS, this lesson
+     covers actual BEHAVIORS beginners fall into even when they understand
+     the concepts correctly. Every slide uses a different fresh mechanic.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview          2 The Waiting Room
+       3 The Silent Leak          4 The Grocery Run
+       5 Willpower vs. the Machine 6 The Rudderless Ship
+       7 The Emotion Cycle Wheel  8 Recap
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-bm">
+  <div class="bm-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="bm-top">
+      <div class="bm-topbar">
+        <div class="bm-brand"><span class="bm-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><span class="bm-word">TURNIT</span><span class="bm-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="bm-progress"><span id="bm-bar"></span></div>
+      <div class="bm-meta"><span id="bm-slide-label">Lesson Overview</span><span id="bm-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="bm-sec bm-reveal" data-step="1">
+      <p class="bm-kicker">Welcome · 1 / 9</p>
+      <h2 class="bm-h2">Knowing isn't the same as doing</h2>
+      <p class="bm-p">The last lesson covered false beliefs. This one is different — these are things people do wrong even after they know better. Six real behaviors, six ways to actually avoid them.</p>
+
+      <div class="bm-recap">
+        <div class="bm-recap-item"><span class="bm-recap-check">1</span><span>Waiting for the "perfect time" to start.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">2</span><span>Ignoring fees because they look small.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">3</span><span>Trading way more often than actually helps.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">4</span><span>Relying on willpower instead of automation.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">5</span><span>Investing without a clear goal in mind.</span></div>
+      </div>
+      <div class="bm-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE WAITING ROOM ========== -->
+    <section class="bm-sec bm-reveal" data-step="2">
+      <p class="bm-kicker">Mistake #1 · 2 / 9</p>
+      <h2 class="bm-h2">Waiting for the "perfect" time</h2>
+      <p class="bm-p">"I'll start once things calm down." Slide to see what the wait actually costs.</p>
+
+      <div class="bm-panel bm-center">
+        <div class="bm-wait-stage" id="bm-wait-stage">🌱</div>
+        <div class="bm-wait-label" id="bm-wait-label">Starting today</div>
+
+        <input id="bm-wait-slider" class="bm-range" type="range" min="0" max="60" value="0" step="6" aria-label="Months delayed">
+        <div class="bm-scale"><span>Start Now</span><span>Wait 5 Years</span></div>
+
+        <div class="bm-wait-result"><span>Cost of Waiting</span><b id="bm-wait-cost">$0</b></div>
+        <div class="bm-note">Same $200/month, same 8% growth, same 30-year finish line — only the start date moves.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · THE SILENT LEAK ========== -->
+    <section class="bm-sec bm-reveal" data-step="3">
+      <p class="bm-kicker">Mistake #2 · 3 / 9</p>
+      <h2 class="bm-h2">Ignoring fees because they look small</h2>
+      <p class="bm-p">"It's just 1%, who cares?" Tap to start the clock and watch 30 years unfold.</p>
+
+      <div class="bm-panel">
+        <div class="bm-bucket-grid">
+          <div class="bm-bucket-col">
+            <div class="bm-bucket"><span class="bm-bucket-water" id="bm-water-a"></span></div>
+            <span class="bm-bucket-lab">0.05% Fee</span>
+            <b class="bm-bucket-val" id="bm-val-a">$10,000</b>
+          </div>
+          <div class="bm-bucket-col">
+            <div class="bm-bucket"><span class="bm-bucket-water leaky" id="bm-water-b"></span><span class="bm-drip" id="bm-drip">💧</span></div>
+            <span class="bm-bucket-lab">1.5% Fee</span>
+            <b class="bm-bucket-val" id="bm-val-b">$10,000</b>
+          </div>
+        </div>
+        <button type="button" class="bm-confirm-btn" id="bm-leak-btn">▶ Start the Clock (30 Years)</button>
+        <div class="bm-note" id="bm-leak-note">Same $10,000 start, same 8% growth — only the fee is different.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · THE GROCERY RUN ========== -->
+    <section class="bm-sec bm-reveal" data-step="4">
+      <p class="bm-kicker">Mistake #3 · 4 / 9</p>
+      <h2 class="bm-h2">Trading way more often than helps</h2>
+      <p class="bm-p">Tap each shopping style to see the hidden cost of frequent trips.</p>
+
+      <div class="bm-grocery-grid" id="bm-grocery-grid">
+        <button type="button" class="bm-grocery-card" data-t="20 Small Trips a Month" data-d="Every trip adds a small cost — a fee here, a spread there, an impulse buy you didn't plan. None of them feel like much alone, but they quietly stack up over a month.">🛒<b>20 Small Trips a Month</b></button>
+        <button type="button" class="bm-grocery-card" data-t="1 Big Trip a Month" data-d="Same groceries, planned in advance, bought all at once. Far fewer small costs sneak in — because there are far fewer trips for them to sneak in on.">🛍️<b>1 Big Trip a Month</b></button>
+      </div>
+      <div class="bm-grocery-result" id="bm-grocery-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 5 · WILLPOWER VS. THE MACHINE ========== -->
+    <section class="bm-sec bm-reveal" data-step="5">
+      <p class="bm-kicker">Mistake #4 · 5 / 9</p>
+      <h2 class="bm-h2">Relying on willpower alone</h2>
+      <p class="bm-p">Tap to run a full year both ways.</p>
+
+      <div class="bm-panel">
+        <div class="bm-cal-grid-wrap">
+          <div class="bm-cal-col">
+            <span class="bm-cal-lab">💪 Willpower</span>
+            <div class="bm-cal-months" id="bm-cal-willpower"></div>
+          </div>
+          <div class="bm-cal-col">
+            <span class="bm-cal-lab">🤖 Automatic</span>
+            <div class="bm-cal-months" id="bm-cal-auto"></div>
+          </div>
+        </div>
+        <button type="button" class="bm-confirm-btn" id="bm-cal-btn">▶ Run the Year</button>
+        <div class="bm-note" id="bm-cal-note">Same $200 a month, same intentions going in.</div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · THE RUDDERLESS SHIP ========== -->
+    <section class="bm-sec bm-reveal" data-step="6">
+      <p class="bm-kicker">Mistake #5 · 6 / 9</p>
+      <h2 class="bm-h2">Investing without a clear goal</h2>
+      <p class="bm-p">Tap each ship to see where it actually ends up.</p>
+
+      <div class="bm-ship-grid" id="bm-ship-grid">
+        <button type="button" class="bm-ship-card" data-t="No Destination Set" data-d="Without a clear goal, the account type, timeline, and risk level all get picked randomly — or copied from someone else's plan. The course keeps changing because there was never a heading to begin with.">⛵<b>No Destination Set</b></button>
+        <button type="button" class="bm-ship-card" data-t="Clear Destination Set" data-d="A specific goal — retirement, a house, college — tells you exactly which account, which timeline, and which risk level actually fit. Every decision has something real to be measured against.">🗺️<b>Clear Destination Set</b></button>
+      </div>
+      <div class="bm-ship-result" id="bm-ship-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 7 · THE EMOTION CYCLE WHEEL ========== -->
+    <section class="bm-sec bm-reveal" data-step="7">
+      <p class="bm-kicker">Mistake #6 · 7 / 9</p>
+      <h2 class="bm-h2">Letting emotions drive the wheel</h2>
+      <p class="bm-p">Tap around the cycle to see exactly where beginners tend to go wrong.</p>
+
+      <div class="bm-wheel-stage">
+        <div class="bm-wheel-ring">
+          <button type="button" class="bm-wheel-pt pt1" data-t="Optimism" data-d="Things are looking good. A reasonable, calm starting point — nothing wrong here yet." data-flag="ok">🙂</button>
+          <button type="button" class="bm-wheel-pt pt2" data-t="Euphoria" data-d="Prices have been climbing for a while and it feels like a sure thing. This is exactly when many beginners pile in the most money — right near the top." data-flag="mistake">🤑</button>
+          <button type="button" class="bm-wheel-pt pt3" data-t="Panic" data-d="Prices have dropped hard and it feels unbearable. This is exactly when many beginners sell everything — right near the bottom." data-flag="mistake">😱</button>
+          <button type="button" class="bm-wheel-pt pt4" data-t="Hope" data-d="The worst of the drop is over and confidence is slowly rebuilding. A calm, patient point — often right as the recovery is quietly starting." data-flag="ok">🌱</button>
+        </div>
+        <div class="bm-wheel-center">↻</div>
+      </div>
+      <div class="bm-wheel-result" id="bm-wheel-result"><b>Tap a stage above</b><span>The cycle repeats — knowing where you are in it is half the battle.</span></div>
+      <p class="bm-count" id="bm-wheel-count">Explored 0 of 4</p>
+    </section>
+
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="bm-sec bm-reveal" data-step="8">
+      <p class="bm-kicker">Recap · 8 / 9</p>
+      <h2 class="bm-h2">Here's what you now know</h2>
+      <p class="bm-p">The whole lesson, in six lines.</p>
+
+      <div class="bm-recap">
+        <div class="bm-recap-item"><span class="bm-recap-check">✓</span><span>Waiting for the perfect moment has a real, measurable cost — starting now usually beats starting "perfectly."</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">✓</span><span>A fee that looks small compounds into a real gap over decades.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">✓</span><span>Frequent trading racks up small costs that a patient approach mostly avoids.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">✓</span><span>Automating removes the risk of good intentions quietly turning into missed months.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">✓</span><span>A clear goal gives every account and risk decision something real to be measured against.</span></div>
+        <div class="bm-recap-item"><span class="bm-recap-check">✓</span><span>Euphoria and panic are exactly when beginners tend to buy high and sell low.</span></div>
+      </div>
+      <div class="bm-next-move">Your next move: <b>pick the one mistake on this list you're most likely to make, and fix it first.</b></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="bm-sec bm-center bm-reveal" data-step="9">
+      <p class="bm-kicker center">Certified · 9 / 9</p>
+      <div class="bm-cert">
+        <div class="bm-cert-border"></div>
+        <span class="bm-cert-pill">🏆 Certificate of Completion</span>
+        <p class="bm-cert-cert">This certifies that</p>
+        <h2 class="bm-cert-name">Mistakes Avoided</h2>
+        <p class="bm-cert-body">has completed <span class="bm-tw">TURNIT</span> Financial Foundations: Common Beginner Mistakes to Avoid, and now knows exactly which habits to watch for.</p>
+        <div class="bm-cert-line"></div>
+        <div class="bm-done-row streak"><div class="bm-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="bm-done-row ach"><div class="bm-done-ico">🏆</div><div><b>Achievement: Mistake-Proofed</b><span>You spotted six costly habits before they cost you.</span></div></div>
+        <div class="bm-done-btns">
+          <a class="bm-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="bm-btn ghost" id="bm-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="bm-quote">"THE FOUR MOST DANGEROUS WORDS IN INVESTING ARE: <span class="bm-green">'THIS TIME IT'S DIFFERENT.'</span>"<br><span class="bm-quote-by">— SIR JOHN TEMPLETON</span></p>
+    </section>
+
+    <p class="bm-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Figures shown are simplified, hypothetical illustrations.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="bm-nav" id="bm-nav">
+      <button type="button" class="bm-nav-btn prev" id="bm-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="bm-nav-hint" id="bm-nav-hint"></span>
+      <button type="button" class="bm-nav-btn next" id="bm-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-bm{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-bm *,#tn-bm *::before,#tn-bm *::after{box-sizing:border-box;}
+  #tn-bm .bm-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-bm .bm-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-bm .bm-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-bm .bm-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-bm .bm-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-bm .bm-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-bm .bm-bico{display:flex;}
+  #tn-bm .bm-word,#tn-bm .bm-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-bm .bm-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-bm .bm-bsub{color:var(--ink2); font-weight:500;}
+  #tn-bm .bm-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-bm #bm-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-bm .bm-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-bm .bm-meta #bm-slide-label{color:var(--ink2);}
+  #tn-bm .bm-meta #bm-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-bm .bm-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-bm .bm-sec.bm-hide{display:none;}
+  #tn-bm .bm-center{text-align:center;}
+  #tn-bm .bm-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-bm .bm-kicker.center{text-align:center;}
+  #tn-bm .bm-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-bm .bm-h2.center{text-align:center;}
+  #tn-bm .bm-tw{font-style:italic;}
+  #tn-bm .bm-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-bm .bm-p b{color:var(--ink); font-weight:700;}
+  #tn-bm .bm-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-bm .bm-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-bm .bm-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-bm .bm-confirm-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s; margin-top:16px;}
+  #tn-bm .bm-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-bm .bm-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-bm .bm-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:14px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-bm .bm-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-bm .bm-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-bm .bm-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* ---- slide 2: waiting room ---- */
+  #tn-bm .bm-wait-stage{font-size:56px; margin-bottom:6px; transition:transform .3s ease;}
+  #tn-bm .bm-wait-label{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2); margin-bottom:16px;}
+  #tn-bm .bm-wait-result{background:var(--tint); border:1.5px solid var(--selbd); border-radius:14px; padding:16px; text-align:center; margin-top:16px;}
+  #tn-bm .bm-wait-result span{display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--g); font-weight:700; margin-bottom:4px;}
+  #tn-bm .bm-wait-result b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,6vw,30px); color:var(--ink);}
+
+  /* ---- slide 3: leaking bucket ---- */
+  #tn-bm .bm-bucket-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:6px;}
+  #tn-bm .bm-bucket-col{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  #tn-bm .bm-bucket{position:relative; width:70px; height:90px; border:3px solid var(--ink2); border-top:none; border-radius:0 0 14px 14px; overflow:hidden; background:#fff;}
+  #tn-bm .bm-bucket-water{position:absolute; bottom:0; left:0; right:0; height:100%; background:linear-gradient(180deg,#7FC8E8,var(--b)); transition:height 2.2s ease;}
+  #tn-bm .bm-drip{position:absolute; left:50%; bottom:-4px; transform:translateX(-50%); font-size:12px; opacity:0;}
+  #tn-bm .bm-drip.go{animation:bm-drip-fall 1.1s ease-in infinite;}
+  @keyframes bm-drip-fall{0%{opacity:0; bottom:40%;}20%{opacity:1;}100%{opacity:0; bottom:-30px;}}
+  #tn-bm .bm-bucket-lab{font-size:11.5px; font-weight:700; color:var(--ink2);}
+  #tn-bm .bm-bucket-val{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink);}
+
+  /* ---- slide 4: grocery run ---- */
+  #tn-bm .bm-grocery-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  #tn-bm .bm-grocery-card{display:flex; flex-direction:column; align-items:center; gap:8px; font-size:34px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:20px 8px; cursor:pointer; transition:all .18s;}
+  #tn-bm .bm-grocery-card b{font-family:'Poppins',sans-serif; font-size:12.5px; color:var(--ink); text-align:center;}
+  #tn-bm .bm-grocery-card.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-bm .bm-grocery-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 5: calendar compare ---- */
+  #tn-bm .bm-cal-grid-wrap{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:6px;}
+  #tn-bm .bm-cal-col{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  #tn-bm .bm-cal-lab{font-size:12px; font-weight:700; color:var(--ink2);}
+  #tn-bm .bm-cal-months{display:grid; grid-template-columns:repeat(4,1fr); gap:4px; width:100%;}
+  #tn-bm .bm-cal-box{aspect-ratio:1; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:11px; transition:all .3s ease; opacity:.4;}
+  #tn-bm .bm-cal-box.hit{background:var(--tint); border-color:var(--selbd); opacity:1;}
+  #tn-bm .bm-cal-box.miss{background:var(--nobg); border-color:var(--nobd); opacity:1;}
+
+  /* ---- slide 6: rudderless ship ---- */
+  #tn-bm .bm-ship-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  #tn-bm .bm-ship-card{display:flex; flex-direction:column; align-items:center; gap:8px; font-size:36px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:22px 10px; cursor:pointer; transition:all .18s;}
+  #tn-bm .bm-ship-card b{font-family:'Poppins',sans-serif; font-size:12.5px; color:var(--ink); text-align:center;}
+  #tn-bm .bm-ship-card.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-bm .bm-ship-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 7: emotion wheel ---- */
+  #tn-bm .bm-wheel-stage{position:relative; width:220px; height:220px; margin:0 auto 16px;}
+  #tn-bm .bm-wheel-ring{position:relative; width:100%; height:100%;}
+  #tn-bm .bm-wheel-pt{position:absolute; width:64px; height:64px; border-radius:50%; background:var(--cardbg); border:2px solid var(--cardbd); font-size:26px; cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center;}
+  #tn-bm .bm-wheel-pt.pt1{top:0; left:50%; transform:translate(-50%,0);}
+  #tn-bm .bm-wheel-pt.pt2{top:50%; right:0; transform:translate(0,-50%);}
+  #tn-bm .bm-wheel-pt.pt3{bottom:0; left:50%; transform:translate(-50%,0);}
+  #tn-bm .bm-wheel-pt.pt4{top:50%; left:0; transform:translate(0,-50%);}
+  #tn-bm .bm-wheel-pt.on{transform:scale(1.15) translate(-43.5%,0);}
+  #tn-bm .bm-wheel-pt.pt2.on,#tn-bm .bm-wheel-pt.pt4.on{transform:scale(1.15) translate(0,-43.5%);}
+  #tn-bm .bm-wheel-pt.on[data-flag="mistake"]{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bm .bm-wheel-pt.on[data-flag="ok"]{border-color:var(--selbd); background:var(--tint);}
+  #tn-bm .bm-wheel-center{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:22px; color:var(--cardbd); width:60px; height:60px; border:2px dashed var(--cardbd); border-radius:50%; display:flex; align-items:center; justify-content:center;}
+  #tn-bm .bm-wheel-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; text-align:center;}
+  #tn-bm .bm-wheel-result b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:4px;}
+  #tn-bm .bm-wheel-result span{font-size:13.5px; color:var(--ink2); line-height:1.55;}
+
+  /* recap */
+  #tn-bm .bm-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-bm .bm-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-bm .bm-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-bm .bm-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-bm .bm-recap-item b{font-weight:700;}
+  #tn-bm .bm-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-bm .bm-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-bm .bm-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-bm .bm-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-bm .bm-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-bm .bm-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-bm .bm-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-bm .bm-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-bm .bm-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-bm .bm-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-bm .bm-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-bm .bm-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-bm .bm-done-ico{font-size:20px; flex:none;}
+  #tn-bm .bm-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-bm .bm-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-bm .bm-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-bm .bm-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-bm .bm-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-bm .bm-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-bm .bm-btn:hover{transform:translateY(-2px);}
+  #tn-bm .bm-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-bm .bm-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-bm .bm-green{color:var(--g);}
+  #tn-bm .bm-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-bm .bm-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-bm .bm-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-bm .bm-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-bm .bm-nav-btn.prev{color:var(--ink2);}
+  #tn-bm .bm-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-bm .bm-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-bm .bm-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-bm .bm-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-bm .bm-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-bm .bm-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-bm .bm-wrap{padding:12px 14px 30px;}
+    #tn-bm .bm-grocery-grid{grid-template-columns:1fr;}
+    #tn-bm .bm-ship-grid{grid-template-columns:1fr;}
+    #tn-bm .bm-wheel-stage{width:190px; height:190px;}
+    #tn-bm .bm-wheel-pt{width:56px; height:56px; font-size:22px;}
+    #tn-bm .bm-bsub{display:none;}
+    #tn-bm .bm-nav-hint{display:none;}
+    #tn-bm .bm-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-bm .bm-reveal{opacity:1 !important; transform:none !important;}
+    #tn-bm #bm-bar{transition:none;}
+    #tn-bm .bm-drip.go{animation:none !important;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-bm'); if(!root) return;
+  root.querySelectorAll('.bm-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function fvMonthly(pmt, annualRate, months){
+    var i=annualRate/12;
+    if(i===0) return pmt*months;
+    return pmt*((Math.pow(1+i,months)-1)/i);
+  }
+
+  /* ============ 2 · the waiting room ============ */
+  var waitSlider=root.querySelector('#bm-wait-slider'), waitStage=root.querySelector('#bm-wait-stage'),
+      waitLabel=root.querySelector('#bm-wait-label'), waitCost=root.querySelector('#bm-wait-cost');
+  var TOTAL_MONTHS=360; // 30 years
+  function waitCalc(){
+    var delay=+waitSlider.value;
+    var full=fvMonthly(200,0.08,TOTAL_MONTHS);
+    var delayed=fvMonthly(200,0.08,TOTAL_MONTHS-delay);
+    waitCost.textContent=moneyRound(full-delayed);
+    if(delay===0){ waitStage.textContent='🌱'; waitLabel.textContent='Starting today'; }
+    else if(delay<=24){ waitStage.textContent='🍂'; waitLabel.textContent='Waiting '+delay+' months'; }
+    else { waitStage.textContent='🕸️'; waitLabel.textContent='Waiting '+delay+' months'; }
+    postHeight();
+  }
+  if(waitSlider){ waitSlider.addEventListener('input',waitCalc); waitCalc(); }
+
+  /* ============ 3 · the silent leak ============ */
+  var leakBtn=root.querySelector('#bm-leak-btn'), waterA=root.querySelector('#bm-water-a'),
+      waterB=root.querySelector('#bm-water-b'), valA=root.querySelector('#bm-val-a'),
+      valB=root.querySelector('#bm-val-b'), drip=root.querySelector('#bm-drip'), leakNote=root.querySelector('#bm-leak-note');
+  if(leakBtn) leakBtn.addEventListener('click',function(){
+    leakBtn.disabled=true;
+    drip.classList.add('go');
+    var finalA=10000*Math.pow(1.0795,30);
+    var finalB=10000*Math.pow(1.065,30);
+    waterA.style.height='92%';
+    waterB.style.height='38%';
+    setTimeout(function(){
+      valA.textContent=moneyRound(finalA);
+      valB.textContent=moneyRound(finalB);
+      drip.classList.remove('go');
+      leakNote.textContent='That "small" 1.45% difference in fees quietly cost '+moneyRound(finalA-finalB)+' over 30 years \u2014 without a single bad investment decision being made.';
+      postHeight();
+    },2300);
+    postHeight();
+  });
+
+  /* ============ 4 · the grocery run ============ */
+  var groceryResult=root.querySelector('#bm-grocery-result');
+  root.querySelectorAll('#bm-grocery-grid .bm-grocery-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      root.querySelectorAll('#bm-grocery-grid .bm-grocery-card').forEach(function(c){ c.classList.remove('on'); });
+      card.classList.add('on');
+      groceryResult.innerHTML='<b>'+card.getAttribute('data-t')+':</b> '+card.getAttribute('data-d');
+      postHeight();
+    });
+  });
+
+  /* ============ 5 · willpower vs the machine ============ */
+  var calBtn=root.querySelector('#bm-cal-btn'), calWillpower=root.querySelector('#bm-cal-willpower'),
+      calAuto=root.querySelector('#bm-cal-auto'), calNote=root.querySelector('#bm-cal-note');
+  var missedMonths=[2,5,8,9]; // 0-indexed months that willpower misses
+  for(var m=0;m<12;m++){
+    var b1=document.createElement('div'); b1.className='bm-cal-box'; b1.textContent=(m+1);
+    calWillpower.appendChild(b1);
+    var b2=document.createElement('div'); b2.className='bm-cal-box'; b2.textContent=(m+1);
+    calAuto.appendChild(b2);
+  }
+  if(calBtn) calBtn.addEventListener('click',function(){
+    calBtn.disabled=true;
+    var wBoxes=calWillpower.querySelectorAll('.bm-cal-box'), aBoxes=calAuto.querySelectorAll('.bm-cal-box');
+    wBoxes.forEach(function(box,i){
+      setTimeout(function(){
+        box.classList.add(missedMonths.indexOf(i)>=0 ? 'miss' : 'hit');
+        postHeight();
+      }, i*80);
+    });
+    aBoxes.forEach(function(box,i){
+      setTimeout(function(){ box.classList.add('hit'); postHeight(); }, i*80);
+    });
+    setTimeout(function(){
+      var hitCount=12-missedMonths.length;
+      var missedAmt=missedMonths.length*200;
+      calNote.textContent='Willpower funded '+hitCount+' of 12 months \u2014 the other '+missedMonths.length+' got skipped for completely understandable reasons. That\'s '+moneyRound(missedAmt)+' that never even got the chance to grow.';
+      postHeight();
+    },12*80+300);
+    postHeight();
+  });
+
+  /* ============ 6 · the rudderless ship ============ */
+  var shipResult=root.querySelector('#bm-ship-result');
+  root.querySelectorAll('#bm-ship-grid .bm-ship-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      root.querySelectorAll('#bm-ship-grid .bm-ship-card').forEach(function(c){ c.classList.remove('on'); });
+      card.classList.add('on');
+      shipResult.innerHTML='<b>'+card.getAttribute('data-t')+':</b> '+card.getAttribute('data-d');
+      postHeight();
+    });
+  });
+
+  /* ============ 7 · the emotion cycle wheel ============ */
+  var wheelResult=root.querySelector('#bm-wheel-result'), wheelSeen={}, wheelCount=root.querySelector('#bm-wheel-count');
+  root.querySelectorAll('.bm-wheel-pt').forEach(function(pt){
+    pt.addEventListener('click',function(){
+      root.querySelectorAll('.bm-wheel-pt').forEach(function(p){ p.classList.remove('on'); });
+      pt.classList.add('on');
+      var flag=pt.getAttribute('data-flag');
+      var prefix = flag==='mistake' ? '\u26a0\ufe0f Common Mistake Point: ' : '\u2705 ';
+      wheelResult.innerHTML='<b>'+prefix+pt.getAttribute('data-t')+'</b><span>'+pt.getAttribute('data-d')+'</span>';
+      wheelSeen[pt.getAttribute('data-t')]=1;
+      wheelCount.textContent='Explored '+Object.keys(wheelSeen).length+' of 4';
+      postHeight();
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-bm'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#bm-bar');
+  var labelEl=root.querySelector('#bm-slide-label');
+  var countEl=root.querySelector('#bm-slide-count');
+  var prevBtn=root.querySelector('#bm-prev');
+  var nextBtn=root.querySelector('#bm-next');
+  var hintEl=root.querySelector('#bm-nav-hint');
+  var disclaimer=root.querySelector('.bm-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'The Waiting Room',3:'The Silent Leak',4:'The Grocery Run',5:'Willpower vs. the Machine',6:'The Rudderless Ship',7:'The Emotion Cycle Wheel',8:'Recap',9:'Certified'};
+  var reqHints={2:'Move the slider to continue',3:'Start the clock to continue',4:'Explore both to continue',5:'Run the year to continue',6:'Explore both to continue',7:'Explore all 4 stages'};
+
+  var done={1:true,8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.bm-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('bm-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('bm-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · wait slider moved
+  var waitSlider2=root.querySelector('#bm-wait-slider');
+  if(waitSlider2) waitSlider2.addEventListener('input',function(){ markDone(2); });
+
+  // 3 · leak clock started
+  var leakBtn2=root.querySelector('#bm-leak-btn');
+  if(leakBtn2) leakBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(3); },2350); });
+
+  // 4 · both grocery styles explored
+  var grocerySeen={};
+  root.querySelectorAll('#bm-grocery-grid .bm-grocery-card').forEach(function(card){
+    card.addEventListener('click',function(){ grocerySeen[card.getAttribute('data-t')]=1;
+      if(keys(grocerySeen)>=2) markDone(4); else liveHint(4,'Now tap the other style too'); });
+  });
+
+  // 5 · year run
+  var calBtn2=root.querySelector('#bm-cal-btn');
+  if(calBtn2) calBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(5); },1300); });
+
+  // 6 · both ships explored
+  var shipSeen={};
+  root.querySelectorAll('#bm-ship-grid .bm-ship-card').forEach(function(card){
+    card.addEventListener('click',function(){ shipSeen[card.getAttribute('data-t')]=1;
+      if(keys(shipSeen)>=2) markDone(6); else liveHint(6,'Now tap the other ship too'); });
+  });
+
+  // 7 · all 4 wheel stages explored
+  var wheelSeen2={};
+  root.querySelectorAll('.bm-wheel-pt').forEach(function(pt){
+    pt.addEventListener('click',function(){ wheelSeen2[pt.getAttribute('data-t')]=1;
+      if(keys(wheelSeen2)>=4) markDone(7); else liveHint(7,'Explored '+keys(wheelSeen2)+' of 4 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#bm-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

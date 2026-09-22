@@ -1,0 +1,588 @@
+<!-- ============================================================
+     TURNIT — TAXES 101: CAPITAL GAINS BASICS
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-tx. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Short-term vs. long-term rates were already taught in depth (Brokerage
+     Account lesson's holding-period clock + worked trade). This lesson goes
+     elsewhere: realized vs. unrealized gains, loss offsetting, netting, and
+     the wash sale rule — none of it covered anywhere else.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview          2 Realized vs. Unrealized
+       3 The Loss That Helps You  4 Netting It All Together
+       5 The Wash Sale Trap       6 Tax-Advantaged Accounts Sidestep This
+       7 The Tax Court            8 Recap
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-tx">
+  <div class="tx-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="tx-top">
+      <div class="tx-topbar">
+        <div class="tx-brand"><span class="tx-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span><span class="tx-word">TURNIT</span><span class="tx-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="tx-progress"><span id="tx-bar"></span></div>
+      <div class="tx-meta"><span id="tx-slide-label">Lesson Overview</span><span id="tx-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="tx-sec tx-reveal" data-step="1">
+      <p class="tx-kicker">Welcome · 1 / 9</p>
+      <h2 class="tx-h2">You've met the tax rates already</h2>
+      <p class="tx-p">Short-term versus long-term rates were already covered in depth, with a real worked trade. This lesson covers the surrounding mechanics — the parts that decide when a rate even applies at all.</p>
+
+      <div class="tx-recap">
+        <div class="tx-recap-item"><span class="tx-recap-check">1</span><span>Why a gain isn't taxed at all until you actually sell.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">2</span><span>How a loss can actually work in your favor at tax time.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">3</span><span>How all your gains and losses actually combine into one number.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">4</span><span>A real rule that can quietly disqualify a loss you were counting on.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">5</span><span>Why this entire lesson doesn't apply inside certain accounts.</span></div>
+      </div>
+      <div class="tx-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · REALIZED VS. UNREALIZED ========== -->
+    <section class="tx-sec tx-reveal" data-step="2">
+      <p class="tx-kicker">Realized vs. Unrealized · 2 / 9</p>
+      <h2 class="tx-h2">A gain isn't taxed until you sell</h2>
+      <p class="tx-p">Same $2,000 gain. Tap both states to see the difference.</p>
+
+      <div class="tx-panel tx-center">
+        <div class="tx-case" id="tx-case">
+          <span class="tx-case-glass" id="tx-case-glass"></span>
+          <span class="tx-case-emoji">📈</span>
+        </div>
+        <div class="tx-case-btns">
+          <button type="button" class="tx-case-btn" id="tx-case-hold">🔒 Still Holding</button>
+          <button type="button" class="tx-case-btn" id="tx-case-sell">🔨 Just Sold</button>
+        </div>
+        <div class="tx-case-result" id="tx-case-result">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · THE LOSS THAT HELPS YOU ========== -->
+    <section class="tx-sec tx-reveal" data-step="3">
+      <p class="tx-kicker">The Loss That Helps You · 3 / 9</p>
+      <h2 class="tx-h2">Losses aren't just bad news</h2>
+      <p class="tx-p">Tap to combine a gain and a loss from two different investments.</p>
+
+      <div class="tx-panel">
+        <div class="tx-offset-row">
+          <div class="tx-offset-box gain"><span>Gain</span><b>+$1,000</b></div>
+          <div class="tx-offset-op">+</div>
+          <div class="tx-offset-box loss"><span>Loss</span><b>-$1,000</b></div>
+        </div>
+        <button type="button" class="tx-confirm-btn" id="tx-offset-btn">⚖️ Combine Them</button>
+        <div class="tx-offset-result" id="tx-offset-result">&nbsp;</div>
+        <div class="tx-note">This is the idea behind <b>tax-loss harvesting</b> — deliberately selling a losing position to offset a winning one.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · NETTING IT ALL TOGETHER ========== -->
+    <section class="tx-sec tx-reveal" data-step="4">
+      <p class="tx-kicker">Netting It All Together · 4 / 9</p>
+      <h2 class="tx-h2">Every trade lands in one of two buckets</h2>
+      <p class="tx-p">Tap each trade to sort it — short-term and long-term are tallied separately, then combined.</p>
+
+      <div class="tx-net-stage">
+        <div class="tx-net-buckets">
+          <div class="tx-net-bucket"><span>Short-Term</span><b id="tx-net-short">$0</b></div>
+          <div class="tx-net-bucket"><span>Long-Term</span><b id="tx-net-long">$0</b></div>
+        </div>
+        <div class="tx-net-cards" id="tx-net-cards">
+          <button type="button" class="tx-net-card" data-term="short" data-amt="800">TRN, held 4 months<b>+$800</b></button>
+          <button type="button" class="tx-net-card" data-term="short" data-amt="-300">BLU, held 2 months<b>-$300</b></button>
+          <button type="button" class="tx-net-card" data-term="long" data-amt="1200">GRV, held 3 years<b>+$1,200</b></button>
+          <button type="button" class="tx-net-card" data-term="long" data-amt="-400">OAK, held 5 years<b>-$400</b></button>
+        </div>
+      </div>
+      <div class="tx-net-total" id="tx-net-total">&nbsp;</div>
+    </section>
+
+    <!-- ========== 5 · THE WASH SALE TRAP ========== -->
+    <section class="tx-sec tx-reveal" data-step="5">
+      <p class="tx-kicker">The Wash Sale Trap · 5 / 9</p>
+      <h2 class="tx-h2">A loss can quietly get disqualified</h2>
+      <p class="tx-p">Sell at a loss on Day 0. Slide to pick a day you buy it back.</p>
+
+      <div class="tx-panel">
+        <div class="tx-wash-track">
+          <span class="tx-wash-danger" style="left:0%; width:50%"></span>
+          <span class="tx-wash-marker" id="tx-wash-marker"></span>
+        </div>
+        <input id="tx-wash-slider" class="tx-range" type="range" min="0" max="60" value="0" step="5" aria-label="Days after selling">
+        <div class="tx-scale"><span>Day 0 (Sold)</span><span>Day 60</span></div>
+
+        <div class="tx-wash-result" id="tx-wash-result">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · TAX-ADVANTAGED ACCOUNTS SIDESTEP THIS ========== -->
+    <section class="tx-sec tx-center tx-reveal" data-step="6">
+      <p class="tx-kicker center">One Big Exception · 6 / 9</p>
+      <h2 class="tx-h2 center">None of this applies in every account</h2>
+      <p class="tx-sub center">Tap to see why.</p>
+
+      <button type="button" class="tx-confirm-btn" id="tx-shield-btn">Reveal the Exception</button>
+      <div class="tx-shield-result" id="tx-shield-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 7 · THE TAX COURT ========== -->
+    <section class="tx-sec tx-reveal" data-step="7">
+      <p class="tx-kicker">The Tax Court · 7 / 9</p>
+      <h2 class="tx-h2">Myth or fact?</h2>
+      <p class="tx-p">Tap your ruling on each claim.</p>
+
+      <div class="tx-sort" id="tx-court">
+        <div class="tx-sort-row" data-answer="myth"><span>You owe tax on a gain the moment the price goes up, even if you're still holding.</span><div class="tx-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tx-sort-why"></p></div>
+        <div class="tx-sort-row" data-answer="fact"><span>A capital loss can offset a capital gain, reducing what you actually owe.</span><div class="tx-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tx-sort-why"></p></div>
+        <div class="tx-sort-row" data-answer="fact"><span>Buying back a security too soon after selling it at a loss can disqualify that loss.</span><div class="tx-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tx-sort-why"></p></div>
+        <div class="tx-sort-row" data-answer="myth"><span>Capital gains tax rules work exactly the same inside a Roth IRA as they do in a brokerage account.</span><div class="tx-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="tx-sort-why"></p></div>
+      </div>
+      <p class="tx-count" id="tx-court-count">Ruled 0 of 4</p>
+    </section>
+
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="tx-sec tx-reveal" data-step="8">
+      <p class="tx-kicker">Recap · 8 / 9</p>
+      <h2 class="tx-h2">Here's what you now know</h2>
+      <p class="tx-p">The whole lesson, in six lines.</p>
+
+      <div class="tx-recap">
+        <div class="tx-recap-item"><span class="tx-recap-check">✓</span><span>A gain is just "on paper" and untaxed until you actually sell — that's the realized vs. unrealized line.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">✓</span><span>A capital loss can offset a capital gain, lowering what you actually owe.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">✓</span><span>Short-term and long-term trades are tallied separately, then combined into one final number.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">✓</span><span>Buying back a security too soon after a loss can trigger the wash sale rule and disqualify it.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">✓</span><span>None of this applies inside a Roth or Traditional IRA — that's one of their core advantages.</span></div>
+        <div class="tx-recap-item"><span class="tx-recap-check">✓</span><span>This is genuinely complex territory — a tax professional is worth it once real money is involved.</span></div>
+      </div>
+      <div class="tx-next-move">Your next move: <b>if you've ever sold an investment at a loss, check whether you actually claimed it.</b></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="tx-sec tx-center tx-reveal" data-step="9">
+      <p class="tx-kicker center">Certified · 9 / 9</p>
+      <div class="tx-cert">
+        <div class="tx-cert-border"></div>
+        <span class="tx-cert-pill">🏆 Certificate of Completion</span>
+        <p class="tx-cert-cert">This certifies that</p>
+        <h2 class="tx-cert-name">Capital Gains Literate</h2>
+        <p class="tx-cert-body">has completed <span class="tx-tw">TURNIT</span> Financial Foundations: Taxes 101, and now understands the mechanics behind every capital gains tax bill.</p>
+        <div class="tx-cert-line"></div>
+        <div class="tx-done-row streak"><div class="tx-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="tx-done-row ach"><div class="tx-done-ico">🏆</div><div><b>Achievement: Capital Gains Certified</b><span>You mastered the mechanics behind the tax bill.</span></div></div>
+        <div class="tx-done-btns">
+          <a class="tx-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="tx-btn ghost" id="tx-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="tx-quote">"THERE IS NOTHING SINISTER IN SO ARRANGING ONE'S AFFAIRS <span class="tx-green">AS TO KEEP TAXES AS LOW AS POSSIBLE.</span>"<br><span class="tx-quote-by">— JUDGE LEARNED HAND</span></p>
+    </section>
+
+    <p class="tx-disclaimer">TURNIT is for educational purposes only and is not tax or financial advice. Tax rules are complex, change over time, and depend on your individual situation — consult a qualified tax professional before making decisions based on this lesson. Figures shown are simplified, hypothetical illustrations.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="tx-nav" id="tx-nav">
+      <button type="button" class="tx-nav-btn prev" id="tx-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="tx-nav-hint" id="tx-nav-hint"></span>
+      <button type="button" class="tx-nav-btn next" id="tx-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-tx{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-tx *,#tn-tx *::before,#tn-tx *::after{box-sizing:border-box;}
+  #tn-tx .tx-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-tx .tx-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-tx .tx-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-tx .tx-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-tx .tx-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-tx .tx-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-tx .tx-bico{display:flex;}
+  #tn-tx .tx-word,#tn-tx .tx-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-tx .tx-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-tx .tx-bsub{color:var(--ink2); font-weight:500;}
+  #tn-tx .tx-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-tx #tx-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-tx .tx-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-tx .tx-meta #tx-slide-label{color:var(--ink2);}
+  #tn-tx .tx-meta #tx-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-tx .tx-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-tx .tx-sec.tx-hide{display:none;}
+  #tn-tx .tx-center{text-align:center;}
+  #tn-tx .tx-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-tx .tx-kicker.center{text-align:center;}
+  #tn-tx .tx-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-tx .tx-h2.center{text-align:center;}
+  #tn-tx .tx-tw{font-style:italic;}
+  #tn-tx .tx-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-tx .tx-p b{color:var(--ink); font-weight:700;}
+  #tn-tx .tx-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-tx .tx-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-tx .tx-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-tx .tx-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-tx .tx-note b{color:var(--ink); font-weight:700;}
+  #tn-tx .tx-confirm-btn{display:block; width:100%; max-width:320px; margin:0 auto; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-tx .tx-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-tx .tx-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-tx .tx-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:14px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-tx .tx-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-tx .tx-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-tx .tx-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* ---- slide 2: realized/unrealized ---- */
+  #tn-tx .tx-case{position:relative; width:130px; height:130px; margin:0 auto 16px; border-radius:16px; background:var(--mist); border:3px solid var(--cardbd); display:flex; align-items:center; justify-content:center; transition:all .3s ease;}
+  #tn-tx .tx-case-glass{position:absolute; inset:6px; border-radius:12px; border:2px dashed var(--b); opacity:1; transition:opacity .3s ease, transform .3s ease;}
+  #tn-tx .tx-case.sold .tx-case-glass{opacity:0; transform:scale(1.3) rotate(8deg);}
+  #tn-tx .tx-case-emoji{font-size:44px; position:relative; z-index:2;}
+  #tn-tx .tx-case-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:6px;}
+  #tn-tx .tx-case-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 8px; cursor:pointer; transition:all .18s;}
+  #tn-tx .tx-case-btn.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-tx .tx-case-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:10px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 3: offset ---- */
+  #tn-tx .tx-offset-row{display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:16px;}
+  #tn-tx .tx-offset-box{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:16px 18px; text-align:center; transition:transform .4s ease, opacity .4s ease, border-color .3s ease, background .3s ease;}
+  #tn-tx .tx-offset-box span{display:block; font-size:11px; color:var(--mut); font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  #tn-tx .tx-offset-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px;}
+  #tn-tx .tx-offset-box.gain b{color:var(--g);}
+  #tn-tx .tx-offset-box.loss b{color:var(--no);}
+  #tn-tx .tx-offset-box.merged{transform:scale(.85); opacity:.3;}
+  #tn-tx .tx-offset-op{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--mut);}
+  #tn-tx .tx-offset-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 4: netting ---- */
+  #tn-tx .tx-net-buckets{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;}
+  #tn-tx .tx-net-bucket{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:14px; text-align:center;}
+  #tn-tx .tx-net-bucket span{display:block; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-tx .tx-net-bucket b{font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; color:var(--ink); transition:color .2s ease;}
+  #tn-tx .tx-net-cards{display:flex; flex-direction:column; gap:8px; margin-bottom:6px;}
+  #tn-tx .tx-net-card{display:flex; justify-content:space-between; align-items:center; font-family:inherit; font-size:13px; font-weight:600; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 14px; cursor:pointer; transition:all .18s;}
+  #tn-tx .tx-net-card b{font-family:'Poppins',sans-serif; font-weight:800;}
+  #tn-tx .tx-net-card.done{opacity:.4; pointer-events:none; border-color:var(--selbd); background:var(--tint);}
+  #tn-tx .tx-net-total{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:20px;}
+  #tn-tx .tx-net-total b{font-family:'Poppins',sans-serif; color:var(--ink);}
+
+  /* ---- slide 5: wash sale ---- */
+  #tn-tx .tx-wash-track{position:relative; height:14px; border-radius:7px; background:var(--tint); overflow:visible; margin-bottom:4px;}
+  #tn-tx .tx-wash-danger{position:absolute; top:0; bottom:0; background:var(--nobg); border-radius:7px;}
+  #tn-tx .tx-wash-marker{position:absolute; top:50%; left:0%; width:14px; height:14px; border-radius:50%; background:var(--b); border:2px solid #fff; box-shadow:0 0 0 2px var(--b); transform:translate(-50%,-50%); transition:left .2s ease;}
+  #tn-tx .tx-wash-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:16px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 6: shield reveal ---- */
+  #tn-tx .tx-shield-result{max-width:460px; margin:18px auto 0; font-size:14px; color:var(--ink2); line-height:1.6; text-align:left; background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:18px 20px; min-height:20px;}
+  #tn-tx .tx-shield-result:empty{display:none;}
+  #tn-tx .tx-shield-result b{color:var(--g); font-family:'Poppins',sans-serif;}
+
+  /* sorter (shared) */
+  #tn-tx .tx-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-tx .tx-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-tx .tx-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-tx .tx-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-tx .tx-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; padding:7px 15px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s; border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-tx .tx-sort-btns button[data-p="fact"]{border-color:#BFE6D6; color:var(--g);}
+  #tn-tx .tx-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-tx .tx-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-tx .tx-sort-row.done .tx-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-tx .tx-sort-row.done .tx-sort-btns button.picked{opacity:1;}
+  #tn-tx .tx-sort-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-tx .tx-sort-why b{font-family:'Poppins',sans-serif;}
+  #tn-tx .tx-sort-row.done .tx-sort-why{display:block;}
+
+  /* recap */
+  #tn-tx .tx-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-tx .tx-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-tx .tx-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-tx .tx-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-tx .tx-recap-item b{font-weight:700;}
+  #tn-tx .tx-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-tx .tx-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-tx .tx-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-tx .tx-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-tx .tx-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-tx .tx-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-tx .tx-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-tx .tx-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-tx .tx-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-tx .tx-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-tx .tx-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-tx .tx-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-tx .tx-done-ico{font-size:20px; flex:none;}
+  #tn-tx .tx-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-tx .tx-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-tx .tx-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-tx .tx-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-tx .tx-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-tx .tx-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-tx .tx-btn:hover{transform:translateY(-2px);}
+  #tn-tx .tx-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-tx .tx-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-tx .tx-green{color:var(--g);}
+  #tn-tx .tx-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-tx .tx-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-tx .tx-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-tx .tx-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-tx .tx-nav-btn.prev{color:var(--ink2);}
+  #tn-tx .tx-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-tx .tx-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-tx .tx-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-tx .tx-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-tx .tx-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-tx .tx-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-tx .tx-wrap{padding:12px 14px 30px;}
+    #tn-tx .tx-net-buckets{grid-template-columns:1fr;}
+    #tn-tx .tx-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-tx .tx-bsub{display:none;}
+    #tn-tx .tx-nav-hint{display:none;}
+    #tn-tx .tx-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-tx .tx-reveal{opacity:1 !important; transform:none !important;}
+    #tn-tx #tx-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-tx'); if(!root) return;
+  root.querySelectorAll('.tx-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return (n<0?'-$':'+$')+Math.abs(Math.round(n)).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · realized vs unrealized ============ */
+  var caseEl=root.querySelector('#tx-case'), caseHold=root.querySelector('#tx-case-hold'),
+      caseSell=root.querySelector('#tx-case-sell'), caseResult=root.querySelector('#tx-case-result');
+  if(caseHold) caseHold.addEventListener('click',function(){
+    caseHold.classList.add('on'); caseSell.classList.remove('on');
+    caseEl.classList.remove('sold');
+    caseResult.innerHTML='<b>Unrealized \u2014 $0 owed right now.</b> The gain is real on paper, but until you actually sell, there\u2019s nothing to report and nothing to tax. It can also still go back down.';
+    postHeight();
+  });
+  if(caseSell) caseSell.addEventListener('click',function(){
+    caseSell.classList.add('on'); caseHold.classList.remove('on');
+    caseEl.classList.add('sold');
+    caseResult.innerHTML='<b>Realized \u2014 now it\u2019s taxable.</b> The moment you sell, that $2,000 becomes a real, countable gain for the year \u2014 taxed at whichever rate applies based on how long you held it.';
+    postHeight();
+  });
+
+  /* ============ 3 · the loss that helps you ============ */
+  var offsetBtn=root.querySelector('#tx-offset-btn'), gainBox=root.querySelector('#tx-offset-row .gain'),
+      lossBox=root.querySelector('#tx-offset-row .loss'), offsetResult=root.querySelector('#tx-offset-result');
+  if(offsetBtn) offsetBtn.addEventListener('click',function(){
+    offsetBtn.disabled=true;
+    gainBox.classList.add('merged'); lossBox.classList.add('merged');
+    setTimeout(function(){
+      offsetResult.textContent='+$1,000 and -$1,000 net out to $0 in taxable gain this year. The loss didn\u2019t just disappear \u2014 it directly cancelled out the gain.';
+      postHeight();
+    },420);
+    postHeight();
+  });
+
+  /* ============ 4 · netting it all together ============ */
+  var netShort=0, netLong=0, netTotal=root.querySelector('#tx-net-total'),
+      netShortEl=root.querySelector('#tx-net-short'), netLongEl=root.querySelector('#tx-net-long'),
+      netCardsDone=0;
+  root.querySelectorAll('#tx-net-cards .tx-net-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      if(card.classList.contains('done')) return;
+      card.classList.add('done');
+      var term=card.getAttribute('data-term'), amt=+card.getAttribute('data-amt');
+      if(term==='short'){ netShort+=amt; netShortEl.textContent=moneyRound(netShort); netShortEl.style.color=netShort<0?'#C0392B':'#209B73'; }
+      else { netLong+=amt; netLongEl.textContent=moneyRound(netLong); netLongEl.style.color=netLong<0?'#C0392B':'#209B73'; }
+      netCardsDone++;
+      if(netCardsDone>=4){
+        var combined=netShort+netLong;
+        netTotal.innerHTML='Short-term net: <b>'+moneyRound(netShort)+'</b>. Long-term net: <b>'+moneyRound(netLong)+'</b>. Combined taxable result: <b>'+moneyRound(combined)+'</b> \u2014 each bucket can even use its own tax rate before they\u2019re added together.';
+      }
+      postHeight();
+    });
+  });
+
+  /* ============ 5 · the wash sale trap ============ */
+  var washSlider=root.querySelector('#tx-wash-slider'), washMarker=root.querySelector('#tx-wash-marker'), washResult=root.querySelector('#tx-wash-result');
+  function washCalc(){
+    var day=+washSlider.value;
+    var pct=(day/60)*100;
+    washMarker.style.left=pct+'%';
+    if(day<30){
+      washResult.innerHTML='<b>\u26d4 Inside the danger zone.</b> Buying back a \u201csubstantially identical\u201d investment within 30 days of the loss triggers the wash sale rule \u2014 the loss gets disallowed for this year\u2019s taxes.';
+    } else {
+      washResult.innerHTML='<b>\u2705 Outside the window.</b> Past the 30-day mark, the wash sale rule no longer applies here \u2014 the loss stands and can be claimed normally.';
+    }
+    postHeight();
+  }
+  if(washSlider){ washSlider.addEventListener('input',washCalc); washCalc(); }
+
+  /* ============ 6 · tax-advantaged accounts sidestep this ============ */
+  var shieldBtn=root.querySelector('#tx-shield-btn'), shieldResult=root.querySelector('#tx-shield-result');
+  if(shieldBtn) shieldBtn.addEventListener('click',function(){
+    shieldBtn.disabled=true;
+    shieldResult.innerHTML='<b>Roth and Traditional IRAs.</b> Buying and selling inside these accounts doesn\u2019t trigger capital gains tax at all \u2014 there\u2019s nothing to realize, nothing to net, and no wash sale rule to worry about. This entire lesson is specific to taxable accounts.';
+    postHeight();
+  });
+
+  /* ============ 7 · the tax court ============ */
+  var courtDone=0, courtCount=root.querySelector('#tx-court-count');
+  var courtWhy={
+    myth_0:'A gain isn\u2019t taxed until it\u2019s realized \u2014 meaning you actually sell. Holding it doesn\u2019t trigger anything.',
+    fact_1:'A capital loss can directly offset a capital gain, lowering the total taxable amount.',
+    fact_2:'That\u2019s the wash sale rule \u2014 buying back too soon can disqualify the loss.',
+    myth_3:'Roth IRAs don\u2019t use capital gains tax rules at all \u2014 that\u2019s one of their biggest advantages.'
+  };
+  root.querySelectorAll('#tx-court .tx-sort-row').forEach(function(row,i){
+    var ans=row.getAttribute('data-answer');
+    var whyEl=row.querySelector('.tx-sort-why');
+    row.querySelectorAll('.tx-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        row.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(ans==='fact'?'Fact.':'Myth.')+'</b> '+courtWhy[ans+'_'+i];
+        courtDone++;
+        courtCount.textContent='Ruled '+courtDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-tx'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#tx-bar');
+  var labelEl=root.querySelector('#tx-slide-label');
+  var countEl=root.querySelector('#tx-slide-count');
+  var prevBtn=root.querySelector('#tx-prev');
+  var nextBtn=root.querySelector('#tx-next');
+  var hintEl=root.querySelector('#tx-nav-hint');
+  var disclaimer=root.querySelector('.tx-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'Realized vs. Unrealized',3:'The Loss That Helps You',4:'Netting It All Together',5:'The Wash Sale Trap',6:'One Big Exception',7:'The Tax Court',8:'Recap',9:'Certified'};
+  var reqHints={2:'Explore both states',3:'Combine them to continue',4:'Sort all 4 trades',5:'Explore both zones',6:'Reveal the exception',7:'Rule on all 4 to continue'};
+
+  var done={1:true,8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.tx-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('tx-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('tx-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · both states explored
+  var caseState={hold:false,sell:false};
+  var caseHold2=root.querySelector('#tx-case-hold'), caseSell2=root.querySelector('#tx-case-sell');
+  if(caseHold2) caseHold2.addEventListener('click',function(){ caseState.hold=true;
+    if(caseState.hold&&caseState.sell) markDone(2); else liveHint(2,'Now tap the other state too'); });
+  if(caseSell2) caseSell2.addEventListener('click',function(){ caseState.sell=true;
+    if(caseState.hold&&caseState.sell) markDone(2); else liveHint(2,'Now tap the other state too'); });
+
+  // 3 · gain and loss combined
+  var offsetBtn2=root.querySelector('#tx-offset-btn');
+  if(offsetBtn2) offsetBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(3); },450); });
+
+  // 4 · all 4 trades sorted
+  root.querySelectorAll('#tx-net-cards .tx-net-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      var n=count('#tx-net-cards .tx-net-card.done');
+      if(n>=4) markDone(4); else liveHint(4,'Sorted '+n+' of 4 — keep going');
+    });
+  });
+
+  // 5 · both wash sale zones explored
+  var washState={danger:false,safe:false};
+  var washSlider2=root.querySelector('#tx-wash-slider');
+  if(washSlider2) washSlider2.addEventListener('input',function(){
+    var v=+washSlider2.value;
+    if(v<30) washState.danger=true; else washState.safe=true;
+    if(washState.danger && washState.safe) markDone(5);
+    else liveHint(5, !washState.danger ? 'Now try inside the danger zone' : 'Now try past day 30');
+  });
+
+  // 6 · exception revealed
+  var shieldBtn2=root.querySelector('#tx-shield-btn');
+  if(shieldBtn2) shieldBtn2.addEventListener('click',function(){ markDone(6); });
+
+  // 7 · all 4 rulings made
+  root.querySelectorAll('#tx-court .tx-sort-btns button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#tx-court .tx-sort-row.done');
+      if(n>=4) markDone(7); else liveHint(7,'Ruled '+n+' of 4 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#tx-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

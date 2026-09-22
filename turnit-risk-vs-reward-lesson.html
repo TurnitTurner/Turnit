@@ -1,0 +1,871 @@
+<!-- ============================================================
+     TURNIT — RISK VS. REWARD: THE CORE TRADE-OFF OF INVESTING  (Module 1 · Lesson 7)
+     SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-rr. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     12 slides, one interactive per page, "Next" locked until the activity is done:
+       1 The Volatility Heartbeat Test    2 The Portfolio Risk Dial
+       3 The Many Faces of Risk           4 The Time Horizon Shock Absorber
+       5 Ways to Manage Risk              6 The Speculation Drag Race
+       7 The Real Danger Matrix           8 Spot the Red Flags
+       9 The Asymmetric Loss Math Lab     10 Automate Your Risk Management
+       11 Recap                           12 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-rr">
+  <div class="rr-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="rr-top">
+      <div class="rr-topbar">
+        <div class="rr-brand"><span class="rr-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></span><span class="rr-word">TURNIT</span><span class="rr-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="rr-progress"><span id="rr-bar"></span></div>
+      <div class="rr-meta"><span id="rr-slide-label">The Heartbeat Test</span><span id="rr-slide-count">Slide 1 of 12</span></div>
+    </div>
+
+    <!-- ========== 1 · THE VOLATILITY HEARTBEAT TEST ========== -->
+    <section class="rr-sec rr-reveal" data-step="1">
+      <p class="rr-kicker">The Heartbeat Test · 1 / 12</p>
+      <h2 class="rr-h2">Every asset has a pulse</h2>
+      <p class="rr-p">Some investments barely move. Others swing wildly. Tap each to see its actual heartbeat.</p>
+
+      <div class="rr-panel">
+        <div class="rr-heart-tabs" id="rr-heart-tabs">
+          <button type="button" class="rr-heart-tab" data-k="cash">Cash Savings</button>
+          <button type="button" class="rr-heart-tab" data-k="bonds">Corporate Bonds</button>
+          <button type="button" class="rr-heart-tab" data-k="stocks">Emerging Tech Stocks</button>
+        </div>
+
+        <svg viewBox="0 0 300 100" class="rr-heart-chart" id="rr-heart-chart">
+          <path id="rr-path-cash" class="rr-heart-path" d="M0,50 L300,50"/>
+          <path id="rr-path-bonds" class="rr-heart-path" d="M0,55 C40,40 80,65 120,48 C160,35 200,60 240,45 C260,38 280,52 300,46"/>
+          <path id="rr-path-stocks" class="rr-heart-path" d="M0,50 L30,15 L55,80 L80,10 L105,90 L130,20 L155,75 L180,25 L205,85 L230,15 L255,70 L280,30 L300,50"/>
+        </svg>
+
+        <div class="rr-heart-readout" id="rr-heart-readout">
+          <span class="rr-heart-emoji" id="rr-heart-emoji">💓</span>
+          <div><b id="rr-heart-bpm">— BPM</b><span id="rr-heart-lab">Tap a tab above to begin</span></div>
+        </div>
+      </div>
+      <p class="rr-count" id="rr-heart-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 2 · THE PORTFOLIO RISK DIAL ========== -->
+    <section class="rr-sec rr-reveal" data-step="2">
+      <p class="rr-kicker">The Risk Dial · 2 / 12</p>
+      <h2 class="rr-h2">You can't have one without the other</h2>
+      <p class="rr-p">More expected return almost always means accepting a deeper possible drop along the way. Slide to feel the trade-off.</p>
+
+      <div class="rr-panel" id="rr-dial-panel">
+        <div class="rr-dial-metrics">
+          <div class="rr-dial-box"><span>Expected Annual Return</span><b id="rr-dial-return">5.75%</b></div>
+          <div class="rr-dial-box"><span>Historic Max Drawdown</span><b id="rr-dial-drawdown">-22%</b></div>
+        </div>
+        <p class="rr-dial-hint">"Drawdown" just means the biggest drop from a peak to a low point — how far it could fall before recovering.</p>
+
+        <div class="rr-dial-flash" id="rr-dial-flash" style="display:none;">⚠️ High-growth territory — deep drops become far more likely here.</div>
+
+        <div class="rr-slide-row">
+          <div class="rr-slide-top"><label for="rr-dial">Portfolio Growth Tuning</label><span class="rr-slide-v blue" id="rr-dial-v">50</span></div>
+          <input id="rr-dial" class="rr-range" type="range" min="0" max="100" value="50" step="1" aria-label="Portfolio growth tuning">
+        </div>
+        <div class="rr-scale"><span>All Bonds / Cash</span><span>All Stocks</span></div>
+        <div class="rr-note">Drag across both the low end (below 15) and the high end (above 85) to continue.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · THE MANY FACES OF RISK ========== -->
+    <section class="rr-sec rr-reveal" data-step="3">
+      <p class="rr-kicker">What Risk Actually Means · 3 / 12</p>
+      <h2 class="rr-h2">"Risk" isn't just one thing</h2>
+      <p class="rr-p">Tap each to see the specific kind of risk it describes.</p>
+
+      <div class="rr-fico" id="rr-risks">
+        <button type="button" class="rr-fchip" data-t="Volatility" data-d="How much a price swings up and down over time. High volatility means a bumpier ride, even if the long-term direction is up.">
+          <i class="d1"></i>Volatility</button>
+        <button type="button" class="rr-fchip" data-t="Drawdown" data-d="The size of the worst drop from a peak to a low point. A -40% drawdown means your money was once 40% lower than its high point.">
+          <i class="d2"></i>Drawdown</button>
+        <button type="button" class="rr-fchip" data-t="Concentration Risk" data-d="Having too much riding on one company, sector, or asset. If that one thing struggles, your entire portfolio struggles with it.">
+          <i class="d3"></i>Concentration Risk</button>
+        <button type="button" class="rr-fchip" data-t="Time Horizon Risk" data-d="Needing the money before a downturn has time to recover. The same investment can be fine for one goal and dangerous for another.">
+          <i class="d4"></i>Time Horizon Risk</button>
+      </div>
+      <div class="rr-reveal-box" id="rr-risks-box"><b id="rr-risks-t">Tap a type above</b><span id="rr-risks-d">Four distinct kinds of risk, all lumped under one word.</span></div>
+      <p class="rr-count" id="rr-risks-count">Reviewed 0 of 4</p>
+    </section>
+
+    <!-- ========== 4 · THE TIME HORIZON SHOCK ABSORBER ========== -->
+    <section class="rr-sec rr-reveal" data-step="4">
+      <p class="rr-kicker">The Shock Absorber · 4 / 12</p>
+      <h2 class="rr-h2">Same fund, different deadline</h2>
+      <p class="rr-p">Assign this <b>High-Volatility Stock Fund</b> to a timeline and see what happens when a downturn hits.</p>
+
+      <div class="rr-shock-badge">📊 High-Volatility Stock Fund</div>
+
+      <div class="rr-shock-targets">
+        <button type="button" class="rr-shock-target" id="rr-target-short">2-Year Horizon<span>Short-Term Goal</span></button>
+        <button type="button" class="rr-shock-target" id="rr-target-long">30-Year Horizon<span>Long-Term Wealth</span></button>
+      </div>
+
+      <div class="rr-shock-result" id="rr-shock-result"></div>
+    </section>
+
+    <!-- ========== 5 · WAYS TO MANAGE RISK ========== -->
+    <section class="rr-sec rr-reveal" data-step="5">
+      <p class="rr-kicker">Managing It · 5 / 12</p>
+      <h2 class="rr-h2">You can't eliminate risk. You can manage it.</h2>
+      <p class="rr-p">Tap each to see how it actually reduces your exposure.</p>
+
+      <div class="rr-manage" id="rr-manage">
+        <button type="button" class="rr-manage-chip" data-t="Diversification" data-d="Spreading money across many companies, sectors, and asset types means no single failure can sink your whole portfolio."><b>Diversification</b><span>Spread it out</span></button>
+        <button type="button" class="rr-manage-chip" data-t="Dollar-Cost Averaging" data-d="Investing a fixed amount on a regular schedule smooths out the impact of buying at any single, possibly bad, moment."><b>Dollar-Cost Averaging</b><span>Invest steadily</span></button>
+        <button type="button" class="rr-manage-chip" data-t="Matching Timeline to Volatility" data-d="Money needed soon belongs somewhere calm. Money with decades to grow can afford a much bumpier ride."><b>Match Timeline to Volatility</b><span>Right risk, right goal</span></button>
+        <button type="button" class="rr-manage-chip" data-t="Periodic Rebalancing" data-d="Occasionally resetting your portfolio back to its target mix keeps any one winner from quietly taking over your risk level."><b>Periodic Rebalancing</b><span>Reset the mix</span></button>
+      </div>
+      <div class="rr-reveal-box" id="rr-manage-box"><b id="rr-manage-t">Tap an option above</b><span id="rr-manage-d">Four real tools for managing risk without avoiding it entirely.</span></div>
+      <p class="rr-count" id="rr-manage-count">Explored 0 of 4</p>
+    </section>
+
+    <!-- ========== 6 · THE SPECULATION DRAG RACE ========== -->
+    <section class="rr-sec rr-reveal" data-step="6">
+      <p class="rr-kicker">The Speculation Drag Race · 6 / 12</p>
+      <h2 class="rr-h2">Concentration vs. diversification, over time</h2>
+      <p class="rr-p">Slide through 10 years and watch a single speculative bet compare to a fund spread across many companies at once.</p>
+
+      <div class="rr-panel">
+        <div class="rr-race-track-wrap">
+          <div class="rr-race-label"><span>🎰 Investor A — Single Speculative Asset</span><b id="rr-race-a-v">—</b></div>
+          <div class="rr-race-track" id="rr-race-track-a"><span class="rr-race-marker" id="rr-race-marker-a">🎰</span></div>
+        </div>
+        <div class="rr-race-track-wrap">
+          <div class="rr-race-label"><span>📊 Investor B — A Diversified Fund (many companies at once)</span><b id="rr-race-b-v">—</b></div>
+          <div class="rr-race-track" id="rr-race-track-b"><span class="rr-race-marker" id="rr-race-marker-b">📊</span></div>
+        </div>
+
+        <div class="rr-slide-row">
+          <div class="rr-slide-top"><label for="rr-race-years">Years Elapsed</label><span class="rr-slide-v blue" id="rr-race-years-v">0 yrs</span></div>
+          <input id="rr-race-years" class="rr-range" type="range" min="0" max="10" value="0" step="1" aria-label="Years elapsed">
+        </div>
+        <div class="rr-note">Concentration risks wild spikes and violent drops. Diversification tends to harvest steadier, more predictable growth.</div>
+      </div>
+      <p class="rr-disclaimer-inline">Illustrative example only. Not real historical data or a prediction of any specific investment.</p>
+    </section>
+
+    <!-- ========== 7 · THE REAL DANGER MATRIX ========== -->
+    <section class="rr-sec rr-reveal" data-step="7">
+      <p class="rr-kicker">The Real Danger · 7 / 12</p>
+      <h2 class="rr-h2">Myth or fact?</h2>
+      <p class="rr-p">Three common beliefs about risk. Tap your answer for each.</p>
+
+      <div class="rr-sort" id="rr-myth">
+        <div class="rr-sort-row rr-mrow" data-answer="myth"><span>If you avoid the stock market entirely, your money is completely safe from all risk.</span><div class="rr-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="rr-myth-why"><b>Myth.</b> Cash sitting still still faces inflation risk — it can quietly lose real buying power even while the number in the account never drops.</p></div>
+        <div class="rr-sort-row rr-mrow" data-answer="fact"><span>Historic maximum drawdown measures the worst peak-to-trough drop an investment has experienced.</span><div class="rr-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="rr-myth-why"><b>Fact.</b> That's exactly what drawdown measures — and it's one of the most useful ways to understand how rough the ride can actually get.</p></div>
+        <div class="rr-sort-row rr-mrow" data-answer="myth"><span>A properly diversified portfolio can never lose value in any given year.</span><div class="rr-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="rr-myth-why"><b>Myth.</b> Diversification reduces risk, it doesn't eliminate it. A well-diversified portfolio can still lose value in a broad downturn — just usually less severely.</p></div>
+      </div>
+      <p class="rr-count" id="rr-myth-count">Answered 0 of 3</p>
+    </section>
+
+    <!-- ========== 8 · SPOT THE RED FLAGS ========== -->
+    <section class="rr-sec rr-reveal" data-step="8">
+      <p class="rr-kicker">Spot the Red Flags · 8 / 12</p>
+      <h2 class="rr-h2">Habits that help — and hurt — your risk profile</h2>
+      <p class="rr-p">Some habits keep risk manageable. Others quietly turn it dangerous. Tap each tile to reveal which is which.</p>
+
+      <div class="rr-traps" id="rr-traps">
+        <button class="rr-trap-tile" data-verdict="risky" data-d="If that single company or asset struggles, there is nothing else in the portfolio to absorb the hit.">Putting Everything Into One Stock</button>
+        <button class="rr-trap-tile" data-verdict="safe" data-d="Spreading investments across many companies and sectors means no single failure can sink the whole portfolio.">Spreading Across Many Sectors</button>
+        <button class="rr-trap-tile" data-verdict="risky" data-d="Selling after a drop locks in the loss permanently and forfeits any chance of riding the eventual recovery.">Selling in a Panic During a Downturn</button>
+        <button class="rr-trap-tile" data-verdict="safe" data-d="Money needed soon stays calm and stable; money with decades to grow can responsibly take on more volatility.">Matching Risk to Your Actual Timeline</button>
+      </div>
+      <p class="rr-count" id="rr-traps-count">Revealed 0 of 4</p>
+    </section>
+
+    <!-- ========== 9 · THE ASYMMETRIC LOSS MATH LAB ========== -->
+    <section class="rr-sec rr-reveal" data-step="9">
+      <p class="rr-kicker">The Math Lab · 9 / 12</p>
+      <h2 class="rr-h2">A 50% loss isn't undone by a 50% gain</h2>
+      <p class="rr-p">Losing money and making it back aren't a 1-to-1 trade. Watch what a big drop actually requires to fully recover from.</p>
+
+      <div class="rr-panel">
+        <div class="rr-loss-hero" id="rr-loss-hero">$10,000</div>
+        <p class="rr-loss-sub" id="rr-loss-sub">Your baseline portfolio value</p>
+
+        <button type="button" class="rr-loss-btn" id="rr-loss-btn">📉 Apply Market Correction</button>
+
+        <div class="rr-loss-question" id="rr-loss-question" style="display:none;">
+          <p class="rr-loss-question-t">Which gain gets you back to $10,000?</p>
+          <div class="rr-loss-options">
+            <button type="button" class="rr-loss-opt" data-pct="50">50% Gain</button>
+            <button type="button" class="rr-loss-opt" data-pct="75">75% Gain</button>
+            <button type="button" class="rr-loss-opt" data-pct="100">100% Gain</button>
+          </div>
+        </div>
+
+        <div class="rr-loss-result" id="rr-loss-result"></div>
+      </div>
+    </section>
+
+    <!-- ========== 10 · AUTOMATE YOUR RISK MANAGEMENT ========== -->
+    <section class="rr-sec rr-center rr-reveal" data-step="10">
+      <p class="rr-kicker center">Automate It · 10 / 12</p>
+      <h2 class="rr-h2 center">Make risk management automatic</h2>
+      <p class="rr-sub center">The easiest way to stay diversified is to stop deciding it manually every time. Flip the switch to power up the pipeline.</p>
+
+      <button type="button" class="rr-toggle" id="rr-toggle" aria-pressed="false"><span class="rr-toggle-knob"></span><span class="rr-toggle-lab" id="rr-toggle-lab">Auto-Balance Off</span></button>
+
+      <div class="rr-pipe" id="rr-pipe">
+        <div class="rr-pipe-card"><div class="rr-pipe-ico">💵</div><div class="rr-pipe-t">Paycheck Lands</div><div class="rr-pipe-d">Your paycheck hits your checking account like normal.</div></div>
+        <div class="rr-pipe-arrow">→</div>
+        <div class="rr-pipe-card"><div class="rr-pipe-ico">🧩</div><div class="rr-pipe-t">Auto-Diversify</div><div class="rr-pipe-d">Contributions spread automatically across a diversified mix — never just one asset.</div></div>
+        <div class="rr-pipe-arrow">→</div>
+        <div class="rr-pipe-card"><div class="rr-pipe-ico">⚖️</div><div class="rr-pipe-t">Auto-Rebalance</div><div class="rr-pipe-d">The mix quietly resets back to target on schedule — no manual decision required.</div></div>
+      </div>
+      <p class="rr-autopilot-msg" id="rr-autopilot-msg"></p>
+    </section>
+
+    <!-- ========== 11 · RECAP ========== -->
+    <section class="rr-sec rr-reveal" data-step="11">
+      <p class="rr-kicker">Recap · 11 / 12</p>
+      <h2 class="rr-h2">Here's what you now know</h2>
+      <p class="rr-p">The whole lesson, in six lines.</p>
+
+      <div class="rr-recap">
+        <div class="rr-recap-item"><span class="rr-recap-check">✓</span><span>Every asset has its own "pulse" — cash barely moves, speculative assets swing wildly.</span></div>
+        <div class="rr-recap-item"><span class="rr-recap-check">✓</span><span>Higher expected return almost always comes with a deeper possible drawdown.</span></div>
+        <div class="rr-recap-item"><span class="rr-recap-check">✓</span><span>Risk isn't one thing: <b>volatility, drawdown, concentration,</b> and <b>time horizon risk</b> are all different.</span></div>
+        <div class="rr-recap-item"><span class="rr-recap-check">✓</span><span>The same volatile asset can be fine for a long-term goal and dangerous for a short-term one.</span></div>
+        <div class="rr-recap-item"><span class="rr-recap-check">✓</span><span>Diversification, dollar-cost averaging, and rebalancing manage risk — none of them eliminate it.</span></div>
+        <div class="rr-recap-item"><span class="rr-recap-check">✓</span><span>A 50% loss needs a <b>100% gain</b> just to break even — losses and gains are never symmetric.</span></div>
+      </div>
+      <div class="rr-next-move">Your next move: <b>check whether your portfolio's risk actually matches your real timeline.</b></div>
+    </section>
+
+    <!-- ========== 12 · CERTIFICATE ========== -->
+    <section class="rr-sec rr-center rr-reveal" data-step="12">
+      <p class="rr-kicker center">Certified · 12 / 12</p>
+      <div class="rr-cert">
+        <div class="rr-cert-border"></div>
+        <span class="rr-cert-pill">🏆 Certificate of Completion</span>
+        <p class="rr-cert-cert">This certifies that</p>
+        <h2 class="rr-cert-name">Risk Calibrated</h2>
+        <p class="rr-cert-body">has completed <span class="rr-tw">TURNIT</span> Financial Foundations: Risk vs. Reward, and now understands how risk and reward trade off, and how to manage risk without trying to eliminate it.</p>
+        <div class="rr-cert-line"></div>
+        <div class="rr-done-row streak"><div class="rr-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="rr-done-row ach"><div class="rr-done-ico">🏆</div><div><b>Achievement: Risk Certified</b><span>You mastered the core trade-off of investing.</span></div></div>
+        <div class="rr-done-btns">
+          <a class="rr-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="rr-btn ghost" id="rr-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="rr-quote">"THE ESSENCE OF INVESTMENT MANAGEMENT IS THE MANAGEMENT OF RISKS, <span class="rr-green">NOT THE MANAGEMENT OF RETURNS.</span>"<br><span class="rr-quote-by">— BENJAMIN GRAHAM</span></p>
+    </section>
+
+    <p class="rr-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Charts, simulations, and figures in this lesson are simplified, hypothetical illustrations, not real historical data or a prediction.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="rr-nav" id="rr-nav">
+      <button type="button" class="rr-nav-btn prev" id="rr-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="rr-nav-hint" id="rr-nav-hint"></span>
+      <button type="button" class="rr-nav-btn next" id="rr-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-rr{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-rr *,#tn-rr *::before,#tn-rr *::after{box-sizing:border-box;}
+  #tn-rr .rr-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-rr .rr-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-rr .rr-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-rr .rr-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-rr .rr-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-rr .rr-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-rr .rr-bico{display:flex;}
+  #tn-rr .rr-word,#tn-rr .rr-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-rr .rr-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-rr .rr-bsub{color:var(--ink2); font-weight:500;}
+  #tn-rr .rr-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-rr #rr-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-rr .rr-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-rr .rr-meta #rr-slide-label{color:var(--ink2);}
+  #tn-rr .rr-meta #rr-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-rr .rr-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-rr .rr-sec.rr-hide{display:none;}
+  #tn-rr .rr-center{text-align:center;}
+  #tn-rr .rr-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-rr .rr-kicker.center{text-align:center;}
+  #tn-rr .rr-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-rr .rr-h2.center{text-align:center;}
+  #tn-rr .rr-tw{font-style:italic;}
+  #tn-rr .rr-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-rr .rr-p b{color:var(--ink); font-weight:700;}
+  #tn-rr .rr-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+
+  #tn-rr .rr-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-rr .rr-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-rr .rr-note b{color:var(--ink); font-weight:700;}
+  #tn-rr .rr-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-rr .rr-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+
+  /* slide 1 — heartbeat test */
+  #tn-rr .rr-heart-tabs{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px;}
+  #tn-rr .rr-heart-tab{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:10px; padding:11px 6px; cursor:pointer; transition:all .18s;}
+  #tn-rr .rr-heart-tab.on{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border-color:transparent;}
+  #tn-rr .rr-heart-chart{width:100%; height:90px; display:block; margin-bottom:14px;}
+  #tn-rr .rr-heart-path{fill:none; stroke:var(--b); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; display:none; stroke-dasharray:700; stroke-dashoffset:700;}
+  #tn-rr .rr-heart-path.show{display:block;}
+  #tn-rr .rr-heart-path.animate{transition:stroke-dashoffset 1s ease;}
+  #tn-rr #rr-path-stocks.show{stroke:var(--no);}
+  #tn-rr #rr-path-bonds.show{stroke:var(--gold);}
+  #tn-rr #rr-path-cash.show{stroke:var(--g);}
+  #tn-rr .rr-heart-readout{display:flex; align-items:center; gap:14px; background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:14px 16px;}
+  #tn-rr .rr-heart-emoji{font-size:32px; display:inline-block;}
+  #tn-rr .rr-heart-readout b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:var(--ink);}
+  #tn-rr .rr-heart-readout span{font-size:12.5px; color:var(--ink2); font-weight:600;}
+  @keyframes rr-heartbeat{0%,100%{transform:scale(1);}50%{transform:scale(1.18);}}
+  #tn-rr .rr-heart-emoji.beat-slow{animation:rr-heartbeat 1.4s ease-in-out infinite;}
+  #tn-rr .rr-heart-emoji.beat-mid{animation:rr-heartbeat 1.0s ease-in-out infinite;}
+  #tn-rr .rr-heart-emoji.beat-fast{animation:rr-heartbeat .5s ease-in-out infinite;}
+
+  /* slide 2 — risk dial */
+  #tn-rr .rr-dial-metrics{display:flex; gap:10px; margin-bottom:14px;}
+  #tn-rr .rr-dial-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 10px; text-align:center; transition:background .3s ease, border-color .3s ease;}
+  #tn-rr .rr-dial-box span{display:block; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:6px;}
+  #tn-rr .rr-dial-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(20px,5.4vw,25px); color:var(--ink); transition:color .3s ease;}
+  #tn-rr .rr-dial-flash{background:var(--nobg); border:1.5px solid var(--nobd); color:var(--no); border-radius:12px; padding:12px 14px; font-size:13px; font-weight:600; text-align:center; margin-bottom:14px;}
+  #tn-rr .rr-dial-hint{text-align:center; font-size:12px; color:var(--mut); font-style:italic; margin:0 0 14px;}
+
+  /* slide rows / ranges (shared) */
+  #tn-rr .rr-slide-row{margin-top:16px;}
+  #tn-rr .rr-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-rr .rr-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-rr .rr-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-rr .rr-slide-v.blue{color:var(--b);}
+  #tn-rr .rr-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-rr .rr-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-rr .rr-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-rr .rr-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* factor chips (many faces of risk) */
+  #tn-rr .rr-fico{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-rr .rr-fchip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; font-size:13.5px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-rr .rr-fchip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-rr .rr-fchip .d1{background:#209B73;} #tn-rr .rr-fchip .d2{background:#1f8f9b;} #tn-rr .rr-fchip .d3{background:#1568AE;} #tn-rr .rr-fchip .d4{background:#E0952F;}
+  #tn-rr .rr-fchip.on{border-color:var(--g); background:var(--tint);}
+  #tn-rr .rr-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-rr .rr-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-rr .rr-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+
+  /* slide 4 — shock absorber */
+  #tn-rr .rr-shock-badge{text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px; margin-bottom:16px;}
+  #tn-rr .rr-shock-targets{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-rr .rr-shock-target{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 10px; cursor:pointer; transition:all .18s; text-align:center;}
+  #tn-rr .rr-shock-target span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:12px; color:var(--mut); margin-top:3px;}
+  #tn-rr .rr-shock-target.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-rr .rr-shock-result{margin-top:16px;}
+  #tn-rr .rr-shock-result:empty{display:none;}
+  #tn-rr .rr-shock-panel{border-radius:14px; padding:16px 18px; text-align:left; font-size:13.5px; line-height:1.55;}
+  #tn-rr .rr-shock-panel.bad{background:var(--nobg); border:1.5px solid var(--nobd); color:var(--ink2);}
+  #tn-rr .rr-shock-panel.good{background:var(--tint); border:1.5px solid var(--selbd); color:var(--ink2);}
+  #tn-rr .rr-shock-panel b{color:var(--ink);}
+
+  /* slide 5 — manage risk (card row style) */
+  #tn-rr .rr-manage{display:flex; flex-direction:column; gap:9px;}
+  #tn-rr .rr-manage-chip{display:flex; align-items:center; gap:10px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:13px 15px; cursor:pointer; transition:all .18s;}
+  #tn-rr .rr-manage-chip b{font-family:'Poppins',sans-serif; font-size:14.5px; color:var(--ink);}
+  #tn-rr .rr-manage-chip span{margin-left:auto; font-size:12px; color:var(--mut); font-weight:600;}
+  #tn-rr .rr-manage-chip.on{border-color:var(--b); background:#EAF1FA;}
+
+  /* slide 6 — drag race */
+  #tn-rr .rr-race-track-wrap{margin-top:6px; margin-bottom:14px;}
+  #tn-rr .rr-race-label{display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:700; color:var(--ink); margin-bottom:6px;}
+  #tn-rr .rr-race-label b{font-family:'Poppins',sans-serif; color:var(--ink2); font-size:13px;}
+  #tn-rr .rr-race-track{position:relative; height:44px; border-radius:12px; background:linear-gradient(90deg,var(--nobg),var(--mist) 50%,var(--tint)); border:1px solid var(--line);}
+  #tn-rr .rr-race-marker{position:absolute; top:50%; left:0%; transform:translate(-50%,-50%); font-size:22px; transition:left .25s ease;}
+
+  /* sorter */
+  #tn-rr .rr-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-rr .rr-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-rr .rr-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-rr .rr-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-rr .rr-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; padding:7px 15px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-rr .rr-sort-btns button[data-p="myth"]{border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-rr .rr-sort-btns button[data-p="fact"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-rr .rr-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-rr .rr-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-rr .rr-sort-row.done .rr-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-rr .rr-sort-row.done .rr-sort-btns button.picked{opacity:1;}
+  #tn-rr .rr-mrow{flex-wrap:wrap;}
+  #tn-rr .rr-myth-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-rr .rr-myth-why b{font-family:'Poppins',sans-serif;}
+  #tn-rr .rr-sort-row.done .rr-myth-why{display:block;}
+
+  /* spot-the-habit tiles */
+  #tn-rr .rr-traps{display:grid; grid-template-columns:1fr 1fr; gap:11px;}
+  #tn-rr .rr-trap-tile{position:relative; text-align:left; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:15px; padding:18px 16px; min-height:92px; cursor:pointer; transition:all .2s;}
+  #tn-rr .rr-trap-tile::after{content:"Tap to reveal"; display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--mut); margin-top:6px;}
+  #tn-rr .rr-trap-tile.safe{border-color:var(--selbd); background:var(--tint);}
+  #tn-rr .rr-trap-tile.risky{border-color:var(--nobd); background:var(--nobg);}
+  #tn-rr .rr-trap-tile.done::after{content:attr(data-reveal); color:var(--ink2); font-size:12.5px; line-height:1.4;}
+  #tn-rr .rr-trap-badge{position:absolute; top:12px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; padding:3px 9px; border-radius:99px; text-transform:uppercase; letter-spacing:.04em;}
+  #tn-rr .rr-trap-tile.safe .rr-trap-badge{background:var(--g); color:#fff;}
+  #tn-rr .rr-trap-tile.risky .rr-trap-badge{background:var(--no); color:#fff;}
+
+  /* slide 9 — asymmetric loss math lab */
+  #tn-rr .rr-loss-hero{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(32px,8.5vw,42px); color:var(--ink); transition:color .3s ease;}
+  #tn-rr .rr-loss-sub{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:2px 0 18px;}
+  #tn-rr .rr-loss-hero.hit{color:var(--no);}
+  #tn-rr .rr-loss-hero.recovered{color:var(--g);}
+  #tn-rr .rr-loss-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--no),#E0685C); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-rr .rr-loss-btn:hover{transform:translateY(-2px);}
+  #tn-rr .rr-loss-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-rr .rr-loss-question{margin-top:18px; text-align:center;}
+  #tn-rr .rr-loss-question-t{font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); margin:0 0 10px;}
+  #tn-rr .rr-loss-options{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;}
+  #tn-rr .rr-loss-opt{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 6px; cursor:pointer; transition:all .18s;}
+  #tn-rr .rr-loss-opt.wrong{border-color:var(--nobd); background:var(--nobg); color:var(--no);}
+  #tn-rr .rr-loss-opt.right{border-color:var(--selbd); background:var(--tint); color:var(--g);}
+  #tn-rr .rr-loss-result{margin-top:14px;}
+  #tn-rr .rr-loss-result:empty{display:none;}
+  #tn-rr .rr-loss-panel{border-radius:12px; padding:14px 16px; text-align:left; font-size:13.5px; line-height:1.55;}
+  #tn-rr .rr-loss-panel.wrong{background:var(--nobg); border:1.5px solid var(--nobd); color:var(--ink2);}
+  #tn-rr .rr-loss-panel.right{background:var(--tint); border:1.5px solid var(--selbd); color:var(--ink2);}
+  #tn-rr .rr-loss-panel b{color:var(--ink);}
+
+  /* automate */
+  #tn-rr .rr-toggle{display:inline-flex; align-items:center; gap:10px; background:#E4E9EE; border:none; border-radius:99px; padding:8px 18px 8px 8px; cursor:pointer; margin:4px auto 22px; transition:background .25s;}
+  #tn-rr .rr-toggle-knob{width:26px; height:26px; border-radius:50%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,.2); transition:transform .25s;}
+  #tn-rr .rr-toggle-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2);}
+  #tn-rr .rr-toggle.on{background:var(--g);}
+  #tn-rr .rr-toggle.on .rr-toggle-knob{transform:translateX(24px);}
+  #tn-rr .rr-toggle.on .rr-toggle-lab{color:#fff;}
+  #tn-rr .rr-pipe{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:8px; align-items:center;}
+  #tn-rr .rr-pipe-card{background:#fff; border:1.5px solid var(--cardbd); border-radius:15px; padding:16px 14px; text-align:left; transition:all .3s;}
+  #tn-rr .rr-pipe-ico{width:36px; height:36px; border-radius:10px; background:var(--mist); display:flex; align-items:center; justify-content:center; margin-bottom:10px; transition:all .3s; font-size:17px;}
+  #tn-rr .rr-pipe-t{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-bottom:4px;}
+  #tn-rr .rr-pipe-d{font-size:12px; color:var(--ink2); line-height:1.45;}
+  #tn-rr .rr-pipe-arrow{color:var(--mut); font-size:18px;}
+  #tn-rr .rr-pipe.on .rr-pipe-card{border-color:var(--selbd); background:var(--tint);}
+  #tn-rr .rr-pipe.on .rr-pipe-ico{background:var(--g);}
+  #tn-rr .rr-autopilot-msg{font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--g); margin:20px 0 0; min-height:22px; opacity:0; transition:opacity .3s;}
+  #tn-rr .rr-autopilot-msg.show{opacity:1;}
+
+  /* recap */
+  #tn-rr .rr-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-rr .rr-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-rr .rr-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-rr .rr-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-rr .rr-recap-item b{font-weight:700;}
+  #tn-rr .rr-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-rr .rr-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-rr .rr-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-rr .rr-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-rr .rr-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-rr .rr-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-rr .rr-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-rr .rr-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-rr .rr-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-rr .rr-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-rr .rr-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-rr .rr-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-rr .rr-done-ico{font-size:20px; flex:none;}
+  #tn-rr .rr-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-rr .rr-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-rr .rr-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-rr .rr-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-rr .rr-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-rr .rr-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-rr .rr-btn:hover{transform:translateY(-2px);}
+  #tn-rr .rr-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-rr .rr-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-rr .rr-green{color:var(--g);}
+  #tn-rr .rr-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-rr .rr-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-rr .rr-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-rr .rr-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-rr .rr-nav-btn.prev{color:var(--ink2);}
+  #tn-rr .rr-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-rr .rr-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-rr .rr-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-rr .rr-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-rr .rr-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-rr .rr-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-rr .rr-wrap{padding:12px 14px 30px;}
+    #tn-rr .rr-fico{grid-template-columns:1fr;}
+    #tn-rr .rr-traps{grid-template-columns:1fr;}
+    #tn-rr .rr-shock-targets{grid-template-columns:1fr;}
+    #tn-rr .rr-heart-tabs{grid-template-columns:1fr;}
+    #tn-rr .rr-loss-options{grid-template-columns:1fr;}
+    #tn-rr .rr-pipe{grid-template-columns:1fr;}
+    #tn-rr .rr-pipe-arrow{transform:rotate(90deg); justify-self:center;}
+    #tn-rr .rr-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-rr .rr-bsub{display:none;}
+    #tn-rr .rr-nav-hint{display:none;}
+    #tn-rr .rr-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-rr .rr-reveal{opacity:1 !important; transform:none !important;}
+    #tn-rr #rr-bar{transition:none;}
+    #tn-rr .rr-heart-emoji.beat-slow,#tn-rr .rr-heart-emoji.beat-mid,#tn-rr .rr-heart-emoji.beat-fast{animation:none !important;}
+  }
+</style>
+
+<script>
+/* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
+(function(){
+  var root=document.getElementById('tn-rr'); if(!root) return;
+  root.querySelectorAll('.rr-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* 1 · volatility heartbeat test */
+  var heartCopy={
+    cash:{bpm:'60 BPM', lab:'Stagnant Growth', beat:'beat-slow', pathId:'rr-path-cash'},
+    bonds:{bpm:'70 BPM', lab:'Mild Fluctuations — a bond is basically a loan to a company that pays you interest', beat:'beat-mid', pathId:'rr-path-bonds'},
+    stocks:{bpm:'130 BPM', lab:'High Emotional Volatility', beat:'beat-fast', pathId:'rr-path-stocks'}
+  };
+  var heartBpm=root.querySelector('#rr-heart-bpm'), heartLab=root.querySelector('#rr-heart-lab'),
+      heartEmoji=root.querySelector('#rr-heart-emoji');
+  root.querySelectorAll('#rr-heart-tabs .rr-heart-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      root.querySelectorAll('#rr-heart-tabs .rr-heart-tab').forEach(function(t){ t.classList.remove('on'); });
+      tab.classList.add('on');
+      var k=tab.getAttribute('data-k'), c=heartCopy[k];
+      root.querySelectorAll('.rr-heart-path').forEach(function(p){ p.classList.remove('show','animate'); p.style.strokeDashoffset=700; });
+      var path=document.getElementById(c.pathId);
+      path.classList.add('show');
+      void path.offsetWidth;
+      path.classList.add('animate');
+      path.style.strokeDashoffset='0';
+      heartBpm.textContent=c.bpm; heartLab.textContent=c.lab;
+      heartEmoji.className='rr-heart-emoji '+c.beat;
+      postHeight();
+    });
+  });
+
+  /* 2 · portfolio risk dial */
+  var dial=root.querySelector('#rr-dial'), dialV=root.querySelector('#rr-dial-v'),
+      dialReturn=root.querySelector('#rr-dial-return'), dialDrawdown=root.querySelector('#rr-dial-drawdown'),
+      dialFlash=root.querySelector('#rr-dial-flash');
+  function dialCalc(){
+    var v=+dial.value;
+    dialV.textContent=v;
+    var ret=2+(v/100)*(9.5-2);
+    var draw=-2+(v/100)*(-42-(-2));
+    dialReturn.textContent=ret.toFixed(1)+'%';
+    dialDrawdown.textContent=draw.toFixed(0)+'%';
+    if(v>80){
+      dialReturn.style.color='#209B73';
+      dialDrawdown.style.color='#C0392B';
+      dialFlash.style.display='block';
+    } else {
+      dialReturn.style.color='#16202B';
+      dialDrawdown.style.color='#16202B';
+      dialFlash.style.display='none';
+    }
+    postHeight();
+  }
+  if(dial){ dial.addEventListener('input',dialCalc); dialCalc(); }
+
+  /* 3 · the many faces of risk */
+  var risksReviewed={}, risksT=root.querySelector('#rr-risks-t'),
+      risksD=root.querySelector('#rr-risks-d'), risksCount=root.querySelector('#rr-risks-count');
+  root.querySelectorAll('#rr-risks .rr-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#rr-risks .rr-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      risksT.textContent=c.getAttribute('data-t'); risksD.textContent=c.getAttribute('data-d');
+      risksReviewed[c.getAttribute('data-t')]=1;
+      risksCount.textContent='Reviewed '+Object.keys(risksReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 4 · time horizon shock absorber */
+  var targetShort=root.querySelector('#rr-target-short'), targetLong=root.querySelector('#rr-target-long'),
+      shockResult=root.querySelector('#rr-shock-result');
+  if(targetShort) targetShort.addEventListener('click',function(){
+    targetShort.classList.add('on'); targetLong.classList.remove('on');
+    shockResult.innerHTML='<div class="rr-shock-panel bad"><b>❌ Crisis Hit!</b><br>An unexpected downturn lands right at month 22. With the deadline already here, there\u2019s no time left to wait it out \u2014 you\u2019re forced to sell at roughly a <b>-$2,500 loss</b>, locking it in permanently.</div>';
+    postHeight();
+  });
+  if(targetLong) targetLong.addEventListener('click',function(){
+    targetLong.classList.add('on'); targetShort.classList.remove('on');
+    shockResult.innerHTML='<div class="rr-shock-panel good"><b>✅ Time Absorbed the Risk</b><br>Several market corrections happen along the way \u2014 but with 30 years of runway, each one is just a dip on the way to a much higher, compounding path.</div>';
+    postHeight();
+  });
+
+  /* 5 · ways to manage risk */
+  var manageReviewed={}, manageT=root.querySelector('#rr-manage-t'),
+      manageD=root.querySelector('#rr-manage-d'), manageCount=root.querySelector('#rr-manage-count');
+  root.querySelectorAll('#rr-manage .rr-manage-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#rr-manage .rr-manage-chip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      manageT.textContent=c.getAttribute('data-t'); manageD.textContent=c.getAttribute('data-d');
+      manageReviewed[c.getAttribute('data-t')]=1;
+      manageCount.textContent='Explored '+Object.keys(manageReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 6 · speculation drag race */
+  var raceYears=root.querySelector('#rr-race-years'), raceYearsV=root.querySelector('#rr-race-years-v'),
+      markerA=root.querySelector('#rr-race-marker-a'), markerB=root.querySelector('#rr-race-marker-b'),
+      raceAV=root.querySelector('#rr-race-a-v'), raceBV=root.querySelector('#rr-race-b-v');
+  function raceCalc(){
+    var y=+raceYears.value;
+    raceYearsV.textContent=y+' yrs';
+    var posA=50+40*Math.sin(y*1.3)-y*1.5;
+    posA=Math.max(2,Math.min(98,posA));
+    var posB=Math.min(95,10+y*8.5);
+    markerA.style.left=posA+'%';
+    markerB.style.left=posB+'%';
+    var retA=Math.round((posA-50)*2);
+    var retB=Math.round((posB-10)/8.5*7);
+    raceAV.textContent=(retA>=0?'+':'')+retA+'%';
+    raceBV.textContent='+'+retB+'%';
+    postHeight();
+  }
+  if(raceYears){ raceYears.addEventListener('input',raceCalc); raceCalc(); }
+
+  /* 7 · real danger matrix */
+  var mythDone=0, mythCount=root.querySelector('#rr-myth-count');
+  root.querySelectorAll('#rr-myth .rr-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.rr-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        row.classList.add('done', pick===ans?'correct':'wrong');
+        mythDone++; mythCount.textContent='Answered '+mythDone+' of 3';
+        postHeight();
+      });
+    });
+  });
+
+  /* 8 · spot the red flags */
+  var trapsRevealed=0, trapsCount=root.querySelector('#rr-traps-count');
+  root.querySelectorAll('#rr-traps .rr-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      if(t.classList.contains('done')) return;
+      var v=t.getAttribute('data-verdict');
+      t.classList.add('done', v);
+      t.setAttribute('data-reveal', t.getAttribute('data-d'));
+      var badge=document.createElement('span'); badge.className='rr-trap-badge'; badge.textContent=(v==='safe'?'Safe':'Risky');
+      t.appendChild(badge);
+      trapsRevealed++; trapsCount.textContent='Revealed '+trapsRevealed+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 9 · asymmetric loss math lab */
+  var lossHero=root.querySelector('#rr-loss-hero'), lossSub=root.querySelector('#rr-loss-sub'),
+      lossBtn=root.querySelector('#rr-loss-btn'), lossQuestion=root.querySelector('#rr-loss-question'),
+      lossResult=root.querySelector('#rr-loss-result');
+  if(lossBtn) lossBtn.addEventListener('click',function(){
+    lossBtn.disabled=true;
+    lossHero.textContent='$5,000';
+    lossHero.classList.add('hit');
+    lossSub.textContent='Down 50% from baseline';
+    lossQuestion.style.display='block';
+    postHeight();
+  });
+  root.querySelectorAll('#rr-loss-question .rr-loss-opt').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      var pct=+opt.getAttribute('data-pct');
+      var result=5000*(1+pct/100);
+      root.querySelectorAll('.rr-loss-opt').forEach(function(o){ o.classList.remove('right','wrong'); });
+      if(pct===100){
+        opt.classList.add('right');
+        lossHero.textContent=moneyRound(result);
+        lossHero.classList.remove('hit'); lossHero.classList.add('recovered');
+        lossSub.textContent='Fully recovered to baseline';
+        lossResult.innerHTML='<div class="rr-loss-panel right">✅ Correct. A 50% loss requires a full <b>100% gain</b> just to get back to even \u2014 losses and gains are never symmetric.</div>';
+      } else {
+        opt.classList.add('wrong');
+        lossResult.innerHTML='<div class="rr-loss-panel wrong">❌ A '+pct+'% gain only brings it to <b>'+moneyRound(result)+'</b> \u2014 still short of the original $10,000. Try another option.</div>';
+      }
+      postHeight();
+    });
+  });
+
+  /* 10 · automate risk management */
+  var toggle=root.querySelector('#rr-toggle'), toggleLab=root.querySelector('#rr-toggle-lab'),
+      pipe=root.querySelector('#rr-pipe'), apMsg=root.querySelector('#rr-autopilot-msg');
+  if(toggle) toggle.addEventListener('click',function(){
+    var on=toggle.classList.toggle('on'); toggle.setAttribute('aria-pressed',on);
+    toggleLab.textContent=on?'Auto-Balance On':'Auto-Balance Off';
+    pipe.classList.toggle('on',on);
+    apMsg.textContent=on?'Auto-balance engaged. Your risk level now stays on target automatically.':'';
+    apMsg.classList.toggle('show',on);
+    postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-rr'); if(!root) return;
+  var TOTAL=12, current=1;
+
+  var bar=root.querySelector('#rr-bar');
+  var labelEl=root.querySelector('#rr-slide-label');
+  var countEl=root.querySelector('#rr-slide-count');
+  var prevBtn=root.querySelector('#rr-prev');
+  var nextBtn=root.querySelector('#rr-next');
+  var hintEl=root.querySelector('#rr-nav-hint');
+  var disclaimer=root.querySelector('.rr-disclaimer');
+
+  var labels={1:'The Heartbeat Test',2:'The Risk Dial',3:'Faces of Risk',4:'The Shock Absorber',5:'Managing Risk',6:'The Drag Race',7:'The Real Danger',8:'Spot the Red Flags',9:'The Math Lab',10:'Automate It',11:'Recap',12:'Certified'};
+  var reqHints={1:'Explore all 3 assets to continue',2:'Drag across both extremes',3:'Review all 4 to continue',4:'Evaluate both horizons',5:'Explore all 4 to continue',6:'Slide all the way to Year 10',7:'Answer all 3 to continue',8:'Reveal all 4 to continue',9:'Find the correct gain percentage',10:'Flip the switch to continue'};
+
+  var done={11:true,12:true};
+  var secByStep={};
+  root.querySelectorAll('.rr-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('rr-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('rr-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · all 3 heartbeat tabs explored
+  var heart={};
+  root.querySelectorAll('#rr-heart-tabs .rr-heart-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){ heart[tab.getAttribute('data-k')]=1;
+      if(keys(heart)>=3) markDone(1); else liveHint(1,'Explored '+keys(heart)+' of 3 — explore all to continue'); });
+  });
+
+  // 2 · dial dragged below 15 and above 85
+  var dialState={low:false,high:false};
+  var dial=root.querySelector('#rr-dial');
+  if(dial) dial.addEventListener('input',function(){
+    var v=+dial.value;
+    if(v<15) dialState.low=true;
+    if(v>85) dialState.high=true;
+    if(dialState.low && dialState.high) markDone(2);
+    else liveHint(2, !dialState.low ? 'Now drag it below 15' : 'Now drag it above 85');
+  });
+
+  // 3 · all 4 risk types reviewed
+  var risks={};
+  root.querySelectorAll('#rr-risks .rr-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ risks[c.getAttribute('data-t')]=1;
+      if(keys(risks)>=4) markDone(3); else liveHint(3,'Reviewed '+keys(risks)+' of 4 — review all to continue'); });
+  });
+
+  // 4 · both horizons evaluated
+  var shockState={short:false,long:false};
+  var targetShort=root.querySelector('#rr-target-short'), targetLong=root.querySelector('#rr-target-long');
+  if(targetShort) targetShort.addEventListener('click',function(){ shockState.short=true;
+    if(shockState.short&&shockState.long) markDone(4); else liveHint(4,'Now evaluate the 30-Year Horizon too'); });
+  if(targetLong) targetLong.addEventListener('click',function(){ shockState.long=true;
+    if(shockState.short&&shockState.long) markDone(4); else liveHint(4,'Now evaluate the 2-Year Horizon too'); });
+
+  // 5 · all 4 management tools explored
+  var manage={};
+  root.querySelectorAll('#rr-manage .rr-manage-chip').forEach(function(c){
+    c.addEventListener('click',function(){ manage[c.getAttribute('data-t')]=1;
+      if(keys(manage)>=4) markDone(5); else liveHint(5,'Explored '+keys(manage)+' of 4 — explore all to continue'); });
+  });
+
+  // 6 · race slider reaches year 10
+  var raceYears=root.querySelector('#rr-race-years');
+  if(raceYears) raceYears.addEventListener('input',function(){
+    if(+raceYears.value>=10) markDone(6); else liveHint(6,'Keep sliding — reach Year 10 to continue');
+  });
+
+  // 7 · all 3 myth answers
+  root.querySelectorAll('#rr-myth .rr-sort-row button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#rr-myth .rr-sort-row.done');
+      if(n>=3) markDone(7); else liveHint(7,'Answered '+n+' of 3 — answer all to continue'); });
+  });
+
+  // 8 · all 4 habit tiles revealed
+  root.querySelectorAll('#rr-traps .rr-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){ var n=count('#rr-traps .rr-trap-tile.done');
+      if(n>=4) markDone(8); else liveHint(8,'Revealed '+n+' of 4 — reveal all to continue'); });
+  });
+
+  // 9 · the correct 100% gain option identified
+  root.querySelectorAll('#rr-loss-question .rr-loss-opt').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      if(+opt.getAttribute('data-pct')===100) markDone(9);
+      else liveHint(9,'Not quite — try a different percentage');
+    });
+  });
+
+  // 10 · auto-balance switched on
+  var toggle=root.querySelector('#rr-toggle');
+  if(toggle) toggle.addEventListener('click',function(){ if(toggle.classList.contains('on')) markDone(10); });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#rr-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

@@ -1,0 +1,256 @@
+<!-- ============================================================
+     TURNIT — WELCOME: INTRODUCTION TO INVESTING  (overview page)
+     SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-wi. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     This is a short, ungated welcome/overview page — no activities to
+     complete, "Next" is always unlocked. Meant to sit right before the
+     full "Introduction to Investing" lesson in the course outline.
+     4 slides:
+       1 Title / Intro        2 What You'll Learn
+       3 How This Works       4 Ready To Begin (scroll-down prompt)
+     NOTE: Slide 4 no longer links anywhere. Browsers block this page
+     (inside an iframe, on a different subdomain) from clicking the
+     course's own buttons, so slide 4 now points the learner down to
+     GHL's "Mark As Complete" / "Next Lesson" buttons instead.
+     ============================================================ -->
+<div id="tn-wi">
+  <div class="wi-wrap">
+    <!-- TOP HEADER -->
+    <div class="wi-top">
+      <div class="wi-topbar">
+        <div class="wi-brand"><span class="wi-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="wi-word">TURNIT</span><span class="wi-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="wi-progress"><span id="wi-bar"></span></div>
+      <div class="wi-meta"><span id="wi-slide-label">Welcome</span><span id="wi-slide-count">Slide 1 of 4</span></div>
+    </div>
+    <!-- ========== 1 · TITLE / INTRO ========== -->
+    <section class="wi-sec wi-center wi-reveal" data-step="1">
+      <p class="wi-kicker center">Introduction To Investing · 1 / 4</p>
+      <h1 class="wi-hero-title">INTRODUCTION TO <span class="wi-hero-grad">INVESTING</span></h1>
+      <p class="wi-sub center">Most people are never taught what investing actually is, so it ends up sounding like something other people do. It isn't. It's the difference between money that sits still and money that goes to work — and that's where we'll start.</p>
+    </section>
+    <!-- ========== 2 · WHAT YOU'LL LEARN ========== -->
+    <section class="wi-sec wi-reveal" data-step="2">
+      <p class="wi-kicker">What You'll Learn · 2 / 4</p>
+      <h2 class="wi-h2">Here's What This Lesson Covers</h2>
+      <p class="wi-p">By the end, you'll be able to answer the questions every beginner investor starts with.</p>
+      <div class="wi-recap">
+        <div class="wi-recap-item"><span class="wi-recap-check">1</span><span>Why the <b>same money</b> can end up in wildly different places depending on where you put it</span></div>
+        <div class="wi-recap-item"><span class="wi-recap-check">2</span><span>What actually drives long-term growth — and why <b>time</b> matters more than almost anything else</span></div>
+        <div class="wi-recap-item"><span class="wi-recap-check">3</span><span>When to use <b>savings</b> vs. when to use <b>investing</b> for a given goal</span></div>
+        <div class="wi-recap-item"><span class="wi-recap-check">4</span><span>Real ways to get started, even with no experience and a small amount of money</span></div>
+        <div class="wi-recap-item"><span class="wi-recap-check">5</span><span>A few common myths and red flags to watch out for as a beginner</span></div>
+      </div>
+    </section>
+    <!-- ========== 3 · HOW THIS WORKS ========== -->
+    <section class="wi-sec wi-reveal" data-step="3">
+      <p class="wi-kicker">How This Works · 3 / 4</p>
+      <h2 class="wi-h2">This Isn't A Video — It's Hands-On</h2>
+      <p class="wi-p">Every slide has something to tap, slide, or sort. You'll learn by playing with real numbers, not just reading about them.</p>
+      <div class="wi-cards">
+        <div class="wi-card"><div class="wi-card-ico">👆</div><h3>Tap &amp; Explore</h3><p>Compare outcomes, reveal explanations, and sort ideas into the right category.</p></div>
+        <div class="wi-card"><div class="wi-card-ico">🎚️</div><h3>Slide &amp; See</h3><p>Move sliders and watch real projections update instantly, right in front of you.</p></div>
+        <div class="wi-card"><div class="wi-card-ico">✅</div><h3>Finish To Advance</h3><p>Each slide unlocks "Next" once you've actually engaged with it — no skimming through.</p></div>
+      </div>
+      <div class="wi-note">Take your time. There's no clock and no wrong answers — just tap Previous any time you want to go back.</div>
+    </section>
+    <!-- ========== 4 · READY TO BEGIN ========== -->
+    <section class="wi-sec wi-center wi-reveal" data-step="4">
+      <p class="wi-kicker center">Ready? · 4 / 4</p>
+      <span class="wi-hero-ico">🚀</span>
+      <h2 class="wi-h2 center">You're Ready To Start</h2>
+      <p class="wi-sub center">Work through it at your own pace, and let's turn "someday I'll start investing" into "I already know how."</p>
+      <!-- Continue prompt (replaces the old "Start the Lesson" link).
+           Wording swaps automatically if the lesson is in full screen. -->
+      <div class="wi-finish">
+        <span class="wi-finish-arrow" id="wi-fin-arrow" aria-hidden="true">↓</span>
+        <p class="wi-finish-lead" id="wi-fin-lead">Scroll Down To Continue</p>
+        <p class="wi-finish-sub" id="wi-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+    </section>
+    <p class="wi-disclaimer">TURNIT is for educational purposes only and is not financial advice.</p>
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="wi-nav" id="wi-nav">
+      <button type="button" class="wi-nav-btn prev" id="wi-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="wi-nav-hint" id="wi-nav-hint"></span>
+      <button type="button" class="wi-nav-btn next" id="wi-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-wi{
+    --b:#1568AE; --g:#209B73; --teal:#12a08a; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbg:#EAF7F1; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --warn:#B7791F; --peachbg:#FBEEE6; --peachbd:#F3D9C8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-wi *,#tn-wi *::before,#tn-wi *::after{box-sizing:border-box;}
+  #tn-wi .wi-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-wi .wi-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-wi .wi-reveal.in{opacity:1; transform:none;}
+  /* header */
+  #tn-wi .wi-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-wi .wi-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-wi .wi-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-wi .wi-bico{display:flex;}
+  #tn-wi .wi-word{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent; font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-wi .wi-bsub{color:var(--ink2); font-weight:500;}
+  #tn-wi .wi-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-wi #wi-bar{display:block; height:100%; width:25%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-wi .wi-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-wi .wi-meta #wi-slide-label{color:var(--ink2);}
+  #tn-wi .wi-meta #wi-slide-count{color:var(--mut);}
+  /* sections + type */
+  #tn-wi .wi-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-wi .wi-sec.wi-hide{display:none;}
+  #tn-wi .wi-center{text-align:center;}
+  #tn-wi .wi-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-wi .wi-kicker.center{text-align:center;}
+  #tn-wi .wi-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-wi .wi-h2.center{text-align:center;}
+  #tn-wi .wi-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-wi .wi-p b{color:var(--ink); font-weight:700;}
+  #tn-wi .wi-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-wi .wi-sub.center{text-align:center;}
+  #tn-wi .wi-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-wi .wi-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  /* slide 1 — title */
+  #tn-wi .wi-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.6vw,44px); line-height:1.12; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
+  #tn-wi .wi-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  /* recap-style list (slide 2) */
+  #tn-wi .wi-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-wi .wi-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-wi .wi-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-wi .wi-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-wi .wi-recap-item b{font-weight:700;}
+  /* explainer cards (slide 3) */
+  #tn-wi .wi-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:11px; margin-top:6px;}
+  #tn-wi .wi-card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 14px;}
+  #tn-wi .wi-card-ico{font-size:20px; margin-bottom:8px;}
+  #tn-wi .wi-card h3{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin:0 0 6px; color:var(--ink);}
+  #tn-wi .wi-card p{font-size:12.5px; color:var(--ink2); margin:0; line-height:1.5;}
+  /* CTA button (unused on slide 4 now, kept for future use) */
+  #tn-wi .wi-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-wi .wi-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-wi .wi-btn:hover{transform:translateY(-2px);}
+  #tn-wi .wi-btn-lg{font-size:16px; padding:15px 30px; margin-top:10px; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  /* scroll-down prompt (slide 4) */
+  #tn-wi .wi-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-wi .wi-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:wi-bob 1.6s ease-in-out infinite;}
+  #tn-wi .wi-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--ink); margin:10px 0 6px;}
+  #tn-wi .wi-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-wi .wi-finish-sub b{color:var(--ink); font-weight:700;}
+  #tn-wi .wi-finish-arrow.up{animation:wi-bob-up 1.6s ease-in-out infinite;}
+  @keyframes wi-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes wi-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-wi .wi-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* bottom nav (Previous / Next) */
+  #tn-wi .wi-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-wi .wi-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-wi .wi-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-wi .wi-nav-btn.prev{color:var(--ink2);}
+  #tn-wi .wi-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-wi .wi-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-wi .wi-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-wi .wi-nav-btn.next:hover{transform:translateY(-2px);}
+  @media (max-width:540px){
+    #tn-wi .wi-wrap{padding:12px 14px 30px;}
+    #tn-wi .wi-cards{grid-template-columns:1fr;}
+    #tn-wi .wi-bsub{display:none;}
+    #tn-wi .wi-nav-hint{display:none;}
+    #tn-wi .wi-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-wi .wi-reveal{opacity:1 !important; transform:none !important;}
+    #tn-wi #wi-bar{transition:none;}
+    #tn-wi .wi-finish-arrow,#tn-wi .wi-finish-arrow.up{animation:none;}
+  }
+</style>
+<script>
+/* ============================================================
+     PAGINATION LAYER — one slide at a time. This is a welcome
+     page with no activities, so Next is always unlocked.
+     ============================================================ */
+(function(){
+  var root=document.getElementById('tn-wi'); if(!root) return;
+  root.querySelectorAll('.wi-reveal').forEach(function(el){ el.classList.add('in'); });
+  var TOTAL=4, current=1;
+  var bar=root.querySelector('#wi-bar');
+  var labelEl=root.querySelector('#wi-slide-label');
+  var countEl=root.querySelector('#wi-slide-count');
+  var prevBtn=root.querySelector('#wi-prev');
+  var nextBtn=root.querySelector('#wi-next');
+  var labels={1:'Welcome',2:"What You'll Learn",3:'How This Works',4:'Ready?'};
+  var secByStep={};
+  root.querySelectorAll('.wi-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('wi-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('wi-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    nextBtn.style.display = current>=TOTAL ? 'none' : '';
+    toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(current<TOTAL) show(current+1); });
+  window.addEventListener('load',postH); window.addEventListener('resize',postH); setInterval(postH,1000);
+  show(1);
+})();
+</script>
+<script>
+/* ============================================================
+     FULL-SCREEN AWARE PROMPT (slide 4)
+     If the lesson is expanded to full screen, "scroll down" is
+     wrong — the learner has to close it first. This swaps the
+     wording and flips the arrow upward toward the ✕ button.
+     ============================================================ */
+(function(){
+  var arrow=document.getElementById('wi-fin-arrow');
+  var lead=document.getElementById('wi-fin-lead');
+  var sub=document.getElementById('wi-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={
+    normal:{ arrow:'↓', up:false, lead:'Scroll Down To Continue',
+             sub:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.' },
+    full:{   arrow:'↑', up:true,  lead:'Close Full Screen To Continue',
+             sub:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.' }
+  };
+  var last=null;
+  function isFullScreen(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{
+      if(!window.screen) return false;
+      var h=window.screen.availHeight||window.screen.height;
+      var w=window.screen.availWidth||window.screen.width;
+      return (window.innerHeight >= h-130) && (window.innerWidth >= w-60);
+    }catch(e){ return false; }
+  }
+  function apply(){
+    var key=isFullScreen()?'full':'normal';
+    if(key===last) return;
+    last=key;
+    var c=COPY[key];
+    arrow.textContent=c.arrow;
+    arrow.classList.toggle('up', c.up);
+    lead.textContent=c.lead;
+    sub.innerHTML=c.sub;
+  }
+  window.addEventListener('resize',apply);
+  document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700);
+  apply();
+})();
+</script>

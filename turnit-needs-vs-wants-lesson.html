@@ -1,0 +1,882 @@
+<!-- ============================================================
+     TURNIT — NEEDS VS. WANTS: FREEING UP MONEY TO INVEST  (Module 1 · Lesson 4)
+     SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-nw. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     12 slides, one interactive per page, "Next" locked until the activity is done:
+       1 The Budget Tug-of-War          2 The Subscription Grim Reaper
+       3 What Makes a Real Need?        4 The 48-Hour Cooldown Safe
+       5 Questions to Ask First         6 The Lifestyle Creep Fork
+       7 The Hidden Want Classifier     8 Spot the Red Flags
+       9 The Found Money Redirector     10 Automate Your Savings Rate
+       11 Recap                         12 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-nw">
+  <div class="nw-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="nw-top">
+      <div class="nw-topbar">
+        <div class="nw-brand"><span class="nw-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span><span class="nw-word">TURNIT</span><span class="nw-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="nw-progress"><span id="nw-bar"></span></div>
+      <div class="nw-meta"><span id="nw-slide-label">The Tug-of-War</span><span id="nw-slide-count">Slide 1 of 12</span></div>
+    </div>
+
+    <!-- ========== 1 · THE BUDGET TUG-OF-WAR ========== -->
+    <section class="nw-sec nw-reveal" data-step="1">
+      <p class="nw-kicker">The Tug-of-War · 1 / 12</p>
+      <h2 class="nw-h2">Every dollar picks a side</h2>
+      <p class="nw-p">Same $600 of monthly discretionary spending. Drag the slider and watch it shift between lifestyle spending and your future freedom fund.</p>
+
+      <div class="nw-tug-wrap">
+        <div class="nw-tug-panel" id="nw-tug-wants">
+          <p class="nw-tug-title">Current Lifestyle Wants</p>
+          <div class="nw-tug-icons" id="nw-tug-icons"><span>☕</span><span>🍕</span><span>📺</span><span>🛍️</span></div>
+          <p class="nw-tug-sub" id="nw-tug-spend">$600/mo spent</p>
+        </div>
+        <div class="nw-tug-panel green" id="nw-tug-invest">
+          <p class="nw-tug-title">Future Freedom Fund</p>
+          <div class="nw-tug-value" id="nw-tug-value">$0</div>
+          <p class="nw-tug-sub">Projected value in 30 years</p>
+        </div>
+      </div>
+
+      <div class="nw-slide-row">
+        <input id="nw-tug" class="nw-range" type="range" min="0" max="100" value="50" step="1" aria-label="Wants vs investing balance">
+        <div class="nw-scale"><span>All Wants</span><span>Balanced</span><span>All Investing</span></div>
+      </div>
+      <div class="nw-note" id="nw-tug-note">Move the slider across both the 20% and 80% marks to see the full range.</div>
+    </section>
+
+    <!-- ========== 2 · THE SUBSCRIPTION GRIM REAPER ========== -->
+    <section class="nw-sec nw-reveal" data-step="2">
+      <p class="nw-kicker">The Subscription Grim Reaper · 2 / 12</p>
+      <h2 class="nw-h2">Cancel it. Invest it instead.</h2>
+      <p class="nw-p">Tap to "cancel" any subscription below and redirect that money into your compounding engine. Watch the 25-year total grow.</p>
+
+      <div class="nw-subs" id="nw-subs">
+        <button type="button" class="nw-sub-card" data-price="15.99"><span class="nw-sub-check"></span><span class="nw-sub-name">Streaming Video Pass</span><span class="nw-sub-price">$15.99/mo</span></button>
+        <button type="button" class="nw-sub-card" data-price="9.99"><span class="nw-sub-check"></span><span class="nw-sub-name">Delivery App Premium</span><span class="nw-sub-price">$9.99/mo</span></button>
+        <button type="button" class="nw-sub-card" data-price="12.99"><span class="nw-sub-check"></span><span class="nw-sub-name">Gym App Add-On</span><span class="nw-sub-price">$12.99/mo</span></button>
+        <button type="button" class="nw-sub-card" data-price="10.99"><span class="nw-sub-check"></span><span class="nw-sub-name">Music Streaming</span><span class="nw-sub-price">$10.99/mo</span></button>
+        <button type="button" class="nw-sub-card" data-price="2.99"><span class="nw-sub-check"></span><span class="nw-sub-name">Extra Cloud Storage</span><span class="nw-sub-price">$2.99/mo</span></button>
+      </div>
+
+      <div class="nw-panel nw-sub-panel" id="nw-sub-panel">
+        <p class="nw-sub-lab">Total Wealth Reclaimed Over 25 Years</p>
+        <p class="nw-sub-value" id="nw-sub-value">$0</p>
+        <p class="nw-sub-sub" id="nw-sub-monthly">$0.00/mo canceled so far</p>
+      </div>
+      <p class="nw-count" id="nw-subs-count">Canceled 0 subscriptions</p>
+      <p class="nw-disclaimer-inline">Illustrative projection at a hypothetical 8% average annual return, compounded monthly for 25 years.</p>
+    </section>
+
+    <!-- ========== 3 · WHAT MAKES A REAL NEED? ========== -->
+    <section class="nw-sec nw-reveal" data-step="3">
+      <p class="nw-kicker">The Real Test · 3 / 12</p>
+      <h2 class="nw-h2">What actually makes something a need?</h2>
+      <p class="nw-p">Four quick checks separate a real need from a want dressed up as one. Tap each to see how it works.</p>
+
+      <div class="nw-fico" id="nw-tests">
+        <button type="button" class="nw-fchip" data-t="Passes the Survival Test" data-d="Would you face real harm or serious hardship without it? Food, shelter, and basic transportation pass this test — a premium upgrade of any of them usually doesn't.">
+          <i class="d1"></i>Passes the Survival Test</button>
+        <button type="button" class="nw-fchip" data-t="No Reasonable Substitute" data-d="A true need has no cheaper option that does the same job just as well. If a less expensive version works fine, the upgrade is the want.">
+          <i class="d2"></i>No Reasonable Substitute</button>
+        <button type="button" class="nw-fchip" data-t="Non-Negotiable Timing" data-d="You genuinely can't delay it without real consequences. Most wants can wait a week, a month, or longer with no actual harm done.">
+          <i class="d3"></i>Non-Negotiable Timing</button>
+        <button type="button" class="nw-fchip" data-t="No Flashier Version Exists" data-d="Real needs don't usually come with a premium, status-driven upgrade marketed as \u201cthe real version.\u201d That marketing itself is often a signal.">
+          <i class="d4"></i>No Flashier Version Exists</button>
+      </div>
+      <div class="nw-reveal-box" id="nw-tests-box"><b id="nw-tests-t">Tap a test above</b><span id="nw-tests-d">Each one helps you catch a want disguised as a need.</span></div>
+      <p class="nw-count" id="nw-tests-count">Reviewed 0 of 4</p>
+    </section>
+
+    <!-- ========== 4 · THE 48-HOUR COOLDOWN SAFE ========== -->
+    <section class="nw-sec nw-reveal" data-step="4">
+      <p class="nw-kicker">The Cooldown Safe · 4 / 12</p>
+      <h2 class="nw-h2">Buy it now, or let it cool down?</h2>
+      <p class="nw-p">For each purchase, choose instant checkout or place it in the 48-hour safe. See how the outcome differs.</p>
+
+      <div class="nw-safe" id="nw-safe">
+        <div class="nw-safe-card" data-price="300"><div class="nw-safe-item">🩴 $300 Designer Sneakers</div><div class="nw-safe-btns"><button class="nw-safe-btn instant" data-a="instant">🛒 Instant Purchase</button><button class="nw-safe-btn safe" data-a="safe">⏳ Place in 48-Hour Safe</button></div><div class="nw-safe-result"></div></div>
+        <div class="nw-safe-card" data-price="150"><div class="nw-safe-item">🎧 $150 Limited Edition Headphones</div><div class="nw-safe-btns"><button class="nw-safe-btn instant" data-a="instant">🛒 Instant Purchase</button><button class="nw-safe-btn safe" data-a="safe">⏳ Place in 48-Hour Safe</button></div><div class="nw-safe-result"></div></div>
+        <div class="nw-safe-card" data-price="220"><div class="nw-safe-item">🎫 $220 Concert VIP Upgrade</div><div class="nw-safe-btns"><button class="nw-safe-btn instant" data-a="instant">🛒 Instant Purchase</button><button class="nw-safe-btn safe" data-a="safe">⏳ Place in 48-Hour Safe</button></div><div class="nw-safe-result"></div></div>
+      </div>
+      <p class="nw-count" id="nw-safe-count">Processed 0 of 3</p>
+    </section>
+
+    <!-- ========== 5 · QUESTIONS TO ASK FIRST ========== -->
+    <section class="nw-sec nw-reveal" data-step="5">
+      <p class="nw-kicker">Questions to Ask First · 5 / 12</p>
+      <h2 class="nw-h2">Four questions worth asking before you buy</h2>
+      <p class="nw-p">These take ten seconds and can save you from most impulse buys. Tap each to see why it works.</p>
+
+      <div class="nw-fico" id="nw-questions">
+        <button type="button" class="nw-fchip" data-t="Will I still want this in 30 days?" data-d="Most impulse purchases lose their appeal fast. If you\u2019re not sure you\u2019ll still care in a month, that\u2019s useful information.">Will I still want this in 30 days?</button>
+        <button type="button" class="nw-fchip" data-t="Could I get this used or on sale?" data-d="A few minutes of searching often reveals the exact same thing for meaningfully less — with zero difference in what it actually does for you.">Could I get this used or on sale?</button>
+        <button type="button" class="nw-fchip" data-t="Does this replace something I already own?" data-d="If you already own something that does the job, this purchase may be duplicating value you already have rather than adding new value.">Does this replace something I already own?</button>
+        <button type="button" class="nw-fchip" data-t="Am I solving a problem or chasing a feeling?" data-d="Buying to fix a real problem is different from buying to feel better for an afternoon. Only one of those tends to actually last.">Am I solving a problem or chasing a feeling?</button>
+      </div>
+      <div class="nw-reveal-box" id="nw-questions-box"><b id="nw-questions-t">Tap a question above</b><span id="nw-questions-d">Four quick filters that catch most impulse buys before they happen.</span></div>
+      <p class="nw-count" id="nw-questions-count">Explored 0 of 4</p>
+    </section>
+
+    <!-- ========== 6 · THE LIFESTYLE CREEP FORK ========== -->
+    <section class="nw-sec nw-reveal" data-step="6">
+      <p class="nw-kicker">The Lifestyle Creep Fork · 6 / 12</p>
+      <h2 class="nw-h2">You just got a raise. Now what?</h2>
+      <p class="nw-p">A promotion adds <b>$8,000/year</b> to your salary — about $667/month. Preview both strategies below to see how differently they play out.</p>
+
+      <div class="nw-fork-btns">
+        <button type="button" class="nw-fork-btn a" id="nw-fork-a">Strategy A<span>Inflate Lifestyle</span></button>
+        <button type="button" class="nw-fork-btn b" id="nw-fork-b">Strategy B<span>Save the Raise</span></button>
+      </div>
+
+      <div class="nw-fork-result" id="nw-fork-result"></div>
+    </section>
+
+    <!-- ========== 7 · THE HIDDEN WANT CLASSIFIER ========== -->
+    <section class="nw-sec nw-reveal" data-step="7">
+      <p class="nw-kicker">The Hidden Want Classifier · 7 / 12</p>
+      <h2 class="nw-h2">Need, or want in disguise?</h2>
+      <p class="nw-p">Some upgraded choices quietly pass themselves off as baseline requirements. Tap the right label for each.</p>
+
+      <div class="nw-sort" id="nw-classifier">
+        <div class="nw-sort-row" data-answer="need"><span>A reliable, basic used car to get to work</span><div class="nw-sort-btns"><button data-p="need">Core Need</button><button data-p="want">Luxury Want</button></div></div>
+        <div class="nw-sort-row" data-answer="want"><span>A brand-new imported sports car lease</span><div class="nw-sort-btns"><button data-p="need">Core Need</button><button data-p="want">Luxury Want</button></div></div>
+        <div class="nw-sort-row" data-answer="need"><span>Basic grocery staples for the week</span><div class="nw-sort-btns"><button data-p="need">Core Need</button><button data-p="want">Luxury Want</button></div></div>
+        <div class="nw-sort-row" data-answer="want"><span>A daily $7 specialty coffee order</span><div class="nw-sort-btns"><button data-p="need">Core Need</button><button data-p="want">Luxury Want</button></div></div>
+      </div>
+      <p class="nw-count" id="nw-classifier-count">Sorted 0 of 4</p>
+      <div class="nw-note">Mislabeling an upgraded want as a core need is one of the easiest ways lifestyle costs quietly creep upward.</div>
+    </section>
+
+    <!-- ========== 8 · SPOT THE RED FLAGS ========== -->
+    <section class="nw-sec nw-reveal" data-step="8">
+      <p class="nw-kicker">Spot the Red Flags · 8 / 12</p>
+      <h2 class="nw-h2">Habits that help — and hurt — your budget</h2>
+      <p class="nw-p">Some habits quietly protect the gap between needs and wants. Others quietly erase it. Tap each tile to reveal which is which.</p>
+
+      <div class="nw-traps" id="nw-traps">
+        <button class="nw-trap-tile" data-verdict="risky" data-d="Subscriptions you forgot you have are pure lifestyle drift — money leaving every month for something you\u2019re not even actively enjoying.">Auto-Renewing Subscriptions You Forgot About</button>
+        <button class="nw-trap-tile" data-verdict="safe" data-d="A short pause before non-essential purchases filters out most impulse buys without requiring any willpower in the moment.">Waiting 48 Hours Before Non-Essential Buys</button>
+        <button class="nw-trap-tile" data-verdict="risky" data-d="Automatically upgrading your spending every time your income rises means your savings rate never actually improves.">Upgrading Your Lifestyle With Every Raise</button>
+        <button class="nw-trap-tile" data-verdict="safe" data-d="Sending windfalls like bonuses, refunds, or gifts straight into investing means unexpected money builds real wealth instead of disappearing.">Redirecting Windfalls Straight to Investing</button>
+      </div>
+      <p class="nw-count" id="nw-traps-count">Revealed 0 of 4</p>
+    </section>
+
+    <!-- ========== 9 · THE FOUND MONEY REDIRECTOR ========== -->
+    <section class="nw-sec nw-reveal" data-step="9">
+      <p class="nw-kicker">The Found Money Redirector · 9 / 12</p>
+      <h2 class="nw-h2">A $1,200 tax refund just landed</h2>
+      <p class="nw-p">Split it between spending and investing. The two sliders are tethered — they always add up to $1,200.</p>
+
+      <div class="nw-panel" id="nw-found-panel">
+        <div class="nw-slide-row">
+          <div class="nw-slide-top"><label for="nw-spend">Spend on Wants</label><span class="nw-slide-v gold" id="nw-spend-v">$600</span></div>
+          <input id="nw-spend" class="nw-range" type="range" min="0" max="1200" value="600" step="50" aria-label="Amount to spend">
+        </div>
+        <div class="nw-slide-row">
+          <div class="nw-slide-top"><label for="nw-invest">Route to Investing</label><span class="nw-slide-v green" id="nw-invest-v">$600</span></div>
+          <input id="nw-invest" class="nw-range good" type="range" min="0" max="1200" value="600" step="50" aria-label="Amount to invest">
+        </div>
+
+        <div class="nw-found-status" id="nw-found-status">
+          <p class="nw-found-status-t" id="nw-found-status-t">Balanced 50/50</p>
+          <p class="nw-found-status-d" id="nw-found-status-d">In 20 years at a hypothetical 8% average return, your invested share could grow to <b id="nw-found-fv">$2,798</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10 · AUTOMATE YOUR SAVINGS RATE ========== -->
+    <section class="nw-sec nw-center nw-reveal" data-step="10">
+      <p class="nw-kicker center">Automate It · 10 / 12</p>
+      <h2 class="nw-h2 center">Make the split automatic</h2>
+      <p class="nw-sub center">The easiest way to protect your investing rate is to stop deciding every single time. Flip the switch to power up the pipeline.</p>
+
+      <button type="button" class="nw-toggle" id="nw-toggle" aria-pressed="false"><span class="nw-toggle-knob"></span><span class="nw-toggle-lab" id="nw-toggle-lab">Auto-Split Off</span></button>
+
+      <div class="nw-pipe" id="nw-pipe">
+        <div class="nw-pipe-card"><div class="nw-pipe-ico">💵</div><div class="nw-pipe-t">Paycheck Lands</div><div class="nw-pipe-d">Your paycheck hits your checking account like normal.</div></div>
+        <div class="nw-pipe-arrow">→</div>
+        <div class="nw-pipe-card"><div class="nw-pipe-ico">✂️</div><div class="nw-pipe-t">Auto-Split</div><div class="nw-pipe-d">A set percentage is carved off for investing before you ever see it.</div></div>
+        <div class="nw-pipe-arrow">→</div>
+        <div class="nw-pipe-card"><div class="nw-pipe-ico">📈</div><div class="nw-pipe-t">Auto-Invest</div><div class="nw-pipe-d">That amount buys your investments automatically — the rest is guilt-free to spend.</div></div>
+      </div>
+      <p class="nw-autopilot-msg" id="nw-autopilot-msg"></p>
+    </section>
+
+    <!-- ========== 11 · RECAP ========== -->
+    <section class="nw-sec nw-reveal" data-step="11">
+      <p class="nw-kicker">Recap · 11 / 12</p>
+      <h2 class="nw-h2">Here's what you now know</h2>
+      <p class="nw-p">The whole lesson, in six lines.</p>
+
+      <div class="nw-recap">
+        <div class="nw-recap-item"><span class="nw-recap-check">✓</span><span>Every discretionary dollar is a choice between lifestyle spending and your future freedom fund.</span></div>
+        <div class="nw-recap-item"><span class="nw-recap-check">✓</span><span>Small recurring costs, like forgotten subscriptions, compound into serious money when redirected.</span></div>
+        <div class="nw-recap-item"><span class="nw-recap-check">✓</span><span>A real need passes the survival test, has no substitute, can't wait, and has no flashier "upgrade."</span></div>
+        <div class="nw-recap-item"><span class="nw-recap-check">✓</span><span>A 48-hour cooldown filters out most impulse buys without needing any willpower in the moment.</span></div>
+        <div class="nw-recap-item"><span class="nw-recap-check">✓</span><span>Saving even part of a raise, instead of spending all of it, keeps lifestyle creep from erasing your progress.</span></div>
+        <div class="nw-recap-item"><span class="nw-recap-check">✓</span><span>Automating your split means you don't have to rely on discipline every single time.</span></div>
+      </div>
+      <div class="nw-next-move">Your next move: <b>cancel one subscription you don't actually use, and redirect it into your investing account.</b></div>
+    </section>
+
+    <!-- ========== 12 · CERTIFICATE ========== -->
+    <section class="nw-sec nw-center nw-reveal" data-step="12">
+      <p class="nw-kicker center">Certified · 12 / 12</p>
+      <div class="nw-cert">
+        <div class="nw-cert-border"></div>
+        <span class="nw-cert-pill">🏆 Certificate of Completion</span>
+        <p class="nw-cert-cert">This certifies that</p>
+        <h2 class="nw-cert-name">Budget Optimized</h2>
+        <p class="nw-cert-body">has completed <span class="nw-tw">TURNIT</span> Financial Foundations: Needs vs. Wants, and now knows how to spot hidden wants, cool off impulse buys, and free up real money to invest.</p>
+        <div class="nw-cert-line"></div>
+        <div class="nw-done-row streak"><div class="nw-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="nw-done-row ach"><div class="nw-done-ico">🏆</div><div><b>Achievement: Budget Certified</b><span>You mastered needs vs. wants.</span></div></div>
+        <div class="nw-done-btns">
+          <a class="nw-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="nw-btn ghost" id="nw-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="nw-quote">"BEWARE OF LITTLE EXPENSES; <span class="nw-green">A SMALL LEAK WILL SINK A GREAT SHIP.</span>"<br><span class="nw-quote-by">— BENJAMIN FRANKLIN</span></p>
+    </section>
+
+    <p class="nw-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Growth projections in this lesson are simplified, hypothetical illustrations, not real historical data or a prediction.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="nw-nav" id="nw-nav">
+      <button type="button" class="nw-nav-btn prev" id="nw-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="nw-nav-hint" id="nw-nav-hint"></span>
+      <button type="button" class="nw-nav-btn next" id="nw-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-nw{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-nw *,#tn-nw *::before,#tn-nw *::after{box-sizing:border-box;}
+  #tn-nw .nw-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-nw .nw-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-nw .nw-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-nw .nw-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-nw .nw-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-nw .nw-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-nw .nw-bico{display:flex;}
+  #tn-nw .nw-word,#tn-nw .nw-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-nw .nw-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-nw .nw-bsub{color:var(--ink2); font-weight:500;}
+  #tn-nw .nw-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-nw #nw-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-nw .nw-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-nw .nw-meta #nw-slide-label{color:var(--ink2);}
+  #tn-nw .nw-meta #nw-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-nw .nw-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-nw .nw-sec.nw-hide{display:none;}
+  #tn-nw .nw-center{text-align:center;}
+  #tn-nw .nw-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-nw .nw-kicker.center{text-align:center;}
+  #tn-nw .nw-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-nw .nw-h2.center{text-align:center;}
+  #tn-nw .nw-tw{font-style:italic;}
+  #tn-nw .nw-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-nw .nw-p b{color:var(--ink); font-weight:700;}
+  #tn-nw .nw-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+
+  #tn-nw .nw-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-nw .nw-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-nw .nw-note b{color:var(--ink); font-weight:700;}
+  #tn-nw .nw-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-nw .nw-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+
+  /* slide rows / ranges (shared) */
+  #tn-nw .nw-slide-row{margin-top:16px;}
+  #tn-nw .nw-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-nw .nw-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-nw .nw-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-nw .nw-slide-v.green{color:var(--g);} #tn-nw .nw-slide-v.gold{color:var(--gold);} #tn-nw .nw-slide-v.blue{color:var(--b);}
+  #tn-nw .nw-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-nw .nw-range.good{background:linear-gradient(90deg,#E0A93C,#209B73);}
+  #tn-nw .nw-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-nw .nw-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-nw .nw-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* slide 1 — tug of war */
+  #tn-nw .nw-tug-wrap{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:6px;}
+  #tn-nw .nw-tug-panel{background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 14px; text-align:center; transition:filter .25s ease;}
+  #tn-nw .nw-tug-panel.green{background:var(--tint); border-color:var(--selbd); transform-origin:center; transition:transform .25s ease, filter .25s ease;}
+  #tn-nw .nw-tug-title{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); margin:0 0 10px;}
+  #tn-nw .nw-tug-icons{display:flex; justify-content:center; gap:8px; font-size:26px; margin-bottom:8px; transition:opacity .25s ease;}
+  #tn-nw .nw-tug-value{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(20px,5.4vw,26px); color:var(--g); margin-bottom:2px;}
+  #tn-nw .nw-tug-sub{font-size:11px; color:var(--mut); font-weight:600; margin:0;}
+
+  /* slide 2 — subscriptions */
+  #tn-nw .nw-subs{display:flex; flex-direction:column; gap:8px; margin-bottom:16px;}
+  #tn-nw .nw-sub-card{display:flex; align-items:center; gap:12px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:12px 14px; cursor:pointer; transition:all .18s;}
+  #tn-nw .nw-sub-check{width:20px; height:20px; border-radius:6px; border:2px solid var(--cardbd); flex:none; position:relative; transition:all .18s;}
+  #tn-nw .nw-sub-card.checked{border-color:var(--nobd); background:var(--nobg); text-decoration:line-through; opacity:.75;}
+  #tn-nw .nw-sub-card.checked .nw-sub-check{background:var(--no); border-color:var(--no);}
+  #tn-nw .nw-sub-card.checked .nw-sub-check::after{content:"✕"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:800;}
+  #tn-nw .nw-sub-name{flex:1; font-size:13.5px; font-weight:600; color:var(--ink);}
+  #tn-nw .nw-sub-price{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2);}
+  #tn-nw .nw-sub-panel{text-align:center; transition:background .3s ease, border-color .3s ease;}
+  #tn-nw .nw-sub-panel.hit{background:var(--tint); border-color:var(--selbd);}
+  #tn-nw .nw-sub-lab{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-nw .nw-sub-value{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,7vw,34px); color:var(--ink); margin:0 0 4px;}
+  #tn-nw .nw-sub-sub{font-size:12.5px; color:var(--ink2); margin:0;}
+
+  /* factor chips (shared: tests, questions) */
+  #tn-nw .nw-fico{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-nw .nw-fchip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; font-size:13.5px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-nw .nw-fchip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-nw .nw-fchip .d1{background:#209B73;} #tn-nw .nw-fchip .d2{background:#1f8f9b;} #tn-nw .nw-fchip .d3{background:#1568AE;} #tn-nw .nw-fchip .d4{background:#E0952F;}
+  #tn-nw .nw-fchip.on{border-color:var(--g); background:var(--tint);}
+  #tn-nw .nw-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-nw .nw-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-nw .nw-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+
+  /* slide 4 — 48-hour safe */
+  #tn-nw .nw-safe{display:flex; flex-direction:column; gap:12px;}
+  #tn-nw .nw-safe-card{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 16px;}
+  #tn-nw .nw-safe-item{font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); margin-bottom:10px;}
+  #tn-nw .nw-safe-btns{display:flex; gap:8px;}
+  #tn-nw .nw-safe-btn{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:10px 8px; border-radius:10px; cursor:pointer; transition:all .15s; border:1.5px solid;}
+  #tn-nw .nw-safe-btn.instant{background:#fff; color:var(--no); border-color:var(--nobd);}
+  #tn-nw .nw-safe-btn.instant:hover{background:var(--nobg);}
+  #tn-nw .nw-safe-btn.safe{background:#fff; color:var(--g); border-color:var(--selbd);}
+  #tn-nw .nw-safe-btn.safe:hover{background:var(--tint);}
+  #tn-nw .nw-safe-card.resolved .nw-safe-btns{display:none;}
+  #tn-nw .nw-safe-result{margin-top:0; font-size:13px; line-height:1.5;}
+  #tn-nw .nw-safe-result:empty{display:none;}
+  #tn-nw .nw-safe-result.bad{color:var(--no); background:var(--nobg); border:1.5px solid var(--nobd); border-radius:10px; padding:10px 12px; margin-top:10px;}
+  #tn-nw .nw-safe-result.cooldown{color:var(--ink2); background:var(--mist); border:1.5px solid var(--line); border-radius:10px; padding:10px 12px; margin-top:10px;}
+  #tn-nw .nw-cooldown-bar{height:6px; background:var(--line); border-radius:99px; overflow:hidden; margin-top:8px;}
+  #tn-nw .nw-cooldown-fill{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--b),var(--g)); transition:width 2s linear;}
+  #tn-nw .nw-safe-confirm{display:block; width:100%; margin-top:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:10px; padding:10px; cursor:pointer;}
+  #tn-nw .nw-safe-result.good{color:var(--g); background:var(--tint); border:1.5px solid var(--selbd); border-radius:10px; padding:10px 12px; margin-top:10px;}
+
+  /* slide 6 — lifestyle creep fork */
+  #tn-nw .nw-fork-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;}
+  #tn-nw .nw-fork-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 10px; cursor:pointer; transition:all .18s; text-align:center;}
+  #tn-nw .nw-fork-btn span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:12px; color:var(--mut); margin-top:3px;}
+  #tn-nw .nw-fork-btn.a.on{border-color:var(--nobd); background:var(--nobg);}
+  #tn-nw .nw-fork-btn.b.on{border-color:var(--selbd); background:var(--tint);}
+  #tn-nw .nw-fork-result{margin-top:16px;}
+  #tn-nw .nw-fork-result:empty{display:none;}
+  #tn-nw .nw-fork-panel{border-radius:14px; padding:16px 18px; text-align:left;}
+  #tn-nw .nw-fork-panel.bad{background:var(--nobg); border:1.5px solid var(--nobd);}
+  #tn-nw .nw-fork-panel.good{background:var(--tint); border:1.5px solid var(--selbd);}
+  #tn-nw .nw-fork-panel-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-nw .nw-fork-panel.bad .nw-fork-panel-t{color:var(--no);}
+  #tn-nw .nw-fork-panel.good .nw-fork-panel-t{color:var(--g);}
+  #tn-nw .nw-fork-panel-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-nw .nw-fork-panel-d b{color:var(--ink);}
+
+  /* sorter (classifier) */
+  #tn-nw .nw-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-nw .nw-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-nw .nw-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-nw .nw-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-nw .nw-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 13px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-nw .nw-sort-btns button[data-p="need"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-nw .nw-sort-btns button[data-p="want"]{border:1.5px solid var(--goldbd); color:var(--gold);}
+  #tn-nw .nw-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-nw .nw-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-nw .nw-sort-row.done .nw-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-nw .nw-sort-row.done .nw-sort-btns button.picked{opacity:1;}
+
+  /* spot-the-habit tiles */
+  #tn-nw .nw-traps{display:grid; grid-template-columns:1fr 1fr; gap:11px;}
+  #tn-nw .nw-trap-tile{position:relative; text-align:left; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:15px; padding:18px 16px; min-height:92px; cursor:pointer; transition:all .2s;}
+  #tn-nw .nw-trap-tile::after{content:"Tap to reveal"; display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--mut); margin-top:6px;}
+  #tn-nw .nw-trap-tile.safe{border-color:var(--selbd); background:var(--tint);}
+  #tn-nw .nw-trap-tile.risky{border-color:var(--nobd); background:var(--nobg);}
+  #tn-nw .nw-trap-tile.done::after{content:attr(data-reveal); color:var(--ink2); font-size:12.5px; line-height:1.4;}
+  #tn-nw .nw-trap-badge{position:absolute; top:12px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; padding:3px 9px; border-radius:99px; text-transform:uppercase; letter-spacing:.04em;}
+  #tn-nw .nw-trap-tile.safe .nw-trap-badge{background:var(--g); color:#fff;}
+  #tn-nw .nw-trap-tile.risky .nw-trap-badge{background:var(--no); color:#fff;}
+
+  /* slide 9 — found money redirector */
+  #tn-nw .nw-found-status{border-radius:14px; padding:16px 18px; margin-top:18px; text-align:center; transition:background .3s ease, border-color .3s ease;}
+  #tn-nw .nw-found-status.warn{background:var(--goldbg); border:1.5px solid var(--goldbd);}
+  #tn-nw .nw-found-status.good{background:var(--tint); border:1.5px solid var(--selbd);}
+  #tn-nw .nw-found-status-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 4px; color:var(--ink);}
+  #tn-nw .nw-found-status.warn .nw-found-status-t{color:var(--gold);}
+  #tn-nw .nw-found-status.good .nw-found-status-t{color:var(--g);}
+  #tn-nw .nw-found-status-d{font-size:13px; color:var(--ink2); margin:0; line-height:1.5;}
+  #tn-nw .nw-found-status-d b{color:var(--ink);}
+
+  /* automate */
+  #tn-nw .nw-toggle{display:inline-flex; align-items:center; gap:10px; background:#E4E9EE; border:none; border-radius:99px; padding:8px 18px 8px 8px; cursor:pointer; margin:4px auto 22px; transition:background .25s;}
+  #tn-nw .nw-toggle-knob{width:26px; height:26px; border-radius:50%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,.2); transition:transform .25s;}
+  #tn-nw .nw-toggle-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2);}
+  #tn-nw .nw-toggle.on{background:var(--g);}
+  #tn-nw .nw-toggle.on .nw-toggle-knob{transform:translateX(24px);}
+  #tn-nw .nw-toggle.on .nw-toggle-lab{color:#fff;}
+  #tn-nw .nw-pipe{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:8px; align-items:center;}
+  #tn-nw .nw-pipe-card{background:#fff; border:1.5px solid var(--cardbd); border-radius:15px; padding:16px 14px; text-align:left; transition:all .3s;}
+  #tn-nw .nw-pipe-ico{width:36px; height:36px; border-radius:10px; background:var(--mist); display:flex; align-items:center; justify-content:center; margin-bottom:10px; transition:all .3s; font-size:17px;}
+  #tn-nw .nw-pipe-t{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-bottom:4px;}
+  #tn-nw .nw-pipe-d{font-size:12px; color:var(--ink2); line-height:1.45;}
+  #tn-nw .nw-pipe-arrow{color:var(--mut); font-size:18px;}
+  #tn-nw .nw-pipe.on .nw-pipe-card{border-color:var(--selbd); background:var(--tint);}
+  #tn-nw .nw-pipe.on .nw-pipe-ico{background:var(--g);}
+  #tn-nw .nw-autopilot-msg{font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--g); margin:20px 0 0; min-height:22px; opacity:0; transition:opacity .3s;}
+  #tn-nw .nw-autopilot-msg.show{opacity:1;}
+
+  /* recap */
+  #tn-nw .nw-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-nw .nw-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-nw .nw-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-nw .nw-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-nw .nw-recap-item b{font-weight:700;}
+  #tn-nw .nw-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-nw .nw-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-nw .nw-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-nw .nw-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-nw .nw-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-nw .nw-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-nw .nw-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-nw .nw-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-nw .nw-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-nw .nw-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-nw .nw-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-nw .nw-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-nw .nw-done-ico{font-size:20px; flex:none;}
+  #tn-nw .nw-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-nw .nw-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-nw .nw-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-nw .nw-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-nw .nw-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-nw .nw-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-nw .nw-btn:hover{transform:translateY(-2px);}
+  #tn-nw .nw-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-nw .nw-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-nw .nw-green{color:var(--g);}
+  #tn-nw .nw-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-nw .nw-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-nw .nw-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-nw .nw-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-nw .nw-nav-btn.prev{color:var(--ink2);}
+  #tn-nw .nw-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-nw .nw-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-nw .nw-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-nw .nw-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-nw .nw-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-nw .nw-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-nw .nw-wrap{padding:12px 14px 30px;}
+    #tn-nw .nw-tug-wrap{grid-template-columns:1fr;}
+    #tn-nw .nw-fico{grid-template-columns:1fr;}
+    #tn-nw .nw-traps{grid-template-columns:1fr;}
+    #tn-nw .nw-fork-btns{grid-template-columns:1fr;}
+    #tn-nw .nw-pipe{grid-template-columns:1fr;}
+    #tn-nw .nw-pipe-arrow{transform:rotate(90deg); justify-self:center;}
+    #tn-nw .nw-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-nw .nw-safe-btns{flex-direction:column;}
+    #tn-nw .nw-bsub{display:none;}
+    #tn-nw .nw-nav-hint{display:none;}
+    #tn-nw .nw-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-nw .nw-reveal{opacity:1 !important; transform:none !important;}
+    #tn-nw #nw-bar{transition:none;}
+    #tn-nw .nw-cooldown-fill{transition:none !important;}
+  }
+</style>
+
+<script>
+/* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
+(function(){
+  var root=document.getElementById('tn-nw'); if(!root) return;
+  root.querySelectorAll('.nw-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function fvMonthly(pmt, annualRate, months){
+    var i=annualRate/12;
+    if(i===0) return pmt*months;
+    return pmt*((Math.pow(1+i,months)-1)/i);
+  }
+  function animateNumber(el, to, duration){
+    var from=parseFloat((el.textContent||'0').replace(/[^0-9.-]/g,''))||0;
+    var start=null;
+    function step(ts){
+      if(!start) start=ts;
+      var t=Math.min(1,(ts-start)/duration);
+      var val=from+(to-from)*t;
+      el.textContent=moneyRound(val);
+      if(t<1) requestAnimationFrame(step); else postHeight();
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* 1 · budget tug-of-war */
+  var tug=root.querySelector('#nw-tug'), tugIcons=root.querySelector('#nw-tug-icons'),
+      tugInvestPanel=root.querySelector('#nw-tug-invest'), tugValue=root.querySelector('#nw-tug-value'),
+      tugSpendLab=root.querySelector('#nw-tug-spend'), tugNote=root.querySelector('#nw-tug-note');
+  var TUG_BUDGET=600;
+  function tugCalc(){
+    var pct=+tug.value;
+    var monthlyInvest=TUG_BUDGET*(pct/100);
+    var monthlySpend=TUG_BUDGET-monthlyInvest;
+    var fv=fvMonthly(monthlyInvest,0.08,360);
+    tugIcons.style.opacity=(1-(pct/100)*0.85).toFixed(2);
+    var scale=0.9+0.25*(pct/100);
+    tugInvestPanel.style.transform='scale('+scale.toFixed(2)+')';
+    tugInvestPanel.style.filter='grayscale('+Math.max(0,100-pct)+'%)';
+    animateNumber(tugValue, fv, 400);
+    tugSpendLab.textContent='$'+Math.round(monthlySpend)+'/mo spent';
+    tugNote.textContent = pct<=20
+      ? 'Almost everything is going toward lifestyle spending right now.'
+      : pct>=80
+        ? 'Almost everything is being redirected toward your future freedom fund.'
+        : 'Move the slider across both the 20% and 80% marks to see the full range.';
+    postHeight();
+  }
+  if(tug){ tug.addEventListener('input',tugCalc); tugCalc(); }
+
+  /* 2 · subscription grim reaper */
+  var subCards=root.querySelectorAll('#nw-subs .nw-sub-card');
+  var subValue=root.querySelector('#nw-sub-value'), subMonthly=root.querySelector('#nw-sub-monthly'),
+      subPanel=root.querySelector('#nw-sub-panel'), subsCount=root.querySelector('#nw-subs-count');
+  var subsChecked=0;
+  subCards.forEach(function(card){
+    card.addEventListener('click',function(){
+      card.classList.toggle('checked');
+      subsChecked=0;
+      var monthlyTotal=0;
+      subCards.forEach(function(c){ if(c.classList.contains('checked')){ subsChecked++; monthlyTotal+=+c.getAttribute('data-price'); } });
+      var fv=fvMonthly(monthlyTotal, 0.08, 300);
+      animateNumber(subValue, fv, 400);
+      subMonthly.textContent='$'+monthlyTotal.toFixed(2)+'/mo canceled so far';
+      subPanel.classList.toggle('hit', monthlyTotal>50);
+      subsCount.textContent='Canceled '+subsChecked+' subscription'+(subsChecked===1?'':'s');
+      postHeight();
+    });
+  });
+
+  /* 3 · what makes a real need */
+  var testsReviewed={}, testsT=root.querySelector('#nw-tests-t'),
+      testsD=root.querySelector('#nw-tests-d'), testsCount=root.querySelector('#nw-tests-count');
+  root.querySelectorAll('#nw-tests .nw-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#nw-tests .nw-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      testsT.textContent=c.getAttribute('data-t'); testsD.textContent=c.getAttribute('data-d');
+      testsReviewed[c.getAttribute('data-t')]=1;
+      testsCount.textContent='Reviewed '+Object.keys(testsReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 4 · 48-hour cooldown safe */
+  root.querySelectorAll('#nw-safe .nw-safe-card').forEach(function(card){
+    var price=+card.getAttribute('data-price');
+    var resultEl=card.querySelector('.nw-safe-result');
+    var instantBtn=card.querySelector('[data-a="instant"]'), safeBtn=card.querySelector('[data-a="safe"]');
+
+    instantBtn.addEventListener('click',function(){
+      if(card.classList.contains('resolved')) return;
+      card.classList.add('resolved');
+      resultEl.className='nw-safe-result bad';
+      resultEl.innerHTML='❌ Impulse buy complete. $'+price+' permanently removed from your compounding engine.';
+      postHeight();
+      card.dispatchEvent(new CustomEvent('nwresolved'));
+    });
+
+    safeBtn.addEventListener('click',function(){
+      if(card.classList.contains('resolved') || resultEl.classList.contains('cooldown')) return;
+      resultEl.className='nw-safe-result cooldown';
+      resultEl.innerHTML='⏳ Cooling down for 48 hours...<div class="nw-cooldown-bar"><span class="nw-cooldown-fill" id="fill-'+price+'"></span></div>';
+      postHeight();
+      var fill=resultEl.querySelector('.nw-cooldown-fill');
+      requestAnimationFrame(function(){ fill.style.width='100%'; });
+      setTimeout(function(){
+        resultEl.innerHTML='The urge has faded. <button type="button" class="nw-safe-confirm">Reallocate $'+price+' to Index Fund</button>';
+        postHeight();
+        resultEl.querySelector('.nw-safe-confirm').addEventListener('click',function(){
+          if(card.classList.contains('resolved')) return;
+          card.classList.add('resolved');
+          resultEl.className='nw-safe-result good';
+          resultEl.innerHTML='✅ Reallocated $'+price+' to your index fund — impulse avoided.';
+          postHeight();
+          card.dispatchEvent(new CustomEvent('nwresolved'));
+        });
+      },2000);
+    });
+  });
+
+  /* 5 · questions to ask first */
+  var questionsReviewed={}, questionsT=root.querySelector('#nw-questions-t'),
+      questionsD=root.querySelector('#nw-questions-d'), questionsCount=root.querySelector('#nw-questions-count');
+  root.querySelectorAll('#nw-questions .nw-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#nw-questions .nw-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      questionsT.textContent=c.getAttribute('data-t'); questionsD.textContent=c.getAttribute('data-d');
+      questionsReviewed[c.getAttribute('data-t')]=1;
+      questionsCount.textContent='Explored '+Object.keys(questionsReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 6 · lifestyle creep fork */
+  var forkA=root.querySelector('#nw-fork-a'), forkB=root.querySelector('#nw-fork-b'),
+      forkResult=root.querySelector('#nw-fork-result');
+  if(forkA) forkA.addEventListener('click',function(){
+    forkA.classList.add('on'); forkB.classList.remove('on');
+    var fv=600*Math.pow(1.08,30)+fvMonthly(0,0.08,360); // no monthly investing under strategy A
+    forkResult.innerHTML='<div class="nw-fork-panel bad"><p class="nw-fork-panel-t">❌ Lifestyle Inflated</p><p class="nw-fork-panel-d">Your monthly bills grow by the full <b>$667/mo</b>. Your retirement projection stays exactly where it was — completely unchanged, even with a higher income.</p></div>';
+    postHeight();
+  });
+  if(forkB) forkB.addEventListener('click',function(){
+    forkB.classList.add('on'); forkA.classList.remove('on');
+    var investPortion=667*0.6, lifestylePortion=667*0.4;
+    var fv=fvMonthly(investPortion,0.08,360);
+    forkResult.innerHTML='<div class="nw-fork-panel good"><p class="nw-fork-panel-t">✅ Raise Saved</p><p class="nw-fork-panel-d">60% (<b>$'+Math.round(investPortion)+'/mo</b>) auto-invests, and 40% (<b>$'+Math.round(lifestylePortion)+'/mo</b>) stays for quality-of-life upgrades. Over 30 years, that invested share alone could grow to roughly <b>'+moneyRound(fv)+'</b>.</p></div>';
+    postHeight();
+  });
+
+  /* 7 · hidden want classifier */
+  var classifierDone=0, classifierCount=root.querySelector('#nw-classifier-count');
+  root.querySelectorAll('#nw-classifier .nw-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.nw-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        row.classList.add('done', pick===ans?'correct':'wrong');
+        classifierDone++; classifierCount.textContent='Sorted '+classifierDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  /* 8 · spot the red flags */
+  var trapsRevealed=0, trapsCount=root.querySelector('#nw-traps-count');
+  root.querySelectorAll('#nw-traps .nw-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      if(t.classList.contains('done')) return;
+      var v=t.getAttribute('data-verdict');
+      t.classList.add('done', v);
+      t.setAttribute('data-reveal', t.getAttribute('data-d'));
+      var badge=document.createElement('span'); badge.className='nw-trap-badge'; badge.textContent=(v==='safe'?'Safe':'Risky');
+      t.appendChild(badge);
+      trapsRevealed++; trapsCount.textContent='Revealed '+trapsRevealed+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 9 · found money redirector — tethered sliders */
+  var spendSlider=root.querySelector('#nw-spend'), investSlider=root.querySelector('#nw-invest'),
+      spendV=root.querySelector('#nw-spend-v'), investV=root.querySelector('#nw-invest-v'),
+      foundStatus=root.querySelector('#nw-found-status'), foundStatusT=root.querySelector('#nw-found-status-t'),
+      foundStatusD=root.querySelector('#nw-found-status-d'), foundFv=root.querySelector('#nw-found-fv');
+  var FOUND_TOTAL=1200;
+  function foundUpdate(investAmt){
+    var spendAmt=FOUND_TOTAL-investAmt;
+    spendSlider.value=spendAmt; investSlider.value=investAmt;
+    spendV.textContent='$'+spendAmt; investV.textContent='$'+investAmt;
+    var fv=investAmt*Math.pow(1.08,20);
+    var pct=(investAmt/FOUND_TOTAL)*100;
+    if(pct<50){
+      foundStatus.className='nw-found-status warn';
+      foundStatusT.textContent='⚠️ Opportunity Waste Danger Zone';
+    } else {
+      foundStatus.className='nw-found-status good';
+      foundStatusT.textContent='✅ Wealth Foundation Engine Empowered!';
+    }
+    foundStatusD.innerHTML='In 20 years at a hypothetical 8% average return, your invested share could grow to <b>'+moneyRound(fv)+'</b>.';
+    postHeight();
+  }
+  if(investSlider) investSlider.addEventListener('input',function(){ foundUpdate(+investSlider.value); });
+  if(spendSlider) spendSlider.addEventListener('input',function(){ foundUpdate(FOUND_TOTAL-(+spendSlider.value)); });
+  if(investSlider) foundUpdate(+investSlider.value);
+
+  /* 10 · automate savings rate */
+  var toggle=root.querySelector('#nw-toggle'), toggleLab=root.querySelector('#nw-toggle-lab'),
+      pipe=root.querySelector('#nw-pipe'), apMsg=root.querySelector('#nw-autopilot-msg');
+  if(toggle) toggle.addEventListener('click',function(){
+    var on=toggle.classList.toggle('on'); toggle.setAttribute('aria-pressed',on);
+    toggleLab.textContent=on?'Auto-Split On':'Auto-Split Off';
+    pipe.classList.toggle('on',on);
+    apMsg.textContent=on?'Auto-split engaged. Your investing rate is now protected automatically, every paycheck.':'';
+    apMsg.classList.toggle('show',on);
+    postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-nw'); if(!root) return;
+  var TOTAL=12, current=1;
+
+  var bar=root.querySelector('#nw-bar');
+  var labelEl=root.querySelector('#nw-slide-label');
+  var countEl=root.querySelector('#nw-slide-count');
+  var prevBtn=root.querySelector('#nw-prev');
+  var nextBtn=root.querySelector('#nw-next');
+  var hintEl=root.querySelector('#nw-nav-hint');
+  var disclaimer=root.querySelector('.nw-disclaimer');
+
+  var labels={1:'The Tug-of-War',2:'The Grim Reaper',3:'The Real Test',4:'The Cooldown Safe',5:'Questions First',6:'The Creep Fork',7:'The Classifier',8:'Spot the Red Flags',9:'Found Money',10:'Automate It',11:'Recap',12:'Certified'};
+  var reqHints={1:'Cross both the 20% and 80% marks',2:'Cancel at least 3 subscriptions',3:'Review all 4 to continue',4:'Process all 3 purchases',5:'Explore all 4 to continue',6:'Preview both strategies',7:'Sort all 4 to continue',8:'Reveal all 4 to continue',9:'Direct at least 50% to investing',10:'Flip the switch to continue'};
+
+  var done={11:true,12:true};
+  var secByStep={};
+  root.querySelectorAll('.nw-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('nw-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('nw-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · tug-of-war crosses both 20% and 80%
+  var tugState={low:false,high:false};
+  var tug=root.querySelector('#nw-tug');
+  if(tug) tug.addEventListener('input',function(){
+    var v=+tug.value;
+    if(v<=20) tugState.low=true;
+    if(v>=80) tugState.high=true;
+    if(tugState.low && tugState.high) markDone(1);
+    else liveHint(1, !tugState.low ? 'Now drag it down to 20% or below' : 'Now drag it up to 80% or above');
+  });
+
+  // 2 · at least 3 subscriptions canceled
+  root.querySelectorAll('#nw-subs .nw-sub-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      var n=count('#nw-subs .nw-sub-card.checked');
+      if(n>=3) markDone(2); else liveHint(2,'Canceled '+n+' of 3 needed — keep going');
+    });
+  });
+
+  // 3 · all 4 tests reviewed
+  var tests={};
+  root.querySelectorAll('#nw-tests .nw-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ tests[c.getAttribute('data-t')]=1;
+      if(keys(tests)>=4) markDone(3); else liveHint(3,'Reviewed '+keys(tests)+' of 4 — review all to continue'); });
+  });
+
+  // 4 · all 3 safe cards resolved
+  root.querySelectorAll('#nw-safe .nw-safe-card').forEach(function(card){
+    card.addEventListener('nwresolved',function(){
+      var n=count('#nw-safe .nw-safe-card.resolved');
+      if(n>=3) markDone(4); else liveHint(4,'Processed '+n+' of 3 — keep going');
+    });
+  });
+
+  // 5 · all 4 questions explored
+  var questions={};
+  root.querySelectorAll('#nw-questions .nw-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ questions[c.getAttribute('data-t')]=1;
+      if(keys(questions)>=4) markDone(5); else liveHint(5,'Explored '+keys(questions)+' of 4 — explore all to continue'); });
+  });
+
+  // 6 · both fork strategies previewed
+  var forkState={a:false,b:false};
+  var forkA=root.querySelector('#nw-fork-a'), forkB=root.querySelector('#nw-fork-b');
+  if(forkA) forkA.addEventListener('click',function(){ forkState.a=true;
+    if(forkState.a&&forkState.b) markDone(6); else liveHint(6,'Now preview Strategy B to compare'); });
+  if(forkB) forkB.addEventListener('click',function(){ forkState.b=true;
+    if(forkState.a&&forkState.b) markDone(6); else liveHint(6,'Now preview Strategy A to compare'); });
+
+  // 7 · all 4 classifier rows sorted
+  root.querySelectorAll('#nw-classifier .nw-sort-row button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#nw-classifier .nw-sort-row.done');
+      if(n>=4) markDone(7); else liveHint(7,'Sorted '+n+' of 4 — sort all to continue'); });
+  });
+
+  // 8 · all 4 habit tiles revealed
+  root.querySelectorAll('#nw-traps .nw-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){ var n=count('#nw-traps .nw-trap-tile.done');
+      if(n>=4) markDone(8); else liveHint(8,'Revealed '+n+' of 4 — reveal all to continue'); });
+  });
+
+  // 9 · at least 50% directed to investing (sticky once achieved)
+  var foundAchieved=false;
+  var investSlider=root.querySelector('#nw-invest'), spendSlider=root.querySelector('#nw-spend');
+  function foundCheck(){
+    var investAmt=+investSlider.value;
+    if(investAmt>=600) foundAchieved=true;
+    if(foundAchieved) markDone(9); else liveHint(9,'Move at least 50% ($600+) into investing');
+  }
+  if(investSlider) investSlider.addEventListener('input',foundCheck);
+  if(spendSlider) spendSlider.addEventListener('input',foundCheck);
+
+  // 10 · auto-split switched on
+  var toggle=root.querySelector('#nw-toggle');
+  if(toggle) toggle.addEventListener('click',function(){ if(toggle.classList.contains('on')) markDone(10); });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#nw-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

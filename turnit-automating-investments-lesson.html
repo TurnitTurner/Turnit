@@ -1,0 +1,682 @@
+<!-- ============================================================
+     TURNIT — AUTOMATING YOUR INVESTMENTS
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-au. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     "Automate it" has appeared in nearly every prior lesson — this one
+     skips the pep talk and goes straight into the specific tools:
+     direct deposit splitting, auto-escalation, DRIP, round-ups, and
+     automatic rebalancing. Also includes an honest caution about
+     over-automating without ever checking back in.
+
+     11 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview             2 The Automation Stack
+       3 Split vs. Transfer          4 The Escalation Staircase
+       5 The Reinvestment Loop       6 The Spare Change Jar
+       7 The Self-Correcting Scale   8 Set It, Don't Forget It
+       9 The Inbox                   10 Recap
+       11 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-au">
+  <div class="au-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="au-top">
+      <div class="au-topbar">
+        <div class="au-brand"><span class="au-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="au-word">TURNIT</span><span class="au-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="au-progress"><span id="au-bar"></span></div>
+      <div class="au-meta"><span id="au-slide-label">Lesson Overview</span><span id="au-slide-count">Slide 1 of 11</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="au-sec au-reveal" data-step="1">
+      <p class="au-kicker">Welcome · 1 / 11</p>
+      <h2 class="au-h2">You've heard "automate it." Here's how.</h2>
+      <p class="au-p">Nearly every lesson so far has told you to automate. None of them showed you the actual toolkit. This one does — five real features, plus one honest caution.</p>
+
+      <div class="au-recap">
+        <div class="au-recap-item"><span class="au-recap-check">1</span><span>Two different ways money can actually get moved automatically.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">2</span><span>Auto-escalation — letting your contribution rate climb on its own.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">3</span><span>DRIP — automatically reinvesting what your investments pay you.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">4</span><span>Round-up investing, and automatic rebalancing.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">5</span><span>Why "set it and forget it" still needs an occasional check-in.</span></div>
+      </div>
+      <div class="au-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE AUTOMATION STACK ========== -->
+    <section class="au-sec au-reveal" data-step="2">
+      <p class="au-kicker">The Automation Stack · 2 / 11</p>
+      <h2 class="au-h2">It's not one switch — it's a stack</h2>
+      <p class="au-p">Tap through all three layers.</p>
+
+      <div class="au-stack" id="au-stack">
+        <button type="button" class="au-stack-layer" data-k="1" data-t="Layer 1: Getting Money In" data-d="Automatically moving money from your paycheck into your investing account — the foundation everything else builds on.">💵 Getting Money In</button>
+        <button type="button" class="au-stack-layer" data-k="2" data-t="Layer 2: Growing It Faster" data-d="Automatically increasing contributions and reinvesting what you earn, so growth compounds without extra effort.">📈 Growing It Faster</button>
+        <button type="button" class="au-stack-layer" data-k="3" data-t="Layer 3: Keeping It On Track" data-d="Automatically keeping your investments balanced to your original plan as things shift over time.">⚖️ Keeping It On Track</button>
+      </div>
+      <div class="au-stack-result" id="au-stack-result">&nbsp;</div>
+      <p class="au-count" id="au-stack-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 3 · SPLIT VS. TRANSFER ========== -->
+    <section class="au-sec au-reveal" data-step="3">
+      <p class="au-kicker">Split vs. Transfer · 3 / 11</p>
+      <h2 class="au-h2">Two different plumbing setups</h2>
+      <p class="au-p">Tap both to see how the money actually moves.</p>
+
+      <div class="au-panel">
+        <div class="au-pipe-stage" id="au-pipe-stage">
+          <div class="au-pipe-source">💼 Paycheck</div>
+          <div class="au-pipe-lines" id="au-pipe-lines">
+            <div class="au-pipe-line to-checking"></div>
+            <div class="au-pipe-line to-invest" id="au-pipe-split-line"></div>
+          </div>
+          <div class="au-pipe-targets">
+            <div class="au-pipe-target">🏦 Checking</div>
+            <div class="au-pipe-target">📈 Investing</div>
+          </div>
+        </div>
+        <div class="au-pipe-btns">
+          <button type="button" class="au-pipe-btn" id="au-split-btn">Direct Deposit Split</button>
+          <button type="button" class="au-pipe-btn" id="au-transfer-btn">Auto-Transfer (ACH)</button>
+        </div>
+        <div class="au-note" id="au-pipe-note">Tap either method to see how the money actually flows.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · THE ESCALATION STAIRCASE ========== -->
+    <section class="au-sec au-reveal" data-step="4">
+      <p class="au-kicker">The Escalation Staircase · 4 / 11</p>
+      <h2 class="au-h2">Let your contribution rate climb itself</h2>
+      <p class="au-p">Tap to run 5 years and watch it climb one step at a time.</p>
+
+      <div class="au-panel">
+        <div class="au-stairs" id="au-stairs">
+          <div class="au-stair" data-pct="3"><span>Yr 1</span><b>3%</b></div>
+          <div class="au-stair" data-pct="4"><span>Yr 2</span><b>4%</b></div>
+          <div class="au-stair" data-pct="5"><span>Yr 3</span><b>5%</b></div>
+          <div class="au-stair" data-pct="6"><span>Yr 4</span><b>6%</b></div>
+          <div class="au-stair" data-pct="7"><span>Yr 5</span><b>7%</b></div>
+        </div>
+        <button type="button" class="au-confirm-btn" id="au-stairs-btn">▶ Run 5 Years</button>
+        <div class="au-note" id="au-stairs-note">A modest +1% bump each year, entirely on autopilot.</div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · THE REINVESTMENT LOOP ========== -->
+    <section class="au-sec au-center au-reveal" data-step="5">
+      <p class="au-kicker center">The Reinvestment Loop · 5 / 11</p>
+      <h2 class="au-h2 center">DRIP: growth feeding on itself</h2>
+      <p class="au-sub center"><b>DRIP</b> stands for Dividend Reinvestment Plan — instead of paying dividends out as cash, they're automatically used to buy more shares. Tap to run the loop.</p>
+
+      <div class="au-loop-stage">
+        <div class="au-loop-ring">
+          <span class="au-loop-node n1">💰 Dividend Paid</span>
+          <span class="au-loop-node n2">🔁 Buys More Shares</span>
+          <span class="au-loop-node n3">📈 Bigger Position</span>
+        </div>
+      </div>
+      <button type="button" class="au-confirm-btn" id="au-loop-btn">▶ Run the Loop</button>
+      <div class="au-loop-result" id="au-loop-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 6 · THE SPARE CHANGE JAR ========== -->
+    <section class="au-sec au-reveal" data-step="6">
+      <p class="au-kicker">The Spare Change Jar · 6 / 11</p>
+      <h2 class="au-h2">Investing money you'd never miss</h2>
+      <p class="au-p">Tap each purchase to see the round-up land in the jar.</p>
+
+      <div class="au-panel au-center">
+        <div class="au-jar-stage">
+          <span class="au-jar">🫙</span>
+          <div class="au-jar-total"><span>Jar Total</span><b id="au-jar-total-v">$0.00</b></div>
+        </div>
+        <div class="au-purchase-btns" id="au-purchase-btns">
+          <button type="button" data-amt="0.35">☕ Coffee — $4.65</button>
+          <button type="button" data-amt="0.60">🥪 Lunch — $12.40</button>
+          <button type="button" data-amt="0.15">⛽ Gas — $38.85</button>
+        </div>
+        <div class="au-note" id="au-jar-note">Every purchase rounds up to the next dollar — the difference gets invested automatically.</div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · THE SELF-CORRECTING SCALE ========== -->
+    <section class="au-sec au-reveal" data-step="7">
+      <p class="au-kicker">The Self-Correcting Scale · 7 / 11</p>
+      <h2 class="au-h2">Automatic rebalancing, in action</h2>
+      <p class="au-p">Tap to let your mix drift, then tap to auto-correct it.</p>
+
+      <div class="au-panel au-center">
+        <div class="au-scale-stage">
+          <div class="au-scale-beam" id="au-scale-beam">
+            <div class="au-scale-pan">📈 Stocks</div>
+            <div class="au-scale-pan">📜 Bonds</div>
+          </div>
+          <div class="au-scale-fulcrum"></div>
+        </div>
+        <button type="button" class="au-confirm-btn" id="au-drift-btn">⏳ Let It Drift (2 Years)</button>
+        <button type="button" class="au-confirm-btn" id="au-rebalance-btn" style="display:none;">⚖️ Auto-Rebalance</button>
+        <div class="au-scale-result" id="au-scale-result">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 8 · SET IT, DON'T FORGET IT ========== -->
+    <section class="au-sec au-center au-reveal" data-step="8">
+      <p class="au-kicker center">Set It, Don't Forget It · 8 / 11</p>
+      <h2 class="au-h2 center">Autopilot still needs a pilot</h2>
+      <p class="au-sub center">Tap to see the honest caveat.</p>
+
+      <button type="button" class="au-confirm-btn" id="au-caution-btn">Reveal the Caveat</button>
+      <div class="au-caution-result" id="au-caution-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 9 · THE INBOX ========== -->
+    <section class="au-sec au-reveal" data-step="9">
+      <p class="au-kicker">The Inbox · 9 / 11</p>
+      <h2 class="au-h2">Expected, or an error?</h2>
+      <p class="au-p">Tap your read on each notification.</p>
+
+      <div class="au-inbox" id="au-inbox">
+        <div class="au-notif-card" data-answer="expected"><p class="au-notif-text">"Direct deposit splitting sends money to your investing account before it ever touches checking."</p><div class="au-notif-btns"><button data-p="error">⚠️ Error</button><button data-p="expected">✓ Expected</button></div><p class="au-notif-why"></p></div>
+        <div class="au-notif-card" data-answer="error"><p class="au-notif-text">"DRIP means dividends are always paid out to you in cash."</p><div class="au-notif-btns"><button data-p="error">⚠️ Error</button><button data-p="expected">✓ Expected</button></div><p class="au-notif-why"></p></div>
+        <div class="au-notif-card" data-answer="expected"><p class="au-notif-text">"Automatic rebalancing can involve selling some investments that grew to buy more of others."</p><div class="au-notif-btns"><button data-p="error">⚠️ Error</button><button data-p="expected">✓ Expected</button></div><p class="au-notif-why"></p></div>
+        <div class="au-notif-card" data-answer="error"><p class="au-notif-text">"Once everything is automated, you never need to check on it again."</p><div class="au-notif-btns"><button data-p="error">⚠️ Error</button><button data-p="expected">✓ Expected</button></div><p class="au-notif-why"></p></div>
+      </div>
+      <p class="au-count" id="au-inbox-count">Reviewed 0 of 4</p>
+    </section>
+
+    <!-- ========== 10 · RECAP ========== -->
+    <section class="au-sec au-reveal" data-step="10">
+      <p class="au-kicker">Recap · 10 / 11</p>
+      <h2 class="au-h2">Here's what you now know</h2>
+      <p class="au-p">The whole lesson, in six lines.</p>
+
+      <div class="au-recap">
+        <div class="au-recap-item"><span class="au-recap-check">✓</span><span>Money can move automatically either by splitting at the paycheck, or by transferring after it lands in checking.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">✓</span><span>Auto-escalation gently raises your contribution rate over time, without you deciding again each year.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">✓</span><span><b>DRIP</b> automatically reinvests dividends into more shares instead of paying them out as cash.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">✓</span><span>Round-up investing turns everyday spare change into small, automatic contributions.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">✓</span><span>Automatic rebalancing keeps your target mix on track without manual selling and buying.</span></div>
+        <div class="au-recap-item"><span class="au-recap-check">✓</span><span>Automation handles the routine — it still can't sense when your own goals have changed.</span></div>
+      </div>
+      <div class="au-next-move">Your next move: <b>pick one automation feature from this lesson you're not using yet, and turn it on.</b></div>
+    </section>
+
+    <!-- ========== 11 · CERTIFICATE ========== -->
+    <section class="au-sec au-center au-reveal" data-step="11">
+      <p class="au-kicker center">Certified · 11 / 11</p>
+      <div class="au-cert">
+        <div class="au-cert-border"></div>
+        <span class="au-cert-pill">🏆 Certificate of Completion</span>
+        <p class="au-cert-cert">This certifies that</p>
+        <h2 class="au-cert-name">Autopilot Certified</h2>
+        <p class="au-cert-body">has completed <span class="au-tw">TURNIT</span> Financial Foundations: Automating Your Investments, and now knows the actual toolkit behind "set it and forget it."</p>
+        <div class="au-cert-line"></div>
+        <div class="au-done-row streak"><div class="au-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="au-done-row ach"><div class="au-done-ico">🏆</div><div><b>Achievement: Autopilot Certified</b><span>You mastered the real tools behind automation.</span></div></div>
+        <div class="au-done-btns">
+          <a class="au-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="au-btn ghost" id="au-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="au-quote">"WE ARE WHAT WE REPEATEDLY DO. EXCELLENCE, THEN, <span class="au-green">IS NOT AN ACT, BUT A HABIT.</span>"<br><span class="au-quote-by">— ARISTOTLE</span></p>
+    </section>
+
+    <p class="au-disclaimer">TURNIT is for educational purposes only and is not financial advice. Feature availability varies by provider. Figures shown are simplified, hypothetical illustrations.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="au-nav" id="au-nav">
+      <button type="button" class="au-nav-btn prev" id="au-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="au-nav-hint" id="au-nav-hint"></span>
+      <button type="button" class="au-nav-btn next" id="au-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-au{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-au *,#tn-au *::before,#tn-au *::after{box-sizing:border-box;}
+  #tn-au .au-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-au .au-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-au .au-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-au .au-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-au .au-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-au .au-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-au .au-bico{display:flex;}
+  #tn-au .au-word,#tn-au .au-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-au .au-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-au .au-bsub{color:var(--ink2); font-weight:500;}
+  #tn-au .au-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-au #au-bar{display:block; height:100%; width:9%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-au .au-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-au .au-meta #au-slide-label{color:var(--ink2);}
+  #tn-au .au-meta #au-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-au .au-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-au .au-sec.au-hide{display:none;}
+  #tn-au .au-center{text-align:center;}
+  #tn-au .au-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-au .au-kicker.center{text-align:center;}
+  #tn-au .au-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-au .au-h2.center{text-align:center;}
+  #tn-au .au-tw{font-style:italic;}
+  #tn-au .au-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-au .au-p b{color:var(--ink); font-weight:700;}
+  #tn-au .au-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-au .au-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-au .au-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-au .au-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-au .au-confirm-btn{display:block; width:100%; max-width:320px; margin:0 auto; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-au .au-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-au .au-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+
+  /* ---- slide 2: automation stack ---- */
+  #tn-au .au-stack{display:flex; flex-direction:column; gap:8px;}
+  #tn-au .au-stack-layer{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:15px 18px; cursor:pointer; text-align:left; transition:all .18s;}
+  #tn-au .au-stack-layer.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-au .au-stack-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 3: pipe fork ---- */
+  #tn-au .au-pipe-stage{margin-bottom:16px;}
+  #tn-au .au-pipe-source{text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); margin-bottom:8px;}
+  #tn-au .au-pipe-lines{display:flex; flex-direction:column; gap:6px; margin:0 auto; max-width:260px;}
+  #tn-au .au-pipe-line{height:8px; border-radius:4px; background:var(--cardbg); border:1px solid var(--line); overflow:hidden; position:relative;}
+  #tn-au .au-pipe-line::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg,var(--b),var(--g)); width:0%; transition:width .8s ease;}
+  #tn-au .au-pipe-line.fill::after{width:100%;}
+  #tn-au .au-pipe-targets{display:flex; justify-content:space-between; max-width:260px; margin:8px auto 0; font-size:12px; font-weight:700; color:var(--ink2);}
+  #tn-au .au-pipe-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:6px;}
+  #tn-au .au-pipe-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:13px 8px; cursor:pointer; transition:all .18s;}
+  #tn-au .au-pipe-btn.on{border-color:var(--b); background:#EAF1FA;}
+
+  /* ---- slide 4: staircase ---- */
+  #tn-au .au-stairs{display:flex; align-items:flex-end; justify-content:center; gap:8px; height:120px; margin-bottom:16px;}
+  #tn-au .au-stair{flex:1; max-width:56px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:4px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:8px 8px 0 0; padding:8px 4px; transition:all .4s ease; opacity:.4;}
+  #tn-au .au-stair span{font-size:9px; font-weight:700; color:var(--mut);}
+  #tn-au .au-stair b{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink);}
+  #tn-au .au-stair.lit{opacity:1; border-color:var(--selbd); background:var(--tint); transform:translateY(-6px);}
+  #tn-au .au-stair:nth-child(1){height:40%;} #tn-au .au-stair:nth-child(2){height:55%;} #tn-au .au-stair:nth-child(3){height:70%;} #tn-au .au-stair:nth-child(4){height:85%;} #tn-au .au-stair:nth-child(5){height:100%;}
+
+  /* ---- slide 5: reinvestment loop ---- */
+  #tn-au .au-loop-stage{display:flex; justify-content:center; margin-bottom:18px;}
+  #tn-au .au-loop-ring{display:flex; flex-direction:column; gap:10px; max-width:280px;}
+  #tn-au .au-loop-node{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:99px; padding:11px 16px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); transition:all .4s ease; opacity:.5;}
+  #tn-au .au-loop-node.active{opacity:1; border-color:var(--selbd); background:var(--tint); color:var(--ink); transform:scale(1.04);}
+  #tn-au .au-loop-result{max-width:460px; margin:16px auto 0; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:18px;}
+
+  /* ---- slide 6: spare change jar ---- */
+  #tn-au .au-jar-stage{display:flex; flex-direction:column; align-items:center; gap:6px; margin-bottom:18px;}
+  #tn-au .au-jar{font-size:52px; display:inline-block; transition:transform .2s ease;}
+  #tn-au .au-jar.bump{transform:scale(1.12);}
+  #tn-au .au-jar-total{text-align:center;}
+  #tn-au .au-jar-total span{display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700;}
+  #tn-au .au-jar-total b{font-family:'Poppins',sans-serif; font-weight:800; font-size:22px; color:var(--g);}
+  #tn-au .au-purchase-btns{display:flex; flex-direction:column; gap:8px; max-width:320px; margin:0 auto 6px;}
+  #tn-au .au-purchase-btns button{font-family:'Poppins',sans-serif; font-weight:600; font-size:13px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:11px 14px; cursor:pointer; transition:all .18s; text-align:left;}
+  #tn-au .au-purchase-btns button:disabled{opacity:.4; cursor:default;}
+
+  /* ---- slide 7: self-correcting scale ---- */
+  #tn-au .au-scale-stage{max-width:280px; margin:0 auto 6px;}
+  #tn-au .au-scale-beam{display:flex; justify-content:space-between; align-items:center; transition:transform .8s ease; transform-origin:center; padding:0 6px;}
+  #tn-au .au-scale-pan{background:#fff; border:1.5px solid var(--line); border-radius:12px; padding:12px 14px; text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink); min-width:90px;}
+  #tn-au .au-scale-fulcrum{width:0; height:0; border-left:16px solid transparent; border-right:16px solid transparent; border-bottom:22px solid var(--ink2); margin:0 auto;}
+  #tn-au .au-scale-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 8: caution ---- */
+  #tn-au .au-caution-result{max-width:460px; margin:18px auto 0; font-size:14px; color:var(--ink2); line-height:1.6; text-align:left; background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:18px 20px; min-height:20px;}
+  #tn-au .au-caution-result:empty{display:none;}
+  #tn-au .au-caution-result b{color:var(--gold); font-family:'Poppins',sans-serif;}
+
+  /* ---- slide 9: inbox ---- */
+  #tn-au .au-inbox{display:flex; flex-direction:column; gap:10px;}
+  #tn-au .au-notif-card{background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; box-shadow:0 4px 10px -6px rgba(0,0,0,.15); transition:background .2s ease, border-color .2s ease;}
+  #tn-au .au-notif-text{font-size:13.5px; color:var(--ink); font-style:italic; margin:0 0 10px; line-height:1.45;}
+  #tn-au .au-notif-btns{display:flex; gap:8px;}
+  #tn-au .au-notif-btns button{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; padding:9px 6px; border-radius:9px; cursor:pointer; background:#fff; border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-au .au-notif-btns button[data-p="expected"]{border-color:#BFE6D6; color:var(--g);}
+  #tn-au .au-notif-card.done .au-notif-btns button{opacity:.4; pointer-events:none;}
+  #tn-au .au-notif-card.done .au-notif-btns button.picked{opacity:1;}
+  #tn-au .au-notif-card.correct{background:var(--tint); border-color:var(--selbd);}
+  #tn-au .au-notif-card.wrong{background:var(--nobg); border-color:var(--nobd);}
+  #tn-au .au-notif-why{font-size:12.5px; color:var(--ink2); line-height:1.45; margin:8px 0 0; display:none;}
+  #tn-au .au-notif-why b{font-family:'Poppins',sans-serif;}
+  #tn-au .au-notif-card.done .au-notif-why{display:block;}
+
+  /* recap */
+  #tn-au .au-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-au .au-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-au .au-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-au .au-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-au .au-recap-item b{font-weight:700;}
+  #tn-au .au-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-au .au-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-au .au-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-au .au-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-au .au-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-au .au-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-au .au-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-au .au-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-au .au-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-au .au-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-au .au-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-au .au-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-au .au-done-ico{font-size:20px; flex:none;}
+  #tn-au .au-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-au .au-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-au .au-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-au .au-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-au .au-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-au .au-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-au .au-btn:hover{transform:translateY(-2px);}
+  #tn-au .au-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-au .au-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-au .au-green{color:var(--g);}
+  #tn-au .au-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-au .au-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-au .au-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-au .au-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-au .au-nav-btn.prev{color:var(--ink2);}
+  #tn-au .au-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-au .au-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-au .au-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-au .au-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-au .au-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-au .au-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-au .au-wrap{padding:12px 14px 30px;}
+    #tn-au .au-pipe-btns{grid-template-columns:1fr;}
+    #tn-au .au-bsub{display:none;}
+    #tn-au .au-nav-hint{display:none;}
+    #tn-au .au-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-au .au-reveal{opacity:1 !important; transform:none !important;}
+    #tn-au #au-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-au'); if(!root) return;
+  root.querySelectorAll('.au-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · the automation stack ============ */
+  var stackResult=root.querySelector('#au-stack-result'), stackSeen={}, stackCount=root.querySelector('#au-stack-count');
+  root.querySelectorAll('#au-stack .au-stack-layer').forEach(function(layer){
+    layer.addEventListener('click',function(){
+      root.querySelectorAll('#au-stack .au-stack-layer').forEach(function(l){ l.classList.remove('on'); });
+      layer.classList.add('on');
+      stackResult.innerHTML='<b>'+layer.getAttribute('data-t')+':</b> '+layer.getAttribute('data-d');
+      stackSeen[layer.getAttribute('data-k')]=1;
+      stackCount.textContent='Explored '+Object.keys(stackSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 3 · split vs transfer ============ */
+  var splitBtn=root.querySelector('#au-split-btn'), transferBtn=root.querySelector('#au-transfer-btn'),
+      pipeNote=root.querySelector('#au-pipe-note'), pipeLines=root.querySelectorAll('#au-pipe-lines .au-pipe-line');
+  if(splitBtn) splitBtn.addEventListener('click',function(){
+    splitBtn.classList.add('on'); transferBtn.classList.remove('on');
+    pipeLines.forEach(function(l){ l.classList.remove('fill'); });
+    setTimeout(function(){ pipeLines.forEach(function(l){ l.classList.add('fill'); }); postHeight(); },30);
+    pipeNote.textContent='Your employer sends part of your paycheck straight to your investing account — it never even touches checking first.';
+    postHeight();
+  });
+  if(transferBtn) transferBtn.addEventListener('click',function(){
+    transferBtn.classList.add('on'); splitBtn.classList.remove('on');
+    pipeLines.forEach(function(l){ l.classList.remove('fill'); });
+    setTimeout(function(){ pipeLines[0].classList.add('fill'); postHeight(); },30);
+    setTimeout(function(){ pipeLines[1].classList.add('fill'); postHeight(); },500);
+    pipeNote.textContent='Your full paycheck lands in checking as usual, then a separate automatic transfer pulls a set amount into investing a few days later.';
+    postHeight();
+  });
+
+  /* ============ 4 · the escalation staircase ============ */
+  var stairsBtn=root.querySelector('#au-stairs-btn'), stairsNote=root.querySelector('#au-stairs-note');
+  if(stairsBtn) stairsBtn.addEventListener('click',function(){
+    stairsBtn.disabled=true;
+    var stairs=root.querySelectorAll('#au-stairs .au-stair');
+    stairs.forEach(function(s,i){
+      setTimeout(function(){ s.classList.add('lit'); postHeight(); },i*350);
+    });
+    setTimeout(function(){
+      stairsNote.textContent='A flat 3% for 5 years contributes less overall than a rate that climbs from 3% to 7% — and you never had to remember to bump it yourself.';
+      postHeight();
+    },stairs.length*350+300);
+  });
+
+  /* ============ 5 · the reinvestment loop ============ */
+  var loopBtn=root.querySelector('#au-loop-btn'), loopResult=root.querySelector('#au-loop-result');
+  if(loopBtn) loopBtn.addEventListener('click',function(){
+    loopBtn.disabled=true;
+    var nodes=root.querySelectorAll('.au-loop-node');
+    function pulse(i){
+      nodes.forEach(function(n){ n.classList.remove('active'); });
+      nodes[i].classList.add('active');
+      postHeight();
+    }
+    var step=0;
+    var timer=setInterval(function(){
+      pulse(step%3);
+      step++;
+      if(step>=9){
+        clearInterval(timer);
+        nodes.forEach(function(n){ n.classList.remove('active'); });
+        loopResult.textContent='Each lap through the loop, the dividend itself gets a little bigger — because the position paying it just grew. That\u2019s compounding, running automatically.';
+        loopBtn.disabled=false;
+        loopBtn.textContent='\u25b6 Run It Again';
+        postHeight();
+      }
+    },260);
+  });
+
+  /* ============ 6 · the spare change jar ============ */
+  var jarTotalEl=root.querySelector('#au-jar-total-v'), jarEl=root.querySelector('.au-jar'), jarTotal=0;
+  root.querySelectorAll('#au-purchase-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(btn.disabled) return;
+      btn.disabled=true;
+      jarTotal+=+btn.getAttribute('data-amt');
+      jarTotalEl.textContent='$'+jarTotal.toFixed(2);
+      jarEl.classList.add('bump');
+      setTimeout(function(){ jarEl.classList.remove('bump'); },200);
+      postHeight();
+    });
+  });
+
+  /* ============ 7 · the self-correcting scale ============ */
+  var driftBtn=root.querySelector('#au-drift-btn'), rebalanceBtn=root.querySelector('#au-rebalance-btn'),
+      scaleBeam=root.querySelector('#au-scale-beam'), scaleResult=root.querySelector('#au-scale-result');
+  if(driftBtn) driftBtn.addEventListener('click',function(){
+    driftBtn.disabled=true;
+    scaleBeam.style.transform='rotate(10deg)';
+    scaleResult.textContent='Two years of stocks outgrowing bonds later, the mix has quietly drifted away from your original target — without a single decision being made.';
+    rebalanceBtn.style.display='block';
+    postHeight();
+  });
+  if(rebalanceBtn) rebalanceBtn.addEventListener('click',function(){
+    rebalanceBtn.disabled=true;
+    scaleBeam.style.transform='rotate(0deg)';
+    scaleResult.textContent='Automatic rebalancing sold a bit of the stocks that grew and used it to buy more bonds — quietly resetting the mix back to your original target, on schedule.';
+    postHeight();
+  });
+
+  /* ============ 8 · set it, don't forget it ============ */
+  var cautionBtn=root.querySelector('#au-caution-btn'), cautionResult=root.querySelector('#au-caution-result');
+  if(cautionBtn) cautionBtn.addEventListener('click',function(){
+    cautionBtn.disabled=true;
+    cautionResult.innerHTML='<b>Automation handles routine, not judgment.</b> It doesn\u2019t know when your goals change, your income changes, or a new priority shows up. A quick check-in once or twice a year makes sure the autopilot is still flying toward the destination you actually want.';
+    postHeight();
+  });
+
+  /* ============ 9 · the inbox ============ */
+  var inboxReviewed=0, inboxCount=root.querySelector('#au-inbox-count');
+  var inboxWhy={
+    expected_0:'That\u2019s exactly how direct deposit splitting works — the money is routed before it ever reaches checking.',
+    error_1:'DRIP means dividends are automatically reinvested into more shares — not paid out as cash.',
+    expected_2:'Rebalancing can absolutely mean trimming what grew to top up what didn\u2019t — that\u2019s how it restores the target mix.',
+    error_3:'Automation still benefits from an occasional check-in as your goals and circumstances change.'
+  };
+  root.querySelectorAll('#au-inbox .au-notif-card').forEach(function(card,i){
+    var ans=card.getAttribute('data-answer');
+    var whyEl=card.querySelector('.au-notif-why');
+    card.querySelectorAll('.au-notif-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(card.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        card.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(ans==='expected'?'Expected.':'Error.')+'</b> '+inboxWhy[ans+'_'+i];
+        inboxReviewed++;
+        inboxCount.textContent='Reviewed '+inboxReviewed+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-au'); if(!root) return;
+  var TOTAL=11, current=1;
+
+  var bar=root.querySelector('#au-bar');
+  var labelEl=root.querySelector('#au-slide-label');
+  var countEl=root.querySelector('#au-slide-count');
+  var prevBtn=root.querySelector('#au-prev');
+  var nextBtn=root.querySelector('#au-next');
+  var hintEl=root.querySelector('#au-nav-hint');
+  var disclaimer=root.querySelector('.au-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'The Automation Stack',3:'Split vs. Transfer',4:'The Escalation Staircase',5:'The Reinvestment Loop',6:'The Spare Change Jar',7:'The Self-Correcting Scale',8:"Set It, Don't Forget It",9:'The Inbox',10:'Recap',11:'Certified'};
+  var reqHints={2:'Explore all 3 layers',3:'Explore both methods',4:'Run the 5 years',5:'Run the loop',6:'Tap all 3 purchases',7:'Drift, then rebalance',8:'Reveal the caveat',9:'Review all 4 to continue'};
+
+  var done={1:true,10:true,11:true};
+  var secByStep={};
+  root.querySelectorAll('.au-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('au-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('au-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · all 3 stack layers explored
+  var stackSeen2={};
+  root.querySelectorAll('#au-stack .au-stack-layer').forEach(function(layer){
+    layer.addEventListener('click',function(){ stackSeen2[layer.getAttribute('data-k')]=1;
+      if(keys(stackSeen2)>=3) markDone(2); else liveHint(2,'Explored '+keys(stackSeen2)+' of 3 — keep going'); });
+  });
+
+  // 3 · both pipe methods explored
+  var pipeSeen={};
+  var splitBtn2=root.querySelector('#au-split-btn'), transferBtn2=root.querySelector('#au-transfer-btn');
+  if(splitBtn2) splitBtn2.addEventListener('click',function(){ pipeSeen.split=1;
+    if(pipeSeen.split&&pipeSeen.transfer) markDone(3); else liveHint(3,'Now tap the other method too'); });
+  if(transferBtn2) transferBtn2.addEventListener('click',function(){ pipeSeen.transfer=1;
+    if(pipeSeen.split&&pipeSeen.transfer) markDone(3); else liveHint(3,'Now tap the other method too'); });
+
+  // 4 · staircase run
+  var stairsBtn2=root.querySelector('#au-stairs-btn');
+  if(stairsBtn2) stairsBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(4); },5*350+320); });
+
+  // 5 · loop run
+  var loopBtn2=root.querySelector('#au-loop-btn');
+  if(loopBtn2) loopBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(5); },9*260+50); });
+
+  // 6 · all 3 purchases tapped
+  var jarTaps=0;
+  root.querySelectorAll('#au-purchase-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){ jarTaps++;
+      if(jarTaps>=3) markDone(6); else liveHint(6,'Tapped '+jarTaps+' of 3 — keep going'); });
+  });
+
+  // 7 · drift then rebalance both done
+  var scaleState={drift:false,rebalance:false};
+  var driftBtn2=root.querySelector('#au-drift-btn'), rebalanceBtn2=root.querySelector('#au-rebalance-btn');
+  if(driftBtn2) driftBtn2.addEventListener('click',function(){ scaleState.drift=true; liveHint(7,'Now tap Auto-Rebalance to continue'); });
+  if(rebalanceBtn2) rebalanceBtn2.addEventListener('click',function(){ scaleState.rebalance=true;
+    if(scaleState.drift&&scaleState.rebalance) markDone(7); });
+
+  // 8 · caution revealed
+  var cautionBtn2=root.querySelector('#au-caution-btn');
+  if(cautionBtn2) cautionBtn2.addEventListener('click',function(){ markDone(8); });
+
+  // 9 · all 4 inbox notifications reviewed
+  root.querySelectorAll('#au-inbox .au-notif-btns button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#au-inbox .au-notif-card.done');
+      if(n>=4) markDone(9); else liveHint(9,'Reviewed '+n+' of 4 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#au-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

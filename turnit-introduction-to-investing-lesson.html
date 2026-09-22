@@ -1,0 +1,882 @@
+<!-- ============================================================
+     TURNIT — SAVING VS INVESTING  (v2)
+     SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ii. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     13 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Title & Key Vocabulary (optional, never gated)
+       2 Hook — same $5,000, two outcomes     3 The Growth Meter (2 sliders)
+       4 What Moves Your Returns (chips)      5 Savings vs Investing (sort)
+       6 Build From Zero (chips)              7 The Cost of Waiting (slider)
+       8 Myth or Fact                         9 Spot the Red Flags
+       10 The Diversification Rule (slider)   11 Automate It
+       12 Recap                               13 Complete (scroll-down prompt)
+     >> The last slide directs the learner to GHL's own "Mark As Complete"
+        and "Next Lesson" buttons below the iframe, since this widget can't
+        reach outside its own frame to trigger them directly. Wording swaps
+        automatically if the lesson is expanded to full screen.
+     ============================================================ -->
+<div id="tn-ii">
+  <div class="ii-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="ii-top">
+      <div class="ii-topbar">
+        <div class="ii-brand"><span class="ii-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="ii-word">TURNIT</span><span class="ii-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="ii-progress"><span id="ii-bar"></span></div>
+      <div class="ii-meta"><span id="ii-slide-label">Key Vocabulary</span><span id="ii-slide-count">Slide 1 of 13</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <section class="ii-sec ii-center ii-reveal" data-step="1">
+      <p class="ii-kicker center">Saving vs Investing · 1 / 13</p>
+      <h1 class="ii-hero-title">SAVING VS <span class="ii-hero-grad">INVESTING</span></h1>
+      <p class="ii-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
+
+      <div class="ii-vocab-teaser">
+        <span class="ii-vocab-label">Key terms in this lesson</span>
+        <div class="ii-vocab-chips" id="ii-vocab-chips">
+          <button type="button" class="ii-vocab-chip" data-t="Compounding" data-def="Growth that builds on top of previous growth, not just the original amount.">Compounding</button>
+          <button type="button" class="ii-vocab-chip" data-t="Time in the Market" data-def="How long your money actually stays invested, start to finish.">Time in the Market</button>
+          <button type="button" class="ii-vocab-chip" data-t="Diversification" data-def="Spreading money across multiple investments instead of just one.">Diversification</button>
+          <button type="button" class="ii-vocab-chip" data-t="Index Fund" data-def="One purchase that spreads your money across many companies at once.">Index Fund</button>
+          <button type="button" class="ii-vocab-chip" data-t="Risk" data-def="The chance that an investment loses value, especially in the short term.">Risk</button>
+          <button type="button" class="ii-vocab-chip" data-t="Automate" data-def="Setting money to invest on its own, on a schedule, without a manual decision each time.">Automate</button>
+        </div>
+        <div class="ii-vocab-def" id="ii-vocab-def">Tap a term above to see what it means.</div>
+        <span class="ii-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
+      </div>
+
+      <div class="ii-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
+    </section>
+
+    <!-- ========== 2 · HOOK ========== -->
+    <section class="ii-sec ii-reveal" data-step="2">
+      <p class="ii-kicker">Why It Matters · 2 / 13</p>
+      <h2 class="ii-h2">Same $5,000 — Two Very Different Outcomes</h2>
+      <p class="ii-p">Every dollar you set aside can either <b>sit still</b> or <b>go to work</b>. Both have a place — but over time, the gap between them is enormous. Tap each option below.</p>
+
+      <div class="ii-hook" id="ii-hook">
+        <div class="ii-hook-opts">
+          <button type="button" class="ii-hook-opt" data-k="save" data-rate="0.005">Keep it in Savings<span>~0.5% APY</span></button>
+          <button type="button" class="ii-hook-opt" data-k="invest" data-rate="0.08">Invest it Instead<span>~8% average</span></button>
+        </div>
+        <div class="ii-hook-panel">
+          <div class="ii-hook-cap" id="ii-hook-cap">$5,000, left alone for 20 years</div>
+          <div class="ii-hook-grid">
+            <div class="ii-hook-box"><span>You start with</span><b>$5,000</b></div>
+            <div class="ii-hook-box green"><span>After 20 years</span><b id="ii-hook-final">—</b></div>
+          </div>
+          <div class="ii-note" id="ii-hook-note">Tap both options to compare where the same $5,000 ends up.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 2 · THE GROWTH METER ========== -->
+    <section class="ii-sec ii-reveal" data-step="3">
+      <p class="ii-kicker">The Growth Meter · 3 / 13</p>
+      <h2 class="ii-h2">What Is Investing, Really?</h2>
+      <p class="ii-p">Investing means putting money into things that can grow over time — in exchange for accepting real risk. Move the sliders and watch a simple projection respond in real time.</p>
+
+      <div class="ii-panel">
+        <div class="ii-gauge">
+          <svg viewBox="0 0 280 160" width="100%">
+            <path d="M20 150 A120 120 0 0 1 260 150" fill="none" stroke="#EAEFF3" stroke-width="20" stroke-linecap="round"/>
+            <path id="ii-gauge-arc" d="M20 150 A120 120 0 0 1 260 150" fill="none" stroke="url(#ii-ggrad)" stroke-width="20" stroke-linecap="round"/>
+            <defs><linearGradient id="ii-ggrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C0392B"/><stop offset="50%" stop-color="#E0A93C"/><stop offset="100%" stop-color="#209B73"/></linearGradient></defs>
+            <line id="ii-needle" x1="140" y1="150" x2="140" y2="55" stroke="#1B2733" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="140" cy="150" r="8" fill="#1B2733"/>
+          </svg>
+          <div class="ii-gauge-num" id="ii-proj">$0</div>
+          <div class="ii-gauge-lab" id="ii-proj-lab">Starting Out</div>
+          <div class="ii-gauge-ends"><span>Smaller</span><span>Larger</span></div>
+        </div>
+
+        <div class="ii-slide-row">
+          <div class="ii-slide-top"><label for="ii-contrib">Monthly Contribution</label><span class="ii-slide-v green" id="ii-contrib-v">$200/mo</span></div>
+          <input id="ii-contrib" class="ii-range good" type="range" min="50" max="500" value="200" step="10" aria-label="Monthly contribution">
+        </div>
+        <div class="ii-slide-row">
+          <div class="ii-slide-top"><label for="ii-years2">Years Invested</label><span class="ii-slide-v orange" id="ii-years2-v">20 yrs</span></div>
+          <input id="ii-years2" class="ii-range bad" type="range" min="1" max="40" value="20" step="1" aria-label="Years invested">
+        </div>
+        <div class="ii-note">A rough ~8% average annual return is used for this projection — a hypothetical illustration, not a promise.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · WHAT MOVES YOUR RETURNS ========== -->
+    <section class="ii-sec ii-reveal" data-step="4">
+      <p class="ii-kicker">What Moves It · 4 / 13</p>
+      <h2 class="ii-h2">What Actually Moves Your Results</h2>
+      <p class="ii-p">Five things drive how much your investments grow — but two do most of the work. Tap each to see how much it typically matters.</p>
+
+      <div class="ii-fico" id="ii-fico">
+        <button type="button" class="ii-fchip" data-t="Time in the Market" data-tag="Major" data-d="The longer your money stays invested, the more compounding works in your favor. Time is the single biggest lever most people have.">
+          <i class="d1"></i>Time in the Market <b>Major</b></button>
+        <button type="button" class="ii-fchip" data-t="Consistency" data-tag="Major" data-d="Investing a set amount on a regular schedule, without stopping during downturns, tends to matter more than perfect timing.">
+          <i class="d2"></i>Consistency <b>Major</b></button>
+        <button type="button" class="ii-fchip" data-t="Rate of Return" data-tag="Moderate" data-d="A higher average return helps, but it's less predictable and controllable than simply staying invested longer.">
+          <i class="d3"></i>Rate of Return <b>Moderate</b></button>
+        <button type="button" class="ii-fchip" data-t="Fees & Costs" data-tag="Moderate" data-d="High fees quietly eat into returns every single year. Low-cost options keep more of the growth in your pocket.">
+          <i class="d4"></i>Fees & Costs <b>Moderate</b></button>
+        <button type="button" class="ii-fchip" data-t="Starting Amount" data-tag="Minor" data-d="Starting with more money helps, but it matters far less than most beginners assume — time usually makes up the difference.">
+          <i class="d5"></i>Starting Amount <b>Minor</b></button>
+      </div>
+      <div class="ii-reveal-box" id="ii-fico-box"><b id="ii-fico-t">Tap a factor above</b><span id="ii-fico-d">Each one reveals how much it tends to matter.</span></div>
+      <p class="ii-count" id="ii-fico-count">Reviewed 0 of 5 factors</p>
+      <div class="ii-note">Time in the market + consistency drive most of the outcome. Nail those two and the rest matters far less.</div>
+    </section>
+
+    <!-- ========== 4 · SAVINGS VS INVESTING ========== -->
+    <section class="ii-sec ii-reveal" data-step="5">
+      <p class="ii-kicker">Savings vs Investing · 5 / 13</p>
+      <h2 class="ii-h2">Which Tool Fits Which Goal?</h2>
+      <p class="ii-p">Neither one is "better" — they're built for different timelines. Tap the right fit for each goal.</p>
+
+      <div class="ii-sort" id="ii-sort">
+        <div class="ii-sort-row" data-answer="save"><span>An emergency fund you might need next month</span><div class="ii-sort-btns"><button data-p="save">Savings</button><button data-p="invest">Investing</button></div></div>
+        <div class="ii-sort-row" data-answer="save"><span>A vacation you're taking in 6 months</span><div class="ii-sort-btns"><button data-p="save">Savings</button><button data-p="invest">Investing</button></div></div>
+        <div class="ii-sort-row" data-answer="invest"><span>Retirement, still 30 years away</span><div class="ii-sort-btns"><button data-p="save">Savings</button><button data-p="invest">Investing</button></div></div>
+        <div class="ii-sort-row" data-answer="invest"><span>A goal you won't touch for 15+ years</span><div class="ii-sort-btns"><button data-p="save">Savings</button><button data-p="invest">Investing</button></div></div>
+      </div>
+      <p class="ii-count" id="ii-sort-count">Sorted 0 of 4</p>
+    </section>
+
+    <!-- ========== 5 · BUILD FROM ZERO ========== -->
+    <section class="ii-sec ii-reveal" data-step="6">
+      <p class="ii-kicker">Build From Zero · 6 / 13</p>
+      <h2 class="ii-h2">Never Invested Before? Start Here</h2>
+      <p class="ii-p">You don't need to have it all figured out on day one. Here are four real starting points. Tap each to learn how it works.</p>
+
+      <div class="ii-fico" id="ii-build">
+        <button type="button" class="ii-fchip" data-t="Emergency Fund First" data-d="A small cash cushion, kept liquid and separate, so a rough month doesn't force you to sell investments at a bad time.">Emergency Fund First</button>
+        <button type="button" class="ii-fchip" data-t="Employer 401(k) Match" data-d="If your employer matches retirement contributions, that match is essentially free money — often the very first place to invest.">Employer 401(k) Match</button>
+        <button type="button" class="ii-fchip" data-t="A Low-Cost Index Fund" data-d="A single purchase that spreads your money across hundreds of companies at once — a common, simple starting point.">A Low-Cost Index Fund</button>
+        <button type="button" class="ii-fchip" data-t="Automate Contributions" data-d="Setting up an automatic transfer means you invest consistently without having to remember or decide every month.">Automate Contributions</button>
+      </div>
+      <div class="ii-reveal-box" id="ii-build-box"><b id="ii-build-t">Tap an option above</b><span id="ii-build-d">Four common ways beginners get started.</span></div>
+      <p class="ii-count" id="ii-build-count">Explored 0 of 4 options</p>
+    </section>
+
+    <!-- ========== 6 · THE COST OF WAITING ========== -->
+    <section class="ii-sec ii-reveal" data-step="7">
+      <p class="ii-kicker">The Cost of Waiting · 7 / 13</p>
+      <h2 class="ii-h2">What Delaying Actually Costs You</h2>
+      <p class="ii-p">Investing $300/month at a hypothetical 8% average return, from age 25 to 65. Slide to see what happens if you push the start date back.</p>
+
+      <div class="ii-panel">
+        <div class="ii-slide-top"><label for="ii-delay">Years you delay starting</label><span class="ii-slide-v blue" id="ii-delay-v">0 yrs</span></div>
+        <input id="ii-delay" class="ii-range" type="range" min="0" max="20" value="0" step="1" aria-label="Years delayed">
+        <div class="ii-scale"><span>Start today</span><span>Delay 20 years</span></div>
+        <div class="ii-trap">
+          <div class="ii-trap-box"><div class="ii-trap-lab">Still grows to</div><div class="ii-trap-v" id="ii-delay-final">—</div></div>
+          <div class="ii-trap-box red"><div class="ii-trap-lab">Growth given up by waiting</div><div class="ii-trap-v" id="ii-delay-lost">$0</div></div>
+        </div>
+        <div class="ii-note" id="ii-delay-note">Every year you wait isn't just a year of missed contributions — it's a year of compounding that never gets replaced.</div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · MYTH OR FACT ========== -->
+    <section class="ii-sec ii-reveal" data-step="8">
+      <p class="ii-kicker">Myth or Fact · 8 / 13</p>
+      <h2 class="ii-h2">Myth or Fact?</h2>
+      <p class="ii-p">Three things people get wrong about investing. Tap your answer for each.</p>
+
+      <div class="ii-sort" id="ii-myth">
+        <div class="ii-sort-row ii-mrow" data-answer="myth"><span>You need a lot of money to start investing.</span><div class="ii-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="ii-myth-why"><b>Myth.</b> Many platforms let you start with just a few dollars using fractional shares — you don't need thousands to begin.</p></div>
+        <div class="ii-sort-row ii-mrow" data-answer="fact"><span>Investing always carries some risk of loss.</span><div class="ii-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="ii-myth-why"><b>Fact.</b> There's no such thing as risk-free growth. Every investment can lose value, which is exactly why timeline and diversification matter.</p></div>
+        <div class="ii-sort-row ii-mrow" data-answer="myth"><span>Investing is basically the same thing as gambling.</span><div class="ii-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="ii-myth-why"><b>Myth.</b> Gambling has a built-in house edge with no expected long-term payoff. Broad, long-term investing is built around companies actually growing over time.</p></div>
+      </div>
+      <p class="ii-count" id="ii-myth-count">Answered 0 of 3</p>
+    </section>
+
+    <!-- ========== 8 · SPOT THE RED FLAGS ========== -->
+    <section class="ii-sec ii-reveal" data-step="9">
+      <p class="ii-kicker">Spot the Red Flags · 9 / 13</p>
+      <h2 class="ii-h2">Spot the Red Flags</h2>
+      <p class="ii-p">Some habits build steady long-term results. Others quietly work against you. Tap each tile to reveal whether it's safe or risky.</p>
+
+      <div class="ii-traps" id="ii-traps">
+        <button class="ii-trap-tile" data-verdict="safe" data-d="Investing the same amount on a regular schedule, called dollar-cost averaging, is one of the simplest, steadiest habits available.">Investing Consistently Each Month</button>
+        <button class="ii-trap-tile" data-verdict="risky" data-d="Acting on a stock tip from social media, with no research of your own, is one of the fastest ways to lose money.">Chasing a Hot Tip Online</button>
+        <button class="ii-trap-tile" data-verdict="risky" data-d="Fees that seem small on paper compound against you every year, quietly shrinking your long-term results.">Ignoring Fees on Your Investments</button>
+        <button class="ii-trap-tile" data-verdict="safe" data-d="Automatic contributions mean you invest through both good and bad months, without emotion getting in the way.">Automating Your Contributions</button>
+      </div>
+      <p class="ii-count" id="ii-traps-count">Revealed 0 of 4</p>
+    </section>
+
+    <!-- ========== 9 · THE DIVERSIFICATION RULE ========== -->
+    <section class="ii-sec ii-reveal" data-step="10">
+      <p class="ii-kicker">The Diversification Rule · 10 / 13</p>
+      <h2 class="ii-h2">Don't Bet It All on One Thing</h2>
+      <p class="ii-p">Many investors try to keep any single investment from dominating their whole portfolio. Slide to see the concentration in a hypothetical $10,000 portfolio.</p>
+
+      <div class="ii-panel">
+        <div class="ii-util-top"><div><div class="ii-util-lab">In one investment</div><div class="ii-util-bal" id="ii-conc-bal">$1,500</div></div><div class="ii-util-r"><div class="ii-util-lab">Concentration</div><div class="ii-util-pct" id="ii-conc-pct">15%</div></div></div>
+        <div class="ii-util-track"><span id="ii-conc-fill" style="width:15%"></span><span class="ii-util-mark" style="left:20%"></span></div>
+        <div class="ii-scale"><span>$0</span><span>$2,000 (20%)</span><span>$10,000</span></div>
+        <input id="ii-conc" class="ii-range" type="range" min="0" max="10000" value="1500" step="100" aria-label="Amount in one investment">
+        <div class="ii-util-verdict safe" id="ii-conc-verdict">Well Diversified — keep it spread out</div>
+        <div class="ii-note">There's no single official rule here — some investors use roughly 10-20% as a rough ceiling for any one holding. The bigger idea: the more concentrated you are, the more one bad outcome can hurt your whole portfolio.</div>
+      </div>
+    </section>
+
+    <!-- ========== 10 · AUTOMATE IT ========== -->
+    <section class="ii-sec ii-center ii-reveal" data-step="11">
+      <p class="ii-kicker center">Automate It · 11 / 13</p>
+      <h2 class="ii-h2 center">Make It Automatic</h2>
+      <p class="ii-sub center">The investors who stick with it longest usually make it hands-free. Flip the switch to power up the pipeline.</p>
+
+      <button type="button" class="ii-toggle" id="ii-toggle" aria-pressed="false"><span class="ii-toggle-knob"></span><span class="ii-toggle-lab" id="ii-toggle-lab">Auto-Invest Off</span></button>
+
+      <div class="ii-pipe" id="ii-pipe">
+        <div class="ii-pipe-card"><div class="ii-pipe-ico">💵</div><div class="ii-pipe-t">Paycheck Lands</div><div class="ii-pipe-d">Your paycheck hits your checking account like normal.</div></div>
+        <div class="ii-pipe-arrow">→</div>
+        <div class="ii-pipe-card"><div class="ii-pipe-ico">🔁</div><div class="ii-pipe-t">Auto-Transfer</div><div class="ii-pipe-d">A set amount moves automatically into your investing account.</div></div>
+        <div class="ii-pipe-arrow">→</div>
+        <div class="ii-pipe-card"><div class="ii-pipe-ico">📊</div><div class="ii-pipe-t">Auto-Invest</div><div class="ii-pipe-d">That amount buys your investment automatically — no decision required.</div></div>
+      </div>
+      <p class="ii-autopilot-msg" id="ii-autopilot-msg"></p>
+    </section>
+
+    <!-- ========== 11 · RECAP ========== -->
+    <section class="ii-sec ii-reveal" data-step="12">
+      <p class="ii-kicker">Recap · 12 / 13</p>
+      <h2 class="ii-h2">Here's What You Now Know</h2>
+      <p class="ii-p">The whole lesson, in six lines.</p>
+
+      <div class="ii-recap">
+        <div class="ii-recap-item"><span class="ii-recap-check">✓</span><span>Saving protects money you need soon. Investing grows money you won't touch for years.</span></div>
+        <div class="ii-recap-item"><span class="ii-recap-check">✓</span><span><b>Time in the market</b> and <b>consistency</b> drive most of your long-term results.</span></div>
+        <div class="ii-recap-item"><span class="ii-recap-check">✓</span><span>Waiting to start doesn't just delay contributions — it gives up years of compounding you never get back.</span></div>
+        <div class="ii-recap-item"><span class="ii-recap-check">✓</span><span>Investing always carries real risk — that's different from gambling, but it's never risk-free.</span></div>
+        <div class="ii-recap-item"><span class="ii-recap-check">✓</span><span>Avoid the traps: hot tips, ignored fees, and putting too much in one holding.</span></div>
+        <div class="ii-recap-item"><span class="ii-recap-check">✓</span><span>Investing consistently — and automatically — beats trying to time it perfectly.</span></div>
+      </div>
+      <div class="ii-next-move">Your next move: <b>build (or check on) a small emergency fund, then automate a first small investment.</b> That's how good habits build themselves.</div>
+    </section>
+
+    <!-- ========== 13 · COMPLETE ========== -->
+    <section class="ii-sec ii-center ii-reveal" data-step="13">
+      <p class="ii-kicker center">Lesson Complete · 13 / 13</p>
+      <span class="ii-hero-ico">🚀</span>
+      <h2 class="ii-h2 center">You've Finished the Lesson</h2>
+      <p class="ii-sub center">You've covered saving vs. investing, what actually drives long-term growth, and the habits that build lasting results.</p>
+
+      <!-- Continue prompt. Wording swaps automatically if the lesson is in full screen. -->
+      <div class="ii-finish">
+        <span class="ii-finish-arrow" id="ii-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ii-finish-lead" id="ii-fin-lead">Scroll down to continue</p>
+        <p class="ii-finish-sub" id="ii-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ii-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+
+      <p class="ii-quote">"DO NOT SAVE WHAT IS LEFT AFTER SPENDING, BUT <span class="ii-green">SPEND WHAT IS LEFT AFTER SAVING.</span>"<br><span class="ii-quote-by">— WARREN BUFFETT</span></p>
+    </section>
+
+    <p class="ii-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Growth, projection, and cost-of-waiting figures in this lesson are simplified, hypothetical illustrations, not real historical data or a prediction. Diversification thresholds mentioned are general guidelines some investors use, not official rules.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="ii-nav" id="ii-nav">
+      <button type="button" class="ii-nav-btn prev" id="ii-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ii-nav-hint" id="ii-nav-hint"></span>
+      <button type="button" class="ii-nav-btn next" id="ii-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-ii{
+    --b:#1568AE; --g:#209B73; --teal:#12a08a; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbg:#EAF7F1; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --warn:#B7791F; --peachbg:#FBEEE6; --peachbd:#F3D9C8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-ii *,#tn-ii *::before,#tn-ii *::after{box-sizing:border-box;}
+  #tn-ii .ii-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ii .ii-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ii .ii-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-ii .ii-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ii .ii-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ii .ii-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-ii .ii-bico{display:flex;}
+  #tn-ii .ii-word,#tn-ii .ii-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ii .ii-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-ii .ii-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ii .ii-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ii #ii-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ii .ii-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ii .ii-meta #ii-slide-label{color:var(--ink2);}
+  #tn-ii .ii-meta #ii-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-ii .ii-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-ii .ii-sec.ii-hide{display:none;}
+  #tn-ii .ii-center{text-align:center;}
+  #tn-ii .ii-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ii .ii-kicker.center{text-align:center;}
+  #tn-ii .ii-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-ii .ii-h2.center{text-align:center;}
+  #tn-ii .ii-tw{font-style:italic;}
+  #tn-ii .ii-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ii .ii-p b{color:var(--ink); font-weight:700;}
+  #tn-ii .ii-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+
+  #tn-ii .ii-panel{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-ii .ii-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-ii .ii-note b{color:var(--ink); font-weight:700;}
+  #tn-ii .ii-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  /* title & vocabulary slide */
+  #tn-ii .ii-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(32px,8vw,50px); line-height:1.12; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
+  #tn-ii .ii-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ii .ii-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ii .ii-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ii .ii-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ii .ii-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ii .ii-vocab-chip:hover{background:#DCF0E5;}
+  #tn-ii .ii-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ii .ii-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ii .ii-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ii .ii-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+
+  /* hook */
+  #tn-ii .ii-hook{margin-top:4px;}
+  #tn-ii .ii-hook-opts{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;}
+  #tn-ii .ii-hook-opt{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 12px; cursor:pointer; text-align:center; line-height:1.2; transition:all .18s;}
+  #tn-ii .ii-hook-opt span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:12px; color:var(--mut); margin-top:3px;}
+  #tn-ii .ii-hook-opt.on{border-color:var(--g); background:var(--tint);}
+  #tn-ii .ii-hook-panel{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:16px; padding:18px 16px;}
+  #tn-ii .ii-hook-cap{text-align:center; font-size:12.5px; color:var(--ink2); font-weight:600; margin-bottom:12px;}
+  #tn-ii .ii-hook-grid{display:flex; gap:10px;}
+  #tn-ii .ii-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center;}
+  #tn-ii .ii-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-ii .ii-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(16px,4.4vw,20px); color:var(--ink);}
+  #tn-ii .ii-hook-box.green{background:var(--tint); border-color:var(--selbd);}
+  #tn-ii .ii-hook-box.green b{color:var(--g);}
+
+  /* growth meter gauge */
+  #tn-ii .ii-gauge{position:relative; max-width:300px; margin:0 auto 8px;}
+  #tn-ii .ii-gauge-num{position:absolute; left:0; right:0; top:52%; text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,7vw,38px); line-height:1;}
+  #tn-ii .ii-gauge-lab{position:absolute; left:0; right:0; top:74%; text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2);}
+  #tn-ii .ii-gauge-ends{display:flex; justify-content:space-between; font-size:12px; color:var(--mut); margin-top:-6px; padding:0 6px;}
+  #tn-ii .ii-slide-row{margin-top:16px;}
+  #tn-ii .ii-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-ii .ii-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-ii .ii-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-ii .ii-slide-v.green{color:var(--g);} #tn-ii .ii-slide-v.orange{color:var(--warn);} #tn-ii .ii-slide-v.blue{color:var(--b);}
+
+  /* ranges */
+  #tn-ii .ii-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-ii .ii-range.good{background:linear-gradient(90deg,#C0392B,#E0A93C,#209B73);}
+  #tn-ii .ii-range.bad{background:linear-gradient(90deg,#209B73,#E0A93C,#C0392B);}
+  #tn-ii .ii-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-ii .ii-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-ii .ii-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* factor + build chips */
+  #tn-ii .ii-fico{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-ii .ii-fchip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; font-size:13.5px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-ii .ii-fchip b{margin-left:auto; font-family:'Poppins',sans-serif; color:var(--ink2); font-size:12px;}
+  #tn-ii .ii-fchip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-ii .ii-fchip .d1{background:#209B73;} #tn-ii .ii-fchip .d2{background:#1f8f9b;} #tn-ii .ii-fchip .d3{background:#1568AE;} #tn-ii .ii-fchip .d4{background:#E0952F;} #tn-ii .ii-fchip .d5{background:#8a7016;}
+  #tn-ii .ii-fchip.on{border-color:var(--g); background:var(--tint);}
+  #tn-ii #ii-build .ii-fchip{justify-content:flex-start;}
+  #tn-ii .ii-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ii .ii-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-ii .ii-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+
+  /* sorter */
+  #tn-ii .ii-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ii .ii-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ii .ii-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-ii .ii-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ii .ii-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; padding:7px 15px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ii .ii-sort-btns button[data-p="save"]{border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-ii .ii-sort-btns button[data-p="invest"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-ii .ii-sort-btns button[data-p="myth"]{border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-ii .ii-sort-btns button[data-p="fact"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-ii .ii-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ii .ii-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ii .ii-sort-row.done .ii-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ii .ii-sort-row.done .ii-sort-btns button.picked{opacity:1;}
+  #tn-ii .ii-mrow{flex-wrap:wrap;}
+  #tn-ii .ii-myth-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-ii .ii-myth-why b{font-family:'Poppins',sans-serif;}
+  #tn-ii .ii-sort-row.done .ii-myth-why{display:block;}
+
+  /* cost-of-waiting trap */
+  #tn-ii .ii-trap{display:flex; gap:10px; margin-top:16px;}
+  #tn-ii .ii-trap-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:13px; padding:16px 12px; text-align:center;}
+  #tn-ii .ii-trap-box.red{background:var(--nobg); border-color:var(--nobd);}
+  #tn-ii .ii-trap-lab{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:6px;}
+  #tn-ii .ii-trap-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(20px,5.4vw,26px); color:var(--ink);}
+  #tn-ii .ii-trap-box.red .ii-trap-v{color:var(--no);}
+
+  /* spot the red flags */
+  #tn-ii .ii-traps{display:grid; grid-template-columns:1fr 1fr; gap:11px;}
+  #tn-ii .ii-trap-tile{position:relative; text-align:left; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:15px; padding:18px 16px; min-height:92px; cursor:pointer; transition:all .2s;}
+  #tn-ii .ii-trap-tile::after{content:"Tap to reveal"; display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--mut); margin-top:6px;}
+  #tn-ii .ii-trap-tile.safe{border-color:var(--selbd); background:var(--tint);}
+  #tn-ii .ii-trap-tile.risky{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ii .ii-trap-tile.done::after{content:attr(data-reveal); color:var(--ink2); font-size:12.5px; line-height:1.4;}
+  #tn-ii .ii-trap-badge{position:absolute; top:12px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; padding:3px 9px; border-radius:99px; text-transform:uppercase; letter-spacing:.04em;}
+  #tn-ii .ii-trap-tile.safe .ii-trap-badge{background:var(--g); color:#fff;}
+  #tn-ii .ii-trap-tile.risky .ii-trap-badge{background:var(--no); color:#fff;}
+
+  /* diversification (concentration) slider */
+  #tn-ii .ii-util-top{display:flex; justify-content:space-between; margin-bottom:10px;}
+  #tn-ii .ii-util-r{text-align:right;}
+  #tn-ii .ii-util-lab{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); font-weight:700;}
+  #tn-ii .ii-util-bal,#tn-ii .ii-util-pct{font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--ink);}
+  #tn-ii .ii-util-pct{color:var(--g);}
+  #tn-ii .ii-util-track{position:relative; height:16px; background:#EAEFF3; border-radius:9px; overflow:visible; margin-bottom:6px;}
+  #tn-ii #ii-conc-fill{position:absolute; left:0; top:0; bottom:0; border-radius:9px; background:var(--g); transition:width .2s, background .2s;}
+  #tn-ii .ii-util-mark{position:absolute; top:-4px; bottom:-4px; width:2px; background:var(--ink); opacity:.5;}
+  #tn-ii .ii-util-verdict{border-radius:12px; padding:13px; text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-top:14px;}
+  #tn-ii .ii-util-verdict.safe{background:var(--tint); color:var(--g);}
+  #tn-ii .ii-util-verdict.danger{background:var(--nobg); color:var(--no);}
+
+  /* automate it */
+  #tn-ii .ii-toggle{display:inline-flex; align-items:center; gap:10px; background:#E4E9EE; border:none; border-radius:99px; padding:8px 18px 8px 8px; cursor:pointer; margin:4px auto 22px; transition:background .25s;}
+  #tn-ii .ii-toggle-knob{width:26px; height:26px; border-radius:50%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,.2); transition:transform .25s;}
+  #tn-ii .ii-toggle-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2);}
+  #tn-ii .ii-toggle.on{background:var(--g);}
+  #tn-ii .ii-toggle.on .ii-toggle-knob{transform:translateX(24px);}
+  #tn-ii .ii-toggle.on .ii-toggle-lab{color:#fff;}
+  #tn-ii .ii-pipe{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:8px; align-items:center;}
+  #tn-ii .ii-pipe-card{background:#fff; border:1.5px solid var(--cardbd); border-radius:15px; padding:16px 14px; text-align:left; transition:all .3s;}
+  #tn-ii .ii-pipe-ico{width:36px; height:36px; border-radius:10px; background:var(--mist); display:flex; align-items:center; justify-content:center; margin-bottom:10px; transition:all .3s; font-size:17px;}
+  #tn-ii .ii-pipe-t{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-bottom:4px;}
+  #tn-ii .ii-pipe-d{font-size:12px; color:var(--ink2); line-height:1.45;}
+  #tn-ii .ii-pipe-arrow{color:var(--mut); font-size:18px;}
+  #tn-ii .ii-pipe.on .ii-pipe-card{border-color:var(--selbd); background:var(--tint);}
+  #tn-ii .ii-pipe.on .ii-pipe-ico{background:var(--g);}
+  #tn-ii .ii-autopilot-msg{font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--g); margin:20px 0 0; min-height:22px; opacity:0; transition:opacity .3s;}
+  #tn-ii .ii-autopilot-msg.show{opacity:1;}
+
+  /* recap */
+  #tn-ii .ii-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ii .ii-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-ii .ii-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ii .ii-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-ii .ii-recap-item b{font-weight:700;}
+  #tn-ii .ii-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-ii .ii-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  #tn-ii .ii-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  /* scroll-down prompt (last slide) */
+  #tn-ii .ii-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ii .ii-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ii-bob 1.6s ease-in-out infinite;}
+  #tn-ii .ii-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--ink); margin:10px 0 6px;}
+  #tn-ii .ii-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ii .ii-finish-sub b{color:var(--ink); font-weight:700;}
+  #tn-ii .ii-finish-arrow.up{animation:ii-bob-up 1.6s ease-in-out infinite;}
+  @keyframes ii-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ii-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-ii .ii-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ii .ii-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-ii .ii-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-ii .ii-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-ii .ii-btn:hover{transform:translateY(-2px);}
+  #tn-ii .ii-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-ii .ii-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ii .ii-green{color:var(--g);}
+  #tn-ii .ii-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-ii .ii-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-ii .ii-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ii .ii-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ii .ii-nav-btn.prev{color:var(--ink2);}
+  #tn-ii .ii-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ii .ii-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-ii .ii-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ii .ii-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ii .ii-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ii .ii-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-ii .ii-wrap{padding:12px 14px 30px;}
+    #tn-ii .ii-fico{grid-template-columns:1fr;}
+    #tn-ii .ii-traps{grid-template-columns:1fr;}
+    #tn-ii .ii-pipe{grid-template-columns:1fr;}
+    #tn-ii .ii-pipe-arrow{transform:rotate(90deg); justify-self:center;}
+    #tn-ii .ii-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ii .ii-bsub{display:none;}
+    #tn-ii .ii-nav-hint{display:none;}
+    #tn-ii .ii-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ii .ii-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ii #ii-bar{transition:none;}
+  }
+</style>
+
+<script>
+/* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
+(function(){
+  var root=document.getElementById('tn-ii'); if(!root) return;
+  root.querySelectorAll('.ii-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function money(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  function fvMonthly(pmt, annualRate, months){
+    var i=annualRate/12;
+    if(i===0) return pmt*months;
+    return pmt*((Math.pow(1+i,months)-1)/i);
+  }
+  function band(v){ return v>=400000?['Powerhouse','#209B73']:v>=150000?['Compounding','#5BA86B']:v>=50000?['Growing Strong','#E0952F']:v>=10000?['Building','#B7791F']:['Starting Out','#C0392B']; }
+
+  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
+  var vocabDef=root.querySelector('#ii-vocab-def');
+  root.querySelectorAll('#ii-vocab-chips .ii-vocab-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      root.querySelectorAll('#ii-vocab-chips .ii-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
+      chip.classList.add('on');
+      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · hook — sitting still vs growing */
+  var hookState={}, hookNote=root.querySelector('#ii-hook-note');
+  root.querySelectorAll('#ii-hook .ii-hook-opt').forEach(function(o){
+    o.addEventListener('click',function(){
+      root.querySelectorAll('#ii-hook .ii-hook-opt').forEach(function(x){x.classList.remove('on');});
+      o.classList.add('on');
+      var rate=+o.getAttribute('data-rate'), years=20, principal=5000;
+      var final=principal*Math.pow(1+rate,years);
+      root.querySelector('#ii-hook-final').textContent=money(final);
+      root.querySelector('#ii-hook-cap').textContent='$5,000, left alone for 20 years at ~'+(rate*100).toFixed(1)+'%';
+      hookState[o.getAttribute('data-k')]=1;
+      if(Object.keys(hookState).length>=2) hookNote.textContent='Same starting amount, same 20 years — the only difference is whether the money was working the whole time.';
+      postHeight();
+    });
+  });
+
+  /* 3 · growth meter gauge */
+  var contrib=root.querySelector('#ii-contrib'), years2=root.querySelector('#ii-years2'),
+      contribV=root.querySelector('#ii-contrib-v'), years2V=root.querySelector('#ii-years2-v'),
+      projEl=root.querySelector('#ii-proj'), projLab=root.querySelector('#ii-proj-lab'),
+      needle=root.querySelector('#ii-needle'), arc=root.querySelector('#ii-gauge-arc');
+  var ARC=377;
+  if(arc){ try{ ARC=arc.getTotalLength(); }catch(e){} arc.style.strokeDasharray=ARC; }
+  function projCalc(){
+    var c=+contrib.value, y=+years2.value;
+    contribV.textContent='$'+c+'/mo'; years2V.textContent=y+' yrs';
+    var final=fvMonthly(c,0.08,y*12);
+    var frac=Math.min(1, final/500000);
+    projEl.textContent=money(final);
+    var b=band(final); projLab.textContent=b[0]; projLab.style.color=b[1];
+    if(needle){ var ang=-90+frac*180; needle.setAttribute('transform','rotate('+ang+' 140 150)'); }
+    if(arc){ arc.style.strokeDashoffset=ARC*(1-frac); }
+    postHeight();
+  }
+  if(contrib&&years2){ contrib.addEventListener('input',projCalc); years2.addEventListener('input',projCalc); projCalc(); }
+
+  /* 4 · what moves your returns */
+  var ficoReviewed={}, ficoT=root.querySelector('#ii-fico-t'),
+      ficoD=root.querySelector('#ii-fico-d'), ficoCount=root.querySelector('#ii-fico-count');
+  root.querySelectorAll('#ii-fico .ii-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ii-fico .ii-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      ficoT.textContent=c.getAttribute('data-t'); ficoD.textContent=c.getAttribute('data-d');
+      ficoReviewed[c.getAttribute('data-t')]=1;
+      ficoCount.textContent='Reviewed '+Object.keys(ficoReviewed).length+' of 5 factors';
+      postHeight();
+    });
+  });
+
+  /* 5 · savings vs investing sorter */
+  var sortDone=0, sortCount=root.querySelector('#ii-sort-count');
+  root.querySelectorAll('#ii-sort .ii-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ii-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        row.classList.add('done', pick===ans?'correct':'wrong');
+        sortDone++; sortCount.textContent='Sorted '+sortDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  /* 6 · build from zero */
+  var buildReviewed={}, buildT=root.querySelector('#ii-build-t'),
+      buildD=root.querySelector('#ii-build-d'), buildCount=root.querySelector('#ii-build-count');
+  root.querySelectorAll('#ii-build .ii-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ii-build .ii-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      buildT.textContent=c.getAttribute('data-t'); buildD.textContent=c.getAttribute('data-d');
+      buildReviewed[c.getAttribute('data-t')]=1;
+      buildCount.textContent='Explored '+Object.keys(buildReviewed).length+' of 4 options';
+      postHeight();
+    });
+  });
+
+  /* 7 · cost of waiting */
+  var delay=root.querySelector('#ii-delay'), delayV=root.querySelector('#ii-delay-v'),
+      delayFinal=root.querySelector('#ii-delay-final'), delayLost=root.querySelector('#ii-delay-lost'), delayNote=root.querySelector('#ii-delay-note');
+  function delayCalc(){
+    var d=+delay.value; delayV.textContent=d+' yrs';
+    var fullMonths=40*12, pmt=300, rate=0.08;
+    var baseline=fvMonthly(pmt,rate,fullMonths);
+    var remainingMonths=Math.max(0,(40-d)*12);
+    var delayedFinal=fvMonthly(pmt,rate,remainingMonths);
+    var lost=baseline-delayedFinal;
+    delayFinal.textContent=money(delayedFinal);
+    delayLost.textContent=money(lost);
+    delayNote.textContent = d===0
+      ? 'Starting today, at age 25, gives your money the full runway to compound all the way to 65.'
+      : 'Every year you wait isn\u2019t just a year of missed contributions — it\u2019s a year of compounding that never gets replaced.';
+    postHeight();
+  }
+  if(delay){ delay.addEventListener('input',delayCalc); delayCalc(); }
+
+  /* 8 · myth or fact */
+  var mythDone=0, mythCount=root.querySelector('#ii-myth-count');
+  root.querySelectorAll('#ii-myth .ii-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ii-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        row.classList.add('done', pick===ans?'correct':'wrong');
+        mythDone++; mythCount.textContent='Answered '+mythDone+' of 3';
+        postHeight();
+      });
+    });
+  });
+
+  /* 9 · spot the red flags */
+  var trapsRevealed=0, trapsCount=root.querySelector('#ii-traps-count');
+  root.querySelectorAll('#ii-traps .ii-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      if(t.classList.contains('done')) return;
+      var v=t.getAttribute('data-verdict');
+      t.classList.add('done', v);
+      t.setAttribute('data-reveal', t.getAttribute('data-d'));
+      var badge=document.createElement('span'); badge.className='ii-trap-badge'; badge.textContent=(v==='safe'?'Safe':'Risky');
+      t.appendChild(badge);
+      trapsRevealed++; trapsCount.textContent='Revealed '+trapsRevealed+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 10 · diversification concentration slider */
+  var conc=root.querySelector('#ii-conc'), concBal=root.querySelector('#ii-conc-bal'), concPct=root.querySelector('#ii-conc-pct'),
+      concFill=root.querySelector('#ii-conc-fill'), concVerd=root.querySelector('#ii-conc-verdict');
+  function concCalc(){
+    var bal=+conc.value, pct=Math.round(bal/10000*100);
+    concBal.textContent='$'+bal.toLocaleString(); concPct.textContent=pct+'%';
+    concFill.style.width=pct+'%';
+    var safe=pct<=20;
+    concFill.style.background=safe?'#209B73':'#C0392B'; concPct.style.color=safe?'#209B73':'#C0392B';
+    concVerd.className='ii-util-verdict '+(safe?'safe':'danger');
+    concVerd.textContent=safe?'Well Diversified — keep it spread out':'Heavily Concentrated — consider spreading out';
+    postHeight();
+  }
+  if(conc){ conc.addEventListener('input',concCalc); concCalc(); }
+
+  /* 11 · automate it */
+  var toggle=root.querySelector('#ii-toggle'), tLab=root.querySelector('#ii-toggle-lab'),
+      pipe=root.querySelector('#ii-pipe'), apMsg=root.querySelector('#ii-autopilot-msg');
+  if(toggle) toggle.addEventListener('click',function(){
+    var on=toggle.classList.toggle('on'); toggle.setAttribute('aria-pressed',on);
+    tLab.textContent=on?'Auto-Invest On':'Auto-Invest Off';
+    pipe.classList.toggle('on',on);
+    apMsg.textContent=on?'Auto-invest engaged. Your investing now happens hands-free, every month.':'';
+    apMsg.classList.toggle('show',on);
+    postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<script>
+/* ============================================================
+     FULL-SCREEN AWARE PROMPT (last slide)
+     If the lesson is expanded to full screen, "scroll down" is
+     wrong — the learner has to close it first. This swaps the
+     wording and flips the arrow upward toward the ✕ button.
+     ============================================================ */
+(function(){
+  var arrow=document.getElementById('ii-fin-arrow');
+  var lead=document.getElementById('ii-fin-lead');
+  var sub=document.getElementById('ii-fin-sub');
+  if(!arrow||!lead||!sub) return;
+
+  var COPY={
+    normal:{ arrow:'↓', up:false, lead:'Scroll down to continue',
+             sub:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.' },
+    full:{   arrow:'↑', up:true,  lead:'Close full screen to continue',
+             sub:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.' }
+  };
+  var last=null;
+
+  function isFullScreen(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{
+      if(!window.screen) return false;
+      var h=window.screen.availHeight||window.screen.height;
+      var w=window.screen.availWidth||window.screen.width;
+      return (window.innerHeight >= h-130) && (window.innerWidth >= w-60);
+    }catch(e){ return false; }
+  }
+
+  function apply(){
+    var key=isFullScreen()?'full':'normal';
+    if(key===last) return;
+    last=key;
+    var c=COPY[key];
+    arrow.textContent=c.arrow;
+    arrow.classList.toggle('up', c.up);
+    lead.textContent=c.lead;
+    sub.innerHTML=c.sub;
+  }
+
+  window.addEventListener('resize',apply);
+  document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700);
+  apply();
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ii'); if(!root) return;
+  var TOTAL=13, current=1;
+
+  var bar=root.querySelector('#ii-bar');
+  var labelEl=root.querySelector('#ii-slide-label');
+  var countEl=root.querySelector('#ii-slide-count');
+  var prevBtn=root.querySelector('#ii-prev');
+  var nextBtn=root.querySelector('#ii-next');
+  var hintEl=root.querySelector('#ii-nav-hint');
+  var disclaimer=root.querySelector('.ii-disclaimer');
+
+  var labels={1:'Key Vocabulary',2:'Why It Matters',3:'The Growth Meter',4:'What Moves It',5:'Savings vs Investing',6:'Build From Zero',7:'The Cost of Waiting',8:'Myth or Fact',9:'Spot the Red Flags',10:'Diversification',11:'Automate It',12:'Recap',13:'Complete'};
+  var reqHints={2:'Compare both to continue',3:'Move both sliders to continue',4:'Review all 5 factors to continue',5:'Sort all 4 to continue',6:'Explore all 4 options to continue',7:'Move the slider to continue',8:'Answer all 3 to continue',9:'Reveal all 4 tiles to continue',10:'Move the slider to continue',11:'Flip the switch to continue'};
+
+  var done={1:true,12:true,13:true};
+  var secByStep={};
+  root.querySelectorAll('.ii-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ii-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ii-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · hook — both options tapped
+  var hk={};
+  root.querySelectorAll('#ii-hook .ii-hook-opt').forEach(function(o){
+    o.addEventListener('click',function(){ hk[o.getAttribute('data-k')]=1;
+      if(keys(hk)>=2) markDone(2); else liveHint(2,'Now tap the other option to compare'); });
+  });
+
+  // 2 · both sliders moved
+  var s2={contrib:false,years:false};
+  var contrib=root.querySelector('#ii-contrib'), years2=root.querySelector('#ii-years2');
+  function s2check(){ if(s2.contrib&&s2.years) markDone(3);
+    else liveHint(3, s2.contrib?'Now move the years slider':(s2.years?'Now move the contribution slider':'Move both sliders to continue')); }
+  if(contrib) contrib.addEventListener('input',function(){ s2.contrib=true; s2check(); });
+  if(years2) years2.addEventListener('input',function(){ s2.years=true; s2check(); });
+
+  // 3 · all 5 factors
+  var fico={};
+  root.querySelectorAll('#ii-fico .ii-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ fico[c.getAttribute('data-t')]=1;
+      if(keys(fico)>=5) markDone(4); else liveHint(4,'Reviewed '+keys(fico)+' of 5 — review all to continue'); });
+  });
+
+  // 4 · all 4 sorted
+  root.querySelectorAll('#ii-sort .ii-sort-row button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#ii-sort .ii-sort-row.done');
+      if(n>=4) markDone(5); else liveHint(5,'Sorted '+n+' of 4 — finish all to continue'); });
+  });
+
+  // 5 · all 4 build options
+  var bld={};
+  root.querySelectorAll('#ii-build .ii-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ bld[c.getAttribute('data-t')]=1;
+      if(keys(bld)>=4) markDone(6); else liveHint(6,'Explored '+keys(bld)+' of 4 — explore all to continue'); });
+  });
+
+  // 6 · delay slider moved
+  var delay=root.querySelector('#ii-delay'); if(delay) delay.addEventListener('input',function(){ markDone(7); });
+
+  // 7 · all 3 myth answers
+  root.querySelectorAll('#ii-myth .ii-sort-row button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#ii-myth .ii-sort-row.done');
+      if(n>=3) markDone(8); else liveHint(8,'Answered '+n+' of 3 — answer all to continue'); });
+  });
+
+  // 8 · all 4 traps revealed
+  root.querySelectorAll('#ii-traps .ii-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){ var n=count('#ii-traps .ii-trap-tile.done');
+      if(n>=4) markDone(9); else liveHint(9,'Revealed '+n+' of 4 — reveal all to continue'); });
+  });
+
+  // 9 · concentration slider moved
+  var conc=root.querySelector('#ii-conc'); if(conc) conc.addEventListener('input',function(){ markDone(10); });
+
+  // 10 · auto-invest switched on
+  var toggle=root.querySelector('#ii-toggle');
+  if(toggle) toggle.addEventListener('click',function(){ if(toggle.classList.contains('on')) markDone(11); });
+
+  show(1);
+})();
+</script>

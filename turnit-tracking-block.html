@@ -1,0 +1,96 @@
+
+<!-- ============================================================
+     BROKERAGE CLICK COUNTS  (GA4)
+     Counts how many click-throughs each brokerage gets.
+     No identity, no contact records, nothing written to your CRM.
+
+     Already configured with the TURNIT Measurement ID. To switch
+     counting off, blank out GA4_ID below — the lesson is unaffected
+     either way.
+
+     WHERE THE NUMBERS SHOW UP
+       GA4 > Reports > Engagement > Events > "brokerage_click"
+       To split by firm, register a custom dimension once:
+       Admin > Custom definitions > Create custom dimension
+         Dimension name: brokerage   Scope: Event   Parameter: brokerage
+       (Do the same for "placement" if you want featured vs. list.)
+       Custom dimensions take up to 24h to appear and do not backfill.
+       Admin > DebugView shows events within seconds while testing.
+
+     WHAT COUNTS
+       Only real click-throughs to a brokerage's site. Tapping a card
+       to read its overview is browsing, not a click, so it is ignored
+       — otherwise someone comparing all six would register six
+       "clicks" without visiting anyone. Repeat clicks on the same
+       brokerage are deduped per page load.
+     ============================================================ -->
+<script>
+(function(){
+  /* ---------- CONFIG ---------- */
+  var GA4_ID    = 'G-TLYTKELKW3';   /* blank this out to disable counting */
+  var LESSON_ID = 'opening-your-first-account';
+  var DEBUG     = true;             /* logs every counted click to the console */
+
+  var root = document.getElementById('tn-oa');
+  if(!root) return;
+
+  if(!GA4_ID){
+    if(DEBUG) console.warn('[TURNIT] Click counting off: no GA4_ID set.');
+  } else {
+    var s=document.createElement('script');
+    s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GA4_ID);
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=window.gtag||function(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    /* the lesson is iframed, so don't let GA4 guess the page from the frame */
+    window.gtag('config', GA4_ID, { send_page_view:false });
+  }
+
+  var sent = {};
+
+  function count(brokerage, where){
+    if(!brokerage) return;
+    var key = brokerage+'|'+where;
+    if(sent[key]) return;
+    sent[key] = true;
+    if(DEBUG) console.log('[TURNIT] brokerage_click:', brokerage, '('+where+')');
+    if(!GA4_ID || !window.gtag) return;
+    window.gtag('event','brokerage_click',{
+      brokerage: brokerage,
+      placement: where,          /* 'featured' or 'more_list' */
+      lesson: LESSON_ID
+    });
+  }
+
+  var NAMES = { a:'Robinhood', b:'Fidelity', c:'Charles Schwab',
+                d:'Vanguard',  e:'Merrill Edge', f:'E*TRADE' };
+
+  function chosenKey(){
+    var on = root.querySelector('#oa-provider-grid .oa-provider-card.on');
+    return on ? on.getAttribute('data-k') : '';
+  }
+
+  /* the inline "Visit X →" link (created after Continue is pressed) */
+  root.addEventListener('click', function(ev){
+    var a = ev.target && ev.target.closest ? ev.target.closest('.oa-provider-link') : null;
+    if(a) count(NAMES[chosenKey()] || '', 'featured');
+  });
+
+  /* the "want to visit?" modal on leaving the provider slide */
+  var visitYes = root.querySelector('#oa-visit-yes');
+  if(visitYes) visitYes.addEventListener('click', function(){
+    count(window.chosenProviderName || NAMES[chosenKey()] || '', 'featured');
+  });
+
+  /* the 12 in the expanded list */
+  root.querySelectorAll('.oa-more-item').forEach(function(a){
+    a.addEventListener('click', function(){
+      var b = a.querySelector('b');
+      count(b ? b.textContent.trim() : '', 'more_list');
+    });
+  });
+
+  if(DEBUG) console.log('[TURNIT] brokerage click counting ready.');
+})();
+</script>

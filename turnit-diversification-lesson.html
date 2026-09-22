@@ -1,0 +1,675 @@
+<!-- ============================================================
+     TURNIT — DIVERSIFICATION: DON'T PUT ALL YOUR EGGS IN ONE BASKET
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-dv. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Diversification has been a supporting theme in many earlier lessons —
+     this one goes past the cliché: geographic diversification, the
+     correlation trap, and "diworsification" are all new ground here.
+
+     10 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview            2 The Basket Drop Test
+       3 The Three Layers           4 Passport Check
+       5 The Correlation Trap       6 Diworsification
+       7 The Simple Fix             8 Sort the Baskets
+       9 Recap                      10 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-dv">
+  <div class="dv-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="dv-top">
+      <div class="dv-topbar">
+        <div class="dv-brand"><span class="dv-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><ellipse cx="12" cy="13" rx="5" ry="7"/><path d="M4 20h16"/></svg></span><span class="dv-word">TURNIT</span><span class="dv-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="dv-progress"><span id="dv-bar"></span></div>
+      <div class="dv-meta"><span id="dv-slide-label">Lesson Overview</span><span id="dv-slide-count">Slide 1 of 10</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="dv-sec dv-reveal" data-step="1">
+      <p class="dv-kicker">Welcome · 1 / 10</p>
+      <h2 class="dv-h2">You already know the cliché</h2>
+      <p class="dv-p">"Don't put all your eggs in one basket" is the easy part. This lesson covers what most people miss — the parts where diversification can quietly go wrong even when it looks right.</p>
+
+      <div class="dv-recap">
+        <div class="dv-recap-item"><span class="dv-recap-check">1</span><span>The three actual layers real diversification happens on.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">2</span><span>Why country and region matter too, not just company and sector.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">3</span><span>Why owning 20 similar things can secretly be fake diversification.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">4</span><span>Whether you can actually have too much of it.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">5</span><span>The simple shortcut that gets you most of the way there in one move.</span></div>
+      </div>
+      <div class="dv-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE BASKET DROP TEST ========== -->
+    <section class="dv-sec dv-reveal" data-step="2">
+      <p class="dv-kicker">The Basket Drop Test · 2 / 10</p>
+      <h2 class="dv-h2">Let's actually drop the baskets</h2>
+      <p class="dv-p">Tap to drop both and see what survives.</p>
+
+      <div class="dv-panel">
+        <div class="dv-basket-grid">
+          <div class="dv-basket-col">
+            <span class="dv-basket-lab">All Eggs, One Basket</span>
+            <div class="dv-basket-visual" id="dv-basket-one">
+              <span class="dv-egg">🥚</span><span class="dv-egg">🥚</span><span class="dv-egg">🥚</span>
+              <span class="dv-egg">🥚</span><span class="dv-egg">🥚</span><span class="dv-egg">🥚</span>
+            </div>
+          </div>
+          <div class="dv-basket-col">
+            <span class="dv-basket-lab">Eggs, Several Baskets</span>
+            <div class="dv-basket-visual" id="dv-basket-many">
+              <span class="dv-egg-group">🧺<span class="dv-egg">🥚</span><span class="dv-egg">🥚</span></span>
+              <span class="dv-egg-group">🧺<span class="dv-egg">🥚</span><span class="dv-egg">🥚</span></span>
+              <span class="dv-egg-group">🧺<span class="dv-egg">🥚</span><span class="dv-egg">🥚</span></span>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="dv-confirm-btn" id="dv-drop-btn">💥 Drop Them Both</button>
+        <div class="dv-basket-result" id="dv-basket-result">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · THE THREE LAYERS ========== -->
+    <section class="dv-sec dv-reveal" data-step="3">
+      <p class="dv-kicker">The Three Layers · 3 / 10</p>
+      <h2 class="dv-h2">Real diversification is stacked</h2>
+      <p class="dv-p">Tap through all three layers.</p>
+
+      <div class="dv-layer-stack" id="dv-layer-stack">
+        <button type="button" class="dv-layer-slab" data-k="1" data-t="Layer 1: Asset Classes" data-d="Spreading across fundamentally different types — stocks, bonds, cash. They don't all react to the same news the same way.">🏛️ Asset Classes</button>
+        <button type="button" class="dv-layer-slab" data-k="2" data-t="Layer 2: Within Each Class" data-d="Within stocks alone, spreading across many companies and sectors, so no single company's stumble sinks the whole thing.">🏢 Within Each Class</button>
+        <button type="button" class="dv-layer-slab" data-k="3" data-t="Layer 3: Geography" data-d="Spreading across countries and regions too — one country's economic troubles don't have to mean trouble for everything you own.">🌍 Geography</button>
+      </div>
+      <div class="dv-layer-result" id="dv-layer-result">&nbsp;</div>
+      <p class="dv-count" id="dv-layer-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 4 · PASSPORT CHECK ========== -->
+    <section class="dv-sec dv-reveal" data-step="4">
+      <p class="dv-kicker">Passport Check · 4 / 10</p>
+      <h2 class="dv-h2">Diversification has a passport too</h2>
+      <p class="dv-p">Tap each region to stamp it.</p>
+
+      <div class="dv-passport">
+        <div class="dv-passport-page">
+          <span class="dv-passport-ico">🛂</span>
+          <div class="dv-stamps" id="dv-stamps"></div>
+        </div>
+      </div>
+      <div class="dv-region-btns" id="dv-region-btns">
+        <button type="button" data-k="us" data-d="The largest single market, home to many of the world's biggest companies — but still just one country's economy.">🇺🇸 United States</button>
+        <button type="button" data-k="eu" data-d="Established, mature economies with their own industries, regulations, and growth patterns — often different from the U.S.'s.">🇪🇺 Europe</button>
+        <button type="button" data-k="asia" data-d="Includes some of the world's largest developed and manufacturing economies, moving on their own economic cycles.">🌏 Asia</button>
+        <button type="button" data-k="em" data-d="Faster-growing but often more volatile economies — higher potential upside, generally paired with higher risk.">🌍 Emerging Markets</button>
+      </div>
+      <div class="dv-region-result" id="dv-region-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 5 · THE CORRELATION TRAP ========== -->
+    <section class="dv-sec dv-reveal" data-step="5">
+      <p class="dv-kicker">The Correlation Trap · 5 / 10</p>
+      <h2 class="dv-h2">Counting isn't the same as diversifying</h2>
+      <p class="dv-p">Tap each portfolio to watch it move.</p>
+
+      <div class="dv-panel">
+        <div class="dv-corr-stage" id="dv-corr-stage"></div>
+        <div class="dv-corr-btns">
+          <button type="button" class="dv-corr-btn" id="dv-corr-fake">20 Tech Stocks</button>
+          <button type="button" class="dv-corr-btn" id="dv-corr-real">5 Different Asset Types</button>
+        </div>
+        <div class="dv-note" id="dv-corr-note">Watch how the pieces move — together, or independently.</div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · DIWORSIFICATION ========== -->
+    <section class="dv-sec dv-reveal" data-step="6">
+      <p class="dv-kicker">Diworsification · 6 / 10</p>
+      <h2 class="dv-h2">Can you actually have too much?</h2>
+      <p class="dv-p">Slide through the number of holdings and watch the benefit curve.</p>
+
+      <div class="dv-panel">
+        <div class="dv-curve-wrap">
+          <svg viewBox="0 0 300 110" class="dv-curve-svg">
+            <polyline class="dv-curve-track" points="0,100 300,100"/>
+            <polyline id="dv-curve-line" class="dv-curve-line" points="0,100"/>
+            <circle id="dv-curve-dot" cx="0" cy="100" r="5" class="dv-curve-dot"/>
+          </svg>
+        </div>
+        <input id="dv-diworse-slider" class="dv-range" type="range" min="1" max="500" value="1" step="1" aria-label="Number of holdings">
+        <div class="dv-scale"><span>1 Holding</span><span>500 Holdings</span></div>
+        <div class="dv-diworse-result"><span>Holdings</span><b id="dv-diworse-count">1</b><span>Risk Reduction Captured</span><b id="dv-diworse-pct">0%</b></div>
+        <div class="dv-note" id="dv-diworse-note">Watch how quickly the curve flattens out.</div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · THE SIMPLE FIX ========== -->
+    <section class="dv-sec dv-center dv-reveal" data-step="7">
+      <p class="dv-kicker center">The Simple Fix · 7 / 10</p>
+      <h2 class="dv-h2 center">There's a shortcut through all of this</h2>
+      <p class="dv-sub center">Tap to see it.</p>
+
+      <button type="button" class="dv-confirm-btn" id="dv-fix-btn">Reveal the Shortcut</button>
+      <div class="dv-fix-result" id="dv-fix-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 8 · SORT THE BASKETS ========== -->
+    <section class="dv-sec dv-reveal" data-step="8">
+      <p class="dv-kicker">Sort the Baskets · 8 / 10</p>
+      <h2 class="dv-h2">Real diversification, or just a lot of stuff?</h2>
+      <p class="dv-p">Tap the right basket for each.</p>
+
+      <div class="dv-sort" id="dv-sort">
+        <div class="dv-sort-row" data-answer="fake"><span>Owning 50 different tech stocks.</span><div class="dv-sort-btns"><button data-p="real">🧺 Real Diversification</button><button data-p="fake">🗑️ Diworsification</button></div><p class="dv-sort-why"></p></div>
+        <div class="dv-sort-row" data-answer="real"><span>Spreading investments across stocks, bonds, and cash.</span><div class="dv-sort-btns"><button data-p="real">🧺 Real Diversification</button><button data-p="fake">🗑️ Diworsification</button></div><p class="dv-sort-why"></p></div>
+        <div class="dv-sort-row" data-answer="fake"><span>Believing more holdings is always better, no matter how similar they are.</span><div class="dv-sort-btns"><button data-p="real">🧺 Real Diversification</button><button data-p="fake">🗑️ Diworsification</button></div><p class="dv-sort-why"></p></div>
+        <div class="dv-sort-row" data-answer="real"><span>A single broad index fund providing exposure to hundreds of companies at once.</span><div class="dv-sort-btns"><button data-p="real">🧺 Real Diversification</button><button data-p="fake">🗑️ Diworsification</button></div><p class="dv-sort-why"></p></div>
+      </div>
+      <p class="dv-count" id="dv-sort-count">Sorted 0 of 4</p>
+    </section>
+
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="dv-sec dv-reveal" data-step="9">
+      <p class="dv-kicker">Recap · 9 / 10</p>
+      <h2 class="dv-h2">Here's what you now know</h2>
+      <p class="dv-p">The whole lesson, in six lines.</p>
+
+      <div class="dv-recap">
+        <div class="dv-recap-item"><span class="dv-recap-check">✓</span><span>Spreading eggs across baskets means one drop doesn't break everything you own.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">✓</span><span>Real diversification stacks three layers: asset class, within-class, and geography.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">✓</span><span>Different countries and regions move on their own economic cycles.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">✓</span><span>Owning many similar things that move together isn't real diversification — correlation matters more than count.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">✓</span><span>Benefits shrink fast after a certain point — piling on more mostly adds complexity, not safety.</span></div>
+        <div class="dv-recap-item"><span class="dv-recap-check">✓</span><span>A single broad fund can often check most of these boxes in one purchase.</span></div>
+      </div>
+      <div class="dv-next-move">Your next move: <b>look at what you already own and ask whether it's actually diversified, or just numerous.</b></div>
+    </section>
+
+    <!-- ========== 10 · CERTIFICATE ========== -->
+    <section class="dv-sec dv-center dv-reveal" data-step="10">
+      <p class="dv-kicker center">Certified · 10 / 10</p>
+      <div class="dv-cert">
+        <div class="dv-cert-border"></div>
+        <span class="dv-cert-pill">🏆 Certificate of Completion</span>
+        <p class="dv-cert-cert">This certifies that</p>
+        <h2 class="dv-cert-name">Basket Certified</h2>
+        <p class="dv-cert-body">has completed <span class="dv-tw">TURNIT</span> Financial Foundations: Diversification, and now knows what the cliché leaves out.</p>
+        <div class="dv-cert-line"></div>
+        <div class="dv-done-row streak"><div class="dv-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="dv-done-row ach"><div class="dv-done-ico">🏆</div><div><b>Achievement: Basket Certified</b><span>You mastered real diversification, layer by layer.</span></div></div>
+        <div class="dv-done-btns">
+          <a class="dv-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="dv-btn ghost" id="dv-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="dv-quote">"DIVERSIFICATION IS THE ONLY <span class="dv-green">FREE LUNCH IN INVESTING.</span>"<br><span class="dv-quote-by">— HARRY MARKOWITZ</span></p>
+    </section>
+
+    <p class="dv-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and diversification does not guarantee a profit or protect against loss. Figures shown are simplified, hypothetical illustrations.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="dv-nav" id="dv-nav">
+      <button type="button" class="dv-nav-btn prev" id="dv-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="dv-nav-hint" id="dv-nav-hint"></span>
+      <button type="button" class="dv-nav-btn next" id="dv-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-dv{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-dv *,#tn-dv *::before,#tn-dv *::after{box-sizing:border-box;}
+  #tn-dv .dv-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-dv .dv-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-dv .dv-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-dv .dv-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-dv .dv-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-dv .dv-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-dv .dv-bico{display:flex;}
+  #tn-dv .dv-word,#tn-dv .dv-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-dv .dv-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-dv .dv-bsub{color:var(--ink2); font-weight:500;}
+  #tn-dv .dv-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-dv #dv-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-dv .dv-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-dv .dv-meta #dv-slide-label{color:var(--ink2);}
+  #tn-dv .dv-meta #dv-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-dv .dv-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-dv .dv-sec.dv-hide{display:none;}
+  #tn-dv .dv-center{text-align:center;}
+  #tn-dv .dv-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-dv .dv-kicker.center{text-align:center;}
+  #tn-dv .dv-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-dv .dv-h2.center{text-align:center;}
+  #tn-dv .dv-tw{font-style:italic;}
+  #tn-dv .dv-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-dv .dv-p b{color:var(--ink); font-weight:700;}
+  #tn-dv .dv-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-dv .dv-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-dv .dv-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-dv .dv-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-dv .dv-confirm-btn{display:block; width:100%; max-width:320px; margin:0 auto; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-dv .dv-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-dv .dv-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-dv .dv-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:14px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-dv .dv-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-dv .dv-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-dv .dv-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* ---- slide 2: basket drop ---- */
+  #tn-dv .dv-basket-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:6px;}
+  #tn-dv .dv-basket-col{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  #tn-dv .dv-basket-lab{font-size:11.5px; font-weight:700; color:var(--ink2); text-align:center;}
+  #tn-dv .dv-basket-visual{display:flex; flex-wrap:wrap; justify-content:center; gap:4px; font-size:22px; min-height:64px; align-items:center;}
+  #tn-dv .dv-egg-group{display:inline-flex; align-items:center; gap:2px; font-size:26px;}
+  #tn-dv .dv-egg{display:inline-block; transition:transform .3s ease, filter .3s ease;}
+  #tn-dv .dv-egg.cracked{transform:scale(.7) rotate(15deg); filter:grayscale(1) brightness(.7);}
+  #tn-dv .dv-basket-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 3: layer stack ---- */
+  #tn-dv .dv-layer-stack{display:flex; flex-direction:column; gap:8px;}
+  #tn-dv .dv-layer-slab{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:15px 18px; cursor:pointer; text-align:left; transition:all .18s;}
+  #tn-dv .dv-layer-slab.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-dv .dv-layer-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 4: passport ---- */
+  #tn-dv .dv-passport{display:flex; justify-content:center; margin-bottom:16px;}
+  #tn-dv .dv-passport-page{background:var(--mist); border:1.5px dashed var(--cardbd); border-radius:14px; padding:18px; width:100%; max-width:340px; text-align:center;}
+  #tn-dv .dv-passport-ico{font-size:34px; display:block; margin-bottom:10px;}
+  #tn-dv .dv-stamps{display:flex; justify-content:center; flex-wrap:wrap; gap:8px; min-height:36px;}
+  #tn-dv .dv-stamp{font-size:26px; opacity:0; transform:scale(0) rotate(-20deg); transition:transform .35s cubic-bezier(.3,1.6,.4,1), opacity .35s ease;}
+  #tn-dv .dv-stamp.go{opacity:1; transform:scale(1) rotate(-8deg);}
+  #tn-dv .dv-region-btns{display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:6px;}
+  #tn-dv .dv-region-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 8px; cursor:pointer; transition:all .18s;}
+  #tn-dv .dv-region-btns button.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-dv .dv-region-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:10px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 5: correlation trap ---- */
+  #tn-dv .dv-corr-stage{display:flex; flex-wrap:wrap; justify-content:center; gap:6px; min-height:90px; align-items:center; margin-bottom:16px; padding:10px;}
+  #tn-dv .dv-corr-item{font-size:20px; transition:transform .5s ease;}
+  #tn-dv .dv-corr-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-dv .dv-corr-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:13px 8px; cursor:pointer; transition:all .18s;}
+  #tn-dv .dv-corr-btn.on{border-color:var(--b); background:#EAF1FA;}
+
+  /* ---- slide 6: diworsification curve ---- */
+  #tn-dv .dv-curve-wrap{margin-bottom:4px;}
+  #tn-dv .dv-curve-svg{width:100%; height:100px; display:block;}
+  #tn-dv .dv-curve-track{fill:none; stroke:var(--cardbd); stroke-width:2; stroke-dasharray:4 4;}
+  #tn-dv .dv-curve-line{fill:none; stroke:var(--g); stroke-width:3; stroke-linecap:round; stroke-linejoin:round;}
+  #tn-dv .dv-curve-dot{fill:var(--b);}
+  #tn-dv .dv-diworse-result{display:flex; justify-content:space-around; text-align:center; background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:14px; margin-top:14px;}
+  #tn-dv .dv-diworse-result span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:3px;}
+  #tn-dv .dv-diworse-result b{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; color:var(--ink);}
+
+  /* ---- slide 7: fix reveal ---- */
+  #tn-dv .dv-fix-result{max-width:460px; margin:18px auto 0; font-size:14px; color:var(--ink2); line-height:1.6; text-align:left; background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:18px 20px; min-height:20px;}
+  #tn-dv .dv-fix-result:empty{display:none;}
+  #tn-dv .dv-fix-result b{color:var(--g); font-family:'Poppins',sans-serif;}
+
+  /* sorter (shared) */
+  #tn-dv .dv-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-dv .dv-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-dv .dv-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-dv .dv-sort-btns{display:flex; gap:7px; flex:none; flex-wrap:wrap;}
+  #tn-dv .dv-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; padding:8px 12px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s; border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-dv .dv-sort-btns button[data-p="fake"]{border-color:#F5C6BE; color:var(--no);}
+  #tn-dv .dv-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-dv .dv-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-dv .dv-sort-row.done .dv-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-dv .dv-sort-row.done .dv-sort-btns button.picked{opacity:1;}
+  #tn-dv .dv-sort-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-dv .dv-sort-why b{font-family:'Poppins',sans-serif;}
+  #tn-dv .dv-sort-row.done .dv-sort-why{display:block;}
+
+  /* recap */
+  #tn-dv .dv-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-dv .dv-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-dv .dv-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-dv .dv-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-dv .dv-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-dv .dv-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-dv .dv-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-dv .dv-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-dv .dv-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-dv .dv-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-dv .dv-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-dv .dv-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-dv .dv-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-dv .dv-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-dv .dv-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-dv .dv-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-dv .dv-done-ico{font-size:20px; flex:none;}
+  #tn-dv .dv-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-dv .dv-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-dv .dv-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-dv .dv-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-dv .dv-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-dv .dv-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-dv .dv-btn:hover{transform:translateY(-2px);}
+  #tn-dv .dv-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-dv .dv-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-dv .dv-green{color:var(--g);}
+  #tn-dv .dv-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-dv .dv-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-dv .dv-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-dv .dv-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-dv .dv-nav-btn.prev{color:var(--ink2);}
+  #tn-dv .dv-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-dv .dv-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-dv .dv-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-dv .dv-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-dv .dv-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-dv .dv-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-dv .dv-wrap{padding:12px 14px 30px;}
+    #tn-dv .dv-corr-btns{grid-template-columns:1fr;}
+    #tn-dv .dv-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-dv .dv-bsub{display:none;}
+    #tn-dv .dv-nav-hint{display:none;}
+    #tn-dv .dv-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-dv .dv-reveal{opacity:1 !important; transform:none !important;}
+    #tn-dv #dv-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-dv'); if(!root) return;
+  root.querySelectorAll('.dv-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · the basket drop test ============ */
+  var dropBtn=root.querySelector('#dv-drop-btn'), basketResult=root.querySelector('#dv-basket-result');
+  if(dropBtn) dropBtn.addEventListener('click',function(){
+    dropBtn.disabled=true;
+    root.querySelectorAll('#dv-basket-one .dv-egg').forEach(function(egg){ egg.classList.add('cracked'); egg.textContent='\ud83d\udca5'; });
+    var manyGroups=root.querySelectorAll('#dv-basket-many .dv-egg-group');
+    manyGroups[1].querySelectorAll('.dv-egg').forEach(function(egg){ egg.classList.add('cracked'); egg.textContent='\ud83d\udca5'; });
+    setTimeout(function(){
+      basketResult.textContent='All six eggs, one basket \u2014 all six broke. Same six eggs spread across three baskets \u2014 only two broke. Same total eggs, wildly different outcome.';
+      postHeight();
+    },350);
+    postHeight();
+  });
+
+  /* ============ 3 · the three layers ============ */
+  var layerResult=root.querySelector('#dv-layer-result'), layerSeen={}, layerCount=root.querySelector('#dv-layer-count');
+  root.querySelectorAll('#dv-layer-stack .dv-layer-slab').forEach(function(slab){
+    slab.addEventListener('click',function(){
+      root.querySelectorAll('#dv-layer-stack .dv-layer-slab').forEach(function(s){ s.classList.remove('on'); });
+      slab.classList.add('on');
+      layerResult.innerHTML='<b>'+slab.getAttribute('data-t')+':</b> '+slab.getAttribute('data-d');
+      layerSeen[slab.getAttribute('data-k')]=1;
+      layerCount.textContent='Explored '+Object.keys(layerSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 4 · passport check ============ */
+  var stamps=root.querySelector('#dv-stamps'), regionResult=root.querySelector('#dv-region-result');
+  var stampIcons={us:'\ud83c\uddfa\ud83c\uddf8', eu:'\ud83c\uddea\ud83c\uddfa', asia:'\ud83c\udf0f', em:'\ud83c\udf0d'};
+  root.querySelectorAll('#dv-region-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(btn.classList.contains('on')) return;
+      btn.classList.add('on');
+      var k=btn.getAttribute('data-k');
+      var s=document.createElement('span');
+      s.className='dv-stamp';
+      s.textContent=stampIcons[k];
+      stamps.appendChild(s);
+      setTimeout(function(){ s.classList.add('go'); postHeight(); },30);
+      regionResult.textContent=btn.getAttribute('data-d');
+      postHeight();
+    });
+  });
+
+  /* ============ 5 · the correlation trap ============ */
+  var corrStage=root.querySelector('#dv-corr-stage'), corrFake=root.querySelector('#dv-corr-fake'),
+      corrReal=root.querySelector('#dv-corr-real'), corrNote=root.querySelector('#dv-corr-note');
+  function runCorr(kind){
+    corrStage.innerHTML='';
+    var n = kind==='fake' ? 20 : 5;
+    var icon = kind==='fake' ? '\ud83d\udcbb' : ['\ud83d\udcc8','\ud83d\udcdc','\ud83c\udfe2','\ud83c\udf0d','\ud83d\udcb0'];
+    for(var i=0;i<n;i++){
+      var el=document.createElement('span');
+      el.className='dv-corr-item';
+      el.textContent = kind==='fake' ? icon : icon[i%icon.length];
+      corrStage.appendChild(el);
+    }
+    var items=corrStage.querySelectorAll('.dv-corr-item');
+    if(kind==='fake'){
+      items.forEach(function(el){ el.style.transitionDelay='0s'; });
+      setTimeout(function(){ items.forEach(function(el){ el.style.transform='translateY(-10px)'; }); },50);
+      setTimeout(function(){ items.forEach(function(el){ el.style.transform='translateY(6px)'; }); },600);
+      setTimeout(function(){ items.forEach(function(el){ el.style.transform='translateY(0)'; }); },1150);
+      corrNote.textContent='Notice how every single icon moved together, in lockstep, at the exact same time. That\u2019s 20 holdings behaving like one \u2014 not real diversification.';
+    } else {
+      items.forEach(function(el,i){ el.style.transitionDelay=(i*0.08)+'s'; });
+      setTimeout(function(){ items.forEach(function(el,i){ el.style.transform='translateY('+(i%2===0?-12:8)+'px)'; }); },50);
+      setTimeout(function(){ items.forEach(function(el,i){ el.style.transform='translateY('+(i%2===0?6:-10)+'px)'; }); },700);
+      setTimeout(function(){ items.forEach(function(el){ el.style.transform='translateY(0)'; }); },1350);
+      corrNote.textContent='Notice how each one moved differently, at different times, in different directions. Fewer holdings, but genuinely independent behavior \u2014 this is what real diversification looks like.';
+    }
+    postHeight();
+  }
+  if(corrFake) corrFake.addEventListener('click',function(){
+    root.querySelectorAll('.dv-corr-btn').forEach(function(b){ b.classList.remove('on'); });
+    corrFake.classList.add('on'); runCorr('fake');
+  });
+  if(corrReal) corrReal.addEventListener('click',function(){
+    root.querySelectorAll('.dv-corr-btn').forEach(function(b){ b.classList.remove('on'); });
+    corrReal.classList.add('on'); runCorr('real');
+  });
+
+  /* ============ 6 · diworsification curve ============ */
+  var diworseSlider=root.querySelector('#dv-diworse-slider'), diworseCount=root.querySelector('#dv-diworse-count'),
+      diworsePct=root.querySelector('#dv-diworse-pct'), curveLine=root.querySelector('#dv-curve-line'),
+      curveDot=root.querySelector('#dv-curve-dot'), diworseNote=root.querySelector('#dv-diworse-note');
+  function diminishingReturn(n){
+    // sharp early gains, flattening curve, capped near 95%
+    return 95*(1-Math.exp(-n/25));
+  }
+  function diworseCalc(){
+    var n=+diworseSlider.value;
+    var pct=diminishingReturn(n);
+    diworseCount.textContent=n;
+    diworsePct.textContent=pct.toFixed(0)+'%';
+    var x=(n/500)*300;
+    var y=100-(pct/100)*90;
+    var pts='0,100';
+    var steps=20;
+    for(var i=1;i<=steps;i++){
+      var stepN=(n/steps)*i;
+      var stepPct=diminishingReturn(stepN);
+      var sx=(stepN/500)*300;
+      var sy=100-(stepPct/100)*90;
+      pts+=' '+sx+','+sy;
+    }
+    curveLine.setAttribute('points',pts);
+    curveDot.setAttribute('cx',x); curveDot.setAttribute('cy',y);
+    if(n>=100){ diworseNote.textContent='Past a certain point, the line barely climbs \u2014 hundreds more holdings add complexity and cost without meaningfully reducing risk further.'; }
+    else if(n>=20){ diworseNote.textContent='Notice most of the benefit already showed up. The curve is flattening fast.'; }
+    else { diworseNote.textContent='Early holdings do the heavy lifting \u2014 each new one meaningfully reduces risk.'; }
+    postHeight();
+  }
+  if(diworseSlider){ diworseSlider.addEventListener('input',diworseCalc); diworseCalc(); }
+
+  /* ============ 7 · the simple fix ============ */
+  var fixBtn=root.querySelector('#dv-fix-btn'), fixResult=root.querySelector('#dv-fix-result');
+  if(fixBtn) fixBtn.addEventListener('click',function(){
+    fixBtn.disabled=true;
+    fixResult.innerHTML='<b>A single, broad, low-cost fund.</b> One purchase can check most of these boxes at once \u2014 many companies, multiple sectors, sometimes even multiple countries \u2014 all bundled together. That\u2019s the real magic behind the index funds you already learned about.';
+    postHeight();
+  });
+
+  /* ============ 8 · sort the baskets ============ */
+  var sortDone=0, sortCount=root.querySelector('#dv-sort-count');
+  var sortWhy={
+    fake_0:'Fifty tech stocks tend to rise and fall together \u2014 that\u2019s concentration wearing a big number, not real diversification.',
+    real_1:'Stocks, bonds, and cash react differently to the same news \u2014 that\u2019s genuine spread across asset classes.',
+    fake_2:'Past a certain point, more similar holdings mostly add complexity and cost \u2014 not meaningfully more safety.',
+    real_3:'One fund holding hundreds of different companies is a simple, efficient way to get real diversification.'
+  };
+  root.querySelectorAll('#dv-sort .dv-sort-row').forEach(function(row,i){
+    var ans=row.getAttribute('data-answer');
+    var whyEl=row.querySelector('.dv-sort-why');
+    row.querySelectorAll('.dv-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        row.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(ans==='real'?'Real Diversification.':'Diworsification.')+'</b> '+sortWhy[ans+'_'+i];
+        sortDone++;
+        sortCount.textContent='Sorted '+sortDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-dv'); if(!root) return;
+  var TOTAL=10, current=1;
+
+  var bar=root.querySelector('#dv-bar');
+  var labelEl=root.querySelector('#dv-slide-label');
+  var countEl=root.querySelector('#dv-slide-count');
+  var prevBtn=root.querySelector('#dv-prev');
+  var nextBtn=root.querySelector('#dv-next');
+  var hintEl=root.querySelector('#dv-nav-hint');
+  var disclaimer=root.querySelector('.dv-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'The Basket Drop Test',3:'The Three Layers',4:'Passport Check',5:'The Correlation Trap',6:'Diworsification',7:'The Simple Fix',8:'Sort the Baskets',9:'Recap',10:'Certified'};
+  var reqHints={2:'Drop the baskets to continue',3:'Explore all 3 layers',4:'Stamp all 4 regions',5:'Explore both portfolios',6:'Explore both ends of the slider',7:'Reveal the shortcut',8:'Sort all 4 to continue'};
+
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.dv-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('dv-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('dv-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · baskets dropped
+  var dropBtn2=root.querySelector('#dv-drop-btn');
+  if(dropBtn2) dropBtn2.addEventListener('click',function(){ markDone(2); });
+
+  // 3 · all 3 layers explored
+  var layerSeen2={};
+  root.querySelectorAll('#dv-layer-stack .dv-layer-slab').forEach(function(slab){
+    slab.addEventListener('click',function(){ layerSeen2[slab.getAttribute('data-k')]=1;
+      if(keys(layerSeen2)>=3) markDone(3); else liveHint(3,'Explored '+keys(layerSeen2)+' of 3 — keep going'); });
+  });
+
+  // 4 · all 4 regions stamped
+  var regionSeen={};
+  root.querySelectorAll('#dv-region-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){ regionSeen[btn.getAttribute('data-k')]=1;
+      if(keys(regionSeen)>=4) markDone(4); else liveHint(4,'Stamped '+keys(regionSeen)+' of 4 — keep going'); });
+  });
+
+  // 5 · both correlation demos explored
+  var corrSeen={};
+  var corrFake2=root.querySelector('#dv-corr-fake'), corrReal2=root.querySelector('#dv-corr-real');
+  if(corrFake2) corrFake2.addEventListener('click',function(){ corrSeen.fake=1;
+    if(corrSeen.fake&&corrSeen.real) markDone(5); else liveHint(5,'Now tap the other portfolio too'); });
+  if(corrReal2) corrReal2.addEventListener('click',function(){ corrSeen.real=1;
+    if(corrSeen.fake&&corrSeen.real) markDone(5); else liveHint(5,'Now tap the other portfolio too'); });
+
+  // 6 · both ends of diworsification slider explored
+  var diworseState={low:false,high:false};
+  var diworseSlider2=root.querySelector('#dv-diworse-slider');
+  if(diworseSlider2) diworseSlider2.addEventListener('input',function(){
+    var v=+diworseSlider2.value;
+    if(v<=20) diworseState.low=true;
+    if(v>=300) diworseState.high=true;
+    if(diworseState.low && diworseState.high) markDone(6);
+    else liveHint(6, !diworseState.low ? 'Now drag it back down low' : 'Now drag it up high');
+  });
+
+  // 7 · fix revealed
+  var fixBtn2=root.querySelector('#dv-fix-btn');
+  if(fixBtn2) fixBtn2.addEventListener('click',function(){ markDone(7); });
+
+  // 8 · all 4 baskets sorted
+  root.querySelectorAll('#dv-sort .dv-sort-btns button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#dv-sort .dv-sort-row.done');
+      if(n>=4) markDone(8); else liveHint(8,'Sorted '+n+' of 4 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#dv-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

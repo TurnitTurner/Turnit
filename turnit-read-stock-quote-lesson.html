@@ -1,0 +1,579 @@
+<!-- ============================================================
+     TURNIT — HOW TO READ A STOCK QUOTE
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-rq. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Synthesis lesson — individual quote fields (ticker, market cap, P/E,
+     52-week range, volume, beta) were taught separately across several
+     lessons. This assembles them, briefly reinforced, alongside genuinely
+     new fields: open vs. prev close (the gap), day's range vs. 52-week
+     range, the numeric bid-ask spread, and dividend yield.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview            2 The Basics, Revisited
+       3 Open, Close, and the Gap   4 Today vs. The Whole Year
+       5 The Spread                 6 Dividend Yield
+       7 Read the Quote             8 Recap
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-rq">
+  <div class="rq-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="rq-top">
+      <div class="rq-topbar">
+        <div class="rq-brand"><span class="rq-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h4"/></svg></span><span class="rq-word">TURNIT</span><span class="rq-bsub">The Stock Market Explained</span></div>
+      </div>
+      <div class="rq-progress"><span id="rq-bar"></span></div>
+      <div class="rq-meta"><span id="rq-slide-label">Lesson Overview</span><span id="rq-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="rq-sec rq-reveal" data-step="1">
+      <p class="rq-kicker">Welcome · 1 / 9</p>
+      <h2 class="rq-h2">You've learned the pieces separately</h2>
+      <p class="rq-p">Ticker, market cap, P/E, 52-week range, volume, beta — you've met all of them one at a time. This lesson puts them on one real quote, plus a few fields you haven't seen yet.</p>
+
+      <div class="rq-recap">
+        <div class="rq-recap-item"><span class="rq-recap-check">1</span><span>A quick refresher on the basics you already know.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">2</span><span>Open vs. previous close, and what a "gap" actually means.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">3</span><span>Today's trading range versus the whole year's.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">4</span><span>The actual numeric gap between the bid and the ask.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">5</span><span>Dividend yield — a new number worth knowing.</span></div>
+      </div>
+      <div class="rq-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE BASICS, REVISITED ========== -->
+    <section class="rq-sec rq-reveal" data-step="2">
+      <p class="rq-kicker">The Basics, Revisited · 2 / 9</p>
+      <h2 class="rq-h2">A quick refresher</h2>
+      <p class="rq-p">Tap each — you've met all five before.</p>
+
+      <div class="rq-fico" id="rq-basics">
+        <button type="button" class="rq-fchip" data-t="Ticker Symbol" data-d="The short code that uniquely identifies this company on the exchange.">
+          <i class="d1"></i>Ticker Symbol</button>
+        <button type="button" class="rq-fchip" data-t="Price & Change" data-d="The last traded price, plus how much it has moved since the prior close.">
+          <i class="d2"></i>Price &amp; Change</button>
+        <button type="button" class="rq-fchip" data-t="Volume" data-d="How many shares have actually changed hands so far today.">
+          <i class="d3"></i>Volume</button>
+        <button type="button" class="rq-fchip" data-t="Market Cap" data-d="Share price multiplied by shares outstanding — the company's total value.">
+          <i class="d4"></i>Market Cap</button>
+      </div>
+      <div class="rq-reveal-box" id="rq-basics-box"><b id="rq-basics-t">Tap a field above</b><span id="rq-basics-d">A fast refresher before the new material.</span></div>
+      <p class="rq-count" id="rq-basics-count">Reviewed 0 of 4</p>
+    </section>
+
+    <!-- ========== 3 · OPEN, CLOSE, AND THE GAP ========== -->
+    <section class="rq-sec rq-reveal" data-step="3">
+      <p class="rq-kicker">Open, Close, and the Gap · 3 / 9</p>
+      <h2 class="rq-h2">Trading doesn't pick up where it left off</h2>
+      <p class="rq-p">Tap to see how yesterday's finish compares to today's start.</p>
+
+      <div class="rq-panel">
+        <div class="rq-gap-row">
+          <div class="rq-gap-box"><span>Yesterday's Close</span><b>$53.00</b></div>
+          <div class="rq-gap-arrow" id="rq-gap-arrow">→</div>
+          <div class="rq-gap-box"><span>Today's Open</span><b>$53.10</b></div>
+        </div>
+        <button type="button" class="rq-confirm-btn" id="rq-gap-btn">Reveal What This Means</button>
+        <div class="rq-note" id="rq-gap-note">A stock's price doesn't have to open exactly where it closed the day before.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · TODAY VS. THE WHOLE YEAR ========== -->
+    <section class="rq-sec rq-reveal" data-step="4">
+      <p class="rq-kicker">Today vs. The Whole Year · 4 / 9</p>
+      <h2 class="rq-h2">Two ranges, very different scales</h2>
+      <p class="rq-p">Tap to see today's range sitting inside the year's.</p>
+
+      <div class="rq-panel">
+        <div class="rq-range-track">
+          <span class="rq-range-year">52-Week Range: $38.20 – $61.90</span>
+          <span class="rq-range-day" id="rq-range-day-bar"></span>
+        </div>
+        <button type="button" class="rq-confirm-btn" id="rq-range-btn">Show Today's Range</button>
+        <div class="rq-note" id="rq-range-note">Day's Range: today's high and low so far. 52-Week Range: the highest and lowest over the past year.</div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · THE SPREAD ========== -->
+    <section class="rq-sec rq-reveal" data-step="5">
+      <p class="rq-kicker">The Spread · 5 / 9</p>
+      <h2 class="rq-h2">The gap between buyer and seller, in numbers</h2>
+      <p class="rq-p">Tap to see the actual bid-ask spread.</p>
+
+      <div class="rq-panel rq-center">
+        <div class="rq-spread-row">
+          <div class="rq-spread-box bid"><span>Bid</span><b>$54.15</b></div>
+          <div class="rq-spread-box ask"><span>Ask</span><b>$54.25</b></div>
+        </div>
+        <button type="button" class="rq-confirm-btn" id="rq-spread-btn">Calculate the Spread</button>
+        <div class="rq-spread-result" id="rq-spread-result">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · DIVIDEND YIELD ========== -->
+    <section class="rq-sec rq-reveal" data-step="6">
+      <p class="rq-kicker">Dividend Yield · 6 / 9</p>
+      <h2 class="rq-h2">One number, two inputs</h2>
+      <p class="rq-p"><b>Dividend yield</b> is the annual dividend divided by the share price, shown as a percentage. Slide both to watch it change.</p>
+
+      <div class="rq-panel">
+        <div class="rq-slide-row">
+          <div class="rq-slide-top"><label for="rq-div-amt">Annual Dividend Per Share</label><span class="rq-slide-v green" id="rq-div-amt-v">$1.00</span></div>
+          <input id="rq-div-amt" class="rq-range good" type="range" min="0" max="5" value="1" step="0.25" aria-label="Annual dividend per share">
+        </div>
+        <div class="rq-slide-row">
+          <div class="rq-slide-top"><label for="rq-div-price">Share Price</label><span class="rq-slide-v blue" id="rq-div-price-v">$54</span></div>
+          <input id="rq-div-price" class="rq-range" type="range" min="10" max="200" value="54" step="2" aria-label="Share price">
+        </div>
+        <div class="rq-div-result"><span>Dividend Yield</span><b id="rq-div-yield">1.9%</b></div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · READ THE QUOTE ========== -->
+    <section class="rq-sec rq-reveal" data-step="7">
+      <p class="rq-kicker">Read the Quote · 7 / 9</p>
+      <h2 class="rq-h2">Put it all together</h2>
+      <p class="rq-p">Here's a full quote. Tap each question, then check it against the card.</p>
+
+      <div class="rq-quote-card">
+        <div class="rq-qc-head"><b>TRN</b><span>TurnCo Inc.</span></div>
+        <div class="rq-qc-price">$54.20 <i>▲ +$1.20 (2.3%)</i></div>
+        <div class="rq-qc-grid">
+          <div><span>Prev Close</span><b>$53.00</b></div>
+          <div><span>Open</span><b>$53.10</b></div>
+          <div><span>Day's Range</span><b>$52.80 – $54.50</b></div>
+          <div><span>52-Wk Range</span><b>$38.20 – $61.90</b></div>
+          <div><span>Bid / Ask</span><b>$54.15 / $54.25</b></div>
+          <div><span>Volume</span><b>2.4M</b></div>
+          <div><span>Market Cap</span><b>$12.8B</b></div>
+          <div><span>P/E Ratio</span><b>22.4</b></div>
+          <div><span>Div. Yield</span><b>1.9%</b></div>
+        </div>
+      </div>
+
+      <div class="rq-quiz" id="rq-quiz">
+        <div class="rq-quiz-row"><span>Did TRN open above or below yesterday's close?</span><div class="rq-quiz-btns"><button data-p="above">Above</button><button data-p="below">Below</button></div><p class="rq-quiz-why"></p></div>
+        <div class="rq-quiz-row"><span>What's the bid-ask spread?</span><div class="rq-quiz-btns"><button data-p="10">$0.10</button><button data-p="100">$1.00</button></div><p class="rq-quiz-why"></p></div>
+        <div class="rq-quiz-row"><span>Is today's range wider or narrower than the 52-week range?</span><div class="rq-quiz-btns"><button data-p="narrower">Narrower</button><button data-p="wider">Wider</button></div><p class="rq-quiz-why"></p></div>
+      </div>
+      <p class="rq-count" id="rq-quiz-count">Answered 0 of 3</p>
+    </section>
+
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="rq-sec rq-reveal" data-step="8">
+      <p class="rq-kicker">Recap · 8 / 9</p>
+      <h2 class="rq-h2">Here's what you now know</h2>
+      <p class="rq-p">The whole lesson, in six lines.</p>
+
+      <div class="rq-recap">
+        <div class="rq-recap-item"><span class="rq-recap-check">✓</span><span>Ticker, price, change, volume, and market cap are the fields you already knew.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">✓</span><span>A stock can open above or below yesterday's close — that difference is called a gap.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">✓</span><span>Day's Range is today's swing. 52-Week Range is the whole year's.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">✓</span><span>The spread is simply the ask minus the bid — a narrower spread usually means a more liquid stock.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">✓</span><span>Dividend yield is the annual dividend divided by the share price.</span></div>
+        <div class="rq-recap-item"><span class="rq-recap-check">✓</span><span>A full quote is just all of these fields, sitting on one screen.</span></div>
+      </div>
+      <div class="rq-next-move">Your next move: <b>pull up a real quote for any company and see how many fields you can now read.</b></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="rq-sec rq-center rq-reveal" data-step="9">
+      <p class="rq-kicker center">Certified · 9 / 9</p>
+      <div class="rq-cert">
+        <div class="rq-cert-border"></div>
+        <span class="rq-cert-pill">🏆 Certificate of Completion</span>
+        <p class="rq-cert-cert">This certifies that</p>
+        <h2 class="rq-cert-name">Quote Literate</h2>
+        <p class="rq-cert-body">has completed <span class="rq-tw">TURNIT</span> The Stock Market Explained: How to Read a Stock Quote, and can now read a real one, start to finish.</p>
+        <div class="rq-cert-line"></div>
+        <div class="rq-done-row streak"><div class="rq-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="rq-done-row ach"><div class="rq-done-ico">🏆</div><div><b>Achievement: Quote Literate</b><span>You mastered every field on a real stock quote.</span></div></div>
+        <div class="rq-done-btns">
+          <a class="rq-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="rq-btn ghost" id="rq-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="rq-quote">"PRICE IS WHAT YOU PAY. <span class="rq-green">VALUE IS WHAT YOU GET.</span>"<br><span class="rq-quote-by">— WARREN BUFFETT</span></p>
+    </section>
+
+    <p class="rq-disclaimer">TURNIT is for educational purposes only and is not financial advice. Company name, prices, and figures shown are fictional examples for illustration, not real market data or a recommendation.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="rq-nav" id="rq-nav">
+      <button type="button" class="rq-nav-btn prev" id="rq-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="rq-nav-hint" id="rq-nav-hint"></span>
+      <button type="button" class="rq-nav-btn next" id="rq-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-rq{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-rq *,#tn-rq *::before,#tn-rq *::after{box-sizing:border-box;}
+  #tn-rq .rq-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-rq .rq-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-rq .rq-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-rq .rq-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-rq .rq-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-rq .rq-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-rq .rq-bico{display:flex;}
+  #tn-rq .rq-word,#tn-rq .rq-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-rq .rq-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-rq .rq-bsub{color:var(--ink2); font-weight:500;}
+  #tn-rq .rq-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-rq #rq-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-rq .rq-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-rq .rq-meta #rq-slide-label{color:var(--ink2);}
+  #tn-rq .rq-meta #rq-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-rq .rq-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-rq .rq-sec.rq-hide{display:none;}
+  #tn-rq .rq-center{text-align:center;}
+  #tn-rq .rq-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-rq .rq-kicker.center{text-align:center;}
+  #tn-rq .rq-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-rq .rq-h2.center{text-align:center;}
+  #tn-rq .rq-tw{font-style:italic;}
+  #tn-rq .rq-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-rq .rq-p b{color:var(--ink); font-weight:700;}
+  #tn-rq .rq-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-rq .rq-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-rq .rq-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-rq .rq-confirm-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s; margin-top:16px;}
+  #tn-rq .rq-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-rq .rq-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-rq .rq-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-rq .rq-range.good{background:linear-gradient(90deg,#9AA8B6,#209B73);}
+  #tn-rq .rq-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-rq .rq-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-rq .rq-slide-row{margin-top:16px;}
+  #tn-rq .rq-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-rq .rq-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-rq .rq-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-rq .rq-slide-v.blue{color:var(--b);} #tn-rq .rq-slide-v.green{color:var(--g);}
+
+  /* factor chips (shared) */
+  #tn-rq .rq-fico{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-rq .rq-fchip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; font-size:13px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-rq .rq-fchip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-rq .rq-fchip .d1{background:#209B73;} #tn-rq .rq-fchip .d2{background:#1f8f9b;} #tn-rq .rq-fchip .d3{background:#1568AE;} #tn-rq .rq-fchip .d4{background:#E0952F;}
+  #tn-rq .rq-fchip.on{border-color:var(--g); background:var(--tint);}
+  #tn-rq .rq-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-rq .rq-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-rq .rq-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+
+  /* ---- slide 3: gap ---- */
+  #tn-rq .rq-gap-row{display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:6px;}
+  #tn-rq .rq-gap-box{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:14px 16px; text-align:center;}
+  #tn-rq .rq-gap-box span{display:block; font-size:10.5px; color:var(--mut); font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  #tn-rq .rq-gap-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; color:var(--ink);}
+  #tn-rq .rq-gap-arrow{font-size:20px; color:var(--mut);}
+
+  /* ---- slide 4: range ---- */
+  #tn-rq .rq-range-track{position:relative; height:40px; background:var(--cardbg); border:1px solid var(--line); border-radius:10px; margin-bottom:6px; display:flex; align-items:center;}
+  #tn-rq .rq-range-year{position:absolute; left:8px; font-size:11px; color:var(--ink2); font-weight:600;}
+  #tn-rq .rq-range-day{position:absolute; top:50%; left:38%; width:0%; height:12px; background:var(--g); border-radius:6px; transform:translateY(-50%); transition:width .5s ease;}
+
+  /* ---- slide 5: spread ---- */
+  #tn-rq .rq-spread-row{display:flex; justify-content:center; gap:14px; margin-bottom:6px;}
+  #tn-rq .rq-spread-box{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:14px 20px; text-align:center;}
+  #tn-rq .rq-spread-box span{display:block; font-size:10.5px; color:var(--mut); font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  #tn-rq .rq-spread-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; color:var(--ink);}
+  #tn-rq .rq-spread-box.bid b{color:var(--no);}
+  #tn-rq .rq-spread-box.ask b{color:var(--g);}
+  #tn-rq .rq-spread-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:10px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 6: dividend yield ---- */
+  #tn-rq .rq-div-result{background:var(--tint); border:1.5px solid var(--selbd); border-radius:14px; padding:16px; text-align:center; margin-top:16px;}
+  #tn-rq .rq-div-result span{display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--g); font-weight:700; margin-bottom:4px;}
+  #tn-rq .rq-div-result b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,6vw,30px); color:var(--ink);}
+
+  /* ---- slide 7: quote card + quiz ---- */
+  #tn-rq .rq-quote-card{background:var(--ink); border-radius:16px; padding:18px 20px; color:#fff; margin-bottom:16px;}
+  #tn-rq .rq-qc-head{display:flex; align-items:baseline; gap:8px; margin-bottom:6px;}
+  #tn-rq .rq-qc-head b{font-family:'Poppins',sans-serif; font-weight:800; font-size:18px;}
+  #tn-rq .rq-qc-head span{font-size:12px; color:#9AA8B6;}
+  #tn-rq .rq-qc-price{font-family:'Poppins',sans-serif; font-weight:800; font-size:24px; margin-bottom:14px;}
+  #tn-rq .rq-qc-price i{font-style:normal; font-size:13px; color:#5FD9A4; margin-left:6px;}
+  #tn-rq .rq-qc-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px 8px;}
+  #tn-rq .rq-qc-grid div span{display:block; font-size:9.5px; color:#8296A8; text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px;}
+  #tn-rq .rq-qc-grid div b{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:#fff;}
+  #tn-rq .rq-quiz{display:flex; flex-direction:column; gap:10px;}
+  #tn-rq .rq-quiz-row{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:background .2s ease, border-color .2s ease;}
+  #tn-rq .rq-quiz-row span{display:block; font-size:14px; font-weight:500; color:var(--ink); margin-bottom:10px;}
+  #tn-rq .rq-quiz-btns{display:flex; gap:8px;}
+  #tn-rq .rq-quiz-btns button{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; padding:9px 6px; border-radius:9px; cursor:pointer; background:#fff; border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-rq .rq-quiz-row.done .rq-quiz-btns button{opacity:.4; pointer-events:none;}
+  #tn-rq .rq-quiz-row.done .rq-quiz-btns button.picked{opacity:1;}
+  #tn-rq .rq-quiz-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-rq .rq-quiz-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-rq .rq-quiz-why{font-size:12.5px; color:var(--ink2); line-height:1.45; margin:8px 0 0; display:none;}
+  #tn-rq .rq-quiz-why b{font-family:'Poppins',sans-serif;}
+  #tn-rq .rq-quiz-row.done .rq-quiz-why{display:block;}
+
+  /* recap */
+  #tn-rq .rq-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-rq .rq-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-rq .rq-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-rq .rq-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-rq .rq-recap-item b{font-weight:700;}
+  #tn-rq .rq-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-rq .rq-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-rq .rq-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-rq .rq-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-rq .rq-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-rq .rq-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-rq .rq-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-rq .rq-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-rq .rq-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-rq .rq-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-rq .rq-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-rq .rq-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-rq .rq-done-ico{font-size:20px; flex:none;}
+  #tn-rq .rq-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-rq .rq-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-rq .rq-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-rq .rq-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-rq .rq-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-rq .rq-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-rq .rq-btn:hover{transform:translateY(-2px);}
+  #tn-rq .rq-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-rq .rq-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-rq .rq-green{color:var(--g);}
+  #tn-rq .rq-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-rq .rq-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-rq .rq-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-rq .rq-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-rq .rq-nav-btn.prev{color:var(--ink2);}
+  #tn-rq .rq-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-rq .rq-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-rq .rq-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-rq .rq-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-rq .rq-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-rq .rq-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-rq .rq-wrap{padding:12px 14px 30px;}
+    #tn-rq .rq-fico{grid-template-columns:1fr;}
+    #tn-rq .rq-qc-grid{grid-template-columns:1fr 1fr;}
+    #tn-rq .rq-bsub{display:none;}
+    #tn-rq .rq-nav-hint{display:none;}
+    #tn-rq .rq-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-rq .rq-reveal{opacity:1 !important; transform:none !important;}
+    #tn-rq #rq-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-rq'); if(!root) return;
+  root.querySelectorAll('.rq-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · the basics, revisited ============ */
+  var basicsReviewed={}, basicsT=root.querySelector('#rq-basics-t'),
+      basicsD=root.querySelector('#rq-basics-d'), basicsCount=root.querySelector('#rq-basics-count');
+  root.querySelectorAll('#rq-basics .rq-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#rq-basics .rq-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      basicsT.textContent=c.getAttribute('data-t'); basicsD.textContent=c.getAttribute('data-d');
+      basicsReviewed[c.getAttribute('data-t')]=1;
+      basicsCount.textContent='Reviewed '+Object.keys(basicsReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* ============ 3 · open, close, and the gap ============ */
+  var gapBtn=root.querySelector('#rq-gap-btn'), gapNote=root.querySelector('#rq-gap-note');
+  if(gapBtn) gapBtn.addEventListener('click',function(){
+    gapBtn.disabled=true;
+    gapNote.innerHTML='TRN opened at $53.10, ten cents above yesterday\u2019s $53.00 close \u2014 a small \u201cgap up.\u201d Gaps happen when news or sentiment shifts between the closing bell and the next opening bell, before regular trading even resumes.';
+    postHeight();
+  });
+
+  /* ============ 4 · today vs the whole year ============ */
+  var rangeBtn=root.querySelector('#rq-range-btn'), rangeDayBar=root.querySelector('#rq-range-day-bar'), rangeNote=root.querySelector('#rq-range-note');
+  if(rangeBtn) rangeBtn.addEventListener('click',function(){
+    rangeBtn.disabled=true;
+    rangeDayBar.style.width='7%';
+    rangeNote.innerHTML='Day\u2019s Range: <b>$52.80 \u2013 $54.50</b>, shown here as the small green sliver \u2014 a tiny fraction of the full <b>52-Week Range: $38.20 \u2013 $61.90</b>. Same stock, two very different windows of time.';
+    postHeight();
+  });
+
+  /* ============ 5 · the spread ============ */
+  var spreadBtn=root.querySelector('#rq-spread-btn'), spreadResult=root.querySelector('#rq-spread-result');
+  if(spreadBtn) spreadBtn.addEventListener('click',function(){
+    spreadBtn.disabled=true;
+    spreadResult.innerHTML='<b>Spread: $0.10</b> ($54.25 ask \u2013 $54.15 bid). A narrow spread like this usually means a heavily-traded, liquid stock. Thinly-traded stocks often show a much wider gap between what buyers offer and what sellers ask.';
+    postHeight();
+  });
+
+  /* ============ 6 · dividend yield ============ */
+  var divAmt=root.querySelector('#rq-div-amt'), divPrice=root.querySelector('#rq-div-price'),
+      divAmtV=root.querySelector('#rq-div-amt-v'), divPriceV=root.querySelector('#rq-div-price-v'), divYield=root.querySelector('#rq-div-yield');
+  function divCalc(){
+    var amt=+divAmt.value, price=+divPrice.value;
+    divAmtV.textContent='$'+amt.toFixed(2);
+    divPriceV.textContent='$'+price;
+    divYield.textContent=((amt/price)*100).toFixed(1)+'%';
+    postHeight();
+  }
+  if(divAmt&&divPrice){ divAmt.addEventListener('input',divCalc); divPrice.addEventListener('input',divCalc); divCalc(); }
+
+  /* ============ 7 · read the quote ============ */
+  var quizAnswered=0, quizCount=root.querySelector('#rq-quiz-count');
+  var quizAnswers=['above','10','narrower'];
+  var quizWhy=[
+    'Prev Close was $53.00, and Open was $53.10 \u2014 that\u2019s above, a small gap up.',
+    'Ask $54.25 minus Bid $54.15 is $0.10.',
+    'Day\u2019s Range ($52.80\u2013$54.50) is much narrower than the 52-Week Range ($38.20\u2013$61.90).'
+  ];
+  root.querySelectorAll('#rq-quiz .rq-quiz-row').forEach(function(row,i){
+    var whyEl=row.querySelector('.rq-quiz-why');
+    row.querySelectorAll('.rq-quiz-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===quizAnswers[i];
+        row.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(correct?'Correct.':'Check the card again:')+'</b> '+quizWhy[i];
+        quizAnswered++;
+        quizCount.textContent='Answered '+quizAnswered+' of 3';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-rq'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#rq-bar');
+  var labelEl=root.querySelector('#rq-slide-label');
+  var countEl=root.querySelector('#rq-slide-count');
+  var prevBtn=root.querySelector('#rq-prev');
+  var nextBtn=root.querySelector('#rq-next');
+  var hintEl=root.querySelector('#rq-nav-hint');
+  var disclaimer=root.querySelector('.rq-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'The Basics, Revisited',3:'Open, Close, and the Gap',4:'Today vs. The Whole Year',5:'The Spread',6:'Dividend Yield',7:'Read the Quote',8:'Recap',9:'Certified'};
+  var reqHints={2:'Review all 4 to continue',3:'Reveal what this means',4:'Show today\u2019s range',5:'Calculate the spread',6:'Move both sliders to continue',7:'Answer all 3 to continue'};
+
+  var done={1:true,8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.rq-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('rq-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('rq-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · all 4 basics reviewed
+  var basicsSeen={};
+  root.querySelectorAll('#rq-basics .rq-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ basicsSeen[c.getAttribute('data-t')]=1;
+      if(keys(basicsSeen)>=4) markDone(2); else liveHint(2,'Reviewed '+keys(basicsSeen)+' of 4 — keep going'); });
+  });
+
+  // 3 · gap revealed
+  var gapBtn2=root.querySelector('#rq-gap-btn');
+  if(gapBtn2) gapBtn2.addEventListener('click',function(){ markDone(3); });
+
+  // 4 · range shown
+  var rangeBtn2=root.querySelector('#rq-range-btn');
+  if(rangeBtn2) rangeBtn2.addEventListener('click',function(){ markDone(4); });
+
+  // 5 · spread calculated
+  var spreadBtn2=root.querySelector('#rq-spread-btn');
+  if(spreadBtn2) spreadBtn2.addEventListener('click',function(){ markDone(5); });
+
+  // 6 · both dividend sliders moved
+  var divState={amt:false,price:false};
+  var divAmt2=root.querySelector('#rq-div-amt'), divPrice2=root.querySelector('#rq-div-price');
+  if(divAmt2) divAmt2.addEventListener('input',function(){ divState.amt=true;
+    if(divState.amt&&divState.price) markDone(6); else liveHint(6,'Now move the price slider too'); });
+  if(divPrice2) divPrice2.addEventListener('input',function(){ divState.price=true;
+    if(divState.amt&&divState.price) markDone(6); else liveHint(6,'Now move the dividend slider too'); });
+
+  // 7 · all 3 quiz questions answered
+  root.querySelectorAll('#rq-quiz .rq-quiz-btns button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#rq-quiz .rq-quiz-row.done');
+      if(n>=3) markDone(7); else liveHint(7,'Answered '+n+' of 3 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#rq-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

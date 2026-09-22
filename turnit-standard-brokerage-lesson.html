@@ -1,0 +1,808 @@
+<!-- ============================================================
+     TURNIT — THE STANDARD BROKERAGE ACCOUNT  (Module 2 · Lesson 2)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-br. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 The Rulebook Shredder        2 Make Your First Trade
+       3 The Holding Period Clock     4 What Actually Fits Inside
+       5 The Liquidity Showdown       6 Myth or Fact Blitz
+       7 Automate It                  8 Recap
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-br">
+  <div class="br-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="br-top">
+      <div class="br-topbar">
+        <div class="br-brand"><span class="br-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="br-word">TURNIT</span><span class="br-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="br-progress"><span id="br-bar"></span></div>
+      <div class="br-meta"><span id="br-slide-label">The Rulebook Shredder</span><span id="br-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · THE RULEBOOK SHREDDER ========== -->
+    <section class="br-sec br-reveal" data-step="1">
+      <p class="br-kicker">The Rulebook Shredder · 1 / 9</p>
+      <h2 class="br-h2">Shred the rulebook</h2>
+      <p class="br-p">Retirement accounts come with rules attached. Tap or drag each rule card into the shredder — a standard brokerage account has none of them.</p>
+
+      <div class="br-shred-stage">
+        <div class="br-pack-items" id="br-shred-items">
+          <div class="br-pack-slot"><div class="br-pack-item" data-k="limit">🚫<span>Contribution Limit</span></div></div>
+          <div class="br-pack-slot"><div class="br-pack-item" data-k="age">🚫<span>Age Requirement</span></div></div>
+          <div class="br-pack-slot"><div class="br-pack-item" data-k="income">🚫<span>Income Limit</span></div></div>
+        </div>
+        <div class="br-shredder-drop" id="br-shredder-drop">
+          <div class="br-shredder-mouth">✂️ SHRED IT</div>
+        </div>
+      </div>
+      <p class="br-shred-msg" id="br-shred-msg">&nbsp;</p>
+      <p class="br-count" id="br-shred-count">Shredded 0 of 3</p>
+    </section>
+
+    <!-- ========== 2 · MAKE YOUR FIRST TRADE ========== -->
+    <section class="br-sec br-reveal" data-step="2">
+      <p class="br-kicker">Make Your First Trade · 2 / 9</p>
+      <h2 class="br-h2">Buy it, hold it, sell it</h2>
+      <p class="br-p">This is really all a brokerage account does. Try it with a made-up stock.</p>
+
+      <div class="br-panel">
+        <div class="br-ticket-quote">
+          <span class="br-ticket-symbol">TRN</span>
+          <span class="br-ticket-name">TurnCo Inc.</span>
+          <b class="br-ticket-price" id="br-ticket-price">$50.00/share</b>
+        </div>
+
+        <div class="br-slide-row" id="br-ticket-amt-row">
+          <div class="br-slide-top"><label for="br-ticket-amt">Amount to Invest</label><span class="br-slide-v green" id="br-ticket-amt-v">$500</span></div>
+          <input id="br-ticket-amt" class="br-range good" type="range" min="100" max="1000" value="500" step="50" aria-label="Amount to invest">
+        </div>
+
+        <button type="button" class="br-ticket-btn buy" id="br-ticket-buy">Buy Shares</button>
+
+        <div class="br-ticket-holding" id="br-ticket-holding" style="display:none;">
+          <p class="br-ticket-holding-t">Your Holdings</p>
+          <p class="br-ticket-holding-d"><b id="br-ticket-shares">—</b> shares of TRN</p>
+        </div>
+
+        <button type="button" class="br-ticket-btn skip" id="br-ticket-skip" style="display:none;">⏩ Skip Ahead 8 Months</button>
+        <div class="br-ticket-newprice" id="br-ticket-newprice" style="display:none;"></div>
+        <button type="button" class="br-ticket-btn sell" id="br-ticket-sell" style="display:none;">Sell Shares</button>
+
+        <div class="br-ticket-result" id="br-ticket-result"></div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · THE HOLDING PERIOD CLOCK ========== -->
+    <section class="br-sec br-reveal" data-step="3">
+      <p class="br-kicker">The Holding Period Clock · 3 / 9</p>
+      <h2 class="br-h2">One year changes everything</h2>
+      <p class="br-p">Same $1,000 gain. Slide to see how the tax bill changes the moment you cross the one-year mark.</p>
+
+      <div class="br-panel">
+        <div class="br-clock-wrap">
+          <div class="br-clock-face" id="br-clock-face"><span class="br-clock-needle" id="br-clock-needle"></span></div>
+          <p class="br-clock-zone" id="br-clock-zone">Short-Term</p>
+        </div>
+
+        <div class="br-slide-row">
+          <div class="br-slide-top"><label for="br-clock-slider">Months Held</label><span class="br-slide-v blue" id="br-clock-slider-v">0 months</span></div>
+          <input id="br-clock-slider" class="br-range" type="range" min="0" max="18" value="0" step="1" aria-label="Months held">
+        </div>
+        <div class="br-scale"><span>0 mo</span><span>12 mo (1 year)</span><span>18 mo</span></div>
+
+        <div class="br-hook-grid">
+          <div class="br-hook-box" id="br-clock-rate-box"><span>Tax Treatment</span><b id="br-clock-rate">Ordinary Income (~24%)</b></div>
+          <div class="br-hook-box" id="br-clock-owed-box"><span>Tax Owed on $1,000 Gain</span><b id="br-clock-owed">~$240</b></div>
+        </div>
+        <div class="br-note">Simplified, illustrative tax rates — actual rates depend on your income and current tax law.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · WHAT ACTUALLY FITS INSIDE ========== -->
+    <section class="br-sec br-reveal" data-step="4">
+      <p class="br-kicker">What Actually Fits Inside · 4 / 9</p>
+      <h2 class="br-h2">Scan it. Does it belong?</h2>
+      <p class="br-p">Tap each to run it through the scanner.</p>
+
+      <div class="br-scan-grid" id="br-scan-grid">
+        <button type="button" class="br-scan-item" data-ok="true" data-d="Individual company shares are the most basic thing a brokerage account is built to hold.">📈<span>Stocks</span></button>
+        <button type="button" class="br-scan-item" data-ok="true" data-d="Funds that trade like a stock but hold a diversified basket underneath — a brokerage staple.">🧺<span>ETFs</span></button>
+        <button type="button" class="br-scan-item" data-ok="true" data-d="Pooled funds managed by a company — another standard holding inside a brokerage account.">🧺<span>Mutual Funds</span></button>
+        <button type="button" class="br-scan-item" data-ok="true" data-d="IOUs from companies or governments that pay you interest — also fine inside a brokerage account.">📜<span>Bonds</span></button>
+        <button type="button" class="br-scan-item" data-ok="false" data-d="Your actual car isn't something a brokerage account can hold — it's not a security you buy or sell through it.">🚗<span>Your Car</span></button>
+        <button type="button" class="br-scan-item" data-ok="false" data-d="Buying a physical house directly doesn't happen through a brokerage account — that's a completely different process.">🏠<span>A House</span></button>
+      </div>
+      <div class="br-scan-result" id="br-scan-result">&nbsp;</div>
+      <p class="br-count" id="br-scan-count">Scanned 0 of 6</p>
+    </section>
+
+    <!-- ========== 5 · THE LIQUIDITY SHOWDOWN ========== -->
+    <section class="br-sec br-reveal" data-step="5">
+      <p class="br-kicker">The Liquidity Showdown · 5 / 9</p>
+      <h2 class="br-h2">Try to get your money out</h2>
+      <p class="br-p">Same $1,000 withdrawal request, sent to two different accounts at once.</p>
+
+      <div class="br-panel">
+        <div class="br-showdown-cols">
+          <div class="br-showdown-col" id="br-showdown-brokerage">
+            <p class="br-showdown-lab">Standard Brokerage</p>
+            <div class="br-showdown-status" id="br-showdown-brokerage-status">💤 Waiting...</div>
+          </div>
+          <div class="br-showdown-col" id="br-showdown-retirement">
+            <p class="br-showdown-lab">Retirement Account</p>
+            <div class="br-showdown-status" id="br-showdown-retirement-status">💤 Waiting...</div>
+          </div>
+        </div>
+
+        <button type="button" class="br-showdown-btn" id="br-showdown-btn">💸 Try to Withdraw $1,000</button>
+        <div class="br-note" id="br-showdown-note">Tap the button to send the same request to both accounts at once.</div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · MYTH OR FACT BLITZ ========== -->
+    <section class="br-sec br-reveal" data-step="6">
+      <p class="br-kicker">Myth or Fact Blitz · 6 / 9</p>
+      <h2 class="br-h2">Quick! True or False?</h2>
+      <p class="br-p">Five fast statements. Tap your answer and keep the streak alive.</p>
+
+      <div class="br-blitz-stage">
+        <div class="br-blitz-streak"><span>🔥</span><b id="br-blitz-streak-v">0</b><span>streak</span></div>
+        <div class="br-blitz-card" id="br-blitz-card">
+          <p class="br-blitz-q" id="br-blitz-q">Loading...</p>
+          <p class="br-blitz-feedback" id="br-blitz-feedback">&nbsp;</p>
+        </div>
+        <div class="br-blitz-btns">
+          <button type="button" class="br-blitz-btn true" id="br-blitz-true">✓ True</button>
+          <button type="button" class="br-blitz-btn false" id="br-blitz-false">✕ False</button>
+        </div>
+      </div>
+      <p class="br-count" id="br-blitz-count">Question 1 of 5</p>
+    </section>
+
+    <!-- ========== 7 · AUTOMATE IT ========== -->
+    <section class="br-sec br-center br-reveal" data-step="7">
+      <p class="br-kicker center">Automate It · 7 / 9</p>
+      <h2 class="br-h2 center">Pull the lever. Make it automatic.</h2>
+      <p class="br-sub center">The easiest way to actually build wealth in a brokerage account is to stop deciding to invest every single time. Pull the lever to start the line.</p>
+
+      <button type="button" class="br-lever" id="br-lever" aria-pressed="false">
+        <span class="br-lever-knob"></span>
+        <span class="br-lever-lab" id="br-lever-lab">Line Off</span>
+      </button>
+
+      <div class="br-belt-wrap">
+        <div class="br-belt-icon start">💵</div>
+        <div class="br-belt-track" id="br-belt-track"><span class="br-belt-item" id="br-belt-item">💵</span></div>
+        <div class="br-belt-icon end">📈</div>
+      </div>
+      <p class="br-belt-msg" id="br-belt-msg">&nbsp;</p>
+    </section>
+
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="br-sec br-reveal" data-step="8">
+      <p class="br-kicker">Recap · 8 / 9</p>
+      <h2 class="br-h2">Collect your badges</h2>
+      <p class="br-p">Tap each badge to reveal what it stands for.</p>
+
+      <div class="br-badges" id="br-badges">
+        <button type="button" class="br-badge" data-t="🚫 No Rules" data-d="No contribution limits, no age requirements, no income restrictions — a brokerage account is wide open.">🚫</button>
+        <button type="button" class="br-badge" data-t="🔁 Buy & Sell" data-d="You deposit cash, buy investments with it, and can sell them again whenever you choose.">🔁</button>
+        <button type="button" class="br-badge" data-t="⏳ The 1-Year Line" data-d="Held under a year, gains are taxed like ordinary income. Held over a year, the rate is usually lower.">⏳</button>
+        <button type="button" class="br-badge" data-t="🧺 What Fits" data-d="Stocks, ETFs, mutual funds, and bonds all fit. A car or a house directly does not.">🧺</button>
+        <button type="button" class="br-badge" data-t="💸 Full Access" data-d="Withdraw any time, for any reason, with no early-withdrawal restrictions.">💸</button>
+        <button type="button" class="br-badge" data-t="⚙️ Automate It" data-d="Setting up automatic contributions is the easiest way to actually use the account consistently.">⚙️</button>
+      </div>
+      <div class="br-badge-reveal" id="br-badge-reveal"><b>Tap a badge above</b><span>Six ideas from this lesson, one tap at a time.</span></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="br-sec br-center br-reveal" data-step="9">
+      <p class="br-kicker center">Certified · 9 / 9</p>
+      <div class="br-cert">
+        <div class="br-cert-border"></div>
+        <span class="br-cert-pill">🏆 Certificate of Completion</span>
+        <p class="br-cert-cert">This certifies that</p>
+        <h2 class="br-cert-name">Brokerage Unlocked</h2>
+        <p class="br-cert-body">has completed <span class="br-tw">TURNIT</span> Financial Foundations: The Standard Brokerage Account, and now understands how it works, what it can hold, and how it's taxed.</p>
+        <div class="br-cert-line"></div>
+        <div class="br-done-row streak"><div class="br-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="br-done-row ach"><div class="br-done-ico">🏆</div><div><b>Achievement: Brokerage Certified</b><span>You mastered the standard brokerage account.</span></div></div>
+        <div class="br-done-btns">
+          <a class="br-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="br-btn ghost" id="br-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="br-quote">"IN INVESTING, WHAT IS COMFORTABLE IS RARELY PROFITABLE."<br><span class="br-quote-by">— ROBERT ARNOTT</span></p>
+    </section>
+
+    <p class="br-disclaimer">TURNIT is for educational purposes only and is not financial advice or tax advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Prices, gains, and tax figures in this lesson are simplified, hypothetical illustrations, not real market data or a specific tax calculation.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="br-nav" id="br-nav">
+      <button type="button" class="br-nav-btn prev" id="br-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="br-nav-hint" id="br-nav-hint"></span>
+      <button type="button" class="br-nav-btn next" id="br-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-br{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-br *,#tn-br *::before,#tn-br *::after{box-sizing:border-box;}
+  #tn-br .br-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-br .br-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-br .br-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-br .br-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-br .br-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-br .br-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-br .br-bico{display:flex;}
+  #tn-br .br-word,#tn-br .br-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-br .br-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-br .br-bsub{color:var(--ink2); font-weight:500;}
+  #tn-br .br-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-br #br-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-br .br-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-br .br-meta #br-slide-label{color:var(--ink2);}
+  #tn-br .br-meta #br-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-br .br-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-br .br-sec.br-hide{display:none;}
+  #tn-br .br-center{text-align:center;}
+  #tn-br .br-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-br .br-kicker.center{text-align:center;}
+  #tn-br .br-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-br .br-h2.center{text-align:center;}
+  #tn-br .br-tw{font-style:italic;}
+  #tn-br .br-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-br .br-p b{color:var(--ink); font-weight:700;}
+  #tn-br .br-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-br .br-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-br .br-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-br .br-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-br .br-note b{color:var(--ink); font-weight:700;}
+
+  #tn-br .br-hook-grid{display:flex; gap:10px; margin-top:14px;}
+  #tn-br .br-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center; transition:background .3s ease, border-color .3s ease;}
+  #tn-br .br-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-br .br-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(14px,3.8vw,17px); color:var(--ink); transition:color .3s ease;}
+
+  /* slide rows / ranges (shared) */
+  #tn-br .br-slide-row{margin-top:16px;}
+  #tn-br .br-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-br .br-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-br .br-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-br .br-slide-v.green{color:var(--g);} #tn-br .br-slide-v.blue{color:var(--b);}
+  #tn-br .br-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-br .br-range.good{background:linear-gradient(90deg,#9AA8B6,#209B73);}
+  #tn-br .br-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-br .br-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-br .br-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* ---- drag items (shared: slide 1) ---- */
+  #tn-br .br-pack-items{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; width:100%; margin-bottom:18px;}
+  #tn-br .br-pack-slot{display:flex; align-items:center; justify-content:center;}
+  #tn-br .br-pack-item{position:relative; display:flex; flex-direction:column; align-items:center; gap:4px; font-size:26px; background:#fff; border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 6px; cursor:grab; touch-action:none; user-select:none; width:100%; transition:box-shadow .15s;}
+  #tn-br .br-pack-item span{font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600; color:var(--ink2); text-align:center;}
+  #tn-br .br-pack-item.dragging{box-shadow:0 16px 26px -12px rgba(0,0,0,.3); z-index:50; cursor:grabbing;}
+  #tn-br .br-pack-item.packed{opacity:0; pointer-events:none;}
+  @keyframes br-shake{10%,90%{transform:translate(-4px,0);}20%,80%{transform:translate(4px,0);}30%,50%,70%{transform:translate(-3px,0);}40%,60%{transform:translate(3px,0);}}
+  #tn-br .br-pack-item.br-shake{animation:br-shake .4s ease;}
+
+  /* slide 1 — shredder */
+  #tn-br .br-shred-stage{display:flex; flex-direction:column; align-items:center;}
+  #tn-br .br-shredder-drop{width:100%; max-width:280px; border-radius:14px; transition:background .2s ease, border-color .2s ease; border:2px dashed var(--nobd); background:var(--nobg);}
+  #tn-br .br-shredder-drop.hover{background:#F6C7C0; border-color:var(--no);}
+  #tn-br .br-shredder-mouth{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--no); padding:20px 10px; letter-spacing:.04em;}
+  #tn-br .br-shred-msg{text-align:center; font-size:13px; font-weight:600; min-height:18px; color:var(--ink2); margin-top:10px;}
+
+  /* slide 2 — trading ticket */
+  #tn-br .br-ticket-quote{display:flex; align-items:baseline; gap:10px; justify-content:center; margin-bottom:16px; flex-wrap:wrap;}
+  #tn-br .br-ticket-symbol{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--b); background:var(--tint); padding:4px 10px; border-radius:8px;}
+  #tn-br .br-ticket-name{font-size:14px; color:var(--ink2); font-weight:600;}
+  #tn-br .br-ticket-price{font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; color:var(--ink);}
+  #tn-br .br-ticket-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s; margin-top:14px;}
+  #tn-br .br-ticket-btn:hover{transform:translateY(-2px);}
+  #tn-br .br-ticket-btn.skip{background:linear-gradient(135deg,var(--gold),#E0952F);}
+  #tn-br .br-ticket-holding{background:var(--tint); border:1.5px solid var(--selbd); border-radius:12px; padding:14px; text-align:center; margin-top:14px;}
+  #tn-br .br-ticket-holding-t{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--g); font-weight:700; margin:0 0 4px;}
+  #tn-br .br-ticket-holding-d{font-size:15px; color:var(--ink); margin:0;}
+  #tn-br .br-ticket-holding-d b{font-family:'Poppins',sans-serif; font-weight:800;}
+  #tn-br .br-ticket-newprice{text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:var(--goldbg); border:1.5px solid var(--goldbd); border-radius:12px; padding:12px; margin-top:14px;}
+  #tn-br .br-ticket-result{margin-top:14px;}
+  #tn-br .br-ticket-result:empty{display:none;}
+  #tn-br .br-ticket-result-panel{background:var(--mist); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:13.5px; color:var(--ink2); line-height:1.6; text-align:left;}
+  #tn-br .br-ticket-result-panel b{color:var(--ink);}
+
+  /* slide 3 — clock */
+  #tn-br .br-clock-wrap{text-align:center; margin-bottom:6px;}
+  #tn-br .br-clock-face{width:140px; height:140px; border-radius:50%; margin:0 auto 10px; position:relative; border:3px solid var(--ink2); background:conic-gradient(from 0deg, var(--nobg) 0deg 240deg, var(--tint) 240deg 360deg);}
+  #tn-br .br-clock-needle{position:absolute; top:50%; left:50%; width:3px; height:52px; background:var(--ink); transform-origin:bottom center; transform:translate(-50%,-100%) rotate(0deg); border-radius:2px; transition:transform .3s ease;}
+  #tn-br .br-clock-face::after{content:""; position:absolute; top:50%; left:50%; width:10px; height:10px; background:var(--ink); border-radius:50%; transform:translate(-50%,-50%);}
+  #tn-br .br-clock-zone{font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; color:var(--no); margin:0;}
+
+  /* slide 4 — scanner */
+  #tn-br .br-scan-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px;}
+  #tn-br .br-scan-item{display:flex; flex-direction:column; align-items:center; gap:6px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 6px; cursor:pointer; transition:all .18s; font-size:22px;}
+  #tn-br .br-scan-item span{font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:var(--ink2);}
+  #tn-br .br-scan-item.ok{border-color:var(--selbd); background:var(--tint);}
+  #tn-br .br-scan-item.no{border-color:var(--nobd); background:var(--nobg);}
+  #tn-br .br-scan-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:14px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.5; min-height:20px;}
+
+  /* slide 5 — liquidity showdown */
+  #tn-br .br-showdown-cols{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;}
+  #tn-br .br-showdown-col{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 10px; text-align:center; transition:background .3s ease, border-color .3s ease;}
+  #tn-br .br-showdown-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink); margin:0 0 10px;}
+  #tn-br .br-showdown-status{font-size:13px; font-weight:700; color:var(--ink2); min-height:20px;}
+  #tn-br .br-showdown-col.good{background:var(--tint); border-color:var(--selbd);}
+  #tn-br .br-showdown-col.good .br-showdown-status{color:var(--g);}
+  #tn-br .br-showdown-col.bad{background:var(--goldbg); border-color:var(--goldbd);}
+  #tn-br .br-showdown-col.bad .br-showdown-status{color:var(--gold);}
+  #tn-br .br-showdown-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-br .br-showdown-btn:hover{transform:translateY(-2px);}
+  #tn-br .br-showdown-btn:disabled{opacity:.5; cursor:default; transform:none;}
+
+  /* slide 6 — blitz */
+  #tn-br .br-blitz-streak{display:flex; align-items:center; justify-content:center; gap:6px; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); margin-bottom:10px;}
+  #tn-br .br-blitz-streak b{font-size:16px; color:var(--gold);}
+  #tn-br .br-blitz-card{background:var(--mist); border:1px solid var(--line); border-radius:16px; padding:24px 18px; text-align:center; min-height:90px; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:background .2s ease, border-color .2s ease;}
+  #tn-br .br-blitz-card.correct{background:var(--tint); border-color:var(--selbd);}
+  #tn-br .br-blitz-card.wrong{background:var(--nobg); border-color:var(--nobd);}
+  #tn-br .br-blitz-q{font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--ink); margin:0; line-height:1.4;}
+  #tn-br .br-blitz-feedback{font-size:12.5px; color:var(--ink2); margin:8px 0 0; min-height:16px;}
+  #tn-br .br-blitz-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;}
+  #tn-br .br-blitz-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:13px 8px; border-radius:12px; cursor:pointer; border:1.5px solid; background:#fff; transition:all .15s;}
+  #tn-br .br-blitz-btn.true{color:var(--g); border-color:var(--selbd);}
+  #tn-br .br-blitz-btn.true:hover{background:var(--tint);}
+  #tn-br .br-blitz-btn.false{color:var(--no); border-color:var(--nobd);}
+  #tn-br .br-blitz-btn.false:hover{background:var(--nobg);}
+  #tn-br .br-blitz-btn:disabled{opacity:.5; cursor:default;}
+
+  /* slide 7 — automate */
+  #tn-br .br-lever{display:inline-flex; align-items:center; gap:10px; background:#E4E9EE; border:none; border-radius:99px; padding:8px 18px 8px 8px; cursor:pointer; margin:4px auto 24px; transition:background .25s;}
+  #tn-br .br-lever-knob{width:26px; height:26px; border-radius:50%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,.2); transition:transform .25s;}
+  #tn-br .br-lever-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2);}
+  #tn-br .br-lever.on{background:var(--g);}
+  #tn-br .br-lever.on .br-lever-knob{transform:translateX(24px);}
+  #tn-br .br-lever.on .br-lever-lab{color:#fff;}
+  #tn-br .br-belt-wrap{display:flex; align-items:center; gap:10px; max-width:420px; margin:0 auto;}
+  #tn-br .br-belt-icon{font-size:26px; flex:none;}
+  #tn-br .br-belt-track{position:relative; flex:1; height:34px; background:var(--cardbg); border:1px solid var(--line); border-radius:17px; overflow:hidden;}
+  #tn-br .br-belt-item{position:absolute; top:50%; left:6px; transform:translateY(-50%); font-size:18px;}
+  #tn-br .br-belt-track.running .br-belt-item{animation:br-belt-move 1.6s linear infinite;}
+  @keyframes br-belt-move{0%{left:6px;}100%{left:calc(100% - 24px);}}
+  #tn-br .br-belt-msg{text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--g); margin-top:16px; min-height:20px; opacity:0; transition:opacity .3s;}
+  #tn-br .br-belt-msg.show{opacity:1;}
+
+  /* slide 8 — badges */
+  #tn-br .br-badges{display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-bottom:14px;}
+  #tn-br .br-badge{aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:24px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; cursor:pointer; transition:all .2s; filter:grayscale(1); opacity:.55;}
+  #tn-br .br-badge.on{filter:none; opacity:1; border-color:var(--selbd); background:var(--tint); transform:scale(1.06);}
+  #tn-br .br-badge-reveal{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; text-align:center;}
+  #tn-br .br-badge-reveal b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-br .br-badge-reveal span{font-size:13px; color:var(--ink2); line-height:1.5;}
+
+  /* certificate */
+  #tn-br .br-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-br .br-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-br .br-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-br .br-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-br .br-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-br .br-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-br .br-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-br .br-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-br .br-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-br .br-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-br .br-done-ico{font-size:20px; flex:none;}
+  #tn-br .br-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-br .br-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-br .br-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-br .br-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-br .br-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-br .br-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-br .br-btn:hover{transform:translateY(-2px);}
+  #tn-br .br-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-br .br-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-br .br-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-br .br-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-br .br-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-br .br-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-br .br-nav-btn.prev{color:var(--ink2);}
+  #tn-br .br-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-br .br-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-br .br-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-br .br-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-br .br-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-br .br-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-br .br-wrap{padding:12px 14px 30px;}
+    #tn-br .br-scan-grid{grid-template-columns:1fr 1fr;}
+    #tn-br .br-badges{grid-template-columns:repeat(3,1fr);}
+    #tn-br .br-pack-items{grid-template-columns:1fr;}
+    #tn-br .br-bsub{display:none;}
+    #tn-br .br-nav-hint{display:none;}
+    #tn-br .br-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-br .br-reveal{opacity:1 !important; transform:none !important;}
+    #tn-br #br-bar{transition:none;}
+    #tn-br .br-belt-track.running .br-belt-item{animation:none !important;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-br'); if(!root) return;
+  root.querySelectorAll('.br-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ generic draggable helper (drag OR tap both work) ============ */
+  function attachDraggable(item, dropZone, onDrop){
+    var startX,startY,curX=0,curY=0,dragging=false,moved=false;
+    item.style.touchAction='none';
+    item.addEventListener('pointerdown', function(e){
+      dragging=true; moved=false; curX=0; curY=0;
+      try{ item.setPointerCapture(e.pointerId); }catch(err){}
+      startX=e.clientX; startY=e.clientY;
+      item.style.transition='none';
+      item.classList.add('dragging');
+    });
+    item.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      curX=e.clientX-startX; curY=e.clientY-startY;
+      if(Math.abs(curX)>6 || Math.abs(curY)>6) moved=true;
+      item.style.transform='translate('+curX+'px,'+curY+'px)';
+      var r=item.getBoundingClientRect(), dz=dropZone.getBoundingClientRect();
+      var cx=r.left+r.width/2, cy=r.top+r.height/2;
+      var over=(cx>=dz.left && cx<=dz.right && cy>=dz.top && cy<=dz.bottom);
+      dropZone.classList.toggle('hover', over);
+    });
+    function endDrag(e){
+      if(!dragging) return;
+      dragging=false;
+      item.classList.remove('dragging');
+      dropZone.classList.remove('hover');
+      item.style.transition='transform .3s ease';
+      var over;
+      if(!moved){ over=true; }
+      else {
+        var r=item.getBoundingClientRect(), dz=dropZone.getBoundingClientRect();
+        var cx=r.left+r.width/2, cy=r.top+r.height/2;
+        over=(cx>=dz.left && cx<=dz.right && cy>=dz.top && cy<=dz.bottom);
+      }
+      if(over){ onDrop(item, true, function(){ item.style.transform='translate(0,0)'; }); }
+      else { item.style.transform='translate(0,0)'; onDrop(item, false, function(){}); }
+      postHeight();
+    }
+    item.addEventListener('pointerup', endDrag);
+    item.addEventListener('pointercancel', endDrag);
+  }
+
+  /* ============ 1 · the rulebook shredder ============ */
+  var shredMsg=root.querySelector('#br-shred-msg'), shredCountEl=root.querySelector('#br-shred-count'), shredCount=0;
+  root.querySelectorAll('#br-shred-items .br-pack-item').forEach(function(item){
+    var dropZone=root.querySelector('#br-shredder-drop');
+    attachDraggable(item, dropZone, function(el, dropped, resetFn){
+      if(!dropped){ resetFn(); return; }
+      el.classList.add('packed');
+      shredCount++;
+      shredMsg.textContent = el.querySelector('span').textContent+" — doesn't apply here.";
+      shredCountEl.textContent='Shredded '+shredCount+' of 3';
+      if(shredCount>=3){ shredMsg.textContent='None of these rules apply to a standard brokerage account.'; }
+    });
+  });
+
+  /* ============ 2 · make your first trade ============ */
+  var TICKET_PRICE=50;
+  var ticketAmt=root.querySelector('#br-ticket-amt'), ticketAmtV=root.querySelector('#br-ticket-amt-v'),
+      ticketAmtRow=root.querySelector('#br-ticket-amt-row'), ticketBuy=root.querySelector('#br-ticket-buy'),
+      ticketHolding=root.querySelector('#br-ticket-holding'), ticketShares=root.querySelector('#br-ticket-shares'),
+      ticketSkip=root.querySelector('#br-ticket-skip'), ticketNewPrice=root.querySelector('#br-ticket-newprice'),
+      ticketSell=root.querySelector('#br-ticket-sell'), ticketResult=root.querySelector('#br-ticket-result'),
+      ticketPriceEl=root.querySelector('#br-ticket-price');
+  var boughtAmt=0, boughtShares=0, soldPrice=0;
+  if(ticketAmt) ticketAmt.addEventListener('input',function(){ ticketAmtV.textContent='$'+ticketAmt.value; });
+  if(ticketBuy) ticketBuy.addEventListener('click',function(){
+    boughtAmt=+ticketAmt.value;
+    boughtShares=boughtAmt/TICKET_PRICE;
+    ticketShares.textContent=boughtShares.toFixed(2);
+    ticketHolding.style.display='block';
+    ticketBuy.style.display='none';
+    ticketAmtRow.style.display='none';
+    ticketSkip.style.display='block';
+    postHeight();
+  });
+  if(ticketSkip) ticketSkip.addEventListener('click',function(){
+    soldPrice=TICKET_PRICE*1.22; // illustrative +22% over 8 months
+    ticketPriceEl.textContent='$'+soldPrice.toFixed(2)+'/share';
+    ticketNewPrice.style.display='block';
+    ticketNewPrice.textContent='8 months later, TRN is now $'+soldPrice.toFixed(2)+'/share.';
+    ticketSkip.style.display='none';
+    ticketSell.style.display='block';
+    postHeight();
+  });
+  if(ticketSell) ticketSell.addEventListener('click',function(){
+    var proceeds=boughtShares*soldPrice;
+    var gain=proceeds-boughtAmt;
+    var taxRate=0.24; // held under 1 year -> short-term, taxed as ordinary income (illustrative)
+    var taxOwed=Math.max(0,gain*taxRate);
+    var net=proceeds-taxOwed;
+    ticketSell.style.display='none';
+    ticketResult.innerHTML='<div class="br-ticket-result-panel">You bought '+moneyRound(boughtAmt)+' of TRN, held it 8 months, and sold for <b>'+moneyRound(proceeds)+'</b>. That\u2019s a <b>'+moneyRound(gain)+' gain</b> \u2014 taxed at the short-term rate since you held less than a year, owing about <b>'+moneyRound(taxOwed)+'</b> in tax. You keep <b>'+moneyRound(net)+'</b>.</div>';
+    postHeight();
+  });
+
+  /* ============ 3 · the holding period clock ============ */
+  var clockSlider=root.querySelector('#br-clock-slider'), clockSliderV=root.querySelector('#br-clock-slider-v'),
+      clockNeedle=root.querySelector('#br-clock-needle'), clockZone=root.querySelector('#br-clock-zone'),
+      clockRate=root.querySelector('#br-clock-rate'), clockOwed=root.querySelector('#br-clock-owed'),
+      clockRateBox=root.querySelector('#br-clock-rate-box'), clockOwedBox=root.querySelector('#br-clock-owed-box');
+  function clockCalc(){
+    var m=+clockSlider.value;
+    clockSliderV.textContent=m+' months';
+    var deg=(m/18)*360;
+    clockNeedle.style.transform='translate(-50%,-100%) rotate('+deg+'deg)';
+    var shortTerm = m<12;
+    clockZone.textContent = shortTerm ? 'Short-Term' : 'Long-Term';
+    clockZone.style.color = shortTerm ? '#C0392B' : '#209B73';
+    var rate = shortTerm ? 0.24 : 0.15;
+    clockRate.textContent = shortTerm ? 'Ordinary Income (~24%)' : 'Long-Term Rate (~15%)';
+    clockOwed.textContent = '~'+moneyRound(1000*rate);
+    clockRateBox.style.background = shortTerm ? '#FDECEA' : '#EAF7F1';
+    clockOwedBox.style.background = shortTerm ? '#FDECEA' : '#EAF7F1';
+    clockRate.style.color = shortTerm ? '#C0392B' : '#209B73';
+    clockOwed.style.color = shortTerm ? '#C0392B' : '#209B73';
+    postHeight();
+  }
+  if(clockSlider){ clockSlider.addEventListener('input',clockCalc); clockCalc(); }
+
+  /* ============ 4 · what actually fits inside ============ */
+  var scanResult=root.querySelector('#br-scan-result'), scanCount=root.querySelector('#br-scan-count'), scanRevealed=0;
+  root.querySelectorAll('#br-scan-grid .br-scan-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      if(item.classList.contains('ok')||item.classList.contains('no')){ scanResult.textContent=item.getAttribute('data-d'); postHeight(); return; }
+      var ok=item.getAttribute('data-ok')==='true';
+      item.classList.add(ok?'ok':'no');
+      scanResult.textContent=(ok?'\u2705 ':'\u274c ')+item.getAttribute('data-d');
+      scanRevealed++;
+      scanCount.textContent='Scanned '+scanRevealed+' of 6';
+      postHeight();
+    });
+  });
+
+  /* ============ 5 · the liquidity showdown ============ */
+  var showdownBtn=root.querySelector('#br-showdown-btn'), showdownNote=root.querySelector('#br-showdown-note'),
+      showdownBrokerage=root.querySelector('#br-showdown-brokerage'), showdownBrokerageStatus=root.querySelector('#br-showdown-brokerage-status'),
+      showdownRetirement=root.querySelector('#br-showdown-retirement'), showdownRetirementStatus=root.querySelector('#br-showdown-retirement-status');
+  if(showdownBtn) showdownBtn.addEventListener('click',function(){
+    showdownBtn.disabled=true;
+    showdownBrokerageStatus.textContent='\u23f3 Processing...';
+    showdownRetirementStatus.textContent='\u23f3 Processing...';
+    postHeight();
+    setTimeout(function(){
+      showdownBrokerage.classList.add('good');
+      showdownBrokerageStatus.textContent='\u2705 Done \u2014 no restrictions, no penalty';
+      postHeight();
+    },500);
+    setTimeout(function(){
+      showdownRetirement.classList.add('bad');
+      showdownRetirementStatus.textContent='\u26d4 Restricted \u2014 many retirement accounts limit withdrawals before a certain age';
+      showdownNote.textContent='This is exactly why a brokerage account is useful for money you might need before retirement.';
+      postHeight();
+    },1400);
+  });
+
+  /* ============ 6 · myth or fact blitz ============ */
+  var blitzQ=[
+    {q:'You need a lot of money to open a brokerage account.', a:false},
+    {q:'You only owe capital gains tax once you sell an investment for a profit.', a:true},
+    {q:'A brokerage account can only hold one type of investment at a time.', a:false},
+    {q:'There\u2019s no age requirement to open or use a brokerage account.', a:true},
+    {q:'Every investment inside a brokerage account grows completely tax-free.', a:false}
+  ];
+  var blitzIdx=0, blitzStreak=0;
+  var blitzQEl=root.querySelector('#br-blitz-q'), blitzFeedback=root.querySelector('#br-blitz-feedback'),
+      blitzCard=root.querySelector('#br-blitz-card'), blitzStreakV=root.querySelector('#br-blitz-streak-v'),
+      blitzCount=root.querySelector('#br-blitz-count'), blitzTrueBtn=root.querySelector('#br-blitz-true'),
+      blitzFalseBtn=root.querySelector('#br-blitz-false');
+  function renderBlitz(){
+    if(blitzIdx>=blitzQ.length){
+      blitzQEl.textContent='All done! \ud83c\udf89';
+      blitzFeedback.textContent='Final streak: '+blitzStreak;
+      blitzTrueBtn.disabled=true; blitzFalseBtn.disabled=true;
+      postHeight();
+      return;
+    }
+    blitzQEl.textContent=blitzQ[blitzIdx].q;
+    blitzFeedback.textContent='';
+    blitzCard.className='br-blitz-card';
+    blitzCount.textContent='Question '+(blitzIdx+1)+' of '+blitzQ.length;
+    blitzTrueBtn.disabled=false; blitzFalseBtn.disabled=false;
+    postHeight();
+  }
+  function answerBlitz(val){
+    if(blitzIdx>=blitzQ.length) return;
+    var correct=blitzQ[blitzIdx].a===val;
+    blitzCard.className='br-blitz-card '+(correct?'correct':'wrong');
+    blitzTrueBtn.disabled=true; blitzFalseBtn.disabled=true;
+    if(correct){ blitzStreak++; blitzFeedback.textContent='\u2713 Correct! Streak: '+blitzStreak; }
+    else { blitzStreak=0; blitzFeedback.textContent='\u2717 Not quite.'; }
+    blitzStreakV.textContent=blitzStreak;
+    postHeight();
+    setTimeout(function(){ blitzIdx++; renderBlitz(); },900);
+  }
+  if(blitzTrueBtn) blitzTrueBtn.addEventListener('click',function(){ answerBlitz(true); });
+  if(blitzFalseBtn) blitzFalseBtn.addEventListener('click',function(){ answerBlitz(false); });
+  renderBlitz();
+
+  /* ============ 7 · automate it ============ */
+  var lever=root.querySelector('#br-lever'), leverLab=root.querySelector('#br-lever-lab'),
+      beltTrack=root.querySelector('#br-belt-track'), beltMsg=root.querySelector('#br-belt-msg');
+  if(lever) lever.addEventListener('click',function(){
+    var on=lever.classList.toggle('on'); lever.setAttribute('aria-pressed',on);
+    leverLab.textContent=on?'Line On':'Line Off';
+    beltTrack.classList.toggle('running',on);
+    beltMsg.textContent=on?'The line is running \u2014 money moves from paycheck to brokerage automatically, every payday.':'';
+    beltMsg.classList.toggle('show',on);
+    postHeight();
+  });
+
+  /* ============ 8 · badges ============ */
+  var badgeReveal=root.querySelector('#br-badge-reveal');
+  root.querySelectorAll('#br-badges .br-badge').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#br-badges .br-badge').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      badgeReveal.innerHTML='<b>'+b.getAttribute('data-t')+'</b><span>'+b.getAttribute('data-d')+'</span>';
+      postHeight();
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-br'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#br-bar');
+  var labelEl=root.querySelector('#br-slide-label');
+  var countEl=root.querySelector('#br-slide-count');
+  var prevBtn=root.querySelector('#br-prev');
+  var nextBtn=root.querySelector('#br-next');
+  var hintEl=root.querySelector('#br-nav-hint');
+  var disclaimer=root.querySelector('.br-disclaimer');
+
+  var labels={1:'The Rulebook Shredder',2:'Make Your First Trade',3:'The Holding Period Clock',4:'What Fits Inside',5:'The Liquidity Showdown',6:'Myth or Fact Blitz',7:'Automate It',8:'Recap',9:'Certified'};
+  var reqHints={1:'Shred all 3 rule cards',2:'Buy, then sell, to continue',3:'Explore both under and over 12 months',4:'Scan all 6 items',5:'Try the withdrawal to continue',6:'Answer all 5 questions',7:'Pull the lever to continue'};
+
+  var done={8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.br-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('br-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('br-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · all 3 rule cards shredded
+  root.querySelectorAll('#br-shred-items .br-pack-item').forEach(function(item){
+    item.addEventListener('pointerup', function(){
+      setTimeout(function(){
+        var n=count('#br-shred-items .br-pack-item.packed');
+        if(n>=3) markDone(1); else liveHint(1,'Shredded '+n+' of 3 — keep going');
+      },50);
+    });
+  });
+
+  // 2 · buy then sell completed
+  var boughtDone=false, soldDone=false;
+  var ticketBuy2=root.querySelector('#br-ticket-buy'), ticketSell2=root.querySelector('#br-ticket-sell');
+  if(ticketBuy2) ticketBuy2.addEventListener('click',function(){ boughtDone=true; liveHint(2,'Now skip ahead and sell to continue'); });
+  if(ticketSell2) ticketSell2.addEventListener('click',function(){ soldDone=true; if(boughtDone&&soldDone) markDone(2); });
+
+  // 3 · both under 12mo and 12mo+ explored
+  var clockState={short:false,long:false};
+  var clockSlider2=root.querySelector('#br-clock-slider');
+  if(clockSlider2) clockSlider2.addEventListener('input',function(){
+    var m=+clockSlider2.value;
+    if(m<12) clockState.short=true; else clockState.long=true;
+    if(clockState.short && clockState.long) markDone(3);
+    else liveHint(3, !clockState.short ? 'Now try under 12 months too' : 'Now try 12 months or more too');
+  });
+
+  // 4 · all 6 scanned
+  root.querySelectorAll('#br-scan-grid .br-scan-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      var n=count('#br-scan-grid .br-scan-item.ok')+count('#br-scan-grid .br-scan-item.no');
+      if(n>=6) markDone(4); else liveHint(4,'Scanned '+n+' of 6 — scan all to continue');
+    });
+  });
+
+  // 5 · withdrawal attempted
+  var showdownBtn2=root.querySelector('#br-showdown-btn');
+  if(showdownBtn2) showdownBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(5); },1500); });
+
+  // 6 · all 5 blitz questions answered
+  var blitzAnswered=0;
+  var blitzTrueBtn2=root.querySelector('#br-blitz-true'), blitzFalseBtn2=root.querySelector('#br-blitz-false');
+  function blitzGateCheck(){
+    blitzAnswered++;
+    if(blitzAnswered>=5) markDone(6); else liveHint(6,'Answered '+blitzAnswered+' of 5 — keep going');
+  }
+  if(blitzTrueBtn2) blitzTrueBtn2.addEventListener('click',blitzGateCheck);
+  if(blitzFalseBtn2) blitzFalseBtn2.addEventListener('click',blitzGateCheck);
+
+  // 7 · lever pulled on
+  var lever2=root.querySelector('#br-lever');
+  if(lever2) lever2.addEventListener('click',function(){ if(lever2.classList.contains('on')) markDone(7); });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#br-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

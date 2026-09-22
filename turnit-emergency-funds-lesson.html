@@ -1,0 +1,902 @@
+<!-- ============================================================
+     TURNIT — EMERGENCY FUNDS: YOUR SAFETY NET BEFORE YOU INVEST  (Module 1 · Lesson 5)
+     SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ef. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     12 slides, one interactive per page, "Next" locked until the activity is done:
+       1 The Financial Shock Wave Test    2 The Liquid Runway Meter
+       3 What Belongs in the Fund?        4 The Interest Rate Illusion
+       5 How to Build It Fast             6 The Progressive Phase Splitter
+       7 The Real Emergency Classifier    8 Spot the Red Flags
+       9 The Investment Bodyguard         10 Automate Your Safety Net
+       11 Recap                           12 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-ef">
+  <div class="ef-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="ef-top">
+      <div class="ef-topbar">
+        <div class="ef-brand"><span class="ef-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="ef-word">TURNIT</span><span class="ef-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="ef-progress"><span id="ef-bar"></span></div>
+      <div class="ef-meta"><span id="ef-slide-label">The Shock Wave Test</span><span id="ef-slide-count">Slide 1 of 12</span></div>
+    </div>
+
+    <!-- ========== 1 · THE FINANCIAL SHOCK WAVE TEST ========== -->
+    <section class="ef-sec ef-reveal" data-step="1">
+      <p class="ef-kicker">The Shock Wave Test · 1 / 12</p>
+      <h2 class="ef-h2">Life doesn't ask permission</h2>
+      <p class="ef-p">This profile has no emergency fund yet. Trigger a life event and see what happens without one.</p>
+
+      <div class="ef-hook-grid">
+        <div class="ef-hook-box"><span>Emergency Savings</span><b id="ef-shock-savings">$0</b></div>
+        <div class="ef-hook-box green"><span>Long-Term Investments</span><b id="ef-shock-invest">$5,000</b></div>
+      </div>
+
+      <button type="button" class="ef-shock-trigger" id="ef-shock-trigger">⚡ Trigger Unexpected Life Event</button>
+
+      <div class="ef-shock-alert" id="ef-shock-alert" style="display:none;">
+        <p class="ef-shock-alert-t" id="ef-shock-alert-t"></p>
+        <div class="ef-shock-choices">
+          <button type="button" class="ef-shock-choice card" id="ef-shock-card">💳 Charge to 24% Credit Card</button>
+          <button type="button" class="ef-shock-choice stock" id="ef-shock-stock">📉 Liquidate Stock Holdings</button>
+        </div>
+      </div>
+
+      <div class="ef-shock-result" id="ef-shock-result"></div>
+      <p class="ef-count" id="ef-shock-count">Resolved 0 of 2 events</p>
+    </section>
+
+    <!-- ========== 2 · THE LIQUID RUNWAY METER ========== -->
+    <section class="ef-sec ef-reveal" data-step="2">
+      <p class="ef-kicker">The Runway Meter · 2 / 12</p>
+      <h2 class="ef-h2">How many months could you cover?</h2>
+      <p class="ef-p">Set your monthly expenses and your current cash cushion. Watch your financial runway change in real time.</p>
+
+      <div class="ef-panel" id="ef-runway-panel">
+        <div class="ef-runway-badge">
+          <b id="ef-runway-months">0</b>
+          <span id="ef-runway-lab">Months of Financial Runway</span>
+        </div>
+
+        <div class="ef-runway-track">
+          <span class="ef-runway-mark" style="left:33.3%"></span>
+          <span class="ef-runway-marker" id="ef-runway-marker"></span>
+        </div>
+        <div class="ef-scale"><span>0 mo</span><span>2 mo</span><span>3 mo</span><span>6+ mo</span></div>
+
+        <div class="ef-slide-row">
+          <div class="ef-slide-top"><label for="ef-expenses">Essential Monthly Expenses</label><span class="ef-slide-v gold" id="ef-expenses-v">$2,000</span></div>
+          <input id="ef-expenses" class="ef-range" type="range" min="1000" max="4000" value="2000" step="100" aria-label="Monthly expenses">
+        </div>
+        <div class="ef-slide-row">
+          <div class="ef-slide-top"><label for="ef-cash">Liquid Cash Stashed Away</label><span class="ef-slide-v green" id="ef-cash-v">$2,000</span></div>
+          <input id="ef-cash" class="ef-range good" type="range" min="0" max="15000" value="2000" step="500" aria-label="Liquid cash saved">
+        </div>
+        <div class="ef-note" id="ef-runway-note">Find both a red "Turbulence Zone" and a green "Secure Runway" to continue.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · WHAT BELONGS IN THE FUND? ========== -->
+    <section class="ef-sec ef-reveal" data-step="3">
+      <p class="ef-kicker">What It's Actually For · 3 / 12</p>
+      <h2 class="ef-h2">What belongs in an emergency fund?</h2>
+      <p class="ef-p">Not every surprise expense qualifies. Tap each real category to see what it covers.</p>
+
+      <div class="ef-fico" id="ef-belongs">
+        <button type="button" class="ef-fchip" data-t="Job Loss" data-d="A gap between paychecks while you find new work is the single biggest reason financial advisors recommend an emergency fund in the first place.">
+          <i class="d1"></i>Job Loss</button>
+        <button type="button" class="ef-fchip" data-t="Medical Emergency" data-d="Unexpected medical or dental costs are common, often unavoidable, and rarely something you can simply put off until next paycheck.">
+          <i class="d2"></i>Medical Emergency</button>
+        <button type="button" class="ef-fchip" data-t="Major Home or Car Repair" data-d="A broken furnace or a failed transmission on your only vehicle isn't optional — it's often required to keep living and working normally.">
+          <i class="d3"></i>Major Home or Car Repair</button>
+        <button type="button" class="ef-fchip" data-t="Family Emergency" data-d="Last-minute travel or support for a family crisis is unpredictable by nature — exactly the kind of cost an emergency fund exists to absorb.">
+          <i class="d4"></i>Family Emergency</button>
+      </div>
+      <div class="ef-reveal-box" id="ef-belongs-box"><b id="ef-belongs-t">Tap a category above</b><span id="ef-belongs-d">Four real reasons an emergency fund actually gets used.</span></div>
+      <p class="ef-count" id="ef-belongs-count">Reviewed 0 of 4</p>
+    </section>
+
+    <!-- ========== 4 · THE INTEREST RATE ILLUSION ========== -->
+    <section class="ef-sec ef-reveal" data-step="4">
+      <p class="ef-kicker">The Illusion · 4 / 12</p>
+      <h2 class="ef-h2">Where should $5,000 actually sit?</h2>
+      <p class="ef-p">Same $5,000 emergency fund — three very different places to keep it. Tap each to see what actually happens there.</p>
+
+      <div class="ef-buckets" id="ef-buckets">
+        <button type="button" class="ef-bucket" data-k="checking">🏦<span>Traditional Checking</span></button>
+        <button type="button" class="ef-bucket" data-k="hysa">💎<span>High-Yield Savings</span></button>
+        <button type="button" class="ef-bucket" data-k="stock">📊<span>Volatile Stock Market</span></button>
+      </div>
+
+      <div class="ef-bucket-result" id="ef-bucket-result"><p class="ef-bucket-result-t">Tap a bucket above</p><p class="ef-bucket-result-d">See what actually happens to your $5,000 in each one.</p></div>
+      <p class="ef-count" id="ef-buckets-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 5 · HOW TO BUILD IT FAST ========== -->
+    <section class="ef-sec ef-reveal" data-step="5">
+      <p class="ef-kicker">Building It Fast · 5 / 12</p>
+      <h2 class="ef-h2">Real ways to build it faster</h2>
+      <p class="ef-p">You don't need a windfall to get started. Tap each to see how it speeds things up.</p>
+
+      <div class="ef-fico" id="ef-buildfast">
+        <button type="button" class="ef-fchip" data-t="Automate a Fixed Transfer" data-d="A set amount moving automatically on payday builds the fund without relying on willpower or remembering to do it manually.">Automate a Fixed Transfer</button>
+        <button type="button" class="ef-fchip" data-t="Save Windfalls Instead of Spending Them" data-d="Tax refunds, bonuses, and cash gifts are easy wins — money you weren't counting on anyway is the easiest money to save.">Save Windfalls Instead of Spending Them</button>
+        <button type="button" class="ef-fchip" data-t="Start With a $500 Mini-Goal" data-d="A smaller first target feels achievable fast, which builds momentum before you tackle the full 3-6 month goal.">Start With a $500 Mini-Goal</button>
+        <button type="button" class="ef-fchip" data-t="Use a High-Yield Account" data-d="Keeping the fund somewhere it earns real interest means it grows a little on its own while it waits, without adding any risk.">Use a High-Yield Account</button>
+      </div>
+      <div class="ef-reveal-box" id="ef-buildfast-box"><b id="ef-buildfast-t">Tap an option above</b><span id="ef-buildfast-d">Four practical ways to build your fund faster.</span></div>
+      <p class="ef-count" id="ef-buildfast-count">Explored 0 of 4</p>
+    </section>
+
+    <!-- ========== 6 · THE PROGRESSIVE PHASE SPLITTER ========== -->
+    <section class="ef-sec ef-reveal" data-step="6">
+      <p class="ef-kicker">Two Phases · 6 / 12</p>
+      <h2 class="ef-h2">You don't have to build it all at once</h2>
+      <p class="ef-p">Most people build their fund in two phases. Tap each to see what it protects against.</p>
+
+      <div class="ef-phase-btns">
+        <button type="button" class="ef-phase-btn" id="ef-phase1">Phase 1<span>The Starter Core ($1,000)</span></button>
+        <button type="button" class="ef-phase-btn" id="ef-phase2">Phase 2<span>The Full Shield (3-6 Months)</span></button>
+      </div>
+
+      <div class="ef-shield-wrap">
+        <div class="ef-shield-track"><span class="ef-shield-fill" id="ef-shield-fill"></span></div>
+        <div class="ef-scale"><span>$0</span><span>Full Shield</span></div>
+      </div>
+
+      <div class="ef-phase-result" id="ef-phase-result"></div>
+    </section>
+
+    <!-- ========== 7 · THE REAL EMERGENCY CLASSIFIER ========== -->
+    <section class="ef-sec ef-reveal" data-step="7">
+      <p class="ef-kicker">Real Emergency or Not? · 7 / 12</p>
+      <h2 class="ef-h2">Is it a real emergency?</h2>
+      <p class="ef-p">Tap the right label for each scenario. You'll see why right after you choose.</p>
+
+      <div class="ef-sort" id="ef-classifier">
+        <div class="ef-sort-row" data-answer="emergency"><span>Your only vehicle needs emergency brake repairs to be safely drivable</span><div class="ef-sort-btns"><button data-p="emergency">Real Emergency</button><button data-p="want">Discretionary Want</button></div><p class="ef-classifier-why"></p></div>
+        <div class="ef-sort-row" data-answer="want"><span>Front-row tickets just dropped for your favorite artist's surprise show</span><div class="ef-sort-btns"><button data-p="emergency">Real Emergency</button><button data-p="want">Discretionary Want</button></div><p class="ef-classifier-why"></p></div>
+        <div class="ef-sort-row" data-answer="emergency"><span>You need a root canal to stop the pain and prevent infection</span><div class="ef-sort-btns"><button data-p="emergency">Real Emergency</button><button data-p="want">Discretionary Want</button></div><p class="ef-classifier-why"></p></div>
+        <div class="ef-sort-row" data-answer="want"><span>A limited-edition sneaker drop you've been eyeing sells out today</span><div class="ef-sort-btns"><button data-p="emergency">Real Emergency</button><button data-p="want">Discretionary Want</button></div><p class="ef-classifier-why"></p></div>
+      </div>
+      <p class="ef-count" id="ef-classifier-count">Sorted 0 of 4</p>
+    </section>
+
+    <!-- ========== 8 · SPOT THE RED FLAGS ========== -->
+    <section class="ef-sec ef-reveal" data-step="8">
+      <p class="ef-kicker">Spot the Red Flags · 8 / 12</p>
+      <h2 class="ef-h2">Habits that help — and hurt — your fund</h2>
+      <p class="ef-p">Some habits quietly protect your safety net. Others quietly drain it. Tap each tile to reveal which is which.</p>
+
+      <div class="ef-traps" id="ef-traps">
+        <button class="ef-trap-tile" data-verdict="risky" data-d="Cash sitting in a near-0% checking account loses real value over time and earns nothing while it waits to be needed.">Keeping It in a 0% Checking Account</button>
+        <button class="ef-trap-tile" data-verdict="safe" data-d="A fixed transfer every payday builds the fund automatically, with zero reliance on remembering or feeling motivated.">Automating a Fixed Transfer Every Payday</button>
+        <button class="ef-trap-tile" data-verdict="risky" data-d="Using the fund for non-emergencies defeats its purpose and leaves you exposed exactly when a real emergency eventually hits.">Dipping Into It for Non-Emergencies</button>
+        <button class="ef-trap-tile" data-verdict="safe" data-d="Replenishing the fund right after using it keeps your safety net intact instead of quietly staying underfunded for months.">Immediately Replenishing It After Use</button>
+      </div>
+      <p class="ef-count" id="ef-traps-count">Revealed 0 of 4</p>
+    </section>
+
+    <!-- ========== 9 · THE INVESTMENT BODYGUARD ========== -->
+    <section class="ef-sec ef-reveal" data-step="9">
+      <p class="ef-kicker">The Investment Bodyguard · 9 / 12</p>
+      <h2 class="ef-h2">What a cash shield actually protects</h2>
+      <p class="ef-p">Two investors, same $10,000 portfolio. Only one has a separate cash shield. Run the simulation to see what a surprise $3,000 bill does to each.</p>
+
+      <div class="ef-panel">
+        <div class="ef-bodyguard-cols">
+          <div class="ef-bodyguard-col" id="ef-col-a">
+            <p class="ef-bodyguard-lab">Investor A</p>
+            <p class="ef-bodyguard-sub">Separate Cash Shield</p>
+            <div class="ef-bodyguard-val" id="ef-a-val">$10,000</div>
+            <p class="ef-bodyguard-note" id="ef-a-note">Portfolio intact</p>
+          </div>
+          <div class="ef-bodyguard-col" id="ef-col-b">
+            <p class="ef-bodyguard-lab">Investor B</p>
+            <p class="ef-bodyguard-sub">$0 Cash Shield</p>
+            <div class="ef-bodyguard-val" id="ef-b-val">$10,000</div>
+            <p class="ef-bodyguard-note" id="ef-b-note">Portfolio intact</p>
+          </div>
+        </div>
+
+        <button type="button" class="ef-bodyguard-btn" id="ef-bodyguard-run">🛡️ Simulate Sudden $3,000 Emergency Bill</button>
+        <div class="ef-bodyguard-result" id="ef-bodyguard-result"></div>
+      </div>
+      <p class="ef-disclaimer-inline">Illustrative example only, using a rough ~8% hypothetical average annual return — not real historical data or a prediction.</p>
+    </section>
+
+    <!-- ========== 10 · AUTOMATE YOUR SAFETY NET ========== -->
+    <section class="ef-sec ef-center ef-reveal" data-step="10">
+      <p class="ef-kicker center">Automate It · 10 / 12</p>
+      <h2 class="ef-h2 center">Make the safety net automatic</h2>
+      <p class="ef-sub center">The easiest way to actually finish building your fund is to stop deciding every month. Flip the switch to power up the pipeline.</p>
+
+      <button type="button" class="ef-toggle" id="ef-toggle" aria-pressed="false"><span class="ef-toggle-knob"></span><span class="ef-toggle-lab" id="ef-toggle-lab">Auto-Shield Off</span></button>
+
+      <div class="ef-pipe" id="ef-pipe">
+        <div class="ef-pipe-card"><div class="ef-pipe-ico">💵</div><div class="ef-pipe-t">Paycheck Lands</div><div class="ef-pipe-d">Your paycheck hits your checking account like normal.</div></div>
+        <div class="ef-pipe-arrow">→</div>
+        <div class="ef-pipe-card"><div class="ef-pipe-ico">🛡️</div><div class="ef-pipe-t">Auto-Fill Shield</div><div class="ef-pipe-d">A set amount fills your emergency fund automatically until it hits target.</div></div>
+        <div class="ef-pipe-arrow">→</div>
+        <div class="ef-pipe-card"><div class="ef-pipe-ico">📈</div><div class="ef-pipe-t">Auto-Invest the Rest</div><div class="ef-pipe-d">Once the shield is full, that same amount redirects straight into investing.</div></div>
+      </div>
+      <p class="ef-autopilot-msg" id="ef-autopilot-msg"></p>
+    </section>
+
+    <!-- ========== 11 · RECAP ========== -->
+    <section class="ef-sec ef-reveal" data-step="11">
+      <p class="ef-kicker">Recap · 11 / 12</p>
+      <h2 class="ef-h2">Here's what you now know</h2>
+      <p class="ef-p">The whole lesson, in six lines.</p>
+
+      <div class="ef-recap">
+        <div class="ef-recap-item"><span class="ef-recap-check">✓</span><span>Without an emergency fund, a surprise cost forces you into high-interest debt or selling investments at a bad time.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check">✓</span><span>Your <b>financial runway</b> is your cash divided by your monthly expenses — aim for 3-6 months.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check">✓</span><span>A real emergency fund covers job loss, medical bills, major repairs, and family emergencies — not discretionary wants.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check">✓</span><span>Keep it in a high-yield savings account — not checking, and not the stock market.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check">✓</span><span>Build it in phases: a <b>$1,000 starter core</b> first, then the full 3-6 month shield.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check">✓</span><span>A cash shield protects your investments from being sold off — or your debt from piling up — during a crisis.</span></div>
+      </div>
+      <div class="ef-next-move">Your next move: <b>calculate your own monthly runway, and automate a transfer toward your starter core.</b></div>
+    </section>
+
+    <!-- ========== 12 · CERTIFICATE ========== -->
+    <section class="ef-sec ef-center ef-reveal" data-step="12">
+      <p class="ef-kicker center">Certified · 12 / 12</p>
+      <div class="ef-cert">
+        <div class="ef-cert-border"></div>
+        <span class="ef-cert-pill">🏆 Certificate of Completion</span>
+        <p class="ef-cert-cert">This certifies that</p>
+        <h2 class="ef-cert-name">Safety Net Secured</h2>
+        <p class="ef-cert-body">has completed <span class="ef-tw">TURNIT</span> Financial Foundations: Emergency Funds, and now understands how to build, size, and protect a safety net before investing further.</p>
+        <div class="ef-cert-line"></div>
+        <div class="ef-done-row streak"><div class="ef-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="ef-done-row ach"><div class="ef-done-ico">🏆</div><div><b>Achievement: Safety Net Certified</b><span>You mastered emergency fund fundamentals.</span></div></div>
+        <div class="ef-done-btns">
+          <a class="ef-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="ef-btn ghost" id="ef-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="ef-quote">"NEVER SPEND YOUR MONEY <span class="ef-green">BEFORE YOU HAVE EARNED IT.</span>"<br><span class="ef-quote-by">— THOMAS JEFFERSON</span></p>
+    </section>
+
+    <p class="ef-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Simulations and growth figures in this lesson are simplified, hypothetical illustrations, not real historical data or a prediction.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="ef-nav" id="ef-nav">
+      <button type="button" class="ef-nav-btn prev" id="ef-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ef-nav-hint" id="ef-nav-hint"></span>
+      <button type="button" class="ef-nav-btn next" id="ef-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-ef{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-ef *,#tn-ef *::before,#tn-ef *::after{box-sizing:border-box;}
+  #tn-ef .ef-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ef .ef-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ef .ef-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-ef .ef-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ef .ef-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ef .ef-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-ef .ef-bico{display:flex;}
+  #tn-ef .ef-word,#tn-ef .ef-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ef .ef-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-ef .ef-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ef .ef-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ef #ef-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ef .ef-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ef .ef-meta #ef-slide-label{color:var(--ink2);}
+  #tn-ef .ef-meta #ef-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-ef .ef-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-ef .ef-sec.ef-hide{display:none;}
+  #tn-ef .ef-center{text-align:center;}
+  #tn-ef .ef-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ef .ef-kicker.center{text-align:center;}
+  #tn-ef .ef-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-ef .ef-h2.center{text-align:center;}
+  #tn-ef .ef-tw{font-style:italic;}
+  #tn-ef .ef-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ef .ef-p b{color:var(--ink); font-weight:700;}
+  #tn-ef .ef-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+
+  #tn-ef .ef-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-ef .ef-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-ef .ef-note b{color:var(--ink); font-weight:700;}
+  #tn-ef .ef-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ef .ef-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+
+  #tn-ef .ef-hook-grid{display:flex; gap:10px; margin-bottom:16px;}
+  #tn-ef .ef-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center;}
+  #tn-ef .ef-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-ef .ef-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(16px,4.4vw,20px); color:var(--ink);}
+  #tn-ef .ef-hook-box.green{background:var(--tint); border-color:var(--selbd);}
+  #tn-ef .ef-hook-box.green b{color:var(--g);}
+
+  /* slide 1 — shock wave test */
+  #tn-ef .ef-shock-trigger{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-ef .ef-shock-trigger:hover{transform:translateY(-2px);}
+  #tn-ef .ef-shock-trigger:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-ef .ef-shock-alert{background:var(--nobg); border:1.5px solid var(--nobd); border-radius:14px; padding:16px; margin-top:16px; text-align:center;}
+  #tn-ef .ef-shock-alert-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--no); margin:0 0 12px;}
+  #tn-ef .ef-shock-choices{display:flex; gap:10px;}
+  #tn-ef .ef-shock-choice{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:12px 8px; border-radius:10px; cursor:pointer; border:1.5px solid; background:#fff; transition:all .15s;}
+  #tn-ef .ef-shock-choice.card{color:var(--no); border-color:var(--nobd);}
+  #tn-ef .ef-shock-choice.card:hover{background:var(--nobg);}
+  #tn-ef .ef-shock-choice.stock{color:var(--gold); border-color:var(--goldbd);}
+  #tn-ef .ef-shock-choice.stock:hover{background:var(--goldbg);}
+  #tn-ef .ef-shock-result{margin-top:14px;}
+  #tn-ef .ef-shock-result:empty{display:none;}
+  #tn-ef .ef-shock-panel{border-radius:12px; padding:14px 16px; text-align:left; font-size:13.5px; line-height:1.55;}
+  #tn-ef .ef-shock-panel.card{background:var(--nobg); border:1.5px solid var(--nobd); color:var(--ink2);}
+  #tn-ef .ef-shock-panel.stock{background:var(--goldbg); border:1.5px solid var(--goldbd); color:var(--ink2);}
+  #tn-ef .ef-shock-panel b{color:var(--ink);}
+
+  /* slide 2 — runway meter */
+  #tn-ef .ef-runway-badge{text-align:center; margin-bottom:14px;}
+  #tn-ef .ef-runway-badge b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(34px,9vw,44px); line-height:1; color:var(--no);}
+  #tn-ef .ef-runway-badge span{display:block; font-size:12.5px; font-weight:700; color:var(--ink2); margin-top:2px;}
+  #tn-ef .ef-runway-track{position:relative; height:16px; border-radius:9px; background:linear-gradient(90deg,var(--nobg) 0%, var(--nobg) 33.3%, var(--goldbg) 33.3%, var(--goldbg) 50%, var(--tint) 50%, var(--tint) 100%); border:1px solid var(--line); margin-top:4px;}
+  #tn-ef .ef-runway-mark{position:absolute; top:-4px; bottom:-4px; width:2px; background:var(--ink); opacity:.4;}
+  #tn-ef .ef-runway-marker{position:absolute; top:50%; left:0%; width:14px; height:14px; border-radius:50%; background:#fff; border:3px solid var(--ink); transform:translate(-50%,-50%); transition:left .3s ease;}
+
+  /* ranges */
+  #tn-ef .ef-slide-row{margin-top:16px;}
+  #tn-ef .ef-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-ef .ef-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-ef .ef-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-ef .ef-slide-v.green{color:var(--g);} #tn-ef .ef-slide-v.gold{color:var(--gold);} #tn-ef .ef-slide-v.blue{color:var(--b);}
+  #tn-ef .ef-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-ef .ef-range.good{background:linear-gradient(90deg,#E0A93C,#209B73);}
+  #tn-ef .ef-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-ef .ef-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-ef .ef-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  /* factor chips (shared) */
+  #tn-ef .ef-fico{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-ef .ef-fchip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; font-size:13.5px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-ef .ef-fchip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-ef .ef-fchip .d1{background:#209B73;} #tn-ef .ef-fchip .d2{background:#1f8f9b;} #tn-ef .ef-fchip .d3{background:#1568AE;} #tn-ef .ef-fchip .d4{background:#E0952F;}
+  #tn-ef .ef-fchip.on{border-color:var(--g); background:var(--tint);}
+  #tn-ef .ef-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ef .ef-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-ef .ef-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+
+  /* slide 4 — bucket explorer */
+  #tn-ef .ef-buckets{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px;}
+  #tn-ef .ef-bucket{display:flex; flex-direction:column; align-items:center; gap:6px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 8px; cursor:pointer; transition:all .18s; font-size:26px;}
+  #tn-ef .ef-bucket span{font-size:11.5px; line-height:1.3;}
+  #tn-ef .ef-bucket.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-ef .ef-bucket-result{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:14px; text-align:center; transition:background .3s ease, border-color .3s ease;}
+  #tn-ef .ef-bucket-result.warn{background:var(--nobg); border-color:var(--nobd);}
+  #tn-ef .ef-bucket-result.danger{background:var(--goldbg); border-color:var(--goldbd);}
+  #tn-ef .ef-bucket-result.safe{background:var(--tint); border-color:var(--selbd);}
+  #tn-ef .ef-bucket-result-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px; color:var(--ink);}
+  #tn-ef .ef-bucket-result-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+
+  /* slide 6 — phase splitter */
+  #tn-ef .ef-phase-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;}
+  #tn-ef .ef-phase-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 10px; cursor:pointer; transition:all .18s; text-align:center;}
+  #tn-ef .ef-phase-btn span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:12px; color:var(--mut); margin-top:3px;}
+  #tn-ef .ef-phase-btn.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-ef .ef-shield-wrap{margin-top:18px;}
+  #tn-ef .ef-shield-track{height:20px; border-radius:10px; background:var(--cardbg); border:1px solid var(--line); overflow:hidden;}
+  #tn-ef .ef-shield-fill{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .6s ease;}
+  #tn-ef .ef-phase-result{margin-top:16px;}
+  #tn-ef .ef-phase-result:empty{display:none;}
+  #tn-ef .ef-phase-panel{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; text-align:left;}
+  #tn-ef .ef-phase-panel-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px; color:var(--ink);}
+  #tn-ef .ef-phase-panel-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+
+  /* sorter (classifier) */
+  #tn-ef .ef-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ef .ef-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ef .ef-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-ef .ef-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ef .ef-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 13px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ef .ef-sort-btns button[data-p="emergency"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-ef .ef-sort-btns button[data-p="want"]{border:1.5px solid var(--goldbd); color:var(--gold);}
+  #tn-ef .ef-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ef .ef-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-ef .ef-sort-row.done .ef-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ef .ef-sort-row.done .ef-sort-btns button.picked{opacity:1;}
+  #tn-ef .ef-classifier-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-ef .ef-classifier-why b{font-family:'Poppins',sans-serif;}
+  #tn-ef .ef-sort-row.done .ef-classifier-why{display:block;}
+
+  /* spot-the-habit tiles */
+  #tn-ef .ef-traps{display:grid; grid-template-columns:1fr 1fr; gap:11px;}
+  #tn-ef .ef-trap-tile{position:relative; text-align:left; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:15px; padding:18px 16px; min-height:92px; cursor:pointer; transition:all .2s;}
+  #tn-ef .ef-trap-tile::after{content:"Tap to reveal"; display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--mut); margin-top:6px;}
+  #tn-ef .ef-trap-tile.safe{border-color:var(--selbd); background:var(--tint);}
+  #tn-ef .ef-trap-tile.risky{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ef .ef-trap-tile.done::after{content:attr(data-reveal); color:var(--ink2); font-size:12.5px; line-height:1.4;}
+  #tn-ef .ef-trap-badge{position:absolute; top:12px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; padding:3px 9px; border-radius:99px; text-transform:uppercase; letter-spacing:.04em;}
+  #tn-ef .ef-trap-tile.safe .ef-trap-badge{background:var(--g); color:#fff;}
+  #tn-ef .ef-trap-tile.risky .ef-trap-badge{background:var(--no); color:#fff;}
+
+  /* slide 9 — investment bodyguard */
+  #tn-ef .ef-bodyguard-cols{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;}
+  #tn-ef .ef-bodyguard-col{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 12px; text-align:center; transition:background .3s ease, border-color .3s ease;}
+  #tn-ef .ef-bodyguard-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink); margin:0;}
+  #tn-ef .ef-bodyguard-sub{font-size:11px; color:var(--mut); font-weight:600; margin:2px 0 10px;}
+  #tn-ef .ef-bodyguard-val{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(18px,4.8vw,23px); color:var(--ink); transition:color .3s ease;}
+  #tn-ef .ef-bodyguard-note{font-size:11.5px; color:var(--ink2); margin:6px 0 0; font-weight:600;}
+  #tn-ef .ef-bodyguard-col.hit{background:var(--nobg); border-color:var(--nobd);}
+  #tn-ef .ef-bodyguard-col.hit .ef-bodyguard-val{color:var(--no);}
+  #tn-ef .ef-bodyguard-col.safe-hit{background:var(--tint); border-color:var(--selbd);}
+  #tn-ef .ef-bodyguard-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-ef .ef-bodyguard-btn:hover{transform:translateY(-2px);}
+  #tn-ef .ef-bodyguard-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-ef .ef-bodyguard-result{margin-top:16px;}
+  #tn-ef .ef-bodyguard-result:empty{display:none;}
+  #tn-ef .ef-bodyguard-panel{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; text-align:left; font-size:13.5px; color:var(--ink2); line-height:1.55;}
+  #tn-ef .ef-bodyguard-panel b{color:var(--ink);}
+
+  /* automate */
+  #tn-ef .ef-toggle{display:inline-flex; align-items:center; gap:10px; background:#E4E9EE; border:none; border-radius:99px; padding:8px 18px 8px 8px; cursor:pointer; margin:4px auto 22px; transition:background .25s;}
+  #tn-ef .ef-toggle-knob{width:26px; height:26px; border-radius:50%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,.2); transition:transform .25s;}
+  #tn-ef .ef-toggle-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2);}
+  #tn-ef .ef-toggle.on{background:var(--g);}
+  #tn-ef .ef-toggle.on .ef-toggle-knob{transform:translateX(24px);}
+  #tn-ef .ef-toggle.on .ef-toggle-lab{color:#fff;}
+  #tn-ef .ef-pipe{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:8px; align-items:center;}
+  #tn-ef .ef-pipe-card{background:#fff; border:1.5px solid var(--cardbd); border-radius:15px; padding:16px 14px; text-align:left; transition:all .3s;}
+  #tn-ef .ef-pipe-ico{width:36px; height:36px; border-radius:10px; background:var(--mist); display:flex; align-items:center; justify-content:center; margin-bottom:10px; transition:all .3s; font-size:17px;}
+  #tn-ef .ef-pipe-t{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-bottom:4px;}
+  #tn-ef .ef-pipe-d{font-size:12px; color:var(--ink2); line-height:1.45;}
+  #tn-ef .ef-pipe-arrow{color:var(--mut); font-size:18px;}
+  #tn-ef .ef-pipe.on .ef-pipe-card{border-color:var(--selbd); background:var(--tint);}
+  #tn-ef .ef-pipe.on .ef-pipe-ico{background:var(--g);}
+  #tn-ef .ef-autopilot-msg{font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--g); margin:20px 0 0; min-height:22px; opacity:0; transition:opacity .3s;}
+  #tn-ef .ef-autopilot-msg.show{opacity:1;}
+
+  /* recap */
+  #tn-ef .ef-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ef .ef-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-ef .ef-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ef .ef-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-ef .ef-recap-item b{font-weight:700;}
+  #tn-ef .ef-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-ef .ef-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-ef .ef-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-ef .ef-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-ef .ef-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-ef .ef-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-ef .ef-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-ef .ef-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-ef .ef-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-ef .ef-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-ef .ef-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-ef .ef-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-ef .ef-done-ico{font-size:20px; flex:none;}
+  #tn-ef .ef-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-ef .ef-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-ef .ef-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-ef .ef-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-ef .ef-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-ef .ef-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-ef .ef-btn:hover{transform:translateY(-2px);}
+  #tn-ef .ef-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-ef .ef-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ef .ef-green{color:var(--g);}
+  #tn-ef .ef-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-ef .ef-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-ef .ef-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ef .ef-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ef .ef-nav-btn.prev{color:var(--ink2);}
+  #tn-ef .ef-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ef .ef-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-ef .ef-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ef .ef-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ef .ef-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ef .ef-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-ef .ef-wrap{padding:12px 14px 30px;}
+    #tn-ef .ef-fico{grid-template-columns:1fr;}
+    #tn-ef .ef-traps{grid-template-columns:1fr;}
+    #tn-ef .ef-buckets{grid-template-columns:1fr;}
+    #tn-ef .ef-phase-btns{grid-template-columns:1fr;}
+    #tn-ef .ef-bodyguard-cols{grid-template-columns:1fr;}
+    #tn-ef .ef-pipe{grid-template-columns:1fr;}
+    #tn-ef .ef-pipe-arrow{transform:rotate(90deg); justify-self:center;}
+    #tn-ef .ef-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ef .ef-shock-choices{flex-direction:column;}
+    #tn-ef .ef-bsub{display:none;}
+    #tn-ef .ef-nav-hint{display:none;}
+    #tn-ef .ef-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ef .ef-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ef #ef-bar{transition:none;}
+  }
+</style>
+
+<script>
+/* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
+(function(){
+  var root=document.getElementById('tn-ef'); if(!root) return;
+  root.querySelectorAll('.ef-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* 1 · financial shock wave test */
+  var SHOCK_EVENTS=[
+    {label:'🚗 Transmission Failure', amount:1500},
+    {label:'🦷 Emergency Root Canal', amount:2200},
+    {label:'🔥 Broken Water Heater', amount:900},
+    {label:'🐾 Sudden Vet Bill', amount:1200}
+  ];
+  var shockInvest=5000, shockResolved=0;
+  var shockTrigger=root.querySelector('#ef-shock-trigger'), shockAlert=root.querySelector('#ef-shock-alert'),
+      shockAlertT=root.querySelector('#ef-shock-alert-t'), shockCard=root.querySelector('#ef-shock-card'),
+      shockStock=root.querySelector('#ef-shock-stock'), shockResult=root.querySelector('#ef-shock-result'),
+      shockSavingsEl=root.querySelector('#ef-shock-savings'), shockInvestEl=root.querySelector('#ef-shock-invest'),
+      shockCount=root.querySelector('#ef-shock-count');
+  var activeEvent=null;
+  function shockTriggerEvent(){
+    activeEvent=SHOCK_EVENTS[Math.floor(Math.random()*SHOCK_EVENTS.length)];
+    shockAlertT.textContent=activeEvent.label+': -$'+activeEvent.amount.toLocaleString();
+    shockAlert.style.display='block';
+    shockResult.innerHTML='';
+    shockTrigger.disabled=true;
+    postHeight();
+  }
+  if(shockTrigger) shockTrigger.addEventListener('click',shockTriggerEvent);
+
+  if(shockCard) shockCard.addEventListener('click',function(){
+    if(!activeEvent) return;
+    var yearOneBalance=activeEvent.amount*Math.pow(1+0.24/12,12);
+    shockResult.innerHTML='<div class="ef-shock-panel card">💳 Charged to the card. If carried for a full year at 24% APR, that $'+activeEvent.amount.toLocaleString()+' balloons to about <b>'+moneyRound(yearOneBalance)+'</b> — and it\u2019s still not paid off.</div>';
+    shockAlert.style.display='none';
+    shockResolved++;
+    shockCount.textContent='Resolved '+Math.min(shockResolved,2)+' of 2 events';
+    shockTrigger.disabled=false;
+    shockTrigger.textContent='⚡ Trigger Another Life Event';
+    activeEvent=null;
+    postHeight();
+  });
+
+  if(shockStock) shockStock.addEventListener('click',function(){
+    if(!activeEvent) return;
+    var futureLost=activeEvent.amount*Math.pow(1.08,20);
+    shockInvest=Math.max(0, shockInvest-activeEvent.amount);
+    shockInvestEl.textContent=moneyRound(shockInvest);
+    shockResult.innerHTML='<div class="ef-shock-panel stock">📉 Liquidated $'+activeEvent.amount.toLocaleString()+' in stock to cover it. Left invested for 20 more years, that same money could have grown to roughly <b>'+moneyRound(futureLost)+'</b> — now gone from the engine.</div>';
+    shockAlert.style.display='none';
+    shockResolved++;
+    shockCount.textContent='Resolved '+Math.min(shockResolved,2)+' of 2 events';
+    shockTrigger.disabled=false;
+    shockTrigger.textContent='⚡ Trigger Another Life Event';
+    activeEvent=null;
+    postHeight();
+  });
+
+  /* 2 · liquid runway meter */
+  var expenses=root.querySelector('#ef-expenses'), cash=root.querySelector('#ef-cash'),
+      expensesV=root.querySelector('#ef-expenses-v'), cashV=root.querySelector('#ef-cash-v'),
+      runwayMonths=root.querySelector('#ef-runway-months'), runwayMarker=root.querySelector('#ef-runway-marker'),
+      runwayNote=root.querySelector('#ef-runway-note'), runwayPanel=root.querySelector('#ef-runway-panel');
+  function runwayCalc(){
+    var e=+expenses.value, c=+cash.value;
+    expensesV.textContent='$'+e.toLocaleString(); cashV.textContent='$'+c.toLocaleString();
+    var months=e>0? c/e : 0;
+    runwayMonths.textContent=months>=6 ? '6+' : months.toFixed(1);
+    var pos=Math.min(100,(months/6)*100);
+    runwayMarker.style.left=pos+'%';
+    if(months<2){ runwayMonths.style.color='#C0392B'; runwayNote.textContent='Turbulence Zone — a single surprise expense could force you into debt.'; }
+    else if(months<3){ runwayMonths.style.color='#E0A93C'; runwayNote.textContent='Getting closer — most advisors recommend at least 3 months of runway.'; }
+    else { runwayMonths.style.color='#209B73'; runwayNote.textContent='Secure Runway — you could cover a real emergency without going into debt.'; }
+    runwayPanel.style.background = months>=3 ? 'linear-gradient(180deg,#F3FAF7,#fff)' : 'linear-gradient(180deg,#F7FAFC,#fff)';
+    postHeight();
+  }
+  if(expenses&&cash){ expenses.addEventListener('input',runwayCalc); cash.addEventListener('input',runwayCalc); runwayCalc(); }
+
+  /* 3 · what belongs in the fund */
+  var belongsReviewed={}, belongsT=root.querySelector('#ef-belongs-t'),
+      belongsD=root.querySelector('#ef-belongs-d'), belongsCount=root.querySelector('#ef-belongs-count');
+  root.querySelectorAll('#ef-belongs .ef-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ef-belongs .ef-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      belongsT.textContent=c.getAttribute('data-t'); belongsD.textContent=c.getAttribute('data-d');
+      belongsReviewed[c.getAttribute('data-t')]=1;
+      belongsCount.textContent='Reviewed '+Object.keys(belongsReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 4 · interest rate illusion — bucket explorer */
+  var bucketResult=root.querySelector('#ef-bucket-result'), bucketsCount=root.querySelector('#ef-buckets-count');
+  var bucketCopy={
+    checking:{cls:'warn', t:'🏦 Traditional Checking — Quietly Eroding', d:'Sitting in a near-0% checking account, $5,000 doesn\u2019t grow at all. After years of inflation, it can buy noticeably less than it can today — even though the number never drops.'},
+    hysa:{cls:'safe', t:'💎 High-Yield Savings — Protected & Liquid', d:'A high-yield account keeps the full $5,000 easy to access in an emergency, while earning real interest that helps it at least keep pace with rising prices.'},
+    stock:{cls:'danger', t:'📊 Volatile Stock Market — High Risk Timing', d:'⚠️ Warning: if a crisis strikes during a down cycle, you could be forced to sell at a loss — locking in a real, permanent hit just when you need the money most.'}
+  };
+  var bucketsSeen={};
+  root.querySelectorAll('#ef-buckets .ef-bucket').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#ef-buckets .ef-bucket').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var k=btn.getAttribute('data-k'), c=bucketCopy[k];
+      bucketResult.className='ef-bucket-result '+c.cls;
+      bucketResult.innerHTML='<p class="ef-bucket-result-t">'+c.t+'</p><p class="ef-bucket-result-d">'+c.d+'</p>';
+      bucketsSeen[k]=1;
+      bucketsCount.textContent='Explored '+Object.keys(bucketsSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* 5 · how to build it fast */
+  var buildReviewed={}, buildT=root.querySelector('#ef-buildfast-t'),
+      buildD=root.querySelector('#ef-buildfast-d'), buildCount=root.querySelector('#ef-buildfast-count');
+  root.querySelectorAll('#ef-buildfast .ef-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ef-buildfast .ef-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      buildT.textContent=c.getAttribute('data-t'); buildD.textContent=c.getAttribute('data-d');
+      buildReviewed[c.getAttribute('data-t')]=1;
+      buildCount.textContent='Explored '+Object.keys(buildReviewed).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 6 · progressive phase splitter */
+  var phase1=root.querySelector('#ef-phase1'), phase2=root.querySelector('#ef-phase2'),
+      shieldFill=root.querySelector('#ef-shield-fill'), phaseResult=root.querySelector('#ef-phase-result');
+  if(phase1) phase1.addEventListener('click',function(){
+    phase1.classList.add('on'); phase2.classList.remove('on');
+    shieldFill.style.width='20%';
+    phaseResult.innerHTML='<div class="ef-phase-panel"><p class="ef-phase-panel-t">Phase 1: The Starter Core</p><p class="ef-phase-panel-d">A small $1,000 baseline is enough to absorb most minor surprises — a flat tire, a small repair — without reaching for a credit card. It\u2019s the fastest way to stop new high-interest debt from piling up.</p></div>';
+    postHeight();
+  });
+  if(phase2) phase2.addEventListener('click',function(){
+    phase2.classList.add('on'); phase1.classList.remove('on');
+    shieldFill.style.width='100%';
+    phaseResult.innerHTML='<div class="ef-phase-panel"><p class="ef-phase-panel-t">Phase 2: The Full Shield</p><p class="ef-phase-panel-d">A full 3-6 months of expenses is enough to cover a real income gap, like a job loss, without ever having to sell an investment or take on debt to get by. This is what fully isolates your long-term investing from short-term shocks.</p></div>';
+    postHeight();
+  });
+
+  /* 7 · real emergency classifier */
+  var classifierDone=0, classifierCount=root.querySelector('#ef-classifier-count');
+  var classifierWhy={
+    emergency:'This is a genuine safety or income-critical need — it passes the core emergency test.',
+    want:'This is a discretionary, delay-able purchase — tempting, but not what an emergency fund is for.'
+  };
+  root.querySelectorAll('#ef-classifier .ef-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    var whyEl=row.querySelector('.ef-classifier-why');
+    row.querySelectorAll('.ef-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var isCorrect=pick===ans;
+        row.classList.add('done', isCorrect?'correct':'wrong');
+        whyEl.innerHTML = isCorrect
+          ? '<b>Correct.</b> '+classifierWhy[ans]
+          : '<b>Actually, this is a '+(ans==='emergency'?'real emergency':'discretionary want')+'.</b> '+classifierWhy[ans];
+        classifierDone++; classifierCount.textContent='Sorted '+classifierDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  /* 8 · spot the red flags */
+  var trapsRevealed=0, trapsCount=root.querySelector('#ef-traps-count');
+  root.querySelectorAll('#ef-traps .ef-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      if(t.classList.contains('done')) return;
+      var v=t.getAttribute('data-verdict');
+      t.classList.add('done', v);
+      t.setAttribute('data-reveal', t.getAttribute('data-d'));
+      var badge=document.createElement('span'); badge.className='ef-trap-badge'; badge.textContent=(v==='safe'?'Safe':'Risky');
+      t.appendChild(badge);
+      trapsRevealed++; trapsCount.textContent='Revealed '+trapsRevealed+' of 4';
+      postHeight();
+    });
+  });
+
+  /* 9 · investment bodyguard simulator */
+  var bodyguardRun=root.querySelector('#ef-bodyguard-run'), bodyguardResult=root.querySelector('#ef-bodyguard-result'),
+      colA=root.querySelector('#ef-col-a'), colB=root.querySelector('#ef-col-b'),
+      aVal=root.querySelector('#ef-a-val'), bVal=root.querySelector('#ef-b-val'),
+      aNote=root.querySelector('#ef-a-note'), bNote=root.querySelector('#ef-b-note');
+  if(bodyguardRun) bodyguardRun.addEventListener('click',function(){
+    bodyguardRun.disabled=true;
+    bVal.textContent='$7,000';
+    bNote.textContent='Bill paid from investments';
+    colB.classList.add('hit');
+    colA.classList.add('safe-hit');
+    aNote.textContent='Bill absorbed by cash shield';
+
+    var aFuture=10000*Math.pow(1.08,20);
+    var bFuture=7000*Math.pow(1.08,20);
+    var gap=aFuture-bFuture;
+    bodyguardResult.innerHTML='<div class="ef-bodyguard-panel">Investor A\u2019s cash shield intercepted the $3,000 bill entirely — their $10,000 portfolio kept compounding untouched. Investor B had to sell down to $7,000. Projected 20 years forward at a hypothetical 8% return, that single moment could cost Investor B roughly <b>'+moneyRound(gap)+'</b> in lost future growth.</div>';
+    postHeight();
+  });
+
+  /* 10 · automate your safety net — toggle */
+  var toggle=root.querySelector('#ef-toggle'), toggleLab=root.querySelector('#ef-toggle-lab'),
+      pipe=root.querySelector('#ef-pipe'), apMsg=root.querySelector('#ef-autopilot-msg');
+  if(toggle) toggle.addEventListener('click',function(){
+    var on=toggle.classList.toggle('on'); toggle.setAttribute('aria-pressed',on);
+    toggleLab.textContent=on?'Auto-Shield On':'Auto-Shield Off';
+    pipe.classList.toggle('on',on);
+    apMsg.textContent=on?'Auto-shield engaged. Your safety net now fills itself, automatically, every payday.':'';
+    apMsg.classList.toggle('show',on);
+    postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ef'); if(!root) return;
+  var TOTAL=12, current=1;
+
+  var bar=root.querySelector('#ef-bar');
+  var labelEl=root.querySelector('#ef-slide-label');
+  var countEl=root.querySelector('#ef-slide-count');
+  var prevBtn=root.querySelector('#ef-prev');
+  var nextBtn=root.querySelector('#ef-next');
+  var hintEl=root.querySelector('#ef-nav-hint');
+  var disclaimer=root.querySelector('.ef-disclaimer');
+
+  var labels={1:'The Shock Wave Test',2:'The Runway Meter',3:'What Belongs',4:'The Illusion',5:'Building It Fast',6:'Two Phases',7:'Real Emergency?',8:'Spot the Red Flags',9:'The Bodyguard',10:'Automate It',11:'Recap',12:'Certified'};
+  var reqHints={1:'Resolve 2 life events to continue',2:'Find both a red and a green runway',3:'Review all 4 to continue',4:'Explore all 3 buckets to continue',5:'Explore all 4 to continue',6:'Preview both phases',7:'Sort all 4 to continue',8:'Reveal all 4 to continue',9:'Run the simulation to continue',10:'Flip the switch to continue'};
+
+  var done={11:true,12:true};
+  var secByStep={};
+  root.querySelectorAll('.ef-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ef-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ef-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · at least 2 shock events resolved
+  var shockCard=root.querySelector('#ef-shock-card'), shockStock=root.querySelector('#ef-shock-stock');
+  var shockResolvedCount=0;
+  function shockGateCheck(){
+    shockResolvedCount++;
+    if(shockResolvedCount>=2) markDone(1);
+    else liveHint(1,'Resolved '+shockResolvedCount+' of 2 — trigger another event');
+  }
+  if(shockCard) shockCard.addEventListener('click',shockGateCheck);
+  if(shockStock) shockStock.addEventListener('click',shockGateCheck);
+
+  // 2 · both a turbulence zone (<2mo) and secure runway (>=3mo) found
+  var runwayState={low:false, high:false};
+  var expenses=root.querySelector('#ef-expenses'), cash=root.querySelector('#ef-cash');
+  function runwayGateCheck(){
+    var e=+expenses.value, c=+cash.value, months=e>0? c/e : 0;
+    if(months<2) runwayState.low=true;
+    if(months>=3) runwayState.high=true;
+    if(runwayState.low && runwayState.high) markDone(2);
+    else liveHint(2, !runwayState.low ? 'Now find a red Turbulence Zone (under 2 months)' : 'Now find a green Secure Runway (3+ months)');
+  }
+  if(expenses) expenses.addEventListener('input',runwayGateCheck);
+  if(cash) cash.addEventListener('input',runwayGateCheck);
+
+  // 3 · all 4 "belongs" categories reviewed
+  var belongs={};
+  root.querySelectorAll('#ef-belongs .ef-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ belongs[c.getAttribute('data-t')]=1;
+      if(keys(belongs)>=4) markDone(3); else liveHint(3,'Reviewed '+keys(belongs)+' of 4 — review all to continue'); });
+  });
+
+  // 4 · all 3 buckets explored
+  var buckets={};
+  root.querySelectorAll('#ef-buckets .ef-bucket').forEach(function(btn){
+    btn.addEventListener('click',function(){ buckets[btn.getAttribute('data-k')]=1;
+      if(keys(buckets)>=3) markDone(4); else liveHint(4,'Explored '+keys(buckets)+' of 3 — explore all to continue'); });
+  });
+
+  // 5 · all 4 build-fast options explored
+  var buildfast={};
+  root.querySelectorAll('#ef-buildfast .ef-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ buildfast[c.getAttribute('data-t')]=1;
+      if(keys(buildfast)>=4) markDone(5); else liveHint(5,'Explored '+keys(buildfast)+' of 4 — explore all to continue'); });
+  });
+
+  // 6 · both phases previewed
+  var phaseState={p1:false,p2:false};
+  var phase1=root.querySelector('#ef-phase1'), phase2=root.querySelector('#ef-phase2');
+  if(phase1) phase1.addEventListener('click',function(){ phaseState.p1=true;
+    if(phaseState.p1&&phaseState.p2) markDone(6); else liveHint(6,'Now preview Phase 2 to compare'); });
+  if(phase2) phase2.addEventListener('click',function(){ phaseState.p2=true;
+    if(phaseState.p1&&phaseState.p2) markDone(6); else liveHint(6,'Now preview Phase 1 to compare'); });
+
+  // 7 · all 4 classifier rows sorted
+  root.querySelectorAll('#ef-classifier .ef-sort-row button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#ef-classifier .ef-sort-row.done');
+      if(n>=4) markDone(7); else liveHint(7,'Sorted '+n+' of 4 — sort all to continue'); });
+  });
+
+  // 8 · all 4 habit tiles revealed
+  root.querySelectorAll('#ef-traps .ef-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){ var n=count('#ef-traps .ef-trap-tile.done');
+      if(n>=4) markDone(8); else liveHint(8,'Revealed '+n+' of 4 — reveal all to continue'); });
+  });
+
+  // 9 · bodyguard simulation run
+  var bodyguardRun=root.querySelector('#ef-bodyguard-run');
+  if(bodyguardRun) bodyguardRun.addEventListener('click',function(){ markDone(9); });
+
+  // 10 · auto-shield switched on
+  var toggle=root.querySelector('#ef-toggle');
+  if(toggle) toggle.addEventListener('click',function(){ if(toggle.classList.contains('on')) markDone(10); });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#ef-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

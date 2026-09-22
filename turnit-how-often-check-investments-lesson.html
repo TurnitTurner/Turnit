@@ -1,0 +1,546 @@
+<!-- ============================================================
+     TURNIT — HOW OFTEN SHOULD YOU CHECK YOUR INVESTMENTS
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-hc. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Checking frequency was touched briefly before (Myths lesson's coworker
+     chat, a line in Automating). This lesson builds an actual framework:
+     loss aversion, cadence by account type, checking vs. reviewing, and a
+     real annual review checklist.
+
+     9 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview            2 Loss Aversion
+       3 Match Your Check-In to the Goal  4 Checking vs. Reviewing
+       5 The Annual Review Checklist  6 When Life Says Check In
+       7 Quick Check                8 Recap
+       9 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-hc">
+  <div class="hc-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="hc-top">
+      <div class="hc-topbar">
+        <div class="hc-brand"><span class="hc-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><span class="hc-word">TURNIT</span><span class="hc-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="hc-progress"><span id="hc-bar"></span></div>
+      <div class="hc-meta"><span id="hc-slide-label">Lesson Overview</span><span id="hc-slide-count">Slide 1 of 9</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="hc-sec hc-reveal" data-step="1">
+      <p class="hc-kicker">Welcome · 1 / 9</p>
+      <h2 class="hc-h2">Past "don't check too much"</h2>
+      <p class="hc-p">You've heard that constant checking isn't great. This lesson actually answers the question — with a real framework, not just a warning.</p>
+
+      <div class="hc-recap">
+        <div class="hc-recap-item"><span class="hc-recap-check">1</span><span>The psychology behind why checking feels worse than the numbers say.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">2</span><span>Matching how often you check to what the account is actually for.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">3</span><span>Why "checking" and "reviewing" are genuinely different things.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">4</span><span>An actual checklist for the one review that really matters each year.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">5</span><span>The life events that deserve a look, whatever the calendar says.</span></div>
+      </div>
+      <div class="hc-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · LOSS AVERSION ========== -->
+    <section class="hc-sec hc-reveal" data-step="2">
+      <p class="hc-kicker">Loss Aversion · 2 / 9</p>
+      <h2 class="hc-h2">The math is even. The feeling isn't.</h2>
+      <p class="hc-p">Tap to weigh a $50 gain against a $50 loss.</p>
+
+      <div class="hc-panel hc-center">
+        <div class="hc-scale-stage">
+          <svg viewBox="0 0 260 130" class="hc-scale-svg">
+            <line x1="130" y1="20" x2="130" y2="100" class="hc-scale-post"/>
+            <line id="hc-scale-beam" x1="40" y1="50" x2="220" y2="50" class="hc-scale-beam"/>
+            <line x1="40" y1="50" x2="40" y2="70" class="hc-scale-chain"/>
+            <line x1="220" y1="50" x2="220" y2="70" class="hc-scale-chain"/>
+            <circle cx="40" cy="78" r="16" class="hc-scale-pan gain"/>
+            <circle cx="220" cy="78" r="16" class="hc-scale-pan loss"/>
+          </svg>
+          <div class="hc-scale-labels"><span>+$50 Gain</span><span>-$50 Loss</span></div>
+        </div>
+        <button type="button" class="hc-confirm-btn" id="hc-scale-btn">⚖️ Weigh Them</button>
+        <div class="hc-note" id="hc-scale-note">Same dollar amount, both directions.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · MATCH YOUR CHECK-IN TO THE GOAL ========== -->
+    <section class="hc-sec hc-reveal" data-step="3">
+      <p class="hc-kicker">Match Your Check-In to the Goal · 3 / 9</p>
+      <h2 class="hc-h2">Not every account needs the same attention</h2>
+      <p class="hc-p">Tap each account type.</p>
+
+      <div class="hc-goal-grid" id="hc-goal-grid">
+        <button type="button" class="hc-goal-card" data-t="Retirement Account" data-d="Decades away. Quarterly or even annual check-ins are plenty — daily swings genuinely don't matter over that timeline.">🏖️<b>Retirement Account</b></button>
+        <button type="button" class="hc-goal-card" data-t="A Few Years Out" data-d="A house down payment or similar goal. A closer look every few months makes sense, especially as the date approaches.">🏡<b>A Few Years Out</b></button>
+        <button type="button" class="hc-goal-card" data-t="Emergency Fund" data-d="Sitting in cash, not invested. There's really nothing to check — the balance only moves when you move it.">🧯<b>Emergency Fund</b></button>
+      </div>
+      <div class="hc-goal-result" id="hc-goal-result">&nbsp;</div>
+      <p class="hc-count" id="hc-goal-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 4 · CHECKING VS. REVIEWING ========== -->
+    <section class="hc-sec hc-reveal" data-step="4">
+      <p class="hc-kicker">Checking vs. Reviewing · 4 / 9</p>
+      <h2 class="hc-h2">Two different habits, one word</h2>
+      <p class="hc-p">Tap each to see the real difference.</p>
+
+      <div class="hc-cvr-grid" id="hc-cvr-grid">
+        <button type="button" class="hc-cvr-card" data-t="Checking" data-d="A quick glance at the balance, usually unplanned, rarely followed by any real action — just an emotional gut-check.">👀<b>Checking</b></button>
+        <button type="button" class="hc-cvr-card" data-t="Reviewing" data-d="A scheduled, deliberate look — at allocation, goals, and fees — that actually leads to a decision if one's needed.">📋<b>Reviewing</b></button>
+      </div>
+      <div class="hc-cvr-result" id="hc-cvr-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 5 · THE ANNUAL REVIEW CHECKLIST ========== -->
+    <section class="hc-sec hc-reveal" data-step="5">
+      <p class="hc-kicker">The Annual Review Checklist · 5 / 9</p>
+      <h2 class="hc-h2">One real review, once a year</h2>
+      <p class="hc-p">Tap to check off each item.</p>
+
+      <div class="hc-checklist" id="hc-checklist">
+        <button type="button" class="hc-check-item"><span class="hc-check-box"></span>Has my allocation drifted from my target mix?</button>
+        <button type="button" class="hc-check-item"><span class="hc-check-box"></span>Am I still on track for the goal this account is for?</button>
+        <button type="button" class="hc-check-item"><span class="hc-check-box"></span>Has anything in my life changed that should change my plan?</button>
+        <button type="button" class="hc-check-item"><span class="hc-check-box"></span>Are my fees still competitive?</button>
+      </div>
+      <p class="hc-count" id="hc-checklist-count">Checked 0 of 4</p>
+    </section>
+
+    <!-- ========== 6 · WHEN LIFE SAYS CHECK IN ========== -->
+    <section class="hc-sec hc-reveal" data-step="6">
+      <p class="hc-kicker">When Life Says Check In · 6 / 9</p>
+      <h2 class="hc-h2">Some triggers matter more than the calendar</h2>
+      <p class="hc-p">Tap each event.</p>
+
+      <div class="hc-life-grid" id="hc-life-grid">
+        <button type="button" class="hc-life-chip" data-t="Got a Raise" data-d="A good moment to bump up your contribution rate before the extra income just quietly gets absorbed into spending.">💰 Got a Raise</button>
+        <button type="button" class="hc-life-chip" data-t="Got Married" data-d="Shared goals, shared timelines, maybe shared accounts — worth a real conversation and a fresh look at the plan.">💍 Got Married</button>
+        <button type="button" class="hc-life-chip" data-t="Had a Kid" data-d="New expenses, new goals (college, anyone?), and possibly a new sense of urgency around your own timeline.">👶 Had a Kid</button>
+        <button type="button" class="hc-life-chip" data-t="Changed Jobs" data-d="Old 401(k) decisions, a new benefits package, maybe a different income — all worth reviewing together.">💼 Changed Jobs</button>
+        <button type="button" class="hc-life-chip" data-t="Nearing Retirement" data-d="This is when the calendar-based cadence usually should speed up — the stakes of drift are higher with less time to recover.">🌅 Nearing Retirement</button>
+      </div>
+      <div class="hc-life-result" id="hc-life-result">&nbsp;</div>
+      <p class="hc-count" id="hc-life-count">Explored 0 of 5</p>
+    </section>
+
+    <!-- ========== 7 · QUICK CHECK ========== -->
+    <section class="hc-sec hc-reveal" data-step="7">
+      <p class="hc-kicker">Quick Check · 7 / 9</p>
+      <h2 class="hc-h2">Myth or fact?</h2>
+      <p class="hc-p">Tap your answer for each.</p>
+
+      <div class="hc-sort" id="hc-quiz">
+        <div class="hc-sort-row" data-answer="fact"><span>Losses tend to feel more painful than equivalent gains feel good.</span><div class="hc-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="hc-sort-why"></p></div>
+        <div class="hc-sort-row" data-answer="myth"><span>Every account, regardless of purpose, should be checked on the same schedule.</span><div class="hc-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="hc-sort-why"></p></div>
+        <div class="hc-sort-row" data-answer="fact"><span>A scheduled review is different from an unplanned glance at your balance.</span><div class="hc-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="hc-sort-why"></p></div>
+        <div class="hc-sort-row" data-answer="fact"><span>A major life event is a good reason to review your plan, regardless of your usual schedule.</span><div class="hc-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="hc-sort-why"></p></div>
+      </div>
+      <p class="hc-count" id="hc-quiz-count">Answered 0 of 4</p>
+    </section>
+
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="hc-sec hc-reveal" data-step="8">
+      <p class="hc-kicker">Recap · 8 / 9</p>
+      <h2 class="hc-h2">Here's what you now know</h2>
+      <p class="hc-p">The whole lesson, in six lines.</p>
+
+      <div class="hc-recap">
+        <div class="hc-recap-item"><span class="hc-recap-check">✓</span><span>Losses tend to feel considerably more painful than equivalent gains feel good — that's loss aversion.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">✓</span><span>How often to check depends on what the account is actually for, not a single universal rule.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">✓</span><span>Checking is an emotional glance. Reviewing is a scheduled, deliberate look with a purpose.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">✓</span><span>An annual review means checking allocation drift, goal progress, life changes, and fees.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">✓</span><span>Big life events are worth a review whenever they happen, not just on your regular schedule.</span></div>
+        <div class="hc-recap-item"><span class="hc-recap-check">✓</span><span>Less frequent, more deliberate attention beats frequent, emotional glances.</span></div>
+      </div>
+      <div class="hc-next-move">Your next move: <b>pick an actual date, once a year, and put your first real review on the calendar.</b></div>
+    </section>
+
+    <!-- ========== 9 · CERTIFICATE ========== -->
+    <section class="hc-sec hc-center hc-reveal" data-step="9">
+      <p class="hc-kicker center">Certified · 9 / 9</p>
+      <div class="hc-cert">
+        <div class="hc-cert-border"></div>
+        <span class="hc-cert-pill">🏆 Certificate of Completion</span>
+        <p class="hc-cert-cert">This certifies that</p>
+        <h2 class="hc-cert-name">Check-In Certified</h2>
+        <p class="hc-cert-body">has completed <span class="hc-tw">TURNIT</span> Financial Foundations: How Often Should You Check Your Investments, and now has a real answer, not just a warning.</p>
+        <div class="hc-cert-line"></div>
+        <div class="hc-done-row streak"><div class="hc-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="hc-done-row ach"><div class="hc-done-ico">🏆</div><div><b>Achievement: Check-In Certified</b><span>You built a real framework for staying informed.</span></div></div>
+        <div class="hc-done-btns">
+          <a class="hc-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="hc-btn ghost" id="hc-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="hc-quote">"DOING WELL WITH MONEY HAS A LITTLE TO DO WITH HOW SMART YOU ARE <span class="hc-green">AND A LOT TO DO WITH HOW YOU BEHAVE.</span>"<br><span class="hc-quote-by">— MORGAN HOUSEL</span></p>
+    </section>
+
+    <p class="hc-disclaimer">TURNIT is for educational purposes only and is not financial advice. Loss aversion research reflects general behavioral finance findings, not a precise rule for any individual. Figures shown are simplified, hypothetical illustrations.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="hc-nav" id="hc-nav">
+      <button type="button" class="hc-nav-btn prev" id="hc-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="hc-nav-hint" id="hc-nav-hint"></span>
+      <button type="button" class="hc-nav-btn next" id="hc-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-hc{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-hc *,#tn-hc *::before,#tn-hc *::after{box-sizing:border-box;}
+  #tn-hc .hc-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-hc .hc-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-hc .hc-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-hc .hc-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-hc .hc-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-hc .hc-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-hc .hc-bico{display:flex;}
+  #tn-hc .hc-word,#tn-hc .hc-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-hc .hc-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-hc .hc-bsub{color:var(--ink2); font-weight:500;}
+  #tn-hc .hc-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-hc #hc-bar{display:block; height:100%; width:11%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-hc .hc-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-hc .hc-meta #hc-slide-label{color:var(--ink2);}
+  #tn-hc .hc-meta #hc-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-hc .hc-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-hc .hc-sec.hc-hide{display:none;}
+  #tn-hc .hc-center{text-align:center;}
+  #tn-hc .hc-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-hc .hc-kicker.center{text-align:center;}
+  #tn-hc .hc-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-hc .hc-h2.center{text-align:center;}
+  #tn-hc .hc-tw{font-style:italic;}
+  #tn-hc .hc-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-hc .hc-p b{color:var(--ink); font-weight:700;}
+  #tn-hc .hc-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-hc .hc-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-hc .hc-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-hc .hc-confirm-btn{display:block; width:100%; max-width:320px; margin:0 auto; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-hc .hc-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-hc .hc-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+
+  /* ---- slide 2: loss aversion scale ---- */
+  #tn-hc .hc-scale-stage{margin-bottom:6px;}
+  #tn-hc .hc-scale-svg{width:220px; height:120px; display:block; margin:0 auto;}
+  #tn-hc .hc-scale-post{stroke:var(--ink2); stroke-width:3;}
+  #tn-hc .hc-scale-beam{stroke:var(--ink); stroke-width:3; stroke-linecap:round; transform-origin:130px 50px; transition:transform .6s cubic-bezier(.3,1,.4,1);}
+  #tn-hc .hc-scale-chain{stroke:var(--mut); stroke-width:1.5;}
+  #tn-hc .hc-scale-pan{fill:var(--cardbg); stroke:var(--cardbd); stroke-width:2; transition:transform .6s ease;}
+  #tn-hc .hc-scale-pan.gain{fill:var(--tint); stroke:var(--selbd);}
+  #tn-hc .hc-scale-pan.loss{fill:var(--nobg); stroke:var(--nobd);}
+  #tn-hc .hc-scale-labels{display:flex; justify-content:space-between; max-width:220px; margin:4px auto 0; font-size:11.5px; font-weight:700; color:var(--ink2);}
+
+  /* ---- slide 3: goal cards ---- */
+  #tn-hc .hc-goal-grid{display:flex; flex-direction:column; gap:9px;}
+  #tn-hc .hc-goal-card{display:flex; align-items:center; gap:12px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; cursor:pointer; font-size:22px; transition:all .18s;}
+  #tn-hc .hc-goal-card b{font-family:'Poppins',sans-serif; font-size:14px; color:var(--ink);}
+  #tn-hc .hc-goal-card.on{border-color:var(--b); background:var(--mist);}
+  #tn-hc .hc-goal-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 4: checking vs reviewing ---- */
+  #tn-hc .hc-cvr-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  #tn-hc .hc-cvr-card{display:flex; flex-direction:column; align-items:center; gap:8px; font-size:34px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:20px 10px; cursor:pointer; transition:all .18s;}
+  #tn-hc .hc-cvr-card b{font-family:'Poppins',sans-serif; font-size:13.5px; color:var(--ink); text-align:center;}
+  #tn-hc .hc-cvr-card.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-hc .hc-cvr-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 5: checklist ---- */
+  #tn-hc .hc-checklist{display:flex; flex-direction:column; gap:9px;}
+  #tn-hc .hc-check-item{display:flex; align-items:center; gap:12px; text-align:left; font-family:inherit; font-size:14px; font-weight:500; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:14px 16px; cursor:pointer; transition:all .18s;}
+  #tn-hc .hc-check-box{flex:none; width:22px; height:22px; border-radius:6px; border:2px solid var(--cardbd); background:#fff; position:relative; transition:all .18s;}
+  #tn-hc .hc-check-item.done{border-color:var(--selbd); background:var(--tint);}
+  #tn-hc .hc-check-item.done .hc-check-box{background:var(--g); border-color:var(--g);}
+  #tn-hc .hc-check-item.done .hc-check-box::after{content:'✓'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:800;}
+  #tn-hc .hc-check-item.done{text-decoration:line-through; color:var(--ink2);}
+
+  /* ---- slide 6: life events ---- */
+  #tn-hc .hc-life-grid{display:flex; flex-direction:column; gap:9px;}
+  #tn-hc .hc-life-chip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:13px 15px; font-size:14px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-hc .hc-life-chip.on{border-color:var(--g); background:var(--tint);}
+  #tn-hc .hc-life-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* sorter (shared) */
+  #tn-hc .hc-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-hc .hc-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-hc .hc-sort-row span{flex:1; font-size:14px; font-weight:500; color:var(--ink); min-width:180px;}
+  #tn-hc .hc-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-hc .hc-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; padding:7px 15px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s; border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-hc .hc-sort-btns button[data-p="fact"]{border-color:#BFE6D6; color:var(--g);}
+  #tn-hc .hc-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-hc .hc-sort-row.wrong{border-color:var(--goldbd); background:var(--goldbg);}
+  #tn-hc .hc-sort-row.done .hc-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-hc .hc-sort-row.done .hc-sort-btns button.picked{opacity:1;}
+  #tn-hc .hc-sort-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-hc .hc-sort-why b{font-family:'Poppins',sans-serif;}
+  #tn-hc .hc-sort-row.done .hc-sort-why{display:block;}
+
+  /* recap */
+  #tn-hc .hc-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-hc .hc-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-hc .hc-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-hc .hc-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-hc .hc-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-hc .hc-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-hc .hc-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-hc .hc-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-hc .hc-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-hc .hc-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-hc .hc-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-hc .hc-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-hc .hc-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-hc .hc-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-hc .hc-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-hc .hc-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-hc .hc-done-ico{font-size:20px; flex:none;}
+  #tn-hc .hc-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-hc .hc-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-hc .hc-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-hc .hc-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-hc .hc-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-hc .hc-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-hc .hc-btn:hover{transform:translateY(-2px);}
+  #tn-hc .hc-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-hc .hc-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-hc .hc-green{color:var(--g);}
+  #tn-hc .hc-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-hc .hc-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-hc .hc-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-hc .hc-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-hc .hc-nav-btn.prev{color:var(--ink2);}
+  #tn-hc .hc-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-hc .hc-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-hc .hc-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-hc .hc-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-hc .hc-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-hc .hc-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-hc .hc-wrap{padding:12px 14px 30px;}
+    #tn-hc .hc-cvr-grid{grid-template-columns:1fr;}
+    #tn-hc .hc-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-hc .hc-bsub{display:none;}
+    #tn-hc .hc-nav-hint{display:none;}
+    #tn-hc .hc-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-hc .hc-reveal{opacity:1 !important; transform:none !important;}
+    #tn-hc #hc-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-hc'); if(!root) return;
+  root.querySelectorAll('.hc-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · loss aversion scale ============ */
+  var scaleBtn=root.querySelector('#hc-scale-btn'), scaleBeam=root.querySelector('#hc-scale-beam'), scaleNote=root.querySelector('#hc-scale-note');
+  if(scaleBtn) scaleBtn.addEventListener('click',function(){
+    scaleBtn.disabled=true;
+    scaleBeam.style.transform='rotate(12deg)';
+    scaleNote.innerHTML='The dollar amounts are identical \u2014 but research on loss aversion suggests losses tend to feel roughly twice as painful as an equivalent gain feels good. Check your account often enough, and you\u2019ll see plenty of both, even in a portfolio that\u2019s growing overall.';
+    postHeight();
+  });
+
+  /* ============ 3 · match your check-in to the goal ============ */
+  var goalSeen={}, goalResult=root.querySelector('#hc-goal-result'), goalCount=root.querySelector('#hc-goal-count');
+  root.querySelectorAll('#hc-goal-grid .hc-goal-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      root.querySelectorAll('#hc-goal-grid .hc-goal-card').forEach(function(c){ c.classList.remove('on'); });
+      card.classList.add('on');
+      goalResult.innerHTML='<b>'+card.getAttribute('data-t')+':</b> '+card.getAttribute('data-d');
+      goalSeen[card.getAttribute('data-t')]=1;
+      goalCount.textContent='Explored '+Object.keys(goalSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 4 · checking vs reviewing ============ */
+  var cvrResult=root.querySelector('#hc-cvr-result');
+  root.querySelectorAll('#hc-cvr-grid .hc-cvr-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      root.querySelectorAll('#hc-cvr-grid .hc-cvr-card').forEach(function(c){ c.classList.remove('on'); });
+      card.classList.add('on');
+      cvrResult.innerHTML='<b>'+card.getAttribute('data-t')+':</b> '+card.getAttribute('data-d');
+      postHeight();
+    });
+  });
+
+  /* ============ 5 · the annual review checklist ============ */
+  var checklistCount=root.querySelector('#hc-checklist-count'), checklistChecked=0;
+  root.querySelectorAll('#hc-checklist .hc-check-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      if(item.classList.contains('done')) return;
+      item.classList.add('done');
+      checklistChecked++;
+      checklistCount.textContent='Checked '+checklistChecked+' of 4';
+      postHeight();
+    });
+  });
+
+  /* ============ 6 · when life says check in ============ */
+  var lifeSeen={}, lifeResult=root.querySelector('#hc-life-result'), lifeCount=root.querySelector('#hc-life-count');
+  root.querySelectorAll('#hc-life-grid .hc-life-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#hc-life-grid .hc-life-chip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      lifeResult.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-d');
+      lifeSeen[c.getAttribute('data-t')]=1;
+      lifeCount.textContent='Explored '+Object.keys(lifeSeen).length+' of 5';
+      postHeight();
+    });
+  });
+
+  /* ============ 7 · quick check ============ */
+  var quizDone=0, quizCount=root.querySelector('#hc-quiz-count');
+  root.querySelectorAll('#hc-quiz .hc-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.hc-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        row.classList.add('done', pick===ans?'correct':'wrong');
+        quizDone++; quizCount.textContent='Answered '+quizDone+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-hc'); if(!root) return;
+  var TOTAL=9, current=1;
+
+  var bar=root.querySelector('#hc-bar');
+  var labelEl=root.querySelector('#hc-slide-label');
+  var countEl=root.querySelector('#hc-slide-count');
+  var prevBtn=root.querySelector('#hc-prev');
+  var nextBtn=root.querySelector('#hc-next');
+  var hintEl=root.querySelector('#hc-nav-hint');
+  var disclaimer=root.querySelector('.hc-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'Loss Aversion',3:'Match Your Check-In',4:'Checking vs. Reviewing',5:'The Annual Review Checklist',6:'When Life Says Check In',7:'Quick Check',8:'Recap',9:'Certified'};
+  var reqHints={2:'Weigh them to continue',3:'Explore all 3 to continue',4:'Explore both to continue',5:'Check all 4 items',6:'Explore all 5 to continue',7:'Answer all 4 to continue'};
+
+  var done={1:true,8:true,9:true};
+  var secByStep={};
+  root.querySelectorAll('.hc-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('hc-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('hc-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · scale weighed
+  var scaleBtn2=root.querySelector('#hc-scale-btn');
+  if(scaleBtn2) scaleBtn2.addEventListener('click',function(){ markDone(2); });
+
+  // 3 · all 3 goal types explored
+  var goalSeen2={};
+  root.querySelectorAll('#hc-goal-grid .hc-goal-card').forEach(function(card){
+    card.addEventListener('click',function(){ goalSeen2[card.getAttribute('data-t')]=1;
+      if(keys(goalSeen2)>=3) markDone(3); else liveHint(3,'Explored '+keys(goalSeen2)+' of 3 — keep going'); });
+  });
+
+  // 4 · both checking/reviewing cards explored
+  var cvrSeen={};
+  root.querySelectorAll('#hc-cvr-grid .hc-cvr-card').forEach(function(card){
+    card.addEventListener('click',function(){ cvrSeen[card.getAttribute('data-t')]=1;
+      if(keys(cvrSeen)>=2) markDone(4); else liveHint(4,'Now tap the other card too'); });
+  });
+
+  // 5 · all 4 checklist items checked
+  root.querySelectorAll('#hc-checklist .hc-check-item').forEach(function(item){
+    item.addEventListener('click',function(){ var n=count('#hc-checklist .hc-check-item.done');
+      if(n>=4) markDone(5); else liveHint(5,'Checked '+n+' of 4 — keep going'); });
+  });
+
+  // 6 · all 5 life events explored
+  var lifeSeen2={};
+  root.querySelectorAll('#hc-life-grid .hc-life-chip').forEach(function(c){
+    c.addEventListener('click',function(){ lifeSeen2[c.getAttribute('data-t')]=1;
+      if(keys(lifeSeen2)>=5) markDone(6); else liveHint(6,'Explored '+keys(lifeSeen2)+' of 5 — keep going'); });
+  });
+
+  // 7 · all 4 quiz answered
+  root.querySelectorAll('#hc-quiz .hc-sort-btns button').forEach(function(b){
+    b.addEventListener('click',function(){ var n=count('#hc-quiz .hc-sort-row.done');
+      if(n>=4) markDone(7); else liveHint(7,'Answered '+n+' of 4 — keep going'); });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#hc-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

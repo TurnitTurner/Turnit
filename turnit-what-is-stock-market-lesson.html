@@ -1,0 +1,681 @@
+<!-- ============================================================
+     TURNIT — WHAT IS THE STOCK MARKET, REALLY?  (Module 3 · Lesson 1)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-sk. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     11 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview             2 Rewind to 1602
+       3 The Ticker Tape             4 Bid Meets Ask
+       5 Which Exchange?             6 The Opening Bell
+       7 Bull or Bear?               8 The Market Health Gauge
+       9 Myth or Fact                10 Recap
+       11 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-sk">
+  <div class="sk-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="sk-top">
+      <div class="sk-topbar">
+        <div class="sk-brand"><span class="sk-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="sk-word">TURNIT</span><span class="sk-bsub">The Stock Market Explained</span></div>
+      </div>
+      <div class="sk-progress"><span id="sk-bar"></span></div>
+      <div class="sk-meta"><span id="sk-slide-label">Lesson Overview</span><span id="sk-slide-count">Slide 1 of 11</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="sk-sec sk-reveal" data-step="1">
+      <p class="sk-kicker">Welcome · 1 / 11</p>
+      <h2 class="sk-h2">What this lesson covers</h2>
+      <p class="sk-p">Before diving in, here's the full picture — this lesson builds from the market's origins up to the vocabulary you'll hear used every day.</p>
+
+      <div class="sk-recap">
+        <div class="sk-recap-item"><span class="sk-recap-check">1</span><span>Where the stock market actually came from, and how it's evolved.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">2</span><span>How to read a stock ticker — company, symbol, price, and change.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">3</span><span>How a trade actually happens, at its most basic level.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">4</span><span>Where trades happen, and when the market is actually open.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">5</span><span>Core vocabulary: bull vs. bear, and how "the market" gets measured.</span></div>
+      </div>
+      <div class="sk-next-move">Grab a few minutes — this lesson is interactive and takes about <b>8-10 minutes</b> to finish. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · REWIND TO 1602 ========== -->
+    <section class="sk-sec sk-reveal" data-step="2">
+      <p class="sk-kicker">Rewind to 1602 · 2 / 11</p>
+      <h2 class="sk-h2">The market is older than you think</h2>
+      <p class="sk-p">Tap through four eras. The tools changed completely — the core idea never did.</p>
+
+      <div class="sk-era-dial">
+        <span class="sk-era-dial-emoji" id="sk-era-emoji">⛵</span>
+      </div>
+
+      <div class="sk-era-btns" id="sk-era-btns">
+        <button type="button" class="sk-era-btn" data-k="1602">1602</button>
+        <button type="button" class="sk-era-btn" data-k="1800s">1800s</button>
+        <button type="button" class="sk-era-btn" data-k="1900s">1900s</button>
+        <button type="button" class="sk-era-btn" data-k="today">Today</button>
+      </div>
+      <div class="sk-era-text" id="sk-era-text">Tap an era above to begin.</div>
+      <p class="sk-count" id="sk-era-count">Explored 0 of 4</p>
+    </section>
+
+    <!-- ========== 3 · THE TICKER TAPE ========== -->
+    <section class="sk-sec sk-reveal" data-step="3">
+      <p class="sk-kicker">The Ticker Tape · 3 / 11</p>
+      <h2 class="sk-h2">Learn to read the scroll</h2>
+      <p class="sk-p">A <b>ticker symbol</b> is the short code — usually just a few letters — used to uniquely identify a company on an exchange. Pause the tape, then tap an entry to see one decoded, company name and all.</p>
+
+      <div class="sk-tape-window">
+        <div class="sk-tape-track" id="sk-tape-track">
+          <button type="button" class="sk-tape-item up" data-sym="TRN" data-name="TurnCo Inc." data-price="$54.20" data-chg="+2.3%">TRN <b>$54.20</b> <i>▲ 2.3%</i></button>
+          <button type="button" class="sk-tape-item down" data-sym="BLU" data-name="Blueberry Corp." data-price="$18.05" data-chg="-1.1%">BLU <b>$18.05</b> <i>▼ 1.1%</i></button>
+          <button type="button" class="sk-tape-item up" data-sym="GRV" data-name="Grove Industries" data-price="$102.75" data-chg="+0.8%">GRV <b>$102.75</b> <i>▲ 0.8%</i></button>
+          <button type="button" class="sk-tape-item down" data-sym="OAK" data-name="Oakstone Group" data-price="$9.42" data-chg="-3.4%">OAK <b>$9.42</b> <i>▼ 3.4%</i></button>
+          <button type="button" class="sk-tape-item up" data-sym="PIX" data-name="Pixel Dynamics" data-price="$76.10" data-chg="+1.5%">PIX <b>$76.10</b> <i>▲ 1.5%</i></button>
+          <!-- duplicate set for seamless scroll -->
+          <button type="button" class="sk-tape-item up" data-sym="TRN" data-name="TurnCo Inc." data-price="$54.20" data-chg="+2.3%">TRN <b>$54.20</b> <i>▲ 2.3%</i></button>
+          <button type="button" class="sk-tape-item down" data-sym="BLU" data-name="Blueberry Corp." data-price="$18.05" data-chg="-1.1%">BLU <b>$18.05</b> <i>▼ 1.1%</i></button>
+          <button type="button" class="sk-tape-item up" data-sym="GRV" data-name="Grove Industries" data-price="$102.75" data-chg="+0.8%">GRV <b>$102.75</b> <i>▲ 0.8%</i></button>
+          <button type="button" class="sk-tape-item down" data-sym="OAK" data-name="Oakstone Group" data-price="$9.42" data-chg="-3.4%">OAK <b>$9.42</b> <i>▼ 3.4%</i></button>
+          <button type="button" class="sk-tape-item up" data-sym="PIX" data-name="Pixel Dynamics" data-price="$76.10" data-chg="+1.5%">PIX <b>$76.10</b> <i>▲ 1.5%</i></button>
+        </div>
+      </div>
+      <button type="button" class="sk-confirm-btn" id="sk-tape-pause">⏸ Pause the Tape</button>
+      <div class="sk-tape-detail" id="sk-tape-detail">&nbsp;</div>
+      <p class="sk-count" id="sk-tape-count">Inspected 0 of 3</p>
+    </section>
+
+    <!-- ========== 4 · BID MEETS ASK ========== -->
+    <section class="sk-sec sk-reveal" data-step="4">
+      <p class="sk-kicker">Bid Meets Ask · 4 / 11</p>
+      <h2 class="sk-h2">Every trade is just an agreement</h2>
+      <p class="sk-p">Tap to see the moment a buyer and a seller actually agree on a price.</p>
+
+      <div class="sk-panel sk-center">
+        <div class="sk-match-stage">
+          <div class="sk-match-block bid" id="sk-match-bid"><span>Buyer's Bid</span><b>$50</b></div>
+          <div class="sk-match-spark" id="sk-match-spark">⚡</div>
+          <div class="sk-match-block ask" id="sk-match-ask"><span>Seller's Ask</span><b>$50</b></div>
+        </div>
+        <button type="button" class="sk-confirm-btn" id="sk-match-btn">▶ Run the Match</button>
+        <div class="sk-match-result" id="sk-match-result">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · WHICH EXCHANGE? ========== -->
+    <section class="sk-sec sk-reveal" data-step="5">
+      <p class="sk-kicker">Which Exchange? · 5 / 11</p>
+      <h2 class="sk-h2">Where these trades actually happen</h2>
+      <p class="sk-p">Tap each to see how it's different.</p>
+
+      <div class="sk-exchange-grid" id="sk-exchange-grid">
+        <button type="button" class="sk-exchange-card" data-t="NYSE" data-d="The New York Stock Exchange — the oldest major U.S. exchange, dating back to 1792. It still keeps a physical trading floor, mostly for ceremony today.">🏛️<b>NYSE</b></button>
+        <button type="button" class="sk-exchange-card" data-t="Nasdaq" data-d="A fully electronic exchange, no trading floor required. It's known for listing many major technology companies.">💻<b>Nasdaq</b></button>
+        <button type="button" class="sk-exchange-card" data-t="Global Exchanges" data-d="Markets exist worldwide — London, Tokyo, Hong Kong, and many more — each trading their own local companies during their own hours.">🌍<b>Global Exchanges</b></button>
+      </div>
+      <div class="sk-exchange-result" id="sk-exchange-result">&nbsp;</div>
+      <p class="sk-count" id="sk-exchange-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 6 · THE OPENING BELL ========== -->
+    <section class="sk-sec sk-center sk-reveal" data-step="6">
+      <p class="sk-kicker center">The Opening Bell · 6 / 11</p>
+      <h2 class="sk-h2 center">The market isn't open 24/7</h2>
+      <p class="sk-sub center">Tap the bell to see when trading actually happens.</p>
+
+      <div class="sk-bell-stage">
+        <span class="sk-bell-emoji" id="sk-bell-emoji">🔔</span>
+      </div>
+      <button type="button" class="sk-confirm-btn" id="sk-bell-btn">Ring the Opening Bell</button>
+      <div class="sk-bell-note" id="sk-bell-note">&nbsp;</div>
+    </section>
+
+    <!-- ========== 7 · BULL OR BEAR? ========== -->
+    <section class="sk-sec sk-reveal" data-step="7">
+      <p class="sk-kicker">Bull or Bear? · 7 / 11</p>
+      <h2 class="sk-h2">Two words you'll hear constantly</h2>
+      <p class="sk-p">Tap each animal to learn what it means.</p>
+
+      <div class="sk-animal-grid" id="sk-animal-grid">
+        <button type="button" class="sk-animal-card bull" data-t="Bull Market" data-d="A stretch of time when prices are broadly rising and confidence is high. A bull attacks by thrusting its horns upward — that's the memory trick.">🐂<b>Bull Market</b></button>
+        <button type="button" class="sk-animal-card bear" data-t="Bear Market" data-d="A stretch of time when prices are broadly falling, often 20%+ from a recent high. A bear attacks by swiping its paws downward.">🐻<b>Bear Market</b></button>
+      </div>
+      <div class="sk-animal-result" id="sk-animal-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 8 · THE MARKET HEALTH GAUGE ========== -->
+    <section class="sk-sec sk-reveal" data-step="8">
+      <p class="sk-kicker">The Market Health Gauge · 8 / 11</p>
+      <h2 class="sk-h2">How do you measure "the market"?</h2>
+      <p class="sk-p">These are thermometers, not something you buy directly — tap each to see what it measures.</p>
+
+      <div class="sk-index-grid" id="sk-index-grid">
+        <button type="button" class="sk-index-card" data-t="S&amp;P 500" data-d="Tracks roughly 500 of the largest U.S. companies. Widely used as the default snapshot of &quot;the market.&quot;">📊<b>S&amp;P 500</b></button>
+        <button type="button" class="sk-index-card" data-t="Dow Jones" data-d="Tracks just 30 large, well-known companies. It's older and narrower than the S&amp;P 500, but still widely quoted.">📈<b>Dow Jones</b></button>
+        <button type="button" class="sk-index-card" data-t="Nasdaq Composite" data-d="Tracks companies listed on the Nasdaq exchange, which skews heavily toward technology.">💻<b>Nasdaq Composite</b></button>
+      </div>
+      <div class="sk-index-result" id="sk-index-result">&nbsp;</div>
+      <div class="sk-note">Important: none of these are something you can buy directly. They're measuring sticks — how you can actually invest based on one comes in a later lesson.</div>
+      <p class="sk-count" id="sk-index-count">Explored 0 of 3</p>
+    </section>
+
+    <!-- ========== 9 · MYTH OR FACT ========== -->
+    <section class="sk-sec sk-reveal" data-step="9">
+      <p class="sk-kicker">Myth or Fact · 9 / 11</p>
+      <h2 class="sk-h2">Breaking news: myth or fact?</h2>
+      <p class="sk-p">Tap your verdict on each headline.</p>
+
+      <div class="sk-headlines" id="sk-headlines">
+        <div class="sk-headline" data-answer="myth"><p class="sk-headline-text">"THE STOCK MARKET" IS A SINGLE PHYSICAL BUILDING IN NEW YORK</p><div class="sk-headline-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="sk-headline-why"></p></div>
+        <div class="sk-headline" data-answer="fact"><p class="sk-headline-text">PRICES ARE DRIVEN BY HOW MANY PEOPLE WANT TO BUY VERSUS SELL</p><div class="sk-headline-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="sk-headline-why"></p></div>
+        <div class="sk-headline" data-answer="fact"><p class="sk-headline-text">THE STOCK MARKET IS CLOSED ON WEEKENDS</p><div class="sk-headline-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="sk-headline-why"></p></div>
+        <div class="sk-headline" data-answer="myth"><p class="sk-headline-text">YOU CAN WALK INTO A STORE AND BUY THE S&amp;P 500 DIRECTLY</p><div class="sk-headline-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="sk-headline-why"></p></div>
+      </div>
+      <p class="sk-count" id="sk-headline-count">Answered 0 of 4</p>
+    </section>
+
+    <!-- ========== 10 · RECAP ========== -->
+    <section class="sk-sec sk-reveal" data-step="10">
+      <p class="sk-kicker">Recap · 10 / 11</p>
+      <h2 class="sk-h2">Here's what you now know</h2>
+      <p class="sk-p">The whole lesson, in six lines.</p>
+
+      <div class="sk-recap">
+        <div class="sk-recap-item"><span class="sk-recap-check">✓</span><span>The stock market's core idea — trading ownership pieces of companies — dates back to 1602.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">✓</span><span>A quote shows a symbol, a price, and how much it's changed — nothing more mysterious than that.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">✓</span><span>Every trade is just a buyer's bid meeting a seller's ask at an agreed price.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">✓</span><span>Exchanges like the NYSE and Nasdaq are where these trades actually happen, on a set schedule.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">✓</span><span><b>Bull</b> means prices are broadly rising. <b>Bear</b> means they're broadly falling.</span></div>
+        <div class="sk-recap-item"><span class="sk-recap-check">✓</span><span>Indices like the S&amp;P 500 measure the market's health — they're gauges, not something you buy directly.</span></div>
+      </div>
+      <div class="sk-next-move">Your next move: <b>next time you hear "the market was up today," you'll know exactly what that actually means.</b></div>
+    </section>
+
+    <!-- ========== 11 · CERTIFICATE ========== -->
+    <section class="sk-sec sk-center sk-reveal" data-step="11">
+      <p class="sk-kicker center">Certified · 11 / 11</p>
+      <div class="sk-cert">
+        <div class="sk-cert-border"></div>
+        <span class="sk-cert-pill">🏆 Certificate of Completion</span>
+        <p class="sk-cert-cert">This certifies that</p>
+        <h2 class="sk-cert-name">Market Literate</h2>
+        <p class="sk-cert-body">has completed <span class="sk-tw">TURNIT</span> The Stock Market Explained: What Is the Stock Market, Really?, and now understands what the market actually is, how trades happen, and how to read its basic vocabulary.</p>
+        <div class="sk-cert-line"></div>
+        <div class="sk-done-row streak"><div class="sk-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="sk-done-row ach"><div class="sk-done-ico">🏆</div><div><b>Achievement: Market Certified</b><span>You mastered what the stock market actually is.</span></div></div>
+        <div class="sk-done-btns">
+          <a class="sk-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="sk-btn ghost" id="sk-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="sk-quote">"THE STOCK MARKET IS FILLED WITH INDIVIDUALS WHO KNOW THE PRICE OF EVERYTHING, <span class="sk-green">BUT THE VALUE OF NOTHING.</span>"<br><span class="sk-quote-by">— PHILIP FISHER</span></p>
+    </section>
+
+    <p class="sk-disclaimer">TURNIT is for educational purposes only and is not financial advice. Company symbols, prices, and figures shown are fictional examples for illustration, not real market data or a recommendation.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="sk-nav" id="sk-nav">
+      <button type="button" class="sk-nav-btn prev" id="sk-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="sk-nav-hint" id="sk-nav-hint"></span>
+      <button type="button" class="sk-nav-btn next" id="sk-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-sk{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-sk *,#tn-sk *::before,#tn-sk *::after{box-sizing:border-box;}
+  #tn-sk .sk-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-sk .sk-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-sk .sk-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-sk .sk-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-sk .sk-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-sk .sk-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-sk .sk-bico{display:flex;}
+  #tn-sk .sk-word,#tn-sk .sk-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-sk .sk-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-sk .sk-bsub{color:var(--ink2); font-weight:500;}
+  #tn-sk .sk-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-sk #sk-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-sk .sk-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-sk .sk-meta #sk-slide-label{color:var(--ink2);}
+  #tn-sk .sk-meta #sk-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-sk .sk-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-sk .sk-sec.sk-hide{display:none;}
+  #tn-sk .sk-center{text-align:center;}
+  #tn-sk .sk-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-sk .sk-kicker.center{text-align:center;}
+  #tn-sk .sk-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-sk .sk-h2.center{text-align:center;}
+  #tn-sk .sk-tw{font-style:italic;}
+  #tn-sk .sk-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-sk .sk-p b{color:var(--ink); font-weight:700;}
+  #tn-sk .sk-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-sk .sk-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-sk .sk-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-sk .sk-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-sk .sk-confirm-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s; margin-top:16px;}
+  #tn-sk .sk-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-sk .sk-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+
+  /* ---- slide 1: era dial ---- */
+  #tn-sk .sk-era-dial{width:130px; height:130px; margin:0 auto 18px; border-radius:50%; background:var(--mist); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+  #tn-sk .sk-era-dial-emoji{font-size:52px; transition:transform .3s cubic-bezier(.4,1.8,.5,1);}
+  #tn-sk .sk-era-btns{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:14px;}
+  #tn-sk .sk-era-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:10px; padding:11px 4px; cursor:pointer; transition:all .18s;}
+  #tn-sk .sk-era-btn.on{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border-color:transparent;}
+  #tn-sk .sk-era-text{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 2: ticker tape ---- */
+  #tn-sk .sk-tape-window{background:var(--ink); border-radius:12px; overflow:hidden; padding:14px 0;}
+  #tn-sk .sk-tape-track{display:flex; gap:22px; width:max-content; animation:sk-scroll 14s linear infinite;}
+  #tn-sk .sk-tape-track.paused{animation-play-state:paused;}
+  @keyframes sk-scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  #tn-sk .sk-tape-item{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#fff; background:none; border:none; cursor:pointer; white-space:nowrap; padding:0 4px; opacity:.5; pointer-events:none;}
+  #tn-sk .sk-tape-track.paused .sk-tape-item{opacity:1; pointer-events:auto;}
+  #tn-sk .sk-tape-item.up i{color:var(--g); font-style:normal;}
+  #tn-sk .sk-tape-item.down i{color:#E0685C; font-style:normal;}
+  #tn-sk .sk-tape-item b{font-weight:800;}
+  #tn-sk .sk-tape-item.seen{text-decoration:underline;}
+  #tn-sk .sk-tape-detail{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 3: bid meets ask ---- */
+  #tn-sk .sk-match-stage{display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:16px; flex-wrap:wrap;}
+  #tn-sk .sk-match-block{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:16px 20px; text-align:center; transition:transform .4s ease, border-color .3s ease, background .3s ease;}
+  #tn-sk .sk-match-block span{display:block; font-size:11px; color:var(--mut); font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  #tn-sk .sk-match-block b{font-family:'Poppins',sans-serif; font-weight:800; font-size:22px; color:var(--ink);}
+  #tn-sk .sk-match-spark{font-size:26px; opacity:0; transition:opacity .3s ease, transform .3s ease; transform:scale(.5);}
+  #tn-sk .sk-match-spark.show{opacity:1; transform:scale(1.3);}
+  #tn-sk .sk-match-block.matched{border-color:var(--selbd); background:var(--tint); transform:scale(1.05);}
+  #tn-sk .sk-match-result{font-size:13.5px; color:var(--ink2); line-height:1.55; margin-top:16px; min-height:18px; max-width:440px; margin-left:auto; margin-right:auto;}
+
+  /* ---- slide 4: exchange cards ---- */
+  #tn-sk .sk-exchange-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px;}
+  #tn-sk .sk-exchange-card{display:flex; flex-direction:column; align-items:center; gap:6px; font-size:28px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 6px; cursor:pointer; transition:all .18s;}
+  #tn-sk .sk-exchange-card b{font-family:'Poppins',sans-serif; font-size:12px; color:var(--ink); text-align:center;}
+  #tn-sk .sk-exchange-card.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-sk .sk-exchange-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 5: opening bell ---- */
+  #tn-sk .sk-bell-stage{width:120px; height:120px; margin:0 auto 18px; border-radius:50%; background:var(--mist); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+  #tn-sk .sk-bell-emoji{font-size:52px; display:inline-block; transform-origin:top center;}
+  #tn-sk .sk-bell-emoji.ring{animation:sk-bell-ring .5s ease 3;}
+  @keyframes sk-bell-ring{0%,100%{transform:rotate(0);}20%{transform:rotate(-18deg);}40%{transform:rotate(18deg);}60%{transform:rotate(-12deg);}80%{transform:rotate(12deg);}}
+  #tn-sk .sk-bell-note{max-width:440px; margin:16px auto 0; font-size:13.5px; color:var(--ink2); line-height:1.55; text-align:center; min-height:18px;}
+
+  /* ---- slide 6: bull or bear ---- */
+  #tn-sk .sk-animal-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  #tn-sk .sk-animal-card{display:flex; flex-direction:column; align-items:center; gap:8px; font-size:44px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:22px 10px; cursor:pointer; transition:all .18s;}
+  #tn-sk .sk-animal-card b{font-family:'Poppins',sans-serif; font-size:14px; color:var(--ink); text-align:center;}
+  #tn-sk .sk-animal-card.bull.on{border-color:var(--selbd); background:var(--tint);}
+  #tn-sk .sk-animal-card.bear.on{border-color:var(--nobd); background:var(--nobg);}
+  #tn-sk .sk-animal-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 7: index cards ---- */
+  #tn-sk .sk-index-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px;}
+  #tn-sk .sk-index-card{display:flex; flex-direction:column; align-items:center; gap:6px; font-size:26px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 6px; cursor:pointer; transition:all .18s;}
+  #tn-sk .sk-index-card b{font-family:'Poppins',sans-serif; font-size:11.5px; color:var(--ink); text-align:center;}
+  #tn-sk .sk-index-card.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-sk .sk-index-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:14px; font-size:13.5px; color:var(--ink2); text-align:center; line-height:1.55; min-height:20px;}
+
+  /* ---- slide 8: newspaper headlines ---- */
+  #tn-sk .sk-headlines{display:flex; flex-direction:column; gap:10px;}
+  #tn-sk .sk-headline{background:#FDFCF8; border:1.5px solid var(--cardbd); border-radius:4px; padding:14px 16px; box-shadow:0 4px 10px -6px rgba(0,0,0,.2); transition:background .2s ease, border-color .2s ease;}
+  #tn-sk .sk-headline-text{font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin:0 0 10px; line-height:1.4; letter-spacing:-.01em;}
+  #tn-sk .sk-headline-btns{display:flex; gap:8px;}
+  #tn-sk .sk-headline-btns button{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; padding:9px 6px; border-radius:8px; cursor:pointer; background:#fff; border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-sk .sk-headline-btns button[data-p="myth"]{border-color:#F5C6BE; color:var(--no);}
+  #tn-sk .sk-headline.done .sk-headline-btns button{opacity:.4; pointer-events:none;}
+  #tn-sk .sk-headline.done .sk-headline-btns button.picked{opacity:1;}
+  #tn-sk .sk-headline.correct{background:var(--tint); border-color:var(--selbd);}
+  #tn-sk .sk-headline.wrong{background:var(--nobg); border-color:var(--nobd);}
+  #tn-sk .sk-headline-why{font-size:12.5px; color:var(--ink2); line-height:1.45; margin:8px 0 0; display:none;}
+  #tn-sk .sk-headline-why b{font-family:'Poppins',sans-serif;}
+  #tn-sk .sk-headline.done .sk-headline-why{display:block;}
+
+  /* recap */
+  #tn-sk .sk-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-sk .sk-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-sk .sk-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-sk .sk-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-sk .sk-recap-item b{font-weight:700;}
+  #tn-sk .sk-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-sk .sk-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-sk .sk-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-sk .sk-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-sk .sk-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-sk .sk-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-sk .sk-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-sk .sk-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-sk .sk-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-sk .sk-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-sk .sk-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-sk .sk-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-sk .sk-done-ico{font-size:20px; flex:none;}
+  #tn-sk .sk-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-sk .sk-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-sk .sk-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-sk .sk-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-sk .sk-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-sk .sk-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-sk .sk-btn:hover{transform:translateY(-2px);}
+  #tn-sk .sk-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-sk .sk-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-sk .sk-green{color:var(--g);}
+  #tn-sk .sk-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-sk .sk-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-sk .sk-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-sk .sk-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-sk .sk-nav-btn.prev{color:var(--ink2);}
+  #tn-sk .sk-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-sk .sk-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-sk .sk-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-sk .sk-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-sk .sk-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-sk .sk-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-sk .sk-wrap{padding:12px 14px 30px;}
+    #tn-sk .sk-exchange-grid{grid-template-columns:1fr;}
+    #tn-sk .sk-index-grid{grid-template-columns:1fr;}
+    #tn-sk .sk-era-btns{grid-template-columns:1fr 1fr;}
+    #tn-sk .sk-bsub{display:none;}
+    #tn-sk .sk-nav-hint{display:none;}
+    #tn-sk .sk-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-sk .sk-reveal{opacity:1 !important; transform:none !important;}
+    #tn-sk #sk-bar{transition:none;}
+    #tn-sk .sk-tape-track{animation:none !important;}
+    #tn-sk .sk-bell-emoji.ring{animation:none !important;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-sk'); if(!root) return;
+  root.querySelectorAll('.sk-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+
+  /* ============ 2 · rewind to 1602 ============ */
+  var eraCopy={
+    '1602':{emoji:'⛵', t:'The Dutch East India Company issued the first known tradable shares, and the Amsterdam exchange sprang up around trading them. This is widely considered the birth of the modern stock market.'},
+    '1800s':{emoji:'🌳', t:'In New York, a group of brokers signed the Buttonwood Agreement in 1792, laying the groundwork for what would become the New York Stock Exchange.'},
+    '1900s':{emoji:'📠', t:'Physical trading floors buzzed with shouting brokers and paper ticker tape, printing prices in real time as trades happened.'},
+    'today':{emoji:'📱', t:'Trading is almost entirely electronic now — orders are matched by computers in fractions of a second, often from an app on your phone.'}
+  };
+  var eraText=root.querySelector('#sk-era-text'), eraEmoji=root.querySelector('#sk-era-emoji'),
+      eraCount=root.querySelector('#sk-era-count'), eraSeen={};
+  root.querySelectorAll('#sk-era-btns .sk-era-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#sk-era-btns .sk-era-btn').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var k=btn.getAttribute('data-k'), c=eraCopy[k];
+      eraEmoji.textContent=c.emoji;
+      eraText.textContent=c.t;
+      eraSeen[k]=1;
+      eraCount.textContent='Explored '+Object.keys(eraSeen).length+' of 4';
+      postHeight();
+    });
+  });
+
+  /* ============ 3 · the ticker tape ============ */
+  var tapeTrack=root.querySelector('#sk-tape-track'), tapePause=root.querySelector('#sk-tape-pause'),
+      tapeDetail=root.querySelector('#sk-tape-detail'), tapeCount=root.querySelector('#sk-tape-count');
+  var tapeInspected={}, tapePaused=false;
+  if(tapePause) tapePause.addEventListener('click',function(){
+    tapePaused=!tapePaused;
+    tapeTrack.classList.toggle('paused',tapePaused);
+    tapePause.textContent=tapePaused?'▶ Resume the Tape':'⏸ Pause the Tape';
+    postHeight();
+  });
+  root.querySelectorAll('#sk-tape-track .sk-tape-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      if(!tapePaused) return;
+      item.classList.add('seen');
+      var sym=item.getAttribute('data-sym'), name=item.getAttribute('data-name');
+      tapeDetail.innerHTML='<b>'+sym+'</b> is the ticker symbol for <b>'+name+'</b> \u2014 the short code that uniquely identifies this company on the exchange. Price: <b>'+item.getAttribute('data-price')+'</b>, Change: <b>'+item.getAttribute('data-chg')+'</b> since the prior close.';
+      tapeInspected[sym]=1;
+      tapeCount.textContent='Inspected '+Math.min(Object.keys(tapeInspected).length,3)+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 4 · bid meets ask ============ */
+  var matchBtn=root.querySelector('#sk-match-btn'), matchBid=root.querySelector('#sk-match-bid'),
+      matchAsk=root.querySelector('#sk-match-ask'), matchSpark=root.querySelector('#sk-match-spark'),
+      matchResult=root.querySelector('#sk-match-result');
+  if(matchBtn) matchBtn.addEventListener('click',function(){
+    matchBtn.disabled=true;
+    matchSpark.classList.add('show');
+    setTimeout(function(){
+      matchBid.classList.add('matched'); matchAsk.classList.add('matched');
+      matchResult.textContent='Match! The buyer\u2019s bid and the seller\u2019s ask lined up at $50, so a trade happens automatically at that price. Multiply this by millions of these matches happening every second, and that\u2019s the market.';
+      postHeight();
+    },400);
+    postHeight();
+  });
+
+  /* ============ 5 · which exchange ============ */
+  var exchangeResult=root.querySelector('#sk-exchange-result'), exchangeCount=root.querySelector('#sk-exchange-count'), exchangeSeen={};
+  root.querySelectorAll('#sk-exchange-grid .sk-exchange-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      root.querySelectorAll('#sk-exchange-grid .sk-exchange-card').forEach(function(c){ c.classList.remove('on'); });
+      card.classList.add('on');
+      exchangeResult.textContent=card.getAttribute('data-d');
+      exchangeSeen[card.getAttribute('data-t')]=1;
+      exchangeCount.textContent='Explored '+Object.keys(exchangeSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 6 · the opening bell ============ */
+  var bellEmoji=root.querySelector('#sk-bell-emoji'), bellBtn=root.querySelector('#sk-bell-btn'), bellNote=root.querySelector('#sk-bell-note');
+  if(bellBtn) bellBtn.addEventListener('click',function(){
+    bellBtn.disabled=true;
+    bellEmoji.classList.add('ring');
+    setTimeout(function(){
+      bellNote.textContent='In the U.S., major exchanges are generally open 9:30 AM to 4:00 PM Eastern Time, Monday through Friday (closed on major holidays). Outside those hours, regular trading simply pauses.';
+      postHeight();
+    },1600);
+    postHeight();
+  });
+
+  /* ============ 7 · bull or bear ============ */
+  var animalResult=root.querySelector('#sk-animal-result'), animalSeen={};
+  root.querySelectorAll('#sk-animal-grid .sk-animal-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      card.classList.add('on');
+      animalResult.textContent=card.getAttribute('data-d');
+      animalSeen[card.getAttribute('data-t')]=1;
+      postHeight();
+    });
+  });
+
+  /* ============ 8 · the market health gauge ============ */
+  var indexResult=root.querySelector('#sk-index-result'), indexCount=root.querySelector('#sk-index-count'), indexSeen={};
+  root.querySelectorAll('#sk-index-grid .sk-index-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      root.querySelectorAll('#sk-index-grid .sk-index-card').forEach(function(c){ c.classList.remove('on'); });
+      card.classList.add('on');
+      indexResult.textContent=card.getAttribute('data-d');
+      indexSeen[card.getAttribute('data-t')]=1;
+      indexCount.textContent='Explored '+Object.keys(indexSeen).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 9 · newspaper headlines ============ */
+  var headlineAnswered=0, headlineCount=root.querySelector('#sk-headline-count');
+  var headlineWhy={
+    myth_0:'The stock market isn\u2019t a single place \u2014 it\u2019s a network of exchanges and electronic systems connecting buyers and sellers everywhere.',
+    fact_1:'More buyers than sellers pushes prices up; more sellers than buyers pushes them down. That\u2019s the whole mechanism.',
+    fact_2:'Major exchanges follow a set weekly schedule and are closed on weekends and holidays.',
+    myth_3:'The S&amp;P 500 is just a measurement \u2014 you can\u2019t buy it directly, though funds exist that track it, covered in a later lesson.'
+  };
+  root.querySelectorAll('#sk-headlines .sk-headline').forEach(function(card,i){
+    var ans=card.getAttribute('data-answer');
+    var whyEl=card.querySelector('.sk-headline-why');
+    card.querySelectorAll('.sk-headline-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(card.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        card.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(ans==='fact'?'CONFIRMED.':'DEBUNKED.')+'</b> '+headlineWhy[ans+'_'+i];
+        headlineAnswered++;
+        headlineCount.textContent='Answered '+headlineAnswered+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-sk'); if(!root) return;
+  var TOTAL=11, current=1;
+
+  var bar=root.querySelector('#sk-bar');
+  var labelEl=root.querySelector('#sk-slide-label');
+  var countEl=root.querySelector('#sk-slide-count');
+  var prevBtn=root.querySelector('#sk-prev');
+  var nextBtn=root.querySelector('#sk-next');
+  var hintEl=root.querySelector('#sk-nav-hint');
+  var disclaimer=root.querySelector('.sk-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'Rewind to 1602',3:'The Ticker Tape',4:'Bid Meets Ask',5:'Which Exchange?',6:'The Opening Bell',7:'Bull or Bear?',8:'The Market Health Gauge',9:'Myth or Fact',10:'Recap',11:'Certified'};
+  var reqHints={2:'Explore all 4 eras',3:'Pause, then inspect 3 entries',4:'Run the match to continue',5:'Explore all 3 to continue',6:'Ring the bell to continue',7:'Explore both animals',8:'Explore all 3 to continue',9:'Answer all 4 to continue'};
+
+  var done={1:true,10:true,11:true};
+  var secByStep={};
+  root.querySelectorAll('.sk-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('sk-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('sk-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 1 · all 4 eras explored
+  var eraSeen2={};
+  root.querySelectorAll('#sk-era-btns .sk-era-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){ eraSeen2[btn.getAttribute('data-k')]=1;
+      if(keys(eraSeen2)>=4) markDone(2); else liveHint(2,'Explored '+keys(eraSeen2)+' of 4 — keep going'); });
+  });
+
+  // 2 · paused, then inspected 3 distinct entries
+  var tapeInspected2={};
+  root.querySelectorAll('#sk-tape-track .sk-tape-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      tapeInspected2[item.getAttribute('data-sym')]=1;
+      var n=keys(tapeInspected2);
+      if(n>=3) markDone(3); else liveHint(3,'Inspected '+n+' of 3 — pause the tape and tap more entries');
+    });
+  });
+
+  // 3 · match run
+  var matchBtn2=root.querySelector('#sk-match-btn');
+  if(matchBtn2) matchBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(4); },420); });
+
+  // 4 · all 3 exchanges explored
+  var exchangeSeen2={};
+  root.querySelectorAll('#sk-exchange-grid .sk-exchange-card').forEach(function(card){
+    card.addEventListener('click',function(){ exchangeSeen2[card.getAttribute('data-t')]=1;
+      if(keys(exchangeSeen2)>=3) markDone(5); else liveHint(5,'Explored '+keys(exchangeSeen2)+' of 3 — keep going'); });
+  });
+
+  // 5 · bell rung
+  var bellBtn2=root.querySelector('#sk-bell-btn');
+  if(bellBtn2) bellBtn2.addEventListener('click',function(){ setTimeout(function(){ markDone(6); },1650); });
+
+  // 6 · both animals explored
+  var animalSeen2={};
+  root.querySelectorAll('#sk-animal-grid .sk-animal-card').forEach(function(card){
+    card.addEventListener('click',function(){ animalSeen2[card.getAttribute('data-t')]=1;
+      if(keys(animalSeen2)>=2) markDone(7); else liveHint(7,'Now tap the other one too'); });
+  });
+
+  // 7 · all 3 indices explored
+  var indexSeen2={};
+  root.querySelectorAll('#sk-index-grid .sk-index-card').forEach(function(card){
+    card.addEventListener('click',function(){ indexSeen2[card.getAttribute('data-t')]=1;
+      if(keys(indexSeen2)>=3) markDone(8); else liveHint(8,'Explored '+keys(indexSeen2)+' of 3 — keep going'); });
+  });
+
+  // 8 · all 4 headlines answered
+  root.querySelectorAll('#sk-headlines .sk-headline-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var n=count('#sk-headlines .sk-headline.done');
+      if(n>=4) markDone(9); else liveHint(9,'Answered '+n+' of 4 — keep going');
+    });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#sk-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>

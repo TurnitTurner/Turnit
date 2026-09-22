@@ -1,0 +1,629 @@
+<!-- ============================================================
+     TURNIT — WHAT IS A SHARE? OWNERSHIP EXPLAINED  (Module 3 · Lesson 2)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-sh. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     10 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Lesson Overview           2 Slice the Company
+       3 The Company Value Calculator  4 Your Shareholder Rights
+       5 Cast Your Vote            6 Where Do Shares Come From?
+       7 The Safety Net            8 The Courtroom
+       9 Recap                     10 Certificate
+     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     ============================================================ -->
+<div id="tn-sh">
+  <div class="sh-wrap">
+
+    <!-- TOP HEADER -->
+    <div class="sh-top">
+      <div class="sh-topbar">
+        <div class="sh-brand"><span class="sh-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="sh-word">TURNIT</span><span class="sh-bsub">The Stock Market Explained</span></div>
+      </div>
+      <div class="sh-progress"><span id="sh-bar"></span></div>
+      <div class="sh-meta"><span id="sh-slide-label">Lesson Overview</span><span id="sh-slide-count">Slide 1 of 10</span></div>
+    </div>
+
+    <!-- ========== 1 · LESSON OVERVIEW ========== -->
+    <section class="sh-sec sh-reveal" data-step="1">
+      <p class="sh-kicker">Welcome · 1 / 10</p>
+      <h2 class="sh-h2">What this lesson covers</h2>
+      <p class="sh-p">Last lesson covered what the market is. This one zooms into the actual thing you're buying — a share.</p>
+
+      <div class="sh-recap">
+        <div class="sh-recap-item"><span class="sh-recap-check">1</span><span>What a share actually represents, and how ownership splits up.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">2</span><span>How a company's total value — its "market cap" — gets calculated.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">3</span><span>The real rights that come with owning a share.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">4</span><span>Where shares actually come from in the first place.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">5</span><span>What you can — and can't — lose as a shareholder.</span></div>
+      </div>
+      <div class="sh-next-move">About <b>8-10 minutes</b>, fully interactive. Tap Next whenever you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · SLICE THE COMPANY ========== -->
+    <section class="sh-sec sh-reveal" data-step="2">
+      <p class="sh-kicker">Slice the Company · 2 / 10</p>
+      <h2 class="sh-h2">A share is just one slice</h2>
+      <p class="sh-p">Slide to change how many total slices this company is cut into — you always hold exactly one.</p>
+
+      <div class="sh-panel sh-center">
+        <svg viewBox="0 0 200 200" class="sh-pie-svg" id="sh-pie-svg">
+          <circle cx="100" cy="100" r="90" class="sh-pie-track"/>
+          <path id="sh-pie-slice" class="sh-pie-slice"></path>
+        </svg>
+        <div class="sh-pie-readout"><b id="sh-pie-pct">50%</b><span>You own 1 of <b id="sh-pie-total">2</b> total shares</span></div>
+
+        <input id="sh-pie-slider" class="sh-range" type="range" min="2" max="1000" value="2" step="1" aria-label="Total shares outstanding">
+        <div class="sh-scale"><span>2 total shares</span><span>1,000 total shares</span></div>
+        <div class="sh-note">Real public companies often have hundreds of millions of shares — one share is usually a tiny sliver.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · THE COMPANY VALUE CALCULATOR ========== -->
+    <section class="sh-sec sh-reveal" data-step="3">
+      <p class="sh-kicker">The Company Value Calculator · 3 / 10</p>
+      <h2 class="sh-h2">Price × shares = the whole company</h2>
+      <p class="sh-p">Adjust both sliders and watch the total.</p>
+
+      <div class="sh-panel">
+        <div class="sh-slide-row">
+          <div class="sh-slide-top"><label for="sh-calc-price">Share Price</label><span class="sh-slide-v blue" id="sh-calc-price-v">$50</span></div>
+          <input id="sh-calc-price" class="sh-range" type="range" min="10" max="200" value="50" step="5" aria-label="Share price">
+        </div>
+        <div class="sh-slide-row">
+          <div class="sh-slide-top"><label for="sh-calc-shares">Shares Outstanding (millions)</label><span class="sh-slide-v green" id="sh-calc-shares-v">100M</span></div>
+          <input id="sh-calc-shares" class="sh-range good" type="range" min="1" max="500" value="100" step="1" aria-label="Shares outstanding in millions">
+        </div>
+
+        <div class="sh-calc-result"><span>Total Company Value</span><b id="sh-calc-total">$5,000,000,000</b></div>
+        <div class="sh-note">Wall Street calls this number the company's <b>market cap</b> — short for market capitalization.</div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · YOUR SHAREHOLDER RIGHTS ========== -->
+    <section class="sh-sec sh-reveal" data-step="4">
+      <p class="sh-kicker">Your Shareholder Rights · 4 / 10</p>
+      <h2 class="sh-h2">Owning a share comes with real rights</h2>
+      <p class="sh-p">Tap each to see what actually comes with your slice.</p>
+
+      <div class="sh-fico" id="sh-rights">
+        <button type="button" class="sh-fchip" data-t="Voting Rights" data-d="Shareholders can vote on major company decisions, like electing the board of directors — usually one vote per share you own.">
+          <i class="d1"></i>Voting Rights</button>
+        <button type="button" class="sh-fchip" data-t="Dividends (If Paid)" data-d="Some companies share part of their profits with shareholders as cash payments. This isn't guaranteed — many companies pay none at all.">
+          <i class="d2"></i>Dividends (If Paid)</button>
+        <button type="button" class="sh-fchip" data-t="Claim on Assets" data-d="If a company is ever liquidated, shareholders have a claim on what's left — but only after all debts and other obligations are paid first.">
+          <i class="d3"></i>Claim on Assets</button>
+      </div>
+      <div class="sh-reveal-box" id="sh-rights-box"><b id="sh-rights-t">Tap a right above</b><span id="sh-rights-d">Three real things that come with owning a share.</span></div>
+      <p class="sh-count" id="sh-rights-count">Reviewed 0 of 3</p>
+    </section>
+
+    <!-- ========== 5 · CAST YOUR VOTE ========== -->
+    <section class="sh-sec sh-center sh-reveal" data-step="5">
+      <p class="sh-kicker center">Cast Your Vote · 5 / 10</p>
+      <h2 class="sh-h2 center">Your voice, as a shareholder</h2>
+      <p class="sh-sub center">TurnCo Inc. wants shareholder input on a new proposal.</p>
+
+      <div class="sh-ballot">
+        <p class="sh-ballot-q">Proposal: Approve the redesigned company logo?</p>
+        <div class="sh-ballot-btns">
+          <button type="button" class="sh-ballot-btn yes" id="sh-vote-yes">✓ Vote Yes</button>
+          <button type="button" class="sh-ballot-btn no" id="sh-vote-no">✕ Vote No</button>
+        </div>
+      </div>
+      <div class="sh-vote-result" id="sh-vote-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 6 · WHERE DO SHARES COME FROM? ========== -->
+    <section class="sh-sec sh-reveal" data-step="6">
+      <p class="sh-kicker">Where Shares Come From · 6 / 10</p>
+      <h2 class="sh-h2">Shares have a birth story</h2>
+      <p class="sh-p">Tap both stages to see the full path.</p>
+
+      <div class="sh-stage-btns">
+        <button type="button" class="sh-stage-btn" id="sh-stage-ipo">1<span>The IPO</span></button>
+        <button type="button" class="sh-stage-btn" id="sh-stage-secondary">2<span>The Secondary Market</span></button>
+      </div>
+      <div class="sh-stage-result" id="sh-stage-result"><b>Tap a stage above</b><span>Shares don't just appear on the exchange — here's where they actually start.</span></div>
+    </section>
+
+    <!-- ========== 7 · THE SAFETY NET ========== -->
+    <section class="sh-sec sh-center sh-reveal" data-step="7">
+      <p class="sh-kicker center">The Safety Net · 7 / 10</p>
+      <h2 class="sh-h2 center">Can you lose more than you invested?</h2>
+      <p class="sh-sub center">A common fear — and worth clearing up directly.</p>
+
+      <button type="button" class="sh-confirm-btn" id="sh-liability-btn">Reveal the Answer</button>
+      <div class="sh-liability-result" id="sh-liability-result">&nbsp;</div>
+    </section>
+
+    <!-- ========== 8 · THE COURTROOM ========== -->
+    <section class="sh-sec sh-reveal" data-step="8">
+      <p class="sh-kicker">The Courtroom · 8 / 10</p>
+      <h2 class="sh-h2">Guilty or not guilty?</h2>
+      <p class="sh-p">Tap your verdict on each claim.</p>
+
+      <div class="sh-court" id="sh-court">
+        <div class="sh-case" data-answer="guilty"><p class="sh-case-text">Owning one share means you own the entire company.</p><div class="sh-case-btns"><button data-p="guilty">Guilty (Myth)</button><button data-p="innocent">Not Guilty (Fact)</button></div><p class="sh-case-why"></p></div>
+        <div class="sh-case" data-answer="innocent"><p class="sh-case-text">Shareholders can vote on major company decisions.</p><div class="sh-case-btns"><button data-p="guilty">Guilty (Myth)</button><button data-p="innocent">Not Guilty (Fact)</button></div><p class="sh-case-why"></p></div>
+        <div class="sh-case" data-answer="guilty"><p class="sh-case-text">If a company goes bankrupt, shareholders could owe money from their own pocket to cover its debts.</p><div class="sh-case-btns"><button data-p="guilty">Guilty (Myth)</button><button data-p="innocent">Not Guilty (Fact)</button></div><p class="sh-case-why"></p></div>
+        <div class="sh-case" data-answer="innocent"><p class="sh-case-text">A company's market cap is its share price multiplied by shares outstanding.</p><div class="sh-case-btns"><button data-p="guilty">Guilty (Myth)</button><button data-p="innocent">Not Guilty (Fact)</button></div><p class="sh-case-why"></p></div>
+      </div>
+      <p class="sh-count" id="sh-court-count">Ruled 0 of 4</p>
+    </section>
+
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="sh-sec sh-reveal" data-step="9">
+      <p class="sh-kicker">Recap · 9 / 10</p>
+      <h2 class="sh-h2">Here's what you now know</h2>
+      <p class="sh-p">The whole lesson, in six lines.</p>
+
+      <div class="sh-recap">
+        <div class="sh-recap-item"><span class="sh-recap-check">✓</span><span>A share is one slice of ownership out of however many total shares a company has issued.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">✓</span><span>Share price × shares outstanding = <b>market cap</b>, the company's total value.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">✓</span><span>Shareholders can get voting rights, sometimes dividends, and a claim on leftover assets.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">✓</span><span>Shares are first created and sold at an <b>IPO</b>, then trade between investors afterward.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">✓</span><span>The most you can ever lose owning a share is what you paid — never more.</span></div>
+        <div class="sh-recap-item"><span class="sh-recap-check">✓</span><span>Owning a share means owning a real piece of a real business — not just a number on a screen.</span></div>
+      </div>
+      <div class="sh-next-move">Your next move: <b>next time a price ticks, remember it's a real business changing hands, one slice at a time.</b></div>
+    </section>
+
+    <!-- ========== 10 · CERTIFICATE ========== -->
+    <section class="sh-sec sh-center sh-reveal" data-step="10">
+      <p class="sh-kicker center">Certified · 10 / 10</p>
+      <div class="sh-cert">
+        <div class="sh-cert-border"></div>
+        <span class="sh-cert-pill">🏆 Certificate of Completion</span>
+        <p class="sh-cert-cert">This certifies that</p>
+        <h2 class="sh-cert-name">Owner Certified</h2>
+        <p class="sh-cert-body">has completed <span class="sh-tw">TURNIT</span> The Stock Market Explained: What Is a Share?, and now understands exactly what owning one actually means.</p>
+        <div class="sh-cert-line"></div>
+        <div class="sh-done-row streak"><div class="sh-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
+        <div class="sh-done-row ach"><div class="sh-done-ico">🏆</div><div><b>Achievement: Ownership Certified</b><span>You mastered what a share actually represents.</span></div></div>
+        <div class="sh-done-btns">
+          <a class="sh-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
+          <button class="sh-btn ghost" id="sh-restart">↺ Restart Lesson</button>
+        </div>
+      </div>
+      <p class="sh-quote">"KNOW WHAT YOU OWN, AND <span class="sh-green">KNOW WHY YOU OWN IT.</span>"<br><span class="sh-quote-by">— PETER LYNCH</span></p>
+    </section>
+
+    <p class="sh-disclaimer">TURNIT is for educational purposes only and is not financial advice. Company names, prices, and figures shown are fictional examples for illustration, not real market data or a recommendation.</p>
+
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="sh-nav" id="sh-nav">
+      <button type="button" class="sh-nav-btn prev" id="sh-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="sh-nav-hint" id="sh-nav-hint"></span>
+      <button type="button" class="sh-nav-btn next" id="sh-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+  #tn-sh{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-sh *,#tn-sh *::before,#tn-sh *::after{box-sizing:border-box;}
+  #tn-sh .sh-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-sh .sh-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-sh .sh-reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  #tn-sh .sh-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-sh .sh-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-sh .sh-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-sh .sh-bico{display:flex;}
+  #tn-sh .sh-word,#tn-sh .sh-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-sh .sh-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-sh .sh-bsub{color:var(--ink2); font-weight:500;}
+  #tn-sh .sh-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-sh #sh-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-sh .sh-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-sh .sh-meta #sh-slide-label{color:var(--ink2);}
+  #tn-sh .sh-meta #sh-slide-count{color:var(--mut);}
+
+  /* sections + type */
+  #tn-sh .sh-sec{padding:20px 0 8px; border-bottom:none;}
+  #tn-sh .sh-sec.sh-hide{display:none;}
+  #tn-sh .sh-center{text-align:center;}
+  #tn-sh .sh-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-sh .sh-kicker.center{text-align:center;}
+  #tn-sh .sh-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-sh .sh-h2.center{text-align:center;}
+  #tn-sh .sh-tw{font-style:italic;}
+  #tn-sh .sh-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-sh .sh-p b{color:var(--ink); font-weight:700;}
+  #tn-sh .sh-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-sh .sh-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+
+  #tn-sh .sh-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-sh .sh-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-sh .sh-note b{color:var(--ink); font-weight:700;}
+
+  #tn-sh .sh-slide-row{margin-top:16px;}
+  #tn-sh .sh-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-sh .sh-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-sh .sh-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-sh .sh-slide-v.green{color:var(--g);} #tn-sh .sh-slide-v.blue{color:var(--b);}
+  #tn-sh .sh-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-sh .sh-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-sh .sh-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-sh .sh-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
+
+  #tn-sh .sh-confirm-btn{display:block; width:100%; max-width:320px; margin:0 auto; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-sh .sh-confirm-btn:hover{transform:translateY(-2px);}
+  #tn-sh .sh-confirm-btn:disabled{opacity:.5; cursor:default; transform:none;}
+
+  /* ---- slide 2: pie slice ---- */
+  #tn-sh .sh-pie-svg{width:170px; height:170px; margin:0 auto 14px; display:block;}
+  #tn-sh .sh-pie-track{fill:var(--cardbg); stroke:var(--cardbd); stroke-width:2;}
+  #tn-sh .sh-pie-slice{fill:var(--g); stroke:#fff; stroke-width:2; transition:d .2s ease;}
+  #tn-sh .sh-pie-readout{margin-bottom:16px;}
+  #tn-sh .sh-pie-readout b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,7vw,32px); color:var(--ink);}
+  #tn-sh .sh-pie-readout span{font-size:13px; color:var(--ink2);}
+  #tn-sh .sh-pie-readout span b{display:inline; font-size:inherit;}
+
+  /* ---- slide 3: value calculator ---- */
+  #tn-sh .sh-calc-result{background:var(--tint); border:1.5px solid var(--selbd); border-radius:14px; padding:18px; text-align:center; margin-top:18px;}
+  #tn-sh .sh-calc-result span{display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--g); font-weight:700; margin-bottom:4px;}
+  #tn-sh .sh-calc-result b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,6vw,28px); color:var(--ink);}
+
+  /* ---- slide 4: rights chips ---- */
+  #tn-sh .sh-fico{display:flex; flex-direction:column; gap:9px;}
+  #tn-sh .sh-fchip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:13px 15px; font-size:14px; font-weight:600; color:var(--ink); cursor:pointer; transition:border-color .15s, background .15s;}
+  #tn-sh .sh-fchip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-sh .sh-fchip .d1{background:#209B73;} #tn-sh .sh-fchip .d2{background:#1f8f9b;} #tn-sh .sh-fchip .d3{background:#1568AE;}
+  #tn-sh .sh-fchip.on{border-color:var(--g); background:var(--tint);}
+  #tn-sh .sh-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-sh .sh-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
+  #tn-sh .sh-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+
+  /* ---- slide 5: ballot ---- */
+  #tn-sh .sh-ballot{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:22px 18px;}
+  #tn-sh .sh-ballot-q{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin:0 0 16px;}
+  #tn-sh .sh-ballot-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-sh .sh-ballot-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:13px 8px; border-radius:12px; cursor:pointer; border:1.5px solid; background:#fff; transition:all .15s;}
+  #tn-sh .sh-ballot-btn.yes{color:var(--g); border-color:var(--selbd);}
+  #tn-sh .sh-ballot-btn.yes:hover{background:var(--tint);}
+  #tn-sh .sh-ballot-btn.no{color:var(--no); border-color:var(--nobd);}
+  #tn-sh .sh-ballot-btn.no:hover{background:var(--nobg);}
+  #tn-sh .sh-ballot-btn:disabled{opacity:.5; cursor:default;}
+  #tn-sh .sh-vote-result{max-width:440px; margin:16px auto 0; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:18px;}
+
+  /* ---- slide 6: stages ---- */
+  #tn-sh .sh-stage-btns{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;}
+  #tn-sh .sh-stage-btn{display:flex; flex-direction:column; align-items:center; gap:4px; font-family:'Poppins',sans-serif; font-weight:800; font-size:22px; color:var(--b); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 8px; cursor:pointer; transition:all .18s;}
+  #tn-sh .sh-stage-btn span{font-family:'Inter',sans-serif; font-weight:600; font-size:12px; color:var(--ink2);}
+  #tn-sh .sh-stage-btn.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-sh .sh-stage-result{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; text-align:center;}
+  #tn-sh .sh-stage-result b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:4px;}
+  #tn-sh .sh-stage-result span{font-size:13.5px; color:var(--ink2); line-height:1.55;}
+
+  /* ---- slide 7: liability ---- */
+  #tn-sh .sh-liability-result{max-width:460px; margin:18px auto 0; font-size:14px; color:var(--ink2); line-height:1.6; text-align:left; background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:18px 20px; min-height:20px;}
+  #tn-sh .sh-liability-result:empty{display:none;}
+  #tn-sh .sh-liability-result b{color:var(--g); font-family:'Poppins',sans-serif;}
+
+  /* ---- slide 8: courtroom ---- */
+  #tn-sh .sh-court{display:flex; flex-direction:column; gap:10px;}
+  #tn-sh .sh-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:background .2s ease, border-color .2s ease;}
+  #tn-sh .sh-case-text{font-size:14px; color:var(--ink); font-weight:500; margin:0 0 10px; line-height:1.45;}
+  #tn-sh .sh-case-btns{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-sh .sh-case-btns button{flex:1; min-width:110px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; padding:9px 6px; border-radius:9px; cursor:pointer; background:#fff; border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-sh .sh-case-btns button[data-p="innocent"]{border-color:#BFE6D6; color:var(--g);}
+  #tn-sh .sh-case.done .sh-case-btns button{opacity:.4; pointer-events:none;}
+  #tn-sh .sh-case.done .sh-case-btns button.picked{opacity:1;}
+  #tn-sh .sh-case.correct{background:var(--tint); border-color:var(--selbd);}
+  #tn-sh .sh-case.wrong{background:var(--nobg); border-color:var(--nobd);}
+  #tn-sh .sh-case-why{font-size:12.5px; color:var(--ink2); line-height:1.45; margin:8px 0 0; display:none;}
+  #tn-sh .sh-case-why b{font-family:'Poppins',sans-serif;}
+  #tn-sh .sh-case.done .sh-case-why{display:block;}
+
+  /* recap */
+  #tn-sh .sh-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-sh .sh-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-sh .sh-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-sh .sh-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-sh .sh-recap-item b{font-weight:700;}
+  #tn-sh .sh-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-sh .sh-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+
+  /* certificate */
+  #tn-sh .sh-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
+  #tn-sh .sh-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
+  #tn-sh .sh-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
+  #tn-sh .sh-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
+  #tn-sh .sh-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
+  #tn-sh .sh-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
+  #tn-sh .sh-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
+  #tn-sh .sh-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
+  #tn-sh .sh-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
+  #tn-sh .sh-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
+  #tn-sh .sh-done-ico{font-size:20px; flex:none;}
+  #tn-sh .sh-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  #tn-sh .sh-done-row span{font-size:12.5px; color:var(--ink2);}
+  #tn-sh .sh-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+  #tn-sh .sh-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
+  #tn-sh .sh-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
+  #tn-sh .sh-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
+  #tn-sh .sh-btn:hover{transform:translateY(-2px);}
+  #tn-sh .sh-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-sh .sh-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-sh .sh-green{color:var(--g);}
+  #tn-sh .sh-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+
+  /* bottom nav */
+  #tn-sh .sh-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-sh .sh-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-sh .sh-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-sh .sh-nav-btn.prev{color:var(--ink2);}
+  #tn-sh .sh-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-sh .sh-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-sh .sh-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-sh .sh-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-sh .sh-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-sh .sh-nav-btn.next.locked:hover{transform:none;}
+
+  @media (max-width:540px){
+    #tn-sh .sh-wrap{padding:12px 14px 30px;}
+    #tn-sh .sh-ballot-btns{grid-template-columns:1fr;}
+    #tn-sh .sh-stage-btns{grid-template-columns:1fr;}
+    #tn-sh .sh-bsub{display:none;}
+    #tn-sh .sh-nav-hint{display:none;}
+    #tn-sh .sh-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-sh .sh-reveal{opacity:1 !important; transform:none !important;}
+    #tn-sh #sh-bar{transition:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('tn-sh'); if(!root) return;
+  root.querySelectorAll('.sh-reveal').forEach(function(el){ el.classList.add('in'); });
+
+  function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function pieArcPath(cx,cy,r,startPct,endPct){
+    startPct=Math.max(0,Math.min(100,startPct)); endPct=Math.max(0,Math.min(100,endPct));
+    if(endPct-startPct>=99.999){ endPct=startPct+99.999; }
+    var startAngle=(startPct/100)*2*Math.PI - Math.PI/2;
+    var endAngle=(endPct/100)*2*Math.PI - Math.PI/2;
+    var x1=cx+r*Math.cos(startAngle), y1=cy+r*Math.sin(startAngle);
+    var x2=cx+r*Math.cos(endAngle), y2=cy+r*Math.sin(endAngle);
+    var largeArc=(endAngle-startAngle)>Math.PI ? 1 : 0;
+    return 'M '+cx+' '+cy+' L '+x1+' '+y1+' A '+r+' '+r+' 0 '+largeArc+' 1 '+x2+' '+y2+' Z';
+  }
+
+  /* ============ 2 · slice the company ============ */
+  var pieSlice=root.querySelector('#sh-pie-slice'), pieSlider=root.querySelector('#sh-pie-slider'),
+      piePct=root.querySelector('#sh-pie-pct'), pieTotal=root.querySelector('#sh-pie-total');
+  function pieCalc(){
+    var total=+pieSlider.value;
+    var pct=(1/total)*100;
+    pieTotal.textContent=total.toLocaleString();
+    piePct.textContent=pct<1 ? pct.toFixed(2)+'%' : pct.toFixed(1)+'%';
+    pieSlice.setAttribute('d', pieArcPath(100,100,90,0,pct));
+    postHeight();
+  }
+  if(pieSlider){ pieSlider.addEventListener('input',pieCalc); pieCalc(); }
+
+  /* ============ 3 · the company value calculator ============ */
+  var calcPrice=root.querySelector('#sh-calc-price'), calcPriceV=root.querySelector('#sh-calc-price-v'),
+      calcShares=root.querySelector('#sh-calc-shares'), calcSharesV=root.querySelector('#sh-calc-shares-v'),
+      calcTotal=root.querySelector('#sh-calc-total');
+  function calcRender(){
+    var price=+calcPrice.value, sharesM=+calcShares.value;
+    calcPriceV.textContent='$'+price;
+    calcSharesV.textContent=sharesM+'M';
+    var total=price*sharesM*1000000;
+    calcTotal.textContent=moneyRound(total);
+    postHeight();
+  }
+  if(calcPrice&&calcShares){ calcPrice.addEventListener('input',calcRender); calcShares.addEventListener('input',calcRender); calcRender(); }
+
+  /* ============ 4 · your shareholder rights ============ */
+  var rightsReviewed={}, rightsT=root.querySelector('#sh-rights-t'),
+      rightsD=root.querySelector('#sh-rights-d'), rightsCount=root.querySelector('#sh-rights-count');
+  root.querySelectorAll('#sh-rights .sh-fchip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#sh-rights .sh-fchip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      rightsT.textContent=c.getAttribute('data-t'); rightsD.textContent=c.getAttribute('data-d');
+      rightsReviewed[c.getAttribute('data-t')]=1;
+      rightsCount.textContent='Reviewed '+Object.keys(rightsReviewed).length+' of 3';
+      postHeight();
+    });
+  });
+
+  /* ============ 5 · cast your vote ============ */
+  var voteYes=root.querySelector('#sh-vote-yes'), voteNo=root.querySelector('#sh-vote-no'), voteResult=root.querySelector('#sh-vote-result');
+  function castVote(choice){
+    voteYes.disabled=true; voteNo.disabled=true;
+    voteResult.textContent='You voted '+choice+'. Your vote counted for however many shares you own \u2014 in real shareholder votes, results are usually tallied by total shares voted, not by number of people. More shares means more voting power.';
+    postHeight();
+  }
+  if(voteYes) voteYes.addEventListener('click',function(){ castVote('Yes'); });
+  if(voteNo) voteNo.addEventListener('click',function(){ castVote('No'); });
+
+  /* ============ 6 · where shares come from ============ */
+  var stageResult=root.querySelector('#sh-stage-result');
+  var stageIpo=root.querySelector('#sh-stage-ipo'), stageSecondary=root.querySelector('#sh-stage-secondary');
+  if(stageIpo) stageIpo.addEventListener('click',function(){
+    stageIpo.classList.add('on');
+    stageResult.innerHTML='<b>The IPO (Initial Public Offering)</b><span>A company creates brand-new shares and sells them to the public for the very first time \u2014 this is how it actually raises money from investors.</span>';
+    postHeight();
+  });
+  if(stageSecondary) stageSecondary.addEventListener('click',function(){
+    stageSecondary.classList.add('on');
+    stageResult.innerHTML='<b>The Secondary Market</b><span>After the IPO, those same shares trade between investors on the exchange, forever after. The company itself doesn\u2019t receive money from any of these later trades.</span>';
+    postHeight();
+  });
+
+  /* ============ 7 · the safety net ============ */
+  var liabilityBtn=root.querySelector('#sh-liability-btn'), liabilityResult=root.querySelector('#sh-liability-result');
+  if(liabilityBtn) liabilityBtn.addEventListener('click',function(){
+    liabilityBtn.disabled=true;
+    liabilityResult.innerHTML='<b>No.</b> The most you can ever lose owning a share is what you paid for it. You\u2019re never personally on the hook for a company\u2019s debts \u2014 this protection is called <b>limited liability</b>.';
+    postHeight();
+  });
+
+  /* ============ 8 · the courtroom ============ */
+  var courtRuled=0, courtCount=root.querySelector('#sh-court-count');
+  var courtWhy={
+    guilty_0:'Owning one share out of potentially millions is a tiny fractional stake \u2014 nowhere near full ownership.',
+    innocent_1:'Voting on major decisions, like electing the board, is a standard shareholder right.',
+    guilty_2:'Thanks to limited liability, shareholders can never be forced to cover a company\u2019s debts out of pocket.',
+    innocent_3:'Market cap is exactly that calculation \u2014 share price multiplied by total shares outstanding.'
+  };
+  root.querySelectorAll('#sh-court .sh-case').forEach(function(item,i){
+    var ans=item.getAttribute('data-answer');
+    var whyEl=item.querySelector('.sh-case-why');
+    item.querySelectorAll('.sh-case-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(item.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
+        var correct=pick===ans;
+        item.classList.add('done', correct?'correct':'wrong');
+        whyEl.innerHTML='<b>'+(ans==='guilty'?'Guilty (Myth).':'Not Guilty (Fact).')+'</b> '+courtWhy[ans+'_'+i];
+        courtRuled++;
+        courtCount.textContent='Ruled '+courtRuled+' of 4';
+        postHeight();
+      });
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+
+<!-- ============================================================
+     PAGINATION LAYER
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-sh'); if(!root) return;
+  var TOTAL=10, current=1;
+
+  var bar=root.querySelector('#sh-bar');
+  var labelEl=root.querySelector('#sh-slide-label');
+  var countEl=root.querySelector('#sh-slide-count');
+  var prevBtn=root.querySelector('#sh-prev');
+  var nextBtn=root.querySelector('#sh-next');
+  var hintEl=root.querySelector('#sh-nav-hint');
+  var disclaimer=root.querySelector('.sh-disclaimer');
+
+  var labels={1:'Lesson Overview',2:'Slice the Company',3:'The Value Calculator',4:'Shareholder Rights',5:'Cast Your Vote',6:'Where Shares Come From',7:'The Safety Net',8:'The Courtroom',9:'Recap',10:'Certified'};
+  var reqHints={2:'Explore both ends of the slider',3:'Move both sliders to continue',4:'Review all 3 to continue',5:'Cast your vote to continue',6:'Explore both stages',7:'Reveal the answer to continue',8:'Rule on all 4 to continue'};
+
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.sh-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+
+  function count(sel){ return root.querySelectorAll(sel).length; }
+  function keys(o){ return Object.keys(o).length; }
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('sh-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('sh-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+
+  // 2 · pie slider explored (both low and high ends)
+  var pieState={low:false,high:false};
+  var pieSlider2=root.querySelector('#sh-pie-slider');
+  if(pieSlider2) pieSlider2.addEventListener('input',function(){
+    var v=+pieSlider2.value;
+    if(v<=20) pieState.low=true;
+    if(v>=800) pieState.high=true;
+    if(pieState.low && pieState.high) markDone(2);
+    else liveHint(2, !pieState.low ? 'Now drag it down toward the low end' : 'Now drag it up toward the high end');
+  });
+
+  // 3 · both calculator sliders moved
+  var calcState={price:false, shares:false};
+  var calcPrice2=root.querySelector('#sh-calc-price'), calcShares2=root.querySelector('#sh-calc-shares');
+  if(calcPrice2) calcPrice2.addEventListener('input',function(){ calcState.price=true;
+    if(calcState.price&&calcState.shares) markDone(3); else liveHint(3,'Now move the shares slider too'); });
+  if(calcShares2) calcShares2.addEventListener('input',function(){ calcState.shares=true;
+    if(calcState.price&&calcState.shares) markDone(3); else liveHint(3,'Now move the price slider too'); });
+
+  // 4 · all 3 rights reviewed
+  var rights2={};
+  root.querySelectorAll('#sh-rights .sh-fchip').forEach(function(c){
+    c.addEventListener('click',function(){ rights2[c.getAttribute('data-t')]=1;
+      if(keys(rights2)>=3) markDone(4); else liveHint(4,'Reviewed '+keys(rights2)+' of 3 — review all to continue'); });
+  });
+
+  // 5 · vote cast
+  var voteYes2=root.querySelector('#sh-vote-yes'), voteNo2=root.querySelector('#sh-vote-no');
+  if(voteYes2) voteYes2.addEventListener('click',function(){ markDone(5); });
+  if(voteNo2) voteNo2.addEventListener('click',function(){ markDone(5); });
+
+  // 6 · both stages explored
+  var stageState={ipo:false, secondary:false};
+  var stageIpo2=root.querySelector('#sh-stage-ipo'), stageSecondary2=root.querySelector('#sh-stage-secondary');
+  if(stageIpo2) stageIpo2.addEventListener('click',function(){ stageState.ipo=true;
+    if(stageState.ipo&&stageState.secondary) markDone(6); else liveHint(6,'Now tap the Secondary Market too'); });
+  if(stageSecondary2) stageSecondary2.addEventListener('click',function(){ stageState.secondary=true;
+    if(stageState.ipo&&stageState.secondary) markDone(6); else liveHint(6,'Now tap The IPO too'); });
+
+  // 7 · liability answer revealed
+  var liabilityBtn2=root.querySelector('#sh-liability-btn');
+  if(liabilityBtn2) liabilityBtn2.addEventListener('click',function(){ markDone(7); });
+
+  // 8 · all 4 courtroom cases ruled
+  root.querySelectorAll('#sh-court .sh-case-btns button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var n=count('#sh-court .sh-case.done');
+      if(n>=4) markDone(8); else liveHint(8,'Ruled '+n+' of 4 — keep going');
+    });
+  });
+
+  // restart: reload the (iframed) lesson to a clean slide 1
+  var restart=root.querySelector('#sh-restart');
+  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
+
+  show(1);
+})();
+</script>
