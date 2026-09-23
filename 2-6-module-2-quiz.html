@@ -1,0 +1,362 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — MODULE QUIZ (funnel page)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-qz. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Covers the end of MODULE 2: Inflation, Setting Financial Goals,
+     Risk vs. Reward, What Is An Investment Account, and The Standard
+     Brokerage Account — two questions per lesson, in lesson order.
+
+     TO MAKE A QUIZ FOR ANOTHER MODULE: edit only the QUIZ config
+     in the QUIZ CONFIG script block (title, lesson name, questions).
+     Everything else is shared and does not need to change.
+
+     Flow: intro screen -> one question at a time with instant
+     feedback
+     -> one try per question -> results with a per-question review -> scroll-down
+     prompt pointing at GHL's own Mark As Complete / Next buttons.
+     ============================================================ -->
+<div id="tn-qz">
+  <div class="qz-wrap">
+    <div class="qz-top">
+      <div class="qz-brand"><span class="qz-word">TURNIT</span><span class="qz-bsub">Module Quiz</span></div>
+      <div class="qz-progress"><span id="qz-bar"></span></div>
+      <div class="qz-meta"><span id="qz-meta-l">Ready when you are</span><span id="qz-meta-r"></span></div>
+    </div>
+    <div class="qz-card" id="qz-card"></div>
+    <p class="qz-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice.</p>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-qz{
+    --b:#1568AE; --g:#209B73; --gold:#E0A93C; --no:#C0392B; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --line:#E7EDF3;
+    all:initial; display:block; box-sizing:border-box; width:100%; background:var(--paper); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  #tn-qz *,#tn-qz *::before,#tn-qz *::after{box-sizing:border-box;}
+  #tn-qz .qz-wrap{max-width:640px; margin:0 auto; padding:16px 18px 32px;}
+  #tn-qz .qz-top{margin-bottom:16px;}
+  #tn-qz .qz-brand{display:flex; justify-content:flex-end; align-items:center; gap:8px; font-size:13px; margin-bottom:10px;}
+  #tn-qz .qz-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent; padding-top:.08em;}
+  #tn-qz .qz-bsub{color:var(--ink2); font-weight:500;}
+  #tn-qz .qz-progress{height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-qz #qz-bar{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--b),var(--g)); border-radius:99px; transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-qz .qz-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600; color:var(--mut);}
+  #tn-qz #qz-meta-l{color:var(--ink2);}
+
+  #tn-qz .qz-card{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:20px; padding:24px 20px; box-shadow:0 18px 44px -32px rgba(21,104,174,.55); animation:qz-in .35s ease;}
+  @keyframes qz-in{from{opacity:0; transform:translateY(10px);}to{opacity:1; transform:none;}}
+
+  /* intro */
+  #tn-qz .qz-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 8px; text-align:center;}
+  #tn-qz .qz-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,36px); line-height:1.15; text-align:center; margin:0 0 12px;}
+  #tn-qz .qz-grad{background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-qz .qz-sub{font-size:15.5px; color:var(--ink2); text-align:center; margin:0 auto 18px; max-width:460px;}
+  #tn-qz .qz-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 20px;}
+  #tn-qz .qz-fact{background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 8px; text-align:center;}
+  #tn-qz .qz-fact b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--ink);}
+  #tn-qz .qz-fact span{font-size:11.5px; font-weight:600; color:var(--mut);}
+  #tn-qz .qz-rule{background:#EEF3F8; border-radius:12px; padding:11px 14px; font-size:13.5px; color:var(--ink2); text-align:center; margin-bottom:18px;}
+
+  /* buttons */
+  #tn-qz .qz-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:13px; padding:14px; cursor:pointer; transition:transform .15s; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-qz .qz-btn:hover{transform:translateY(-2px);}
+  #tn-qz .qz-btn.ghost{background:#fff; color:var(--ink2); border:1.5px solid #E1E8EF; box-shadow:none; font-size:13.5px; padding:11px; margin-top:10px;}
+
+  /* question */
+  #tn-qz .qz-qhead{display:flex; justify-content:center; align-items:center; margin-bottom:14px; gap:10px;}
+  #tn-qz .qz-dots{display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;}
+  #tn-qz .qz-dot{width:18px; height:6px; border-radius:99px; background:#E4E9EE; transition:all .25s;}
+  #tn-qz .qz-dot.cur{background:var(--b); width:26px;}
+  #tn-qz .qz-dot.ok{background:var(--g);}
+  #tn-qz .qz-dot.miss{background:var(--no);}
+  #tn-qz .qz-retry{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#8a5a12; background:#FBF1DE; border:1px solid #F0DBA8; border-radius:99px; padding:4px 11px; margin-bottom:10px;}
+  #tn-qz .qz-q{font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; line-height:1.4; margin:0 0 16px;}
+  #tn-qz .qz-opts{display:flex; flex-direction:column; gap:9px;}
+  #tn-qz .qz-opt{display:flex; align-items:center; gap:12px; width:100%; text-align:left; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:var(--ink); background:#fff; border:1.5px solid #E1E8EF; border-radius:13px; padding:13px 14px; cursor:pointer; transition:all .16s;}
+  #tn-qz .qz-opt:hover:not(:disabled){border-color:var(--b); background:#F3F8FD; transform:translateX(2px);}
+  #tn-qz .qz-opt:disabled{cursor:default;}
+  #tn-qz .qz-l{flex:none; width:30px; height:30px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--b); background:#EAF1FA;}
+  #tn-qz .qz-opt.right{border-color:var(--g); background:#EAF7F1;}
+  #tn-qz .qz-opt.right .qz-l{background:var(--g); color:#fff;}
+  #tn-qz .qz-opt.wrong{border-color:var(--no); background:#FDECEA; animation:qz-shake .35s;}
+  #tn-qz .qz-opt.wrong .qz-l{background:var(--no); color:#fff;}
+  #tn-qz .qz-opt.dim{opacity:.45;}
+  @keyframes qz-shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+  #tn-qz .qz-fb{margin-top:14px; border-radius:13px; padding:14px 16px; font-size:14.5px; line-height:1.55; animation:qz-in .3s ease;}
+  #tn-qz .qz-fb.ok{background:#EAF7F1; border:1px solid #BFE6D6;}
+  #tn-qz .qz-fb.no{background:#FDF3F1; border:1px solid #F5C6BE;}
+  #tn-qz .qz-fb b{font-family:'Poppins',sans-serif;}
+  #tn-qz .qz-fb.ok b{color:var(--g);} #tn-qz .qz-fb.no b{color:var(--no);}
+  #tn-qz .qz-fbnote{display:block; margin-top:6px; font-size:12.5px; font-weight:600; color:var(--ink2);}
+  #tn-qz .qz-fb .qz-btn{margin-top:14px;}
+
+  #tn-qz .qz-timer{display:block; height:4px; margin-top:10px; background:#CFEADF; border-radius:99px; overflow:hidden;}
+  #tn-qz .qz-timer span{display:block; height:100%; width:100%; background:var(--g); border-radius:99px; transform-origin:left; animation:qz-timer 1.8s linear forwards;}
+  @keyframes qz-timer{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  /* results */
+  #tn-qz .qz-ringwrap{position:relative; width:150px; height:150px; margin:4px auto 10px;}
+  #tn-qz .qz-ring{width:150px; height:150px; transform:rotate(-90deg);}
+  #tn-qz .qz-ring circle{fill:none; stroke-width:8; stroke-linecap:round;}
+  #tn-qz .qz-ring .bg{stroke:#E8EEF4;}
+  #tn-qz .qz-ring .fg{stroke:url(#qz-grad); transition:stroke-dashoffset 1.2s cubic-bezier(.2,.7,.2,1);}
+  #tn-qz .qz-score{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+  #tn-qz .qz-score b{font-family:'Poppins',sans-serif; font-weight:800; font-size:34px; line-height:1;}
+  #tn-qz .qz-score span{font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin-top:5px;}
+  #tn-qz .qz-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; text-align:center; margin:0 0 4px;}
+  #tn-qz .qz-leadsub{font-size:14.5px; color:var(--ink2); text-align:center; margin:0 0 18px;}
+  #tn-qz .qz-review{display:flex; flex-direction:column; gap:7px; margin-bottom:18px;}
+  #tn-qz .qz-rv{display:flex; align-items:flex-start; gap:10px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px 13px; font-size:13.5px; line-height:1.45;}
+  #tn-qz .qz-rvi{flex:none; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:#fff; margin-top:1px;}
+  #tn-qz .qz-rvi.ok{background:var(--g);} #tn-qz .qz-rvi.miss{background:var(--no);}
+  #tn-qz .qz-rv b{font-family:'Poppins',sans-serif; font-weight:700;}
+  #tn-qz .qz-rv small{display:block; color:var(--ink2); font-size:12.5px;}
+
+  /* finish prompt (matches lesson standard) */
+  #tn-qz .qz-finish{margin-top:18px; padding:18px 20px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-qz .qz-arrow{display:block; font-size:30px; line-height:1; color:var(--g); animation:qz-bob 1.6s ease-in-out infinite;}
+  #tn-qz .qz-arrow.up{animation-name:qz-bob-up;}
+  @keyframes qz-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+  @keyframes qz-bob-up{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  #tn-qz .qz-flead{font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; margin:8px 0 4px;}
+  #tn-qz .qz-fsub{font-size:13.5px; color:var(--ink2); margin:0;}
+  #tn-qz .qz-disclaimer{font-size:11px; color:var(--mut); text-align:center; margin:18px auto 0; max-width:520px;}
+
+  @media (max-width:480px){
+    #tn-qz .qz-card{padding:20px 16px;}
+    #tn-qz .qz-q{font-size:16.5px;}
+    #tn-qz .qz-opt{font-size:14.5px; padding:12px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-qz .qz-card,#tn-qz .qz-fb{animation:none;} #tn-qz .qz-opt.wrong{animation:none;}
+    #tn-qz .qz-arrow{animation:none;} #tn-qz .qz-ring .fg{transition:none;} #tn-qz #qz-bar{transition:none;}
+  }
+</style>
+<script>
+/* ============================================================
+   QUIZ CONFIG — the only part to edit per module.
+   a = index of the correct option (0 = A, 1 = B, ...).
+   topic = short label shown in the results review.
+   Two questions per lesson, in lesson order: Inflation, Setting
+   Financial Goals, Risk vs. Reward, What Is An Investment Account,
+   The Standard Brokerage Account.
+   ============================================================ */
+var QUIZ = {
+  lesson: 'Module 2: Goals, Risk & Accounts',
+  minutes: 5,
+  questions: [
+    { topic:'Inflation and purchasing power',
+      q:'You put $5,000 in a shoebox for 20 years instead of investing it. The bills never move, so what actually happens to that money?',
+      o:['Nothing — a dollar today buys the same as a dollar in 20 years','It grows slightly just from sitting in cash','It quietly loses buying power as prices rise around it','It doubles in value since it was never touched'], a:2,
+      e:"The bills themselves don't change, but prices do. Even a modest inflation rate compounds over 20 years, so that $5,000 buys noticeably less than it used to." },
+    { topic:'Inflation vs. a savings account',
+      q:'Your savings account pays 1% interest a year, but inflation is running at 3%. What is really happening to your money?',
+      o:["It's growing, just slowly",'It doesn’t matter as long as the balance keeps going up','It’s protected because the account is FDIC insured','It’s losing about 2% of its real value every year'], a:3,
+      e:"FDIC insurance protects you if the bank fails, not from inflation. When your interest rate is lower than inflation, the balance still grows, but what it can actually buy keeps shrinking." },
+    { topic:'Sorting goals by timeline',
+      q:'You want a new laptop next year, a house down payment in 6 years, and a comfortable retirement in 35 years. How should these be sorted?',
+      o:['All three are the same kind of goal, so save the same way for each','Short-term, medium-term, and long-term, in that order','Long-term, medium-term, and short-term, in that order','It doesn’t matter, since goals aren’t really about timing'], a:1,
+      e:"The laptop is short-term (under about two years), the house is medium-term (a few years out), and retirement is long-term (decades away). How soon you need the money is exactly what decides the category." },
+    { topic:'Matching the vehicle to the goal',
+      q:'Which pairing actually makes sense?',
+      o:['House down payment in 2 years paired with an aggressive stock portfolio','A laptop needed next month paired with a high-yield savings account','Retirement in 30 years paired with a checking account','An emergency fund paired with individual stocks'], a:1,
+      e:"Money needed within a year or two shouldn’t be exposed to market swings, which is exactly what a savings account is for. Goals decades away, like retirement, can afford to ride out volatility instead of sitting idle in cash." },
+    { topic:'Risk and reward move together',
+      q:'An ad promises "stock market returns with none of the risk." What should that tell you?',
+      o:['It’s a rare but real opportunity worth jumping on','It’s likely misleading, since return and risk are linked','It’s normal for low-risk investments to match stock returns','It only applies to government bonds'], a:1,
+      e:"Potential reward and risk move together. An investment offering stock-like returns with none of the risk is either being misunderstood or misrepresented — that trade-off doesn't just disappear because an ad says so." },
+    { topic:'Risk tolerance vs. the math',
+      q:'Two friends are the same age with the same goal, but one gets anxious and sells every time the market drops 5%. What does this mainly affect?',
+      o:['Nothing, since the math is identical for both of them','How much risk they can actually stick with, even if the math says otherwise','Only how often they check their portfolio','The fees they’ll be charged by their broker'], a:1,
+      e:"The numbers might say the same portfolio suits both, but if one friend panic-sells at every dip, their real-world risk tolerance is lower. A plan only works if you can actually stay in it when things get bumpy." },
+    { topic:'What an investment account is',
+      q:'How is an investment (brokerage) account different from a regular checking account?',
+      o:['It’s just a checking account with a different name','It’s built to hold stocks, funds, and other investments, not just cash','It can only be opened by a financial advisor on your behalf','It doesn’t require any personal information to open'], a:1,
+      e:"A checking account is built for spending cash. An investment account is a different kind of account, designed to hold assets like stocks and funds that can rise or fall in value." },
+    { topic:'Investment accounts and access',
+      q:'True or false: you need an investment account open before you can buy your first share of stock.',
+      o:['True — it’s the account that lets you place trades','False — you can buy stock directly from a company’s website','False — your checking account can hold stocks too','True, but only for purchases over $10,000'], a:0,
+      e:"An investment account is what actually lets you place trades and hold what you buy. Without one open, there’s no way to purchase shares in the first place." },
+    { topic:'What makes a brokerage account "standard"',
+      q:'What makes a standard (taxable) brokerage account different from a retirement account like a 401(k) or IRA?',
+      o:['It has no contribution limits and you can withdraw anytime, but gains are taxed','It’s completely tax-free forever','You’re penalized for depositing money before age 59½','Only an employer can open one for you'], a:0,
+      e:"A standard brokerage account skips the contribution limits and early-withdrawal penalties that come with retirement accounts. In exchange, it doesn’t get the same tax breaks — you owe tax on the gains." },
+    { topic:'Choosing the right account for a goal',
+      q:'You’re saving for a house down payment in 5 years. Why might a standard brokerage account fit better than a 401(k) for this specific goal?',
+      o:['A 401(k) has no rules about when you can withdraw money','A standard brokerage account lets you access the money anytime without an early-withdrawal penalty','A 401(k) is required to be used for any savings goal','Standard brokerage accounts can’t hold index funds'], a:1,
+      e:"Retirement accounts like a 401(k) are built for money you won’t touch until retirement, with penalties for pulling it out early. A standard brokerage account keeps the money accessible, which matters for a goal just a few years away." }
+  ]
+};
+</script>
+<script>
+/* ============================================================
+   QUIZ ENGINE — shared; no edits needed per module.
+   One try per question. Correct answers move on automatically;
+   wrong answers show why, then wait for the learner to continue.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-qz'); if(!root || !window.QUIZ) return;
+  var card=root.querySelector('#qz-card'), bar=root.querySelector('#qz-bar'),
+      metaL=root.querySelector('#qz-meta-l'), metaR=root.querySelector('#qz-meta-r');
+  var Q=QUIZ.questions, N=Q.length, L=['A','B','C','D','E'];
+  var idx, result, correct;               /* result[i] = true / false once answered */
+  var ADVANCE_MS=1800, advanceTimer=null;
+  function clearAdvance(){ if(advanceTimer){ clearTimeout(advanceTimer); advanceTimer=null; } }
+
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function paint(html){ card.innerHTML=html; card.style.animation='none'; void card.offsetWidth; card.style.animation=''; postH(); }
+
+  function intro(){
+    metaL.textContent='Ready when you are'; metaR.textContent=''; bar.style.width='0%';
+    paint(
+      '<p class="qz-kicker">Module Quiz</p>'+
+      '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
+      '<p class="qz-sub">See how well this module’s big ideas stuck — two questions from each of its five lessons.</p>'+
+      '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
+      '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
+      '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+
+      '<div class="qz-rule">Get one wrong and you’ll see why before moving on.</div>'+
+      '<button type="button" class="qz-btn" id="qz-start">Start the Quiz →</button>');
+    card.querySelector('#qz-start').addEventListener('click',start);
+  }
+
+  function start(){ clearAdvance(); idx=0; correct=0; result=Q.map(function(){return null;}); toTop(); ask(); }
+
+  function dots(cur){
+    return '<div class="qz-dots">'+Q.map(function(_,i){
+      var c=result[i]===true?'ok':(result[i]===false?'miss':'');
+      return '<span class="qz-dot '+c+(i===cur?' cur':'')+'"></span>'; }).join('')+'</div>';
+  }
+
+  function ask(){
+    clearAdvance();
+    if(idx>=N) return results();
+    var q=Q[idx];
+    metaL.textContent='Question '+(idx+1)+' of '+N;
+    metaR.textContent=correct+' correct';
+    bar.style.width=Math.round(idx/N*100)+'%';
+    paint(
+      '<div class="qz-qhead">'+dots(idx)+'</div>'+
+      '<p class="qz-q">'+q.q+'</p>'+
+      '<div class="qz-opts">'+q.o.map(function(t,k){
+        return '<button type="button" class="qz-opt" data-k="'+k+'"><span class="qz-l">'+L[k]+'</span><span>'+t+'</span></button>'; }).join('')+'</div>'+
+      '<div class="qz-fb" hidden></div>');
+    card.querySelectorAll('.qz-opt').forEach(function(b){
+      b.addEventListener('click',function(){ pick(+b.getAttribute('data-k')); });
+    });
+  }
+
+  function pick(k){
+    var q=Q[idx], ok=(k===q.a);
+    card.querySelectorAll('.qz-opt').forEach(function(b){
+      var kk=+b.getAttribute('data-k'); b.disabled=true;
+      b.classList.add(kk===q.a?'right':(kk===k?'wrong':'dim'));
+    });
+    result[idx]=ok; if(ok) correct++;
+    card.querySelector('.qz-dots').outerHTML=dots(-1);
+    metaR.textContent=correct+' correct';
+    bar.style.width=Math.round((idx+1)/N*100)+'%';
+    idx++;
+    var last=idx>=N, fb=card.querySelector('.qz-fb'); fb.hidden=false; fb.className='qz-fb '+(ok?'ok':'no');
+    if(ok){
+      fb.innerHTML='<b>Correct!</b> '+(last?'Getting your results…':'Moving to the next question…')+'<span class="qz-timer"><span></span></span>';
+      advanceTimer=setTimeout(ask, ADVANCE_MS);
+    } else {
+      fb.innerHTML='<b>Not quite — the answer is '+L[q.a]+'.</b> '+q.e+
+        '<button type="button" class="qz-btn" id="qz-go">'+(last?'See My Results →':'Next Question →')+'</button>';
+      fb.querySelector('#qz-go').addEventListener('click',ask);
+    }
+    postH();
+  }
+
+  function results(){
+    metaL.textContent='Quiz complete'; metaR.textContent=correct+' of '+N+' correct'; bar.style.width='100%';
+    var pct=correct/N, C=2*Math.PI*62, off=C*(1-pct);
+    var lead=pct===1?'Perfect score.':(pct>=.7?'Strong work.':(pct>=.4?'Good start.':'Worth another look.'));
+    var sub=pct===1?'Every idea in this module landed.':
+      'You got '+correct+' of '+N+'. The ones marked below are worth revisiting in the lesson.';
+    paint(
+      '<div class="qz-ringwrap"><svg class="qz-ring" viewBox="0 0 150 150"><defs><linearGradient id="qz-grad" x1="0" x2="1">'+
+      '<stop offset="0" stop-color="#1568AE"/><stop offset="1" stop-color="#209B73"/></linearGradient></defs>'+
+      '<circle cx="75" cy="75" r="62" class="bg"/><circle cx="75" cy="75" r="62" class="fg" style="stroke-dasharray:'+C+';stroke-dashoffset:'+C+'"/></svg>'+
+      '<div class="qz-score"><b>'+correct+'/'+N+'</b><span>Correct</span></div></div>'+
+      '<p class="qz-lead">'+lead+'</p><p class="qz-leadsub">'+sub+'</p>'+
+      '<div class="qz-review">'+Q.map(function(q,i){
+        var hit=result[i]===true;
+        return '<div class="qz-rv"><span class="qz-rvi '+(hit?'ok':'miss')+'">'+(hit?'✓':'✕')+'</span><div><b>'+q.topic+'</b>'+
+          '<small>'+(hit?'Got it':'Answer: '+q.o[q.a])+'</small></div></div>'; }).join('')+'</div>'+
+      '<button type="button" class="qz-btn ghost" id="qz-again">↺ Retake the Quiz</button>'+
+      '<div class="qz-finish"><span class="qz-arrow" id="qz-arrow">↓</span>'+
+      '<p class="qz-flead" id="qz-flead">Scroll Down To Continue</p>'+
+      '<p class="qz-fsub" id="qz-fsub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p></div>');
+    var fg=card.querySelector('.fg');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ fg.style.strokeDashoffset=off; }); });
+    card.querySelector('#qz-again').addEventListener('click',start);
+    fsApply(true);
+    confetti();
+  }
+
+  /* ---- celebration: confetti falls from the top of the screen ----
+     Canvas is attached to <body>, not the quiz card: the card animates with a
+     transform, which would trap a fixed-position overlay inside it.
+     Skipped entirely for learners who have reduced motion turned on. */
+  function confetti(){
+    try{ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+    var old=document.getElementById('qz-confetti'); if(old) old.remove();
+    var cv=document.createElement('canvas'); cv.id='qz-confetti';
+    cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx=cv.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2), W, H;
+    function size(){ W=innerWidth; H=innerHeight; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+    size(); window.addEventListener('resize',size);
+    var COLORS=['#1568AE','#209B73','#E0A93C','#12a08a','#5AA9E6','#F2C14E'];
+    var P=[], COUNT=Math.min(160, Math.round(W/3));
+    for(var i=0;i<COUNT;i++){
+      P.push({ x:Math.random()*W, y:-20-Math.random()*H*0.6,
+        w:6+Math.random()*6, h:8+Math.random()*8, c:COLORS[i%COLORS.length],
+        vy:2.2+Math.random()*2.8, vx:-1.2+Math.random()*2.4,
+        rot:Math.random()*Math.PI, vr:-0.12+Math.random()*0.24,
+        sway:Math.random()*Math.PI*2, round:Math.random()<0.25 });
+    }
+    var start=performance.now(), LIFE=4200;
+    (function frame(now){
+      var t=now-start; ctx.clearRect(0,0,W,H);
+      var fade=t>LIFE-900?Math.max(0,(LIFE-t)/900):1;
+      P.forEach(function(p){
+        p.sway+=0.05; p.x+=p.vx+Math.sin(p.sway)*0.8; p.y+=p.vy; p.rot+=p.vr;
+        ctx.save(); ctx.globalAlpha=fade; ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.fillStyle=p.c;
+        if(p.round){ ctx.beginPath(); ctx.arc(0,0,p.w/2,0,Math.PI*2); ctx.fill(); }
+        else ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h*Math.abs(Math.cos(p.sway)));  /* flutter */
+        ctx.restore();
+      });
+      if(t<LIFE) requestAnimationFrame(frame);
+      else { window.removeEventListener('resize',size); cv.remove(); }
+    })(start);
+  }
+
+
+  /* full-screen aware finish prompt, same behavior as the lessons */
+  var lastFs=null;
+  function isFs(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function fsApply(force){
+    var a=card.querySelector('#qz-arrow'); if(!a) return;
+    var fs=isFs(); if(!force && fs===lastFs) return; lastFs=fs;
+    a.textContent=fs?'↑':'↓'; a.classList.toggle('up',fs);
+    card.querySelector('#qz-flead').textContent=fs?'Close Full Screen To Continue':'Scroll Down To Continue';
+    card.querySelector('#qz-fsub').innerHTML=fs?'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'
+      :'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.';
+  }
+  window.addEventListener('resize',function(){ fsApply(false); });
+  document.addEventListener('fullscreenchange',function(){ fsApply(false); });
+
+  window.addEventListener('load',postH); window.addEventListener('resize',postH);
+  intro();
+})();
+</script>
