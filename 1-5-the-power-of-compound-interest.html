@@ -4,7 +4,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-ci. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      10 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (optional, never gated)
+       1 Title & Start Here (optional, never gated)
        2 Hook — Simple Vs Compound         3 The Four Ingredients (chips)
        4 The Growth Calculator (pie chart) 5 The Rule of 72
        6 The Volatility Simulator          7 Myth Or Fact
@@ -34,27 +34,14 @@
         <div class="ci-brand"><span class="ci-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 2v20M8 6a4 4 0 0 0 0 8h8a4 4 0 0 1 0 8H6"/></svg></span><span class="ci-word">TURNIT</span><span class="ci-bsub">Financial Foundations</span></div>
       </div>
       <div class="ci-progress"><span id="ci-bar"></span></div>
-      <div class="ci-meta"><span id="ci-slide-label">Key Vocabulary</span><span id="ci-slide-count">Slide 1 of 10</span></div>
+      <div class="ci-meta"><span id="ci-slide-label">Start Here</span><span id="ci-slide-count">Slide 1 of 10</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="ci-sec ci-center ci-reveal" data-step="1">
       <p class="ci-kicker center">Compound Interest · 1 / 10</p>
       <h1 class="ci-hero-title">THE POWER OF <span class="ci-hero-grad">COMPOUND INTEREST</span></h1>
-      <p class="ci-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="ci-vocab-teaser">
-        <span class="ci-vocab-label">Key Terms In This Lesson</span>
-        <div class="ci-vocab-chips" id="ci-vocab-chips">
-          <button type="button" class="ci-vocab-chip" data-t="Compound Interest" data-def="Interest earned on your original amount and on the interest it has already earned — the engine behind the snowball.">Compound Interest</button>
-          <button type="button" class="ci-vocab-chip" data-t="Principal" data-def="The amount of money you start with, before any growth is added.">Principal</button>
-          <button type="button" class="ci-vocab-chip" data-t="Rate of Return" data-def="How fast your money grows each year, usually shown as a percentage.">Rate of Return</button>
-          <button type="button" class="ci-vocab-chip" data-t="Rule of 72" data-def="A quick shortcut: divide 72 by your rate of return to estimate how many years it takes money to double.">Rule of 72</button>
-          <button type="button" class="ci-vocab-chip" data-t="Volatility" data-def="How much an investment's value swings up and down over time.">Volatility</button>
-          <button type="button" class="ci-vocab-chip" data-t="Consistency" data-def="Adding to your investment on a regular schedule, without stopping.">Consistency</button>
-        </div>
-        <div class="ci-vocab-def" id="ci-vocab-def">Tap a term above to see what it means.</div>
-        <span class="ci-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
-      <div class="ci-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
+      <p class="ci-sub center">This lesson shows how compound interest turns a small head start into a much bigger balance, walks through what compounding actually needs to work, and uses a calculator and the Rule of 72 to show how time, consistency, and market swings change the outcome.</p>
+      <p class="ci-term-hint">Key terms appear in <span class="ci-term-demo">green</span> — tap any one for its definition.</p>
     </section>
     <!-- ========== 2 · HOOK — SIMPLE VS COMPOUND ========== -->
     <section class="ci-sec ci-reveal" data-step="2">
@@ -330,18 +317,9 @@
   #tn-ci .ci-reset-row{display:flex; justify-content:center; margin-top:14px;}
   #tn-ci .ci-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
   #tn-ci .ci-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
-  /* title & vocabulary slide */
+  /* title & start-here slide */
   #tn-ci .ci-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,7vw,44px); line-height:1.15; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-ci .ci-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-ci .ci-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-ci .ci-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-ci .ci-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-ci .ci-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-ci .ci-vocab-chip:hover{background:#DCF0E5;}
-  #tn-ci .ci-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-ci .ci-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-ci .ci-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-ci .ci-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   /* hook */
   #tn-ci .ci-hook{margin-top:4px;}
   #tn-ci .ci-hook-opts{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;}
@@ -656,6 +634,21 @@
     #tn-ci .ci-h2{font-size:clamp(21px,3.4vw,27px); margin-bottom:8px;}
     #tn-ci .ci-p{margin-bottom:12px;}
   }
+
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-ci .ci-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-ci .ci-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-ci .ci-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-ci .ci-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-ci .ci-term-demo{color:var(--g); font-weight:600;}
+  .ci-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:ci-popin .16s ease;}
+  .ci-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .ci-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .ci-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes ci-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .ci-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -681,17 +674,6 @@
     var largeArc=(endAngle-startAngle)>Math.PI ? 1 : 0;
     return 'M '+cx+' '+cy+' L '+x1+' '+y1+' A '+r+' '+r+' 0 '+largeArc+' 1 '+x2+' '+y2+' Z';
   }
-
-  /* ---------- 1 · vocabulary chips (optional, never gated) ---------- */
-  var vocabDef=root.querySelector('#ci-vocab-def');
-  root.querySelectorAll('#ci-vocab-chips .ci-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#ci-vocab-chips .ci-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
 
   /* ---------- 2 · hook: simple vs compound ---------- */
   var hookSeen={}, hookNote=root.querySelector('#ci-hook-note'), hookFinal=root.querySelector('#ci-hook-final');
@@ -1207,6 +1189,117 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab slide.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, with a tap-to-reveal definition popover.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ci'); if(!root) return;
+
+  var TERMS=[
+    { t:'Compound Interest', def:"Interest earned on your original amount and on the interest it has already earned — the engine behind the snowball.", re:/\b(compound interest)\b/gi },
+    { t:'Principal', def:"The amount of money you start with, before any growth is added.", re:/\b(principal)\b/gi },
+    { t:'Rate of Return', def:"How fast your money grows each year, usually shown as a percentage.", re:/\b(rate of return)\b/gi },
+    { t:'Rule of 72', def:"A quick shortcut: divide 72 by your rate of return to estimate how many years it takes money to double.", re:/\b(rule of 72)\b/gi },
+    { t:'Volatility', def:"How much an investment's value swings up and down over time.", re:/\b(volatility|volatile)\b/gi },
+    { t:'Consistency', def:"Adding to your investment on a regular schedule, without stopping.", re:/\b(consistency|consistent|consistently)\b/gi }
+  ];
+
+  var SCAN_SEL='.ci-p, .ci-sub, .ci-note, .ci-myth-why, .ci-recap-item span, .ci-gather-note, .ci-next-move, .ci-h2';
+
+  function highlight(){
+    var doneOnSlide={}; /* 'Term@step' -> true, first mention per slide only */
+    root.querySelectorAll(SCAN_SEL).forEach(function(el){
+      if(el.id) return; /* the content script owns elements with an id */
+      var slideEl=el.closest('[data-step]');
+      var step=slideEl?slideEl.getAttribute('data-step'):'0';
+      var remaining=TERMS.filter(function(term){ return !doneOnSlide[term.t+'@'+step]; });
+      if(!remaining.length) return;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+        acceptNode:function(node){
+          var p=node.parentElement;
+          while(p && p!==el){
+            if(p.tagName==='BUTTON' || p.id) return NodeFilter.FILTER_REJECT;
+            p=p.parentElement;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      var nodes=[]; var n;
+      while((n=walker.nextNode())) nodes.push(n);
+      for(var i=0;i<nodes.length && remaining.length;i++){
+        var node=nodes[i], text=node.nodeValue;
+        for(var j=0;j<remaining.length;j++){
+          var term=remaining[j]; term.re.lastIndex=0;
+          var m=term.re.exec(text);
+          if(!m) continue;
+          var word=m[0], start=m.index, end=start+word.length;
+          var before=text.slice(0,start), after=text.slice(end);
+          var btn=document.createElement('button');
+          btn.type='button'; btn.className='ci-term';
+          btn.setAttribute('data-t',term.t); btn.setAttribute('data-def',term.def);
+          btn.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-label',word+' — tap for definition');
+          btn.textContent=word;
+          node.nodeValue=before;
+          node.parentNode.insertBefore(btn,node.nextSibling);
+          var afterNode=document.createTextNode(after);
+          node.parentNode.insertBefore(afterNode,btn.nextSibling);
+          doneOnSlide[term.t+'@'+step]=true;
+          remaining.splice(j,1);
+          nodes.splice(i+1,0,afterNode); /* re-scan the remainder for other terms */
+          break;
+        }
+      }
+    });
+  }
+  highlight();
+
+  /* ---- shared popover, appended to <body> so a slide's CSS transform can't trap it ---- */
+  var pop=document.createElement('div');
+  pop.className='ci-pop'; pop.hidden=true;
+  pop.innerHTML='<button type="button" class="ci-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.ci-pop-x');
+  var openBtn=null;
+
+  function closePop(){
+    if(!openBtn) return;
+    openBtn.classList.remove('on'); openBtn.setAttribute('aria-expanded','false');
+    openBtn=null; pop.hidden=true;
+  }
+  function openPop(btn){
+    if(openBtn===btn){ closePop(); return; }
+    closePop();
+    popTitle.textContent=btn.getAttribute('data-t');
+    popBody.textContent=btn.getAttribute('data-def');
+    pop.hidden=false;
+    var w=Math.min(280, window.innerWidth-24);
+    pop.style.width=w+'px';
+    var r=btn.getBoundingClientRect();
+    var left=r.left+r.width/2-w/2;
+    left=Math.max(12, Math.min(left, window.innerWidth-w-12));
+    var top=r.bottom+10, popH=pop.offsetHeight;
+    if(top+popH>window.innerHeight && r.top-popH-10>0) top=r.top-popH-10;
+    pop.style.left=left+'px'; pop.style.top=top+'px';
+    btn.classList.add('on'); btn.setAttribute('aria-expanded','true');
+    openBtn=btn;
+  }
+  root.addEventListener('click',function(e){
+    var btn=e.target.closest('.ci-term'); if(!btn) return;
+    e.stopPropagation();
+    openPop(btn);
+  });
+  popX.addEventListener('click',closePop);
+  document.addEventListener('click',function(e){ if(openBtn && !pop.contains(e.target)) closePop(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closePop(); });
+  window.addEventListener('resize',closePop);
+  window.addEventListener('scroll',closePop,true);
+  root.addEventListener('ci-slide-change',closePop);
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -1220,7 +1313,7 @@
   var nextBtn=root.querySelector('#ci-next');
   var hintEl=root.querySelector('#ci-nav-hint');
   var disclaimer=root.querySelector('.ci-disclaimer');
-  var labels={1:'Key Vocabulary',2:'Simple Vs Compound',3:'The Four Ingredients',4:'Growth Calculator',5:'The Rule of 72',6:'Volatility Simulator',7:'Myth Or Fact',8:'Habits That Matter',9:'Recap',10:'Complete'};
+  var labels={1:'Start Here',2:'Simple Vs Compound',3:'The Four Ingredients',4:'Growth Calculator',5:'The Rule of 72',6:'Volatility Simulator',7:'Myth Or Fact',8:'Habits That Matter',9:'Recap',10:'Complete'};
   var reqHints={2:'Compare both to continue',3:'Review all 4 to continue',4:'Move both sliders to continue',5:'Move the slider to continue',6:'Test both reactions to continue',7:'Answer all 8 to continue',8:'Reveal all 4 to continue'};
   var done={1:true,9:true,10:true};
   var secByStep={};
