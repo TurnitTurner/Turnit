@@ -4,10 +4,10 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-qz. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
 
-     Covers the end of MODULE 1: Welcome to Investing, Saving vs.
-     Investing, Freeing Up Money To Invest, Emergency Funds, The
-     Power Of Compound Interest, Inflation, Setting Financial Goals,
-     and Risk vs. Reward — two questions per lesson, in lesson order.
+     Covers MODULE 1: Welcome to Investing, Saving vs. Investing,
+     Freeing Up Money To Invest, Emergency Funds, The Power Of Compound
+     Interest, Inflation, Setting Financial Goals, and Risk vs. Reward.
+     10 questions total, weighted toward the module's core concepts.
 
      TO MAKE A QUIZ FOR ANOTHER MODULE: edit only the QUIZ config
      in the QUIZ CONFIG script block (title, lesson name, questions).
@@ -141,78 +141,52 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   Two questions per lesson, in lesson order: Welcome to Investing,
-   Saving vs. Investing, Freeing Up Money To Invest, Emergency Funds,
-   The Power Of Compound Interest, Inflation, Setting Financial
-   Goals, Risk vs. Reward.
+   10 questions covering all 8 lessons in this module, in lesson
+   order, weighted toward the most important concept(s) per lesson.
    ============================================================ */
 var QUIZ = {
   lesson: "Module 1: Building Your Foundation",
-  minutes: 8,
+  minutes: 6,
   questions: [
     { topic:"Same money, different places",
       q:"Two people each start with the same $1,000 but put it in different places for 20 years. What does this course say mainly explains why they can end up with very different amounts?",
       o:["Where they put it and how long it stayed there","Luck, mostly — whichever one happened to catch a stronger market year","Which specific bank or brokerage app each person happened to sign up with","How often each of them logged in to check their account balance online"], a:0,
       e:"The same starting amount can turn into wildly different outcomes depending on where it's placed and how much time it's given to grow — that idea runs through the whole course." },
-    { topic:"Matching the tool to the goal (intro)",
-      q:"How does this course say you should decide between using savings or investing for a specific goal?",
-      o:["Always choose investing — it grows faster","It depends on the goal","Always choose savings — it's safer","Whichever one your bank recommends"], a:1,
-      e:"There's no single right answer between savings and investing. The right tool depends on the goal itself, especially how soon you'll need the money." },
     { topic:"The $5,000 hook",
       q:"This lesson compares the same $5,000 left in savings vs. invested over time. What's the core point of that comparison?",
-      o:["Savings and investing produce roughly the same result once you look at a long enough time horizon","$5,000 is too small an amount for the choice between saving and investing to matter either way","Sitting still and going to work produce very different outcomes for the same money","Savings accounts always beat investing once you factor in a full twenty-year time horizon"], a:2,
+      o:["Savings and investing produce roughly the same result once you look at a long enough time horizon","Sitting still and going to work produce very different outcomes for the same money","$5,000 is too small an amount for the choice between saving and investing to matter either way","Savings accounts always beat investing once you factor in a full twenty-year time horizon"], a:1,
       e:"The hook uses the exact same $5,000 twice to isolate one variable: whether the money sits still or goes to work. The gap between those two outcomes is the whole reason this lesson exists." },
     { topic:"Which tool fits which goal",
       q:"This lesson sorts an emergency fund you might need next month into savings, but a retirement goal 30 years away into investing. What's the reasoning?",
-      o:["Investing is always the better choice for every goal once you fully understand how it works","Savings only makes sense for people who fundamentally don't trust or understand the stock market","It's based on whichever option happens to charge lower account and management fees","The tool is matched to the goal's timeline, not to which one is universally \"better\""], a:3,
+      o:["Investing is always the better choice for every goal once you fully understand how it works","Savings only makes sense for people who fundamentally don't trust or understand the stock market","The tool is matched to the goal's timeline, not to which one is universally \"better\"","It's based on whichever option happens to charge lower account and management fees"], a:2,
       e:"Neither tool is universally better — the lesson sorts each goal by how soon the money is needed. Short timelines go to savings so the money stays safe and accessible; long timelines go to investing so there's time to grow." },
     { topic:"The real-need test",
       q:"According to this lesson, which of these actually helps tell a real need from a want dressed up as one?",
-      o:["Whether the item happens to be on sale or heavily discounted right now","Whether a cheaper option would do the same job just as well","Whether a close friend or family member already happens to own one","How much the item costs in total once tax and shipping are added"], a:1,
+      o:["Whether the item happens to be on sale or heavily discounted right now","Whether a close friend or family member already happens to own one","How much the item costs in total once tax and shipping are added","Whether a cheaper option would do the same job just as well"], a:3,
       e:"One of the four tests is \"no reasonable substitute\" — if a less expensive version does the job just as well, that's a sign you're looking at a want, not a real need." },
-    { topic:"The 48-hour cooldown",
-      q:"What is the actual point of this lesson's 48-hour \"cooldown safe\" for a purchase?",
-      o:["It automatically cancels any purchase priced over one hundred dollars","It guarantees the item's price will drop within the following two days","It gives you time to decide instead of deciding in the moment","It's a purchase-cooldown requirement mandated by law for all online retailers"], a:2,
-      e:"The cooldown isn't a cancel button — some of the example purchases are worth making. It just moves the decision away from the heat of the moment and back to you." },
     { topic:"Where short-term money belongs",
       q:"You might need $3,000 for car repairs next month. Where should it live?",
-      o:["An index fund","A few individual stocks","Split between stocks and savings","A high-yield savings account"], a:3,
+      o:["A high-yield savings account","An index fund","A few individual stocks","Split between stocks and savings"], a:0,
       e:"Money you might need soon shouldn't face market swings. If prices dip the week your car breaks down, you'd be forced to sell low." },
-    { topic:"The financial runway target",
-      q:"This lesson's \"financial runway\" meter marks 3 and 6+ months as key targets. What is that target actually measuring?",
-      o:["How many months your essential expenses are covered by your cash cushion","How many months it would typically take your invested balance to fully double in value","How many months are left until your very next scheduled paycheck arrives","How many months a typical credit card's interest-free grace period lasts"], a:0,
-      e:"The runway meter divides your liquid cash by your essential monthly expenses — the widely used 3-to-6-month target is about how long you could cover real bills before an emergency fund runs dry." },
     { topic:"Compounding",
       q:"Same $300 a month, same return. Why does starting at 25 beat starting at 35 by so much?",
-      o:["Younger investors are usually offered higher rates","Account fees were lower when they started","Growth gets ten extra years to build on itself","Markets tend to rise faster in your 20s"], a:2,
+      o:["Younger investors are usually offered higher rates","Growth gets ten extra years to build on itself","Account fees were lower when they started","Markets tend to rise faster in your 20s"], a:1,
       e:"Nothing about the rate or deposits differs. Each early dollar keeps compounding for decades, and those missing years can't be bought back later." },
     { topic:"The cost of waiting",
       q:"You delay investing ten years to \"save up first.\" What do you actually give up?",
-      o:["Nothing, if you invest extra later to catch up","Only the monthly deposits you skipped","Access to better interest rates later on","A decade of growth you can't make up"], a:3,
+      o:["Nothing, if you invest extra later to catch up","Only the monthly deposits you skipped","A decade of growth you can't make up","Access to better interest rates later on"], a:2,
       e:"Skipped deposits are only part of it. The bigger loss is ten years of growth earning growth, which extra money later rarely replaces." },
     { topic:"Inflation and purchasing power",
       q:"You put $5,000 in a shoebox for 20 years instead of investing it. The bills never move, so what actually happens to that money?",
-      o:["It quietly loses buying power as prices rise around it","Nothing — a dollar today buys the same as a dollar in 20 years","It grows slightly just from sitting in cash","It doubles in value since it was never touched"], a:0,
+      o:["Nothing — a dollar today buys the same as a dollar in 20 years","It grows slightly just from sitting in cash","It doubles in value since it was never touched","It quietly loses buying power as prices rise around it"], a:3,
       e:"The bills themselves don't change, but prices do. Even a modest inflation rate compounds over 20 years, so that $5,000 buys noticeably less than it used to." },
-    { topic:"Inflation vs. a savings account",
-      q:"Your savings account pays 1% interest a year, but inflation is running at 3%. What is really happening to your money?",
-      o:["It's growing, just slowly","It’s losing about 2% of its real value every year","It doesn’t matter as long as the balance keeps going up","It’s protected because the account is FDIC insured"], a:1,
-      e:"FDIC insurance protects you if the bank fails, not from inflation. When your interest rate is lower than inflation, the balance still grows, but what it can actually buy keeps shrinking." },
-    { topic:"Matching the tool to the goal",
-      q:"Which goal is the best fit for investing rather than a savings account?",
-      o:["A trip you're taking in six months","Your emergency fund","Next semester's tuition","Retirement, 30 years away"], a:3,
-      e:"A long timeline is what investing is built for: enough time to ride out the dips. Money needed within a few years belongs in savings." },
     { topic:"Sorting goals by timeline",
       q:"You want a new laptop next year, a house down payment in 6 years, and a comfortable retirement in 35 years. How should these be sorted?",
       o:["Short-term, medium-term, and long-term, in that order","All three are the same kind of goal, so save the same way for each","Long-term, medium-term, and short-term, in that order","It doesn’t matter, since goals aren’t really about timing"], a:0,
       e:"The laptop is short-term (under about two years), the house is medium-term (a few years out), and retirement is long-term (decades away). How soon you need the money is exactly what decides the category." },
-    { topic:"Investing and risk",
-      q:"Which statement about investing is true?",
-      o:["It's basically gambling with a nicer name","It isn't gambling, but losses are always possible","Holding it long enough makes it completely risk-free","Only single stocks can lose value, never funds"], a:1,
-      e:"Investing buys pieces of real businesses that produce value, which is why it differs from a bet. But prices can fall, sometimes for years." },
     { topic:"Risk and reward move together",
       q:"An ad promises \"stock market returns with none of the risk.\" What should that tell you?",
-      o:["It’s a rare but real opportunity worth jumping on","It’s normal for low-risk investments to match stock returns","It’s likely misleading, since return and risk are linked","It only applies to government bonds"], a:2,
+      o:["It’s a rare but real opportunity worth jumping on","It’s likely misleading, since return and risk are linked","It’s normal for low-risk investments to match stock returns","It only applies to government bonds"], a:1,
       e:"Potential reward and risk move together. An investment offering stock-like returns with none of the risk is either being misunderstood or misrepresented — that trade-off doesn't just disappear because an ad says so." }
   ]
 };
@@ -241,7 +215,7 @@ var QUIZ = {
     paint(
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
-      '<p class="qz-sub">See how well this module’s big ideas stuck — two questions from each of its eight lessons.</p>'+
+      '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 8 lessons in this module.</p>'+
       '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
       '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
       '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+

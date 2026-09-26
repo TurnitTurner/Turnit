@@ -4,10 +4,11 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-qz. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
 
-     Covers MODULE 2: What Is An Investment Account, The Standard
-     Brokerage Account, Roth vs. Traditional IRA, Contribution Limits,
-     Choosing Your Account, and Opening Your First Account. 10
-     questions total, weighted toward the module's core concepts.
+     Covers MODULE 5: How to Read a Stock Quote, Order Types,
+     Placing Your First Trade, Building a Simple 3-Fund Starter
+     Portfolio, How Often Should You Check Your Investments,
+     Rebalancing, and What's Next. 10 questions total, weighted
+     toward the module's core concepts.
 
      TO MAKE A QUIZ FOR ANOTHER MODULE: edit only the QUIZ config
      in the QUIZ CONFIG script block (title, lesson name, questions).
@@ -141,53 +142,53 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   10 questions covering all 6 lessons in this module, in lesson
+   10 questions covering all 7 lessons in this module, in lesson
    order, weighted toward the most important concept(s) per lesson.
    ============================================================ */
 var QUIZ = {
-  lesson: "Module 2: Choosing & Opening Your Account",
+  lesson: "Module 5: Trading & Staying On Track",
   minutes: 6,
   questions: [
-    { topic:"What an investment account is",
-      q:"How is an investment (brokerage) account different from a regular checking account?",
-      o:["It’s built to hold investments, not just cash","It’s just a checking account with a different name","It can only be opened by a financial advisor acting on your behalf","It doesn’t require any personal information to open"], a:0,
-      e:"A checking account is built for spending cash. An investment account is a different kind of account, designed to hold assets like stocks and funds that can rise or fall in value." },
-    { topic:"Investment accounts and access",
-      q:"True or false: you need an investment account open before you can buy your first share of stock.",
-      o:["False — you can buy stock directly from a company’s website","True — it’s the account that lets you place trades","False — your checking account can hold stocks too","True, but only for purchases over $10,000"], a:1,
-      e:"An investment account is what actually lets you place trades and hold what you buy. Without one open, there’s no way to purchase shares in the first place." },
-    { topic:"What makes a brokerage account \"standard\"",
-      q:"What makes a standard (taxable) brokerage account different from a retirement account like a 401(k) or IRA?",
-      o:["It’s completely tax-free forever","You are penalized for depositing any money before you turn 59½ years old","No contribution limits or withdrawal penalties, but gains are taxed","Only an employer can open one for you"], a:2,
-      e:"A standard brokerage account skips the contribution limits and early-withdrawal penalties that come with retirement accounts. In exchange, it doesn’t get the same tax breaks — you owe tax on the gains." },
-    { topic:"Choosing the right account for a goal",
-      q:"You’re saving for a house down payment in 5 years. Why might a standard brokerage account fit better than a 401(k) for this specific goal?",
-      o:["A 401(k) lets you withdraw the money at any age without restrictions","A 401(k) must be used for every savings goal you have","Standard brokerage accounts can’t hold index funds","You can access the money anytime, with no early-withdrawal penalty"], a:3,
-      e:"Retirement accounts like a 401(k) are built for money you won’t touch until retirement, with penalties for pulling it out early. A standard brokerage account keeps the money accessible, which matters for a goal just a few years away." },
-    { topic:"Roth vs. Traditional: the trade",
-      q:"You’re early in your career and expect to earn a lot more later. Which promise fits that bet better?",
-      o:["The Roth, since you pay tax now while your rate is likely lower","The Traditional IRA, since its tax break arrives right away this year","Neither one, because the tax treatment is identical","Whichever account your bank happens to recommend first"], a:0,
-      e:"A Roth taxes the money going in and lets qualified withdrawals come out untaxed. Paying that tax while your rate is low, then withdrawing later when it may be higher, is the whole bet." },
-    { topic:"The Traditional IRA’s \"instant discount\"",
-      q:"What is the Traditional IRA’s so-called instant discount?",
-      o:["Withdrawals in retirement are always completely free of any tax","Contributions may lower the income you are taxed on this year","The brokerage discounts the fees it charges you","Your contributions grow at a guaranteed rate of return"], a:1,
-      e:"Contributing may reduce your taxable income now, which is the discount. The tax hasn’t disappeared, though — you pay it later when the money comes out." },
-    { topic:"The limit applies across accounts",
-      q:"You open both a Roth IRA and a Traditional IRA. Does each account get its own annual contribution limit?",
-      o:["Yes, one full limit for each account you open","Yes, as long as the two accounts are held at different brokerages","No, one combined limit is shared across your IRAs","No, but only if you opened both in the same year"], a:2,
-      e:"The IRS sets the annual limit per person, not per account. Splitting money between a Roth and a Traditional is fine, but the two together can’t exceed that one ceiling." },
-    { topic:"The employer match comes first",
-      q:"Your employer matches every dollar you put in, up to 4% of your pay. Where should your first investing dollars go?",
-      o:["An IRA, since it usually offers a much wider choice of investments","Into a savings account until you have a much bigger balance","A standard brokerage account, for the flexibility it gives you","The 401(k), at least up to the full match"], a:3,
-      e:"A match is an immediate, guaranteed return on the money you contribute — the closest thing to free money in investing. Leaving it unclaimed is walking away from part of your pay." },
-    { topic:"Funding is not investing",
-      q:"Your first transfer lands in your new brokerage account. Are you invested yet?",
-      o:["No, it sits as cash until you place an order","Yes, deposits are put to work in the market automatically for you","Yes, as soon as the transfer finishes clearing at your bank","Only if the deposit was above the account minimum"], a:0,
-      e:"Funding the account and buying an investment are two separate steps. Plenty of accounts sit funded but uninvested for months because nobody realised an order was still needed." },
-    { topic:"Why the application asks for your SSN",
-      q:"Why does every US brokerage application ask for your Social Security number?",
-      o:["It runs a hard credit check that could end up lowering your score","Identity verification and tax reporting are legally required","It is optional, and you can simply skip that field","Only accounts holding over $10,000 actually require it"], a:1,
-      e:"Federal know-your-customer rules require providers to confirm who you are, and your gains get reported to the IRS under that number. It’s a soft identity check, not a credit application." }
+    { topic:"The bid-ask spread",
+      q:"A stock shows a Bid of $54.15 and an Ask of $54.25. What does that spread actually represent?",
+      o:["The difference between what buyers are offering and what sellers are asking","The total dollar amount the stock has gained or lost since yesterday's closing price","A small trading fee that the stock exchange automatically charges on every order","The stock's 52-week price range"], a:0,
+      e:"The bid is the highest price a buyer is currently offering, and the ask is the lowest price a seller will accept. The gap between them is the spread." },
+    { topic:"Dividend yield",
+      q:"A stock pays a $1.00 annual dividend and trades at $54 a share. How is its dividend yield calculated?",
+      o:["Share price divided by annual dividend","Annual dividend divided by share price","Annual dividend multiplied by share price","Share price minus annual dividend"], a:1,
+      e:"Dividend yield is the annual dividend divided by the share price, shown as a percentage — in this example, about 1.9%." },
+    { topic:"What a market order guarantees",
+      q:"A market order and a limit order each guarantee something different. What does a market order actually guarantee?",
+      o:["The exact price, but not that it will execute","Both the price and that it will execute","Execution right now, but not the exact price","Neither the price nor that it will execute"], a:2,
+      e:"A market order guarantees it executes immediately at whatever the current price happens to be — it does not guarantee the exact price you'll pay. A limit order flips that: it guarantees the price, not that it will execute at all." },
+    { topic:"Sizing an order in dollars",
+      q:"You place an order for $50 of a stock trading at $54.20 a share instead of choosing a whole number of shares. What does the platform do?",
+      o:["Rejects the order since $50 isn't enough for a full share","Rounds up and charges you for a full share","Holds the $50 until it's enough for a whole share","Buys 0.923 of a share, a fractional share"], a:3,
+      e:"Sizing an order by dollar amount buys however many shares — including a partial share — that amount adds up to. Buying part of a share this way is called a fractional share." },
+    { topic:"What a 3-fund portfolio covers",
+      q:"A simple 3-fund portfolio (US stock, international stock, and bond funds) covers which layers of diversification, according to this lesson?",
+      o:["Asset class, within-class, and geographic diversification together","Only diversification within each individual fund","Only geographic diversification, since it uses an international fund","Only asset-class diversification, since it mixes stocks and bonds"], a:0,
+      e:"The three funds stack multiple layers at once: stocks vs. bonds (asset class), hundreds of holdings inside each fund (within-class), and U.S. vs. international (geography)." },
+    { topic:"The \"110 minus your age\" heuristic",
+      q:"This lesson mentions \"110 minus your age\" as one common starting point. What does that number represent?",
+      o:["The total number of funds you should own","A rough starting percentage to put in stocks, with the rest in bonds","The exact number of years until you should retire","The maximum percentage of your entire portfolio you should ever hold in a single fund"], a:1,
+      e:"It's a simple, non-binding heuristic: subtract your age from 110 to get a starting stock percentage, with more in bonds as you get closer to needing the money — the lesson is explicit that it's a starting point, not a rule." },
+    { topic:"Checking vs. reviewing",
+      q:"This lesson distinguishes \"checking\" from \"reviewing.\" What's the key difference?",
+      o:["Checking is a carefully scheduled and deliberate ritual; reviewing is just a quick, unplanned emotional glance at the balance","They're the same thing, just different names for the same habit","Reviewing is scheduled and deliberate; checking is just an unplanned glance","Checking happens once a year; reviewing happens daily"], a:2,
+      e:"Checking is described as a quick, usually unplanned glance rarely followed by action — just an emotional gut-check. Reviewing is the scheduled, deliberate look at allocation, goals, and fees that actually leads to a decision." },
+    { topic:"Drift happens without a decision",
+      q:"A portfolio starts at a 60/40 stock-bond target. After a few years of stocks outperforming, it drifts to a heavier stock allocation without anyone actively deciding to take on more risk. What does this illustrate?",
+      o:["Rebalancing is only ever necessary if you personally make some kind of trading mistake along the way","Bond funds automatically rebalance themselves over time","A 60/40 mix can never actually change on its own","Left alone, a portfolio's risk level can drift away from its target purely from market performance"], a:3,
+      e:"Nobody has to make a bad decision for a portfolio's risk to drift — stocks and bonds simply grow at different rates, and if nothing is done, the mix quietly shifts away from the original target." },
+    { topic:"Rebalancing with new contributions",
+      q:"A portfolio has drifted to 68% stocks / 32% bonds against a 60/40 target. This lesson shows fixing it by directing new contributions entirely to bonds instead of selling stocks. What's the advantage of that approach?",
+      o:["It avoids selling and the taxable event that can come with it","It corrects the drift instantly, in a single contribution","It guarantees a meaningfully higher return than selling and immediately rebuying would","It only works inside a retirement account"], a:0,
+      e:"Directing new money toward whatever's underweight nudges the mix back toward target without selling anything — which means no taxable event, even though it takes more than one contribution to fully close the gap." },
+    { topic:"An honest check for beginners",
+      q:"According to this lesson's \"honest check,\" someone who's just getting started with a simple portfolio and automated contributions should…",
+      o:["Immediately start researching individual stocks to keep up","Recognize that a simple, low-fee portfolio will carry them a long way, with no rush to get more complex","Feel behind, since they haven't reached intermediate topics yet","Hire a professional, fee-based financial advisor right away, no matter how simple their situation actually is"], a:1,
+      e:"The lesson is explicit that being new isn't a problem to fix — a simple, automated, low-fee approach genuinely works for a very long time, with no need to rush toward more complexity." }
   ]
 };
 </script>
@@ -215,7 +216,7 @@ var QUIZ = {
     paint(
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
-      '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 6 lessons in this module.</p>'+
+      '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 7 lessons in this module.</p>'+
       '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
       '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
       '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+

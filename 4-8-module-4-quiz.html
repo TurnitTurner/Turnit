@@ -4,10 +4,11 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-qz. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
 
-     Covers MODULE 2: What Is An Investment Account, The Standard
-     Brokerage Account, Roth vs. Traditional IRA, Contribution Limits,
-     Choosing Your Account, and Opening Your First Account. 10
-     questions total, weighted toward the module's core concepts.
+     Covers MODULE 4: Myths and Misconceptions, Common Beginner
+     Mistakes, Diversification, Dollar-Cost Averaging, Understanding
+     Fees and Expense Ratios, Automating Your Investments, and Taxes
+     101. 10 questions total, weighted toward the module's core
+     concepts.
 
      TO MAKE A QUIZ FOR ANOTHER MODULE: edit only the QUIZ config
      in the QUIZ CONFIG script block (title, lesson name, questions).
@@ -141,53 +142,53 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   10 questions covering all 6 lessons in this module, in lesson
+   10 questions covering all 7 lessons in this module, in lesson
    order, weighted toward the most important concept(s) per lesson.
    ============================================================ */
 var QUIZ = {
-  lesson: "Module 2: Choosing & Opening Your Account",
+  lesson: "Module 4: Habits, Costs & Taxes",
   minutes: 6,
   questions: [
-    { topic:"What an investment account is",
-      q:"How is an investment (brokerage) account different from a regular checking account?",
-      o:["It’s built to hold investments, not just cash","It’s just a checking account with a different name","It can only be opened by a financial advisor acting on your behalf","It doesn’t require any personal information to open"], a:0,
-      e:"A checking account is built for spending cash. An investment account is a different kind of account, designed to hold assets like stocks and funds that can rise or fall in value." },
-    { topic:"Investment accounts and access",
-      q:"True or false: you need an investment account open before you can buy your first share of stock.",
-      o:["False — you can buy stock directly from a company’s website","True — it’s the account that lets you place trades","False — your checking account can hold stocks too","True, but only for purchases over $10,000"], a:1,
-      e:"An investment account is what actually lets you place trades and hold what you buy. Without one open, there’s no way to purchase shares in the first place." },
-    { topic:"What makes a brokerage account \"standard\"",
-      q:"What makes a standard (taxable) brokerage account different from a retirement account like a 401(k) or IRA?",
-      o:["It’s completely tax-free forever","You are penalized for depositing any money before you turn 59½ years old","No contribution limits or withdrawal penalties, but gains are taxed","Only an employer can open one for you"], a:2,
-      e:"A standard brokerage account skips the contribution limits and early-withdrawal penalties that come with retirement accounts. In exchange, it doesn’t get the same tax breaks — you owe tax on the gains." },
-    { topic:"Choosing the right account for a goal",
-      q:"You’re saving for a house down payment in 5 years. Why might a standard brokerage account fit better than a 401(k) for this specific goal?",
-      o:["A 401(k) lets you withdraw the money at any age without restrictions","A 401(k) must be used for every savings goal you have","Standard brokerage accounts can’t hold index funds","You can access the money anytime, with no early-withdrawal penalty"], a:3,
-      e:"Retirement accounts like a 401(k) are built for money you won’t touch until retirement, with penalties for pulling it out early. A standard brokerage account keeps the money accessible, which matters for a goal just a few years away." },
-    { topic:"Roth vs. Traditional: the trade",
-      q:"You’re early in your career and expect to earn a lot more later. Which promise fits that bet better?",
-      o:["The Roth, since you pay tax now while your rate is likely lower","The Traditional IRA, since its tax break arrives right away this year","Neither one, because the tax treatment is identical","Whichever account your bank happens to recommend first"], a:0,
-      e:"A Roth taxes the money going in and lets qualified withdrawals come out untaxed. Paying that tax while your rate is low, then withdrawing later when it may be higher, is the whole bet." },
-    { topic:"The Traditional IRA’s \"instant discount\"",
-      q:"What is the Traditional IRA’s so-called instant discount?",
-      o:["Withdrawals in retirement are always completely free of any tax","Contributions may lower the income you are taxed on this year","The brokerage discounts the fees it charges you","Your contributions grow at a guaranteed rate of return"], a:1,
-      e:"Contributing may reduce your taxable income now, which is the discount. The tax hasn’t disappeared, though — you pay it later when the money comes out." },
-    { topic:"The limit applies across accounts",
-      q:"You open both a Roth IRA and a Traditional IRA. Does each account get its own annual contribution limit?",
-      o:["Yes, one full limit for each account you open","Yes, as long as the two accounts are held at different brokerages","No, one combined limit is shared across your IRAs","No, but only if you opened both in the same year"], a:2,
-      e:"The IRS sets the annual limit per person, not per account. Splitting money between a Roth and a Traditional is fine, but the two together can’t exceed that one ceiling." },
-    { topic:"The employer match comes first",
-      q:"Your employer matches every dollar you put in, up to 4% of your pay. Where should your first investing dollars go?",
-      o:["An IRA, since it usually offers a much wider choice of investments","Into a savings account until you have a much bigger balance","A standard brokerage account, for the flexibility it gives you","The 401(k), at least up to the full match"], a:3,
-      e:"A match is an immediate, guaranteed return on the money you contribute — the closest thing to free money in investing. Leaving it unclaimed is walking away from part of your pay." },
-    { topic:"Funding is not investing",
-      q:"Your first transfer lands in your new brokerage account. Are you invested yet?",
-      o:["No, it sits as cash until you place an order","Yes, deposits are put to work in the market automatically for you","Yes, as soon as the transfer finishes clearing at your bank","Only if the deposit was above the account minimum"], a:0,
-      e:"Funding the account and buying an investment are two separate steps. Plenty of accounts sit funded but uninvested for months because nobody realised an order was still needed." },
-    { topic:"Why the application asks for your SSN",
-      q:"Why does every US brokerage application ask for your Social Security number?",
-      o:["It runs a hard credit check that could end up lowering your score","Identity verification and tax reporting are legally required","It is optional, and you can simply skip that field","Only accounts holding over $10,000 actually require it"], a:1,
-      e:"Federal know-your-customer rules require providers to confirm who you are, and your gains get reported to the IRS under that number. It’s a soft identity check, not a credit application." }
+    { topic:"Spotting a red flag",
+      q:"A friend swears a stock is \"guaranteed to double this month.\" What's the right read?",
+      o:["A warning sign: any investment can lose value","An opportunity to buy in before others catch on","Safe enough, as long as the company is famous","Fine, as long as you only put in a little"], a:0,
+      e:"Guaranteed, fast, and urgent is a classic red flag. Every real investment can lose value, and anyone promising otherwise is mistaken or selling something." },
+    { topic:"Trading too often",
+      q:"Someone checks their account daily and buys and sells most weeks. What does this usually do?",
+      o:["Reliably beats investors who leave things alone","Adds costs and taxes without improving results","Lowers the fees they pay over the long run","Removes the risk of losing money in a downturn"], a:1,
+      e:"Frequent trading tends to add costs and taxable events while tempting you to react to noise. Doing less is usually the harder and better habit." },
+    { topic:"Diversification",
+      q:"Which way of investing $2,000 hurts least if one company suddenly collapses?",
+      o:["All in your favorite company","Split evenly between two popular tech stocks","One fund holding hundreds of companies","Whatever is trending this week"], a:2,
+      e:"When one company is a tiny slice of hundreds, its collapse barely dents you. When it's all you own, it takes everything with it." },
+    { topic:"Counting is not diversifying",
+      q:"You own twelve stocks, and all twelve are software companies. Are you diversified?",
+      o:["Yes, since twelve is more than enough names","Yes, as long as they are at two brokerages","No, you need at least twenty different stocks","No, because they tend to move together"], a:3,
+      e:"Diversification is about owning things that do not all rise and fall together. Twelve companies in one industry often move as a single bet." },
+    { topic:"Time in the market vs. timing",
+      q:"Maya invests every paycheck. Sam waits for prices to dip first. Who usually comes out ahead?",
+      o:["Maya, since her money stays invested longer","Sam, because buying dips gets him lower prices","They end up about the same over 20 years","Neither, since real growth needs a lump sum"], a:0,
+      e:"While Sam waits for the perfect moment, his money sits in cash. Maya's is invested the whole time, and that's what drives most long-term results." },
+    { topic:"How averaging works",
+      q:"You invest $100 on the same day each month. This month the price falls. What happens to that $100?",
+      o:["It buys fewer shares, since prices dropped","It buys more shares than it did last month","It stays as cash until prices recover again","It is refunded automatically by the brokerage"], a:1,
+      e:"A fixed dollar amount buys more shares when prices are low and fewer when prices are high, which is what pulls your average cost down over time." },
+    { topic:"Why fees matter",
+      q:"Two funds hold the same companies. One charges 0.03% a year, the other charges 1%. Over several decades, what happens?",
+      o:["The difference is far too small to ever notice","The pricier fund usually makes it back through better picks","The cheaper fund leaves you meaningfully more money","They end up within a few dollars of each other"], a:2,
+      e:"A fee is charged every year on everything you hold, so the gap compounds right alongside your returns. Small percentages turn into large differences over decades." },
+    { topic:"Automating",
+      q:"Someone keeps \"forgetting\" to invest by the end of each month. What helps most?",
+      o:["Check prices every morning to stay motivated","Wait until they have a bigger amount saved","Only invest money that comes in from tax refunds","Schedule it to happen on its own every payday"], a:3,
+      e:"Setting it on a schedule takes willpower and memory out of it. The money moves before it has a chance to be spent." },
+    { topic:"A gain isn't taxed until you sell",
+      q:"You bought a stock and it's now worth $2,000 more than you paid, but you haven't sold it. According to this lesson, what do you owe in taxes on that gain right now?",
+      o:["Nothing, since the gain isn't taxed until you sell","The full capital gains tax on the entire $2,000 gain, due immediately","A reduced \"holding\" tax rate that applies while you wait","It depends entirely on which specific brokerage or app you used"], a:0,
+      e:"A gain on paper isn't a taxable event by itself — tax is triggered when you actually sell and \"realize\" the gain, not while you're still holding the investment." },
+    { topic:"Short-term and long-term buckets",
+      q:"You sell one stock held 4 months for a gain and another held 3 years for a gain. How does this lesson say those two gains are treated at tax time?",
+      o:["They're combined into one single bucket and taxed identically regardless of holding period","They're tallied separately as short-term and long-term before being combined","Only the long-term gain is ever taxed at all","Only trades held for more than a full calendar year ever count toward your taxes"], a:1,
+      e:"Short-term and long-term gains and losses are tracked in two separate buckets first, since they're taxed at different rates, and only combined after each bucket is tallied." }
   ]
 };
 </script>
@@ -215,7 +216,7 @@ var QUIZ = {
     paint(
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
-      '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 6 lessons in this module.</p>'+
+      '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 7 lessons in this module.</p>'+
       '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
       '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
       '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+

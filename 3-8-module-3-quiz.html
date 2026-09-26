@@ -4,10 +4,11 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-qz. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
 
-     Covers the end of MODULE 3: What Is The Stock Market, What Is
-     A Share, Why Prices Move, Stocks vs. Bonds vs. Funds, What Is
-     An Index Fund, Understanding Risk and Volatility, and Investing
-     Vocabulary — two questions per lesson, in lesson order.
+     Covers MODULE 3: What Is The Stock Market, What Is A Share,
+     Why Prices Move, Stocks vs. Bonds vs. Funds, What Is An Index
+     Fund, Understanding Risk and Volatility, and Investing
+     Vocabulary. 10 questions total, weighted toward the module's
+     core concepts.
 
      TO MAKE A QUIZ FOR ANOTHER MODULE: edit only the QUIZ config
      in the QUIZ CONFIG script block (title, lesson name, questions).
@@ -141,26 +142,24 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   Two questions per lesson, in lesson order: What Is The Stock
-   Market, What Is A Share, Why Prices Move, Stocks vs. Bonds vs.
-   Funds, What Is An Index Fund, Understanding Risk and Volatility,
-   Investing Vocabulary.
+   10 questions covering all 7 lessons in this module, in lesson
+   order, weighted toward the most important concept(s) per lesson.
    ============================================================ */
 var QUIZ = {
   lesson: "Module 3: How The Market Actually Works",
-  minutes: 7,
+  minutes: 6,
   questions: [
     { topic:"The market isn’t open 24/7",
       q:"It’s 8pm on a Tuesday and you place an order to buy a stock. What happens?",
-      o:["It fills instantly, since trading never actually stops","It is cancelled automatically and you must start over","It queues up and fills when the market next opens","It fills automatically at tomorrow’s highest price of the day"], a:2,
+      o:["It queues up and fills when the market next opens","It fills instantly, since trading never actually stops","It is cancelled automatically and you must start over","It fills automatically at tomorrow’s highest price of the day"], a:0,
       e:"Regular trading runs on set hours on weekdays. An order placed after the close waits in line for the next session rather than filling at the moment you tap the button." },
     { topic:"What an index actually measures",
       q:"A headline says \"the S&P 500 fell 2% today.\" What does that actually describe?",
-      o:["The combined movement of a large group of companies","A single large company’s stock price over the course of the day","A government fee charged on every trade that day","The interest rate that savings accounts pay"], a:0,
+      o:["A single large company’s stock price over the course of the day","The combined movement of a large group of companies","A government fee charged on every trade that day","The interest rate that savings accounts pay"], a:1,
       e:"An index is a yardstick that tracks a set of companies at once, which is how people talk about \"the market\" in a single number rather than naming hundreds of stocks." },
     { topic:"A share is one slice",
       q:"A company has 2 million shares and each trades at $50. What is the whole company worth by that measure?",
-      o:["$50 million, since the share price is what counts","$100 million","$2 million, because that is the number of shares","There is no way to tell from those two numbers alone"], a:1,
+      o:["$50 million, since the share price is what counts","$2 million, because that is the number of shares","$100 million","There is no way to tell from those two numbers alone"], a:2,
       e:"Share price times the number of shares gives you the company's total market value. One share is simply one slice of that whole." },
     { topic:"How much you can lose",
       q:"You buy $500 of a single stock in a regular cash account. What is the most you can lose?",
@@ -170,42 +169,26 @@ var QUIZ = {
       q:"A company’s stock rose 8% today even though nothing changed at the factory. What best explains it?",
       o:["More people wanted to buy than to sell at the old price","The company printed extra profit overnight","The stock exchange raised the price on purpose","Its official listed value was updated by market regulators overnight"], a:0,
       e:"Prices move on supply and demand. When buyers outnumber sellers, it takes a higher price to tempt someone into selling, and the quoted price climbs." },
-    { topic:"What sets the price",
-      q:"At any given moment, what actually determines a share’s price?",
-      o:["A fixed value the company publishes each quarter","A government agency that reviews prices each morning","What a buyer and seller agree on right then","The average of what the stock cost over the past year"], a:2,
-      e:"There is no official price handed down from anywhere. The last trade is simply the most recent price a buyer and a seller agreed on." },
     { topic:"Stocks vs. bonds",
       q:"You lend money to a company, collect interest along the way, and expect the amount back on a set date. What did you buy?",
       o:["A share of stock in that company","A bond","An index fund that tracks that company","A savings account held at that company"], a:1,
       e:"A bond is a loan with three parts: who you lend to, the interest it pays, and the date you get the money back. A share makes you an owner instead of a lender." },
-    { topic:"What a fund does",
-      q:"You have $500 and want a piece of many companies without making dozens of separate purchases. What fits?",
-      o:["A fund","A single share of one large company","A bond issued by one of those companies","A checking account that holds all of them"], a:0,
-      e:"A fund pools money from many people and buys many investments. One purchase gets you a slice of everything inside it." },
     { topic:"How an index fund works",
       q:"What does the team running an index fund mostly do?",
-      o:["Pick the companies they believe will beat the market","Trade in and out of positions nearly every day","Guarantee a set return to everyone who invests","Follow the index's rules about what to hold"], a:3,
+      o:["Pick the companies they believe will beat the market","Trade in and out of positions nearly every day","Follow the index's rules about what to hold","Guarantee a set return to everyone who invests"], a:2,
       e:"An index fund is close to mechanical. It holds what the index says to hold, in the proportions the index sets, instead of trying to pick winners." },
     { topic:"The shortcut",
       q:"What is the simplest way to get broad diversification in one purchase?",
-      o:["Buying five stocks from five industries","A broad index fund","Holding cash in several bank accounts","Owning two funds from the same company"], a:1,
+      o:["Buying five stocks from five industries","Holding cash in several bank accounts","Owning two funds from the same company","A broad index fund"], a:3,
       e:"One broad index fund can hold hundreds of companies across industries at once, which is far simpler than assembling that mix by hand." },
     { topic:"Volatility is not the same as risk",
       q:"A fund swings up and down sharply month to month, but you will not touch it for 30 years. What does that volatility mainly describe?",
       o:["How bumpy the ride is along the way","The chance that the money is permanently gone","A fee the fund charges during rough markets","How likely the fund is to close down entirely"], a:0,
       e:"Volatility measures how much something moves around. For money you will not need for decades, a bumpy ride is not the same thing as permanent loss." },
-    { topic:"Signal or noise",
-      q:"Your stock dropped 3% today, and so did nearly every other stock. What is that most likely?",
-      o:["Clear evidence that something is seriously wrong at your company","A sign you should sell before it falls further","A market-wide move rather than news about your company","A calculation error that will be reversed tomorrow"], a:2,
-      e:"When everything falls together, the move is usually about the market as a whole. Company-specific news tends to move that company differently from everything else." },
     { topic:"Dividends",
       q:"A company pays out part of its profits to shareholders. What is that payment called?",
-      o:["A capital gain on the shares you hold","An expense ratio charged by the company","A dividend","A stock split of the existing shares"], a:2,
-      e:"A dividend is a share of profits paid out to owners. A capital gain is different: that is the profit you make when you sell for more than you paid." },
-    { topic:"Portfolio",
-      q:"Everything you own across all of your investment accounts, taken together, is called what?",
-      o:["Your portfolio","Your market cap, measured across accounts","Your expense ratio for the whole year","Your dividend yield across every holding"], a:0,
-      e:"Your portfolio is simply the full collection of what you own. Market cap describes the size of a company, not the size of your holdings." }
+      o:["A capital gain on the shares you hold","A dividend","An expense ratio charged by the company","A stock split of the existing shares"], a:1,
+      e:"A dividend is a share of profits paid out to owners. A capital gain is different: that is the profit you make when you sell for more than you paid." }
   ]
 };
 </script>
@@ -233,7 +216,7 @@ var QUIZ = {
     paint(
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
-      '<p class="qz-sub">See how well this module’s big ideas stuck — two questions from each of its seven lessons.</p>'+
+      '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 7 lessons in this module.</p>'+
       '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
       '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
       '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+
