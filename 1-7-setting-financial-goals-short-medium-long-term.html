@@ -3,106 +3,122 @@
      SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-fg. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
-
-     12 slides, one interactive per page, "Next" locked until the activity is done:
-       1 The $6,000 Goal                2 The SMART Goal Score
-       3 The Three Time Horizons        4 Match the Goal to the Timeframe
-       5 Where to Keep the Money        6 The Risk-Timeline Dial
-       7 Myth or Fact                   8 Spot the Red Flags
-       9 The Priority Allocator         10 Automate Your Goal Funding
-       11 Recap                         12 Certificate
-     >> set NEXT_LESSON_URL for the certificate's "Next Lesson" button.
+     13 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Title & Key Vocabulary (optional, never gated)
+       2 The $6,000 Goal                3 The SMART Goal Score
+       4 The Three Time Horizons        5 Match The Goal To The Timeframe
+       6 Where To Keep The Money        7 The Risk-Timeline Dial
+       8 Myth Or Fact (6 questions)     9 Spot The Red Flags
+       10 The Priority Allocator        11 Automate Your Goal Funding
+       12 Recap                         13 Complete (scroll-down prompt)
+     >> The last slide directs the learner to GHL's own "Mark As Complete"
+        and "Next Lesson" buttons below the iframe, since this widget can't
+        reach outside its own frame to trigger them directly. Wording swaps
+        automatically if the lesson is expanded to full screen.
      ============================================================ -->
 <div id="tn-fg">
   <div class="fg-wrap">
-
     <!-- TOP HEADER -->
     <div class="fg-top">
       <div class="fg-topbar">
         <div class="fg-brand"><span class="fg-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="fg-word">TURNIT</span><span class="fg-bsub">Financial Foundations</span></div>
       </div>
       <div class="fg-progress"><span id="fg-bar"></span></div>
-      <div class="fg-meta"><span id="fg-slide-label">The $6,000 Goal</span><span id="fg-slide-count">Slide 1 of 12</span></div>
+      <div class="fg-meta"><span id="fg-slide-label">Key Vocabulary</span><span id="fg-slide-count">Slide 1 of 13</span></div>
     </div>
-
-    <!-- ========== 1 · THE $6,000 GOAL ========== -->
-    <section class="fg-sec fg-reveal" data-step="1">
-      <p class="fg-kicker">Same Goal, Different Timelines · 1 / 12</p>
-      <h2 class="fg-h2">The clock changes everything</h2>
+    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <section class="fg-sec fg-center fg-reveal" data-step="1">
+      <p class="fg-kicker center">Setting Financial Goals · 1 / 13</p>
+      <h1 class="fg-hero-title">SETTING <span class="fg-hero-grad">FINANCIAL GOALS</span></h1>
+      <p class="fg-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
+      <div class="fg-vocab-teaser">
+        <span class="fg-vocab-label">Key terms in this lesson</span>
+        <div class="fg-vocab-chips" id="fg-vocab-chips">
+          <button type="button" class="fg-vocab-chip" data-t="SMART Goal" data-def="A goal that is Specific, Measurable, Achievable, Relevant, and Time-Bound — the five things that turn a vague wish into a real plan.">SMART Goal</button>
+          <button type="button" class="fg-vocab-chip" data-t="Time Horizon" data-def="How long it will be until you actually need the money. It is the single biggest factor in deciding where to keep it.">Time Horizon</button>
+          <button type="button" class="fg-vocab-chip" data-t="Asset Allocation" data-def="How you split your money across different types of investments, such as cash, bonds, and stocks.">Asset Allocation</button>
+          <button type="button" class="fg-vocab-chip" data-t="High-Yield Savings" data-def="A savings account that pays meaningfully more interest than a standard one, while keeping your money just as easy to withdraw.">High-Yield Savings</button>
+          <button type="button" class="fg-vocab-chip" data-t="CD" data-def="A Certificate of Deposit. You agree to leave a set amount untouched for a fixed period, and the bank pays you a fixed rate in return.">CD</button>
+          <button type="button" class="fg-vocab-chip" data-t="Diversified" data-def="Spread across many different investments, so no single bad outcome can damage the whole pot.">Diversified</button>
+        </div>
+        <div class="fg-vocab-def" id="fg-vocab-def">Tap a term above to see what it means.</div>
+        <span class="fg-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
+      </div>
+      <div class="fg-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
+    </section>
+    <!-- ========== 2 · THE $6,000 GOAL ========== -->
+    <section class="fg-sec fg-reveal" data-step="2">
+      <p class="fg-kicker">Same Goal, Different Timelines · 2 / 13</p>
+      <h2 class="fg-h2">The Clock Changes Everything</h2>
       <p class="fg-p">You want to save <b>$6,000</b>. How much you need to set aside each month depends entirely on how soon you need it. Slide to see it shift.</p>
-
       <div class="fg-panel">
         <div class="fg-goal-hero">$6,000</div>
         <div class="fg-goal-monthly"><b id="fg-goal-monthly-v">$250/mo</b><span>needed to hit it</span></div>
-
-        <div class="fg-goal-zone" id="fg-goal-zone">
+        <div class="fg-goal-zone medium" id="fg-goal-zone">
           <p class="fg-goal-zone-t" id="fg-goal-zone-t">Medium-Term Goal</p>
           <p class="fg-goal-zone-d" id="fg-goal-zone-d">1-5 years away — a comfortable, moderate pace.</p>
         </div>
-
         <div class="fg-slide-row">
           <div class="fg-slide-top"><label for="fg-goal-months">Months Until You Need It</label><span class="fg-slide-v blue" id="fg-goal-months-v">24 months</span></div>
           <input id="fg-goal-months" class="fg-range" type="range" min="3" max="120" value="24" step="1" aria-label="Months until goal is needed">
         </div>
         <div class="fg-scale"><span>3 mo</span><span>1 yr</span><span>5 yrs</span><span>10 yrs</span></div>
-        <div class="fg-note">Explore all three zones — Short, Medium, and Long-Term — to continue.</div>
+        <div class="fg-note">Explore all three zones — Short-Term, Medium-Term, and Long-Term — to continue.</div>
       </div>
     </section>
-
-    <!-- ========== 2 · THE SMART GOAL SCORE ========== -->
-    <section class="fg-sec fg-reveal" data-step="2">
-      <p class="fg-kicker">The SMART Score · 2 / 12</p>
-      <h2 class="fg-h2">Is your goal actually a goal?</h2>
-      <p class="fg-p">"Save more money" isn't a goal — it's a wish. Toggle each SMART element on and watch the score climb.</p>
-
+    <!-- ========== 3 · THE SMART GOAL SCORE ========== -->
+    <section class="fg-sec fg-reveal" data-step="3">
+      <p class="fg-kicker">The SMART Score · 3 / 13</p>
+      <h2 class="fg-h2">Is Your Goal Actually A Goal?</h2>
+      <p class="fg-p">"Save more money" isn't a goal — it's a wish. Tap each SMART element to turn it on, see the score climb, and read what it actually means for a real goal.</p>
       <div class="fg-panel">
         <div class="fg-gauge">
-          <svg viewBox="0 0 280 160" width="100%">
-            <path d="M20 150 A120 120 0 0 1 260 150" fill="none" stroke="#EAEFF3" stroke-width="20" stroke-linecap="round"/>
-            <path id="fg-gauge-arc" d="M20 150 A120 120 0 0 1 260 150" fill="none" stroke="url(#fg-ggrad)" stroke-width="20" stroke-linecap="round"/>
-            <defs><linearGradient id="fg-ggrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C0392B"/><stop offset="50%" stop-color="#E0A93C"/><stop offset="100%" stop-color="#209B73"/></linearGradient></defs>
-            <line id="fg-needle" x1="140" y1="150" x2="140" y2="55" stroke="#1B2733" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="140" cy="150" r="8" fill="#1B2733"/>
-          </svg>
-          <div class="fg-gauge-num" id="fg-smart-score">0%</div>
-          <div class="fg-gauge-lab" id="fg-smart-lab">Vague Wish</div>
+          <div class="fg-gauge-svg">
+            <svg viewBox="0 0 280 158" width="100%">
+              <path d="M20 150 A120 120 0 0 1 260 150" fill="none" stroke="#EAEFF3" stroke-width="20" stroke-linecap="round"/>
+              <path id="fg-gauge-arc" d="M20 150 A120 120 0 0 1 260 150" fill="none" stroke="url(#fg-ggrad)" stroke-width="20" stroke-linecap="round"/>
+              <defs><linearGradient id="fg-ggrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C0392B"/><stop offset="50%" stop-color="#E0A93C"/><stop offset="100%" stop-color="#209B73"/></linearGradient></defs>
+              <line id="fg-needle" x1="140" y1="150" x2="140" y2="72" stroke="#1B2733" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="140" cy="150" r="8" fill="#1B2733"/>
+            </svg>
+          </div>
+          <div class="fg-gauge-readout">
+            <div class="fg-gauge-num" id="fg-smart-score">0%</div>
+            <div class="fg-gauge-lab" id="fg-smart-lab">Vague Wish</div>
+          </div>
         </div>
-
         <div class="fg-smart-toggles" id="fg-smart-toggles">
-          <button type="button" class="fg-smart-pill" data-k="s"><b>S</b>pecific</button>
-          <button type="button" class="fg-smart-pill" data-k="m"><b>M</b>easurable</button>
-          <button type="button" class="fg-smart-pill" data-k="a"><b>A</b>chievable</button>
-          <button type="button" class="fg-smart-pill" data-k="r"><b>R</b>elevant</button>
-          <button type="button" class="fg-smart-pill" data-k="t"><b>T</b>ime-Bound</button>
+          <button type="button" class="fg-smart-pill" data-k="s" data-t="Specific" data-d="Name the exact thing you are saving for. &quot;Save more&quot; gives you nothing to aim at. &quot;Build a $6,000 emergency fund&quot; does."><b>S</b>pecific</button>
+          <button type="button" class="fg-smart-pill" data-k="m" data-t="Measurable" data-d="Attach a number you can check against. With $6,000 as the target, you always know whether you are at $1,200 or $5,400 — and exactly how far is left."><b>M</b>easurable</button>
+          <button type="button" class="fg-smart-pill" data-k="a" data-d="Be honest about your budget. $6,000 in 24 months means $250 every month. If that does not fit your income, stretch the deadline rather than abandoning the goal." data-t="Achievable"><b>A</b>chievable</button>
+          <button type="button" class="fg-smart-pill" data-k="r" data-t="Relevant" data-d="The goal has to matter to your life, not someone else's. A goal you borrowed from a friend or a video is the first one you will quietly stop funding."><b>R</b>elevant</button>
+          <button type="button" class="fg-smart-pill" data-k="t" data-t="Time-Bound" data-d="Give it a real deadline. &quot;$6,000 by next December&quot; tells you the monthly amount you need. &quot;$6,000 someday&quot; never will."><b>T</b>ime-Bound</button>
         </div>
+        <div class="fg-reveal-box" id="fg-smart-box"><b id="fg-smart-t">Tap a SMART element above</b><span id="fg-smart-d">Each letter is one of the five things that turn a wish into a goal you can actually act on.</span></div>
         <div class="fg-note">Toggle all 5 on to see a fully SMART goal in action.</div>
       </div>
     </section>
-
-    <!-- ========== 3 · THE THREE TIME HORIZONS ========== -->
-    <section class="fg-sec fg-reveal" data-step="3">
-      <p class="fg-kicker">The Three Buckets · 3 / 12</p>
-      <h2 class="fg-h2">Every goal fits one of three buckets</h2>
-      <p class="fg-p">Tap each to see how it's defined, a real example, and where it usually belongs.</p>
-
+    <!-- ========== 4 · THE THREE TIME HORIZONS ========== -->
+    <section class="fg-sec fg-reveal" data-step="4">
+      <p class="fg-kicker">The Three Buckets · 4 / 13</p>
+      <h2 class="fg-h2">Every Goal Fits One Of Three Buckets</h2>
+      <p class="fg-p">Tap each one to see how it's defined, a real example, and where it usually belongs.</p>
       <div class="fg-horizons" id="fg-horizons">
         <button type="button" class="fg-horizon-chip" data-t="Short-Term" data-d="0-1 year away. Example: a weekend trip or a holiday shopping budget. This money should stay safe and easy to reach — a savings account, not the stock market.">
           <span class="fg-horizon-dot short"></span><b>Short-Term</b><span>0-1 year</span></button>
-        <button type="button" class="fg-horizon-chip" data-t="Medium-Term" data-d="1-5 years away. Example: a house down payment or a wedding. This calls for a more balanced mix — some growth, but not full market risk this close to the deadline.">
+        <button type="button" class="fg-horizon-chip" data-t="Medium-Term" data-d="1-5 years away. Example: a house down payment or a wedding. This calls for a more balanced mix — some growth, but not full market risk with a deadline this close.">
           <span class="fg-horizon-dot medium"></span><b>Medium-Term</b><span>1-5 years</span></button>
-        <button type="button" class="fg-horizon-chip" data-t="Long-Term" data-d="5+ years away. Example: retirement or a child's college fund. This is where you have the most room for growth-focused investing, since time can smooth out the ups and downs.">
+        <button type="button" class="fg-horizon-chip" data-t="Long-Term" data-d="5+ years away. Example: retirement or a child's college fund. This is where you have the most room for growth-focused investing, because time can smooth out the ups and downs.">
           <span class="fg-horizon-dot long"></span><b>Long-Term</b><span>5+ years</span></button>
       </div>
       <div class="fg-reveal-box" id="fg-horizons-box"><b id="fg-horizons-t">Tap a bucket above</b><span id="fg-horizons-d">Every financial goal fits into one of these three timeframes.</span></div>
       <p class="fg-count" id="fg-horizons-count">Reviewed 0 of 3</p>
     </section>
-
-    <!-- ========== 4 · MATCH THE GOAL TO THE TIMEFRAME ========== -->
-    <section class="fg-sec fg-reveal" data-step="4">
-      <p class="fg-kicker">Match the Goal · 4 / 12</p>
-      <h2 class="fg-h2">Where does each goal actually belong?</h2>
+    <!-- ========== 5 · MATCH THE GOAL TO THE TIMEFRAME ========== -->
+    <section class="fg-sec fg-reveal" data-step="5">
+      <p class="fg-kicker">Match The Goal · 5 / 13</p>
+      <h2 class="fg-h2">Where Does Each Goal Actually Belong?</h2>
       <p class="fg-p">Tap the right timeframe for each real-world goal.</p>
-
       <div class="fg-sort fg-sort3" id="fg-match">
         <div class="fg-sort-row" data-answer="short"><span>A weekend trip 3 months away</span><div class="fg-sort-btns"><button data-p="short">Short</button><button data-p="medium">Medium</button><button data-p="long">Long</button></div></div>
         <div class="fg-sort-row" data-answer="short"><span>An emergency car repair next month</span><div class="fg-sort-btns"><button data-p="short">Short</button><button data-p="medium">Medium</button><button data-p="long">Long</button></div></div>
@@ -112,86 +128,76 @@
       </div>
       <p class="fg-count" id="fg-match-count">Sorted 0 of 5</p>
     </section>
-
-    <!-- ========== 5 · WHERE TO KEEP THE MONEY ========== -->
-    <section class="fg-sec fg-reveal" data-step="5">
-      <p class="fg-kicker">Where It Should Live · 5 / 12</p>
-      <h2 class="fg-h2">Match the timeframe to the right home</h2>
+    <!-- ========== 6 · WHERE TO KEEP THE MONEY ========== -->
+    <section class="fg-sec fg-reveal" data-step="6">
+      <p class="fg-kicker">Where It Should Live · 6 / 13</p>
+      <h2 class="fg-h2">Match The Timeframe To The Right Home</h2>
       <p class="fg-p">Tap each timeframe to see where that money actually belongs.</p>
-
       <div class="fg-buckets" id="fg-buckets">
         <button type="button" class="fg-bucket" data-k="short">🏦<span>Short-Term</span></button>
         <button type="button" class="fg-bucket" data-k="medium">⚖️<span>Medium-Term</span></button>
         <button type="button" class="fg-bucket" data-k="long">📈<span>Long-Term</span></button>
       </div>
-
       <div class="fg-bucket-result" id="fg-bucket-result"><p class="fg-bucket-result-t">Tap a timeframe above</p><p class="fg-bucket-result-d">See the right kind of account for each one.</p></div>
       <p class="fg-count" id="fg-buckets-count">Explored 0 of 3</p>
     </section>
-
-    <!-- ========== 6 · THE RISK-TIMELINE DIAL ========== -->
-    <section class="fg-sec fg-reveal" data-step="6">
-      <p class="fg-kicker">The Risk-Timeline Dial · 6 / 12</p>
-      <h2 class="fg-h2">Let your timeline set your mix</h2>
+    <!-- ========== 7 · THE RISK-TIMELINE DIAL ========== -->
+    <section class="fg-sec fg-reveal" data-step="7">
+      <p class="fg-kicker">The Risk-Timeline Dial · 7 / 13</p>
+      <h2 class="fg-h2">Let Your Timeline Set Your Mix</h2>
       <p class="fg-p">Slide to set how many years until you need the money, and watch a hypothetical allocation shift with it.</p>
-
       <div class="fg-panel">
-        <div class="fg-alloc-badge"><b id="fg-alloc-risk">Very Conservative</b><span id="fg-alloc-years">0 years away</span></div>
-
+        <div class="fg-alloc-badge"><b id="fg-alloc-risk">Very Conservative</b><span id="fg-alloc-years">Need It Now</span></div>
         <div class="fg-alloc-bar">
-          <span class="fg-alloc-seg cash" id="fg-alloc-cash"></span>
-          <span class="fg-alloc-seg bonds" id="fg-alloc-bonds"></span>
-          <span class="fg-alloc-seg stocks" id="fg-alloc-stocks"></span>
+          <span class="fg-alloc-seg cash" id="fg-alloc-cash" style="width:85%"></span>
+          <span class="fg-alloc-seg bonds" id="fg-alloc-bonds" style="width:10%"></span>
+          <span class="fg-alloc-seg stocks" id="fg-alloc-stocks" style="width:5%"></span>
         </div>
         <div class="fg-alloc-legend">
-          <span><i class="cash"></i>Cash <b id="fg-alloc-cash-v">80%</b></span>
-          <span><i class="bonds"></i>Bonds <b id="fg-alloc-bonds-v">15%</b></span>
+          <span><i class="cash"></i>Cash <b id="fg-alloc-cash-v">85%</b></span>
+          <span><i class="bonds"></i>Bonds <b id="fg-alloc-bonds-v">10%</b></span>
           <span><i class="stocks"></i>Stocks <b id="fg-alloc-stocks-v">5%</b></span>
         </div>
-
         <div class="fg-slide-row">
           <input id="fg-years6" class="fg-range" type="range" min="0" max="15" value="0" step="1" aria-label="Years until you need this money">
         </div>
-        <div class="fg-scale"><span>Need it now</span><span>15+ years away</span></div>
+        <div class="fg-scale"><span>Need It Now</span><span>15+ Years Away</span></div>
         <div class="fg-note">This is a simplified, illustrative allocation — not personalized investment advice.</div>
       </div>
     </section>
-
-    <!-- ========== 7 · MYTH OR FACT ========== -->
-    <section class="fg-sec fg-reveal" data-step="7">
-      <p class="fg-kicker">Myth or Fact · 7 / 12</p>
-      <h2 class="fg-h2">Myth or fact?</h2>
-      <p class="fg-p">Three common beliefs about goal-setting. Tap your answer for each.</p>
-
+    <!-- ========== 8 · MYTH OR FACT ========== -->
+    <section class="fg-sec fg-reveal" data-step="8">
+      <p class="fg-kicker">Myth Or Fact · 8 / 13</p>
+      <h2 class="fg-h2">Myth Or Fact?</h2>
+      <p class="fg-p">Six common beliefs about goal-setting. Tap your answer for each — the explanation appears right after.</p>
       <div class="fg-sort" id="fg-myth">
         <div class="fg-sort-row fg-mrow" data-answer="myth"><span>You need a high income before long-term goals are even worth setting.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Myth.</b> Time and consistency matter more than the size of your income — small, regular contributions started early often outperform larger ones started late.</p></div>
-        <div class="fg-sort-row fg-mrow" data-answer="fact"><span>Writing a goal down and giving it a real deadline makes you meaningfully more likely to follow through.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Fact.</b> A specific number and date turns a vague wish into something you can actually plan and measure progress against.</p></div>
-        <div class="fg-sort-row fg-mrow" data-answer="myth"><span>Every goal, regardless of timeline, should use the exact same investment strategy.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Myth.</b> A goal three months away and one thirty years away call for very different levels of risk — timeline should always shape the strategy.</p></div>
+        <div class="fg-sort-row fg-mrow" data-answer="fact"><span>Writing a goal down and giving it a real deadline makes you meaningfully more likely to follow through.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Fact.</b> A specific number and date turns a vague wish into something you can plan around and measure progress against.</p></div>
+        <div class="fg-sort-row fg-mrow" data-answer="myth"><span>Every goal, regardless of timeline, should use the exact same investment strategy.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Myth.</b> A goal three months away and one thirty years away call for very different levels of risk — the timeline should always shape the strategy.</p></div>
+        <div class="fg-sort-row fg-mrow" data-answer="fact"><span>Adjusting a goal as your life changes is good planning, not failure.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Fact.</b> Raises, moves, and new priorities all change what's realistic. A goal you revisit once a year stays useful; one you never revisit quietly goes stale.</p></div>
+        <div class="fg-sort-row fg-mrow" data-answer="fact"><span>Funding two or three goals well usually beats spreading yourself across ten at once.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Fact.</b> The same monthly amount split ten ways moves every goal slowly. Prioritizing a few means you actually reach them, which builds momentum for the rest.</p></div>
+        <div class="fg-sort-row fg-mrow" data-answer="myth"><span>Money for a goal two years away belongs in the stock market so it grows faster.</span><div class="fg-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="fg-myth-why"><b>Myth.</b> Two years isn't enough runway to recover from a downturn. If the market dips right before your deadline, you're forced to either delay the goal or take the loss.</p></div>
       </div>
-      <p class="fg-count" id="fg-myth-count">Answered 0 of 3</p>
+      <p class="fg-count" id="fg-myth-count">Answered 0 of 6</p>
     </section>
-
-    <!-- ========== 8 · SPOT THE RED FLAGS ========== -->
-    <section class="fg-sec fg-reveal" data-step="8">
-      <p class="fg-kicker">Spot the Red Flags · 8 / 12</p>
-      <h2 class="fg-h2">Habits that help — and hurt — your goals</h2>
+    <!-- ========== 9 · SPOT THE RED FLAGS ========== -->
+    <section class="fg-sec fg-reveal" data-step="9">
+      <p class="fg-kicker">Spot The Red Flags · 9 / 13</p>
+      <h2 class="fg-h2">Habits That Help — And Hurt — Your Goals</h2>
       <p class="fg-p">Some habits turn goals into real progress. Others quietly keep them as wishes. Tap each tile to reveal which is which.</p>
-
       <div class="fg-traps" id="fg-traps">
-        <button class="fg-trap-tile" data-verdict="safe" data-d="A specific number and a real deadline turn a goal into something you can actually track and plan around.">Setting a Specific Amount and Deadline</button>
-        <button class="fg-trap-tile" data-verdict="risky" data-d="&quot;Save more money&quot; has no way to measure progress or know when you've actually succeeded — it stays a wish forever.">Setting a Vague Goal Like "Save More"</button>
-        <button class="fg-trap-tile" data-verdict="safe" data-d="Life changes. Reviewing goals once a year keeps them realistic and lets you adjust for raises, new priorities, or new expenses.">Reviewing and Adjusting Goals Yearly</button>
-        <button class="fg-trap-tile" data-verdict="risky" data-d="Trying to fund ten goals at once with no priority usually means every single one moves slower than it needs to.">Chasing Every New Goal at Once</button>
+        <button class="fg-trap-tile" data-verdict="safe" data-d="A specific number and a real deadline turn a goal into something you can actually track and plan around.">Setting A Specific Amount And Deadline</button>
+        <button class="fg-trap-tile" data-verdict="risky" data-d="A goal like &quot;save more&quot; gives you no way to measure progress or to know when you have actually succeeded, so it stays a wish forever.">Setting A Vague Goal Like "Save More"</button>
+        <button class="fg-trap-tile" data-verdict="safe" data-d="Life changes. Reviewing goals once a year keeps them realistic and lets you adjust for raises, new priorities, or new expenses.">Reviewing And Adjusting Goals Yearly</button>
+        <button class="fg-trap-tile" data-verdict="risky" data-d="Trying to fund ten goals at once with no priority usually means every single one moves slower than it needs to.">Chasing Every New Goal At Once</button>
       </div>
       <p class="fg-count" id="fg-traps-count">Revealed 0 of 4</p>
     </section>
-
-    <!-- ========== 9 · THE PRIORITY ALLOCATOR ========== -->
-    <section class="fg-sec fg-reveal" data-step="9">
-      <p class="fg-kicker">The Priority Allocator · 9 / 12</p>
-      <h2 class="fg-h2">You have $500/month. Where does it go?</h2>
+    <!-- ========== 10 · THE PRIORITY ALLOCATOR ========== -->
+    <section class="fg-sec fg-reveal" data-step="10">
+      <p class="fg-kicker">The Priority Allocator · 10 / 13</p>
+      <h2 class="fg-h2">You Have $500/Month. Where Does It Go?</h2>
       <p class="fg-p">Split it across three goals. Try to land on exactly $500 allocated — no more, no less.</p>
-
       <div class="fg-panel">
         <div class="fg-slide-row">
           <div class="fg-slide-top"><label for="fg-alloc-a">Emergency Fund Top-Off</label><span class="fg-slide-v blue" id="fg-alloc-a-v">$150</span></div>
@@ -205,84 +211,68 @@
           <div class="fg-slide-top"><label for="fg-alloc-c">Retirement</label><span class="fg-slide-v green" id="fg-alloc-c-v">$150</span></div>
           <input id="fg-alloc-c" class="fg-range good" type="range" min="0" max="500" value="150" step="25" aria-label="Retirement allocation">
         </div>
-
-        <div class="fg-priority-status" id="fg-priority-status">
-          <p class="fg-priority-status-t" id="fg-priority-status-t">$450 of $500 allocated</p>
+        <div class="fg-priority-status under" id="fg-priority-status">
+          <p class="fg-priority-status-t" id="fg-priority-status-t">$450 Of $500 Allocated</p>
           <p class="fg-priority-status-d" id="fg-priority-status-d">$50 left to assign.</p>
         </div>
       </div>
     </section>
-
-    <!-- ========== 10 · AUTOMATE YOUR GOAL FUNDING ========== -->
-    <section class="fg-sec fg-center fg-reveal" data-step="10">
-      <p class="fg-kicker center">Automate It · 10 / 12</p>
-      <h2 class="fg-h2 center">Make the split automatic</h2>
+    <!-- ========== 11 · AUTOMATE YOUR GOAL FUNDING ========== -->
+    <section class="fg-sec fg-center fg-reveal" data-step="11">
+      <p class="fg-kicker center">Automate It · 11 / 13</p>
+      <h2 class="fg-h2 center">Make The Split Automatic</h2>
       <p class="fg-sub center">The easiest way to actually hit your goals is to stop deciding every single payday. Flip the switch to power up the pipeline.</p>
-
       <button type="button" class="fg-toggle" id="fg-toggle" aria-pressed="false"><span class="fg-toggle-knob"></span><span class="fg-toggle-lab" id="fg-toggle-lab">Auto-Fund Off</span></button>
-
       <div class="fg-pipe" id="fg-pipe">
         <div class="fg-pipe-card"><div class="fg-pipe-ico">💵</div><div class="fg-pipe-t">Paycheck Lands</div><div class="fg-pipe-d">Your paycheck hits your checking account like normal.</div></div>
         <div class="fg-pipe-arrow">→</div>
-        <div class="fg-pipe-card"><div class="fg-pipe-ico">🗂️</div><div class="fg-pipe-t">Auto-Split by Goal</div><div class="fg-pipe-d">Set amounts move automatically into your short, medium, and long-term buckets.</div></div>
+        <div class="fg-pipe-card"><div class="fg-pipe-ico">🗂️</div><div class="fg-pipe-t">Auto-Split By Goal</div><div class="fg-pipe-d">Set amounts move automatically into your short, medium, and long-term buckets.</div></div>
         <div class="fg-pipe-arrow">→</div>
-        <div class="fg-pipe-card"><div class="fg-pipe-ico">📈</div><div class="fg-pipe-t">Auto-Invest the Long-Term Share</div><div class="fg-pipe-d">The long-term bucket buys investments automatically — no decision required.</div></div>
+        <div class="fg-pipe-card"><div class="fg-pipe-ico">📈</div><div class="fg-pipe-t">Auto-Invest The Long-Term Share</div><div class="fg-pipe-d">The long-term bucket buys investments automatically — no decision required.</div></div>
       </div>
       <p class="fg-autopilot-msg" id="fg-autopilot-msg"></p>
     </section>
-
-    <!-- ========== 11 · RECAP ========== -->
-    <section class="fg-sec fg-reveal" data-step="11">
-      <p class="fg-kicker">Recap · 11 / 12</p>
-      <h2 class="fg-h2">Here's what you now know</h2>
+    <!-- ========== 12 · RECAP ========== -->
+    <section class="fg-sec fg-reveal" data-step="12">
+      <p class="fg-kicker">Recap · 12 / 13</p>
+      <h2 class="fg-h2">Here's What You Now Know</h2>
       <p class="fg-p">The whole lesson, in six lines.</p>
-
       <div class="fg-recap">
         <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>The same dollar goal needs very different monthly savings depending on your timeline.</span></div>
-        <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>A real goal is <b>SMART</b>: Specific, Measurable, Achievable, Relevant, and Time-bound.</span></div>
-        <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>Every goal fits Short-Term (0-1yr), Medium-Term (1-5yrs), or Long-Term (5+yrs).</span></div>
+        <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>A real goal is <b>SMART</b>: Specific, Measurable, Achievable, Relevant, and Time-Bound.</span></div>
+        <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>Every goal fits Short-Term (0-1 year), Medium-Term (1-5 years), or Long-Term (5+ years).</span></div>
         <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>Where you keep the money — and how much risk it takes — should match that timeline.</span></div>
         <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>Reviewing goals yearly and giving each one a real priority beats chasing all of them at once.</span></div>
         <div class="fg-recap-item"><span class="fg-recap-check">✓</span><span>Automating the split across goals means progress happens whether or not you think about it.</span></div>
       </div>
-      <div class="fg-next-move">Your next move: <b>write down one short, one medium, and one long-term goal — with a real number and date attached.</b></div>
+      <div class="fg-next-move">Your next move: <b>write down one short, one medium, and one long-term goal — each with a real number and date attached.</b></div>
     </section>
-
-    <!-- ========== 12 · CERTIFICATE ========== -->
-    <section class="fg-sec fg-center fg-reveal" data-step="12">
-      <p class="fg-kicker center">Certified · 12 / 12</p>
-      <div class="fg-cert">
-        <div class="fg-cert-border"></div>
-        <span class="fg-cert-pill">🏆 Certificate of Completion</span>
-        <p class="fg-cert-cert">This certifies that</p>
-        <h2 class="fg-cert-name">Goals Mapped</h2>
-        <p class="fg-cert-body">has completed <span class="fg-tw">TURNIT</span> Financial Foundations: Setting Financial Goals, and now knows how to define, timeframe, and fund short, medium, and long-term goals.</p>
-        <div class="fg-cert-line"></div>
-        <div class="fg-done-row streak"><div class="fg-done-ico">🔥</div><div><b>Streak Extended</b><span>Another day, another lesson down.</span></div></div>
-        <div class="fg-done-row ach"><div class="fg-done-ico">🏆</div><div><b>Achievement: Goal Certified</b><span>You mastered short, medium, and long-term goal-setting.</span></div></div>
-        <div class="fg-done-btns">
-          <a class="fg-btn primary" href="NEXT_LESSON_URL" target="_top">Next Lesson →</a>
-          <button class="fg-btn ghost" id="fg-restart">↺ Restart Lesson</button>
-        </div>
+    <!-- ========== 13 · COMPLETE ========== -->
+    <section class="fg-sec fg-center fg-reveal" data-step="13">
+      <p class="fg-kicker center">Lesson Complete · 13 / 13</p>
+      <span class="fg-hero-ico">🚀</span>
+      <h2 class="fg-h2 center">You've Finished The Lesson</h2>
+      <p class="fg-sub center">You now know how to turn a vague wish into a SMART goal, match each goal to the right timeframe and account, and fund them all automatically.</p>
+      <!-- Continue prompt. Wording swaps automatically if the lesson is in full screen. -->
+      <div class="fg-finish">
+        <span class="fg-finish-arrow" id="fg-fin-arrow" aria-hidden="true">↓</span>
+        <p class="fg-finish-lead" id="fg-fin-lead">Scroll Down To Continue</p>
+        <p class="fg-finish-sub" id="fg-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
       </div>
+      <p class="fg-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
       <p class="fg-quote">"A GOAL PROPERLY SET <span class="fg-green">IS HALFWAY REACHED.</span>"<br><span class="fg-quote-by">— ZIG ZIGLAR</span></p>
     </section>
-
     <p class="fg-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Allocation and growth figures in this lesson are simplified, hypothetical illustrations, not personalized advice or a prediction.</p>
-
     <!-- BOTTOM NAV (Previous / Next) -->
     <div class="fg-nav" id="fg-nav">
       <button type="button" class="fg-nav-btn prev" id="fg-prev"><span aria-hidden="true">←</span> Previous</button>
       <span class="fg-nav-hint" id="fg-nav-hint"></span>
       <button type="button" class="fg-nav-btn next" id="fg-next">Next <span aria-hidden="true">→</span></button>
     </div>
-
   </div>
 </div>
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
   #tn-fg{
     --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
     --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
@@ -296,21 +286,18 @@
   #tn-fg .fg-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
   #tn-fg .fg-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
   #tn-fg .fg-reveal.in{opacity:1; transform:none;}
-
   /* header */
   #tn-fg .fg-top{padding:6px 2px 4px; margin-bottom:16px;}
   #tn-fg .fg-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
   #tn-fg .fg-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
   #tn-fg .fg-bico{display:flex;}
-  #tn-fg .fg-word,#tn-fg .fg-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  #tn-fg .fg-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-fg .fg-word{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent; font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
   #tn-fg .fg-bsub{color:var(--ink2); font-weight:500;}
   #tn-fg .fg-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
   #tn-fg #fg-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
   #tn-fg .fg-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
   #tn-fg .fg-meta #fg-slide-label{color:var(--ink2);}
   #tn-fg .fg-meta #fg-slide-count{color:var(--mut);}
-
   /* sections + type */
   #tn-fg .fg-sec{padding:20px 0 8px; border-bottom:none;}
   #tn-fg .fg-sec.fg-hide{display:none;}
@@ -319,16 +306,25 @@
   #tn-fg .fg-kicker.center{text-align:center;}
   #tn-fg .fg-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
   #tn-fg .fg-h2.center{text-align:center;}
-  #tn-fg .fg-tw{font-style:italic;}
   #tn-fg .fg-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
   #tn-fg .fg-p b{color:var(--ink); font-weight:700;}
   #tn-fg .fg-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
-
   #tn-fg .fg-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
   #tn-fg .fg-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
   #tn-fg .fg-note b{color:var(--ink); font-weight:700;}
   #tn-fg .fg-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
-
+  /* slide 1 — title & vocabulary */
+  #tn-fg .fg-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.8vw,44px); line-height:1.14; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
+  #tn-fg .fg-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-fg .fg-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-fg .fg-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-fg .fg-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-fg .fg-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-fg .fg-vocab-chip:hover{background:#DCF0E5;}
+  #tn-fg .fg-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-fg .fg-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:13px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-fg .fg-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-fg .fg-vocab-note{display:block; font-size:12.5px; color:var(--mut); line-height:1.45;}
   /* slide rows / ranges (shared) */
   #tn-fg .fg-slide-row{margin-top:16px;}
   #tn-fg .fg-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
@@ -340,8 +336,7 @@
   #tn-fg .fg-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
   #tn-fg .fg-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
   #tn-fg .fg-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:8px;}
-
-  /* slide 1 — the $6,000 goal */
+  /* slide 2 — the $6,000 goal */
   #tn-fg .fg-goal-hero{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,7.5vw,38px); color:var(--ink); margin-bottom:6px;}
   #tn-fg .fg-goal-monthly{text-align:center; margin-bottom:16px;}
   #tn-fg .fg-goal-monthly b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,6vw,28px); color:var(--b);}
@@ -352,29 +347,28 @@
   #tn-fg .fg-goal-zone.long{background:var(--tint); border:1.5px solid var(--selbd);}
   #tn-fg .fg-goal-zone-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 4px; color:var(--ink);}
   #tn-fg .fg-goal-zone-d{font-size:12.5px; color:var(--ink2); margin:0;}
-
-  /* slide 2 — SMART gauge */
-  #tn-fg .fg-gauge{position:relative; max-width:300px; margin:0 auto 8px;}
-  #tn-fg .fg-gauge-num{position:absolute; left:0; right:0; top:52%; text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,7vw,36px); line-height:1;}
-  #tn-fg .fg-gauge-lab{position:absolute; left:0; right:0; top:74%; text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2);}
-  #tn-fg .fg-smart-toggles{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:10px;}
+  /* slide 3 — SMART gauge (readout sits BELOW the dial, never over the needle) */
+  #tn-fg .fg-gauge{max-width:300px; margin:0 auto 6px;}
+  #tn-fg .fg-gauge-svg{line-height:0;}
+  #tn-fg .fg-gauge-readout{margin-top:10px; padding-top:12px; border-top:1px solid var(--line); text-align:center;}
+  #tn-fg .fg-gauge-num{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,7vw,36px); line-height:1.1; color:var(--ink);}
+  #tn-fg .fg-gauge-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink2); margin-top:2px;}
+  #tn-fg .fg-smart-toggles{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:14px;}
   #tn-fg .fg-smart-pill{font-family:'Inter',sans-serif; font-weight:600; font-size:11.5px; color:var(--ink2); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:10px; padding:10px 4px; cursor:pointer; transition:all .18s; text-align:center;}
   #tn-fg .fg-smart-pill b{font-family:'Poppins',sans-serif; font-weight:800; color:var(--b);}
   #tn-fg .fg-smart-pill.on{border-color:var(--selbd); background:var(--tint); color:var(--ink);}
   #tn-fg .fg-smart-pill.on b{color:var(--g);}
-
-  /* slide 3 — three horizons (stacked, not grid) */
+  /* slide 4 — three horizons (stacked, not grid) */
   #tn-fg .fg-horizons{display:flex; flex-direction:column; gap:9px;}
   #tn-fg .fg-horizon-chip{display:flex; align-items:center; gap:10px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:13px 15px; cursor:pointer; transition:all .18s;}
   #tn-fg .fg-horizon-chip b{font-family:'Poppins',sans-serif; font-size:14.5px; color:var(--ink);}
   #tn-fg .fg-horizon-chip span{margin-left:auto; font-size:12px; color:var(--mut); font-weight:600;}
-  #tn-fg .fg-horizon-dot{width:12px; height:12px; border-radius:50%; flex:none;}
+  #tn-fg .fg-horizon-dot{width:12px; height:12px; border-radius:50%; flex:none; margin-left:0;}
   #tn-fg .fg-horizon-dot.short{background:var(--no);} #tn-fg .fg-horizon-dot.medium{background:var(--gold);} #tn-fg .fg-horizon-dot.long{background:var(--g);}
   #tn-fg .fg-horizon-chip.on{border-color:var(--b); background:#EAF1FA;}
   #tn-fg .fg-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
   #tn-fg .fg-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px;}
   #tn-fg .fg-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
-
   /* sorter (3-way + 2-way) */
   #tn-fg .fg-sort{display:flex; flex-direction:column; gap:10px;}
   #tn-fg .fg-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
@@ -388,20 +382,18 @@
   #tn-fg .fg-sort-row.done .fg-sort-btns button{opacity:.4; pointer-events:none;}
   #tn-fg .fg-sort-row.done .fg-sort-btns button.picked{opacity:1;}
   #tn-fg .fg-mrow{flex-wrap:wrap;}
-  #tn-fg .fg-myth-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.45; margin:4px 0 0; display:none;}
+  #tn-fg .fg-myth-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.5; margin:4px 0 0; display:none;}
   #tn-fg .fg-myth-why b{font-family:'Poppins',sans-serif;}
   #tn-fg .fg-sort-row.done .fg-myth-why{display:block;}
-
-  /* slide 5 — bucket explorer */
+  /* slide 6 — bucket explorer */
   #tn-fg .fg-buckets{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px;}
-  #tn-fg .fg-bucket{display:flex; flex-direction:column; align-items:center; gap:6px; font-family:'Poppins',sans-serif; font-weight:700; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 8px; cursor:pointer; transition:all .18s; font-size:26px;}
+  #tn-fg .fg-bucket{display:flex; flex-direction:column; align-items:center; gap:6px; font-family:'Poppins',sans-serif; font-weight:700; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 8px; cursor:pointer; transition:all .18s; font-size:26px; color:var(--ink);}
   #tn-fg .fg-bucket span{font-size:12px; line-height:1.3;}
   #tn-fg .fg-bucket.on{border-color:var(--b); background:#EAF1FA;}
   #tn-fg .fg-bucket-result{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:14px; text-align:center;}
   #tn-fg .fg-bucket-result-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px; color:var(--ink);}
   #tn-fg .fg-bucket-result-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
-
-  /* slide 6 — allocation bar */
+  /* slide 7 — allocation bar */
   #tn-fg .fg-alloc-badge{text-align:center; margin-bottom:14px;}
   #tn-fg .fg-alloc-badge b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(19px,5vw,24px); color:var(--ink);}
   #tn-fg .fg-alloc-badge span{font-size:12.5px; color:var(--mut); font-weight:600;}
@@ -414,7 +406,6 @@
   #tn-fg .fg-alloc-legend i{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; vertical-align:middle;}
   #tn-fg .fg-alloc-legend i.cash{background:#9AA8B6;} #tn-fg .fg-alloc-legend i.bonds{background:var(--gold);} #tn-fg .fg-alloc-legend i.stocks{background:var(--g);}
   #tn-fg .fg-alloc-legend b{font-family:'Poppins',sans-serif; color:var(--ink);}
-
   /* spot-the-habit tiles */
   #tn-fg .fg-traps{display:grid; grid-template-columns:1fr 1fr; gap:11px;}
   #tn-fg .fg-trap-tile{position:relative; text-align:left; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:15px; padding:18px 16px; min-height:92px; cursor:pointer; transition:all .2s;}
@@ -425,8 +416,7 @@
   #tn-fg .fg-trap-badge{position:absolute; top:12px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; padding:3px 9px; border-radius:99px; text-transform:uppercase; letter-spacing:.04em;}
   #tn-fg .fg-trap-tile.safe .fg-trap-badge{background:var(--g); color:#fff;}
   #tn-fg .fg-trap-tile.risky .fg-trap-badge{background:var(--no); color:#fff;}
-
-  /* slide 9 — priority allocator status */
+  /* slide 10 — priority allocator status */
   #tn-fg .fg-priority-status{border-radius:14px; padding:16px 18px; margin-top:18px; text-align:center; transition:background .3s ease, border-color .3s ease;}
   #tn-fg .fg-priority-status.under{background:var(--goldbg); border:1.5px solid var(--goldbd);}
   #tn-fg .fg-priority-status.over{background:var(--nobg); border:1.5px solid var(--nobd);}
@@ -436,7 +426,6 @@
   #tn-fg .fg-priority-status.over .fg-priority-status-t{color:var(--no);}
   #tn-fg .fg-priority-status.perfect .fg-priority-status-t{color:var(--g);}
   #tn-fg .fg-priority-status-d{font-size:13px; color:var(--ink2); margin:0; line-height:1.5;}
-
   /* automate */
   #tn-fg .fg-toggle{display:inline-flex; align-items:center; gap:10px; background:#E4E9EE; border:none; border-radius:99px; padding:8px 18px 8px 8px; cursor:pointer; margin:4px auto 22px; transition:background .25s;}
   #tn-fg .fg-toggle-knob{width:26px; height:26px; border-radius:50%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,.2); transition:transform .25s;}
@@ -454,7 +443,6 @@
   #tn-fg .fg-pipe.on .fg-pipe-ico{background:var(--g);}
   #tn-fg .fg-autopilot-msg{font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--g); margin:20px 0 0; min-height:22px; opacity:0; transition:opacity .3s;}
   #tn-fg .fg-autopilot-msg.show{opacity:1;}
-
   /* recap */
   #tn-fg .fg-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
   #tn-fg .fg-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
@@ -463,31 +451,21 @@
   #tn-fg .fg-recap-item b{font-weight:700;}
   #tn-fg .fg-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
   #tn-fg .fg-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
-
-  /* certificate */
-  #tn-fg .fg-cert{position:relative; background:linear-gradient(180deg,#F4F9FC,#fff); border:1px solid #CFE0EE; border-radius:22px; padding:34px 26px 28px; overflow:hidden; box-shadow:0 20px 50px -34px rgba(21,104,174,.6);}
-  #tn-fg .fg-cert-border{position:absolute; inset:0; border-radius:22px; border:2px solid transparent; background:linear-gradient(135deg,var(--b),var(--g)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.5;}
-  #tn-fg .fg-cert-pill{display:inline-block; background:#E9F1F8; color:var(--b); font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:99px; padding:6px 14px; margin-bottom:16px;}
-  #tn-fg .fg-cert-cert{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 6px;}
-  #tn-fg .fg-cert-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.6vw,32px); margin:0 0 12px; color:var(--ink);}
-  #tn-fg .fg-cert-body{font-size:14.5px; color:var(--ink2); margin:0 auto 4px; max-width:440px; line-height:1.55;}
-  #tn-fg .fg-cert-line{width:120px; height:1px; background:var(--line); margin:18px auto;}
-  #tn-fg .fg-done-row{display:flex; align-items:center; gap:13px; text-align:left; border-radius:14px; padding:13px 16px; margin:10px auto; max-width:420px;}
-  #tn-fg .fg-done-row.streak{background:var(--goldbg); border:1px solid var(--goldbd);}
-  #tn-fg .fg-done-row.ach{background:var(--tint); border:1px solid var(--selbd);}
-  #tn-fg .fg-done-ico{font-size:20px; flex:none;}
-  #tn-fg .fg-done-row b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
-  #tn-fg .fg-done-row span{font-size:12.5px; color:var(--ink2);}
-  #tn-fg .fg-done-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
-  #tn-fg .fg-btn{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; text-decoration:none; border-radius:12px; padding:12px 20px; cursor:pointer; transition:transform .15s; border:none;}
-  #tn-fg .fg-btn.primary{background:linear-gradient(135deg,var(--b),var(--g)); color:#fff;}
-  #tn-fg .fg-btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
-  #tn-fg .fg-btn:hover{transform:translateY(-2px);}
+  #tn-fg .fg-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  /* scroll-down prompt (last slide) */
+  #tn-fg .fg-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-fg .fg-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:fg-bob 1.6s ease-in-out infinite;}
+  #tn-fg .fg-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--ink); margin:10px 0 6px;}
+  #tn-fg .fg-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-fg .fg-finish-sub b{color:var(--ink); font-weight:700;}
+  #tn-fg .fg-finish-arrow.up{animation:fg-bob-up 1.6s ease-in-out infinite;}
+  @keyframes fg-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes fg-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-fg .fg-fs-note{max-width:430px; margin:10px auto 0; font-size:11.5px; color:var(--mut); text-align:center; line-height:1.5;}
   #tn-fg .fg-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
   #tn-fg .fg-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
   #tn-fg .fg-green{color:var(--g);}
   #tn-fg .fg-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
-
   /* bottom nav */
   #tn-fg .fg-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
   #tn-fg .fg-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
@@ -499,7 +477,6 @@
   #tn-fg .fg-nav-btn.next:hover{transform:translateY(-2px);}
   #tn-fg .fg-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
   #tn-fg .fg-nav-btn.next.locked:hover{transform:none;}
-
   @media (max-width:540px){
     #tn-fg .fg-wrap{padding:12px 14px 30px;}
     #tn-fg .fg-traps{grid-template-columns:1fr;}
@@ -516,18 +493,26 @@
   @media (prefers-reduced-motion:reduce){
     #tn-fg .fg-reveal{opacity:1 !important; transform:none !important;}
     #tn-fg #fg-bar{transition:none;}
+    #tn-fg .fg-finish-arrow,#tn-fg .fg-finish-arrow.up{animation:none !important;}
   }
 </style>
-
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
 (function(){
   var root=document.getElementById('tn-fg'); if(!root) return;
   root.querySelectorAll('.fg-reveal').forEach(function(el){ el.classList.add('in'); });
-
   function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
-
-  /* 1 · the $6,000 goal */
+  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
+  var vocabDef=root.querySelector('#fg-vocab-def');
+  root.querySelectorAll('#fg-vocab-chips .fg-vocab-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      root.querySelectorAll('#fg-vocab-chips .fg-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
+      chip.classList.add('on');
+      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
+      postHeight();
+    });
+  });
+  /* 2 · the $6,000 goal */
   var goalSlider=root.querySelector('#fg-goal-months'), goalSliderV=root.querySelector('#fg-goal-months-v'),
       goalMonthlyV=root.querySelector('#fg-goal-monthly-v'), goalZone=root.querySelector('#fg-goal-zone'),
       goalZoneT=root.querySelector('#fg-goal-zone-t'), goalZoneD=root.querySelector('#fg-goal-zone-d');
@@ -552,8 +537,7 @@
     postHeight();
   }
   if(goalSlider){ goalSlider.addEventListener('input',goalCalc); goalCalc(); }
-
-  /* 2 · SMART goal score gauge */
+  /* 3 · SMART goal score gauge */
   var smartScore=root.querySelector('#fg-smart-score'), smartLab=root.querySelector('#fg-smart-lab'),
       smartNeedle=root.querySelector('#fg-needle'), smartArc=root.querySelector('#fg-gauge-arc');
   var SMART_ARC=377;
@@ -570,16 +554,18 @@
     smartLab.textContent = pct===0?'Vague Wish' : pct<60?'Getting There' : pct<100?'Almost SMART' : 'Fully SMART Goal';
     postHeight();
   }
+  var smartT=root.querySelector('#fg-smart-t'), smartD=root.querySelector('#fg-smart-d');
   root.querySelectorAll('#fg-smart-toggles .fg-smart-pill').forEach(function(p){
     p.addEventListener('click',function(){
       var k=p.getAttribute('data-k');
       p.classList.toggle('on');
       if(p.classList.contains('on')) smartOn[k]=1; else delete smartOn[k];
+      smartT.textContent=p.getAttribute('data-t');
+      smartD.textContent=p.getAttribute('data-d');
       smartCalc();
     });
   });
-
-  /* 3 · three time horizons */
+  /* 4 · three time horizons */
   var horizonsReviewed={}, horizonsT=root.querySelector('#fg-horizons-t'),
       horizonsD=root.querySelector('#fg-horizons-d'), horizonsCount=root.querySelector('#fg-horizons-count');
   root.querySelectorAll('#fg-horizons .fg-horizon-chip').forEach(function(c){
@@ -592,8 +578,7 @@
       postHeight();
     });
   });
-
-  /* 4 · match the goal to the timeframe */
+  /* 5 · match the goal to the timeframe */
   var matchDone=0, matchCount=root.querySelector('#fg-match-count');
   root.querySelectorAll('#fg-match .fg-sort-row').forEach(function(row){
     var ans=row.getAttribute('data-answer');
@@ -607,12 +592,11 @@
       });
     });
   });
-
-  /* 5 · where to keep the money */
+  /* 6 · where to keep the money */
   var bucketResult=root.querySelector('#fg-bucket-result'), bucketsCount=root.querySelector('#fg-buckets-count');
   var fgBucketCopy={
     short:{t:'🏦 Short-Term → High-Yield Savings', d:'Money you need within a year should stay safe and easy to access — a high-yield savings account, never the stock market.'},
-    medium:{t:'⚖️ Medium-Term → A Balanced Mix', d:'With 1-5 years, a mix of CDs, bonds, and a little conservative growth can outpace inflation without too much risk this close to the deadline.'},
+    medium:{t:'⚖️ Medium-Term → A Balanced Mix', d:'With 1-5 years to work with, a mix of CDs, bonds, and a little conservative growth can outpace inflation without taking on full market risk before the deadline.'},
     long:{t:'📈 Long-Term → Growth-Focused Investing', d:'With 5+ years of runway, a diversified, stock-heavy portfolio has time to ride out short-term dips in exchange for real long-term growth.'}
   };
   var bucketsSeen={};
@@ -627,8 +611,7 @@
       postHeight();
     });
   });
-
-  /* 6 · risk-timeline dial */
+  /* 7 · risk-timeline dial */
   var years6=root.querySelector('#fg-years6'), allocYears=root.querySelector('#fg-alloc-years'),
       allocRisk=root.querySelector('#fg-alloc-risk'), allocCash=root.querySelector('#fg-alloc-cash'),
       allocBonds=root.querySelector('#fg-alloc-bonds'), allocStocks=root.querySelector('#fg-alloc-stocks'),
@@ -636,9 +619,8 @@
       allocStocksV=root.querySelector('#fg-alloc-stocks-v');
   function allocCalc(){
     var years=+years6.value;
-    allocYears.textContent = years===0 ? 'Need it now' : years+' year'+(years===1?'':'s')+' away';
+    allocYears.textContent = years===0 ? 'Need It Now' : years+' Year'+(years===1?'':'s')+' Away';
     allocRisk.textContent = years<=2?'Very Conservative': years<=5?'Conservative': years<=10?'Balanced':'Growth-Focused';
-
     var stocks=Math.min(85, 5+years*5);
     var bonds=Math.min(25, 10+years*1);
     var cash=100-stocks-bonds;
@@ -653,8 +635,7 @@
     postHeight();
   }
   if(years6){ years6.addEventListener('input',allocCalc); allocCalc(); }
-
-  /* 7 · myth or fact */
+  /* 8 · myth or fact */
   var mythDone=0, mythCount=root.querySelector('#fg-myth-count');
   root.querySelectorAll('#fg-myth .fg-sort-row').forEach(function(row){
     var ans=row.getAttribute('data-answer');
@@ -663,13 +644,12 @@
         if(row.classList.contains('done')) return;
         var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
         row.classList.add('done', pick===ans?'correct':'wrong');
-        mythDone++; mythCount.textContent='Answered '+mythDone+' of 3';
+        mythDone++; mythCount.textContent='Answered '+mythDone+' of 6';
         postHeight();
       });
     });
   });
-
-  /* 8 · spot the red flags */
+  /* 9 · spot the red flags */
   var trapsRevealed=0, trapsCount=root.querySelector('#fg-traps-count');
   root.querySelectorAll('#fg-traps .fg-trap-tile').forEach(function(t){
     t.addEventListener('click',function(){
@@ -683,8 +663,7 @@
       postHeight();
     });
   });
-
-  /* 9 · priority allocator */
+  /* 10 · priority allocator */
   var allocA=root.querySelector('#fg-alloc-a'), allocB=root.querySelector('#fg-alloc-b'), allocC=root.querySelector('#fg-alloc-c'),
       allocAV=root.querySelector('#fg-alloc-a-v'), allocBV=root.querySelector('#fg-alloc-b-v'), allocCV=root.querySelector('#fg-alloc-c-v'),
       priorityStatus=root.querySelector('#fg-priority-status'), priorityStatusT=root.querySelector('#fg-priority-status-t'),
@@ -693,24 +672,21 @@
     var a=+allocA.value, b=+allocB.value, c=+allocC.value;
     allocAV.textContent='$'+a; allocBV.textContent='$'+b; allocCV.textContent='$'+c;
     var total=a+b+c;
+    priorityStatusT.textContent='$'+total+' Of $500 Allocated';
     if(total===500){
       priorityStatus.className='fg-priority-status perfect';
-      priorityStatusT.textContent='$500 of $500 allocated';
       priorityStatusD.textContent='Perfectly allocated — every dollar has a job.';
     } else if(total<500){
       priorityStatus.className='fg-priority-status under';
-      priorityStatusT.textContent='$'+total+' of $500 allocated';
       priorityStatusD.textContent='$'+(500-total)+' left to assign.';
     } else {
       priorityStatus.className='fg-priority-status over';
-      priorityStatusT.textContent='$'+total+' of $500 allocated';
       priorityStatusD.textContent='Over by $'+(total-500)+' — pull one slider back down.';
     }
     postHeight();
   }
   if(allocA&&allocB&&allocC){ allocA.addEventListener('input',priorityCalc); allocB.addEventListener('input',priorityCalc); allocC.addEventListener('input',priorityCalc); priorityCalc(); }
-
-  /* 10 · automate goal funding */
+  /* 11 · automate goal funding */
   var toggle=root.querySelector('#fg-toggle'), toggleLab=root.querySelector('#fg-toggle-lab'),
       pipe=root.querySelector('#fg-pipe'), apMsg=root.querySelector('#fg-autopilot-msg');
   if(toggle) toggle.addEventListener('click',function(){
@@ -721,19 +697,60 @@
     apMsg.classList.toggle('show',on);
     postHeight();
   });
-
   window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
 })();
 </script>
-
+<script>
+/* ============================================================
+     FULL-SCREEN AWARE PROMPT (last slide)
+     If the lesson is expanded to full screen, "scroll down" is
+     wrong — the learner has to close it first. This swaps the
+     wording and flips the arrow upward toward the ✕ button.
+     ============================================================ */
+(function(){
+  var arrow=document.getElementById('fg-fin-arrow');
+  var lead=document.getElementById('fg-fin-lead');
+  var sub=document.getElementById('fg-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={
+    normal:{ arrow:'↓', up:false, lead:'Scroll Down To Continue',
+             sub:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.' },
+    full:{   arrow:'↑', up:true,  lead:'Close Full Screen To Continue',
+             sub:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.' }
+  };
+  var last=null;
+  function isFullScreen(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{
+      if(!window.screen) return false;
+      var h=window.screen.availHeight||window.screen.height;
+      var w=window.screen.availWidth||window.screen.width;
+      return (window.innerHeight >= h-130) && (window.innerWidth >= w-60);
+    }catch(e){ return false; }
+  }
+  function apply(){
+    var key=isFullScreen()?'full':'normal';
+    if(key===last) return;
+    last=key;
+    var c=COPY[key];
+    arrow.textContent=c.arrow;
+    arrow.classList.toggle('up', c.up);
+    lead.textContent=c.lead;
+    sub.innerHTML=c.sub;
+  }
+  window.addEventListener('resize',apply);
+  document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700);
+  apply();
+})();
+</script>
 <!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
 (function(){
   var root=document.getElementById('tn-fg'); if(!root) return;
-  var TOTAL=12, current=1;
-
+  var TOTAL=13, current=1;
   var bar=root.querySelector('#fg-bar');
   var labelEl=root.querySelector('#fg-slide-label');
   var countEl=root.querySelector('#fg-slide-count');
@@ -741,19 +758,15 @@
   var nextBtn=root.querySelector('#fg-next');
   var hintEl=root.querySelector('#fg-nav-hint');
   var disclaimer=root.querySelector('.fg-disclaimer');
-
-  var labels={1:'The $6,000 Goal',2:'The SMART Score',3:'Three Horizons',4:'Match the Goal',5:'Where It Lives',6:'The Risk Dial',7:'Myth or Fact',8:'Spot the Red Flags',9:'The Priority Allocator',10:'Automate It',11:'Recap',12:'Certified'};
-  var reqHints={1:'Explore Short, Medium, and Long zones',2:'Toggle all 5 SMART elements on',3:'Review all 3 to continue',4:'Sort all 5 to continue',5:'Explore all 3 to continue',6:'Drag to both ends of the slider',7:'Answer all 3 to continue',8:'Reveal all 4 to continue',9:'Allocate exactly $500',10:'Flip the switch to continue'};
-
-  var done={11:true,12:true};
+  var labels={1:'Key Vocabulary',2:'The $6,000 Goal',3:'The SMART Score',4:'Three Horizons',5:'Match The Goal',6:'Where It Lives',7:'The Risk Dial',8:'Myth Or Fact',9:'Spot The Red Flags',10:'The Priority Allocator',11:'Automate It',12:'Recap',13:'Complete'};
+  var reqHints={2:'Explore the Short, Medium, and Long zones',3:'Toggle all 5 SMART elements on',4:'Review all 3 to continue',5:'Sort all 5 to continue',6:'Explore all 3 to continue',7:'Drag to both ends of the slider',8:'Answer all 6 to continue',9:'Reveal all 4 to continue',10:'Allocate exactly $500',11:'Flip the switch to continue'};
+  var done={1:true,12:true,13:true};
   var secByStep={};
   root.querySelectorAll('.fg-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
-
   function count(sel){ return root.querySelectorAll(sel).length; }
   function keys(o){ return Object.keys(o).length; }
   function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
   function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
-
   function updateNav(){
     prevBtn.classList.toggle('is-disabled', current<=1);
     if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
@@ -764,7 +777,6 @@
       hintEl.textContent = ok ? '' : (reqHints[current]||'');
     }
   }
-
   function show(step){
     current=Math.max(1,Math.min(TOTAL,step));
     for(var k=1;k<=TOTAL;k++){
@@ -778,17 +790,13 @@
     if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
     updateNav(); toTop(); postH();
   }
-
   function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
   function goPrev(){ if(current>1) show(current-1); }
-
   prevBtn.addEventListener('click',goPrev);
   nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
-
   function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
   function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
-
-  // 1 · all three zones (short<12, medium 12-59, long>=60) visited
+  // 2 · all three zones (short<12, medium 12-59, long>=60) visited
   var goalZones={short:false, medium:false, long:false};
   var goalSlider=root.querySelector('#fg-goal-months');
   if(goalSlider) goalSlider.addEventListener('input',function(){
@@ -796,90 +804,76 @@
     if(months<12) goalZones.short=true;
     else if(months<60) goalZones.medium=true;
     else goalZones.long=true;
-    if(goalZones.short && goalZones.medium && goalZones.long) markDone(1);
+    if(goalZones.short && goalZones.medium && goalZones.long) markDone(2);
     else {
       var missing=[];
       if(!goalZones.short) missing.push('Short');
       if(!goalZones.medium) missing.push('Medium');
       if(!goalZones.long) missing.push('Long');
-      liveHint(1,'Still need: '+missing.join(', ')+'-Term');
+      liveHint(2,'Still need: '+missing.join(', ')+'-Term');
     }
   });
-
-  // 2 · all 5 SMART toggles reach ON at least once together (score hits 100%)
+  // 3 · all 5 SMART toggles on at once (score hits 100%)
   var smartOnState={};
   root.querySelectorAll('#fg-smart-toggles .fg-smart-pill').forEach(function(p){
     p.addEventListener('click',function(){
       var k=p.getAttribute('data-k');
       if(p.classList.contains('on')) smartOnState[k]=1; else delete smartOnState[k];
-      if(keys(smartOnState)>=5) markDone(2);
-      else liveHint(2,'Toggled '+keys(smartOnState)+' of 5 — toggle all on to continue');
+      if(keys(smartOnState)>=5) markDone(3);
+      else liveHint(3,'Toggled '+keys(smartOnState)+' of 5 — toggle all on to continue');
     });
   });
-
-  // 3 · all 3 horizons reviewed
+  // 4 · all 3 horizons reviewed
   var horizons={};
   root.querySelectorAll('#fg-horizons .fg-horizon-chip').forEach(function(c){
     c.addEventListener('click',function(){ horizons[c.getAttribute('data-t')]=1;
-      if(keys(horizons)>=3) markDone(3); else liveHint(3,'Reviewed '+keys(horizons)+' of 3 — review all to continue'); });
+      if(keys(horizons)>=3) markDone(4); else liveHint(4,'Reviewed '+keys(horizons)+' of 3 — review all to continue'); });
   });
-
-  // 4 · all 5 match rows sorted
+  // 5 · all 5 match rows sorted
   root.querySelectorAll('#fg-match .fg-sort-row button').forEach(function(b){
     b.addEventListener('click',function(){ var n=count('#fg-match .fg-sort-row.done');
-      if(n>=5) markDone(4); else liveHint(4,'Sorted '+n+' of 5 — sort all to continue'); });
+      if(n>=5) markDone(5); else liveHint(5,'Sorted '+n+' of 5 — sort all to continue'); });
   });
-
-  // 5 · all 3 buckets explored
+  // 6 · all 3 buckets explored
   var fgBuckets={};
   root.querySelectorAll('#fg-buckets .fg-bucket').forEach(function(btn){
     btn.addEventListener('click',function(){ fgBuckets[btn.getAttribute('data-k')]=1;
-      if(keys(fgBuckets)>=3) markDone(5); else liveHint(5,'Explored '+keys(fgBuckets)+' of 3 — explore all to continue'); });
+      if(keys(fgBuckets)>=3) markDone(6); else liveHint(6,'Explored '+keys(fgBuckets)+' of 3 — explore all to continue'); });
   });
-
-  // 6 · slider dragged to both 0 and 15
+  // 7 · slider dragged to both 0 and 15
   var dialState={min:false,max:false};
   var years6=root.querySelector('#fg-years6');
   if(years6) years6.addEventListener('input',function(){
     var v=+years6.value;
     if(v<=0) dialState.min=true;
     if(v>=15) dialState.max=true;
-    if(dialState.min && dialState.max) markDone(6);
-    else liveHint(6, !dialState.min ? 'Now drag it all the way down to 0' : 'Now drag it all the way up to 15');
+    if(dialState.min && dialState.max) markDone(7);
+    else liveHint(7, !dialState.min ? 'Now drag it all the way down to 0' : 'Now drag it all the way up to 15');
   });
-
-  // 7 · all 3 myth answers
+  // 8 · all 6 myth answers
   root.querySelectorAll('#fg-myth .fg-sort-row button').forEach(function(b){
     b.addEventListener('click',function(){ var n=count('#fg-myth .fg-sort-row.done');
-      if(n>=3) markDone(7); else liveHint(7,'Answered '+n+' of 3 — answer all to continue'); });
+      if(n>=6) markDone(8); else liveHint(8,'Answered '+n+' of 6 — answer all to continue'); });
   });
-
-  // 8 · all 4 habit tiles revealed
+  // 9 · all 4 habit tiles revealed
   root.querySelectorAll('#fg-traps .fg-trap-tile').forEach(function(t){
     t.addEventListener('click',function(){ var n=count('#fg-traps .fg-trap-tile.done');
-      if(n>=4) markDone(8); else liveHint(8,'Revealed '+n+' of 4 — reveal all to continue'); });
+      if(n>=4) markDone(9); else liveHint(9,'Revealed '+n+' of 4 — reveal all to continue'); });
   });
-
-  // 9 · exactly $500 allocated at least once (sticky)
+  // 10 · exactly $500 allocated at least once (sticky)
   var priorityAchieved=false;
   var allocA=root.querySelector('#fg-alloc-a'), allocB=root.querySelector('#fg-alloc-b'), allocC=root.querySelector('#fg-alloc-c');
   function priorityGateCheck(){
     var total=(+allocA.value)+(+allocB.value)+(+allocC.value);
     if(total===500) priorityAchieved=true;
-    if(priorityAchieved) markDone(9); else liveHint(9,'Currently at $'+total+' — adjust to exactly $500');
+    if(priorityAchieved) markDone(10); else liveHint(10,'Currently at $'+total+' — adjust to exactly $500');
   }
   if(allocA) allocA.addEventListener('input',priorityGateCheck);
   if(allocB) allocB.addEventListener('input',priorityGateCheck);
   if(allocC) allocC.addEventListener('input',priorityGateCheck);
-
-  // 10 · auto-fund switched on
+  // 11 · auto-fund switched on
   var toggle=root.querySelector('#fg-toggle');
-  if(toggle) toggle.addEventListener('click',function(){ if(toggle.classList.contains('on')) markDone(10); });
-
-  // restart: reload the (iframed) lesson to a clean slide 1
-  var restart=root.querySelector('#fg-restart');
-  if(restart) restart.addEventListener('click',function(){ try{ window.location.reload(); }catch(e){} });
-
+  if(toggle) toggle.addEventListener('click',function(){ if(toggle.classList.contains('on')) markDone(11); });
   show(1);
 })();
 </script>

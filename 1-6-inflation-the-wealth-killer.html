@@ -3,13 +3,12 @@
      SLIDE / PAGINATED VERSION (Previous / Next — no scrolling).
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-in. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
-
      13 slides, one interactive per page, "Next" locked until the activity is done:
        1 Title & Key Vocabulary (optional, never gated)
-       2 Shrinking Shopping Cart        3 Cash vs Asset Drag Race
-       4 What Causes Inflation?         5 The Cost of a Million (tabs)
-       6 How to Fight Back              7 Wage vs Cost-of-Living Tug of War
-       8 Myth or Fact                   9 Spot the Red Flags
+       2 Shrinking Shopping Cart        3 Cash Vs Asset Drag Race (Run + Reset)
+       4 What Causes Inflation?         5 The Cost Of A Million (tabs)
+       6 How To Fight Back              7 Wage Vs Cost-Of-Living Tug Of War
+       8 Myth Or Fact (6 questions)     9 Spot The Red Flags
        10 The Real Return Leak Finder   11 Automate Your Defense
        12 Recap                         13 Complete (scroll-down prompt)
      >> The last slide directs the learner to GHL's own "Mark As Complete"
@@ -32,7 +31,6 @@
       <p class="in-kicker center">Inflation · 1 / 13</p>
       <h1 class="in-hero-title">INFLATION: <span class="in-hero-grad">THE SILENT WEALTH KILLER</span></h1>
       <p class="in-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-
       <div class="in-vocab-teaser">
         <span class="in-vocab-label">Key terms in this lesson</span>
         <div class="in-vocab-chips" id="in-vocab-chips">
@@ -46,24 +44,22 @@
         <div class="in-vocab-def" id="in-vocab-def">Tap a term above to see what it means.</div>
         <span class="in-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
       </div>
-
       <div class="in-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
-
     <!-- ========== 2 · SHRINKING SHOPPING CART ========== -->
     <section class="in-sec in-reveal" data-step="2">
       <p class="in-kicker">The Shrinking Cart · 2 / 13</p>
       <h2 class="in-h2">Same Cart, Same Money, Less Stuff</h2>
       <p class="in-p">This basket costs <b>$67.50</b> today. Slide forward in time and watch what the exact same items — and the exact same $67.50 — actually get you.</p>
       <div class="in-cart-grid" id="in-cart-grid">
-        <div class="in-cart-item" data-base="3.50"><span class="in-cart-icon">🥛</span><span class="in-cart-name">Gallon of Milk</span><span class="in-cart-price">$3.50</span></div>
+        <div class="in-cart-item" data-base="3.50"><span class="in-cart-icon">🥛</span><span class="in-cart-name">Gallon Of Milk</span><span class="in-cart-price">$3.50</span></div>
         <div class="in-cart-item" data-base="4.00"><span class="in-cart-icon">🥚</span><span class="in-cart-name">Dozen Eggs</span><span class="in-cart-price">$4.00</span></div>
-        <div class="in-cart-item" data-base="45.00"><span class="in-cart-icon">⛽</span><span class="in-cart-name">Tank of Gas</span><span class="in-cart-price">$45.00</span></div>
+        <div class="in-cart-item" data-base="45.00"><span class="in-cart-icon">⛽</span><span class="in-cart-name">Tank Of Gas</span><span class="in-cart-price">$45.00</span></div>
         <div class="in-cart-item" data-base="15.00"><span class="in-cart-icon">🎬</span><span class="in-cart-name">Movie Ticket</span><span class="in-cart-price">$15.00</span></div>
       </div>
       <div class="in-hook-grid">
-        <div class="in-hook-box"><span>You have</span><b>$67.50</b></div>
-        <div class="in-hook-box red"><span id="in-cart-year-lab">Same cart costs</span><b id="in-cart-future">$67.50</b></div>
+        <div class="in-hook-box"><span>You Have</span><b>$67.50</b></div>
+        <div class="in-hook-box red"><span id="in-cart-year-lab">Same Cart Costs</span><b id="in-cart-future">$67.50</b></div>
       </div>
       <div class="in-slide-row">
         <div class="in-slide-top"><label for="in-cart-slider">Fast Forward</label><span class="in-slide-v blue" id="in-cart-slider-v">Today</span></div>
@@ -73,10 +69,10 @@
       <div class="in-note" id="in-cart-note">Your $67.50 currently buys 100% of this exact cart. Keep sliding forward.</div>
       <p class="in-disclaimer-inline">Illustrative example using a rough ~3.5% average annual inflation rate — not a forecast of any specific prices.</p>
     </section>
-    <!-- ========== 2 · CASH VS ASSET DRAG RACE ========== -->
+    <!-- ========== 3 · CASH VS ASSET DRAG RACE ========== -->
     <section class="in-sec in-reveal" data-step="3">
       <p class="in-kicker">The Drag Race · 3 / 13</p>
-      <h2 class="in-h2">Cash vs. Invested Assets</h2>
+      <h2 class="in-h2">Cash Vs. Invested Assets</h2>
       <p class="in-p">Set an inflation rate, then run the race. Cash sitting still and a diversified investment both cross the same 20-year finish line — but they don't end up in the same place.</p>
       <div class="in-panel">
         <div class="in-slide-row">
@@ -84,7 +80,7 @@
           <input id="in-race-rate" class="in-range" type="range" min="1" max="8" value="3" step="1" aria-label="Annual inflation rate">
         </div>
         <div class="in-race-track-wrap">
-          <div class="in-race-label"><span>🚙 Cash in the Bank</span><b id="in-race-a-v">—</b></div>
+          <div class="in-race-label"><span>🚙 Cash In The Bank</span><b id="in-race-a-v">—</b></div>
           <div class="in-race-track" id="in-race-track-a">
             <span class="in-race-mark"></span>
             <span class="in-race-marker" id="in-race-marker-a">🚙</span>
@@ -97,13 +93,16 @@
             <span class="in-race-marker" id="in-race-marker-b">🏎️</span>
           </div>
         </div>
-        <div class="in-race-scale"><span>← Losing ground</span><span>Start value</span><span>Gaining ground →</span></div>
-        <button type="button" class="in-race-btn" id="in-race-run">🏁 Run Race Simulation (20 Years)</button>
+        <div class="in-race-scale"><span>← Losing Ground</span><span>Start Value</span><span>Gaining Ground →</span></div>
+        <div class="in-race-btns">
+          <button type="button" class="in-race-btn" id="in-race-run">🏁 Run Race Simulation (20 Years)</button>
+          <button type="button" class="in-race-btn reset" id="in-race-reset">↺ Reset Race</button>
+        </div>
         <div class="in-race-ticker" id="in-race-ticker">Year 0 / 20</div>
         <div class="in-note">Cash earns a flat 0% nominal return. Invested assets are modeled at a hypothetical 8% average annual return. Both are shown after subtracting inflation.</div>
       </div>
     </section>
-    <!-- ========== 3 · WHAT CAUSES INFLATION? ========== -->
+    <!-- ========== 4 · WHAT CAUSES INFLATION? ========== -->
     <section class="in-sec in-reveal" data-step="4">
       <p class="in-kicker">What Causes It · 4 / 13</p>
       <h2 class="in-h2">Where Inflation Actually Comes From</h2>
@@ -121,9 +120,9 @@
       <div class="in-reveal-box" id="in-causes-box"><b id="in-causes-t">Tap a cause above</b><span id="in-causes-d">Each one pushes prices upward through a different mechanism.</span></div>
       <p class="in-count" id="in-causes-count">Reviewed 0 of 4</p>
     </section>
-    <!-- ========== 4 · THE COST OF A MILLION ========== -->
+    <!-- ========== 5 · THE COST OF A MILLION ========== -->
     <section class="in-sec in-reveal" data-step="5">
-      <p class="in-kicker">The Cost of a Million · 5 / 13</p>
+      <p class="in-kicker">The Cost Of A Million · 5 / 13</p>
       <h2 class="in-h2">What Will "A Million Dollars" Actually Feel Like?</h2>
       <p class="in-p">The number on paper never changes. What it can actually buy does. Tap each horizon to see the difference.</p>
       <div class="in-million-hero">$1,000,000</div>
@@ -138,23 +137,23 @@
       </div>
       <p class="in-count" id="in-tabs-count">Explored 0 of 3</p>
     </section>
-    <!-- ========== 5 · HOW TO FIGHT BACK ========== -->
+    <!-- ========== 6 · HOW TO FIGHT BACK ========== -->
     <section class="in-sec in-reveal" data-step="6">
-      <p class="in-kicker">How to Fight Back · 6 / 13</p>
-      <h2 class="in-h2">Real Ways to Defend Your Money</h2>
+      <p class="in-kicker">How To Fight Back · 6 / 13</p>
+      <h2 class="in-h2">Real Ways To Defend Your Money</h2>
       <p class="in-p">You can't stop inflation — but you can position your money to outrun it. Tap each to learn how.</p>
       <div class="in-fico" id="in-defense">
-        <button type="button" class="in-fchip" data-t="I Bonds & TIPS" data-d="Government-issued bonds whose value is directly adjusted for inflation, so their real purchasing power stays more protected over time.">I Bonds & TIPS</button>
-        <button type="button" class="in-fchip" data-t="Stocks with Pricing Power" data-d="Strong companies can often raise their own prices along with inflation, passing rising costs on to customers and protecting their profits.">Stocks with Pricing Power</button>
+        <button type="button" class="in-fchip" data-t="I Bonds &amp; TIPS" data-d="Government-issued bonds whose value is directly adjusted for inflation, so their real purchasing power stays more protected over time.">I Bonds &amp; TIPS</button>
+        <button type="button" class="in-fchip" data-t="Stocks With Pricing Power" data-d="Strong companies can often raise their own prices along with inflation, passing rising costs on to customers and protecting their profits.">Stocks With Pricing Power</button>
         <button type="button" class="in-fchip" data-t="Real Estate" data-d="Property values and rents have historically tended to rise alongside inflation, which is part of why real estate is a common inflation hedge.">Real Estate</button>
         <button type="button" class="in-fchip" data-t="Diversified Index Funds" data-d="A broad index fund spreads your money across many companies that, collectively, tend to grow revenue and profits faster than inflation over the long run.">Diversified Index Funds</button>
       </div>
       <div class="in-reveal-box" id="in-defense-box"><b id="in-defense-t">Tap an option above</b><span id="in-defense-d">Four common ways investors try to stay ahead of rising prices.</span></div>
       <p class="in-count" id="in-defense-count">Explored 0 of 4</p>
     </section>
-    <!-- ========== 6 · WAGE VS COST-OF-LIVING TUG OF WAR ========== -->
+    <!-- ========== 7 · WAGE VS COST-OF-LIVING TUG OF WAR ========== -->
     <section class="in-sec in-reveal" data-step="7">
-      <p class="in-kicker">The Tug of War · 7 / 13</p>
+      <p class="in-kicker">The Tug Of War · 7 / 13</p>
       <h2 class="in-h2">Did That Raise Actually Help?</h2>
       <p class="in-p">A raise can still leave you worse off if inflation is climbing faster. Move both sliders and watch what really happens to your paycheck's power.</p>
       <div class="in-panel">
@@ -167,40 +166,43 @@
           <input id="in-infl6" class="in-range bad" type="range" min="1" max="8" value="3" step="0.5" aria-label="Current inflation percent">
         </div>
         <div class="in-wage-badge" id="in-wage-badge">
-          <p class="in-wage-badge-t" id="in-wage-badge-t">Move both sliders</p>
+          <p class="in-wage-badge-t" id="in-wage-badge-t">Move Both Sliders</p>
           <p class="in-wage-badge-d" id="in-wage-badge-d">See how your raise stacks up against the rising cost of living.</p>
         </div>
       </div>
     </section>
-    <!-- ========== 7 · MYTH OR FACT ========== -->
+    <!-- ========== 8 · MYTH OR FACT ========== -->
     <section class="in-sec in-reveal" data-step="8">
-      <p class="in-kicker">Myth or Fact · 8 / 13</p>
-      <h2 class="in-h2">Myth or Fact?</h2>
-      <p class="in-p">Three common beliefs about inflation. Tap your answer for each.</p>
+      <p class="in-kicker">Myth Or Fact · 8 / 13</p>
+      <h2 class="in-h2">Myth Or Fact?</h2>
+      <p class="in-p">Six common beliefs about inflation. Tap your answer for each — the explanation appears right after.</p>
       <div class="in-sort" id="in-myth">
         <div class="in-sort-row in-mrow" data-answer="myth"><span>Inflation only happens when the stock market is crashing.</span><div class="in-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="in-myth-why"><b>Myth.</b> Standard, mild inflation (roughly 2%) is actually considered a sign of a healthy, functioning economy — it happens in good times and bad.</p></div>
-        <div class="in-sort-row in-mrow" data-answer="myth"><span>High-Yield Savings Accounts completely protect your cash from inflation.</span><div class="in-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="in-myth-why"><b>Myth.</b> HYSAs help a lot compared to a 0% account, but after taxes, their real yield can still sometimes fall short of a heavy inflation stretch.</p></div>
+        <div class="in-sort-row in-mrow" data-answer="myth"><span>High-Yield Savings Accounts completely protect your cash from inflation.</span><div class="in-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="in-myth-why"><b>Myth.</b> A high-yield account helps a lot compared to a 0% account, but after taxes, its real yield can still sometimes fall short during a heavy inflation stretch.</p></div>
         <div class="in-sort-row in-mrow" data-answer="fact"><span>Companies with strong pricing power have historically acted as a defense against inflation.</span><div class="in-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="in-myth-why"><b>Fact.</b> Businesses that can raise their own prices without losing customers are often able to pass rising costs straight through, protecting their value.</p></div>
+        <div class="in-sort-row in-mrow" data-answer="myth"><span>Deflation — prices actually falling — is always good news for the economy.</span><div class="in-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="in-myth-why"><b>Myth.</b> Cheaper prices sound great, but when people expect prices to keep dropping they delay purchases, which can slow spending, cut jobs, and deepen a downturn.</p></div>
+        <div class="in-sort-row in-mrow" data-answer="fact"><span>Two people can experience very different inflation rates in the same year.</span><div class="in-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="in-myth-why"><b>Fact.</b> The headline rate is an average across a basket of goods. Your personal rate depends on what you actually buy — rent, gas, groceries, and healthcare can all move very differently.</p></div>
+        <div class="in-sort-row in-mrow" data-answer="fact"><span>A raise can look positive on paper and still leave you with less buying power.</span><div class="in-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="in-myth-why"><b>Fact.</b> If prices climb faster than your pay, your real wage falls even though the number on your paycheck went up — exactly what the tug of war showed.</p></div>
       </div>
-      <p class="in-count" id="in-myth-count">Answered 0 of 3</p>
+      <p class="in-count" id="in-myth-count">Answered 0 of 6</p>
     </section>
-    <!-- ========== 8 · SPOT THE RED FLAGS ========== -->
+    <!-- ========== 9 · SPOT THE RED FLAGS ========== -->
     <section class="in-sec in-reveal" data-step="9">
-      <p class="in-kicker">Spot the Red Flags · 9 / 13</p>
-      <h2 class="in-h2">Habits That Help — and Hurt — You</h2>
+      <p class="in-kicker">Spot The Red Flags · 9 / 13</p>
+      <h2 class="in-h2">Habits That Help — And Hurt — You</h2>
       <p class="in-p">Some habits quietly protect your money from inflation. Others quietly lose to it. Tap each tile to reveal which is which.</p>
       <div class="in-traps" id="in-traps">
-        <button class="in-trap-tile" data-verdict="risky" data-d="Cash sitting in a near-0% account loses real value every single year that inflation runs ahead of it — even though the number on the screen never drops.">Large Cash Balances for Years</button>
-        <button class="in-trap-tile" data-verdict="safe" data-d="Companies that can raise their own prices without losing customers tend to protect their profits — and your investment — through inflationary periods.">Investing in Pricing-Power Companies</button>
+        <button class="in-trap-tile" data-verdict="risky" data-d="Cash sitting in a near-0% account loses real value every single year that inflation runs ahead of it — even though the number on the screen never drops.">Large Cash Balances For Years</button>
+        <button class="in-trap-tile" data-verdict="safe" data-d="Companies that can raise their own prices without losing customers tend to protect their profits — and your investment — through inflationary periods.">Investing In Pricing-Power Companies</button>
         <button class="in-trap-tile" data-verdict="risky" data-d="Any investment promising a guaranteed high yield with no real risk is a red flag on its own — inflation doesn't change that math.">Chasing "Guaranteed" High Yields</button>
         <button class="in-trap-tile" data-verdict="safe" data-d="Spreading money across stocks, real assets, and inflation-protected bonds means no single price shock can hit your whole portfolio at once.">Diversifying Across Asset Types</button>
       </div>
       <p class="in-count" id="in-traps-count">Revealed 0 of 4</p>
     </section>
-    <!-- ========== 9 · THE REAL RETURN LEAK FINDER ========== -->
+    <!-- ========== 10 · THE REAL RETURN LEAK FINDER ========== -->
     <section class="in-sec in-reveal" data-step="10">
       <p class="in-kicker">The Leak Finder · 10 / 13</p>
-      <h2 class="in-h2">Find the Real Return</h2>
+      <h2 class="in-h2">Find The Real Return</h2>
       <p class="in-p">Real return = what you earn, minus inflation. Match each account to its actual outcome once inflation is subtracted.</p>
       <div class="in-sort in-sort3" id="in-leak">
         <div class="in-sort-row" data-answer="leak"><span>Regular Checking — 0.05% yield vs. 3.5% inflation</span><div class="in-sort-btns"><button data-p="leak">-3.45% Leak</button><button data-p="g1">+1.00% Growth</button><button data-p="g45">+4.50% Growth</button></div></div>
@@ -209,7 +211,7 @@
       </div>
       <p class="in-count" id="in-leak-count">Matched 0 of 3</p>
     </section>
-    <!-- ========== 10 · AUTOMATE YOUR DEFENSE ========== -->
+    <!-- ========== 11 · AUTOMATE YOUR DEFENSE ========== -->
     <section class="in-sec in-center in-reveal" data-step="11">
       <p class="in-kicker center">Automate It · 11 / 13</p>
       <h2 class="in-h2 center">Make Your Defense Automatic</h2>
@@ -224,7 +226,7 @@
       </div>
       <p class="in-autopilot-msg" id="in-autopilot-msg"></p>
     </section>
-    <!-- ========== 11 · RECAP ========== -->
+    <!-- ========== 12 · RECAP ========== -->
     <section class="in-sec in-reveal" data-step="12">
       <p class="in-kicker">Recap · 12 / 13</p>
       <h2 class="in-h2">Here's What You Now Know</h2>
@@ -243,17 +245,15 @@
     <section class="in-sec in-center in-reveal" data-step="13">
       <p class="in-kicker center">Lesson Complete · 13 / 13</p>
       <span class="in-hero-ico">🚀</span>
-      <h2 class="in-h2 center">You've Finished the Lesson</h2>
+      <h2 class="in-h2 center">You've Finished The Lesson</h2>
       <p class="in-sub center">You now understand how inflation erodes purchasing power — and how to defend against it.</p>
-
       <!-- Continue prompt. Wording swaps automatically if the lesson is in full screen. -->
       <div class="in-finish">
         <span class="in-finish-arrow" id="in-fin-arrow" aria-hidden="true">↓</span>
-        <p class="in-finish-lead" id="in-fin-lead">Scroll down to continue</p>
+        <p class="in-finish-lead" id="in-fin-lead">Scroll Down To Continue</p>
         <p class="in-finish-sub" id="in-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
       </div>
       <p class="in-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
-
       <p class="in-quote">"INFLATION IS AS VIOLENT AS A MUGGER, AS FRIGHTENING AS AN ARMED ROBBER, AND <span class="in-green">AS DEADLY AS A HIT MAN.</span>"<br><span class="in-quote-by">— RONALD REAGAN</span></p>
     </section>
     <p class="in-disclaimer">TURNIT is for educational purposes only and is not financial advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Inflation, race-simulation, and purchasing-power figures in this lesson are simplified, hypothetical illustrations, not real historical data or a prediction.</p>
@@ -285,8 +285,7 @@
   #tn-in .in-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
   #tn-in .in-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
   #tn-in .in-bico{display:flex;}
-  #tn-in .in-word,#tn-in .in-tw{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  #tn-in .in-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-in .in-word{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent; font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
   #tn-in .in-bsub{color:var(--ink2); font-weight:500;}
   #tn-in .in-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
   #tn-in #in-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
@@ -301,7 +300,6 @@
   #tn-in .in-kicker.center{text-align:center;}
   #tn-in .in-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
   #tn-in .in-h2.center{text-align:center;}
-  #tn-in .in-tw{font-style:italic;}
   #tn-in .in-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
   #tn-in .in-p b{color:var(--ink); font-weight:700;}
   #tn-in .in-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
@@ -310,7 +308,6 @@
   #tn-in .in-note b{color:var(--ink); font-weight:700;}
   #tn-in .in-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
   #tn-in .in-disclaimer-inline{text-align:center; font-size:12.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
-
   /* title & vocabulary slide */
   #tn-in .in-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6.4vw,40px); line-height:1.18; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-in .in-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
@@ -356,9 +353,13 @@
   #tn-in .in-race-track.in-track-glow-green{box-shadow:0 0 0 2px var(--g) inset;}
   #tn-in .in-race-mark{position:absolute; left:16.7%; top:-4px; bottom:-4px; width:2px; background:var(--ink); opacity:.4;}
   #tn-in .in-race-marker{position:absolute; top:50%; left:0%; transform:translate(-50%,-50%); font-size:24px; transition:left 1.8s cubic-bezier(.25,.8,.3,1);}
+  #tn-in .in-race-marker.instant{transition:none;}
   #tn-in .in-race-scale{display:flex; justify-content:space-between; font-size:12px; color:var(--mut); margin:6px 0 4px;}
-  #tn-in .in-race-btn{display:block; width:100%; margin-top:14px; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px; cursor:pointer; transition:transform .15s;}
+  #tn-in .in-race-btns{display:grid; grid-template-columns:2fr 1fr; gap:9px; margin-top:14px;}
+  #tn-in .in-race-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px 10px; cursor:pointer; transition:transform .15s;}
   #tn-in .in-race-btn:hover{transform:translateY(-2px);}
+  #tn-in .in-race-btn.reset{background:#fff; color:var(--ink2); border:1.5px solid var(--cardbd); font-size:14px;}
+  #tn-in .in-race-btn.reset:hover{background:var(--mist); color:var(--ink);}
   #tn-in .in-race-ticker{text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); margin-top:10px;}
   /* factor chips */
   #tn-in .in-fico{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
@@ -469,6 +470,7 @@
     #tn-in .in-fico{grid-template-columns:1fr;}
     #tn-in .in-traps{grid-template-columns:1fr;}
     #tn-in .in-tabs{grid-template-columns:1fr;}
+    #tn-in .in-race-btns{grid-template-columns:1fr;}
     #tn-in .in-pipe{grid-template-columns:1fr;}
     #tn-in .in-pipe-arrow{transform:rotate(90deg); justify-self:center;}
     #tn-in .in-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
@@ -480,6 +482,7 @@
     #tn-in .in-reveal{opacity:1 !important; transform:none !important;}
     #tn-in #in-bar{transition:none;}
     #tn-in .in-race-marker{transition:none !important;}
+    #tn-in .in-finish-arrow,#tn-in .in-finish-arrow.up{animation:none !important;}
   }
 </style>
 <script>
@@ -487,10 +490,8 @@
 (function(){
   var root=document.getElementById('tn-in'); if(!root) return;
   root.querySelectorAll('.in-reveal').forEach(function(el){ el.classList.add('in'); });
-  function money(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
   function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
   function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
-
   /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
   var vocabDef=root.querySelector('#in-vocab-def');
   root.querySelectorAll('#in-vocab-chips .in-vocab-chip').forEach(function(chip){
@@ -522,7 +523,7 @@
       icon.style.transform='scale('+scale.toFixed(2)+')';
       icon.style.opacity=opac.toFixed(2);
     });
-    cartYearLab.textContent = years===0 ? 'Same cart costs' : 'Same cart costs (Year '+years+')';
+    cartYearLab.textContent = years===0 ? 'Same Cart Costs' : 'Same Cart Costs (Year '+years+')';
     cartFuture.textContent='$'+(CART_BASE*factor).toFixed(2);
     cartNote.textContent = years===0
       ? 'Your $67.50 currently buys 100% of this exact cart. Keep sliding forward.'
@@ -530,9 +531,10 @@
     postHeight();
   }
   if(cartSlider){ cartSlider.addEventListener('input',cartCalc); cartCalc(); }
-  /* 3 · cash vs asset drag race */
+  /* 3 · cash vs asset drag race (Run + Reset) */
   var raceRate=root.querySelector('#in-race-rate'), raceRateV=root.querySelector('#in-race-rate-v'),
-      raceRun=root.querySelector('#in-race-run'), raceTicker=root.querySelector('#in-race-ticker'),
+      raceRun=root.querySelector('#in-race-run'), raceReset=root.querySelector('#in-race-reset'),
+      raceTicker=root.querySelector('#in-race-ticker'),
       markerA=root.querySelector('#in-race-marker-a'), markerB=root.querySelector('#in-race-marker-b'),
       raceAV=root.querySelector('#in-race-a-v'), raceBV=root.querySelector('#in-race-b-v'),
       trackA=root.querySelector('#in-race-track-a'), trackB=root.querySelector('#in-race-track-b');
@@ -542,12 +544,30 @@
     return ((clamped+60)/360)*100;
   }
   var raceTimer=null;
+  function raceResetAll(){
+    if(raceTimer){ clearInterval(raceTimer); raceTimer=null; }
+    // snap the cars back to the start with no animation, then re-enable it
+    markerA.classList.add('instant'); markerB.classList.add('instant');
+    markerA.style.left='0%'; markerB.style.left='0%';
+    void markerA.offsetWidth;
+    markerA.classList.remove('instant'); markerB.classList.remove('instant');
+    trackA.classList.remove('in-track-glow-red');
+    trackB.classList.remove('in-track-glow-green');
+    raceAV.textContent='—'; raceBV.textContent='—';
+    raceTicker.textContent='Year 0 / 20';
+    raceRun.disabled=false;
+    postHeight();
+  }
   if(raceRun) raceRun.addEventListener('click',function(){
+    if(raceTimer){ clearInterval(raceTimer); raceTimer=null; }
     var rate=(+raceRate.value)/100;
     var realCash=Math.pow(1,20)/Math.pow(1+rate,20)-1; // flat 0% nominal
     var realAsset=Math.pow(1.08,20)/Math.pow(1+rate,20)-1;
     var posA=mapToPct(realCash*100), posB=mapToPct(realAsset*100);
+    markerA.classList.add('instant'); markerB.classList.add('instant');
     markerA.style.left='0%'; markerB.style.left='0%';
+    void markerA.offsetWidth;
+    markerA.classList.remove('instant'); markerB.classList.remove('instant');
     void markerA.offsetWidth;
     markerA.style.left=posA+'%';
     markerB.style.left=posB+'%';
@@ -555,17 +575,17 @@
     trackB.classList.toggle('in-track-glow-green', realAsset>0);
     raceAV.textContent=(realCash*100).toFixed(0)+'% real return';
     raceBV.textContent=(realAsset*100).toFixed(0)+'% real return';
-    if(raceTimer) clearInterval(raceTimer);
     var yr=0;
     raceTicker.textContent='Year 0 / 20';
     raceTimer=setInterval(function(){
       yr++;
       raceTicker.textContent='Year '+yr+' / 20';
-      if(yr>=20){ clearInterval(raceTimer); }
+      if(yr>=20){ clearInterval(raceTimer); raceTimer=null; }
     },90);
     postHeight();
     setTimeout(postHeight,1900);
   });
+  if(raceReset) raceReset.addEventListener('click',raceResetAll);
   /* 4 · what causes inflation */
   var causesReviewed={}, causesT=root.querySelector('#in-causes-t'),
       causesD=root.querySelector('#in-causes-d'), causesCount=root.querySelector('#in-causes-count');
@@ -629,7 +649,7 @@
     } else {
       wageBadge.className='in-wage-badge good';
       wageBadgeT.textContent='✅ True Growth!';
-      wageBadgeD.textContent='You\u2019re actively outpacing the cost of living by about '+real.toFixed(1)+'% this year.';
+      wageBadgeD.textContent='You&rsquo;re actively outpacing the cost of living by about '+real.toFixed(1)+'% this year.';
     }
     postHeight();
   }
@@ -643,7 +663,7 @@
         if(row.classList.contains('done')) return;
         var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
         row.classList.add('done', pick===ans?'correct':'wrong');
-        mythDone++; mythCount.textContent='Answered '+mythDone+' of 3';
+        mythDone++; mythCount.textContent='Answered '+mythDone+' of 6';
         postHeight();
       });
     });
@@ -704,8 +724,8 @@
   var nextBtn=root.querySelector('#in-next');
   var hintEl=root.querySelector('#in-nav-hint');
   var disclaimer=root.querySelector('.in-disclaimer');
-  var labels={1:'Inflation',2:'The Shrinking Cart',3:'The Drag Race',4:'What Causes It',5:'The Cost of a Million',6:'How to Fight Back',7:'The Tug of War',8:'Myth or Fact',9:'Spot the Red Flags',10:'The Leak Finder',11:'Automate It',12:'Recap',13:'Complete'};
-  var reqHints={2:'Slide all the way to 20 years to continue',3:'Run the race at two different inflation rates',4:'Review all 4 causes to continue',5:'Explore all 3 horizons to continue',6:'Explore all 4 to continue',7:'Find both a pay cut and true growth',8:'Answer all 3 to continue',9:'Reveal all 4 to continue',10:'Match all 3 to continue',11:'Flip the switch to continue'};
+  var labels={1:'Inflation',2:'The Shrinking Cart',3:'The Drag Race',4:'What Causes It',5:'The Cost Of A Million',6:'How To Fight Back',7:'The Tug Of War',8:'Myth Or Fact',9:'Spot The Red Flags',10:'The Leak Finder',11:'Automate It',12:'Recap',13:'Complete'};
+  var reqHints={2:'Slide all the way to 20 years to continue',3:'Run the race at two different inflation rates',4:'Review all 4 causes to continue',5:'Explore all 3 horizons to continue',6:'Explore all 4 to continue',7:'Find both a pay cut and true growth',8:'Answer all 6 to continue',9:'Reveal all 4 to continue',10:'Match all 3 to continue',11:'Flip the switch to continue'};
   var done={1:true,12:true,13:true};
   var secByStep={};
   root.querySelectorAll('.in-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
@@ -742,13 +762,13 @@
   nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
   function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
   function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
-  // 1 · shrinking cart slider reaches 20 years
+  // 2 · shrinking cart slider reaches 20 years
   var cartSlider=root.querySelector('#in-cart-slider');
   if(cartSlider) cartSlider.addEventListener('input',function(){
     if(+cartSlider.value>=20) markDone(2);
     else liveHint(2,'Keep sliding — reach 20 years to continue');
   });
-  // 2 · race run at two different inflation rates
+  // 3 · race run at two different inflation rates (Reset does not clear this)
   var testedRates={};
   var raceRun=root.querySelector('#in-race-run'), raceRate=root.querySelector('#in-race-rate');
   if(raceRun) raceRun.addEventListener('click',function(){
@@ -756,25 +776,25 @@
     if(keys(testedRates)>=2) markDone(3);
     else liveHint(3,'Now change the inflation rate and run it again');
   });
-  // 3 · all 4 causes reviewed
+  // 4 · all 4 causes reviewed
   var causes={};
   root.querySelectorAll('#in-causes .in-fchip').forEach(function(c){
     c.addEventListener('click',function(){ causes[c.getAttribute('data-t')]=1;
       if(keys(causes)>=4) markDone(4); else liveHint(4,'Reviewed '+keys(causes)+' of 4 — review all to continue'); });
   });
-  // 4 · all 3 tabs explored
+  // 5 · all 3 tabs explored
   var tabs={};
   root.querySelectorAll('#in-tabs .in-tab').forEach(function(tab){
     tab.addEventListener('click',function(){ tabs[tab.getAttribute('data-y')]=1;
       if(keys(tabs)>=3) markDone(5); else liveHint(5,'Explored '+keys(tabs)+' of 3 — explore all to continue'); });
   });
-  // 5 · all 4 defenses explored
+  // 6 · all 4 defenses explored
   var defense={};
   root.querySelectorAll('#in-defense .in-fchip').forEach(function(c){
     c.addEventListener('click',function(){ defense[c.getAttribute('data-t')]=1;
       if(keys(defense)>=4) markDone(6); else liveHint(6,'Explored '+keys(defense)+' of 4 — explore all to continue'); });
   });
-  // 6 · must see both a stealth pay cut and true growth state
+  // 7 · must see both a stealth pay cut and true growth state
   var wageState={bad:false, good:false};
   var raiseSlider=root.querySelector('#in-raise'), infl6Slider=root.querySelector('#in-infl6');
   function wageCheck(){
@@ -786,28 +806,27 @@
   }
   if(raiseSlider) raiseSlider.addEventListener('input',wageCheck);
   if(infl6Slider) infl6Slider.addEventListener('input',wageCheck);
-  // 7 · all 3 myth answers
+  // 8 · all 6 myth answers
   root.querySelectorAll('#in-myth .in-sort-row button').forEach(function(b){
     b.addEventListener('click',function(){ var n=count('#in-myth .in-sort-row.done');
-      if(n>=3) markDone(8); else liveHint(8,'Answered '+n+' of 3 — answer all to continue'); });
+      if(n>=6) markDone(8); else liveHint(8,'Answered '+n+' of 6 — answer all to continue'); });
   });
-  // 8 · all 4 habit tiles revealed
+  // 9 · all 4 habit tiles revealed
   root.querySelectorAll('#in-traps .in-trap-tile').forEach(function(t){
     t.addEventListener('click',function(){ var n=count('#in-traps .in-trap-tile.done');
       if(n>=4) markDone(9); else liveHint(9,'Revealed '+n+' of 4 — reveal all to continue'); });
   });
-  // 9 · all 3 leak-finder rows matched
+  // 10 · all 3 leak-finder rows matched
   root.querySelectorAll('#in-leak .in-sort-row button').forEach(function(b){
     b.addEventListener('click',function(){ var n=count('#in-leak .in-sort-row.done');
       if(n>=3) markDone(10); else liveHint(10,'Matched '+n+' of 3 — match all to continue'); });
   });
-  // 10 · auto-defense switched on
+  // 11 · auto-defense switched on
   var toggle=root.querySelector('#in-toggle');
   if(toggle) toggle.addEventListener('click',function(){ if(toggle.classList.contains('on')) markDone(11); });
   show(1);
 })();
 </script>
-
 <script>
 /* ============================================================
      FULL-SCREEN AWARE PROMPT (last slide)
@@ -820,15 +839,13 @@
   var lead=document.getElementById('in-fin-lead');
   var sub=document.getElementById('in-fin-sub');
   if(!arrow||!lead||!sub) return;
-
   var COPY={
-    normal:{ arrow:'↓', up:false, lead:'Scroll down to continue',
+    normal:{ arrow:'↓', up:false, lead:'Scroll Down To Continue',
              sub:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.' },
-    full:{   arrow:'↑', up:true,  lead:'Close full screen to continue',
+    full:{   arrow:'↑', up:true,  lead:'Close Full Screen To Continue',
              sub:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.' }
   };
   var last=null;
-
   function isFullScreen(){
     try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
     try{
@@ -838,7 +855,6 @@
       return (window.innerHeight >= h-130) && (window.innerWidth >= w-60);
     }catch(e){ return false; }
   }
-
   function apply(){
     var key=isFullScreen()?'full':'normal';
     if(key===last) return;
@@ -849,7 +865,6 @@
     lead.textContent=c.lead;
     sub.innerHTML=c.sub;
   }
-
   window.addEventListener('resize',apply);
   document.addEventListener('fullscreenchange',apply);
   setInterval(apply,700);

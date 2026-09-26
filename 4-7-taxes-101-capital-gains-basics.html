@@ -393,8 +393,8 @@
   });
 
   /* ============ 3 · the loss that helps you ============ */
-  var offsetBtn=root.querySelector('#tx-offset-btn'), gainBox=root.querySelector('#tx-offset-row .gain'),
-      lossBox=root.querySelector('#tx-offset-row .loss'), offsetResult=root.querySelector('#tx-offset-result');
+  var offsetBtn=root.querySelector('#tx-offset-btn'), gainBox=root.querySelector('.tx-offset-row .gain'),
+      lossBox=root.querySelector('.tx-offset-row .loss'), offsetResult=root.querySelector('#tx-offset-result');
   if(offsetBtn) offsetBtn.addEventListener('click',function(){
     offsetBtn.disabled=true;
     gainBox.classList.add('merged'); lossBox.classList.add('merged');

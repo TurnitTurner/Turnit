@@ -1,0 +1,855 @@
+<!-- ============================================================
+     TURNIT — ROTH IRA VS. TRADITIONAL IRA  (Module 2 · Lesson 3)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ri. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     10 slides, one interactive per page, "Next" locked until the activity is done:
+       1 Title & Key Vocabulary (never gated)   2 Open Both Envelopes
+       3 The Tax Bracket Seesaw                 4 The Paycheck Splitter
+       5 The Scenario Slot Machine (9 stages)   6 The Sorting Hat
+       7 Flip Cards: Fact Check                 8 Set It On Autopilot
+       9 Recap                                  10 Complete (scroll-down prompt)
+     >> The slot machine holds 9 life stages and deals them from a shuffled
+        queue, so no two spins in a row repeat. Next unlocks after 2 spins,
+        but the learner gets up to 5 per run — the extra three are the carrot
+        for spinning past the requirement. Start Over refills all 5.
+     >> The sorting hat explains its reasoning on every answer, right or
+        wrong: why the card belongs where it does, and why the other hat
+        does not fit.
+     >> Every one-way activity has its own Start Over button. Once a slide has
+        been unlocked it stays unlocked — replaying never re-locks Next.
+     >> The last slide directs the learner to GHL's own "Mark As Complete" and
+        "Next Lesson" buttons below the iframe, since this widget can't reach
+        outside its own frame to trigger them directly. Wording swaps
+        automatically if the lesson is expanded to full screen.
+     ============================================================ -->
+<div id="tn-ri">
+  <div class="ri-wrap">
+    <!-- TOP HEADER -->
+    <div class="ri-top">
+      <div class="ri-topbar">
+        <div class="ri-brand"><span class="ri-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 2v20M8 6a4 4 0 0 0 0 8h8a4 4 0 0 1 0 8H6"/></svg></span><span class="ri-word">TURNIT</span><span class="ri-bsub">Financial Foundations</span></div>
+      </div>
+      <div class="ri-progress"><span id="ri-bar"></span></div>
+      <div class="ri-meta"><span id="ri-slide-label">Key Vocabulary</span><span id="ri-slide-count">Slide 1 of 10</span></div>
+    </div>
+    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <section class="ri-sec ri-center ri-reveal" data-step="1">
+      <p class="ri-kicker center">Roth vs. Traditional · 1 / 10</p>
+      <h1 class="ri-hero-title">ROTH IRA VS. <span class="ri-hero-grad">TRADITIONAL IRA</span></h1>
+      <p class="ri-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
+      <div class="ri-vocab-teaser">
+        <span class="ri-vocab-label">Key Terms In This Lesson</span>
+        <div class="ri-vocab-chips" id="ri-vocab-chips">
+          <button type="button" class="ri-vocab-chip" data-t="IRA" data-def="Individual Retirement Account. A retirement-specific investing account you open yourself, separate from anything an employer offers.">IRA</button>
+          <button type="button" class="ri-vocab-chip" data-t="Roth IRA" data-def="The version where you pay tax on the money before it goes in. In exchange, qualified withdrawals in retirement come out with no tax owed on the growth.">Roth IRA</button>
+          <button type="button" class="ri-vocab-chip" data-t="Traditional IRA" data-def="The version where you skip the tax today. The contribution lowers this year's taxable income, and you pay ordinary income tax later when you withdraw.">Traditional IRA</button>
+          <button type="button" class="ri-vocab-chip" data-t="Taxable Income" data-def="The portion of your income that tax is actually calculated on. A Traditional IRA contribution shrinks it; a Roth contribution does not.">Taxable Income</button>
+          <button type="button" class="ri-vocab-chip" data-t="Tax Bracket" data-def="The rate applied to your income. Comparing your bracket today against your likely bracket in retirement is the heart of this whole decision.">Tax Bracket</button>
+          <button type="button" class="ri-vocab-chip" data-t="Tax Deduction" data-def="An amount subtracted from your income before tax is worked out. The upfront benefit a Traditional IRA gives you.">Tax Deduction</button>
+        </div>
+        <div class="ri-vocab-def" id="ri-vocab-def">Tap a term above to see what it means.</div>
+        <span class="ri-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
+      </div>
+      <div class="ri-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
+    </section>
+    <!-- ========== 2 · OPEN BOTH ENVELOPES ========== -->
+    <section class="ri-sec ri-reveal" data-step="2">
+      <p class="ri-kicker">Two Envelopes · 2 / 10</p>
+      <h2 class="ri-h2">Two Envelopes, Two Promises</h2>
+      <p class="ri-p">Tap each envelope to open it and read what's inside.</p>
+      <div class="ri-env-grid">
+        <button type="button" class="ri-envelope" id="ri-env-roth" data-k="roth">
+          <span class="ri-env-flap"></span>
+          <span class="ri-env-front">🔴 Roth IRA</span>
+          <span class="ri-env-letter">Pay taxes today, on this contribution. In exchange, every dollar of growth comes out with no tax owed in retirement.</span>
+        </button>
+        <button type="button" class="ri-envelope" id="ri-env-trad" data-k="trad">
+          <span class="ri-env-flap"></span>
+          <span class="ri-env-front">🔵 Traditional IRA</span>
+          <span class="ri-env-letter">Skip the tax bill today — this contribution lowers your taxable income right now. Ordinary income tax is paid later, when you withdraw in retirement.</span>
+        </button>
+      </div>
+      <p class="ri-count" id="ri-env-count">Opened 0 Of 2</p>
+      <div class="ri-reset-row"><button type="button" class="ri-reset-btn" id="ri-env-reset">↺ Start Over</button></div>
+    </section>
+    <!-- ========== 3 · THE TAX BRACKET SEESAW ========== -->
+    <section class="ri-sec ri-reveal" data-step="3">
+      <p class="ri-kicker">The Tax Bracket Seesaw · 3 / 10</p>
+      <h2 class="ri-h2">Which Side Is Heavier?</h2>
+      <p class="ri-p">Set your tax rate today and your best guess for retirement. Watch which side wins.</p>
+      <div class="ri-panel">
+        <div class="ri-seesaw-wrap">
+          <div class="ri-seesaw-beam" id="ri-seesaw-beam">
+            <div class="ri-seesaw-pan left"><span>Today</span><b id="ri-seesaw-today-v">22%</b></div>
+            <div class="ri-seesaw-pan right"><span>Retirement</span><b id="ri-seesaw-retire-v">22%</b></div>
+          </div>
+          <div class="ri-seesaw-fulcrum"></div>
+        </div>
+        <p class="ri-seesaw-verdict" id="ri-seesaw-verdict">Balanced — Either Could Work</p>
+        <div class="ri-slide-row">
+          <div class="ri-slide-top"><label for="ri-seesaw-today">Tax Rate Today</label><span class="ri-slide-v blue" id="ri-seesaw-today-lab">22%</span></div>
+          <input id="ri-seesaw-today" class="ri-range" type="range" min="10" max="37" value="22" step="1" aria-label="Tax rate today">
+        </div>
+        <div class="ri-slide-row">
+          <div class="ri-slide-top"><label for="ri-seesaw-retire">Guessed Tax Rate In Retirement</label><span class="ri-slide-v green" id="ri-seesaw-retire-lab">22%</span></div>
+          <input id="ri-seesaw-retire" class="ri-range good" type="range" min="10" max="37" value="22" step="1" aria-label="Guessed tax rate in retirement">
+        </div>
+        <div class="ri-note">Illustrative rates only — a rough way to feel the trade-off, not real tax brackets.</div>
+      </div>
+    </section>
+    <!-- ========== 4 · THE PAYCHECK SPLITTER ========== -->
+    <section class="ri-sec ri-reveal" data-step="4">
+      <p class="ri-kicker">The Paycheck Splitter · 4 / 10</p>
+      <h2 class="ri-h2">The Traditional IRA's Instant Discount</h2>
+      <p class="ri-p">A Traditional IRA contribution is not taxed today — it lowers the income you are taxed on this year. Slide to watch it happen.</p>
+      <div class="ri-panel">
+        <div class="ri-paystub"><span>Gross Monthly Income</span><b>$4,000</b></div>
+        <div class="ri-slide-row">
+          <div class="ri-slide-top"><label for="ri-splitter">Traditional IRA Contribution</label><span class="ri-slide-v green" id="ri-splitter-v">$0/mo</span></div>
+          <input id="ri-splitter" class="ri-range good" type="range" min="0" max="500" value="0" step="25" aria-label="Traditional IRA contribution">
+        </div>
+        <div class="ri-hook-grid">
+          <div class="ri-hook-box"><span>Taxable Income This Month</span><b id="ri-splitter-taxable">$4,000</b></div>
+          <div class="ri-hook-box green"><span>Tax Savings This Month</span><b id="ri-splitter-savings">$0</b></div>
+        </div>
+        <div class="ri-note">A simplified 22% illustrative tax rate is used here — your actual savings depend on your real tax bracket.</div>
+      </div>
+    </section>
+    <!-- ========== 5 · THE SCENARIO SLOT MACHINE ========== -->
+    <section class="ri-sec ri-reveal" data-step="5">
+      <p class="ri-kicker">The Scenario Slot Machine · 5 / 10</p>
+      <h2 class="ri-h2">Spin For A Life Stage</h2>
+      <p class="ri-p">Nine different situations are loaded in. Pull the lever and see which account tends to fit that one. Two spins unlock Next, and you get up to five per run — the more you pull, the more of the nine you will see.</p>
+      <div class="ri-panel ri-center">
+        <div class="ri-slot-window"><div class="ri-slot-reel" id="ri-slot-reel">🎓 Just Started Your Career</div></div>
+        <button type="button" class="ri-slot-btn" id="ri-slot-btn">🎰 Spin (5 Left)</button>
+        <div class="ri-slot-result" id="ri-slot-result">&nbsp;</div>
+      </div>
+      <p class="ri-count" id="ri-slot-count">Spun 0 Of 2 To Unlock Next</p>
+      <p class="ri-disclaimer-inline">These are general tendencies that most people weigh, not a recommendation for your own situation.</p>
+      <div class="ri-reset-row"><button type="button" class="ri-reset-btn" id="ri-slot-reset">↺ Start Over</button></div>
+    </section>
+    <!-- ========== 6 · THE SORTING HAT ========== -->
+    <section class="ri-sec ri-reveal" data-step="6">
+      <p class="ri-kicker">The Sorting Hat · 6 / 10</p>
+      <h2 class="ri-h2">Which Hat Does It Belong Under?</h2>
+      <p class="ri-p">Read the card, then send it to the right hat. Either way, you will get the reasoning behind it.</p>
+      <div class="ri-hat-row">
+        <button type="button" class="ri-hat" id="ri-hat-roth">🎩<span>Roth</span></button>
+        <button type="button" class="ri-hat" id="ri-hat-trad">🎩<span>Traditional</span></button>
+      </div>
+      <div class="ri-hat-stage">
+        <div class="ri-hat-card" id="ri-hat-card">Withdrawals in retirement come out with no tax owed on the growth</div>
+      </div>
+      <div class="ri-hat-advance-row" id="ri-hat-advance-row"><button type="button" class="ri-hat-advance hidden" id="ri-hat-advance">Next Card →</button></div>
+      <p class="ri-count" id="ri-hat-count">Sorted 0 Of 6</p>
+      <div class="ri-reset-row"><button type="button" class="ri-reset-btn" id="ri-hat-reset">↺ Start Over</button></div>
+    </section>
+    <!-- ========== 7 · FLIP CARDS: FACT CHECK ========== -->
+    <section class="ri-sec ri-reveal" data-step="7">
+      <p class="ri-kicker">Flip Cards: Fact Check · 7 / 10</p>
+      <h2 class="ri-h2">Guess, Then Flip To Check</h2>
+      <p class="ri-p">Tap Myth or Fact on each card to flip it and see the real answer.</p>
+      <div class="ri-flip-grid" id="ri-flip-grid">
+        <div class="ri-flip-card" data-answer="fact">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">A Roth IRA and a Traditional IRA share the same basic contribution limit.</p>
+              <div class="ri-flip-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">FACT</p><p class="ri-flip-why">They share the same annual cap — the exact number is covered in an upcoming lesson.</p></div>
+          </div>
+        </div>
+        <div class="ri-flip-card" data-answer="myth">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">With a Traditional IRA, you pay tax on your contribution in the year you make it.</p>
+              <div class="ri-flip-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">MYTH</p><p class="ri-flip-why">You get a deduction now — the tax bill comes later, when you withdraw.</p></div>
+          </div>
+        </div>
+        <div class="ri-flip-card" data-answer="fact">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">Both account types can hold stocks, bonds, ETFs, and mutual funds.</p>
+              <div class="ri-flip-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">FACT</p><p class="ri-flip-why">The same range of investments fits inside either one.</p></div>
+          </div>
+        </div>
+        <div class="ri-flip-card" data-answer="myth">
+          <div class="ri-flip-inner">
+            <div class="ri-flip-front">
+              <p class="ri-flip-q">One of these accounts is the right answer for everybody.</p>
+              <div class="ri-flip-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div>
+            </div>
+            <div class="ri-flip-back"><p class="ri-flip-answer">MYTH</p><p class="ri-flip-why">It comes down to your tax bracket now versus your best guess about retirement.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="ri-count" id="ri-flip-count">Flipped 0 Of 4</p>
+      <div class="ri-reset-row"><button type="button" class="ri-reset-btn" id="ri-flip-reset">↺ Start Over</button></div>
+    </section>
+    <!-- ========== 8 · SET IT ON AUTOPILOT ========== -->
+    <section class="ri-sec ri-center ri-reveal" data-step="8">
+      <p class="ri-kicker center">Set It On Autopilot · 8 / 10</p>
+      <h2 class="ri-h2 center">Schedule It Once. Done Forever.</h2>
+      <p class="ri-sub center">Tap the button and watch every future payday line up automatically.</p>
+      <div class="ri-domino-row" id="ri-domino-row">
+        <span class="ri-domino">💵</span><span class="ri-domino">💵</span><span class="ri-domino">💵</span>
+        <span class="ri-domino">💵</span><span class="ri-domino">💵</span><span class="ri-domino">💵</span>
+      </div>
+      <button type="button" class="ri-domino-btn" id="ri-domino-btn">🗓️ Schedule Automatic Contributions</button>
+      <p class="ri-domino-msg" id="ri-domino-msg">&nbsp;</p>
+      <div class="ri-reset-row"><button type="button" class="ri-reset-btn" id="ri-domino-reset">↺ Start Over</button></div>
+    </section>
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="ri-sec ri-reveal" data-step="9">
+      <p class="ri-kicker">Recap · 9 / 10</p>
+      <h2 class="ri-h2">Here's What You Now Know</h2>
+      <p class="ri-p">The whole lesson, in six lines.</p>
+      <div class="ri-recap">
+        <div class="ri-recap-item"><span class="ri-recap-check">✓</span><span>A Roth taxes your contribution today. A Traditional taxes your withdrawal later. Someone always pays the toll.</span></div>
+        <div class="ri-recap-item"><span class="ri-recap-check">✓</span><span>Qualified Roth withdrawals in retirement come out with no tax owed on the growth.</span></div>
+        <div class="ri-recap-item"><span class="ri-recap-check">✓</span><span>A Traditional contribution lowers your taxable income in the same year you make it.</span></div>
+        <div class="ri-recap-item"><span class="ri-recap-check">✓</span><span>Both accounts hold the same kinds of investments — stocks, bonds, ETFs, and mutual funds.</span></div>
+        <div class="ri-recap-item"><span class="ri-recap-check">✓</span><span>Both are built to stay invested until retirement age, so pulling growth out early usually costs you.</span></div>
+        <div class="ri-recap-item"><span class="ri-recap-check">✓</span><span>The better choice usually comes down to your tax bracket now versus your best guess about retirement.</span></div>
+      </div>
+      <div class="ri-next-move">Your next move: <b>write down your tax bracket today and your honest guess for retirement — then look at contribution limits and age rules in the next lesson.</b></div>
+    </section>
+    <!-- ========== 10 · COMPLETE ========== -->
+    <section class="ri-sec ri-center ri-reveal" data-step="10">
+      <p class="ri-kicker center">Lesson Complete · 10 / 10</p>
+      <span class="ri-hero-ico">🚀</span>
+      <h2 class="ri-h2 center">You've Finished The Lesson</h2>
+      <p class="ri-sub center">You now know the core trade-off between paying tax now and paying it later, what each account does to this year's taxable income, and how to weigh your bracket today against the one you expect in retirement.</p>
+      <!-- Continue prompt. Wording swaps automatically if the lesson is in full screen. -->
+      <div class="ri-finish">
+        <span class="ri-finish-arrow" id="ri-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ri-finish-lead" id="ri-fin-lead">Scroll Down To Continue</p>
+        <p class="ri-finish-sub" id="ri-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ri-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ri-quote">"IN THIS WORLD NOTHING IS CERTAIN <span class="ri-green">EXCEPT DEATH AND TAXES.</span>"<br><span class="ri-quote-by">— BENJAMIN FRANKLIN</span></p>
+    </section>
+    <p class="ri-disclaimer">TURNIT is for educational purposes only and is not financial advice or tax advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Figures in this lesson are simplified, hypothetical illustrations. Contribution limits and age requirements are covered in a dedicated upcoming lesson.</p>
+    <!-- BOTTOM NAV (Previous / Next) -->
+    <div class="ri-nav" id="ri-nav">
+      <button type="button" class="ri-nav-btn prev" id="ri-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ri-nav-hint" id="ri-nav-hint"></span>
+      <button type="button" class="ri-nav-btn next" id="ri-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ri{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper); width:100%;
+  }
+  #tn-ri *,#tn-ri *::before,#tn-ri *::after{box-sizing:border-box;}
+  #tn-ri .ri-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ri .ri-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ri .ri-reveal.in{opacity:1; transform:none;}
+  /* ---------- header ---------- */
+  #tn-ri .ri-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ri .ri-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ri .ri-brand{display:flex; align-items:center; gap:7px; font-size:13px; line-height:1.4;}
+  #tn-ri .ri-bico{display:flex;}
+  #tn-ri .ri-word{display:inline-block; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent; font-family:'Poppins',sans-serif; font-weight:800; font-style:italic;}
+  #tn-ri .ri-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ri .ri-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ri #ri-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ri .ri-meta{display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ri .ri-meta #ri-slide-label{color:var(--ink2);}
+  #tn-ri .ri-meta #ri-slide-count{color:var(--mut);}
+  /* ---------- sections + type ---------- */
+  #tn-ri .ri-sec{padding:20px 0 8px;}
+  #tn-ri .ri-sec.ri-hide{display:none;}
+  #tn-ri .ri-center{text-align:center;}
+  #tn-ri .ri-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ri .ri-kicker.center{text-align:center;}
+  #tn-ri .ri-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px; color:var(--ink);}
+  #tn-ri .ri-h2.center{text-align:center;}
+  #tn-ri .ri-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ri .ri-p b{color:var(--ink); font-weight:700;}
+  #tn-ri .ri-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ri .ri-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ri .ri-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:10px auto 0; max-width:520px;}
+  #tn-ri .ri-panel{position:relative; background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-ri .ri-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-ri .ri-hook-grid{display:flex; gap:10px; margin-top:14px;}
+  #tn-ri .ri-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center;}
+  #tn-ri .ri-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-ri .ri-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,4.2vw,19px); color:var(--ink);}
+  #tn-ri .ri-hook-box.green{background:var(--tint); border-color:var(--selbd);}
+  #tn-ri .ri-hook-box.green b{color:var(--g);}
+  /* ---------- reset buttons ---------- */
+  #tn-ri .ri-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ri .ri-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ri .ri-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* ---------- 1 · hero + vocabulary ---------- */
+  #tn-ri .ri-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(27px,6.4vw,42px); line-height:1.14; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
+  #tn-ri .ri-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ri .ri-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ri .ri-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ri .ri-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ri .ri-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ri .ri-vocab-chip:hover{background:#DCF0E5;}
+  #tn-ri .ri-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ri .ri-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:13px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ri .ri-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ri .ri-vocab-note{display:block; font-size:12.5px; color:var(--mut); line-height:1.45;}
+  /* ---------- slider rows / ranges (shared) ---------- */
+  #tn-ri .ri-slide-row{margin-top:16px;}
+  #tn-ri .ri-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  #tn-ri .ri-slide-top label{font-size:13px; font-weight:600; color:var(--ink);}
+  #tn-ri .ri-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-ri .ri-slide-v.green{color:var(--g);} #tn-ri .ri-slide-v.blue{color:var(--b);}
+  #tn-ri .ri-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:2px 0 4px; background:linear-gradient(90deg,var(--b),var(--g));}
+  #tn-ri .ri-range.good{background:linear-gradient(90deg,#9AA8B6,#209B73);}
+  #tn-ri .ri-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-ri .ri-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  /* ---------- 2 · envelopes ---------- */
+  #tn-ri .ri-env-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  #tn-ri .ri-envelope{position:relative; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:0 0 14px 14px; padding:40px 12px 16px; cursor:pointer; overflow:hidden; min-height:170px; text-align:center; font-family:inherit; transition:border-color .25s, background .25s;}
+  #tn-ri .ri-env-flap{position:absolute; top:0; left:0; right:0; height:70px; background:linear-gradient(135deg,var(--cardbd),var(--cardbg)); clip-path:polygon(0 0,100% 0,50% 65%); transform-origin:top center; transition:transform .5s cubic-bezier(.4,1.6,.6,1); z-index:2;}
+  #tn-ri .ri-envelope.open .ri-env-flap{transform:rotateX(180deg);}
+  #tn-ri .ri-env-front{position:relative; z-index:1; display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); margin-top:20px;}
+  #tn-ri .ri-env-letter{display:block; font-size:12.5px; color:var(--ink2); line-height:1.5; max-height:0; opacity:0; overflow:hidden; transition:max-height .4s ease .15s, opacity .4s ease .15s; margin-top:8px;}
+  #tn-ri .ri-envelope.open .ri-env-letter{max-height:220px; opacity:1;}
+  #tn-ri .ri-envelope.open{border-color:var(--selbd); background:var(--tint);}
+  /* ---------- 3 · seesaw ---------- */
+  #tn-ri .ri-seesaw-wrap{position:relative; margin:10px auto 6px; max-width:340px;}
+  #tn-ri .ri-seesaw-beam{display:flex; justify-content:space-between; align-items:center; transition:transform .4s ease; transform-origin:center; padding:0 6px;}
+  #tn-ri .ri-seesaw-pan{background:#fff; border:1.5px solid var(--line); border-radius:12px; padding:12px 14px; text-align:center; min-width:90px;}
+  #tn-ri .ri-seesaw-pan span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:3px;}
+  #tn-ri .ri-seesaw-pan b{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:var(--ink);}
+  #tn-ri .ri-seesaw-fulcrum{width:0; height:0; border-left:16px solid transparent; border-right:16px solid transparent; border-bottom:22px solid var(--ink2); margin:0 auto;}
+  #tn-ri .ri-seesaw-verdict{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--g); margin:10px 0 4px; line-height:1.4;}
+  /* ---------- 4 · paystub ---------- */
+  #tn-ri .ri-paystub{display:flex; justify-content:space-between; align-items:center; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px; padding:14px 16px; margin-bottom:6px;}
+  #tn-ri .ri-paystub span{font-size:12.5px; font-weight:700; color:var(--ink2); text-transform:uppercase; letter-spacing:.04em;}
+  #tn-ri .ri-paystub b{font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; color:var(--ink);}
+  /* ---------- 5 · slot machine ---------- */
+  #tn-ri .ri-slot-window{background:var(--ink); border-radius:14px; padding:22px 16px; margin-bottom:16px; overflow:hidden; min-height:74px; display:flex; align-items:center; justify-content:center;}
+  #tn-ri .ri-slot-reel{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:#fff; text-align:center; line-height:1.35;}
+  #tn-ri .ri-slot-reel.spinning{opacity:.75;}
+  #tn-ri .ri-slot-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px 26px; cursor:pointer; transition:transform .15s;}
+  #tn-ri .ri-slot-btn:hover{transform:translateY(-2px);}
+  #tn-ri .ri-slot-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-ri .ri-slot-result{margin-top:14px; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:20px; max-width:460px; margin-left:auto; margin-right:auto;}
+  #tn-ri .ri-slot-result b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  /* ---------- 6 · sorting hat ---------- */
+  #tn-ri .ri-hat-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px;}
+  #tn-ri .ri-hat{display:flex; flex-direction:column; align-items:center; gap:4px; font-size:36px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:16px; padding:16px 8px; cursor:pointer; transition:all .2s;}
+  #tn-ri .ri-hat span{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2);}
+  #tn-ri .ri-hat.glow-good{border-color:var(--selbd); background:var(--tint); transform:scale(1.05);}
+  #tn-ri .ri-hat.glow-bad{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ri .ri-hat-stage{position:relative; display:flex; align-items:center; justify-content:center; min-height:130px;}
+  #tn-ri .ri-hat-card{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:20px 18px; text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); max-width:460px; width:100%; line-height:1.45; transition:transform .38s ease, opacity .38s ease, background .25s ease, border-color .25s ease;}
+  #tn-ri .ri-hat-card.correct{background:var(--tint); border-color:var(--selbd); text-align:left;}
+  #tn-ri .ri-hat-card.wrong{background:var(--nobg); border-color:var(--nobd); text-align:left;}
+  #tn-ri .ri-hat-verdict{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin-bottom:7px;}
+  #tn-ri .ri-hat-card.correct .ri-hat-verdict{color:var(--g);}
+  #tn-ri .ri-hat-card.wrong .ri-hat-verdict{color:var(--no);}
+  #tn-ri .ri-hat-why{display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:13.5px; color:var(--ink2); line-height:1.55;}
+  #tn-ri .ri-hat-why em{display:block; margin-top:7px; font-style:normal; color:var(--ink2);}
+  #tn-ri .ri-hat-why em b{font-family:'Poppins',sans-serif; font-weight:700; color:var(--ink);}
+  #tn-ri .ri-hat-card.fly-left{transform:translate(-160px,-60px) scale(.4) rotate(-20deg); opacity:0;}
+  #tn-ri .ri-hat-card.fly-right{transform:translate(160px,-60px) scale(.4) rotate(20deg); opacity:0;}
+  #tn-ri .ri-hat-card.all-done{background:var(--tint); border-color:var(--selbd); color:var(--g); text-align:center;}
+  #tn-ri .ri-hat-advance-row{display:flex; justify-content:center; margin-top:14px; min-height:44px;}
+  #tn-ri .ri-hat-advance{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:12px 24px; cursor:pointer; transition:transform .15s, opacity .2s; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ri .ri-hat-advance:hover{transform:translateY(-2px);}
+  #tn-ri .ri-hat-advance.hidden{visibility:hidden; opacity:0; pointer-events:none;}
+  /* ---------- 7 · flip cards ---------- */
+  #tn-ri .ri-flip-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  #tn-ri .ri-flip-card{perspective:1000px; height:175px;}
+  #tn-ri .ri-flip-inner{position:relative; width:100%; height:100%; transition:transform .6s cubic-bezier(.4,.2,.2,1); transform-style:preserve-3d;}
+  #tn-ri .ri-flip-card.flipped .ri-flip-inner{transform:rotateY(180deg);}
+  #tn-ri .ri-flip-front,#tn-ri .ri-flip-back{position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:14px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;}
+  #tn-ri .ri-flip-front{background:var(--cardbg); border:1.5px solid var(--cardbd);}
+  #tn-ri .ri-flip-q{font-size:12.5px; font-weight:600; color:var(--ink); line-height:1.4; margin:0;}
+  #tn-ri .ri-flip-btns{display:flex; gap:6px;}
+  #tn-ri .ri-flip-btns button{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; padding:8px 4px; border-radius:8px; cursor:pointer; background:#fff; border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-ri .ri-flip-btns button[data-p="myth"]{border-color:#F5C6BE; color:var(--no);}
+  #tn-ri .ri-flip-back{background:var(--tint); border:1.5px solid var(--selbd); transform:rotateY(180deg); align-items:center; text-align:center; justify-content:center;}
+  #tn-ri .ri-flip-card[data-answer="myth"] .ri-flip-back{background:var(--nobg); border-color:var(--nobd);}
+  #tn-ri .ri-flip-answer{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--g); margin:0 0 6px;}
+  #tn-ri .ri-flip-card[data-answer="myth"] .ri-flip-answer{color:var(--no);}
+  #tn-ri .ri-flip-why{font-size:11.5px; color:var(--ink2); line-height:1.4; margin:0;}
+  /* ---------- 8 · domino autopilot ---------- */
+  #tn-ri .ri-domino-row{display:flex; justify-content:center; gap:10px; margin-bottom:20px;}
+  #tn-ri .ri-domino{font-size:26px; opacity:.3; transform:scale(.8); transition:opacity .25s ease, transform .25s ease;}
+  #tn-ri .ri-domino.lit{opacity:1; transform:scale(1.15);}
+  #tn-ri .ri-domino-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:14px 24px; cursor:pointer; transition:transform .15s;}
+  #tn-ri .ri-domino-btn:hover{transform:translateY(-2px);}
+  #tn-ri .ri-domino-btn:disabled{opacity:.5; cursor:default; transform:none;}
+  #tn-ri .ri-domino-msg{font-size:13.5px; color:var(--ink2); font-weight:500; line-height:1.5; margin:16px auto 0; max-width:440px; min-height:22px;}
+  #tn-ri .ri-domino-msg b{color:var(--g); font-family:'Poppins',sans-serif; font-weight:700;}
+  /* ---------- recap + complete ---------- */
+  #tn-ri .ri-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ri .ri-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px; text-align:left;}
+  #tn-ri .ri-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ri .ri-recap-item span:last-child{font-size:14px; color:var(--ink); font-weight:500; line-height:1.45;}
+  #tn-ri .ri-recap-item b{font-weight:700;}
+  #tn-ri .ri-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
+  #tn-ri .ri-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-ri .ri-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-ri .ri-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ri .ri-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ri-bob 1.6s ease-in-out infinite;}
+  #tn-ri .ri-finish-arrow.up{animation:ri-bob-up 1.6s ease-in-out infinite;}
+  #tn-ri .ri-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; letter-spacing:-.01em; color:var(--ink); margin:10px 0 6px;}
+  #tn-ri .ri-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ri .ri-finish-sub b{color:var(--ink); font-weight:700;}
+  #tn-ri .ri-fs-note{max-width:430px; margin:10px auto 0; font-size:11.5px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ri .ri-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-ri .ri-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ri .ri-green{color:var(--g);}
+  #tn-ri .ri-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* ---------- nav ---------- */
+  #tn-ri .ri-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line);}
+  #tn-ri .ri-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ri .ri-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ri .ri-nav-btn.prev{color:var(--ink2);}
+  #tn-ri .ri-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ri .ri-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-ri .ri-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ri .ri-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ri .ri-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ri .ri-nav-btn.next.locked:hover{transform:none;}
+  /* ---------- keyframes ---------- */
+  @keyframes ri-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ri-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  @media (max-width:540px){
+    #tn-ri .ri-wrap{padding:12px 14px 30px;}
+    #tn-ri .ri-flip-grid{grid-template-columns:1fr;}
+    #tn-ri .ri-flip-card{height:158px;}
+    #tn-ri .ri-domino-row{flex-wrap:wrap;}
+    #tn-ri .ri-hook-grid{flex-direction:column;}
+    #tn-ri .ri-bsub{display:none;}
+    #tn-ri .ri-nav-hint{display:none;}
+    #tn-ri .ri-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ri .ri-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ri #ri-bar{transition:none;}
+    #tn-ri .ri-env-flap{transition:none !important;}
+    #tn-ri .ri-flip-inner{transition:none !important;}
+    #tn-ri .ri-hat-card{transition:none !important;}
+    #tn-ri .ri-finish-arrow,#tn-ri .ri-finish-arrow.up{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
+(function(){
+  var root=document.getElementById('tn-ri'); if(!root) return;
+  root.querySelectorAll('.ri-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k, v); root.dispatchEvent(new CustomEvent('ri-state')); }
+  function money(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* ---------- 1 · vocabulary chips (optional, never gated) ---------- */
+  var vocabDef=root.querySelector('#ri-vocab-def');
+  root.querySelectorAll('#ri-vocab-chips .ri-vocab-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      root.querySelectorAll('#ri-vocab-chips .ri-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
+      chip.classList.add('on');
+      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* ---------- 2 · open both envelopes ---------- */
+  var envCount=root.querySelector('#ri-env-count'), envReset=root.querySelector('#ri-env-reset'), envOpen={};
+  root.querySelectorAll('.ri-envelope').forEach(function(env){
+    env.addEventListener('click',function(){
+      if(env.classList.contains('open')) return;
+      env.classList.add('open');
+      envOpen[env.getAttribute('data-k')]=1;
+      envCount.textContent='Opened '+keys(envOpen)+' Of 2';
+      state('env', keys(envOpen));
+      postHeight(); setTimeout(postHeight,450);
+    });
+  });
+  if(envReset) envReset.addEventListener('click',function(){
+    envOpen={};
+    root.querySelectorAll('.ri-envelope').forEach(function(e){ e.classList.remove('open'); });
+    envCount.textContent='Opened 0 Of 2';
+    postHeight(); setTimeout(postHeight,450);
+  });
+
+  /* ---------- 3 · the tax bracket seesaw ---------- */
+  var seesawToday=root.querySelector('#ri-seesaw-today'), seesawRetire=root.querySelector('#ri-seesaw-retire'),
+      seesawTodayV=root.querySelector('#ri-seesaw-today-v'), seesawRetireV=root.querySelector('#ri-seesaw-retire-v'),
+      seesawTodayLab=root.querySelector('#ri-seesaw-today-lab'), seesawRetireLab=root.querySelector('#ri-seesaw-retire-lab'),
+      seesawBeam=root.querySelector('#ri-seesaw-beam'), seesawVerdict=root.querySelector('#ri-seesaw-verdict');
+  var seesawMoved={};
+  function seesawCalc(){
+    var t=+seesawToday.value, r=+seesawRetire.value;
+    seesawTodayV.textContent=t+'%'; seesawRetireV.textContent=r+'%';
+    seesawTodayLab.textContent=t+'%'; seesawRetireLab.textContent=r+'%';
+    var diff=r-t;
+    seesawBeam.style.transform='rotate('+Math.max(-12,Math.min(12,diff*0.8))+'deg)';
+    if(diff>3){ seesawVerdict.textContent='Tips Toward Roth — Pay The Lower Rate Now'; seesawVerdict.style.color='#C0392B'; }
+    else if(diff<-3){ seesawVerdict.textContent='Tips Toward Traditional — Take The Deduction Now'; seesawVerdict.style.color='#1568AE'; }
+    else { seesawVerdict.textContent='Balanced — Either Could Work'; seesawVerdict.style.color='#209B73'; }
+    postHeight();
+  }
+  if(seesawToday && seesawRetire){
+    seesawToday.addEventListener('input',function(){ seesawMoved.today=1; seesawCalc(); state('seesaw', keys(seesawMoved)); });
+    seesawRetire.addEventListener('input',function(){ seesawMoved.retire=1; seesawCalc(); state('seesaw', keys(seesawMoved)); });
+    seesawCalc();
+  }
+
+  /* ---------- 4 · the paycheck splitter ---------- */
+  var splitter=root.querySelector('#ri-splitter'), splitterV=root.querySelector('#ri-splitter-v'),
+      splitterTaxable=root.querySelector('#ri-splitter-taxable'), splitterSavings=root.querySelector('#ri-splitter-savings');
+  function splitterCalc(){
+    var c=+splitter.value;
+    splitterV.textContent='$'+c+'/mo';
+    splitterTaxable.textContent=money(4000-c);
+    splitterSavings.textContent=money(c*0.22);
+    postHeight();
+  }
+  if(splitter){
+    splitter.addEventListener('input',function(){ splitterCalc(); if(+splitter.value>0) state('split',1); });
+    splitterCalc();
+  }
+
+  /* ---------- 5 · the scenario slot machine ----------
+     Nine life stages, dealt from a shuffled queue so no two spins in a row
+     repeat and every stage shows up before any repeats. Two spins unlock Next. */
+  var SLOT=[
+    {i:'🎓', n:'Just Started Your Career',            lead:'Often points toward a Roth.',        d:'Early career usually means one of the lowest tax brackets you will ever be in. Paying that low rate now, then letting decades of growth come out untaxed, is why a Roth is popular at this stage.'},
+    {i:'📚', n:'In School, Working Part-Time',         lead:'Points strongly toward a Roth.',     d:'With very little income, a deduction is worth almost nothing to you — there is barely any tax to deduct against. A Roth locks in a rock-bottom rate on money that has the longest possible runway to grow.'},
+    {i:'📈', n:'Expecting A Much Bigger Salary Soon',  lead:'Often points toward a Roth.',        d:'If you are fairly confident your income is about to jump, today’s rate may be the cheapest one available to you for a long time. Paying it now locks it in before the raise lands.'},
+    {i:'💼', n:'Peak Earning Years',                   lead:'Often points toward a Traditional.', d:'This is usually when your bracket is at its highest, so the upfront deduction is worth the most it will ever be worth. You defer the tax to retirement, when your rate may well be lower.'},
+    {i:'🧾', n:'Self-Employed, Income Swings Yearly',  lead:'It depends on the year.',            d:'A strong year puts you in a higher bracket, which makes the Traditional deduction more valuable. A lean year does the opposite and tilts things back toward a Roth. Many people in this position use whichever fits that particular year.'},
+    {i:'🏠', n:'One Income While Raising Kids',        lead:'Often points toward a Roth.',        d:'A household running on one income is usually in a temporarily lower bracket. That dip is exactly when paying the tax up front costs the least.'},
+    {i:'🔄', n:'Between Jobs This Year',               lead:'Often points toward a Roth.',        d:'A year with unusually low income is a rare window at a low tax rate. Contributing to a Roth during it means paying that low rate instead of a higher one later.'},
+    {i:'🌅', n:'Nearing Retirement',                   lead:'Either can fit here.',               d:'There is less time for growth to compound, so the tax-free-growth advantage is smaller. The decision comes back down to a straight comparison: your bracket right now versus the one you expect once you stop working.'},
+    {i:'🧓', n:'Already Have A Large Traditional Balance', lead:'A Roth adds balance.',           d:'If nearly everything you have saved will be taxed on the way out, adding some Roth money gives you a pot that will not be. Having both means more control over your taxable income in retirement.'}
+  ];
+  var slotReel=root.querySelector('#ri-slot-reel'), slotBtn=root.querySelector('#ri-slot-btn'),
+      slotResult=root.querySelector('#ri-slot-result'), slotCount=root.querySelector('#ri-slot-count'),
+      slotReset=root.querySelector('#ri-slot-reset');
+  var SLOT_MAX=5, SLOT_NEED=2;          /* Next unlocks at 2; 5 spins available per run */
+  var slotSpins=0, slotQueue=[], slotLast=-1, slotTimer=null;
+  function slotShuffle(){
+    var a=[]; for(var i=0;i<SLOT.length;i++) a.push(i);
+    for(var j=a.length-1;j>0;j--){ var k=Math.floor(Math.random()*(j+1)); var t=a[j]; a[j]=a[k]; a[k]=t; }
+    /* never let a fresh deck open on the stage that just showed */
+    if(a[0]===slotLast && a.length>1){ a.push(a.shift()); }
+    slotQueue=a;
+  }
+  function slotDeal(){
+    if(!slotQueue.length) slotShuffle();
+    slotLast=slotQueue.shift();
+    return slotLast;
+  }
+  function slotLabel(idx){ return SLOT[idx].i+' '+SLOT[idx].n; }
+  function slotSync(){
+    var left=SLOT_MAX-slotSpins;
+    if(slotSpins<SLOT_NEED){
+      slotCount.textContent='Spun '+slotSpins+' Of '+SLOT_NEED+' To Unlock Next';
+    } else if(left>0){
+      slotCount.textContent='Spun '+slotSpins+' Of '+SLOT_MAX+' — Next Is Unlocked, '+left+' Spin'+(left===1?'':'s')+' Left To Explore';
+    } else {
+      slotCount.textContent='All '+SLOT_MAX+' Spins Used — Tap Start Over For Five More';
+    }
+    slotBtn.textContent = left>0 ? '🎰 Spin ('+left+' Left)' : '🎰 No Spins Left';
+    slotBtn.disabled = left<=0;
+  }
+  if(slotBtn) slotBtn.addEventListener('click',function(){
+    if(slotTimer || slotSpins>=SLOT_MAX) return;
+    slotBtn.disabled=true;
+    slotReel.classList.add('spinning');
+    var ticks=0, maxTicks=16, landed=slotDeal();
+    slotResult.innerHTML='&nbsp;';
+    slotTimer=setInterval(function(){
+      slotReel.textContent=slotLabel(Math.floor(Math.random()*SLOT.length));
+      ticks++;
+      if(ticks>=maxTicks){
+        clearInterval(slotTimer); slotTimer=null;
+        slotReel.classList.remove('spinning');
+        var f=SLOT[landed];
+        slotReel.textContent=slotLabel(landed);
+        slotResult.innerHTML='<b>'+f.lead+'</b> '+f.d;
+        slotSpins++;
+        slotSync();
+        state('slot', slotSpins);
+        postHeight();
+      }
+      postHeight();
+    },70);
+  });
+  if(slotReset) slotReset.addEventListener('click',function(){
+    if(slotTimer){ clearInterval(slotTimer); slotTimer=null; }
+    slotSpins=0; slotLast=-1; slotQueue=[];
+    slotReel.classList.remove('spinning');
+    slotReel.textContent=slotLabel(0);
+    slotResult.innerHTML='&nbsp;';
+    slotSync();
+    postHeight();
+  });
+  if(slotBtn) slotSync();
+
+  /* ---------- 6 · the sorting hat ---------- */
+  var HATS=[
+    {t:'Withdrawals in retirement come out with no tax owed on the growth', a:'roth',
+     why:'You already settled up with the tax office on the way in, so there is nothing left owing on the growth when you take it out.',
+     other:'A Traditional works the other way round — nothing was taxed going in, so the withdrawal is exactly where the tax lands.'},
+    {t:'Contributions lower this year’s taxable income', a:'trad',
+     why:'The contribution is subtracted before your tax is worked out, so this year you are taxed on a smaller number.',
+     other:'A Roth contribution is made with money you have already been taxed on, so it does nothing to this year’s tax bill.'},
+    {t:'You pay tax on the money before it ever goes in', a:'roth',
+     why:'Roth contributions come out of already-taxed income. Paying that bill up front is precisely what buys the tax-free growth later.',
+     other:'With a Traditional, the money goes in untaxed and the bill simply arrives later, at withdrawal.'},
+    {t:'Withdrawals are taxed as ordinary income later', a:'trad',
+     why:'Because the money was never taxed on the way in, the full withdrawal counts as income in the year you take it.',
+     other:'A qualified Roth withdrawal does not count as income here — that tax was settled years earlier.'},
+    {t:'Gives you a deduction in the same year you contribute', a:'trad',
+     why:'The deduction is the Traditional’s upfront reward. You feel it immediately, in this year’s tax bill.',
+     other:'A Roth gives you no deduction today at all. Its reward is deliberately delayed until you withdraw.'},
+    {t:'Locks in today’s tax rate instead of a future unknown one', a:'roth',
+     why:'You pay at the rate you can actually see right now, so a higher rate years from now cannot reach that money.',
+     other:'A Traditional makes the opposite bet — that the rate you face in retirement will be lower than today’s.'}
+  ];
+  var hatIdx=0, hatRight=0, hatChoice=null, hatAnswered=false, hatTimer=null;
+  var hatCardEl=root.querySelector('#ri-hat-card'), hatRoth=root.querySelector('#ri-hat-roth'),
+      hatTrad=root.querySelector('#ri-hat-trad'), hatCount=root.querySelector('#ri-hat-count'),
+      hatAdvance=root.querySelector('#ri-hat-advance'), hatReset=root.querySelector('#ri-hat-reset');
+  function hatShowQuestion(){
+    hatAnswered=false; hatChoice=null;
+    hatRoth.classList.remove('glow-good','glow-bad');
+    hatTrad.classList.remove('glow-good','glow-bad');
+    hatAdvance.classList.add('hidden');
+    hatCardEl.className='ri-hat-card';
+    if(hatIdx>=HATS.length){
+      hatCardEl.classList.add('all-done');
+      hatCardEl.textContent='🎉 All Sorted — '+hatRight+' Of '+HATS.length+' Right';
+      state('hat', HATS.length);
+    } else {
+      hatCardEl.textContent=HATS[hatIdx].t;
+    }
+    postHeight();
+  }
+  /* Answering never advances on its own — the card turns into the explanation
+     and stays put until the learner taps Next Card, so there is time to read. */
+  function hatSort(choice){
+    if(hatAnswered || hatIdx>=HATS.length) return;
+    var card=HATS[hatIdx];
+    var correct=(card.a===choice);
+    var right = card.a==='roth' ? 'Roth' : 'Traditional';
+    var picked = choice==='roth' ? 'Roth' : 'Traditional';
+    hatAnswered=true; hatChoice=choice;
+    if(correct) hatRight++;
+    (choice==='roth'?hatRoth:hatTrad).classList.add(correct?'glow-good':'glow-bad');
+    hatCardEl.className='ri-hat-card '+(correct?'correct':'wrong');
+    hatCardEl.innerHTML = correct
+      ? '<span class="ri-hat-verdict">✓ Correct — '+right+'</span>'
+        + '<span class="ri-hat-why">'+card.why
+        + '<em>And the other hat: '+card.other+'</em></span>'
+      : '<span class="ri-hat-verdict">✕ Not Quite — This One Belongs To The '+right+'</span>'
+        + '<span class="ri-hat-why">'+card.why
+        + '<em><b>Why not the '+picked+':</b> '+card.other+'</em></span>';
+    hatAdvance.classList.remove('hidden');
+    hatAdvance.textContent = (hatIdx+1>=HATS.length) ? 'See Your Score →' : 'Next Card →';
+    hatIdx++;
+    hatCount.textContent='Sorted '+hatIdx+' Of '+HATS.length;
+    state('hat', hatIdx);
+    postHeight();
+  }
+  if(hatRoth){
+    hatRoth.addEventListener('click',function(){ hatSort('roth'); });
+    hatTrad.addEventListener('click',function(){ hatSort('trad'); });
+  }
+  if(hatAdvance) hatAdvance.addEventListener('click',function(){
+    if(hatTimer) return;
+    hatAdvance.classList.add('hidden');
+    hatCardEl.classList.add(hatChoice==='roth' ? 'fly-left' : 'fly-right');
+    hatTimer=setTimeout(function(){ hatTimer=null; hatShowQuestion(); },380);
+  });
+  if(hatReset) hatReset.addEventListener('click',function(){
+    if(hatTimer){ clearTimeout(hatTimer); hatTimer=null; }
+    hatIdx=0; hatRight=0;
+    hatCount.textContent='Sorted 0 Of '+HATS.length;
+    hatShowQuestion();
+  });
+
+  /* ---------- 7 · flip cards fact check ---------- */
+  var flipCount=root.querySelector('#ri-flip-count'), flipReset=root.querySelector('#ri-flip-reset');
+  root.querySelectorAll('#ri-flip-grid .ri-flip-card').forEach(function(card,i){
+    card.setAttribute('data-i', i);
+    card.querySelectorAll('.ri-flip-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(card.classList.contains('flipped')) return;
+        card.classList.add('flipped');
+        var n=root.querySelectorAll('#ri-flip-grid .ri-flip-card.flipped').length;
+        flipCount.textContent='Flipped '+n+' Of 4';
+        state('flip', n);
+        postHeight(); setTimeout(postHeight,650);
+      });
+    });
+  });
+  if(flipReset) flipReset.addEventListener('click',function(){
+    root.querySelectorAll('#ri-flip-grid .ri-flip-card').forEach(function(c){ c.classList.remove('flipped'); });
+    flipCount.textContent='Flipped 0 Of 4';
+    postHeight(); setTimeout(postHeight,650);
+  });
+
+  /* ---------- 8 · set it on autopilot ---------- */
+  var dominoBtn=root.querySelector('#ri-domino-btn'), dominoMsg=root.querySelector('#ri-domino-msg'),
+      dominoReset=root.querySelector('#ri-domino-reset');
+  var dominoes=root.querySelectorAll('#ri-domino-row .ri-domino');
+  var dominoTimers=[];
+  if(dominoBtn) dominoBtn.addEventListener('click',function(){
+    dominoTimers.forEach(clearTimeout); dominoTimers=[];
+    dominoBtn.disabled=true;
+    dominoes.forEach(function(d,i){
+      dominoTimers.push(setTimeout(function(){ d.classList.add('lit'); postHeight(); }, i*150));
+    });
+    dominoTimers.push(setTimeout(function(){
+      dominoMsg.innerHTML='<b>Automatic contributions scheduled</b> — every payday from now on, with no decision required.';
+      state('domino', 1);
+      postHeight();
+    }, dominoes.length*150+250));
+  });
+  if(dominoReset) dominoReset.addEventListener('click',function(){
+    dominoTimers.forEach(clearTimeout); dominoTimers=[];
+    dominoes.forEach(function(d){ d.classList.remove('lit'); });
+    dominoMsg.innerHTML='&nbsp;';
+    dominoBtn.disabled=false;
+    postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ============================================================
+     FULL-SCREEN AWARE PROMPT (last slide)
+     If the lesson is expanded to full screen, "scroll down" is
+     wrong — the learner has to close it first. This swaps the
+     wording and flips the arrow upward toward the ✕ button.
+     ============================================================ */
+(function(){
+  var arrow=document.getElementById('ri-fin-arrow');
+  var lead=document.getElementById('ri-fin-lead');
+  var sub=document.getElementById('ri-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={
+    normal:{ arrow:'↓', up:false, lead:'Scroll Down To Continue',
+             sub:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.' },
+    full:{   arrow:'↑', up:true,  lead:'Close Full Screen To Continue',
+             sub:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.' }
+  };
+  var last=null;
+  function isFullScreen(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{
+      if(!window.screen) return false;
+      var h=window.screen.availHeight||window.screen.height;
+      var w=window.screen.availWidth||window.screen.width;
+      return (window.innerHeight >= h-130) && (window.innerWidth >= w-60);
+    }catch(e){ return false; }
+  }
+  function apply(){
+    var key=isFullScreen()?'full':'normal';
+    if(key===last) return;
+    last=key;
+    var c=COPY[key];
+    arrow.textContent=c.arrow;
+    arrow.classList.toggle('up', c.up);
+    lead.textContent=c.lead;
+    sub.innerHTML=c.sub;
+  }
+  window.addEventListener('resize',apply);
+  document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700);
+  apply();
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ri'); if(!root) return;
+  var TOTAL=10, current=1;
+  var bar=root.querySelector('#ri-bar');
+  var labelEl=root.querySelector('#ri-slide-label');
+  var countEl=root.querySelector('#ri-slide-count');
+  var prevBtn=root.querySelector('#ri-prev');
+  var nextBtn=root.querySelector('#ri-next');
+  var hintEl=root.querySelector('#ri-nav-hint');
+  var disclaimer=root.querySelector('.ri-disclaimer');
+  var labels={1:'Key Vocabulary',2:'Open Both Envelopes',3:'The Tax Bracket Seesaw',4:'The Paycheck Splitter',5:'The Scenario Slot Machine',6:'The Sorting Hat',7:'Flip Cards: Fact Check',8:'Set It On Autopilot',9:'Recap',10:'Complete'};
+  var reqHints={2:'Open both envelopes',3:'Move both sliders to continue',4:'Move the slider to continue',5:'Spin at least twice',6:'Sort all 6 cards',7:'Flip all 4 cards',8:'Schedule it to continue'};
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.ri-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ri-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ri-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  function goNext(){ if(current<TOTAL && done[current]) show(current+1); }
+  function goPrev(){ if(current>1) show(current-1); }
+  prevBtn.addEventListener('click',goPrev);
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked')) goNext(); });
+  /* Gating is sticky: once a slide is unlocked, replaying its activity with
+     Start Over never re-locks Next. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  /* Gating reads state the content script publishes on the container, so
+     tapping a button with no real progress behind it can never unlock a slide. */
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'env',    need:2, hint:function(n){ return n<1 ? 'Open both envelopes' : 'Now open the other envelope too'; }},
+    {step:3, key:'seesaw', need:2, hint:function(n){ return n<1 ? 'Move both sliders to continue' : 'Now move the other slider too'; }},
+    {step:4, key:'split',  need:1, hint:function(){ return 'Move the slider to continue'; }},
+    {step:5, key:'slot',   need:2, hint:function(n){ return n<1 ? 'Spin at least twice' : 'Spin once more to continue'; }},
+    {step:6, key:'hat',    need:6, hint:function(n){ return 'Sorted '+n+' of 6 — keep going'; }},
+    {step:7, key:'flip',   need:4, hint:function(n){ return 'Flipped '+n+' of 4 — flip them all to continue'; }},
+    {step:8, key:'domino', need:1, hint:function(){ return 'Schedule it to continue'; }}
+  ];
+  root.addEventListener('ri-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>
