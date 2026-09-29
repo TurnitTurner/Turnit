@@ -155,13 +155,14 @@
     <section class="ii-sec ii-reveal" data-step="8">
       <p class="ii-kicker">Myth or Fact · 8 / 13</p>
       <h2 class="ii-h2">Myth Or Fact?</h2>
-      <p class="ii-p">Three things people get wrong about investing. Tap your answer for each.</p>
+      <p class="ii-p">Four things people get wrong about investing. Tap your answer for each.</p>
       <div class="ii-sort" id="ii-myth">
         <div class="ii-sort-row ii-mrow" data-answer="myth"><span>You need a lot of money to start investing.</span><div class="ii-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="ii-myth-why"><b>Myth.</b> Many platforms let you start with just a few dollars using fractional shares — you don't need thousands to begin.</p></div>
         <div class="ii-sort-row ii-mrow" data-answer="fact"><span>Investing always carries some risk of loss.</span><div class="ii-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="ii-myth-why"><b>Fact.</b> There's no such thing as risk-free growth. Every investment can lose value, which is exactly why timeline and diversification matter.</p></div>
         <div class="ii-sort-row ii-mrow" data-answer="myth"><span>Investing is basically the same thing as gambling.</span><div class="ii-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="ii-myth-why"><b>Myth.</b> Gambling has a built-in house edge with no expected long-term payoff. Broad, long-term investing is built around companies actually growing over time.</p></div>
+        <div class="ii-sort-row ii-mrow" data-answer="myth"><span>You have to pick individual company stocks to start investing.</span><div class="ii-sort-btns"><button data-p="myth">Myth</button><button data-p="fact">Fact</button></div><p class="ii-myth-why"><b>Myth.</b> An index fund buys you a small piece of many companies in a single purchase, so you don't have to pick winners yourself.</p></div>
       </div>
-      <p class="ii-count" id="ii-myth-count">Answered 0 of 3</p>
+      <p class="ii-count" id="ii-myth-count">Answered 0 of 4</p>
     </section>
     <!-- ========== 9 · SPOT THE RED FLAGS ========== -->
     <section class="ii-sec ii-reveal" data-step="9">
@@ -582,7 +583,7 @@
         if(row.classList.contains('done')) return;
         var pick=btn.getAttribute('data-p'); btn.classList.add('picked');
         row.classList.add('done', pick===ans?'correct':'wrong');
-        mythDone++; mythCount.textContent='Answered '+mythDone+' of 3';
+        mythDone++; mythCount.textContent='Answered '+mythDone+' of 4';
         postHeight();
       });
     });
@@ -872,10 +873,10 @@
   });
   // 7 · delay slider moved
   var delay=root.querySelector('#ii-delay'); if(delay) delay.addEventListener('input',function(){ markDone(7); });
-  // 8 · all 3 myth answers
+  // 8 · all 4 myth answers
   root.querySelectorAll('#ii-myth .ii-sort-row button').forEach(function(b){
     b.addEventListener('click',function(){ var n=count('#ii-myth .ii-sort-row.done');
-      if(n>=3) markDone(8); else liveHint(8,'Answered '+n+' of 3 — answer all to continue'); });
+      if(n>=4) markDone(8); else liveHint(8,'Answered '+n+' of 4 — answer all to continue'); });
   });
   // 9 · all 4 traps revealed
   root.querySelectorAll('#ii-traps .ii-trap-tile').forEach(function(t){
