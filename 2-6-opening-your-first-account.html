@@ -4,7 +4,7 @@
      Scoped under #tn-oa. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      The slide order walks the real sign-up flow, step by step.
      13 slides, one interactive per page, "Next" locked until the activity is done:
-       1  Title & Key Vocabulary (never gated)
+       1  Title & Start Here (never gated)
        2  What You'll Need              3  Choose The Account Type
        4  Fill Out The Application      5  Verify Your Identity
        6  Link Your Bank Account        7  Make Your First Deposit
@@ -25,26 +25,13 @@
         <div class="oa-brand"><span class="oa-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 2l9 4.5v9L12 22l-9-6.5v-9L12 2z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="oa-word">TURNIT</span><span class="oa-bsub">Financial Foundations</span></div>
       </div>
       <div class="oa-progress"><span id="oa-bar"></span></div>
-      <div class="oa-meta"><span id="oa-slide-label">Key Vocabulary</span><span id="oa-slide-count">Slide 1 of 13</span></div>
+      <div class="oa-meta"><span id="oa-slide-label">Start Here</span><span id="oa-slide-count">Slide 1 of 13</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="oa-sec oa-center oa-reveal" data-step="1">
       <p class="oa-kicker center">Opening Your First Account · 1 / 13</p>
       <h1 class="oa-hero-title">OPENING YOUR FIRST ACCOUNT, <span class="oa-hero-grad">STEP BY STEP</span></h1>
-      <p class="oa-sub center">Before you start, here are a few words you'll see throughout this lesson — and on the real sign-up screens.</p>
-      <div class="oa-vocab-teaser">
-        <span class="oa-vocab-label">Key Terms In This Lesson</span>
-        <div class="oa-vocab-chips" id="oa-vocab-chips">
-          <button type="button" class="oa-vocab-chip" data-t="Brokerage" data-def="The company that holds your account and places your orders for you. You'll also see it called a broker, a provider, or a platform — same thing.">Brokerage</button>
-          <button type="button" class="oa-vocab-chip" data-t="Account Type" data-def="The legal wrapper around your investments. It sets the tax and withdrawal rules — not what you own inside it. You pick this before the application starts.">Account Type</button>
-          <button type="button" class="oa-vocab-chip" data-t="KYC" data-def="Short for &quot;Know Your Customer.&quot; The identity check every US provider is legally required to run before your account can trade. It's why the form asks for your SSN.">KYC</button>
-          <button type="button" class="oa-vocab-chip" data-t="ACH Transfer" data-def="The standard electronic pipe that moves money between your bank and your brokerage. Usually free, and usually takes a few business days to fully clear.">ACH Transfer</button>
-          <button type="button" class="oa-vocab-chip" data-t="SIPC" data-def="A nonprofit that steps in if a member brokerage fails, restoring your securities and cash up to its limits. It does not protect you from an investment losing value.">SIPC</button>
-          <button type="button" class="oa-vocab-chip" data-t="Order Ticket" data-def="The small form you fill out to actually buy something: what, how much, and at what price. Depositing money and placing an order are two separate steps.">Order Ticket</button>
-        </div>
-        <div class="oa-vocab-def" id="oa-vocab-def">Tap a term above to see what it means.</div>
-        <span class="oa-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="oa-term-hint">Key terms appear in <span class="oa-term-demo">green</span> — tap any one for its definition.</p>
       <div class="oa-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · WHAT YOU'LL NEED ========== -->
@@ -361,18 +348,9 @@
   #tn-oa .oa-reset-row{display:flex; justify-content:center; margin-top:14px;}
   #tn-oa .oa-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
   #tn-oa .oa-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
-  /* ---- slide 1: title + vocabulary ---- */
+  /* ---- slide 1: title ---- */
   #tn-oa .oa-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6.4vw,40px); line-height:1.15; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-oa .oa-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-oa .oa-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-oa .oa-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-oa .oa-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-oa .oa-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-oa .oa-vocab-chip:hover{background:#DCF0E5;}
-  #tn-oa .oa-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-oa .oa-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-oa .oa-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-oa .oa-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   #tn-oa .oa-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; color:var(--ink); font-weight:500; line-height:1.5;}
   #tn-oa .oa-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
   /* ---- slide 3: gather documents ---- */
@@ -571,6 +549,20 @@
     #tn-oa .oa-finish-arrow,#tn-oa .oa-finish-arrow.up{animation:none !important;}
     #tn-oa .oa-link-fill{transition:none;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-oa .oa-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-oa .oa-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-oa .oa-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-oa .oa-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-oa .oa-term-demo{color:var(--g); font-weight:600;}
+  .oa-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:oa-popin .16s ease;}
+  .oa-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .oa-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .oa-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes oa-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .oa-pop{animation:none;} }
 </style>
 <script>
 /* ============================================================
@@ -583,17 +575,6 @@
   root.querySelectorAll('.oa-reveal').forEach(function(el){ el.classList.add('in'); });
   function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
   function state(k,v){ root.setAttribute('data-'+k, v); root.dispatchEvent(new CustomEvent('oa-state')); }
-
-  /* ============ 1 · key vocabulary ============ */
-  var vocabDef=root.querySelector('#oa-vocab-def');
-  root.querySelectorAll('#oa-vocab-chips .oa-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#oa-vocab-chips .oa-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
 
   /* ============ 2 · pick your provider (unchanged) ============ */
   var providerConfirm=root.querySelector('#oa-provider-confirm'), providerResult=root.querySelector('#oa-provider-result'),
@@ -968,6 +949,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-oa'); if(!root) return;
+
+  var TERMS=[
+    {t:'Brokerage',    re:/\bbrokerages?\b/i,
+     d:'The company that holds your account and places your orders for you. You\'ll also see it called a broker, a provider, or a platform — same thing.'},
+    {t:'Account Type', re:/\baccount types?\b/i,
+     d:'The legal wrapper around your investments. It sets the tax and withdrawal rules — not what you own inside it. You pick this before the application starts.'},
+    {t:'KYC',          re:/\bKYC\b/,
+     d:'Short for "Know Your Customer." The identity check every US provider is legally required to run before your account can trade. It\'s why the form asks for your SSN.'},
+    {t:'ACH Transfer', re:/\bACH transfers?\b/i,
+     d:'The standard electronic pipe that moves money between your bank and your brokerage. Usually free, and usually takes a few business days to fully clear.'},
+    {t:'SIPC',         re:/\bSIPC\b/,
+     d:'A nonprofit that steps in if a member brokerage fails, restoring your securities and cash up to its limits. It does not protect you from an investment losing value.'},
+    {t:'Order Ticket', re:/\border tickets?\b/i,
+     d:'The small form you fill out to actually buy something: what, how much, and at what price. Depositing money and placing an order are two separate steps.'}
+  ];
+  var PROSE='.oa-p, .oa-sub, .oa-note, .oa-myth-why, .oa-recap-item span, .oa-gather-note, .oa-next-move, .oa-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id || p.hasAttribute('data-t')) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='oa-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='oa-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="oa-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.oa-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      Gating reads state the content script publishes on the
      container, so tapping a button with no real progress behind
@@ -986,7 +1079,7 @@
   var nextBtn=root.querySelector('#oa-next');
   var hintEl=root.querySelector('#oa-nav-hint');
   var disclaimer=root.querySelector('.oa-disclaimer');
-  var labels={1:'Key Vocabulary',2:"What You'll Need",3:'Choose The Account Type',4:'Fill Out The Application',5:'Verify Your Identity',6:'Link Your Bank Account',7:'Make Your First Deposit',8:'Your First Order Ticket',9:'Automate It',10:'Myth Or Fact',11:'Pick Your Provider',12:'Recap',13:'Complete'};
+  var labels={1:'Start Here',2:"What You'll Need",3:'Choose The Account Type',4:'Fill Out The Application',5:'Verify Your Identity',6:'Link Your Bank Account',7:'Make Your First Deposit',8:'Your First Order Ticket',9:'Automate It',10:'Myth Or Fact',11:'Pick Your Provider',12:'Recap',13:'Complete'};
   var reqHints={2:'Gather all 6 items to continue',3:'Review all 6 account types to continue',4:'Tap through all 8 fields to continue',5:'Run all 3 checks to continue',6:'Try both linking methods to continue',7:'Confirm the deposit to continue',8:'Review all 4 ticket fields to continue',9:'Turn the recurring transfer on to continue',10:'Answer all 8 to continue',11:'Confirm your provider choice'};
   var done={1:true, 12:true, 13:true};
   var secByStep={};
