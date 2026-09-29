@@ -3,7 +3,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-cl. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      10 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (never gated)   2 The Contribution Meter
+       1 Title & Start Here (never gated)   2 The Contribution Meter
        3 The Earned Income Checkpoint           4 The Age Timeline Scrubber
        5 The RMD Alarm Clock                    6 The Penalty Receipt
        7 Quick Fire Grid (8 questions)          8 The Calendar Stamp
@@ -25,26 +25,13 @@
         <div class="cl-brand"><span class="cl-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></svg></span><span class="cl-word">TURNIT</span><span class="cl-bsub">Financial Foundations</span></div>
       </div>
       <div class="cl-progress"><span id="cl-bar"></span></div>
-      <div class="cl-meta"><span id="cl-slide-label">Key Vocabulary</span><span id="cl-slide-count">Slide 1 of 10</span></div>
+      <div class="cl-meta"><span id="cl-slide-label">Start Here</span><span id="cl-slide-count">Slide 1 of 10</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="cl-sec cl-center cl-reveal" data-step="1">
       <p class="cl-kicker center">The Rules · 1 / 10</p>
       <h1 class="cl-hero-title">CONTRIBUTION LIMITS &amp; <span class="cl-hero-grad">AGE REQUIREMENTS</span></h1>
-      <p class="cl-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="cl-vocab-teaser">
-        <span class="cl-vocab-label">Key Terms In This Lesson</span>
-        <div class="cl-vocab-chips" id="cl-vocab-chips">
-          <button type="button" class="cl-vocab-chip" data-t="Contribution Limit" data-def="The most you are allowed to put into your IRAs in a single year. It is one shared ceiling across a Roth and a Traditional together, not a separate allowance for each.">Contribution Limit</button>
-          <button type="button" class="cl-vocab-chip" data-t="Earned Income" data-def="Money you were paid for work — wages, salary, tips, or self-employment income. It does not include gifts, allowances, or investment gains.">Earned Income</button>
-          <button type="button" class="cl-vocab-chip" data-t="Catch-Up Contribution" data-def="An extra amount people aged 50 and over are allowed to add on top of the normal annual limit, to make up ground closer to retirement.">Catch-Up Contribution</button>
-          <button type="button" class="cl-vocab-chip" data-t="Age 59½" data-def="The line where withdrawals from a retirement account stop carrying the early-withdrawal penalty. Before it, taking money out generally costs you extra.">Age 59½</button>
-          <button type="button" class="cl-vocab-chip" data-t="RMD" data-def="A Required Minimum Distribution — the amount a Traditional IRA forces you to start withdrawing each year once you reach the trigger age. Roth IRAs do not have this rule.">RMD</button>
-          <button type="button" class="cl-vocab-chip" data-t="Early Withdrawal Penalty" data-def="An extra charge, commonly around 10%, added on top of ordinary income tax when you take retirement money out before age 59½.">Early Withdrawal Penalty</button>
-        </div>
-        <div class="cl-vocab-def" id="cl-vocab-def">Tap a term above to see what it means.</div>
-        <span class="cl-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="cl-term-hint">Key terms appear in <span class="cl-term-demo">green</span> — tap any one for its definition.</p>
       <div class="cl-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · THE CONTRIBUTION METER ========== -->
@@ -265,18 +252,9 @@
   #tn-cl .cl-reset-row{display:flex; justify-content:center; margin-top:14px;}
   #tn-cl .cl-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
   #tn-cl .cl-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
-  /* ---------- 1 · hero + vocabulary ---------- */
+  /* ---------- 1 · hero ---------- */
   #tn-cl .cl-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(25px,5.9vw,39px); line-height:1.14; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-cl .cl-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-cl .cl-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-cl .cl-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-cl .cl-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-cl .cl-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-cl .cl-vocab-chip:hover{background:#DCF0E5;}
-  #tn-cl .cl-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-cl .cl-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:13px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-cl .cl-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-cl .cl-vocab-note{display:block; font-size:12.5px; color:var(--mut); line-height:1.45;}
   /* ---------- slider rows / ranges (shared) ---------- */
   #tn-cl .cl-slide-row{margin-top:6px;}
   #tn-cl .cl-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
@@ -415,6 +393,20 @@
     #tn-cl .cl-stamp{transition:none;}
     #tn-cl .cl-finish-arrow,#tn-cl .cl-finish-arrow.up{animation:none !important;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-cl .cl-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-cl .cl-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-cl .cl-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-cl .cl-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-cl .cl-term-demo{color:var(--g); font-weight:600;}
+  .cl-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:cl-popin .16s ease;}
+  .cl-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .cl-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .cl-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes cl-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .cl-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -425,17 +417,6 @@
   function state(k,v){ root.setAttribute('data-'+k, v); root.dispatchEvent(new CustomEvent('cl-state')); }
   function money(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
   function keys(o){ return Object.keys(o).length; }
-
-  /* ---------- 1 · vocabulary chips (optional, never gated) ---------- */
-  var vocabDef=root.querySelector('#cl-vocab-def');
-  root.querySelectorAll('#cl-vocab-chips .cl-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#cl-vocab-chips .cl-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
 
   /* ---------- 2 · the contribution meter ---------- */
   var meterFill=root.querySelector('#cl-meter-fill'), meterTotal=root.querySelector('#cl-meter-total'),
@@ -678,6 +659,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-cl'); if(!root) return;
+
+  var TERMS=[
+    {t:'Contribution Limit',      re:/\bcontribution limits?\b/i,
+     d:'The most you are allowed to put into your IRAs in a single year. It is one shared ceiling across a Roth and a Traditional together, not a separate allowance for each.'},
+    {t:'Earned Income',           re:/\bearned income\b/i,
+     d:'Money you were paid for work — wages, salary, tips, or self-employment income. It does not include gifts, allowances, or investment gains.'},
+    {t:'Catch-Up Contribution',   re:/\bcatch-up contributions?\b/i,
+     d:'An extra amount people aged 50 and over are allowed to add on top of the normal annual limit, to make up ground closer to retirement.'},
+    {t:'Age 59½',                 re:/\b(?:age )?59½/i,
+     d:'The line where withdrawals from a retirement account stop carrying the early-withdrawal penalty. Before it, taking money out generally costs you extra.'},
+    {t:'RMD',                     re:/\bRMDs?\b/,
+     d:'A Required Minimum Distribution — the amount a Traditional IRA forces you to start withdrawing each year once you reach the trigger age. Roth IRAs do not have this rule.'},
+    {t:'Early Withdrawal Penalty',re:/\bearly withdrawal penalt(?:y|ies)\b/i,
+     d:'An extra charge, commonly around 10%, added on top of ordinary income tax when you take retirement money out before age 59½.'}
+  ];
+  var PROSE='.cl-p, .cl-sub, .cl-note, .cl-recap-item span, .cl-next-move, .cl-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id || p.hasAttribute('data-t')) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='cl-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='cl-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="cl-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.cl-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -691,7 +784,7 @@
   var nextBtn=root.querySelector('#cl-next');
   var hintEl=root.querySelector('#cl-nav-hint');
   var disclaimer=root.querySelector('.cl-disclaimer');
-  var labels={1:'Key Vocabulary',2:'The Contribution Meter',3:'Earned Income Checkpoint',4:'The Age Timeline',5:'The RMD Alarm Clock',6:'The Penalty Receipt',7:'Quick Fire Grid',8:'The Calendar Stamp',9:'Recap',10:'Complete'};
+  var labels={1:'Start Here',2:'The Contribution Meter',3:'Earned Income Checkpoint',4:'The Age Timeline',5:'The RMD Alarm Clock',6:'The Penalty Receipt',7:'Quick Fire Grid',8:'The Calendar Stamp',9:'Recap',10:'Complete'};
   var reqHints={2:'Add contributions past the limit to continue',3:'Check all 3 people',4:'Explore all 3 age zones',5:'Tap the alarm to continue',6:'Toggle early withdrawal both ways',7:'Answer all 8 to continue',8:'Automate the year to continue'};
   var done={1:true,9:true,10:true};
   var secByStep={};
