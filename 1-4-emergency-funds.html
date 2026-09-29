@@ -4,7 +4,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-ef. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      13 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (optional, never gated)
+       1 Title & Start Here (optional, never gated)
        2 The Financial Shock Wave Test    3 The Liquid Runway Meter
        4 What Belongs In The Fund?        5 The Interest Rate Illusion
        6 How To Build It Fast             7 The Progressive Phase Splitter
@@ -24,26 +24,13 @@
         <div class="ef-brand"><span class="ef-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="ef-word">TURNIT</span><span class="ef-bsub">Financial Foundations</span></div>
       </div>
       <div class="ef-progress"><span id="ef-bar"></span></div>
-      <div class="ef-meta"><span id="ef-slide-label">Key Vocabulary</span><span id="ef-slide-count">Slide 1 of 13</span></div>
+      <div class="ef-meta"><span id="ef-slide-label">Start Here</span><span id="ef-slide-count">Slide 1 of 13</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="ef-sec ef-center ef-reveal" data-step="1">
       <p class="ef-kicker center">Emergency Funds · 1 / 13</p>
       <h1 class="ef-hero-title">EMERGENCY <span class="ef-hero-grad">FUNDS</span></h1>
-      <p class="ef-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="ef-vocab-teaser">
-        <span class="ef-vocab-label">Key Terms In This Lesson</span>
-        <div class="ef-vocab-chips" id="ef-vocab-chips">
-          <button type="button" class="ef-vocab-chip" data-t="Emergency Fund" data-def="Cash set aside specifically to cover unexpected, urgent costs — kept separate from money you invest or spend day to day.">Emergency Fund</button>
-          <button type="button" class="ef-vocab-chip" data-t="Liquid" data-def="Money you can get to immediately, without selling anything or paying a penalty. Cash in a savings account is liquid; a stock is not.">Liquid</button>
-          <button type="button" class="ef-vocab-chip" data-t="Financial Runway" data-def="How many months you could cover your essential expenses using only the cash you already have.">Financial Runway</button>
-          <button type="button" class="ef-vocab-chip" data-t="High-Yield Savings" data-def="A savings account that pays meaningfully more interest than a standard one, while keeping your money just as easy to withdraw.">High-Yield Savings</button>
-          <button type="button" class="ef-vocab-chip" data-t="APR" data-def="Annual Percentage Rate — the yearly cost of borrowing money. A 24% APR credit card charges you roughly 24% a year on any balance you carry.">APR</button>
-          <button type="button" class="ef-vocab-chip" data-t="Inflation" data-def="The gradual rise in prices over time, which quietly shrinks how much the same amount of cash can buy.">Inflation</button>
-        </div>
-        <div class="ef-vocab-def" id="ef-vocab-def">Tap a term above to see what it means.</div>
-        <span class="ef-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="ef-term-hint">Key terms appear in <span class="ef-term-demo">green</span> — tap any one for its definition.</p>
       <div class="ef-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · THE FINANCIAL SHOCK WAVE TEST ========== -->
@@ -323,18 +310,9 @@
   #tn-ef .ef-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
   #tn-ef .ef-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
   #tn-ef .ef-shock-choice:disabled{opacity:.45; cursor:default;}
-  /* slide 1 — title & vocabulary */
+  /* title slide */
   #tn-ef .ef-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(30px,7.4vw,48px); line-height:1.12; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-ef .ef-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-ef .ef-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-ef .ef-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-ef .ef-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-ef .ef-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-ef .ef-vocab-chip:hover{background:#DCF0E5;}
-  #tn-ef .ef-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-ef .ef-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-ef .ef-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-ef .ef-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   #tn-ef .ef-hook-box.red{background:var(--nobg); border-color:var(--nobd);}
   #tn-ef .ef-hook-box.red b{color:var(--no);}
   #tn-ef .ef-hook-box.red.bump{animation:ef-bump .45s ease;}
@@ -536,6 +514,20 @@
     #tn-ef .ef-hook-box.red.bump{animation:none !important;}
     #tn-ef .ef-debt-fill{transition:none;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-ef .ef-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-ef .ef-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-ef .ef-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-ef .ef-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-ef .ef-term-demo{color:var(--g); font-weight:600;}
+  .ef-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:ef-popin .16s ease;}
+  .ef-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .ef-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .ef-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes ef-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .ef-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -546,16 +538,6 @@
   function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
   function state(k,v){ root.setAttribute('data-'+k, v); root.dispatchEvent(new CustomEvent('ef-state')); }
   function keys(o){ return Object.keys(o).length; }
-  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
-  var vocabDef=root.querySelector('#ef-vocab-def');
-  root.querySelectorAll('#ef-vocab-chips .ef-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#ef-vocab-chips .ef-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
   /* 2 · financial shock wave test — the portfolio is large enough to survive
      repeated hits, and a floor stops it ever being drained to zero */
   var SHOCK_EVENTS=[
@@ -884,6 +866,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ef'); if(!root) return;
+
+  var TERMS=[
+    {t:'Emergency Fund',    re:/\bemergency funds?\b/i,
+     d:'Cash set aside specifically to cover unexpected, urgent costs — kept separate from money you invest or spend day to day.'},
+    {t:'Liquid',            re:/\bliquid\b/i,
+     d:'Money you can get to immediately, without selling anything or paying a penalty. Cash in a savings account is liquid; a stock is not.'},
+    {t:'Financial Runway',  re:/\b(financial runway|runway)\b/i,
+     d:'How many months you could cover your essential expenses using only the cash you already have.'},
+    {t:'High-Yield Savings',re:/\bhigh-yield savings\b/i,
+     d:'A savings account that pays meaningfully more interest than a standard one, while keeping your money just as easy to withdraw.'},
+    {t:'APR',               re:/\bAPR\b/,
+     d:'Annual Percentage Rate — the yearly cost of borrowing money. A 24% APR credit card charges you roughly 24% a year on any balance you carry.'},
+    {t:'Inflation',         re:/\binflation\b/i,
+     d:'The gradual rise in prices over time, which quietly shrinks how much the same amount of cash can buy.'}
+  ];
+  var PROSE='.ef-p, .ef-sub, .ef-note, .ef-recap-item span, .ef-next-move, .ef-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='ef-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='ef-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="ef-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.ef-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -897,7 +991,7 @@
   var nextBtn=root.querySelector('#ef-next');
   var hintEl=root.querySelector('#ef-nav-hint');
   var disclaimer=root.querySelector('.ef-disclaimer');
-  var labels={1:'Key Vocabulary',2:'The Shock Wave Test',3:'The Runway Meter',4:'What Belongs',5:'The Illusion',6:'Building It Fast',7:'Two Phases',8:'Real Emergency?',9:'Spot The Red Flags',10:'The Bodyguard',11:'Automate It',12:'Recap',13:'Complete'};
+  var labels={1:'Start Here',2:'The Shock Wave Test',3:'The Runway Meter',4:'What Belongs',5:'The Illusion',6:'Building It Fast',7:'Two Phases',8:'Real Emergency?',9:'Spot The Red Flags',10:'The Bodyguard',11:'Automate It',12:'Recap',13:'Complete'};
   var reqHints={2:'Resolve 2 life events to continue',3:'Find both a red and a green runway',4:'Review all 4 to continue',5:'Explore all 3 buckets to continue',6:'Explore all 4 to continue',7:'Preview both phases',8:'Sort all 4 to continue',9:'Reveal all 4 to continue',10:'Run the simulation to continue',11:'Flip the switch to continue'};
   var done={1:true,12:true,13:true};
   var secByStep={};
