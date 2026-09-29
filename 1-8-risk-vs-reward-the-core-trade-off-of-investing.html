@@ -4,7 +4,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-rr. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      13 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (optional, never gated)
+       1 Title & Start Here (optional, never gated)
        2 The Volatility Heartbeat Test    3 The Portfolio Risk Dial
        4 The Many Faces Of Risk           5 The Time Horizon Shock Absorber
        6 Ways To Manage Risk              7 The Speculation Drag Race
@@ -24,26 +24,13 @@
         <div class="rr-brand"><span class="rr-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></span><span class="rr-word">TURNIT</span><span class="rr-bsub">Financial Foundations</span></div>
       </div>
       <div class="rr-progress"><span id="rr-bar"></span></div>
-      <div class="rr-meta"><span id="rr-slide-label">Key Vocabulary</span><span id="rr-slide-count">Slide 1 of 13</span></div>
+      <div class="rr-meta"><span id="rr-slide-label">Start Here</span><span id="rr-slide-count">Slide 1 of 13</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="rr-sec rr-center rr-reveal" data-step="1">
       <p class="rr-kicker center">Risk Vs. Reward · 1 / 13</p>
       <h1 class="rr-hero-title">RISK VS. <span class="rr-hero-grad">REWARD</span></h1>
-      <p class="rr-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="rr-vocab-teaser">
-        <span class="rr-vocab-label">Key terms in this lesson</span>
-        <div class="rr-vocab-chips" id="rr-vocab-chips">
-          <button type="button" class="rr-vocab-chip" data-t="Risk" data-def="The chance that an investment loses value, or does not grow as much as you hoped. It is not one single thing — this lesson covers four different kinds.">Risk</button>
-          <button type="button" class="rr-vocab-chip" data-t="Volatility" data-def="How sharply a price swings up and down along the way. High volatility means a bumpier ride, even when the long-term direction is upward.">Volatility</button>
-          <button type="button" class="rr-vocab-chip" data-t="Drawdown" data-def="The biggest drop from a high point to a low point. A 40% drawdown means the money was once 40% below its peak.">Drawdown</button>
-          <button type="button" class="rr-vocab-chip" data-t="Speculation" data-def="Betting on a single asset in the hope of a fast, large gain, rather than investing broadly for steady long-term growth.">Speculation</button>
-          <button type="button" class="rr-vocab-chip" data-t="Market Correction" data-def="A meaningful drop in the overall market, usually around 10% or more. Corrections are a normal, recurring part of investing.">Market Correction</button>
-          <button type="button" class="rr-vocab-chip" data-t="Diversification" data-def="Spreading money across many companies, sectors, and asset types so no single failure can sink the whole portfolio.">Diversification</button>
-        </div>
-        <div class="rr-vocab-def" id="rr-vocab-def">Tap a term above to see what it means.</div>
-        <span class="rr-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="rr-term-hint">Key terms appear in <span class="rr-term-demo">green</span> — tap any one for its definition.</p>
       <div class="rr-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · THE VOLATILITY HEARTBEAT TEST ========== -->
@@ -300,18 +287,9 @@
   #tn-rr .rr-note b{color:var(--ink); font-weight:700;}
   #tn-rr .rr-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
   #tn-rr .rr-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
-  /* slide 1 — title & vocabulary */
+  /* title slide */
   #tn-rr .rr-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(30px,7.6vw,48px); line-height:1.12; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-rr .rr-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-rr .rr-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-rr .rr-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-rr .rr-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-rr .rr-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-rr .rr-vocab-chip:hover{background:#DCF0E5;}
-  #tn-rr .rr-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-rr .rr-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:13px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-rr .rr-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-rr .rr-vocab-note{display:block; font-size:12.5px; color:var(--mut); line-height:1.45;}
   /* slide 2 — heartbeat test */
   #tn-rr .rr-heart-tabs{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px;}
   #tn-rr .rr-heart-tab{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:10px; padding:11px 6px; cursor:pointer; transition:all .18s;}
@@ -499,6 +477,20 @@
     #tn-rr .rr-heart-emoji.beat-slow,#tn-rr .rr-heart-emoji.beat-mid,#tn-rr .rr-heart-emoji.beat-fast{animation:none !important;}
     #tn-rr .rr-finish-arrow,#tn-rr .rr-finish-arrow.up{animation:none !important;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-rr .rr-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-rr .rr-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-rr .rr-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-rr .rr-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-rr .rr-term-demo{color:var(--g); font-weight:600;}
+  .rr-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:rr-popin .16s ease;}
+  .rr-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .rr-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .rr-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes rr-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .rr-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -507,16 +499,6 @@
   root.querySelectorAll('.rr-reveal').forEach(function(el){ el.classList.add('in'); });
   function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
   function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
-  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
-  var vocabDef=root.querySelector('#rr-vocab-def');
-  root.querySelectorAll('#rr-vocab-chips .rr-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#rr-vocab-chips .rr-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
   /* 2 · volatility heartbeat test */
   var heartCopy={
     cash:{bpm:'60 BPM', lab:'Stagnant Growth', beat:'beat-slow', pathId:'rr-path-cash'},
@@ -739,6 +721,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-rr'); if(!root) return;
+
+  var TERMS=[
+    {t:'Risk',              re:/\brisks?\b/i,
+     d:'The chance that an investment loses value, or does not grow as much as you hoped. It is not one single thing — this lesson covers four different kinds.'},
+    {t:'Volatility',        re:/\b(volatility|volatile)\b/i,
+     d:'How sharply a price swings up and down along the way. High volatility means a bumpier ride, even when the long-term direction is upward.'},
+    {t:'Drawdown',          re:/\bdrawdowns?\b/i,
+     d:'The biggest drop from a high point to a low point. A 40% drawdown means the money was once 40% below its peak.'},
+    {t:'Speculation',       re:/\b(speculation|speculating|speculative)\b/i,
+     d:'Betting on a single asset in the hope of a fast, large gain, rather than investing broadly for steady long-term growth.'},
+    {t:'Market Correction', re:/\bmarket corrections?\b/i,
+     d:'A meaningful drop in the overall market, usually around 10% or more. Corrections are a normal, recurring part of investing.'},
+    {t:'Diversification',   re:/\b(diversification|diversified|diversify|diversifying)\b/i,
+     d:'Spreading money across many companies, sectors, and asset types so no single failure can sink the whole portfolio.'}
+  ];
+  var PROSE='.rr-p, .rr-sub, .rr-note, .rr-myth-why, .rr-recap-item span, .rr-next-move, .rr-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='rr-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='rr-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="rr-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.rr-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -752,7 +846,7 @@
   var nextBtn=root.querySelector('#rr-next');
   var hintEl=root.querySelector('#rr-nav-hint');
   var disclaimer=root.querySelector('.rr-disclaimer');
-  var labels={1:'Key Vocabulary',2:'The Heartbeat Test',3:'The Risk Dial',4:'Faces Of Risk',5:'The Shock Absorber',6:'Managing Risk',7:'The Drag Race',8:'The Real Danger',9:'Spot The Red Flags',10:'The Math Lab',11:'Automate It',12:'Recap',13:'Complete'};
+  var labels={1:'Start Here',2:'The Heartbeat Test',3:'The Risk Dial',4:'Faces Of Risk',5:'The Shock Absorber',6:'Managing Risk',7:'The Drag Race',8:'The Real Danger',9:'Spot The Red Flags',10:'The Math Lab',11:'Automate It',12:'Recap',13:'Complete'};
   var reqHints={2:'Explore all 3 assets to continue',3:'Drag across both extremes',4:'Review all 4 to continue',5:'Evaluate both horizons',6:'Explore all 4 to continue',7:'Slide all the way to Year 10',8:'Answer all 6 to continue',9:'Reveal all 4 to continue',10:'Find the correct gain percentage',11:'Flip the switch to continue'};
   var done={1:true,12:true,13:true};
   var secByStep={};
