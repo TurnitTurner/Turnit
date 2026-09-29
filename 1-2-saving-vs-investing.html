@@ -31,20 +31,7 @@
       <p class="ii-kicker center">Saving vs Investing · 1 / 13</p>
       <h1 class="ii-hero-title">SAVING VS <span class="ii-hero-grad">INVESTING</span></h1>
       <p class="ii-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="ii-vocab-teaser">
-        <span class="ii-vocab-label">Key terms in this lesson</span>
-        <div class="ii-vocab-chips" id="ii-vocab-chips">
-          <button type="button" class="ii-vocab-chip" data-t="Compounding" data-def="Growth that builds on top of previous growth, not just the original amount.">Compounding</button>
-          <button type="button" class="ii-vocab-chip" data-t="Time In The Market" data-def="How long your money actually stays invested, start to finish.">Time In The Market</button>
-          <button type="button" class="ii-vocab-chip" data-t="Diversification" data-def="Spreading money across multiple investments instead of just one.">Diversification</button>
-          <button type="button" class="ii-vocab-chip" data-t="Index Fund" data-def="One purchase that spreads your money across many companies at once.">Index Fund</button>
-          <button type="button" class="ii-vocab-chip" data-t="Risk" data-def="The chance that an investment loses value, especially in the short term.">Risk</button>
-          <button type="button" class="ii-vocab-chip" data-t="APY" data-def="Annual Percentage Yield. The percentage a savings account pays you over one year, including the effect of compounding. A 0.5% APY means $1,000 earns about $5 in a year.">APY</button>
-          <button type="button" class="ii-vocab-chip" data-t="Automate" data-def="Setting money to invest on its own, on a schedule, without a manual decision each time.">Automate</button>
-        </div>
-        <div class="ii-vocab-def" id="ii-vocab-def">Tap a term above to see what it means.</div>
-        <span class="ii-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="ii-term-hint">Key terms appear in <span class="ii-term-demo">green</span> — tap any one for its definition.</p>
       <div class="ii-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · HOOK ========== -->
@@ -301,18 +288,9 @@
   #tn-ii .ii-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
   #tn-ii .ii-note b{color:var(--ink); font-weight:700;}
   #tn-ii .ii-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
-  /* title & vocabulary slide */
+  /* title slide */
   #tn-ii .ii-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(32px,8vw,50px); line-height:1.12; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-ii .ii-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-ii .ii-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-ii .ii-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-ii .ii-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-ii .ii-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-ii .ii-vocab-chip:hover{background:#DCF0E5;}
-  #tn-ii .ii-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-ii .ii-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-ii .ii-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-ii .ii-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   /* hook */
   #tn-ii .ii-hook{margin-top:4px;}
   #tn-ii .ii-hook-opts{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;}
@@ -474,6 +452,21 @@
     #tn-ii .ii-reveal{opacity:1 !important; transform:none !important;}
     #tn-ii #ii-bar{transition:none;}
   }
+
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-ii .ii-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-ii .ii-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-ii .ii-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-ii .ii-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-ii .ii-term-demo{color:var(--g); font-weight:600;}
+  .ii-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:ii-popin .16s ease;}
+  .ii-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .ii-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .ii-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes ii-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .ii-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -488,16 +481,6 @@
     return pmt*((Math.pow(1+i,months)-1)/i);
   }
   function band(v){ return v>=400000?['Powerhouse','#209B73']:v>=150000?['Compounding','#5BA86B']:v>=50000?['Growing Strong','#E0952F']:v>=10000?['Building','#B7791F']:['Starting Out','#C0392B']; }
-  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
-  var vocabDef=root.querySelector('#ii-vocab-def');
-  root.querySelectorAll('#ii-vocab-chips .ii-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#ii-vocab-chips .ii-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
   /* 2 · hook — sitting still vs growing */
   var hookState={}, hookNote=root.querySelector('#ii-hook-note');
   root.querySelectorAll('#ii-hook .ii-hook-opt').forEach(function(o){
@@ -688,6 +671,121 @@
   document.addEventListener('fullscreenchange',apply);
   setInterval(apply,700);
   apply();
+})();
+</script>
+<script>
+/* ============================================================
+   INLINE KEY TERMS
+   Terms/definitions harvested from this lesson's own vocab chips.
+   Instead of front-loading definitions on slide 1, each term is
+   highlighted the first time it appears on a slide. Tapping it
+   (or clicking/Enter/Space, since it's a span, not a button) opens
+   the definition next to the word itself.
+
+   Only static prose is scanned. Elements with an id are skipped,
+   because the lesson's own script rewrites those as the learner
+   interacts, which would wipe out the highlight. Unlike v1, terms
+   ARE allowed inside existing tappable cards -- the term's own
+   listener stops propagation so tapping the word doesn't also
+   trigger the card underneath it.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-ii'); if(!root) return;
+
+  var TERMS=[
+    {t:'Compounding',        re:/\b(compounding|compounds|compound growth)\b/i,
+     d:'Growth that builds on top of previous growth, not just the original amount.'},
+    {t:'Time In The Market', re:/\btime in the market\b/i,
+     d:'How long your money actually stays invested, start to finish.'},
+    {t:'Diversification',    re:/\b(diversification|diversified|diversify|diversifying)\b/i,
+     d:'Spreading money across multiple investments instead of just one.'},
+    {t:'Index Fund',         re:/\bindex funds?\b/i,
+     d:'One purchase that spreads your money across many companies at once.'},
+    {t:'Risk',               re:/\brisks?\b/i,
+     d:'The chance that an investment loses value, especially in the short term.'},
+    {t:'APY',                re:/\bAPY\b/,
+     d:'Annual Percentage Yield. The percentage a savings account pays you over one year, including the effect of compounding. A 0.5% APY means $1,000 earns about $5 in a year.'},
+    {t:'Automate',           re:/\b(automate|automated|automatic|automatically)\b/i,
+     d:'Setting money to invest on its own, on a schedule, without a manual decision each time.'}
+  ];
+  var PROSE='.ii-p, .ii-sub, .ii-note, .ii-myth-why, .ii-recap-item span, .ii-gather-note, .ii-next-move, .ii-h2';
+
+  function wrapIn(scope, term){
+    var hosts=scope.querySelectorAll(PROSE), i, el;
+    for(i=0;i<hosts.length;i++){
+      el=hosts[i];
+      if(el.id) continue;                        /* rewritten by the lesson script */
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.ii-term')) continue;
+        var m=term.re.exec(node.nodeValue);
+        if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var span=document.createElement('span');
+        span.className='ii-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+        span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+        span.setAttribute('aria-label',m[0]+' — tap for definition'); span.setAttribute('aria-expanded','false');
+        span.textContent=m[0];
+        node.parentNode.insertBefore(span, after);
+        activate(span);
+        return true;                              /* first mention on this slide only */
+      }
+    }
+    return false;
+  }
+
+  root.querySelectorAll('.ii-sec').forEach(function(sec){
+    TERMS.forEach(function(term){ wrapIn(sec, term); });
+  });
+
+  /* ---- definition popover ---- */
+  var pop=document.createElement('div');
+  pop.className='ii-pop'; pop.setAttribute('role','dialog'); pop.hidden=true;
+  document.body.appendChild(pop);
+  var openSpan=null;
+
+  function close(){
+    if(!openSpan) return;
+    pop.hidden=true; openSpan.classList.remove('on');
+    openSpan.setAttribute('aria-expanded','false'); openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span) return close();
+    close();
+    openSpan=span; span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    pop.innerHTML='<b>'+span.getAttribute('data-t')+'</b><span>'+span.getAttribute('data-def')+'</span>'+
+                  '<button type="button" class="ii-pop-x" aria-label="Close">×</button>';
+    pop.hidden=false;
+    var r=span.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    pop.style.width=w+'px';
+    var left=Math.min(Math.max(12, r.left+r.width/2-w/2), innerWidth-w-12);
+    var below=r.bottom+10, h=pop.offsetHeight;
+    var top=(below+h>innerHeight-8 && r.top-h-10>8) ? r.top-h-10 : below;
+    pop.style.left=left+'px'; pop.style.top=top+'px';
+    pop.querySelector('.ii-pop-x').addEventListener('click',close);
+  }
+
+  /* attached directly to each term span (not delegated) so stopPropagation
+     actually runs before the card's own bubble-phase click listener fires --
+     a delegated listener on root would fire too late to stop it. */
+  function activate(span){
+    span.addEventListener('click',function(e){
+      e.stopPropagation(); e.preventDefault();
+      open(span);
+    });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){
+        e.stopPropagation(); e.preventDefault();
+        open(span);
+      }
+    });
+  }
+
+  root.addEventListener('click',function(){ close(); });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ii-pop') && !e.target.closest('.ii-term')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('scroll',close,true); window.addEventListener('resize',close);
 })();
 </script>
 <!-- ============================================================
