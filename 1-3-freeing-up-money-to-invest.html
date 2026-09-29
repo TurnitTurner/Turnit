@@ -4,7 +4,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-nw. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      13 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (optional, never gated)
+       1 Title & Start Here (optional, never gated)
        2 The Budget Tug-of-War          3 The Subscription Audit
        4 What Makes A Real Need?        5 The 48-Hour Cooldown Safe
        6 Questions To Ask First         7 The Lifestyle Creep Fork
@@ -24,26 +24,13 @@
         <div class="nw-brand"><span class="nw-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span><span class="nw-word">TURNIT</span><span class="nw-bsub">Financial Foundations</span></div>
       </div>
       <div class="nw-progress"><span id="nw-bar"></span></div>
-      <div class="nw-meta"><span id="nw-slide-label">Key Vocabulary</span><span id="nw-slide-count">Slide 1 of 13</span></div>
+      <div class="nw-meta"><span id="nw-slide-label">Start Here</span><span id="nw-slide-count">Slide 1 of 13</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="nw-sec nw-center nw-reveal" data-step="1">
       <p class="nw-kicker center">Needs Vs. Wants · 1 / 13</p>
       <h1 class="nw-hero-title">NEEDS VS. <span class="nw-hero-grad">WANTS</span></h1>
-      <p class="nw-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="nw-vocab-teaser">
-        <span class="nw-vocab-label">Key Terms In This Lesson</span>
-        <div class="nw-vocab-chips" id="nw-vocab-chips">
-          <button type="button" class="nw-vocab-chip" data-t="Discretionary Spending" data-def="The money left over after your essential bills are paid — the part of your income you actually choose how to use each month.">Discretionary Spending</button>
-          <button type="button" class="nw-vocab-chip" data-t="Opportunity Cost" data-def="What you give up by choosing one option over another. Spending a dollar today costs you whatever that dollar could have grown into.">Opportunity Cost</button>
-          <button type="button" class="nw-vocab-chip" data-t="Compounding" data-def="Growth that builds on top of previous growth, not just the original amount you put in.">Compounding</button>
-          <button type="button" class="nw-vocab-chip" data-t="Windfall" data-def="Unexpected money that isn't part of your normal income — a tax refund, a bonus, or a gift.">Windfall</button>
-          <button type="button" class="nw-vocab-chip" data-t="Savings Rate" data-def="The share of your income you set aside instead of spending, usually shown as a percentage.">Savings Rate</button>
-          <button type="button" class="nw-vocab-chip" data-t="Index Fund" data-def="One fund that buys a whole slice of the market at once, rather than a single company. It is the simplest way to spread money across hundreds of investments in one purchase.">Index Fund</button>
-        </div>
-        <div class="nw-vocab-def" id="nw-vocab-def">Tap a term above to see what it means.</div>
-        <span class="nw-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="nw-term-hint">Key terms appear in <span class="nw-term-demo">green</span> — tap any one for its definition.</p>
       <div class="nw-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · THE BUDGET TUG-OF-WAR ========== -->
@@ -371,18 +358,9 @@
   #tn-nw .nw-reset-row{display:flex; justify-content:center; margin-top:14px;}
   #tn-nw .nw-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
   #tn-nw .nw-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
-  /* slide 1 — title & vocabulary */
+  /* title slide */
   #tn-nw .nw-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(32px,8vw,50px); line-height:1.12; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-nw .nw-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-nw .nw-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-nw .nw-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-nw .nw-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-nw .nw-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-nw .nw-vocab-chip:hover{background:#DCF0E5;}
-  #tn-nw .nw-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-nw .nw-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-nw .nw-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-nw .nw-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   /* slide rows / ranges (shared) */
   #tn-nw .nw-slide-row{margin-top:16px;}
   #tn-nw .nw-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
@@ -568,6 +546,20 @@
     #tn-nw .nw-cooldown-fill{transition:none !important;}
     #tn-nw .nw-finish-arrow{animation:none !important;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-nw .nw-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-nw .nw-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-nw .nw-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-nw .nw-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-nw .nw-term-demo{color:var(--g); font-weight:600;}
+  .nw-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:nw-popin .16s ease;}
+  .nw-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .nw-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .nw-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes nw-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .nw-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -595,16 +587,6 @@
     }
     requestAnimationFrame(step);
   }
-  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
-  var vocabDef=root.querySelector('#nw-vocab-def');
-  root.querySelectorAll('#nw-vocab-chips .nw-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#nw-vocab-chips .nw-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
   /* 2 · budget tug-of-war */
   var tug=root.querySelector('#nw-tug'), tugIcons=root.querySelector('#nw-tug-icons'),
       tugInvestPanel=root.querySelector('#nw-tug-invest'), tugValue=root.querySelector('#nw-tug-value'),
@@ -896,6 +878,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-nw'); if(!root) return;
+
+  var TERMS=[
+    {t:'Discretionary Spending', re:/\bdiscretionary(?:\s+spending)?\b/i,
+     d:'The money left over after your essential bills are paid — the part of your income you actually choose how to use each month.'},
+    {t:'Opportunity Cost',       re:/\bopportunity costs?\b/i,
+     d:'What you give up by choosing one option over another. Spending a dollar today costs you whatever that dollar could have grown into.'},
+    {t:'Compounding',           re:/\b(compounding|compounds|compound growth)\b/i,
+     d:'Growth that builds on top of previous growth, not just the original amount you put in.'},
+    {t:'Windfall',              re:/\bwindfalls?\b/i,
+     d:'Unexpected money that isn\'t part of your normal income — a tax refund, a bonus, or a gift.'},
+    {t:'Savings Rate',          re:/\bsavings rates?\b/i,
+     d:'The share of your income you set aside instead of spending, usually shown as a percentage.'},
+    {t:'Index Fund',            re:/\bindex funds?\b/i,
+     d:'One fund that buys a whole slice of the market at once, rather than a single company. It is the simplest way to spread money across hundreds of investments in one purchase.'}
+  ];
+  var PROSE='.nw-p, .nw-sub, .nw-note, .nw-recap-item span, .nw-next-move, .nw-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='nw-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='nw-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="nw-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.nw-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -909,7 +1003,7 @@
   var nextBtn=root.querySelector('#nw-next');
   var hintEl=root.querySelector('#nw-nav-hint');
   var disclaimer=root.querySelector('.nw-disclaimer');
-  var labels={1:'Key Vocabulary',2:'The Tug-Of-War',3:'Subscription Audit',4:'The Real Test',5:'The Cooldown Safe',6:'Questions First',7:'The Creep Fork',8:'The Classifier',9:'Spot The Red Flags',10:'Found Money',11:'Automate It',12:'Recap',13:'Complete'};
+  var labels={1:'Start Here',2:'The Tug-Of-War',3:'Subscription Audit',4:'The Real Test',5:'The Cooldown Safe',6:'Questions First',7:'The Creep Fork',8:'The Classifier',9:'Spot The Red Flags',10:'Found Money',11:'Automate It',12:'Recap',13:'Complete'};
   var reqHints={2:'Cross both the 20% and 80% marks',3:'Cancel at least 2 unused subscriptions',4:'Review all 4 to continue',5:'Process all 6 purchases',6:'Explore all 4 to continue',7:'Preview both strategies',8:'Sort all 4 to continue',9:'Reveal all 4 to continue',10:'Direct at least 50% to investing',11:'Flip the switch to continue'};
   var done={1:true,12:true,13:true};
   var secByStep={};
