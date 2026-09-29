@@ -4,7 +4,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-fg. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      13 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (optional, never gated)
+       1 Title & Start Here (optional, never gated)
        2 The $6,000 Goal                3 The SMART Goal Score
        4 The Three Time Horizons        5 Match The Goal To The Timeframe
        6 Where To Keep The Money        7 The Risk-Timeline Dial
@@ -24,26 +24,13 @@
         <div class="fg-brand"><span class="fg-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="fg-word">TURNIT</span><span class="fg-bsub">Financial Foundations</span></div>
       </div>
       <div class="fg-progress"><span id="fg-bar"></span></div>
-      <div class="fg-meta"><span id="fg-slide-label">Key Vocabulary</span><span id="fg-slide-count">Slide 1 of 13</span></div>
+      <div class="fg-meta"><span id="fg-slide-label">Start Here</span><span id="fg-slide-count">Slide 1 of 13</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="fg-sec fg-center fg-reveal" data-step="1">
       <p class="fg-kicker center">Setting Financial Goals · 1 / 13</p>
       <h1 class="fg-hero-title">SETTING <span class="fg-hero-grad">FINANCIAL GOALS</span></h1>
-      <p class="fg-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="fg-vocab-teaser">
-        <span class="fg-vocab-label">Key terms in this lesson</span>
-        <div class="fg-vocab-chips" id="fg-vocab-chips">
-          <button type="button" class="fg-vocab-chip" data-t="SMART Goal" data-def="A goal that is Specific, Measurable, Achievable, Relevant, and Time-Bound — the five things that turn a vague wish into a real plan.">SMART Goal</button>
-          <button type="button" class="fg-vocab-chip" data-t="Time Horizon" data-def="How long it will be until you actually need the money. It is the single biggest factor in deciding where to keep it.">Time Horizon</button>
-          <button type="button" class="fg-vocab-chip" data-t="Asset Allocation" data-def="How you split your money across different types of investments, such as cash, bonds, and stocks.">Asset Allocation</button>
-          <button type="button" class="fg-vocab-chip" data-t="High-Yield Savings" data-def="A savings account that pays meaningfully more interest than a standard one, while keeping your money just as easy to withdraw.">High-Yield Savings</button>
-          <button type="button" class="fg-vocab-chip" data-t="CD" data-def="A Certificate of Deposit. You agree to leave a set amount untouched for a fixed period, and the bank pays you a fixed rate in return.">CD</button>
-          <button type="button" class="fg-vocab-chip" data-t="Diversified" data-def="Spread across many different investments, so no single bad outcome can damage the whole pot.">Diversified</button>
-        </div>
-        <div class="fg-vocab-def" id="fg-vocab-def">Tap a term above to see what it means.</div>
-        <span class="fg-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="fg-term-hint">Key terms appear in <span class="fg-term-demo">green</span> — tap any one for its definition.</p>
       <div class="fg-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · THE $6,000 GOAL ========== -->
@@ -313,18 +300,9 @@
   #tn-fg .fg-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
   #tn-fg .fg-note b{color:var(--ink); font-weight:700;}
   #tn-fg .fg-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
-  /* slide 1 — title & vocabulary */
+  /* title slide */
   #tn-fg .fg-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.8vw,44px); line-height:1.14; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-fg .fg-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-fg .fg-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-fg .fg-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-fg .fg-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-fg .fg-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-fg .fg-vocab-chip:hover{background:#DCF0E5;}
-  #tn-fg .fg-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-fg .fg-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:13px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-fg .fg-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-fg .fg-vocab-note{display:block; font-size:12.5px; color:var(--mut); line-height:1.45;}
   /* slide rows / ranges (shared) */
   #tn-fg .fg-slide-row{margin-top:16px;}
   #tn-fg .fg-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
@@ -495,6 +473,20 @@
     #tn-fg #fg-bar{transition:none;}
     #tn-fg .fg-finish-arrow,#tn-fg .fg-finish-arrow.up{animation:none !important;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-fg .fg-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-fg .fg-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-fg .fg-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-fg .fg-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-fg .fg-term-demo{color:var(--g); font-weight:600;}
+  .fg-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:fg-popin .16s ease;}
+  .fg-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .fg-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .fg-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes fg-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .fg-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -502,16 +494,6 @@
   var root=document.getElementById('tn-fg'); if(!root) return;
   root.querySelectorAll('.fg-reveal').forEach(function(el){ el.classList.add('in'); });
   function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
-  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
-  var vocabDef=root.querySelector('#fg-vocab-def');
-  root.querySelectorAll('#fg-vocab-chips .fg-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#fg-vocab-chips .fg-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
   /* 2 · the $6,000 goal */
   var goalSlider=root.querySelector('#fg-goal-months'), goalSliderV=root.querySelector('#fg-goal-months-v'),
       goalMonthlyV=root.querySelector('#fg-goal-monthly-v'), goalZone=root.querySelector('#fg-goal-zone'),
@@ -745,6 +727,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-fg'); if(!root) return;
+
+  var TERMS=[
+    {t:'SMART Goal',        re:/\bSMART goals?\b/i,
+     d:'A goal that is Specific, Measurable, Achievable, Relevant, and Time-Bound — the five things that turn a vague wish into a real plan.'},
+    {t:'Time Horizon',      re:/\btime horizons?\b/i,
+     d:'How long it will be until you actually need the money. It is the single biggest factor in deciding where to keep it.'},
+    {t:'Asset Allocation',  re:/\basset allocation\b/i,
+     d:'How you split your money across different types of investments, such as cash, bonds, and stocks.'},
+    {t:'High-Yield Savings',re:/\bhigh-yield savings\b/i,
+     d:'A savings account that pays meaningfully more interest than a standard one, while keeping your money just as easy to withdraw.'},
+    {t:'CD',                re:/\bCDs?\b/,
+     d:'A Certificate of Deposit. You agree to leave a set amount untouched for a fixed period, and the bank pays you a fixed rate in return.'},
+    {t:'Diversified',       re:/\bdiversified\b/i,
+     d:'Spread across many different investments, so no single bad outcome can damage the whole pot.'}
+  ];
+  var PROSE='.fg-p, .fg-sub, .fg-note, .fg-myth-why, .fg-recap-item span, .fg-next-move, .fg-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='fg-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='fg-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="fg-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.fg-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -758,7 +852,7 @@
   var nextBtn=root.querySelector('#fg-next');
   var hintEl=root.querySelector('#fg-nav-hint');
   var disclaimer=root.querySelector('.fg-disclaimer');
-  var labels={1:'Key Vocabulary',2:'The $6,000 Goal',3:'The SMART Score',4:'Three Horizons',5:'Match The Goal',6:'Where It Lives',7:'The Risk Dial',8:'Myth Or Fact',9:'Spot The Red Flags',10:'The Priority Allocator',11:'Automate It',12:'Recap',13:'Complete'};
+  var labels={1:'Start Here',2:'The $6,000 Goal',3:'The SMART Score',4:'Three Horizons',5:'Match The Goal',6:'Where It Lives',7:'The Risk Dial',8:'Myth Or Fact',9:'Spot The Red Flags',10:'The Priority Allocator',11:'Automate It',12:'Recap',13:'Complete'};
   var reqHints={2:'Explore the Short, Medium, and Long zones',3:'Toggle all 5 SMART elements on',4:'Review all 3 to continue',5:'Sort all 5 to continue',6:'Explore all 3 to continue',7:'Drag to both ends of the slider',8:'Answer all 6 to continue',9:'Reveal all 4 to continue',10:'Allocate exactly $500',11:'Flip the switch to continue'};
   var done={1:true,12:true,13:true};
   var secByStep={};
