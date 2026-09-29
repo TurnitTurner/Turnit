@@ -3,7 +3,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-br. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      10 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (never gated)   2 The Rulebook Shredder
+       1 Title & Start Here (never gated)   2 The Rulebook Shredder
        3 Make Your First Trade                  4 The Holding Period Clock
        5 What Actually Fits Inside              6 The Liquidity Showdown
        7 Myth Or Fact Blitz (8 questions)       8 Automate It
@@ -24,26 +24,13 @@
         <div class="br-brand"><span class="br-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="br-word">TURNIT</span><span class="br-bsub">Financial Foundations</span></div>
       </div>
       <div class="br-progress"><span id="br-bar"></span></div>
-      <div class="br-meta"><span id="br-slide-label">Key Vocabulary</span><span id="br-slide-count">Slide 1 of 10</span></div>
+      <div class="br-meta"><span id="br-slide-label">Start Here</span><span id="br-slide-count">Slide 1 of 10</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="br-sec br-center br-reveal" data-step="1">
       <p class="br-kicker center">The Standard Brokerage Account · 1 / 10</p>
       <h1 class="br-hero-title">THE STANDARD <span class="br-hero-grad">BROKERAGE ACCOUNT</span></h1>
-      <p class="br-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="br-vocab-teaser">
-        <span class="br-vocab-label">Key Terms In This Lesson</span>
-        <div class="br-vocab-chips" id="br-vocab-chips">
-          <button type="button" class="br-vocab-chip" data-t="Brokerage Account" data-def="A general-purpose investing account with no contribution limits, no age requirement, and no income limit. You can put money in, buy investments with it, and take money out whenever you want.">Brokerage Account</button>
-          <button type="button" class="br-vocab-chip" data-t="Share" data-def="One unit of ownership in a company. If a share costs $50 and you invest $500, you own 10 shares.">Share</button>
-          <button type="button" class="br-vocab-chip" data-t="Capital Gain" data-def="The profit you make when you sell an investment for more than you paid for it. You only owe tax on it once you actually sell.">Capital Gain</button>
-          <button type="button" class="br-vocab-chip" data-t="Holding Period" data-def="How long you owned an investment before selling it. Crossing the one-year mark usually lowers the tax rate on your gain.">Holding Period</button>
-          <button type="button" class="br-vocab-chip" data-t="Liquidity" data-def="How easily you can turn something back into spendable cash. A brokerage account is highly liquid — no age rules and no early-withdrawal penalty.">Liquidity</button>
-          <button type="button" class="br-vocab-chip" data-t="Taxable Account" data-def="Another name for a standard brokerage account. It gets no special tax break, which is the trade-off for having no rules attached.">Taxable Account</button>
-        </div>
-        <div class="br-vocab-def" id="br-vocab-def">Tap a term above to see what it means.</div>
-        <span class="br-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="br-term-hint">Key terms appear in <span class="br-term-demo">green</span> — tap any one for its definition.</p>
       <div class="br-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · THE RULEBOOK SHREDDER ========== -->
@@ -276,18 +263,9 @@
   #tn-br .br-reset-row{display:flex; justify-content:center; margin-top:14px;}
   #tn-br .br-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
   #tn-br .br-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
-  /* ---------- 1 · hero + vocabulary ---------- */
+  /* ---------- 1 · hero ---------- */
   #tn-br .br-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6.2vw,41px); line-height:1.14; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-br .br-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-br .br-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-br .br-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-br .br-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-br .br-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-br .br-vocab-chip:hover{background:#DCF0E5;}
-  #tn-br .br-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-br .br-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:13px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-br .br-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-br .br-vocab-note{display:block; font-size:12.5px; color:var(--mut); line-height:1.45;}
   /* ---------- slider rows / ranges (shared) ---------- */
   #tn-br .br-slide-row{margin-top:16px;}
   #tn-br .br-slide-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
@@ -437,6 +415,20 @@
     #tn-br .br-belt-track.running .br-belt-item{animation:none !important;}
     #tn-br .br-finish-arrow,#tn-br .br-finish-arrow.up{animation:none !important;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-br .br-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-br .br-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-br .br-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-br .br-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-br .br-term-demo{color:var(--g); font-weight:600;}
+  .br-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:br-popin .16s ease;}
+  .br-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .br-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .br-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes br-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .br-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -447,16 +439,6 @@
   function state(k,v){ root.setAttribute('data-'+k, v); root.dispatchEvent(new CustomEvent('br-state')); }
   function money(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
 
-  /* ---------- 1 · vocabulary chips (optional, never gated) ---------- */
-  var vocabDef=root.querySelector('#br-vocab-def');
-  root.querySelectorAll('#br-vocab-chips .br-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#br-vocab-chips .br-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
 
   /* ---------- 2 · the rulebook shredder ----------
      Drag is tracked on the window, not on the card, so a fast flick or a
@@ -803,6 +785,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-br'); if(!root) return;
+
+  var TERMS=[
+    {t:'Brokerage Account', re:/\bbrokerage accounts?\b/i,
+     d:'A general-purpose investing account with no contribution limits, no age requirement, and no income limit. You can put money in, buy investments with it, and take money out whenever you want.'},
+    {t:'Share',             re:/\bshares?\b/i,
+     d:'One unit of ownership in a company. If a share costs $50 and you invest $500, you own 10 shares.'},
+    {t:'Capital Gain',      re:/\bcapital gains?\b/i,
+     d:'The profit you make when you sell an investment for more than you paid for it. You only owe tax on it once you actually sell.'},
+    {t:'Holding Period',    re:/\bholding periods?\b/i,
+     d:'How long you owned an investment before selling it. Crossing the one-year mark usually lowers the tax rate on your gain.'},
+    {t:'Liquidity',         re:/\bliquidity\b/i,
+     d:'How easily you can turn something back into spendable cash. A brokerage account is highly liquid — no age rules and no early-withdrawal penalty.'},
+    {t:'Taxable Account',   re:/\btaxable accounts?\b/i,
+     d:'Another name for a standard brokerage account. It gets no special tax break, which is the trade-off for having no rules attached.'}
+  ];
+  var PROSE='.br-p, .br-sub, .br-note, .br-recap-item span, .br-next-move, .br-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='br-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='br-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="br-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.br-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -816,7 +910,7 @@
   var nextBtn=root.querySelector('#br-next');
   var hintEl=root.querySelector('#br-nav-hint');
   var disclaimer=root.querySelector('.br-disclaimer');
-  var labels={1:'Key Vocabulary',2:'The Rulebook Shredder',3:'Make Your First Trade',4:'The Holding Period Clock',5:'What Fits Inside',6:'The Liquidity Showdown',7:'Myth Or Fact Blitz',8:'Automate It',9:'Recap',10:'Complete'};
+  var labels={1:'Start Here',2:'The Rulebook Shredder',3:'Make Your First Trade',4:'The Holding Period Clock',5:'What Fits Inside',6:'The Liquidity Showdown',7:'Myth Or Fact Blitz',8:'Automate It',9:'Recap',10:'Complete'};
   var reqHints={2:'Shred all 3 rule cards',3:'Buy, then sell, to continue',4:'Explore both under and over 12 months',5:'Scan all 6 items',6:'Try the withdrawal to continue',7:'Answer all 8 to continue',8:'Pull the lever to continue'};
   var done={1:true,9:true,10:true};
   var secByStep={};
