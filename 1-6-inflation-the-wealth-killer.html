@@ -4,7 +4,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-in. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
      13 slides, one interactive per page, "Next" locked until the activity is done:
-       1 Title & Key Vocabulary (optional, never gated)
+       1 Title & Start Here (optional, never gated)
        2 Shrinking Shopping Cart        3 Cash Vs Asset Drag Race (Run + Reset)
        4 What Causes Inflation?         5 The Cost Of A Million (tabs)
        6 How To Fight Back              7 Wage Vs Cost-Of-Living Tug Of War
@@ -24,26 +24,13 @@
         <div class="in-brand"><span class="in-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></span><span class="in-word">TURNIT</span><span class="in-bsub">Financial Foundations</span></div>
       </div>
       <div class="in-progress"><span id="in-bar"></span></div>
-      <div class="in-meta"><span id="in-slide-label">Inflation</span><span id="in-slide-count">Slide 1 of 13</span></div>
+      <div class="in-meta"><span id="in-slide-label">Start Here</span><span id="in-slide-count">Slide 1 of 13</span></div>
     </div>
-    <!-- ========== 1 · TITLE & KEY VOCABULARY ========== -->
+    <!-- ========== 1 · TITLE & START HERE ========== -->
     <section class="in-sec in-center in-reveal" data-step="1">
       <p class="in-kicker center">Inflation · 1 / 13</p>
       <h1 class="in-hero-title">INFLATION: <span class="in-hero-grad">THE SILENT WEALTH KILLER</span></h1>
-      <p class="in-sub center">Before you start, here are a few words you'll see throughout this lesson.</p>
-      <div class="in-vocab-teaser">
-        <span class="in-vocab-label">Key terms in this lesson</span>
-        <div class="in-vocab-chips" id="in-vocab-chips">
-          <button type="button" class="in-vocab-chip" data-t="Inflation" data-def="The rate at which the average price of goods and services rises over time — so the same dollar buys a little less each year.">Inflation</button>
-          <button type="button" class="in-vocab-chip" data-t="Purchasing Power" data-def="How much an amount of money can actually buy. This is the exact thing inflation erodes.">Purchasing Power</button>
-          <button type="button" class="in-vocab-chip" data-t="Real Return" data-def="What you actually earn once inflation is subtracted from your investment's stated return.">Real Return</button>
-          <button type="button" class="in-vocab-chip" data-t="Real Wage" data-def="Your income after adjusting for inflation — what your paycheck can actually buy, not just the number on it.">Real Wage</button>
-          <button type="button" class="in-vocab-chip" data-t="Pricing Power" data-def="A company's ability to raise its own prices without losing customers, which can help it keep up with inflation.">Pricing Power</button>
-          <button type="button" class="in-vocab-chip" data-t="TIPS" data-def="Treasury Inflation-Protected Securities — government bonds whose value is adjusted directly for inflation.">TIPS</button>
-        </div>
-        <div class="in-vocab-def" id="in-vocab-def">Tap a term above to see what it means.</div>
-        <span class="in-vocab-note">These terms will come up again in later lessons — this is just a first look, not a test.</span>
-      </div>
+      <p class="in-term-hint">Key terms appear in <span class="in-term-demo">green</span> — tap any one for its definition.</p>
       <div class="in-next-move">Nothing here is required — tap Next whenever you're ready to begin.</div>
     </section>
     <!-- ========== 2 · SHRINKING SHOPPING CART ========== -->
@@ -308,18 +295,9 @@
   #tn-in .in-note b{color:var(--ink); font-weight:700;}
   #tn-in .in-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
   #tn-in .in-disclaimer-inline{text-align:center; font-size:12.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
-  /* title & vocabulary slide */
+  /* title slide */
   #tn-in .in-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6.4vw,40px); line-height:1.18; letter-spacing:.01em; text-align:center; margin:8px 0 16px; color:var(--ink);}
   #tn-in .in-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  #tn-in .in-vocab-teaser{max-width:480px; margin:0 auto 20px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
-  #tn-in .in-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
-  #tn-in .in-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
-  #tn-in .in-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
-  #tn-in .in-vocab-chip:hover{background:#DCF0E5;}
-  #tn-in .in-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
-  #tn-in .in-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:13px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
-  #tn-in .in-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
-  #tn-in .in-vocab-note{display:block; font-size:12.5px; color:var(--mut); line-height:1.45;}
   /* shrinking cart */
   #tn-in .in-cart-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin-bottom:16px;}
   #tn-in .in-cart-item{display:flex; flex-direction:column; align-items:center; gap:5px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 8px; text-align:center;}
@@ -484,6 +462,20 @@
     #tn-in .in-race-marker{transition:none !important;}
     #tn-in .in-finish-arrow,#tn-in .in-finish-arrow.up{animation:none !important;}
   }
+  /* ===== INLINE KEY TERMS ===== */
+  #tn-in .in-term{display:inline; font:inherit; font-weight:600; color:var(--g); background:none; border:none;
+    padding:0; margin:0; cursor:pointer; transition:color .15s;}
+  #tn-in .in-term:hover{color:#17795a; text-decoration:underline;}
+  #tn-in .in-term.on{text-decoration:underline; text-underline-offset:3px;}
+  #tn-in .in-term-hint{font-size:12.5px; color:var(--mut); text-align:center; margin:0 auto; line-height:1.5;}
+  #tn-in .in-term-demo{color:var(--g); font-weight:600;}
+  .in-pop{position:fixed; z-index:9998; background:#16202B; color:#fff; border-radius:13px; padding:13px 34px 13px 15px;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.55); font-family:'Inter',sans-serif; line-height:1.5; animation:in-popin .16s ease;}
+  .in-pop b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; margin-bottom:4px; color:#8FE3C2;}
+  .in-pop span{display:block; font-size:13px; color:#E6EDF3;}
+  .in-pop-x{position:absolute; top:6px; right:8px; background:none; border:none; color:#9AA8B6; font-size:18px; line-height:1; cursor:pointer; padding:2px 4px;}
+  @keyframes in-popin{from{opacity:0; transform:translateY(-4px);}to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){ .in-pop{animation:none;} }
 </style>
 <script>
 /* ---- INTERACTIVE LOGIC (content updates; pagination handles gating) ---- */
@@ -492,16 +484,6 @@
   root.querySelectorAll('.in-reveal').forEach(function(el){ el.classList.add('in'); });
   function moneyRound(n){ return '$'+Math.round(n).toLocaleString(); }
   function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
-  /* 1 · vocabulary chips — purely optional, slide 1 is never gated */
-  var vocabDef=root.querySelector('#in-vocab-def');
-  root.querySelectorAll('#in-vocab-chips .in-vocab-chip').forEach(function(chip){
-    chip.addEventListener('click',function(){
-      root.querySelectorAll('#in-vocab-chips .in-vocab-chip').forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      vocabDef.innerHTML='<b>'+chip.getAttribute('data-t')+':</b> '+chip.getAttribute('data-def');
-      postHeight();
-    });
-  });
   /* 2 · shrinking shopping cart */
   var cartSlider=root.querySelector('#in-cart-slider'), cartSliderV=root.querySelector('#in-cart-slider-v'),
       cartFuture=root.querySelector('#in-cart-future'), cartYearLab=root.querySelector('#in-cart-year-lab'),
@@ -711,6 +693,118 @@
 })();
 </script>
 <!-- ============================================================
+     INLINE KEY TERMS — replaces the old front-loaded vocab chips.
+     Highlights the FIRST mention of each term per slide in the
+     lesson's own prose, tap/keyboard to reveal a definition popover.
+     Terms are <span role="button"> (not <button>) so they can sit
+     inside tappable cards; their own click/keydown listeners call
+     stopPropagation()+preventDefault() so tapping the term never
+     also triggers the card underneath it.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-in'); if(!root) return;
+
+  var TERMS=[
+    {t:'Inflation',        re:/\binflation\b/i,
+     d:'The rate at which the average price of goods and services rises over time — so the same dollar buys a little less each year.'},
+    {t:'Purchasing Power', re:/\bpurchasing power\b/i,
+     d:'How much an amount of money can actually buy. This is the exact thing inflation erodes.'},
+    {t:'Real Return',      re:/\breal returns?\b/i,
+     d:'What you actually earn once inflation is subtracted from your investment\'s stated return.'},
+    {t:'Real Wage',        re:/\breal wages?\b/i,
+     d:'Your income after adjusting for inflation — what your paycheck can actually buy, not just the number on it.'},
+    {t:'Pricing Power',    re:/\bpricing power\b/i,
+     d:'A company\'s ability to raise its own prices without losing customers, which can help it keep up with inflation.'},
+    {t:'TIPS',              re:/\bTIPS\b/,
+     d:'Treasury Inflation-Protected Securities — government bonds whose value is adjusted directly for inflation.'}
+  ];
+  var PROSE='.in-p, .in-sub, .in-note, .in-myth-why, .in-recap-item span, .in-next-move, .in-h2';
+  var doneOnSlide={};
+
+  function wrapIn(scope, term){
+    var step=scope.closest('[data-step]'); step=step?step.getAttribute('data-step'):'0';
+    var key=term.t+'@'+step;
+    if(doneOnSlide[key]) return false;
+    var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(node){
+        var p=node.parentElement;
+        while(p && p!==scope){ if(p.id) return NodeFilter.FILTER_REJECT; p=p.parentElement; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while((node=walker.nextNode())){
+      term.re.lastIndex=0;
+      var m=term.re.exec(node.nodeValue);
+      if(!m) continue;
+      var word=m[0], start=m.index, end=start+word.length;
+      var text=node.nodeValue;
+      var before=text.slice(0,start), after=text.slice(end);
+      var span=document.createElement('span');
+      span.className='in-term'; span.setAttribute('role','button'); span.setAttribute('tabindex','0');
+      span.setAttribute('data-t',term.t); span.setAttribute('data-def',term.d);
+      span.setAttribute('aria-expanded','false');
+      span.setAttribute('aria-label',word+' — tap for definition');
+      span.textContent=word;
+      var afterNode=document.createTextNode(after);
+      node.nodeValue=before;
+      node.parentNode.insertBefore(span,node.nextSibling);
+      node.parentNode.insertBefore(afterNode,span.nextSibling);
+      activate(span);
+      doneOnSlide[key]=true;
+      return true;
+    }
+    return false;
+  }
+
+  function highlight(){
+    root.querySelectorAll(PROSE).forEach(function(el){
+      if(el.id) return;
+      TERMS.forEach(function(term){ wrapIn(el, term); });
+    });
+  }
+
+  var pop=document.createElement('div'); pop.className='in-pop'; pop.style.display='none';
+  pop.innerHTML='<button type="button" class="in-pop-x" aria-label="Close">✕</button><b></b><span></span>';
+  document.body.appendChild(pop);
+  var popTitle=pop.querySelector('b'), popBody=pop.querySelector('span'), popX=pop.querySelector('.in-pop-x');
+  var openSpan=null;
+
+  function close(){
+    pop.style.display='none';
+    if(openSpan){ openSpan.classList.remove('on'); openSpan.setAttribute('aria-expanded','false'); }
+    openSpan=null;
+  }
+  function open(span){
+    if(openSpan===span){ close(); return; }
+    if(openSpan) close();
+    popTitle.textContent=span.getAttribute('data-t');
+    popBody.textContent=span.getAttribute('data-def');
+    pop.style.display='block';
+    var r=span.getBoundingClientRect();
+    var top=r.bottom+8, left=r.left;
+    var maxLeft=window.innerWidth-pop.offsetWidth-12;
+    if(left>maxLeft) left=Math.max(12,maxLeft);
+    if(top+pop.offsetHeight>window.innerHeight-8) top=r.top-pop.offsetHeight-8;
+    pop.style.top=top+'px'; pop.style.left=left+'px';
+    span.classList.add('on'); span.setAttribute('aria-expanded','true');
+    openSpan=span;
+  }
+  function activate(span){
+    span.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); open(span); });
+    span.addEventListener('keydown',function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.stopPropagation(); e.preventDefault(); open(span); }
+    });
+  }
+  popX.addEventListener('click',function(e){ e.stopPropagation(); close(); });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+
+  highlight();
+})();
+</script>
+<!-- ============================================================
      PAGINATION LAYER — one slide at a time, Next locked until done.
      ============================================================ -->
 <script>
@@ -724,7 +818,7 @@
   var nextBtn=root.querySelector('#in-next');
   var hintEl=root.querySelector('#in-nav-hint');
   var disclaimer=root.querySelector('.in-disclaimer');
-  var labels={1:'Inflation',2:'The Shrinking Cart',3:'The Drag Race',4:'What Causes It',5:'The Cost Of A Million',6:'How To Fight Back',7:'The Tug Of War',8:'Myth Or Fact',9:'Spot The Red Flags',10:'The Leak Finder',11:'Automate It',12:'Recap',13:'Complete'};
+  var labels={1:'Start Here',2:'The Shrinking Cart',3:'The Drag Race',4:'What Causes It',5:'The Cost Of A Million',6:'How To Fight Back',7:'The Tug Of War',8:'Myth Or Fact',9:'Spot The Red Flags',10:'The Leak Finder',11:'Automate It',12:'Recap',13:'Complete'};
   var reqHints={2:'Slide all the way to 20 years to continue',3:'Run the race at two different inflation rates',4:'Review all 4 causes to continue',5:'Explore all 3 horizons to continue',6:'Explore all 4 to continue',7:'Find both a pay cut and true growth',8:'Answer all 6 to continue',9:'Reveal all 4 to continue',10:'Match all 3 to continue',11:'Flip the switch to continue'};
   var done={1:true,12:true,13:true};
   var secByStep={};
