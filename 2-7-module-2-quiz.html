@@ -56,10 +56,6 @@
   #tn-qz .qz-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,36px); line-height:1.15; text-align:center; margin:0 0 12px;}
   #tn-qz .qz-grad{background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
   #tn-qz .qz-sub{font-size:15.5px; color:var(--ink2); text-align:center; margin:0 auto 18px; max-width:460px;}
-  #tn-qz .qz-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 20px;}
-  #tn-qz .qz-fact{background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 8px; text-align:center;}
-  #tn-qz .qz-fact b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--ink);}
-  #tn-qz .qz-fact span{font-size:11.5px; font-weight:600; color:var(--mut);}
   #tn-qz .qz-rule{background:#EEF3F8; border-radius:12px; padding:11px 14px; font-size:13.5px; color:var(--ink2); text-align:center; margin-bottom:18px;}
 
   /* buttons */
@@ -115,6 +111,7 @@
   #tn-qz .qz-rvi.ok{background:var(--g);} #tn-qz .qz-rvi.miss{background:var(--no);}
   #tn-qz .qz-rv b{font-family:'Poppins',sans-serif; font-weight:700;}
   #tn-qz .qz-rv small{display:block; color:var(--ink2); font-size:12.5px;}
+  #tn-qz .qz-revisit{color:var(--b); font-weight:600; margin-top:3px;}
 
   /* finish prompt (matches lesson standard) */
   #tn-qz .qz-finish{margin-top:18px; padding:18px 20px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
@@ -141,53 +138,62 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   10 questions covering all 6 lessons in this module, in lesson
-   order, weighted toward the most important concept(s) per lesson.
+   lesson = which lesson to revisit, shown for missed questions.
+   diff = easy / medium / hard — 4 easy, 4 medium, 2 hard per quiz.
    ============================================================ */
 var QUIZ = {
   lesson: "Module 2: Choosing & Opening Your Account",
-  minutes: 6,
   questions: [
-    { topic:"What an investment account is",
-      q:"How is an investment (brokerage) account different from a regular checking account?",
-      o:["It’s built to hold investments, not just cash","It’s just a checking account with a different name","It can only be opened by a financial advisor acting on your behalf","It doesn’t require any personal information to open"], a:0,
-      e:"A checking account is built for spending cash. An investment account is a different kind of account, designed to hold assets like stocks and funds that can rise or fall in value." },
-    { topic:"Investment accounts and access",
-      q:"True or false: you need an investment account open before you can buy your first share of stock.",
-      o:["False — you can buy stock directly from a company’s website","True — it’s the account that lets you place trades","False — your checking account can hold stocks too","True, but only for purchases over $10,000"], a:1,
-      e:"An investment account is what actually lets you place trades and hold what you buy. Without one open, there’s no way to purchase shares in the first place." },
-    { topic:"What makes a brokerage account \"standard\"",
-      q:"What makes a standard (taxable) brokerage account different from a retirement account like a 401(k) or IRA?",
-      o:["It’s completely tax-free forever","You are penalized for depositing any money before you turn 59½ years old","No contribution limits or withdrawal penalties, but gains are taxed","Only an employer can open one for you"], a:2,
-      e:"A standard brokerage account skips the contribution limits and early-withdrawal penalties that come with retirement accounts. In exchange, it doesn’t get the same tax breaks — you owe tax on the gains." },
-    { topic:"Choosing the right account for a goal",
-      q:"You’re saving for a house down payment in 5 years. Why might a standard brokerage account fit better than a 401(k) for this specific goal?",
-      o:["A 401(k) lets you withdraw the money at any age without restrictions","A 401(k) must be used for every savings goal you have","Standard brokerage accounts can’t hold index funds","You can access the money anytime, with no early-withdrawal penalty"], a:3,
-      e:"Retirement accounts like a 401(k) are built for money you won’t touch until retirement, with penalties for pulling it out early. A standard brokerage account keeps the money accessible, which matters for a goal just a few years away." },
-    { topic:"Roth vs. Traditional: the trade",
-      q:"You’re early in your career and expect to earn a lot more later. Which promise fits that bet better?",
-      o:["The Roth, since you pay tax now while your rate is likely lower","The Traditional IRA, since its tax break arrives right away this year","Neither one, because the tax treatment is identical","Whichever account your bank happens to recommend first"], a:0,
-      e:"A Roth taxes the money going in and lets qualified withdrawals come out untaxed. Paying that tax while your rate is low, then withdrawing later when it may be higher, is the whole bet." },
-    { topic:"The Traditional IRA’s \"instant discount\"",
-      q:"What is the Traditional IRA’s so-called instant discount?",
-      o:["Withdrawals in retirement are always completely free of any tax","Contributions may lower the income you are taxed on this year","The brokerage discounts the fees it charges you","Your contributions grow at a guaranteed rate of return"], a:1,
-      e:"Contributing may reduce your taxable income now, which is the discount. The tax hasn’t disappeared, though — you pay it later when the money comes out." },
-    { topic:"The limit applies across accounts",
-      q:"You open both a Roth IRA and a Traditional IRA. Does each account get its own annual contribution limit?",
-      o:["Yes, one full limit for each account you open","Yes, as long as the two accounts are held at different brokerages","No, one combined limit is shared across your IRAs","No, but only if you opened both in the same year"], a:2,
-      e:"The IRS sets the annual limit per person, not per account. Splitting money between a Roth and a Traditional is fine, but the two together can’t exceed that one ceiling." },
-    { topic:"The employer match comes first",
-      q:"Your employer matches every dollar you put in, up to 4% of your pay. Where should your first investing dollars go?",
-      o:["An IRA, since it usually offers a much wider choice of investments","Into a savings account until you have a much bigger balance","A standard brokerage account, for the flexibility it gives you","The 401(k), at least up to the full match"], a:3,
-      e:"A match is an immediate, guaranteed return on the money you contribute — the closest thing to free money in investing. Leaving it unclaimed is walking away from part of your pay." },
-    { topic:"Funding is not investing",
-      q:"Your first transfer lands in your new brokerage account. Are you invested yet?",
-      o:["No, it sits as cash until you place an order","Yes, deposits are put to work in the market automatically for you","Yes, as soon as the transfer finishes clearing at your bank","Only if the deposit was above the account minimum"], a:0,
-      e:"Funding the account and buying an investment are two separate steps. Plenty of accounts sit funded but uninvested for months because nobody realised an order was still needed." },
-    { topic:"Why the application asks for your SSN",
-      q:"Why does every US brokerage application ask for your Social Security number?",
-      o:["It runs a hard credit check that could end up lowering your score","Identity verification and tax reporting are legally required","It is optional, and you can simply skip that field","Only accounts holding over $10,000 actually require it"], a:1,
-      e:"Federal know-your-customer rules require providers to confirm who you are, and your gains get reported to the IRS under that number. It’s a soft identity check, not a credit application." }
+    { topic:"What an investing account is", diff:"easy",
+      q:"What's the best way to think about an investing account?",
+      o:["It's the investment itself","It's just the container — what you buy inside it is what actually grows","It guarantees a fixed return","It only holds cash"], a:1,
+      e:"An investing account is just the wrapper. Stocks, funds, or bonds held inside it are what actually grow — the account itself doesn't.",
+      lesson:"2-1 · What Is An Investing Account?" },
+    { topic:"What makes a brokerage account flexible", diff:"easy",
+      q:"What makes a standard brokerage account different from a retirement account?",
+      o:["It has no contribution limits, age requirements, or income limits","It can only hold cash","You can never withdraw from it","It's only for people over 65"], a:0,
+      e:"A brokerage account is the flexible, general-purpose option — no caps on how much you put in, no age rules, and no income limit to qualify.",
+      lesson:"2-2 · The Standard Brokerage Account" },
+    { topic:"Priority order for investing", diff:"easy",
+      q:"If your employer matches 401(k) contributions, what should usually come first in your priority order?",
+      o:["Ignore the match and go straight to a brokerage account","Contribute enough to get the full employer match","Max out a taxable account first","Wait until you're debt-free to contribute anything"], a:1,
+      e:"An employer match is free money on top of your contribution. Capturing it before anything else is usually the highest-priority move.",
+      lesson:"2-5 · Choosing Your Account" },
+    { topic:"KYC when opening an account", diff:"easy",
+      q:"What is KYC, which every US brokerage has to run before you can trade?",
+      o:["Keep Your Cash — a minimum balance rule","Know Your Customer — an identity check","A type of trading order","A monthly account fee"], a:1,
+      e:"KYC (\"Know Your Customer\") is the identity check required by law before your new account can actually place trades.",
+      lesson:"2-6 · Opening Your First Account" },
+    { topic:"Why diversifying beats one stock", diff:"medium",
+      q:"Why does spreading money across many companies usually beat putting it all in one?",
+      o:["It guarantees higher returns","One company's bad outcome can't sink your whole portfolio","It's required by law","It removes all risk entirely"], a:1,
+      e:"Diversifying means no single company's failure can wipe out everything. It manages risk — it doesn't eliminate it or guarantee bigger returns.",
+      lesson:"2-1 · What Is An Investing Account?" },
+    { topic:"When Traditional IRA tax is due", diff:"medium",
+      q:"With a Traditional IRA, when do you pay tax on the money?",
+      o:["Never","Now, before it goes in","Later, when you withdraw it in retirement","Twice — once going in, once coming out"], a:2,
+      e:"Traditional IRA contributions typically lower this year's taxable income. Tax is paid later, when the money is withdrawn in retirement.",
+      lesson:"2-3 · Roth IRA vs. Traditional IRA" },
+    { topic:"What counts as earned income", diff:"medium",
+      q:"What counts as \"earned income\" for IRA contribution purposes?",
+      o:["Any money you receive, including gifts","Money from work — wages, salary, or self-employment","Investment gains only","An allowance from a parent"], a:1,
+      e:"Earned income means money you were paid for work. Gifts, allowances, and investment gains don't count toward your contribution eligibility.",
+      lesson:"2-4 · Contribution Limits & Age Requirements" },
+    { topic:"What an ACH transfer does", diff:"medium",
+      q:"What does an ACH transfer let you do?",
+      o:["Place a specific type of stock order","Move money electronically between your bank and your brokerage","Verify your identity","Avoid all brokerage fees"], a:1,
+      e:"ACH transfer is the standard, usually free, electronic link that moves money between your bank account and your brokerage account.",
+      lesson:"2-6 · Opening Your First Account" },
+    { topic:"Roth vs. Traditional, by tax bracket", diff:"hard",
+      q:"You expect to be in a much higher tax bracket in retirement than you are today. Which generally fits better?",
+      o:["Traditional IRA, to defer tax until retirement","Roth IRA, to lock in today's lower tax rate now","Neither — tax bracket doesn't matter","A standard brokerage account only"], a:1,
+      e:"A Roth IRA taxes contributions now, at today's lower rate, so qualified withdrawals later — even at a higher future bracket — come out tax-free.",
+      lesson:"2-3 · Roth IRA vs. Traditional IRA" },
+    { topic:"The cost of an early withdrawal", diff:"hard",
+      q:"You withdraw Traditional IRA earnings at age 45, with no exception that applies. What do you owe beyond ordinary income tax?",
+      o:["Nothing extra","An early withdrawal penalty, typically around 10%","A doubled tax rate","A one-time account closure fee"], a:1,
+      e:"Withdrawing before age 59½ without a qualifying exception adds an early withdrawal penalty — commonly about 10% — on top of ordinary income tax.",
+      lesson:"2-4 · Contribution Limits & Age Requirements" }
   ]
 };
 </script>
@@ -216,9 +222,6 @@ var QUIZ = {
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
       '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 6 lessons in this module.</p>'+
-      '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
-      '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
-      '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+
       '<div class="qz-rule">Get one wrong and you’ll see why before moving on.</div>'+
       '<button type="button" class="qz-btn" id="qz-start">Start the Quiz →</button>');
     card.querySelector('#qz-start').addEventListener('click',start);
@@ -288,14 +291,12 @@ var QUIZ = {
       '<div class="qz-review">'+Q.map(function(q,i){
         var hit=result[i]===true;
         return '<div class="qz-rv"><span class="qz-rvi '+(hit?'ok':'miss')+'">'+(hit?'✓':'✕')+'</span><div><b>'+q.topic+'</b>'+
-          '<small>'+(hit?'Got it':'Answer: '+q.o[q.a])+'</small></div></div>'; }).join('')+'</div>'+
-      '<button type="button" class="qz-btn ghost" id="qz-again">↺ Retake the Quiz</button>'+
+          (hit?'<small>Got it</small>':'<small>Answer: '+q.o[q.a]+'</small><small class="qz-revisit">↺ Revisit '+q.lesson+'</small>')+'</div></div>'; }).join('')+'</div>'+
       '<div class="qz-finish"><span class="qz-arrow" id="qz-arrow">↓</span>'+
       '<p class="qz-flead" id="qz-flead">Scroll Down To Continue</p>'+
       '<p class="qz-fsub" id="qz-fsub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p></div>');
     var fg=card.querySelector('.fg');
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ fg.style.strokeDashoffset=off; }); });
-    card.querySelector('#qz-again').addEventListener('click',start);
     fsApply(true);
     confetti();
   }

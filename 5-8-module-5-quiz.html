@@ -57,10 +57,6 @@
   #tn-qz .qz-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,36px); line-height:1.15; text-align:center; margin:0 0 12px;}
   #tn-qz .qz-grad{background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
   #tn-qz .qz-sub{font-size:15.5px; color:var(--ink2); text-align:center; margin:0 auto 18px; max-width:460px;}
-  #tn-qz .qz-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 20px;}
-  #tn-qz .qz-fact{background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 8px; text-align:center;}
-  #tn-qz .qz-fact b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--ink);}
-  #tn-qz .qz-fact span{font-size:11.5px; font-weight:600; color:var(--mut);}
   #tn-qz .qz-rule{background:#EEF3F8; border-radius:12px; padding:11px 14px; font-size:13.5px; color:var(--ink2); text-align:center; margin-bottom:18px;}
 
   /* buttons */
@@ -116,6 +112,7 @@
   #tn-qz .qz-rvi.ok{background:var(--g);} #tn-qz .qz-rvi.miss{background:var(--no);}
   #tn-qz .qz-rv b{font-family:'Poppins',sans-serif; font-weight:700;}
   #tn-qz .qz-rv small{display:block; color:var(--ink2); font-size:12.5px;}
+  #tn-qz .qz-revisit{color:var(--b); font-weight:600; margin-top:3px;}
 
   /* finish prompt (matches lesson standard) */
   #tn-qz .qz-finish{margin-top:18px; padding:18px 20px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
@@ -142,53 +139,62 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   10 questions covering all 7 lessons in this module, in lesson
-   order, weighted toward the most important concept(s) per lesson.
+   lesson = which lesson to revisit, shown for missed questions.
+   diff = easy / medium / hard — 4 easy, 4 medium, 2 hard per quiz.
    ============================================================ */
 var QUIZ = {
   lesson: "Module 5: Trading & Staying On Track",
-  minutes: 6,
   questions: [
-    { topic:"The bid-ask spread",
-      q:"A stock shows a Bid of $54.15 and an Ask of $54.25. What does that spread actually represent?",
-      o:["The difference between what buyers are offering and what sellers are asking","The total dollar amount the stock has gained or lost since yesterday's closing price","A small trading fee that the stock exchange automatically charges on every order","The stock's 52-week price range"], a:0,
-      e:"The bid is the highest price a buyer is currently offering, and the ask is the lowest price a seller will accept. The gap between them is the spread." },
-    { topic:"Dividend yield",
-      q:"A stock pays a $1.00 annual dividend and trades at $54 a share. How is its dividend yield calculated?",
-      o:["Share price divided by annual dividend","Annual dividend divided by share price","Annual dividend multiplied by share price","Share price minus annual dividend"], a:1,
-      e:"Dividend yield is the annual dividend divided by the share price, shown as a percentage — in this example, about 1.9%." },
-    { topic:"What a market order guarantees",
-      q:"A market order and a limit order each guarantee something different. What does a market order actually guarantee?",
-      o:["The exact price, but not that it will execute","Both the price and that it will execute","Execution right now, but not the exact price","Neither the price nor that it will execute"], a:2,
-      e:"A market order guarantees it executes immediately at whatever the current price happens to be — it does not guarantee the exact price you'll pay. A limit order flips that: it guarantees the price, not that it will execute at all." },
-    { topic:"Sizing an order in dollars",
-      q:"You place an order for $50 of a stock trading at $54.20 a share instead of choosing a whole number of shares. What does the platform do?",
-      o:["Rejects the order since $50 isn't enough for a full share","Rounds up and charges you for a full share","Holds the $50 until it's enough for a whole share","Buys 0.923 of a share, a fractional share"], a:3,
-      e:"Sizing an order by dollar amount buys however many shares — including a partial share — that amount adds up to. Buying part of a share this way is called a fractional share." },
-    { topic:"What a 3-fund portfolio covers",
-      q:"A simple 3-fund portfolio (US stock, international stock, and bond funds) covers which layers of diversification, according to this lesson?",
-      o:["Asset class, within-class, and geographic diversification together","Only diversification within each individual fund","Only geographic diversification, since it uses an international fund","Only asset-class diversification, since it mixes stocks and bonds"], a:0,
-      e:"The three funds stack multiple layers at once: stocks vs. bonds (asset class), hundreds of holdings inside each fund (within-class), and U.S. vs. international (geography)." },
-    { topic:"The \"110 minus your age\" heuristic",
-      q:"This lesson mentions \"110 minus your age\" as one common starting point. What does that number represent?",
-      o:["The total number of funds you should own","A rough starting percentage to put in stocks, with the rest in bonds","The exact number of years until you should retire","The maximum percentage of your entire portfolio you should ever hold in a single fund"], a:1,
-      e:"It's a simple, non-binding heuristic: subtract your age from 110 to get a starting stock percentage, with more in bonds as you get closer to needing the money — the lesson is explicit that it's a starting point, not a rule." },
-    { topic:"Checking vs. reviewing",
-      q:"This lesson distinguishes \"checking\" from \"reviewing.\" What's the key difference?",
-      o:["Checking is a carefully scheduled and deliberate ritual; reviewing is just a quick, unplanned emotional glance at the balance","They're the same thing, just different names for the same habit","Reviewing is scheduled and deliberate; checking is just an unplanned glance","Checking happens once a year; reviewing happens daily"], a:2,
-      e:"Checking is described as a quick, usually unplanned glance rarely followed by action — just an emotional gut-check. Reviewing is the scheduled, deliberate look at allocation, goals, and fees that actually leads to a decision." },
-    { topic:"Drift happens without a decision",
-      q:"A portfolio starts at a 60/40 stock-bond target. After a few years of stocks outperforming, it drifts to a heavier stock allocation without anyone actively deciding to take on more risk. What does this illustrate?",
-      o:["Rebalancing is only ever necessary if you personally make some kind of trading mistake along the way","Bond funds automatically rebalance themselves over time","A 60/40 mix can never actually change on its own","Left alone, a portfolio's risk level can drift away from its target purely from market performance"], a:3,
-      e:"Nobody has to make a bad decision for a portfolio's risk to drift — stocks and bonds simply grow at different rates, and if nothing is done, the mix quietly shifts away from the original target." },
-    { topic:"Rebalancing with new contributions",
-      q:"A portfolio has drifted to 68% stocks / 32% bonds against a 60/40 target. This lesson shows fixing it by directing new contributions entirely to bonds instead of selling stocks. What's the advantage of that approach?",
-      o:["It avoids selling and the taxable event that can come with it","It corrects the drift instantly, in a single contribution","It guarantees a meaningfully higher return than selling and immediately rebuying would","It only works inside a retirement account"], a:0,
-      e:"Directing new money toward whatever's underweight nudges the mix back toward target without selling anything — which means no taxable event, even though it takes more than one contribution to fully close the gap." },
-    { topic:"An honest check for beginners",
-      q:"According to this lesson's \"honest check,\" someone who's just getting started with a simple portfolio and automated contributions should…",
-      o:["Immediately start researching individual stocks to keep up","Recognize that a simple, low-fee portfolio will carry them a long way, with no rush to get more complex","Feel behind, since they haven't reached intermediate topics yet","Hire a professional, fee-based financial advisor right away, no matter how simple their situation actually is"], a:1,
-      e:"The lesson is explicit that being new isn't a problem to fix — a simple, automated, low-fee approach genuinely works for a very long time, with no need to rush toward more complexity." }
+    { topic:"The bid-ask spread", diff:"easy",
+      q:"On a stock quote, what does the \"spread\" refer to?",
+      o:["The dividend paid each quarter","The gap between the highest price a buyer will pay and the lowest a seller will accept","The company's total market value","The stock's 52-week high"], a:1,
+      e:"The spread is the gap between the bid (what buyers offer) and the ask (what sellers want) — a small, built-in cost of trading.",
+      lesson:"5-1 · How To Read A Stock Quote" },
+    { topic:"What a 3-fund portfolio covers", diff:"easy",
+      q:"A simple 3-fund starter portfolio typically covers which three pieces?",
+      o:["Three individual tech stocks","U.S. stocks, international stocks, and bonds","Three savings accounts at different banks","Gold, crypto, and cash"], a:1,
+      e:"The classic 3-fund portfolio spreads across U.S. stocks, international stocks, and bonds — broad coverage without picking individual companies.",
+      lesson:"5-4 · Building A Simple 3-Fund Starter Portfolio" },
+    { topic:"Checking vs. reviewing", diff:"easy",
+      q:"What's the difference between \"checking\" your investments and \"reviewing\" them?",
+      o:["They mean the same thing","Checking is a quick glance at the balance; reviewing is a deliberate look at whether your plan still fits","Reviewing happens every day; checking happens once a year","Checking is only for retirement accounts"], a:1,
+      e:"Checking is the quick, frequent glance. Reviewing is the deliberate, occasional look at whether your goals and allocation still make sense.",
+      lesson:"5-5 · How Often Should You Check Your Investments" },
+    { topic:"What matters most going forward", diff:"easy",
+      q:"According to this module's closing lesson, what matters most going forward?",
+      o:["Switching strategies frequently to stay ahead","Staying invested, consistent, and simple — not chasing complexity","Checking your portfolio every day","Avoiding index funds once you know more"], a:1,
+      e:"The foundations — consistency, time in the market, and keeping things simple — matter more than any advanced strategy you'll learn later.",
+      lesson:"5-7 · What's Next: Bridging Into Intermediate Investing" },
+    { topic:"Market order vs. limit order", diff:"medium",
+      q:"What's the key difference between a market order and a limit order?",
+      o:["A market order fills immediately at the current price; a limit order only fills at your chosen price or better","They always execute at the same price","Limit orders are always faster","Market orders are only for selling"], a:0,
+      e:"A market order trades right away at whatever the current price is. A limit order waits until the price hits the level you set — trading certainty for price control.",
+      lesson:"5-2 · Order Types: Market vs. Limit Orders" },
+    { topic:"Sizing an order by shares or dollars", diff:"medium",
+      q:"When sizing an order, what's the difference between buying \"by shares\" and buying \"by dollars\"?",
+      o:["They're the same — every broker only offers one","By shares means you pick a whole number of shares; by dollars means you specify an amount and get a matching (often fractional) amount of shares","By dollars only works for bonds","By shares is always cheaper"], a:1,
+      e:"Buying by shares fixes the share count; buying by dollars fixes the amount spent and lets the share count (including fractions) fall out of the price.",
+      lesson:"5-3 · Placing Your First Trade, Step By Step" },
+    { topic:"The last step before submitting", diff:"medium",
+      q:"Which step comes right before you actually submit a trade?",
+      o:["Reviewing the order details","Opening a new brokerage account","Waiting exactly 24 hours","Checking your tax return"], a:0,
+      e:"A final review — ticker, quantity, order type, price — comes right before you confirm. It's the last chance to catch a mistake.",
+      lesson:"5-3 · Placing Your First Trade, Step By Step" },
+    { topic:"Calendar vs. threshold rebalancing", diff:"medium",
+      q:"What's the difference between rebalancing on a calendar schedule vs. a threshold?",
+      o:["Calendar rebalances on fixed dates; threshold rebalances only when an allocation drifts past a set amount","They're the same strategy","Threshold rebalancing happens daily","Calendar rebalancing never actually happens"], a:0,
+      e:"Calendar rebalancing checks in on a fixed schedule, like annually. Threshold rebalancing waits until an allocation drifts past a set trigger, regardless of date.",
+      lesson:"5-6 · Rebalancing: Keeping Your Portfolio On Track" },
+    { topic:"Slippage on a market order", diff:"hard",
+      q:"A stock is falling fast. You place a market order to sell. Why might you get a noticeably worse price than expected?",
+      o:["Market orders always get the best possible price","Slippage — the price can move between when you click and when the order fills, especially in fast-moving markets","Market orders are canceled during price drops","Brokers set a fixed price for all market orders"], a:1,
+      e:"A market order guarantees execution, not price. In a fast-moving market, the price can shift before your order fills — that gap is slippage.",
+      lesson:"5-2 · Order Types: Market vs. Limit Orders" },
+    { topic:"The tax angle on rebalancing", diff:"hard",
+      q:"Why does the account type change the real cost of rebalancing by selling?",
+      o:["It doesn't — selling costs the same everywhere","Selling in a taxable account can trigger capital gains tax; selling inside a tax-advantaged account typically doesn't","Tax-advantaged accounts charge higher trading fees","Rebalancing is illegal in taxable accounts"], a:1,
+      e:"Selling a winner in a taxable brokerage account can trigger a tax bill. Inside an IRA or 401(k), that same rebalancing trade typically has no tax consequence.",
+      lesson:"5-6 · Rebalancing: Keeping Your Portfolio On Track" }
   ]
 };
 </script>
@@ -217,9 +223,6 @@ var QUIZ = {
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
       '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 7 lessons in this module.</p>'+
-      '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
-      '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
-      '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+
       '<div class="qz-rule">Get one wrong and you’ll see why before moving on.</div>'+
       '<button type="button" class="qz-btn" id="qz-start">Start the Quiz →</button>');
     card.querySelector('#qz-start').addEventListener('click',start);
@@ -289,14 +292,12 @@ var QUIZ = {
       '<div class="qz-review">'+Q.map(function(q,i){
         var hit=result[i]===true;
         return '<div class="qz-rv"><span class="qz-rvi '+(hit?'ok':'miss')+'">'+(hit?'✓':'✕')+'</span><div><b>'+q.topic+'</b>'+
-          '<small>'+(hit?'Got it':'Answer: '+q.o[q.a])+'</small></div></div>'; }).join('')+'</div>'+
-      '<button type="button" class="qz-btn ghost" id="qz-again">↺ Retake the Quiz</button>'+
+          (hit?'<small>Got it</small>':'<small>Answer: '+q.o[q.a]+'</small><small class="qz-revisit">↺ Revisit '+q.lesson+'</small>')+'</div></div>'; }).join('')+'</div>'+
       '<div class="qz-finish"><span class="qz-arrow" id="qz-arrow">↓</span>'+
       '<p class="qz-flead" id="qz-flead">Scroll Down To Continue</p>'+
       '<p class="qz-fsub" id="qz-fsub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p></div>');
     var fg=card.querySelector('.fg');
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ fg.style.strokeDashoffset=off; }); });
-    card.querySelector('#qz-again').addEventListener('click',start);
     fsApply(true);
     confetti();
   }

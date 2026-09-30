@@ -56,10 +56,6 @@
   #tn-qz .qz-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,36px); line-height:1.15; text-align:center; margin:0 0 12px;}
   #tn-qz .qz-grad{background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
   #tn-qz .qz-sub{font-size:15.5px; color:var(--ink2); text-align:center; margin:0 auto 18px; max-width:460px;}
-  #tn-qz .qz-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 20px;}
-  #tn-qz .qz-fact{background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 8px; text-align:center;}
-  #tn-qz .qz-fact b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--ink);}
-  #tn-qz .qz-fact span{font-size:11.5px; font-weight:600; color:var(--mut);}
   #tn-qz .qz-rule{background:#EEF3F8; border-radius:12px; padding:11px 14px; font-size:13.5px; color:var(--ink2); text-align:center; margin-bottom:18px;}
 
   /* buttons */
@@ -115,6 +111,7 @@
   #tn-qz .qz-rvi.ok{background:var(--g);} #tn-qz .qz-rvi.miss{background:var(--no);}
   #tn-qz .qz-rv b{font-family:'Poppins',sans-serif; font-weight:700;}
   #tn-qz .qz-rv small{display:block; color:var(--ink2); font-size:12.5px;}
+  #tn-qz .qz-revisit{color:var(--b); font-weight:600; margin-top:3px;}
 
   /* finish prompt (matches lesson standard) */
   #tn-qz .qz-finish{margin-top:18px; padding:18px 20px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
@@ -141,53 +138,64 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   10 questions covering all 8 lessons in this module, in lesson
-   order, weighted toward the most important concept(s) per lesson.
+   lesson = which lesson to revisit, shown for missed questions.
+   diff = easy / medium / hard — 4 easy, 4 medium, 2 hard per quiz.
+   Lesson 1-1 is pure orientation (no testable concept), so its
+   two richest lessons (1-2 and 1-5) each carry an extra question.
    ============================================================ */
 var QUIZ = {
   lesson: "Module 1: Building Your Foundation",
-  minutes: 6,
   questions: [
-    { topic:"Same money, different places",
-      q:"Two people each start with the same $1,000 but put it in different places for 20 years. What does this course say mainly explains why they can end up with very different amounts?",
-      o:["Where they put it and how long it stayed there","Luck, mostly — whichever one happened to catch a stronger market year","Which specific bank or brokerage app each person happened to sign up with","How often each of them logged in to check their account balance online"], a:0,
-      e:"The same starting amount can turn into wildly different outcomes depending on where it's placed and how much time it's given to grow — that idea runs through the whole course." },
-    { topic:"The $5,000 hook",
-      q:"This lesson compares the same $5,000 left in savings vs. invested over time. What's the core point of that comparison?",
-      o:["Savings and investing produce roughly the same result once you look at a long enough time horizon","Sitting still and going to work produce very different outcomes for the same money","$5,000 is too small an amount for the choice between saving and investing to matter either way","Savings accounts always beat investing once you factor in a full twenty-year time horizon"], a:1,
-      e:"The hook uses the exact same $5,000 twice to isolate one variable: whether the money sits still or goes to work. The gap between those two outcomes is the whole reason this lesson exists." },
-    { topic:"Which tool fits which goal",
-      q:"This lesson sorts an emergency fund you might need next month into savings, but a retirement goal 30 years away into investing. What's the reasoning?",
-      o:["Investing is always the better choice for every goal once you fully understand how it works","Savings only makes sense for people who fundamentally don't trust or understand the stock market","The tool is matched to the goal's timeline, not to which one is universally \"better\"","It's based on whichever option happens to charge lower account and management fees"], a:2,
-      e:"Neither tool is universally better — the lesson sorts each goal by how soon the money is needed. Short timelines go to savings so the money stays safe and accessible; long timelines go to investing so there's time to grow." },
-    { topic:"The real-need test",
-      q:"According to this lesson, which of these actually helps tell a real need from a want dressed up as one?",
-      o:["Whether the item happens to be on sale or heavily discounted right now","Whether a close friend or family member already happens to own one","How much the item costs in total once tax and shipping are added","Whether a cheaper option would do the same job just as well"], a:3,
-      e:"One of the four tests is \"no reasonable substitute\" — if a less expensive version does the job just as well, that's a sign you're looking at a want, not a real need." },
-    { topic:"Where short-term money belongs",
-      q:"You might need $3,000 for car repairs next month. Where should it live?",
-      o:["A high-yield savings account","An index fund","A few individual stocks","Split between stocks and savings"], a:0,
-      e:"Money you might need soon shouldn't face market swings. If prices dip the week your car breaks down, you'd be forced to sell low." },
-    { topic:"Compounding",
-      q:"Same $300 a month, same return. Why does starting at 25 beat starting at 35 by so much?",
-      o:["Younger investors are usually offered higher rates","Growth gets ten extra years to build on itself","Account fees were lower when they started","Markets tend to rise faster in your 20s"], a:1,
-      e:"Nothing about the rate or deposits differs. Each early dollar keeps compounding for decades, and those missing years can't be bought back later." },
-    { topic:"The cost of waiting",
-      q:"You delay investing ten years to \"save up first.\" What do you actually give up?",
-      o:["Nothing, if you invest extra later to catch up","Only the monthly deposits you skipped","A decade of growth you can't make up","Access to better interest rates later on"], a:2,
-      e:"Skipped deposits are only part of it. The bigger loss is ten years of growth earning growth, which extra money later rarely replaces." },
-    { topic:"Inflation and purchasing power",
-      q:"You put $5,000 in a shoebox for 20 years instead of investing it. The bills never move, so what actually happens to that money?",
-      o:["Nothing — a dollar today buys the same as a dollar in 20 years","It grows slightly just from sitting in cash","It doubles in value since it was never touched","It quietly loses buying power as prices rise around it"], a:3,
-      e:"The bills themselves don't change, but prices do. Even a modest inflation rate compounds over 20 years, so that $5,000 buys noticeably less than it used to." },
-    { topic:"Sorting goals by timeline",
-      q:"You want a new laptop next year, a house down payment in 6 years, and a comfortable retirement in 35 years. How should these be sorted?",
-      o:["Short-term, medium-term, and long-term, in that order","All three are the same kind of goal, so save the same way for each","Long-term, medium-term, and short-term, in that order","It doesn’t matter, since goals aren’t really about timing"], a:0,
-      e:"The laptop is short-term (under about two years), the house is medium-term (a few years out), and retirement is long-term (decades away). How soon you need the money is exactly what decides the category." },
-    { topic:"Risk and reward move together",
-      q:"An ad promises \"stock market returns with none of the risk.\" What should that tell you?",
-      o:["It’s a rare but real opportunity worth jumping on","It’s likely misleading, since return and risk are linked","It’s normal for low-risk investments to match stock returns","It only applies to government bonds"], a:1,
-      e:"Potential reward and risk move together. An investment offering stock-like returns with none of the risk is either being misunderstood or misrepresented — that trade-off doesn't just disappear because an ad says so." }
+    { topic:"Saving vs. investing", diff:"easy",
+      q:"What's the key difference between saving and investing?",
+      o:["Saving protects money for soon; investing grows money for later","They're the same strategy with different names","Saving always earns more than investing","Investing is only for retirement accounts"], a:0,
+      e:"Saving keeps money safe and easy to access for near-term needs. Investing accepts short-term ups and downs in exchange for long-term growth.",
+      lesson:"1-2 · Saving vs. Investing" },
+    { topic:"What an emergency fund is for", diff:"easy",
+      q:"What is an emergency fund meant to cover?",
+      o:["Buying stocks when prices drop","Unexpected, urgent costs","A vacation","Everyday grocery spending"], a:1,
+      e:"An emergency fund is cash set aside for real emergencies — a job loss or a car repair — so you're never forced to sell investments at a bad time.",
+      lesson:"1-4 · Emergency Funds" },
+    { topic:"Inflation and cash", diff:"easy",
+      q:"What does inflation do to cash that just sits still?",
+      o:["Nothing — cash never loses value","It slowly loses buying power","It doubles automatically every year","It becomes tax-free"], a:1,
+      e:"Prices rise over time, so a dollar buys a little less every year. Cash that never grows quietly loses purchasing power.",
+      lesson:"1-6 · Inflation: The Silent Wealth Killer" },
+    { topic:"Matching goals to timelines", diff:"easy",
+      q:"A goal you'll need the money for next year should mostly go where?",
+      o:["A high-yield savings account","A single volatile stock","A 30-year retirement fund","Nowhere — spend it now"], a:0,
+      e:"Short-term goals need safety and access, not growth. Savings keeps the money there when you need it.",
+      lesson:"1-7 · Setting Financial Goals" },
+    { topic:"Matching the tool to the goal", diff:"medium",
+      q:"You need $3,000 for a car repair next month, but won't touch another $3,000 earmarked for retirement for 30 years. Why treat them differently?",
+      o:["The short-term money needs safety; the long-term money has time to ride out swings","Retirement money should always be in cash too","All money should be invested the same way","The amount is too small to matter either way"], a:0,
+      e:"The right tool depends on when you need the money, not which one is universally \"better.\" Short timelines call for safety; long timelines have room for growth.",
+      lesson:"1-2 · Saving vs. Investing" },
+    { topic:"Spotting a real need", diff:"medium",
+      q:"Which question best separates a real need from a want?",
+      o:["Is it on sale right now?","Would a cheaper option do the same job?","Does a friend already own one?","Is it available online?"], a:1,
+      e:"If a less expensive option works just as well, that's a sign you're looking at a want — not a need with no substitute.",
+      lesson:"1-3 · Needs vs. Wants" },
+    { topic:"Why starting early wins", diff:"medium",
+      q:"Same $300 a month, same return — why does starting at 25 beat starting at 35?",
+      o:["Ten extra years for growth to build on itself","Younger investors get better rates","Fees are lower for younger accounts","Markets rise faster for new investors"], a:0,
+      e:"Nothing about the rate or deposit changes — only time does. Money invested earlier compounds for longer, and those years can't be bought back.",
+      lesson:"1-5 · The Power of Compound Interest" },
+    { topic:"Risk and reward move together", diff:"medium",
+      q:"Why can't you get stock-market returns with zero risk?",
+      o:["Potential reward and risk move together","Banks don't allow it","It's only possible with bonds","Risk only applies to beginners"], a:0,
+      e:"Higher potential returns come with real risk attached. An investment promising one without the other is either misunderstood or misleading.",
+      lesson:"1-8 · Risk vs. Reward" },
+    { topic:"The Rule of 72", diff:"hard",
+      q:"Using the Rule of 72, about how many years to double your money at 8% annual return?",
+      o:["4 years","6 years","9 years","12 years"], a:2,
+      e:"72 ÷ 8 = 9. The Rule of 72 is a quick way to estimate doubling time from a rate of return.",
+      lesson:"1-5 · The Power of Compound Interest" },
+    { topic:"Concentration risk", diff:"hard",
+      q:"You put 90% of your portfolio into one company's stock. What's the biggest risk you've taken on?",
+      o:["Inflation risk","Concentration risk — one bad outcome sinks most of your money","Liquidity risk from savings accounts","Tax risk from index funds"], a:1,
+      e:"Putting most of your money in a single holding means one company's bad news can wipe out most of your portfolio. Diversification spreads that risk out.",
+      lesson:"1-8 · Risk vs. Reward" }
   ]
 };
 </script>
@@ -216,9 +224,6 @@ var QUIZ = {
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
       '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 8 lessons in this module.</p>'+
-      '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
-      '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
-      '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+
       '<div class="qz-rule">Get one wrong and you’ll see why before moving on.</div>'+
       '<button type="button" class="qz-btn" id="qz-start">Start the Quiz →</button>');
     card.querySelector('#qz-start').addEventListener('click',start);
@@ -288,14 +293,12 @@ var QUIZ = {
       '<div class="qz-review">'+Q.map(function(q,i){
         var hit=result[i]===true;
         return '<div class="qz-rv"><span class="qz-rvi '+(hit?'ok':'miss')+'">'+(hit?'✓':'✕')+'</span><div><b>'+q.topic+'</b>'+
-          '<small>'+(hit?'Got it':'Answer: '+q.o[q.a])+'</small></div></div>'; }).join('')+'</div>'+
-      '<button type="button" class="qz-btn ghost" id="qz-again">↺ Retake the Quiz</button>'+
+          (hit?'<small>Got it</small>':'<small>Answer: '+q.o[q.a]+'</small><small class="qz-revisit">↺ Revisit '+q.lesson+'</small>')+'</div></div>'; }).join('')+'</div>'+
       '<div class="qz-finish"><span class="qz-arrow" id="qz-arrow">↓</span>'+
       '<p class="qz-flead" id="qz-flead">Scroll Down To Continue</p>'+
       '<p class="qz-fsub" id="qz-fsub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p></div>');
     var fg=card.querySelector('.fg');
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ fg.style.strokeDashoffset=off; }); });
-    card.querySelector('#qz-again').addEventListener('click',start);
     fsApply(true);
     confetti();
   }

@@ -57,10 +57,6 @@
   #tn-qz .qz-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,36px); line-height:1.15; text-align:center; margin:0 0 12px;}
   #tn-qz .qz-grad{background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
   #tn-qz .qz-sub{font-size:15.5px; color:var(--ink2); text-align:center; margin:0 auto 18px; max-width:460px;}
-  #tn-qz .qz-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 20px;}
-  #tn-qz .qz-fact{background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 8px; text-align:center;}
-  #tn-qz .qz-fact b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--ink);}
-  #tn-qz .qz-fact span{font-size:11.5px; font-weight:600; color:var(--mut);}
   #tn-qz .qz-rule{background:#EEF3F8; border-radius:12px; padding:11px 14px; font-size:13.5px; color:var(--ink2); text-align:center; margin-bottom:18px;}
 
   /* buttons */
@@ -116,6 +112,7 @@
   #tn-qz .qz-rvi.ok{background:var(--g);} #tn-qz .qz-rvi.miss{background:var(--no);}
   #tn-qz .qz-rv b{font-family:'Poppins',sans-serif; font-weight:700;}
   #tn-qz .qz-rv small{display:block; color:var(--ink2); font-size:12.5px;}
+  #tn-qz .qz-revisit{color:var(--b); font-weight:600; margin-top:3px;}
 
   /* finish prompt (matches lesson standard) */
   #tn-qz .qz-finish{margin-top:18px; padding:18px 20px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
@@ -142,53 +139,62 @@
    QUIZ CONFIG — the only part to edit per module.
    a = index of the correct option (0 = A, 1 = B, ...).
    topic = short label shown in the results review.
-   10 questions covering all 7 lessons in this module, in lesson
-   order, weighted toward the most important concept(s) per lesson.
+   lesson = which lesson to revisit, shown for missed questions.
+   diff = easy / medium / hard — 4 easy, 4 medium, 2 hard per quiz.
    ============================================================ */
 var QUIZ = {
   lesson: "Module 4: Habits, Costs & Taxes",
-  minutes: 6,
   questions: [
-    { topic:"Spotting a red flag",
-      q:"A friend swears a stock is \"guaranteed to double this month.\" What's the right read?",
-      o:["A warning sign: any investment can lose value","An opportunity to buy in before others catch on","Safe enough, as long as the company is famous","Fine, as long as you only put in a little"], a:0,
-      e:"Guaranteed, fast, and urgent is a classic red flag. Every real investment can lose value, and anyone promising otherwise is mistaken or selling something." },
-    { topic:"Trading too often",
-      q:"Someone checks their account daily and buys and sells most weeks. What does this usually do?",
-      o:["Reliably beats investors who leave things alone","Adds costs and taxes without improving results","Lowers the fees they pay over the long run","Removes the risk of losing money in a downturn"], a:1,
-      e:"Frequent trading tends to add costs and taxable events while tempting you to react to noise. Doing less is usually the harder and better habit." },
-    { topic:"Diversification",
-      q:"Which way of investing $2,000 hurts least if one company suddenly collapses?",
-      o:["All in your favorite company","Split evenly between two popular tech stocks","One fund holding hundreds of companies","Whatever is trending this week"], a:2,
-      e:"When one company is a tiny slice of hundreds, its collapse barely dents you. When it's all you own, it takes everything with it." },
-    { topic:"Counting is not diversifying",
-      q:"You own twelve stocks, and all twelve are software companies. Are you diversified?",
-      o:["Yes, since twelve is more than enough names","Yes, as long as they are at two brokerages","No, you need at least twenty different stocks","No, because they tend to move together"], a:3,
-      e:"Diversification is about owning things that do not all rise and fall together. Twelve companies in one industry often move as a single bet." },
-    { topic:"Time in the market vs. timing",
-      q:"Maya invests every paycheck. Sam waits for prices to dip first. Who usually comes out ahead?",
-      o:["Maya, since her money stays invested longer","Sam, because buying dips gets him lower prices","They end up about the same over 20 years","Neither, since real growth needs a lump sum"], a:0,
-      e:"While Sam waits for the perfect moment, his money sits in cash. Maya's is invested the whole time, and that's what drives most long-term results." },
-    { topic:"How averaging works",
-      q:"You invest $100 on the same day each month. This month the price falls. What happens to that $100?",
-      o:["It buys fewer shares, since prices dropped","It buys more shares than it did last month","It stays as cash until prices recover again","It is refunded automatically by the brokerage"], a:1,
-      e:"A fixed dollar amount buys more shares when prices are low and fewer when prices are high, which is what pulls your average cost down over time." },
-    { topic:"Why fees matter",
-      q:"Two funds hold the same companies. One charges 0.03% a year, the other charges 1%. Over several decades, what happens?",
-      o:["The difference is far too small to ever notice","The pricier fund usually makes it back through better picks","The cheaper fund leaves you meaningfully more money","They end up within a few dollars of each other"], a:2,
-      e:"A fee is charged every year on everything you hold, so the gap compounds right alongside your returns. Small percentages turn into large differences over decades." },
-    { topic:"Automating",
-      q:"Someone keeps \"forgetting\" to invest by the end of each month. What helps most?",
-      o:["Check prices every morning to stay motivated","Wait until they have a bigger amount saved","Only invest money that comes in from tax refunds","Schedule it to happen on its own every payday"], a:3,
-      e:"Setting it on a schedule takes willpower and memory out of it. The money moves before it has a chance to be spent." },
-    { topic:"A gain isn't taxed until you sell",
-      q:"You bought a stock and it's now worth $2,000 more than you paid, but you haven't sold it. According to this lesson, what do you owe in taxes on that gain right now?",
-      o:["Nothing, since the gain isn't taxed until you sell","The full capital gains tax on the entire $2,000 gain, due immediately","A reduced \"holding\" tax rate that applies while you wait","It depends entirely on which specific brokerage or app you used"], a:0,
-      e:"A gain on paper isn't a taxable event by itself — tax is triggered when you actually sell and \"realize\" the gain, not while you're still holding the investment." },
-    { topic:"Short-term and long-term buckets",
-      q:"You sell one stock held 4 months for a gain and another held 3 years for a gain. How does this lesson say those two gains are treated at tax time?",
-      o:["They're combined into one single bucket and taxed identically regardless of holding period","They're tallied separately as short-term and long-term before being combined","Only the long-term gain is ever taxed at all","Only trades held for more than a full calendar year ever count toward your taxes"], a:1,
-      e:"Short-term and long-term gains and losses are tracked in two separate buckets first, since they're taxed at different rates, and only combined after each bucket is tallied." }
+    { topic:"Investing vs. gambling", diff:"easy",
+      q:"A friend says investing is \"just gambling.\" What actually separates the two?",
+      o:["Nothing — they're the same thing","Gambling has a built-in house edge; broad, long-term investing is tied to real company growth","Gambling is legal and investing isn't","Investing always guarantees a profit, unlike gambling"], a:1,
+      e:"Gambling has negative expected value built in. Broad, long-term investing is backed by real businesses growing over time — a fundamentally different bet.",
+      lesson:"4-1 · Myths And Misconceptions About Investing" },
+    { topic:"A common beginner mistake", diff:"easy",
+      q:"Which of these is a common beginner mistake this lesson warns against?",
+      o:["Investing a small amount consistently","Waiting for the \"perfect\" time to start","Setting a clear goal before investing","Checking fees before choosing a fund"], a:1,
+      e:"Waiting for the perfect moment usually just means waiting. Time in the market matters more than perfect timing.",
+      lesson:"4-2 · Common Beginner Mistakes To Avoid" },
+    { topic:"What dollar-cost averaging is", diff:"easy",
+      q:"What is dollar-cost averaging?",
+      o:["Investing a lump sum all at once","Investing the same amount on a regular schedule, regardless of price","Only buying when prices are falling","Converting all investments to cash monthly"], a:1,
+      e:"DCA means investing a fixed amount at regular intervals. You buy more shares when prices are low and fewer when they're high, automatically.",
+      lesson:"4-4 · Dollar-Cost Averaging: Investing Consistently" },
+    { topic:"Visible vs. invisible fees", diff:"easy",
+      q:"What's the difference between a \"visible\" fee and an \"invisible\" one?",
+      o:["Visible fees don't actually cost you anything","A visible fee sends you a bill; an invisible one (like an expense ratio) is quietly deducted from your returns","Invisible fees are illegal","There's no real difference"], a:1,
+      e:"Some fees show up as a charge you notice. Others, like expense ratios, are taken automatically and never appear as a line-item bill — which makes them easy to ignore.",
+      lesson:"4-5 · Understanding Fees And Expense Ratios" },
+    { topic:"Counting isn't diversifying", diff:"medium",
+      q:"You own 20 different tech stocks. Why might this NOT count as real diversification?",
+      o:["20 holdings is already too many","They likely move together, since they're all exposed to the same sector's risks","Tech stocks can't be diversified","You need exactly 30 holdings to diversify"], a:1,
+      e:"Counting isn't the same as diversifying. If all your holdings react to the same news, you've got concentration dressed up as variety — the \"correlation trap.\"",
+      lesson:"4-3 · Diversification: Don't Put All Your Eggs In One Basket" },
+    { topic:"What DRIP does", diff:"medium",
+      q:"What does DRIP (dividend reinvestment) actually do?",
+      o:["Pays your dividends out as cash automatically","Uses dividends to automatically buy more shares","Cancels your dividends","Only works in retirement accounts"], a:1,
+      e:"DRIP automatically reinvests dividends into more shares, so your future dividends grow from a bigger base — growth feeding on itself.",
+      lesson:"4-6 · Automating Your Investments" },
+    { topic:"Automation still needs a pilot", diff:"medium",
+      q:"Why does this lesson say automation still \"needs a pilot\"?",
+      o:["Automation doesn't actually work","You should still check in periodically, even on autopilot","Automated investing is illegal without supervision","Automation only works for large accounts"], a:1,
+      e:"Automating your contributions removes willpower from the equation, but it isn't \"set and forget forever\" — occasional check-ins still matter.",
+      lesson:"4-6 · Automating Your Investments" },
+    { topic:"Realized vs. unrealized gains", diff:"medium",
+      q:"You bought a stock that's gone up in value, but you haven't sold it. Do you owe tax on that gain yet?",
+      o:["Yes, every year until you sell","No — a gain isn't taxed until you actually sell (it's \"unrealized\")","Only if the gain is over $1,000","Yes, but only half of it"], a:1,
+      e:"Gains aren't taxed until realized — meaning you've actually sold. Paper gains on investments you still hold aren't taxed yet.",
+      lesson:"4-7 · Taxes 101: Capital Gains Basics" },
+    { topic:"Diworsification", diff:"hard",
+      q:"Owning 200 different mutual funds that all hold similar large U.S. companies is an example of what this lesson calls...?",
+      o:["Perfect diversification","\"Diworsification\" — added complexity without real added protection","Required diversification","Tax-loss harvesting"], a:1,
+      e:"Piling on more holdings that all overlap doesn't add real protection — it just adds complexity. Past a point, more isn't more diversified.",
+      lesson:"4-3 · Diversification: Don't Put All Your Eggs In One Basket" },
+    { topic:"The wash sale rule", diff:"hard",
+      q:"You sell a stock at a loss on Monday, then buy the same stock back on Wednesday. What happens to that loss for tax purposes?",
+      o:["It's fully deductible immediately","It's disqualified by the wash sale rule since you rebought too soon","It doubles as a bonus deduction","Nothing changes — timing never matters"], a:1,
+      e:"The wash sale rule blocks the tax loss if you buy back a \"substantially identical\" investment within 30 days before or after selling — the loss gets disqualified.",
+      lesson:"4-7 · Taxes 101: Capital Gains Basics" }
   ]
 };
 </script>
@@ -217,9 +223,6 @@ var QUIZ = {
       '<p class="qz-kicker">Module Quiz</p>'+
       '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
       '<p class="qz-sub">See how well this module’s big ideas stuck — 10 questions covering all 7 lessons in this module.</p>'+
-      '<div class="qz-facts"><div class="qz-fact"><b>'+N+'</b><span>Questions</span></div>'+
-      '<div class="qz-fact"><b>~'+QUIZ.minutes+'</b><span>Minutes</span></div>'+
-      '<div class="qz-fact"><b>1</b><span>Try Each</span></div></div>'+
       '<div class="qz-rule">Get one wrong and you’ll see why before moving on.</div>'+
       '<button type="button" class="qz-btn" id="qz-start">Start the Quiz →</button>');
     card.querySelector('#qz-start').addEventListener('click',start);
@@ -289,14 +292,12 @@ var QUIZ = {
       '<div class="qz-review">'+Q.map(function(q,i){
         var hit=result[i]===true;
         return '<div class="qz-rv"><span class="qz-rvi '+(hit?'ok':'miss')+'">'+(hit?'✓':'✕')+'</span><div><b>'+q.topic+'</b>'+
-          '<small>'+(hit?'Got it':'Answer: '+q.o[q.a])+'</small></div></div>'; }).join('')+'</div>'+
-      '<button type="button" class="qz-btn ghost" id="qz-again">↺ Retake the Quiz</button>'+
+          (hit?'<small>Got it</small>':'<small>Answer: '+q.o[q.a]+'</small><small class="qz-revisit">↺ Revisit '+q.lesson+'</small>')+'</div></div>'; }).join('')+'</div>'+
       '<div class="qz-finish"><span class="qz-arrow" id="qz-arrow">↓</span>'+
       '<p class="qz-flead" id="qz-flead">Scroll Down To Continue</p>'+
       '<p class="qz-fsub" id="qz-fsub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p></div>');
     var fg=card.querySelector('.fg');
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ fg.style.strokeDashoffset=off; }); });
-    card.querySelector('#qz-again').addEventListener('click',start);
     fsApply(true);
     confetti();
   }
