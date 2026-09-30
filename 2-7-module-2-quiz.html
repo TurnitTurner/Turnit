@@ -112,6 +112,7 @@
   #tn-qz .qz-rv b{font-family:'Poppins',sans-serif; font-weight:700;}
   #tn-qz .qz-rv small{display:block; color:var(--ink2); font-size:12.5px;}
   #tn-qz .qz-revisit{color:var(--b); font-weight:600; margin-top:3px;}
+  #tn-qz .qz-why{color:var(--ink2); margin-top:3px;}
 
   /* finish prompt (matches lesson standard) */
   #tn-qz .qz-finish{margin-top:18px; padding:18px 20px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
@@ -291,7 +292,7 @@ var QUIZ = {
       '<div class="qz-review">'+Q.map(function(q,i){
         var hit=result[i]===true;
         return '<div class="qz-rv"><span class="qz-rvi '+(hit?'ok':'miss')+'">'+(hit?'✓':'✕')+'</span><div><b>'+q.topic+'</b>'+
-          (hit?'<small>Got it</small>':'<small>Answer: '+q.o[q.a]+'</small><small class="qz-revisit">↺ Revisit '+q.lesson+'</small>')+'</div></div>'; }).join('')+'</div>'+
+          (hit?'<small>Got it</small>':'<small>Answer: '+q.o[q.a]+'</small><small class="qz-why">'+q.e+'</small><small class="qz-revisit">↺ Revisit '+q.lesson+'</small>')+'</div></div>'; }).join('')+'</div>'+
       '<div class="qz-finish"><span class="qz-arrow" id="qz-arrow">↓</span>'+
       '<p class="qz-flead" id="qz-flead">Scroll Down To Continue</p>'+
       '<p class="qz-fsub" id="qz-fsub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p></div>');
