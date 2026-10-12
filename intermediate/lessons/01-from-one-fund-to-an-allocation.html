@@ -1,0 +1,883 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — FROM ONE FUND TO AN ALLOCATION  (Intermediate · Module 1 · Lesson 1)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-al. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     13 slides, one interactive per slide, Next locked until the activity is done:
+       1  Title & Key Terms (never gated)   2  One Fund Or Three?
+       3  Build A Mix (donut + steppers)    4  The Building Blocks
+       5  Which Job Does It Do? (sort)      6  More Funds Isn't More Mix (flip grid)
+       7  Myth Or Fact                      8  Three Models Compared
+       9  Spot The Red Flags                10 How Long Until You Need It?
+       11 Put It In Writing                 12 Recap
+       13 Complete (scroll-down prompt)
+     Gating reads state the content script publishes on the container, so
+     spamming one button can never unlock a slide. Once unlocked, a slide
+     stays unlocked even after Start Over.
+     ============================================================ -->
+<div id="tn-al">
+  <div class="al-wrap">
+    <div class="al-top">
+      <div class="al-topbar">
+        <div class="al-brand"><span class="al-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 4"/></svg></span><span class="al-word">TURNIT</span><span class="al-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="al-progress"><span id="al-bar"></span></div>
+      <div class="al-meta"><span id="al-slide-label">Start Here</span><span id="al-slide-count">Slide 1 Of 13</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="al-sec al-center al-reveal" data-step="1">
+      <p class="al-kicker center">From One Fund To An Allocation · 1 / 13</p>
+      <h1 class="al-hero-title">FROM ONE FUND <span class="al-hero-grad">TO AN ALLOCATION</span></h1>
+      <p class="al-sub center">You already own something. This lesson is about what it adds up to.</p>
+      <div class="al-vocab">
+        <span class="al-vocab-label">Key Terms In This Lesson</span>
+        <div class="al-vocab-chips" id="al-vocab-chips">
+          <button type="button" class="al-vocab-chip" data-t="Asset Allocation" data-def="How your money is split across different kinds of investments. It is the split itself, not the funds you used to get there.">Asset Allocation</button>
+          <button type="button" class="al-vocab-chip" data-t="Asset Class" data-def="A group of investments that behave in broadly similar ways, such as stocks, bonds, or cash.">Asset Class</button>
+          <button type="button" class="al-vocab-chip" data-t="Weight" data-def="The share of your total portfolio held in one thing, written as a percentage.">Weight</button>
+          <button type="button" class="al-vocab-chip" data-t="Equities" data-def="Another word for stocks — ownership stakes in companies.">Equities</button>
+          <button type="button" class="al-vocab-chip" data-t="Fixed Income" data-def="Another word for bonds — loans that pay interest on a set schedule.">Fixed Income</button>
+          <button type="button" class="al-vocab-chip" data-t="Money Market Fund" data-def="A fund holding very short-term, high-quality debt. It is where cash waits: steady value, modest interest, and quick to withdraw.">Money Market Fund</button>
+          <button type="button" class="al-vocab-chip" data-t="Total Market Fund" data-def="One fund designed to hold nearly every company in a market, rather than a chosen slice of it.">Total Market Fund</button>
+        </div>
+        <div class="al-vocab-def" id="al-vocab-def">Tap a term to see what it means.</div>
+        <span class="al-vocab-note">Each one is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="al-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · ONE FUND OR THREE? ========== -->
+    <section class="al-sec al-reveal" data-step="2">
+      <p class="al-kicker">Why It Matters · 2 / 13</p>
+      <h2 class="al-h2">One Fund, Or Three?</h2>
+      <p class="al-p">Two portfolios, same money. Tap both to compare what you'd actually own.</p>
+      <div class="al-hook-opts" id="al-hook">
+        <button type="button" class="al-hook-opt" data-k="one">One Total Market Fund<span>A Single Purchase</span></button>
+        <button type="button" class="al-hook-opt" data-k="three">Three Separate Funds<span>US · International · Bonds</span></button>
+      </div>
+      <div class="al-panel">
+        <div class="al-hook-grid">
+          <div class="al-hook-box"><span>Companies Held</span><b id="al-hook-a">—</b></div>
+          <div class="al-hook-box"><span>Asset Classes</span><b id="al-hook-b">—</b></div>
+          <div class="al-hook-box green"><span>Decisions To Make</span><b id="al-hook-c">—</b></div>
+        </div>
+        <div class="al-note" id="al-hook-note">Tap both options to compare them.</div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · BUILD A MIX ========== -->
+    <section class="al-sec al-reveal" data-step="3">
+      <p class="al-kicker">Build A Mix · 3 / 13</p>
+      <h2 class="al-h2">An Allocation Is Just Percentages</h2>
+      <p class="al-p">Set a mix that totals 100%. The ring shows the weight of each asset class.</p>
+      <div class="al-panel">
+        <div class="al-donutwrap">
+          <svg class="al-donut" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="track" cx="60" cy="60" r="46"/>
+            <circle class="seg s1" id="al-seg1" cx="60" cy="60" r="46"/>
+            <circle class="seg s2" id="al-seg2" cx="60" cy="60" r="46"/>
+            <circle class="seg s3" id="al-seg3" cx="60" cy="60" r="46"/>
+          </svg>
+          <div class="al-donut-mid"><b id="al-total">100%</b><span id="al-total-lab">Allocated</span></div>
+        </div>
+        <div class="al-stepper" data-k="us"><span class="al-dot s1"></span><span class="al-stepper-lab">US Stocks</span>
+          <button type="button" class="al-step" data-d="-1" aria-label="Decrease US stocks">−</button>
+          <b id="al-v-us">60%</b>
+          <button type="button" class="al-step" data-d="1" aria-label="Increase US stocks">+</button></div>
+        <div class="al-stepper" data-k="intl"><span class="al-dot s2"></span><span class="al-stepper-lab">International Stocks</span>
+          <button type="button" class="al-step" data-d="-1" aria-label="Decrease international stocks">−</button>
+          <b id="al-v-intl">20%</b>
+          <button type="button" class="al-step" data-d="1" aria-label="Increase international stocks">+</button></div>
+        <div class="al-stepper" data-k="bond"><span class="al-dot s3"></span><span class="al-stepper-lab">Bonds</span>
+          <button type="button" class="al-step" data-d="-1" aria-label="Decrease bonds">−</button>
+          <b id="al-v-bond">20%</b>
+          <button type="button" class="al-step" data-d="1" aria-label="Increase bonds">+</button></div>
+        <div class="al-note" id="al-mix-note">Change at least one weight and land back on 100%.</div>
+        <div class="al-reset-row"><button type="button" class="al-reset-btn" id="al-mix-reset">↺ Start Over</button></div>
+      </div>
+      <p class="al-disclaimer-inline">These are illustrative weights, not a recommended portfolio.</p>
+    </section>
+
+    <!-- ========== 4 · THE BUILDING BLOCKS ========== -->
+    <section class="al-sec al-reveal" data-step="4">
+      <p class="al-kicker">The Building Blocks · 4 / 13</p>
+      <h2 class="al-h2">The Blocks You're Mixing</h2>
+      <p class="al-p">Five common asset classes. Tap each to see what it's for.</p>
+      <div class="al-chips" id="al-blocks">
+        <button type="button" class="al-chip" data-t="US Stocks" data-d="Ownership in companies based at home. Historically the biggest source of long-term growth, and the biggest source of short-term drops."><i class="d1"></i>US Stocks</button>
+        <button type="button" class="al-chip" data-t="International Stocks" data-d="Companies listed outside your home country. They add different economies and currencies, so they don't all move together with domestic stocks."><i class="d2"></i>International Stocks</button>
+        <button type="button" class="al-chip" data-t="Bonds" data-d="Loans to governments or companies that pay interest. They usually move less than stocks, which is the point of holding them."><i class="d3"></i>Bonds</button>
+        <button type="button" class="al-chip" data-t="Cash" data-d="Money market funds, Treasury bills, and savings. No growth engine, but no surprises either — it's there when you need it."><i class="d4"></i>Cash</button>
+        <button type="button" class="al-chip" data-t="Real Assets" data-d="Property and commodities, often held through funds. They behave differently from stocks and bonds, which is why some portfolios carry a slice."><i class="d5"></i>Real Assets</button>
+      </div>
+      <div class="al-reveal-box" id="al-blocks-box"><b id="al-blocks-t">Tap A Block Above</b><span id="al-blocks-d">Five classes, five different jobs.</span></div>
+      <p class="al-count" id="al-blocks-count">Reviewed 0 Of 5</p>
+    </section>
+
+    <!-- ========== 5 · WHICH JOB DOES IT DO? ========== -->
+    <section class="al-sec al-reveal" data-step="5">
+      <p class="al-kicker">Which Job? · 5 / 13</p>
+      <h2 class="al-h2">Growth Engine Or Stabilizer?</h2>
+      <p class="al-p">Every holding does one job or the other. Tap your answer.</p>
+      <div class="al-sort" id="al-jobs">
+        <div class="al-sort-row" data-answer="growth"><span>A fund holding every listed US company</span><div class="al-sort-btns"><button type="button" data-p="growth">Growth Engine</button><button type="button" data-p="stable">Stabilizer</button></div><p class="al-why"></p></div>
+        <div class="al-sort-row" data-answer="stable"><span>Short-term government bonds</span><div class="al-sort-btns"><button type="button" data-p="growth">Growth Engine</button><button type="button" data-p="stable">Stabilizer</button></div><p class="al-why"></p></div>
+        <div class="al-sort-row" data-answer="growth"><span>An international stock fund</span><div class="al-sort-btns"><button type="button" data-p="growth">Growth Engine</button><button type="button" data-p="stable">Stabilizer</button></div><p class="al-why"></p></div>
+        <div class="al-sort-row" data-answer="stable"><span>A money market fund</span><div class="al-sort-btns"><button type="button" data-p="growth">Growth Engine</button><button type="button" data-p="stable">Stabilizer</button></div><p class="al-why"></p></div>
+      </div>
+      <p class="al-count" id="al-jobs-count">Sorted 0 Of 4</p>
+      <div class="al-reset-row"><button type="button" class="al-reset-btn" id="al-jobs-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · MORE FUNDS ISN'T MORE MIX ========== -->
+    <section class="al-sec al-reveal" data-step="6">
+      <p class="al-kicker">Overlap · 6 / 13</p>
+      <h2 class="al-h2">More Funds Isn't More Mix</h2>
+      <p class="al-p">Four pairs of holdings. Flip each card to see what you'd really own.</p>
+      <div class="al-flipgrid" id="al-flip">
+        <button type="button" class="al-flip" data-t="Two S&amp;P 500 Funds"><span class="al-flip-in"><span class="al-flip-face front"><i>🪞</i><b>Two S&amp;P 500 Funds</b><small>Tap To Flip</small></span><span class="al-flip-face back"><span class="al-flip-txt">Nearly identical holdings. Two tickets to the same game, and no extra diversification at all.</span></span></span></button>
+        <button type="button" class="al-flip" data-t="Total Market + S&amp;P 500"><span class="al-flip-in"><span class="al-flip-face front"><i>🎯</i><b>Total Market + S&amp;P 500</b><small>Tap To Flip</small></span><span class="al-flip-face back"><span class="al-flip-txt">The S&amp;P 500 already sits inside the total market fund. You haven't added anything — you've overweighted large companies.</span></span></span></button>
+        <button type="button" class="al-flip" data-t="US + International"><span class="al-flip-in"><span class="al-flip-face front"><i>🌍</i><b>US + International</b><small>Tap To Flip</small></span><span class="al-flip-face back"><span class="al-flip-txt">Different companies, economies and currencies. This one genuinely widens the mix.</span></span></span></button>
+        <button type="button" class="al-flip" data-t="Five Tech Sector Funds"><span class="al-flip-in"><span class="al-flip-face front"><i>🧩</i><b>Five Tech Sector Funds</b><small>Tap To Flip</small></span><span class="al-flip-face back"><span class="al-flip-txt">Five funds, one bet. Counting funds is not the same as spreading risk.</span></span></span></button>
+      </div>
+      <p class="al-count" id="al-flip-count">Flipped 0 Of 4 Cards</p>
+      <div class="al-reset-row"><button type="button" class="al-reset-btn" id="al-flip-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · MYTH OR FACT ========== -->
+    <section class="al-sec al-reveal" data-step="7">
+      <p class="al-kicker">Myth Or Fact · 7 / 13</p>
+      <h2 class="al-h2">Myth Or Fact?</h2>
+      <p class="al-p">Six claims about allocation. Tap your answer.</p>
+      <div class="al-sort" id="al-myth">
+        <div class="al-sort-row al-mrow" data-answer="myth"><span>Owning more funds always means owning a wider mix.</span><div class="al-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="al-why"><b>Myth.</b> Two funds holding the same companies leave you exactly as concentrated as one. What matters is whether the holdings differ, not how many tickers you own.</p></div>
+        <div class="al-sort-row al-mrow" data-answer="fact"><span>A single total market fund is already an asset allocation.</span><div class="al-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="al-why"><b>Fact.</b> It's 100% stocks, weighted by company size. That is a deliberate allocation — most people just never wrote it down.</p></div>
+        <div class="al-sort-row al-mrow" data-answer="fact"><span>Your stock-to-bond split shapes your results more than which company runs the fund.</span><div class="al-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="al-why"><b>Fact.</b> For most long-term investors the mix drives far more of the outcome than the provider. Two broad funds tracking the same index behave almost identically; 90% stocks and 30% stocks do not.</p></div>
+        <div class="al-sort-row al-mrow" data-answer="myth"><span>A 100% stock mix is automatically right for anyone with a long timeline.</span><div class="al-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="al-why"><b>Myth.</b> A long runway makes an equity-heavy mix workable, not automatic. The mix also has to be one you can hold through a deep fall — a plan you abandon at the bottom is worse than a milder one you keep.</p></div>
+        <div class="al-sort-row al-mrow" data-answer="fact"><span>Adding bonds usually softens the swings and trims long-run growth.</span><div class="al-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="al-why"><b>Fact.</b> That is the trade, and it runs both ways. Bonds have historically steadied a portfolio while lowering its long-run growth potential — you are buying a smoother ride with some of the upside.</p></div>
+        <div class="al-sort-row al-mrow" data-answer="myth"><span>Cash sitting in your account doesn’t count as part of your allocation.</span><div class="al-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="al-why"><b>Myth.</b> Uninvested cash is a weight like any other. A portfolio that is 30% cash is a different allocation from one that is fully invested, whether or not you chose it deliberately.</p></div>
+      </div>
+      <p class="al-count" id="al-myth-count">Answered 0 Of 6</p>
+      <div class="al-reset-row"><button type="button" class="al-reset-btn" id="al-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 8 · THREE MODELS COMPARED ========== -->
+    <section class="al-sec al-reveal" data-step="8">
+      <p class="al-kicker">Three Models · 8 / 13</p>
+      <h2 class="al-h2">Three Mixes, Side By Side</h2>
+      <p class="al-p">The same idea at three settings. Tap each to see the trade it makes.</p>
+      <div class="al-models" id="al-models">
+        <button type="button" class="al-model" data-k="c"><b>Conservative</b><span>30 / 70</span></button>
+        <button type="button" class="al-model" data-k="b"><b>Balanced</b><span>60 / 40</span></button>
+        <button type="button" class="al-model" data-k="g"><b>Growth</b><span>90 / 10</span></button>
+      </div>
+      <div class="al-model-panel" id="al-model-panel">
+        <p class="al-model-t">Tap A Model Above</p>
+        <p class="al-model-d">Stocks / bonds, and what each one asks of you.</p>
+      </div>
+      <p class="al-count" id="al-models-count">Explored 0 Of 3</p>
+      <p class="al-disclaimer-inline">Illustrative profiles only. Ranges describe how these mixes have typically behaved, not what any of them will do next.</p>
+    </section>
+
+    <!-- ========== 9 · SPOT THE RED FLAGS ========== -->
+    <section class="al-sec al-reveal" data-step="9">
+      <p class="al-kicker">Spot The Red Flags · 9 / 13</p>
+      <h2 class="al-h2">Habits That Hold A Mix Together</h2>
+      <p class="al-p">Some habits protect an allocation. Others quietly undo it. Tap each tile.</p>
+      <div class="al-traps" id="al-traps">
+        <button type="button" class="al-trap-tile" data-verdict="risky" data-d="A mix you can't sit through in a downturn isn't your mix — it's the one you'll abandon at the worst moment.">Picking A Mix You Can't Sit Through</button>
+        <button type="button" class="al-trap-tile" data-verdict="safe" data-d="Writing the target down before you buy gives you something to compare against later, when the market is loud.">Writing The Target Down First</button>
+        <button type="button" class="al-trap-tile" data-verdict="risky" data-d="Changing your target after every headline means you don't really have a target — you have a mood.">Changing The Target After Headlines</button>
+        <button type="button" class="al-trap-tile" data-verdict="safe" data-d="Checking on a set schedule keeps attention on your plan rather than on whatever moved this week.">Checking On A Set Schedule</button>
+      </div>
+      <p class="al-count" id="al-traps-count">Revealed 0 Of 4</p>
+      <div class="al-reset-row"><button type="button" class="al-reset-btn" id="al-traps-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 10 · HOW LONG UNTIL YOU NEED IT? ========== -->
+    <section class="al-sec al-reveal" data-step="10">
+      <p class="al-kicker">Time Horizon · 10 / 13</p>
+      <h2 class="al-h2">How Long Until You Need It?</h2>
+      <p class="al-p">Timeline shapes a mix more than almost anything else. Pick one to see why.</p>
+      <div class="al-horizon" id="al-horizon">
+        <button type="button" class="al-hz" data-k="a">Under 3 Years</button>
+        <button type="button" class="al-hz" data-k="b">3 – 10 Years</button>
+        <button type="button" class="al-hz" data-k="c">10 – 20 Years</button>
+        <button type="button" class="al-hz" data-k="d">20+ Years</button>
+      </div>
+      <div class="al-reveal-box" id="al-hz-box"><b id="al-hz-t">Pick A Timeline Above</b><span id="al-hz-d">The shorter the runway, the less a drop can be waited out.</span></div>
+      <p class="al-disclaimer-inline">General patterns, not a recommendation. Your own mix depends on facts this lesson can't see, and is worth discussing with a qualified professional.</p>
+    </section>
+
+    <!-- ========== 11 · PUT IT IN WRITING ========== -->
+    <section class="al-sec al-reveal" data-step="11">
+      <p class="al-kicker">Put It In Writing · 11 / 13</p>
+      <h2 class="al-h2">Three Lines Worth Writing Down</h2>
+      <p class="al-p">An allocation you never recorded is a guess. Tick each line as you decide it.</p>
+      <div class="al-checks" id="al-checks">
+        <button type="button" class="al-check" data-t="The Percentages"><span class="al-check-box">✓</span><span><b>The Percentages</b>What share sits in each asset class, adding to 100.</span></button>
+        <button type="button" class="al-check" data-t="The Date"><span class="al-check-box">✓</span><span><b>The Date</b>When you set it, so you know how old the decision is.</span></button>
+        <button type="button" class="al-check" data-t="The Trigger"><span class="al-check-box">✓</span><span><b>The Trigger</b>What would actually justify changing it — a life event, not a headline.</span></button>
+      </div>
+      <div class="al-note">You may not have to work it out by hand. Most brokerages show your current split for you — Robinhood’s Portfolio Overview, for example, breaks holdings down by asset type.</div>
+      <p class="al-count" id="al-checks-count">Decided 0 Of 3</p>
+      <div class="al-reset-row"><button type="button" class="al-reset-btn" id="al-checks-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 12 · RECAP ========== -->
+    <section class="al-sec al-reveal" data-step="12">
+      <p class="al-kicker">Recap · 12 / 13</p>
+      <h2 class="al-h2">Here's What You Now Know</h2>
+      <p class="al-p">The whole lesson, in six lines.</p>
+      <div class="al-recap">
+        <div class="al-recap-item"><span class="al-recap-check">✓</span><span>An <b>asset allocation</b> is the split itself — not the number of funds you used to build it.</span></div>
+        <div class="al-recap-item"><span class="al-recap-check">✓</span><span>One total market fund is already an allocation: 100% equities, weighted by company size.</span></div>
+        <div class="al-recap-item"><span class="al-recap-check">✓</span><span>Each asset class does a job — a growth engine or a stabilizer.</span></div>
+        <div class="al-recap-item"><span class="al-recap-check">✓</span><span>Funds that hold the same companies add count, not mix.</span></div>
+        <div class="al-recap-item"><span class="al-recap-check">✓</span><span>The stock-to-bond split shapes results more than the provider you choose.</span></div>
+        <div class="al-recap-item"><span class="al-recap-check">✓</span><span>A target you can sit through, written down and dated, beats a better one you'd abandon.</span></div>
+      </div>
+      <div class="al-next-move">Your next move: <b>write down what your current holdings actually add up to, as percentages.</b> You can't adjust a mix you've never measured.</div>
+    </section>
+
+    <!-- ========== 13 · COMPLETE ========== -->
+    <section class="al-sec al-center al-reveal" data-step="13">
+      <p class="al-kicker center">Lesson Complete · 13 / 13</p>
+      <span class="al-hero-ico">🚀</span>
+      <h2 class="al-h2 center">You've Finished The Lesson</h2>
+      <p class="al-sub center">You can now describe any portfolio as a set of weights — including your own.</p>
+      <div class="al-finish">
+        <span class="al-finish-arrow" id="al-fin-arrow" aria-hidden="true">↓</span>
+        <p class="al-finish-lead" id="al-fin-lead">Scroll Down To Continue</p>
+        <p class="al-finish-sub" id="al-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="al-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="al-quote">"IN INVESTING, WHAT IS COMFORTABLE <span class="al-green">IS RARELY PROFITABLE.</span>"<br><span class="al-quote-by">— ATTRIBUTED TO ROBERT ARNOTT</span></p>
+    </section>
+
+    <p class="al-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Model portfolios, percentages, and behaviour ranges in this lesson are simplified, hypothetical illustrations, not recommendations or predictions. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="al-nav" id="al-nav">
+      <button type="button" class="al-nav-btn prev" id="al-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="al-nav-hint" id="al-nav-hint"></span>
+      <button type="button" class="al-nav-btn next" id="al-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-al{
+    --b:#1568AE; --g:#209B73; --teal:#12a08a; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-al *,#tn-al *::before,#tn-al *::after{box-sizing:border-box;}
+  #tn-al .al-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-al .al-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-al .al-reveal.in{opacity:1; transform:none;}
+  #tn-al .al-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-al .al-topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:12px;}
+  #tn-al .al-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-al .al-bico{display:flex;}
+  #tn-al .al-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-al .al-bsub{color:var(--ink2); font-weight:500;}
+  #tn-al .al-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-al #al-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-al .al-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-al .al-meta #al-slide-label{color:var(--ink2);}
+  #tn-al .al-meta #al-slide-count{color:var(--mut);}
+  #tn-al .al-sec{padding:16px 0 8px;}
+  #tn-al .al-sec.al-hide{display:none;}
+  #tn-al .al-center{text-align:center;}
+  #tn-al .al-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-al .al-kicker.center{text-align:center;}
+  #tn-al .al-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-al .al-h2.center{text-align:center;}
+  #tn-al .al-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-al .al-p b{color:var(--ink); font-weight:700;}
+  #tn-al .al-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-al .al-panel{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-al .al-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-al .al-note b{color:var(--ink); font-weight:700;}
+  #tn-al .al-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-al .al-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-al .al-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-al .al-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-al .al-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title slide */
+  #tn-al .al-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(27px,6.6vw,42px); line-height:1.14; text-align:center; margin:8px 0 14px;}
+  #tn-al .al-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-al .al-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-al .al-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-al .al-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-al .al-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-al .al-vocab-chip:hover{background:#DCF0E5;}
+  #tn-al .al-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-al .al-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-al .al-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-al .al-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-al .al-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-al .al-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* hook */
+  #tn-al .al-hook-opts{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;}
+  #tn-al .al-hook-opt{font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:16px 12px; cursor:pointer; text-align:center; line-height:1.25; transition:all .18s;}
+  #tn-al .al-hook-opt span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:11.5px; color:var(--mut); margin-top:4px;}
+  #tn-al .al-hook-opt.on{border-color:var(--g); background:var(--tint);}
+  #tn-al .al-hook-grid{display:flex; gap:10px;}
+  #tn-al .al-hook-box{flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center;}
+  #tn-al .al-hook-box span{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px;}
+  #tn-al .al-hook-box b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,4vw,19px);}
+  #tn-al .al-hook-box.green{background:var(--tint); border-color:var(--selbd);}
+  #tn-al .al-hook-box.green b{color:var(--g);}
+  /* donut + steppers */
+  #tn-al .al-donutwrap{position:relative; width:190px; height:190px; margin:0 auto 6px;}
+  #tn-al .al-donut{width:190px; height:190px; transform:rotate(-90deg);}
+  #tn-al .al-donut circle{fill:none; stroke-width:15;}
+  #tn-al .al-donut .track{stroke:#EAEFF3;}
+  #tn-al .al-donut .s1{stroke:#1568AE;} #tn-al .al-donut .s2{stroke:#12a08a;} #tn-al .al-donut .s3{stroke:#E0A93C;}
+  #tn-al .al-donut .seg{transition:stroke-dasharray .35s ease, stroke-dashoffset .35s ease;}
+  #tn-al .al-donut-mid{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+  #tn-al .al-donut-mid b{font-family:'Poppins',sans-serif; font-weight:800; font-size:30px; line-height:1;}
+  #tn-al .al-donut-mid span{font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin-top:4px;}
+  #tn-al .al-donut-mid.over b{color:var(--no);}
+  #tn-al .al-stepper{display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:10px 12px; margin-top:9px;}
+  #tn-al .al-stepper-lab{flex:1; font-size:13.5px; font-weight:600;}
+  #tn-al .al-stepper b{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; min-width:46px; text-align:center;}
+  #tn-al .al-dot{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-al .al-dot.s1{background:#1568AE;} #tn-al .al-dot.s2{background:#12a08a;} #tn-al .al-dot.s3{background:#E0A93C;}
+  #tn-al .al-step{width:32px; height:32px; flex:none; border-radius:9px; border:1.5px solid var(--cardbd); background:var(--mist); font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; line-height:1; color:var(--ink2); cursor:pointer; transition:all .15s;}
+  #tn-al .al-step:hover{border-color:var(--selbd); color:var(--ink);}
+  /* chips */
+  #tn-al .al-chips{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-al .al-chip{display:flex; align-items:center; gap:9px; text-align:left; font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; font-size:13.5px; font-weight:600; color:var(--ink); cursor:pointer; transition:all .15s;}
+  #tn-al .al-chip i{width:11px; height:11px; border-radius:50%; flex:none;}
+  #tn-al .al-chip .d1{background:#1568AE;} #tn-al .al-chip .d2{background:#12a08a;} #tn-al .al-chip .d3{background:#E0A93C;} #tn-al .al-chip .d4{background:#8FA3B5;} #tn-al .al-chip .d5{background:#8a7016;}
+  #tn-al .al-chip.on{border-color:var(--g); background:var(--tint);}
+  #tn-al .al-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-al .al-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-al .al-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* sorter */
+  #tn-al .al-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-al .al-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-al .al-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-al .al-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-al .al-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 13px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-al .al-sort-btns button[data-p="growth"],#tn-al .al-sort-btns button[data-p="fact"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-al .al-sort-btns button[data-p="stable"]{border:1.5px solid #B9CFE4; color:var(--b);}
+  #tn-al .al-sort-btns button[data-p="myth"]{border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-al .al-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-al .al-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-al .al-sort-row.done .al-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-al .al-sort-row.done .al-sort-btns button.picked{opacity:1;}
+  #tn-al .al-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.5; margin:4px 0 0; display:none;}
+  #tn-al .al-why b{font-family:'Poppins',sans-serif;}
+  #tn-al .al-sort-row.done .al-why{display:block;}
+  /* flip grid */
+  #tn-al .al-flipgrid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-al .al-flip{background:none; border:none; padding:0; cursor:pointer; perspective:900px; min-height:150px; font-family:inherit;}
+  #tn-al .al-flip-in{position:relative; display:block; width:100%; height:100%; min-height:150px; transition:transform .5s cubic-bezier(.2,.7,.2,1); transform-style:preserve-3d;}
+  #tn-al .al-flip.on .al-flip-in{transform:rotateY(180deg);}
+  #tn-al .al-flip-face{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; text-align:center; padding:14px 12px; border-radius:15px; border:1.5px solid var(--cardbd); background:#fff; -webkit-backface-visibility:hidden; backface-visibility:hidden;}
+  #tn-al .al-flip-face.front i{font-size:24px; font-style:normal;}
+  #tn-al .al-flip-face.front b{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; line-height:1.3;}
+  #tn-al .al-flip-face.front small{font-size:11px; font-weight:600; color:var(--mut);}
+  #tn-al .al-flip-face.back{transform:rotateY(180deg); background:var(--tint); border-color:var(--selbd);}
+  #tn-al .al-flip-txt{display:block; font-size:12.5px; color:var(--ink2); line-height:1.45;}
+  #tn-al .al-flip.on .al-flip-face.front{visibility:hidden;}
+  /* models */
+  #tn-al .al-models{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-al .al-model{font-family:'Poppins',sans-serif; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 8px; cursor:pointer; transition:all .18s;}
+  #tn-al .al-model b{display:block; font-weight:700; font-size:13.5px;}
+  #tn-al .al-model span{display:block; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:var(--mut); margin-top:3px;}
+  #tn-al .al-model.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-al .al-model-panel{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:12px;}
+  #tn-al .al-model-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-al .al-model-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  /* trap tiles */
+  #tn-al .al-traps{display:grid; grid-template-columns:1fr 1fr; gap:11px;}
+  #tn-al .al-trap-tile{position:relative; text-align:left; font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:15px; padding:18px 16px; min-height:96px; cursor:pointer; transition:all .2s;}
+  #tn-al .al-trap-tile::after{content:"Tap To Reveal"; display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--mut); margin-top:6px;}
+  #tn-al .al-trap-tile.safe{border-color:var(--selbd); background:var(--tint);}
+  #tn-al .al-trap-tile.risky{border-color:var(--nobd); background:var(--nobg);}
+  #tn-al .al-trap-tile.done::after{content:attr(data-reveal); color:var(--ink2); font-size:12.5px; line-height:1.4;}
+  #tn-al .al-trap-badge{position:absolute; top:12px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; padding:3px 9px; border-radius:99px; text-transform:uppercase;}
+  #tn-al .al-trap-tile.safe .al-trap-badge{background:var(--g); color:#fff;}
+  #tn-al .al-trap-tile.risky .al-trap-badge{background:var(--no); color:#fff;}
+  /* horizon picker */
+  #tn-al .al-horizon{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-al .al-hz{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 10px; cursor:pointer; transition:all .18s;}
+  #tn-al .al-hz.on{border-color:var(--b); background:#EAF1FA;}
+  /* checklist */
+  #tn-al .al-checks{display:flex; flex-direction:column; gap:9px;}
+  #tn-al .al-check{display:flex; align-items:flex-start; gap:12px; text-align:left; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; cursor:pointer; font-family:inherit; transition:all .18s;}
+  #tn-al .al-check-box{flex:none; width:24px; height:24px; border-radius:7px; border:1.5px solid var(--cardbd); background:#fff; color:transparent; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; transition:all .18s;}
+  #tn-al .al-check b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-bottom:2px;}
+  #tn-al .al-check span:last-child{font-size:13px; color:var(--ink2); line-height:1.45;}
+  #tn-al .al-check.on{border-color:var(--selbd); background:var(--tint);}
+  #tn-al .al-check.on .al-check-box{background:var(--g); border-color:var(--g); color:#fff;}
+  /* recap + complete */
+  #tn-al .al-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-al .al-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-al .al-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-al .al-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-al .al-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-al .al-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-al .al-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:al-bob 1.6s ease-in-out infinite;}
+  #tn-al .al-finish-arrow.up{animation-name:al-bob-up;}
+  @keyframes al-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes al-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-al .al-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-al .al-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-al .al-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-al .al-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-al .al-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-al .al-green{color:var(--g);}
+  #tn-al .al-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-al .al-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  #tn-al .al-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-al .al-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-al .al-nav-btn.prev{color:var(--ink2);}
+  #tn-al .al-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-al .al-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; cursor:default; pointer-events:none;}
+  #tn-al .al-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-al .al-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-al .al-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-al .al-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-al .al-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-al .al-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .al-tip{position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .al-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-al .al-wrap{padding:12px 14px 30px;}
+    #tn-al .al-chips,#tn-al .al-traps,#tn-al .al-flipgrid,#tn-al .al-horizon{grid-template-columns:1fr;}
+    #tn-al .al-hook-opts{grid-template-columns:1fr;}
+    #tn-al .al-hook-grid{flex-wrap:wrap;}
+    #tn-al .al-hook-grid .al-hook-box{flex:1 1 45%;}
+    #tn-al .al-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-al .al-bsub{display:none;}
+    #tn-al .al-nav-hint{display:none;}
+    #tn-al .al-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-al .al-reveal{opacity:1 !important; transform:none !important;}
+    #tn-al #al-bar,#tn-al .al-donut .seg,#tn-al .al-flip-in{transition:none;}
+    #tn-al .al-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-al'); if(!root) return;
+  root.querySelectorAll('.al-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('al-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips (never gated) */
+  var vdef=root.querySelector('#al-vocab-def');
+  root.querySelectorAll('#al-vocab-chips .al-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#al-vocab-chips .al-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · one fund or three */
+  var HOOK={one:['~3,500','1 — US Equities','1'], three:['~11,000','3 — US, International, Fixed Income','3 + a target for each']};
+  var hookSeen={}, hookNote=root.querySelector('#al-hook-note');
+  root.querySelectorAll('#al-hook .al-hook-opt').forEach(function(o){
+    o.addEventListener('click',function(){
+      root.querySelectorAll('#al-hook .al-hook-opt').forEach(function(x){ x.classList.remove('on'); });
+      o.classList.add('on');
+      var d=HOOK[o.getAttribute('data-k')];
+      root.querySelector('#al-hook-a').textContent=d[0];
+      root.querySelector('#al-hook-b').textContent=d[1];
+      root.querySelector('#al-hook-c').textContent=d[2];
+      hookSeen[o.getAttribute('data-k')]=1;
+      if(keys(hookSeen)>=2) hookNote.innerHTML='Both are allocations. The real question isn\u2019t how many funds you hold \u2014 it\u2019s <b>what they add up to</b>.';
+      state('hook', keys(hookSeen));
+      postHeight();
+    });
+  });
+
+  /* 3 · build a mix */
+  var mix={us:60,intl:20,bond:20}, touched=false;
+  var C=2*Math.PI*46;
+  var segs={us:root.querySelector('#al-seg1'), intl:root.querySelector('#al-seg2'), bond:root.querySelector('#al-seg3')};
+  var totalEl=root.querySelector('#al-total'), totalLab=root.querySelector('#al-total-lab'),
+      mid=root.querySelector('.al-donut-mid'), mixNote=root.querySelector('#al-mix-note');
+  function drawMix(){
+    var total=mix.us+mix.intl+mix.bond, run=0;
+    ['us','intl','bond'].forEach(function(k){
+      var frac=mix[k]/100;
+      segs[k].style.strokeDasharray=(C*frac)+' '+C;
+      segs[k].style.strokeDashoffset=-(C*run);
+      run+=frac;
+      root.querySelector('#al-v-'+k).textContent=mix[k]+'%';
+    });
+    totalEl.textContent=total+'%';
+    mid.classList.toggle('over', total!==100);
+    totalLab.textContent = total===100 ? 'Allocated' : (total>100 ? 'Over Target' : 'Still To Place');
+    mixNote.textContent = total!==100
+      ? (total>100 ? 'That\u2019s over 100%. Take ' + (total-100) + '% back off somewhere.' : (100-total) + '% is still unallocated.')
+      : (touched ? 'That\u2019s a complete allocation \u2014 three weights that add to 100%.' : 'Change at least one weight and land back on 100%.');
+    state('mix', (touched && total===100) ? 1 : 0);
+    postHeight();
+  }
+  root.querySelectorAll('#tn-al .al-stepper').forEach(function(row){
+    var k=row.getAttribute('data-k');
+    row.querySelectorAll('.al-step').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var d=+btn.getAttribute('data-d')*5;
+        var next=Math.min(100, Math.max(0, mix[k]+d));
+        if(next===mix[k]) return;
+        mix[k]=next; touched=true; drawMix();
+      });
+    });
+  });
+  var mixReset=root.querySelector('#al-mix-reset');
+  if(mixReset) mixReset.addEventListener('click',function(){ mix={us:60,intl:20,bond:20}; touched=false; drawMix(); });
+  drawMix();
+
+  /* 4 · building blocks */
+  var blocks={}, bT=root.querySelector('#al-blocks-t'), bD=root.querySelector('#al-blocks-d'),
+      bCount=root.querySelector('#al-blocks-count');
+  root.querySelectorAll('#al-blocks .al-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#al-blocks .al-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      bT.textContent=c.getAttribute('data-t'); bD.textContent=c.getAttribute('data-d');
+      blocks[c.getAttribute('data-t')]=1;
+      bCount.textContent='Reviewed '+keys(blocks)+' Of 5';
+      state('blocks', keys(blocks));
+      postHeight();
+    });
+  });
+
+  /* 5 · growth engine or stabilizer */
+  var jobWhy={growth:'Stocks are the growth engine: more upside over long stretches, and the bigger falls along the way.',
+              stable:'This is a stabilizer: it moves far less, so it steadies the portfolio and is there when you need cash.'};
+  var jobsCount=root.querySelector('#al-jobs-count');
+  function wireSort(wrapId, countEl, total, label, whyMap){
+    root.querySelectorAll('#'+wrapId+' .al-sort-row').forEach(function(row){
+      var ans=row.getAttribute('data-answer'), why=row.querySelector('.al-why');
+      row.querySelectorAll('.al-sort-btns button').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          if(row.classList.contains('done')) return;
+          var ok=btn.getAttribute('data-p')===ans;
+          btn.classList.add('picked');
+          row.classList.add('done', ok?'correct':'wrong');
+          if(whyMap) why.innerHTML=(ok?'<b>Correct.</b> ':'<b>Not quite.</b> ')+whyMap[ans];
+          var n=root.querySelectorAll('#'+wrapId+' .al-sort-row.done').length;
+          countEl.textContent=label+' '+n+' Of '+total;
+          state(wrapId==='al-jobs'?'jobs':'myth', n);
+          postHeight();
+        });
+      });
+    });
+  }
+  wireSort('al-jobs', jobsCount, 4, 'Sorted', jobWhy);
+  var jobsReset=root.querySelector('#al-jobs-reset');
+  if(jobsReset) jobsReset.addEventListener('click',function(){
+    root.querySelectorAll('#al-jobs .al-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelector('.al-why').innerHTML='';
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    jobsCount.textContent='Sorted 0 Of 4'; postHeight();
+  });
+
+  /* 6 · flip grid */
+  var flipped={}, flipCount=root.querySelector('#al-flip-count');
+  root.querySelectorAll('#al-flip .al-flip').forEach(function(card){
+    card.addEventListener('click',function(){
+      card.classList.toggle('on');
+      if(card.classList.contains('on')) flipped[card.getAttribute('data-t')]=1;
+      flipCount.textContent='Flipped '+keys(flipped)+' Of 4 Cards';
+      state('flip', keys(flipped));
+      postHeight();
+    });
+  });
+  var flipReset=root.querySelector('#al-flip-reset');
+  if(flipReset) flipReset.addEventListener('click',function(){
+    flipped={};
+    root.querySelectorAll('#al-flip .al-flip').forEach(function(c){ c.classList.remove('on'); });
+    flipCount.textContent='Flipped 0 Of 4 Cards'; postHeight();
+  });
+
+  /* 7 · myth or fact */
+  var mythCount=root.querySelector('#al-myth-count');
+  wireSort('al-myth', mythCount, 6, 'Answered', null);
+  var mythReset=root.querySelector('#al-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#al-myth .al-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 6'; postHeight();
+  });
+
+  /* 8 · three models */
+  var MODELS={
+    c:['Conservative — 30% Stocks / 70% Bonds','Built to move gently. Rough years tend to sting rather than shock, and long-run growth is correspondingly slower. Often used when the money is needed within a few years, or when a steadier ride is the point.'],
+    b:['Balanced — 60% Stocks / 40% Bonds','The classic middle. Enough equities to grow, enough fixed income to soften the drops. It asks you to accept real declines without abandoning the plan.'],
+    g:['Growth — 90% Stocks / 10% Bonds','Most of the long-run growth potential, and most of the volatility. Only workable if the money can sit untouched for a long time and you can watch it fall hard without selling.']
+  };
+  var modelsSeen={}, mT=root.querySelector('.al-model-t'), mD=root.querySelector('.al-model-d'),
+      mCount=root.querySelector('#al-models-count');
+  root.querySelectorAll('#al-models .al-model').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#al-models .al-model').forEach(function(x){ x.classList.remove('on'); });
+      btn.classList.add('on');
+      var m=MODELS[btn.getAttribute('data-k')];
+      mT.textContent=m[0]; mD.textContent=m[1];
+      modelsSeen[btn.getAttribute('data-k')]=1;
+      mCount.textContent='Explored '+keys(modelsSeen)+' Of 3';
+      state('models', keys(modelsSeen));
+      postHeight();
+    });
+  });
+
+  /* 9 · red flags */
+  var trapsCount=root.querySelector('#al-traps-count');
+  root.querySelectorAll('#al-traps .al-trap-tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      if(t.classList.contains('done')) return;
+      var v=t.getAttribute('data-verdict');
+      t.classList.add('done', v);
+      t.setAttribute('data-reveal', t.getAttribute('data-d'));
+      var badge=document.createElement('span'); badge.className='al-trap-badge';
+      badge.textContent=(v==='safe'?'Helps':'Hurts'); t.appendChild(badge);
+      var n=root.querySelectorAll('#al-traps .al-trap-tile.done').length;
+      trapsCount.textContent='Revealed '+n+' Of 4';
+      state('traps', n);
+      postHeight();
+    });
+  });
+  var trapsReset=root.querySelector('#al-traps-reset');
+  if(trapsReset) trapsReset.addEventListener('click',function(){
+    root.querySelectorAll('#al-traps .al-trap-tile').forEach(function(t){
+      t.classList.remove('done','safe','risky'); t.removeAttribute('data-reveal');
+      var b=t.querySelector('.al-trap-badge'); if(b) b.remove();
+    });
+    trapsCount.textContent='Revealed 0 Of 4'; postHeight();
+  });
+
+  /* 10 · time horizon */
+  var HZ={
+    a:['Under 3 Years','Too short to ride out a bad stretch. Money needed this soon usually sits in cash or short-term bonds, because a 20% drop the month before you spend it cannot be waited out.'],
+    b:['3 \u2013 10 Years','Some room to recover, but not unlimited. Mixes here typically hold meaningful fixed income alongside equities.'],
+    c:['10 \u2013 20 Years','Long enough that equities do most of the work, with bonds present to make the ride survivable rather than to protect a near-term date.'],
+    d:['20+ Years','The longest runway. Equity-heavy mixes are common here \u2014 but only if you can watch a deep fall and leave it alone.']
+  };
+  var hzT=root.querySelector('#al-hz-t'), hzD=root.querySelector('#al-hz-d');
+  root.querySelectorAll('#al-horizon .al-hz').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#al-horizon .al-hz').forEach(function(x){ x.classList.remove('on'); });
+      btn.classList.add('on');
+      var h=HZ[btn.getAttribute('data-k')];
+      hzT.textContent=h[0]; hzD.textContent=h[1];
+      state('horizon',1);
+      postHeight();
+    });
+  });
+
+  /* 11 · put it in writing */
+  var ticked={}, cCount=root.querySelector('#al-checks-count');
+  root.querySelectorAll('#al-checks .al-check').forEach(function(c){
+    c.addEventListener('click',function(){
+      c.classList.toggle('on');
+      if(c.classList.contains('on')) ticked[c.getAttribute('data-t')]=1; else delete ticked[c.getAttribute('data-t')];
+      cCount.textContent='Decided '+keys(ticked)+' Of 3';
+      state('checks', keys(ticked));
+      postHeight();
+    });
+  });
+  var cReset=root.querySelector('#al-checks-reset');
+  if(cReset) cReset.addEventListener('click',function(){
+    ticked={};
+    root.querySelectorAll('#al-checks .al-check').forEach(function(c){ c.classList.remove('on'); });
+    cCount.textContent='Decided 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('al-fin-arrow'), lead=document.getElementById('al-fin-lead'), sub=document.getElementById('al-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'\u2193',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'\u2191',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>\u2715</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   One shared glossary, harvested from the slide 1 chips so a term
+   is never defined in two places. First mention per slide only.
+   Hover shows the tooltip on desktop; tap toggles it on touch.
+   Spans (not buttons) so they can sit inside tappable cards; their
+   own listeners stopPropagation so tapping a term never also fires
+   the card underneath. Elements with an id are skipped because the
+   lesson's own script rewrites those as the learner interacts.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-al'); if(!root) return;
+  var ALT={
+    'asset allocation':'asset allocations?|allocations?',
+    'asset class':'asset classes|asset class',
+    'weight':'weights?|weighted',
+    'equities':'equities|equity',
+    'fixed income':'fixed income',
+    'total market fund':'total market funds?',
+    'money market fund':'money market funds?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#al-vocab-chips .al-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t'), stem=t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[stem]||stem)+')\\b','i')});
+  });
+  /* Only non-interactive text is scanned. A term inside a tappable card would
+     swallow the tap that the card needs, so option buttons, chips, tiles,
+     flip cards and checklist rows are deliberately excluded. */
+  var PROSE='.al-p, .al-sub, .al-note, .al-why, .al-recap-item span, .al-h2, .al-model-d, .al-next-move, .al-sort-row > span';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.al-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='al-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' \u2014 definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='al-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.al-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.al-sec').forEach(function(sec){ TERMS.forEach(function(t){ wrap(sec,t); }); });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-al'); if(!root) return;
+  var TOTAL=13, current=1;
+  var bar=root.querySelector('#al-bar'), labelEl=root.querySelector('#al-slide-label'),
+      countEl=root.querySelector('#al-slide-count'), prevBtn=root.querySelector('#al-prev'),
+      nextBtn=root.querySelector('#al-next'), hintEl=root.querySelector('#al-nav-hint'),
+      disclaimer=root.querySelector('.al-disclaimer');
+  var labels={1:'Start Here',2:'Why It Matters',3:'Build A Mix',4:'The Building Blocks',5:'Which Job?',6:'Overlap',7:'Myth Or Fact',8:'Three Models',9:'Spot The Red Flags',10:'Time Horizon',11:'Put It In Writing',12:'Recap',13:'Complete'};
+  var reqHints={2:'Compare both to continue',3:'Set a mix totalling 100% to continue',4:'Review all 5 blocks to continue',5:'Sort all 4 to continue',6:'Flip all 4 cards to continue',7:'Answer all 6 to continue',8:'Explore all 3 models to continue',9:'Reveal all 4 tiles to continue',10:'Pick a timeline to continue',11:'Decide all 3 lines to continue'};
+  var done={1:true,12:true,13:true};
+  var secByStep={};
+  root.querySelectorAll('.al-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('al-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('al-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked a slide stays unlocked, even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'hook',    need:2, hint:function(n){ return n<1?'Compare both to continue':'Now tap the other option'; }},
+    {step:3, key:'mix',     need:1, hint:function(){ return 'Set a mix totalling 100% to continue'; }},
+    {step:4, key:'blocks',  need:5, hint:function(n){ return 'Reviewed '+n+' of 5 — review them all to continue'; }},
+    {step:5, key:'jobs',    need:4, hint:function(n){ return 'Sorted '+n+' of 4 — sort them all to continue'; }},
+    {step:6, key:'flip',    need:4, hint:function(n){ return 'Flipped '+n+' of 4 — flip them all to continue'; }},
+    {step:7, key:'myth',    need:6, hint:function(n){ return 'Answered '+n+' of 6 — answer them all to continue'; }},
+    {step:8, key:'models',  need:3, hint:function(n){ return 'Explored '+n+' of 3 — explore them all to continue'; }},
+    {step:9, key:'traps',   need:4, hint:function(n){ return 'Revealed '+n+' of 4 — reveal them all to continue'; }},
+    {step:10,key:'horizon', need:1, hint:function(){ return 'Pick a timeline to continue'; }},
+    {step:11,key:'checks',  need:3, hint:function(n){ return 'Decided '+n+' of 3 — decide them all to continue'; }}
+  ];
+  root.addEventListener('al-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

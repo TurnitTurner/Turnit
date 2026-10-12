@@ -1,0 +1,784 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — HOW TO READ A FUND PAGE
+     (Intermediate · Module 2 · Lesson 8)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-fp. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     Field palette used as DATA colour, not decoration:
+       Cost & identity = blue #1568AE · Size & shape = teal #12a08a
+       History & income = gold #D99A23
+       1  Title & Key Terms (never gated)  2  The Fund Page (8 pins)
+       3  Find It Fast (5 lookups)         4  The Gap You Should Expect
+       5  Myth Or Fact (5)                 6  What The Page Won't Tell You (3)
+       7  Recap (6)                        8  Complete
+     Creative widgets, 2 of 2 allowed: the annotated fund page on slide 2 and
+     the expected-gap meter on slide 4. Everything else is a standard format.
+     Five distinct mechanics, none repeated within the lesson: annotated
+     hotspots, value-lookup drill, gap meter, myth sorter, expanding rows.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     Real figures for VOO (sourced, as of writing): tracks the S&P 500;
+     expense ratio 0.03%; net assets about $1.05 trillion; 516 holdings;
+     top 10 about 38.6% (31 Mar 2026); dividend yield about 1.04%;
+     inception 7 September 2010. The page on slide 2 is a plain-text
+     reconstruction of those published fields, not a screenshot.
+     ============================================================ -->
+<div id="tn-fp">
+  <div class="fp-wrap">
+    <div class="fp-top">
+      <div class="fp-topbar">
+        <div class="fp-brand"><span class="fp-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="fp-word">TURNIT</span><span class="fp-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="fp-progress"><span id="fp-bar"></span></div>
+      <div class="fp-meta"><span id="fp-slide-label">Start Here</span><span id="fp-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="fp-sec fp-center fp-reveal" data-step="1">
+      <p class="fp-kicker center">Funds Under The Hood · 1 / 8</p>
+      <h1 class="fp-hero-title">HOW TO READ <span class="fp-hero-grad">A FUND PAGE</span></h1>
+      <p class="fp-sub center">Every fund publishes the same handful of numbers. Here is what each one is actually telling you.</p>
+      <div class="fp-vocab">
+        <span class="fp-vocab-label">Key Terms In This Lesson</span>
+        <div class="fp-vocab-chips" id="fp-vocab-chips">
+          <button type="button" class="fp-vocab-chip k-b" data-t="Net Assets" data-def="The total amount of money invested in the fund. It tells you how big and how heavily traded a fund is — and nothing at all about how well it is run.">Net Assets</button>
+          <button type="button" class="fp-vocab-chip k-c" data-t="Dividend Yield" data-def="The income the fund paid out over a recent period, as a percentage of its price. It moves around, and it is only one part of what you actually earn.">Dividend Yield</button>
+          <button type="button" class="fp-vocab-chip k-c" data-t="Inception Date" data-def="The day the fund launched. Everything shown as 'since inception' is measured from here, so a short history can flatter a fund that has only lived through good years.">Inception Date</button>
+          <button type="button" class="fp-vocab-chip k-a" data-t="Premium Or Discount" data-def="The small gap between an ETF's market price and what its holdings are actually worth. On a heavily traded fund it is a rounding error; on a thin one it is worth checking.">Premium Or Discount</button>
+          <button type="button" class="fp-vocab-chip k-b" data-t="Active Fund" data-def="A fund that pays a manager to choose its holdings instead of copying an index. It charges more for the attempt, which becomes the hurdle it then has to clear.">Active Fund</button>
+          <button type="button" class="fp-vocab-chip k-a" data-t="Tracking Difference" data-def="How far the fund's return landed from its index over a period. A well-run index fund trails by roughly its fee — that gap is the design working, not breaking.">Tracking Difference</button>
+        </div>
+        <div class="fp-vocab-def" id="fp-vocab-def">Tap a term to see what it means.</div>
+        <span class="fp-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="fp-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE FUND PAGE ========== -->
+    <section class="fp-sec fp-reveal" data-step="2">
+      <p class="fp-kicker">The Page Itself · 2 / 8</p>
+      <h2 class="fp-h2">Eight Fields, One Real Fund</h2>
+      <p class="fp-p">This is what VOO's published page says — the fee, the net assets, the inception date and five more. Tap each field to see what it's telling you.</p>
+      <div class="fp-page" id="fp-page">
+        <button type="button" class="fp-field head k-a" data-k="head">
+          <span class="fp-pin">1</span>
+          <span class="fp-f-lab">Name &amp; Ticker</span>
+          <span class="fp-f-val"><b>VOO</b> · Vanguard S&amp;P 500 ETF</span>
+        </button>
+        <div class="fp-page-grid">
+          <button type="button" class="fp-field k-a" data-k="idx"><span class="fp-pin">2</span><span class="fp-f-lab">Tracks</span><span class="fp-f-val">S&amp;P 500 Index</span></button>
+          <button type="button" class="fp-field k-a" data-k="er"><span class="fp-pin">3</span><span class="fp-f-lab">Expense Ratio</span><span class="fp-f-val">0.03%</span></button>
+          <button type="button" class="fp-field k-b" data-k="aum"><span class="fp-pin">4</span><span class="fp-f-lab">Net Assets</span><span class="fp-f-val">$1.05 Trillion</span></button>
+          <button type="button" class="fp-field k-b" data-k="hold"><span class="fp-pin">5</span><span class="fp-f-lab">Holdings</span><span class="fp-f-val">516</span></button>
+          <button type="button" class="fp-field k-b" data-k="top"><span class="fp-pin">6</span><span class="fp-f-lab">Top 10 Weight</span><span class="fp-f-val">38.6%</span></button>
+          <button type="button" class="fp-field k-c" data-k="yld"><span class="fp-pin">7</span><span class="fp-f-lab">Dividend Yield</span><span class="fp-f-val">1.04%</span></button>
+        </div>
+        <button type="button" class="fp-field wide k-c" data-k="inc">
+          <span class="fp-pin">8</span>
+          <span class="fp-f-lab">Inception Date</span>
+          <span class="fp-f-val">7 September 2010</span>
+        </button>
+      </div>
+      <div class="fp-reveal-box" id="fp-pin-box"><b id="fp-pin-t">Tap A Field Above</b><span id="fp-pin-d">Eight numbers. Most people read one of them and skip the rest.</span></div>
+      <p class="fp-count" id="fp-pin-count">Read 0 Of 8</p>
+      <p class="fp-disclaimer-inline">Figures as published by the provider at the time of writing, rebuilt here as text rather than a screenshot. They change — check the live page before acting. VOO appears because it is easy to look up, not as a recommendation.</p>
+    </section>
+
+    <!-- ========== 3 · FIND IT FAST ========== -->
+    <section class="fp-sec fp-reveal" data-step="3">
+      <p class="fp-kicker">Find It Fast · 3 / 8</p>
+      <h2 class="fp-h2">Now Use The Page</h2>
+      <p class="fp-p">Five questions worth asking of any fund. The page is right here — pull each answer off it.</p>
+      <div class="fp-ref">
+        <span class="fp-ref-cap">VOO · Vanguard S&amp;P 500 ETF</span>
+        <div class="fp-ref-grid">
+          <span><i>Tracks</i><b>S&amp;P 500</b></span>
+          <span><i>Expense Ratio</i><b>0.03%</b></span>
+          <span><i>Net Assets</i><b>$1.05 Trillion</b></span>
+          <span><i>Holdings</i><b>516</b></span>
+          <span><i>Top 10 Weight</i><b>38.6%</b></span>
+          <span><i>Dividend Yield</i><b>1.04%</b></span>
+          <span><i>Inception</i><b>7 Sep 2010</b></span>
+        </div>
+      </div>
+      <div class="fp-find" id="fp-find">
+        <div class="fp-fq" data-ans="1">
+          <p class="fp-find-q">What does this fund charge you each year?</p>
+          <div class="fp-fopts"><button type="button" data-i="0">1.04%</button><button type="button" data-i="1">0.03%</button><button type="button" data-i="2">38.6%</button></div>
+          <p class="fp-why"></p>
+        </div>
+        <div class="fp-fq" data-ans="2">
+          <p class="fp-find-q">How many companies does it hold?</p>
+          <div class="fp-fopts"><button type="button" data-i="0">500</button><button type="button" data-i="1">1,050</button><button type="button" data-i="2">516</button></div>
+          <p class="fp-why"></p>
+        </div>
+        <div class="fp-fq" data-ans="0">
+          <p class="fp-find-q">How much money is in the fund altogether?</p>
+          <div class="fp-fopts"><button type="button" data-i="0">$1.05 Trillion</button><button type="button" data-i="1">$1.05 Billion</button><button type="button" data-i="2">$10.5 Billion</button></div>
+          <p class="fp-why"></p>
+        </div>
+        <div class="fp-fq" data-ans="1">
+          <p class="fp-find-q">How much of it sits in just ten companies?</p>
+          <div class="fp-fopts"><button type="button" data-i="0">0.03%</button><button type="button" data-i="1">38.6%</button><button type="button" data-i="2">1.04%</button></div>
+          <p class="fp-why"></p>
+        </div>
+        <div class="fp-fq" data-ans="2">
+          <p class="fp-find-q">How long has this fund existed?</p>
+          <div class="fp-fopts"><button type="button" data-i="0">Since 1993</button><button type="button" data-i="1">Since 2020</button><button type="button" data-i="2">Since 2010</button></div>
+          <p class="fp-why"></p>
+        </div>
+      </div>
+      <div class="fp-note">The plain question rarely matches the field name. "How much is in it" is net assets; "how long has it run" is the inception date. That translation is most of the skill.</div>
+      <p class="fp-count" id="fp-find-count">Answered 0 Of 5</p>
+      <div class="fp-reset-row"><button type="button" class="fp-reset-btn" id="fp-find-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 4 · THE GAP YOU SHOULD EXPECT ========== -->
+    <section class="fp-sec fp-reveal" data-step="4">
+      <p class="fp-kicker">The Expected Gap · 4 / 8</p>
+      <h2 class="fp-h2">Your Fund Will Trail Its Index</h2>
+      <p class="fp-p">And it is supposed to. Pick a fee — two index funds and one active fund — and see how much of the index year you keep.</p>
+      <div class="fp-gap">
+        <div class="fp-gap-rows">
+          <div class="fp-gap-row"><span class="fp-gap-lab">The Index Returned</span><b class="fp-gap-big">+10.00%</b></div>
+          <div class="fp-gap-row"><span class="fp-gap-lab">You Got</span><b class="fp-gap-big" id="fp-g-fund">+9.97%</b></div>
+        </div>
+        <div class="fp-meter">
+          <span class="fp-meter-cap">The Gap, Drawn To Scale</span>
+          <span class="fp-meter-track"><i id="fp-g-meter"></i></span>
+          <span class="fp-meter-val" id="fp-g-gap">0.03%</span>
+        </div>
+      </div>
+      <div class="fp-picks" id="fp-funds">
+        <button type="button" class="fp-pick k-a on" data-k="voo"><b>VOO</b><span>0.03%</span></button>
+        <button type="button" class="fp-pick k-b" data-k="spy"><b>SPY</b><span>0.0945%</span></button>
+        <button type="button" class="fp-pick k-c" data-k="act"><b>A Typical Active Fund</b><span>0.65%</span></button>
+      </div>
+      <div class="fp-note" id="fp-g-note">Pick each one to see what the fee does over a single year.</div>
+      <p class="fp-count" id="fp-gap-count">Compared 0 Of 3</p>
+      <p class="fp-disclaimer-inline">A hypothetical 10% index year, used only to show the size of the gap. Real tracking difference also moves with cash timing, index changes and securities lending, so it lands near the fee rather than exactly on it.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="fp-sec fp-reveal" data-step="5">
+      <p class="fp-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="fp-h2">Myth Or Fact?</h2>
+      <p class="fp-p">Five things people conclude from a fund page. Tap your answer.</p>
+      <div class="fp-sort" id="fp-myth">
+        <div class="fp-sort-row" data-answer="myth"><span>A bigger fund is a better fund.</span><div class="fp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fp-why"><b>Myth.</b> Net assets tell you how popular a fund is and how easily it trades. VOO holding over a trillion dollars says a great deal about its liquidity and nothing whatsoever about its future returns.</p></div>
+        <div class="fp-sort-row" data-answer="fact"><span>An ETF's price can differ from what its holdings are worth.</span><div class="fp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fp-why"><b>Fact.</b> That is the premium or discount. On a fund this heavily traded it is usually hundredths of a percent; on a thin or hard-to-trade fund it is worth a look before you buy.</p></div>
+        <div class="fp-sort-row" data-answer="myth"><span>The yield shown on the page is what you'll earn.</span><div class="fp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fp-why"><b>Myth.</b> Dividend yield is the income paid out over a recent stretch, and it shifts as prices and payouts change. It is one slice of your return, not the whole of it.</p></div>
+        <div class="fp-sort-row" data-answer="fact"><span>Two funds tracking the same index show similar numbers.</span><div class="fp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fp-why"><b>Fact.</b> Same index, so near-identical holdings and concentration. Where they part company is the fee, the inception date and how long they have had to prove it.</p></div>
+        <div class="fp-sort-row" data-answer="myth"><span>A fund that lags its index by about its fee is broken.</span><div class="fp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fp-why"><b>Myth.</b> That is a fund doing its job. A tracking difference of roughly the expense ratio is the expected result — it is a fund beating its index by a wide margin that should make you curious.</p></div>
+      </div>
+      <p class="fp-count" id="fp-myth-count">Answered 0 Of 5</p>
+      <div class="fp-reset-row"><button type="button" class="fp-reset-btn" id="fp-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHAT THE PAGE WON'T TELL YOU ========== -->
+    <section class="fp-sec fp-reveal" data-step="6">
+      <p class="fp-kicker">What's Missing · 6 / 8</p>
+      <h2 class="fp-h2">Three Things It Can't Tell You</h2>
+      <p class="fp-p">It is complete about the fund and silent about you. Open each one.</p>
+      <div class="fp-miss" id="fp-miss">
+        <div class="fp-mrow">
+          <div class="fp-m-head k-a"><b>Whether It Fits You</b></div>
+          <button type="button" class="fp-m-btn">Why →</button>
+          <p class="fp-m-d">Every number describes the fund — its net assets, its fee, its holdings. None of them knows your timeline, your taxes, or what you already hold.</p>
+        </div>
+        <div class="fp-mrow">
+          <div class="fp-m-head k-b"><b>What It Will Return</b></div>
+          <button type="button" class="fp-m-btn">Why →</button>
+          <p class="fp-m-d">The performance chart is the field most people read first and should weigh least. It starts at the inception date — a day chosen by the fund company, not by you.</p>
+        </div>
+        <div class="fp-mrow">
+          <div class="fp-m-head k-c"><b>What You Already Own</b></div>
+          <button type="button" class="fp-m-btn">Why →</button>
+          <p class="fp-m-d">A fund page cannot see your other funds. Two pages can both look excellent and hold almost the same companies — which is the next lesson.</p>
+        </div>
+      </div>
+      <p class="fp-count" id="fp-miss-count">Opened 0 Of 3</p>
+      <div class="fp-reset-row"><button type="button" class="fp-reset-btn" id="fp-miss-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="fp-sec fp-reveal" data-step="7">
+      <p class="fp-kicker">Recap · 7 / 8</p>
+      <h2 class="fp-h2">Here's What You Now Know</h2>
+      <p class="fp-p">The whole lesson, in six lines.</p>
+      <div class="fp-recap">
+        <div class="fp-recap-item"><span class="fp-recap-check k-a">✓</span><span>Every fund page carries the same handful of fields, and you can read all of them.</span></div>
+        <div class="fp-recap-item"><span class="fp-recap-check k-b">✓</span><span>Net assets measure popularity and ease of trading, never quality.</span></div>
+        <div class="fp-recap-item"><span class="fp-recap-check k-c">✓</span><span>Dividend yield is recent income — a slice of your return, not the whole.</span></div>
+        <div class="fp-recap-item"><span class="fp-recap-check k-c">✓</span><span>The inception date sets the window for every "since inception" number.</span></div>
+        <div class="fp-recap-item"><span class="fp-recap-check k-a">✓</span><span>A good index fund trails its index by roughly its fee. That tracking difference is the design working.</span></div>
+        <div class="fp-recap-item"><span class="fp-recap-check k-b">✓</span><span>The page is silent on what matters most: whether it suits you, what it will return, and what you already own.</span></div>
+      </div>
+      <div class="fp-next-move">Your next move: <b>open the page for a fund you hold</b> and find all eight fields. Two minutes, and most people have never done it once.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="fp-sec fp-center fp-reveal" data-step="8">
+      <p class="fp-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="fp-hero-ico">🚀</span>
+      <h2 class="fp-h2 center">You've Finished The Lesson</h2>
+      <p class="fp-sub center">You can now open any fund page and know, in two minutes, what you would be buying.</p>
+      <div class="fp-finish">
+        <span class="fp-finish-arrow" id="fp-fin-arrow" aria-hidden="true">↓</span>
+        <p class="fp-finish-lead" id="fp-fin-lead">Scroll Down To Continue</p>
+        <p class="fp-finish-sub" id="fp-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="fp-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="fp-pullquote">"KNOW WHAT YOU OWN, <span class="fp-green">AND KNOW WHY YOU OWN IT.</span>"<br><span class="fp-pullquote-by">— PETER LYNCH</span></p>
+    </section>
+
+    <p class="fp-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Fund figures shown here were published by the provider at the time of writing and change constantly — always check the live page before acting. Specific funds are named because they are easy to look up, not as recommendations. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="fp-nav" id="fp-nav">
+      <button type="button" class="fp-nav-btn prev" id="fp-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="fp-nav-hint" id="fp-nav-hint"></span>
+      <button type="button" class="fp-nav-btn next" id="fp-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-fp{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* field palette — used as data colour throughout */
+    --ka:#1568AE; --kabg:#EAF1FA; --kabd:#C5DBEF;
+    --kb:#12a08a; --kbbg:#E6F6F2; --kbbd:#BCE5DC;
+    --kc:#D99A23; --kcbg:#FBF2DF; --kcbd:#F0DCA9;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-fp *,#tn-fp *::before,#tn-fp *::after{box-sizing:border-box;}
+  #tn-fp .fp-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-fp .fp-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-fp .fp-reveal.in{opacity:1; transform:none;}
+  #tn-fp .fp-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-fp .fp-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-fp .fp-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-fp .fp-bico{display:flex;}
+  #tn-fp .fp-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-fp .fp-bsub{color:var(--ink2); font-weight:500;}
+  #tn-fp .fp-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-fp #fp-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-fp .fp-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-fp .fp-meta #fp-slide-label{color:var(--ink2);}
+  #tn-fp .fp-meta #fp-slide-count{color:var(--mut);}
+  #tn-fp .fp-sec{padding:16px 0 8px;}
+  #tn-fp .fp-sec.fp-hide{display:none;}
+  #tn-fp .fp-center{text-align:center;}
+  #tn-fp .fp-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-fp .fp-kicker.center{text-align:center;}
+  #tn-fp .fp-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-fp .fp-h2.center{text-align:center;}
+  #tn-fp .fp-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-fp .fp-p b{color:var(--ink); font-weight:700;}
+  #tn-fp .fp-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-fp .fp-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-fp .fp-note b{color:var(--ink); font-weight:700;}
+  #tn-fp .fp-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-fp .fp-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-fp .fp-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-fp .fp-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-fp .fp-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* field colour helpers */
+  #tn-fp .k-a{--k:var(--ka); --kbg:var(--kabg); --kbd:var(--kabd);}
+  #tn-fp .k-b{--k:var(--kb); --kbg:var(--kbbg); --kbd:var(--kbbd);}
+  #tn-fp .k-c{--k:var(--kc); --kbg:var(--kcbg); --kbd:var(--kcbd);}
+  /* title */
+  #tn-fp .fp-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(29px,7vw,45px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-fp .fp-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-fp .fp-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-fp .fp-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-fp .fp-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-fp .fp-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-fp .fp-vocab-chip.k-a,#tn-fp .fp-vocab-chip.k-b,#tn-fp .fp-vocab-chip.k-c{color:var(--k); background:var(--kbg); border-color:var(--kbd);}
+  #tn-fp .fp-vocab-chip:hover{filter:brightness(.97);}
+  #tn-fp .fp-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-fp .fp-vocab-chip.k-a.on,#tn-fp .fp-vocab-chip.k-b.on,#tn-fp .fp-vocab-chip.k-c.on{background:var(--k); color:#fff; border-color:var(--k);}
+  #tn-fp .fp-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-fp .fp-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-fp .fp-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-fp .fp-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-fp .fp-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-fp .fp-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-fp .fp-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-fp .fp-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · the annotated fund page */
+  #tn-fp .fp-page{background:#fff; border:1.5px solid var(--cardbd); border-radius:16px; padding:12px; box-shadow:0 14px 34px -24px rgba(22,32,43,.5);}
+  #tn-fp .fp-page-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:8px 0;}
+  #tn-fp .fp-field{position:relative; display:block; width:100%; text-align:left; font-family:inherit;
+    background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:12px;
+    padding:11px 13px 11px 38px; cursor:pointer; transition:all .18s;}
+  #tn-fp .fp-field:hover{border-color:var(--kbd);}
+  #tn-fp .fp-field.on{background:var(--kbg); border-color:var(--kbd);}
+  #tn-fp .fp-pin{position:absolute; left:11px; top:50%; transform:translateY(-50%);
+    width:20px; height:20px; border-radius:50%; background:var(--cardbd); color:var(--ink2);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; transition:all .18s;}
+  #tn-fp .fp-field.on .fp-pin{background:var(--k); color:#fff;}
+  #tn-fp .fp-f-lab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
+  #tn-fp .fp-field.on .fp-f-lab{color:var(--k);}
+  #tn-fp .fp-f-val{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin-top:2px; line-height:1.3;}
+  #tn-fp .fp-field.head{background:#16202B; border-color:#16202B; padding:13px 14px 13px 40px;}
+  #tn-fp .fp-field.head .fp-f-lab{color:#8FA6BA;}
+  #tn-fp .fp-field.head .fp-f-val{color:#fff; font-size:15px;}
+  #tn-fp .fp-field.head .fp-f-val b{font-size:18px; letter-spacing:.01em;}
+  #tn-fp .fp-field.head .fp-pin{background:#33455A; color:#C7D5E2;}
+  #tn-fp .fp-field.head.on{background:#1E2D3E; border-color:var(--ka);}
+  #tn-fp .fp-field.head.on .fp-pin{background:#fff; color:#16202B;}
+  /* 3 · the reference card — the page, kept on screen while you answer */
+  #tn-fp .fp-ref{position:sticky; top:0; z-index:30; background:#16202B; border-radius:14px; padding:12px 14px 13px; margin-bottom:14px;
+    box-shadow:0 12px 26px -18px rgba(22,32,43,.75);}
+  #tn-fp .fp-ref-cap{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:#8FE3C2; margin-bottom:10px;}
+  #tn-fp .fp-ref-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:9px 12px;}
+  #tn-fp .fp-ref-grid span{display:block; min-width:0;}
+  #tn-fp .fp-ref-grid i{display:block; font-style:normal; font-family:'Poppins',sans-serif; font-weight:700; font-size:8.5px; letter-spacing:.06em; text-transform:uppercase; color:#8FA6BA; line-height:1.3;}
+  #tn-fp .fp-ref-grid b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; color:#fff; margin-top:2px; line-height:1.25;}
+  /* 3 · find it fast */
+  #tn-fp .fp-find{display:flex; flex-direction:column; gap:10px;}
+  #tn-fp .fp-fq{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-fp .fp-find-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-fp .fp-fopts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-fp .fp-fopts button{flex:1; min-width:96px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:99px; padding:9px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-fp .fp-fopts button:hover{border-color:var(--selbd);}
+  #tn-fp .fp-fq.done .fp-fopts button{opacity:.35; pointer-events:none;}
+  #tn-fp .fp-fq.done .fp-fopts button.picked{opacity:1;}
+  #tn-fp .fp-fq.done .fp-fopts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-fp .fp-fq.done .fp-fopts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-fp .fp-fq.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-fp .fp-fq.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-fp .fp-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-fp .fp-why b{font-family:'Poppins',sans-serif;}
+  #tn-fp .fp-fq.done .fp-why{display:block;}
+  /* 4 · the expected gap */
+  #tn-fp .fp-gap{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:15px 17px 16px;}
+  #tn-fp .fp-gap-rows{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-fp .fp-gap-row{background:#fff; border:1px solid var(--cardbd); border-radius:12px; padding:11px 13px;}
+  #tn-fp .fp-gap-lab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
+  #tn-fp .fp-gap-big{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(19px,4.8vw,25px); color:var(--ink); margin-top:3px;}
+  #tn-fp .fp-meter{display:flex; align-items:center; gap:10px; margin-top:14px; flex-wrap:wrap;}
+  #tn-fp .fp-meter-cap{flex:0 0 100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:10px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
+  #tn-fp .fp-meter-track{flex:1; height:16px; background:#E3EAF1; border-radius:99px; overflow:hidden; min-width:120px;}
+  #tn-fp .fp-meter-track i{display:block; height:100%; min-width:7px; border-radius:99px; background:linear-gradient(90deg,var(--b),#C0392B); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-fp .fp-meter-val{flex:0 0 58px; text-align:right; font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink);}
+  #tn-fp .fp-picks{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:12px;}
+  #tn-fp .fp-pick{font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:11px 7px; cursor:pointer; transition:all .18s;}
+  #tn-fp .fp-pick b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); line-height:1.25;}
+  #tn-fp .fp-pick span{display:block; font-size:11.5px; color:var(--ink2); margin-top:2px;}
+  #tn-fp .fp-pick.on{background:var(--kbg); border-color:var(--kbd);}
+  #tn-fp .fp-pick.on b{color:var(--k);}
+  /* 5 · myth sorter */
+  #tn-fp .fp-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-fp .fp-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-fp .fp-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-fp .fp-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-fp .fp-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-fp .fp-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-fp .fp-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-fp .fp-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-fp .fp-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-fp .fp-sort-row.done .fp-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-fp .fp-sort-row.done .fp-sort-btns button.picked{opacity:1;}
+  #tn-fp .fp-sort-row .fp-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-fp .fp-sort-row.done .fp-why{display:block;}
+  /* 6 · what's missing */
+  #tn-fp .fp-miss{display:flex; flex-direction:column; gap:10px;}
+  #tn-fp .fp-mrow{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:13px 15px; transition:all .2s;}
+  #tn-fp .fp-mrow.open{background:#fff; border-color:var(--kbd);}
+  #tn-fp .fp-m-head b{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--k);}
+  #tn-fp .fp-m-btn{margin-top:9px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1.5px solid var(--selbd); border-radius:99px; padding:7px 15px; cursor:pointer; transition:all .15s;}
+  #tn-fp .fp-m-btn:hover{filter:brightness(.97);}
+  #tn-fp .fp-mrow.open .fp-m-btn{display:none;}
+  #tn-fp .fp-m-d{font-size:13px; color:var(--ink2); line-height:1.55; margin:10px 0 0; display:none;}
+  #tn-fp .fp-mrow.open .fp-m-d{display:block;}
+  /* recap + complete */
+  #tn-fp .fp-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-fp .fp-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-fp .fp-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--k,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-fp .fp-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-fp .fp-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-fp .fp-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-fp .fp-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-fp .fp-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:fp-bob 1.6s ease-in-out infinite;}
+  #tn-fp .fp-finish-arrow.up{animation-name:fp-bob-up;}
+  @keyframes fp-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes fp-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-fp .fp-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-fp .fp-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-fp .fp-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-fp .fp-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-fp .fp-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-fp .fp-green{color:var(--g);}
+  #tn-fp .fp-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-fp .fp-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-fp .fp-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-fp .fp-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-fp .fp-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-fp .fp-nav-btn.prev{color:var(--ink2);}
+  #tn-fp .fp-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-fp .fp-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-fp .fp-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-fp .fp-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-fp .fp-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-fp .fp-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-fp .fp-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-fp .fp-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .fp-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .fp-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-fp .fp-wrap{padding:12px 14px 30px;}
+    #tn-fp .fp-page-grid{grid-template-columns:1fr;}
+    #tn-fp .fp-ref{padding:10px 12px 11px;}
+    #tn-fp .fp-ref-cap{margin-bottom:8px;}
+    #tn-fp .fp-ref-grid{grid-template-columns:1fr 1fr; gap:7px 10px;}
+    #tn-fp .fp-ref-grid b{font-size:12px;}
+    #tn-fp .fp-gap-rows{grid-template-columns:1fr;}
+    #tn-fp .fp-picks{grid-template-columns:1fr;}
+    #tn-fp .fp-pick{display:flex; align-items:center; justify-content:space-between; text-align:left; padding:10px 14px;}
+    #tn-fp .fp-pick span{margin-top:0;}
+    #tn-fp .fp-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-fp .fp-fopts button{min-width:0; flex:1 1 100%;}
+    #tn-fp .fp-bsub{display:none;}
+    #tn-fp .fp-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-fp .fp-nav{padding-top:10px; row-gap:0;}
+    #tn-fp .fp-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-fp .fp-reveal{opacity:1 !important; transform:none !important;}
+    #tn-fp #fp-bar,#tn-fp .fp-meter-track i{transition:none;}
+    #tn-fp .fp-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-fp'); if(!root) return;
+  root.querySelectorAll('.fp-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('fp-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#fp-vocab-def');
+  root.querySelectorAll('#fp-vocab-chips .fp-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#fp-vocab-chips .fp-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the annotated fund page (creative 1 of 2) */
+  var PIN={
+    head:['The Ticker Is The Address','VOO is what you type to buy it. The full name gives you the rest: Vanguard runs it, it follows the S&P 500, and it is an ETF.'],
+    idx:['What It Promises To Copy','This one line is the whole strategy. It is not picking companies, it is copying a published list \u2014 so the index rules are what you read next.'],
+    er:['What You Pay Every Year','0.03% is $3 a year on $10,000, taken from the fund rather than billed to you. The only number here that is knowable in advance and in your control.'],
+    aum:['How Much Money Is In It','$1.05 trillion makes this one of the largest funds in the world. That buys tight spreads and staying power, and says nothing about future returns.'],
+    hold:['How Many Companies You Get','516, not 500, because a few companies carry more than one share class in the index. Round numbers in a fund name are rarely exact.'],
+    top:['How Concentrated It Really Is','516 holdings sounds spread out until you see the ten largest are 38.6% of the fund. This is the field that tells you your real breadth.'],
+    yld:['What It Paid Out Recently','1.04% is income returned to shareholders over a recent stretch. It moves constantly, and price movement is the other half of your return.'],
+    inc:['When It Started Counting','Every "since inception" figure is measured from 7 September 2010. A fund launched into a long bull market can look remarkable for reasons that are not about the fund.']
+  };
+  var pSeen={}, pT=root.querySelector('#fp-pin-t'), pD=root.querySelector('#fp-pin-d'),
+      pCount=root.querySelector('#fp-pin-count');
+  root.querySelectorAll('#fp-page .fp-field').forEach(function(f){
+    f.addEventListener('click',function(){
+      root.querySelectorAll('#fp-page .fp-field').forEach(function(x){ x.classList.remove('on'); });
+      f.classList.add('on');
+      var k=f.getAttribute('data-k');
+      pT.textContent=PIN[k][0]; pD.textContent=PIN[k][1];
+      pSeen[k]=1; pCount.textContent='Read '+keys(pSeen)+' Of 8';
+      state('pin', keys(pSeen)); postHeight();
+    });
+  });
+
+  /* 3 · find it fast */
+  var FWHY=[
+    'The expense ratio is the fee. 1.04% is what it pays out and 38.6% is how concentrated it is \u2014 three percentages that look alike and mean nothing alike.',
+    '516, not the 500 in its name. A few companies in the index carry more than one share class.',
+    'Over a trillion. Getting the unit wrong by a factor of a thousand is the most common misread on a fund page.',
+    '38.6% sits in ten companies. Holdings count says how many names you own; this says how much of your money they hold.',
+    'September 2010. 1993 is when the first US ETF launched \u2014 the inception date is its own field for a reason.'
+  ];
+  var findCount=root.querySelector('#fp-find-count');
+  root.querySelectorAll('#fp-find .fp-fq').forEach(function(q,qi){
+    var ans=+q.getAttribute('data-ans'), why=q.querySelector('.fp-why');
+    q.querySelectorAll('.fp-fopts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(q.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        q.querySelectorAll('.fp-fopts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        q.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+FWHY[qi];
+        var n=root.querySelectorAll('#fp-find .fp-fq.done').length;
+        findCount.textContent='Answered '+n+' Of 5';
+        state('find', n); postHeight();
+      });
+    });
+  });
+  var findReset=root.querySelector('#fp-find-reset');
+  if(findReset) findReset.addEventListener('click',function(){
+    root.querySelectorAll('#fp-find .fp-fq').forEach(function(q){
+      q.classList.remove('done','right','off');
+      q.querySelector('.fp-why').innerHTML='';
+      q.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    findCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 4 · the expected gap (creative 2 of 2) */
+  var IDXRET=10.00, MAXFEE=0.65;
+  var FUNDS={
+    voo:{fee:0.03, t:'VOO',
+      note:'Three hundredths of a percent \u2014 about <b>$3</b> a year on $10,000. A gap you would struggle to find without looking for it.'},
+    spy:{fee:0.0945, t:'SPY',
+      note:'Three times VOO\u2019s gap for the identical index: roughly <b>$9</b> a year on $10,000. Small, and still money handed over for nothing extra.'},
+    act:{fee:0.65, t:'A Typical Active Fund',
+      note:'An active fund pays a manager to pick holdings instead of copying an index. At 0.65% that is about <b>$65</b> a year on $10,000 \u2014 and the manager has to beat the index by that much just to draw level.'}
+  };
+  var gSeen={}, gFund=root.querySelector('#fp-g-fund'), gGap=root.querySelector('#fp-g-gap'),
+      gMeter=root.querySelector('#fp-g-meter'), gNote=root.querySelector('#fp-g-note'),
+      gapCount=root.querySelector('#fp-gap-count');
+  function setFund(k, record){
+    var f=FUNDS[k];
+    gFund.textContent='+'+(IDXRET-f.fee).toFixed(2)+'%';
+    gGap.textContent=f.fee+'%';
+    gMeter.style.width=(f.fee/MAXFEE*100)+'%';
+    gNote.innerHTML=f.note;
+    if(record){
+      gSeen[k]=1; gapCount.textContent='Compared '+keys(gSeen)+' Of 3';
+      state('gap', keys(gSeen));
+    }
+    postHeight();
+  }
+  root.querySelectorAll('#fp-funds .fp-pick').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#fp-funds .fp-pick').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); setFund(b.getAttribute('data-k'), true);
+    });
+  });
+  setFund('voo', false);
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#fp-myth-count');
+  root.querySelectorAll('#fp-myth .fp-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.fp-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#fp-myth .fp-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#fp-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#fp-myth .fp-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · what the page won't tell you */
+  var missCount=root.querySelector('#fp-miss-count');
+  root.querySelectorAll('#fp-miss .fp-mrow').forEach(function(row){
+    var btn=row.querySelector('.fp-m-btn'); if(!btn) return;
+    btn.addEventListener('click',function(){
+      row.classList.add('open');
+      var n=root.querySelectorAll('#fp-miss .fp-mrow.open').length;
+      missCount.textContent='Opened '+n+' Of 3';
+      state('miss', n); postHeight();
+    });
+  });
+  var missReset=root.querySelector('#fp-miss-reset');
+  if(missReset) missReset.addEventListener('click',function(){
+    root.querySelectorAll('#fp-miss .fp-mrow').forEach(function(r){ r.classList.remove('open'); });
+    missCount.textContent='Opened 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('fp-fin-arrow'), lead=document.getElementById('fp-fin-lead'), sub=document.getElementById('fp-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-fp'); if(!root) return;
+  var ALT={
+    'net assets':'net assets',
+    'dividend yield':'dividend yield|yield',
+    'inception date':'inception dates?|inception',
+    'premium or discount':'premium or discount|premium',
+    'tracking difference':'tracking differences?',
+    'active fund':'active funds?|actively managed funds?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#fp-vocab-chips .fp-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.fp-p, .fp-sub, .fp-note, .fp-why, .fp-recap-item span, .fp-h2, .fp-next-move, .fp-sort-row > span, .fp-find-q, .fp-m-d, .fp-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.fp-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='fp-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='fp-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.fp-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.fp-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-fp'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#fp-bar'), labelEl=root.querySelector('#fp-slide-label'),
+      countEl=root.querySelector('#fp-slide-count'), prevBtn=root.querySelector('#fp-prev'),
+      nextBtn=root.querySelector('#fp-next'), hintEl=root.querySelector('#fp-nav-hint'),
+      disclaimer=root.querySelector('.fp-disclaimer');
+  var labels={1:'Start Here',2:'The Fund Page',3:'Find It Fast',4:'The Expected Gap',5:'Myth Or Fact',6:"What's Missing",7:'Recap',8:'Complete'};
+  var reqHints={2:'Read all 8 fields to continue',3:'Answer all 5 to continue',4:'Compare all 3 to continue',5:'Answer all 5 to continue',6:'Open all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.fp-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('fp-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('fp-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'pin',  need:8, hint:function(n){ return 'Read '+n+' of 8 — tap every field to continue'; }},
+    {step:3, key:'find', need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:4, key:'gap',  need:3, hint:function(n){ return 'Compared '+n+' of 3 — try all three fees to continue'; }},
+    {step:5, key:'myth', need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'miss', need:3, hint:function(n){ return 'Opened '+n+' of 3 — open them all to continue'; }}
+  ];
+  root.addEventListener('fp-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

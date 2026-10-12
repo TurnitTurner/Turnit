@@ -1,0 +1,768 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — THREE PORTFOLIO MODELS COMPARED
+     (Intermediate · Module 1 · Lesson 5 — module capstone)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-pm. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     Model palette used consistently as DATA colour:
+       One-Fund = blue #1568AE · Three-Fund = teal #12a08a · Core & Satellite = gold #D99A23
+       1  Title & Key Terms (never gated)   2  Meet The Three Models
+       3  Side By Side                      4  The Weather Test (creative)
+       5  Myth Or Fact (5)                  6  Which Model Fits?
+       7  What Each Extra Fund Costs You    8  Pick One To Start From
+       9  Recap                             10 Complete
+     Creative widget, 1 of the 2 allowed: the weather test on slide 4. The
+     comparison table on slide 3 is a standard format and is left unstyled.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     ============================================================ -->
+<div id="tn-pm">
+  <div class="pm-wrap">
+    <div class="pm-top">
+      <div class="pm-topbar">
+        <div class="pm-brand"><span class="pm-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="15" width="7" height="5" rx="1.5"/><rect x="14" y="15" width="7" height="5" rx="1.5"/></svg></span><span class="pm-word">TURNIT</span><span class="pm-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="pm-progress"><span id="pm-bar"></span></div>
+      <div class="pm-meta"><span id="pm-slide-label">Start Here</span><span id="pm-slide-count">Slide 1 Of 10</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="pm-sec pm-center pm-reveal" data-step="1">
+      <p class="pm-kicker center">The Capstone · 1 / 10</p>
+      <h1 class="pm-hero-title">THREE PORTFOLIO <span class="pm-hero-grad">MODELS COMPARED</span></h1>
+      <p class="pm-sub center">Everything in this module comes together here: one decision, three ways to make it.</p>
+      <div class="pm-vocab">
+        <span class="pm-vocab-label">Key Terms In This Lesson</span>
+        <div class="pm-vocab-chips" id="pm-vocab-chips">
+          <button type="button" class="pm-vocab-chip" data-t="Three-Fund Portfolio" data-def="A common build: one US stock fund, one international stock fund, one bond fund. Three holdings, full coverage, and you control every weight.">Three-Fund Portfolio</button>
+          <button type="button" class="pm-vocab-chip" data-t="Target-Date Fund" data-def="A single fund built around a retirement year. It holds a whole portfolio inside it and shifts toward bonds as that year approaches.">Target-Date Fund</button>
+          <button type="button" class="pm-vocab-chip" data-t="Glide Path" data-def="The pre-set schedule by which a target-date fund reduces stocks and adds bonds over the years. Published in advance, and it varies by provider.">Glide Path</button>
+          <button type="button" class="pm-vocab-chip" data-t="Core Holding" data-def="The broad fund that makes up most of a portfolio. The part that is supposed to be boring.">Core Holding</button>
+          <button type="button" class="pm-vocab-chip" data-t="Satellite" data-def="A small deliberate position held alongside the core — a tilt, a theme, a sector. Kept small enough that being wrong is survivable.">Satellite</button>
+        </div>
+        <div class="pm-vocab-def" id="pm-vocab-def">Tap a term to see what it means.</div>
+        <span class="pm-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="pm-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · MEET THE THREE MODELS ========== -->
+    <section class="pm-sec pm-reveal" data-step="2">
+      <p class="pm-kicker">The Line-Up · 2 / 10</p>
+      <h2 class="pm-h2">Three Ways To Build The Same Thing</h2>
+      <p class="pm-p">A target-date fund, a three-fund portfolio, or a core holding with satellites — all three can hold the same allocation. They differ in who does the work. Tap each to look inside.</p>
+      <div class="pm-models" id="pm-models">
+        <button type="button" class="pm-model m-a" data-k="a"><span class="pm-model-top"></span><b>One Fund</b><small>Set And Forget</small><span class="pm-dots"><i></i></span></button>
+        <button type="button" class="pm-model m-b" data-k="b"><span class="pm-model-top"></span><b>Three Fund</b><small>You Hold The Dials</small><span class="pm-dots"><i></i><i></i><i></i></span></button>
+        <button type="button" class="pm-model m-c" data-k="c"><span class="pm-model-top"></span><b>Core &amp; Satellite</b><small>Broad Base, Small Bets</small><span class="pm-dots"><i></i><i></i><i></i><i></i><i></i></span></button>
+      </div>
+      <div class="pm-reveal-box" id="pm-model-box"><b id="pm-model-t">Tap A Model Above</b><span id="pm-model-d">Same job, three different amounts of work.</span></div>
+      <p class="pm-count" id="pm-model-count">Opened 0 Of 3</p>
+    </section>
+
+    <!-- ========== 3 · SIDE BY SIDE ========== -->
+    <section class="pm-sec pm-reveal" data-step="3">
+      <p class="pm-kicker">Side By Side · 3 / 10</p>
+      <h2 class="pm-h2">The Same Five Questions</h2>
+      <p class="pm-p">Five questions worth asking before you commit to a structure. Tap a row to see how each model answers.</p>
+      <div class="pm-table" id="pm-table">
+        <div class="pm-thead"><span>Question</span><span class="m-a">One</span><span class="m-b">Three</span><span class="m-c">Core</span></div>
+        <button type="button" class="pm-row" data-k="holdings"><span>Holdings To Manage</span><span class="m-a">1</span><span class="m-b">3</span><span class="m-c">4–6</span></button>
+        <button type="button" class="pm-row" data-k="control"><span>Control Over Weights</span><span class="m-a">None</span><span class="m-b">Full</span><span class="m-c">Full</span></button>
+        <button type="button" class="pm-row" data-k="effort"><span>Ongoing Effort</span><span class="m-a">Near Zero</span><span class="m-b">Low</span><span class="m-c">Real</span></button>
+        <button type="button" class="pm-row" data-k="cost"><span>Typical Cost</span><span class="m-a">Slightly Higher</span><span class="m-b">Lowest</span><span class="m-c">Varies</span></button>
+        <button type="button" class="pm-row" data-k="fails"><span>How It Usually Fails</span><span class="m-a">Mismatch</span><span class="m-b">Neglect</span><span class="m-c">Drift</span></button>
+      </div>
+      <div class="pm-reveal-box" id="pm-row-box"><b id="pm-row-t">Tap A Row</b><span id="pm-row-d">Five questions worth asking before you commit to a structure.</span></div>
+      <p class="pm-count" id="pm-row-count">Examined 0 Of 5</p>
+    </section>
+
+    <!-- ========== 4 · THE WEATHER TEST ========== -->
+    <section class="pm-sec pm-reveal" data-step="4">
+      <p class="pm-kicker">The Weather Test · 4 / 10</p>
+      <h2 class="pm-h2">Run All Three Through Four Climates</h2>
+      <p class="pm-p">Pick a market climate. The bars show how much each model asks of <b>you</b> in that weather — not what it returns. A glide path keeps moving whatever the weather does.</p>
+      <div class="pm-weather" id="pm-weather">
+        <button type="button" class="pm-wx" data-k="bull"><i>☀️</i><span>Long Bull Run</span></button>
+        <button type="button" class="pm-wx" data-k="crash"><i>⛈️</i><span>Sharp Crash</span></button>
+        <button type="button" class="pm-wx" data-k="flat"><i>🌫️</i><span>Flat Decade</span></button>
+        <button type="button" class="pm-wx" data-k="rates"><i>🌬️</i><span>Rising Rates</span></button>
+      </div>
+      <div class="pm-gauges">
+        <div class="pm-gauge m-a"><span class="pm-gauge-lab">One Fund</span><i class="pm-track"><u id="pm-g-a"></u></i><b id="pm-v-a">—</b></div>
+        <div class="pm-gauge m-b"><span class="pm-gauge-lab">Three Fund</span><i class="pm-track"><u id="pm-g-b"></u></i><b id="pm-v-b">—</b></div>
+        <div class="pm-gauge m-c"><span class="pm-gauge-lab">Core &amp; Satellite</span><i class="pm-track"><u id="pm-g-c"></u></i><b id="pm-v-c">—</b></div>
+      </div>
+      <div class="pm-note" id="pm-wx-note">Pick a climate to see where the pressure lands.</div>
+      <p class="pm-count" id="pm-wx-count">Tested 0 Of 4</p>
+      <div class="pm-reset-row"><button type="button" class="pm-reset-btn" id="pm-wx-reset">↺ Start Over</button></div>
+      <p class="pm-disclaimer-inline">These bars describe demands on the investor — attention, decisions, temptation — not returns. No model protects you from a falling market.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="pm-sec pm-reveal" data-step="5">
+      <p class="pm-kicker">Myth Or Fact · 5 / 10</p>
+      <h2 class="pm-h2">Myth Or Fact?</h2>
+      <p class="pm-p">Five claims about portfolio structure. Tap your answer.</p>
+      <div class="pm-sort" id="pm-myth">
+        <div class="pm-sort-row" data-answer="myth"><span>More funds means a more sophisticated portfolio.</span><div class="pm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="pm-why"><b>Myth.</b> Complexity is a cost, not a credential. Extra funds are worth holding only if each one adds exposure you don't already have — otherwise you've bought more admin.</p></div>
+        <div class="pm-sort-row" data-answer="fact"><span>A target-date fund holds an entire portfolio inside one ticker.</span><div class="pm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="pm-why"><b>Fact.</b> Stocks, bonds, domestic and international all sit inside it, and the mix shifts along a published glide path. One holding on your statement, a full portfolio underneath.</p></div>
+        <div class="pm-sort-row" data-answer="myth"><span>A one-fund portfolio can't match your own risk tolerance.</span><div class="pm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="pm-why"><b>Myth.</b> You can choose a fund whose mix suits you, including one aimed at a different year than your actual retirement. What you give up is fine-tuning, not suitability.</p></div>
+        <div class="pm-sort-row" data-answer="fact"><span>The simplest model you'll actually stick with usually beats the clever one you won't.</span><div class="pm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="pm-why"><b>Fact.</b> Structures fail through neglect far more often than through design. A portfolio you maintain beats a better one you abandon in year three.</p></div>
+        <div class="pm-sort-row" data-answer="myth"><span>Core and satellite means half your money sits in bets.</span><div class="pm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="pm-why"><b>Myth.</b> The core is the point — it's meant to be most of the portfolio. Satellites are deliberately small, sized so that being wrong is an irritation rather than a disaster.</p></div>
+      </div>
+      <p class="pm-count" id="pm-myth-count">Answered 0 Of 5</p>
+      <div class="pm-reset-row"><button type="button" class="pm-reset-btn" id="pm-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH MODEL FITS? ========== -->
+    <section class="pm-sec pm-reveal" data-step="6">
+      <p class="pm-kicker">Match The Investor · 6 / 10</p>
+      <h2 class="pm-h2">Which Model Fits This Person?</h2>
+      <p class="pm-p">Three real situations. Pick the structure you'd suggest — including whether satellites would help or hurt — then read why.</p>
+      <div class="pm-cases" id="pm-cases">
+        <div class="pm-case" data-ans="a"><p>Opens the app twice a year, finds investing stressful, and wants it handled.</p><div class="pm-cbtns"><button type="button" data-p="a">One Fund</button><button type="button" data-p="b">Three Fund</button><button type="button" data-p="c">Core &amp; Satellite</button></div><p class="pm-why"></p></div>
+        <div class="pm-case" data-ans="b"><p>Wants a specific international weight, reads fund documents, and is fee-conscious.</p><div class="pm-cbtns"><button type="button" data-p="a">One Fund</button><button type="button" data-p="b">Three Fund</button><button type="button" data-p="c">Core &amp; Satellite</button></div><p class="pm-why"></p></div>
+        <div class="pm-case" data-ans="c"><p>Keeps buying individual stocks on impulse and wants somewhere controlled to do it.</p><div class="pm-cbtns"><button type="button" data-p="a">One Fund</button><button type="button" data-p="b">Three Fund</button><button type="button" data-p="c">Core &amp; Satellite</button></div><p class="pm-why"></p></div>
+      </div>
+      <p class="pm-count" id="pm-case-count">Matched 0 Of 3</p>
+      <div class="pm-reset-row"><button type="button" class="pm-reset-btn" id="pm-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · WHAT EACH EXTRA FUND COSTS ========== -->
+    <section class="pm-sec pm-reveal" data-step="7">
+      <p class="pm-kicker">The Price Of Pieces · 7 / 10</p>
+      <h2 class="pm-h2">Every Holding Adds A Job</h2>
+      <p class="pm-p">Slide the number of funds. Every holding beyond your core holding is another weight to track.</p>
+      <div class="pm-panel">
+        <div class="pm-readout"><b id="pm-n">3</b><span>Funds Held</span></div>
+        <input id="pm-funds" class="pm-range" type="range" min="1" max="10" step="1" value="3" aria-label="Number of funds held">
+        <div class="pm-scale"><span>1 Fund</span><span>10 Funds</span></div>
+        <div class="pm-costgrid">
+          <div class="pm-cost"><span>Weights To Keep Track Of</span><b id="pm-c1">3</b></div>
+          <div class="pm-cost"><span>Chances To Drift Off Target</span><b id="pm-c2">Low</b></div>
+          <div class="pm-cost"><span>Odds Two Funds Overlap</span><b id="pm-c3">Low</b></div>
+        </div>
+        <div class="pm-note" id="pm-cost-note">Move the slider to at least three settings.</div>
+      </div>
+      <p class="pm-disclaimer-inline">Directional illustration. More funds is not automatically worse — it is only worse when the extra pieces do nothing you weren't already doing.</p>
+    </section>
+
+    <!-- ========== 8 · PICK ONE TO START FROM ========== -->
+    <section class="pm-sec pm-reveal" data-step="8">
+      <p class="pm-kicker">Your Starting Point · 8 / 10</p>
+      <h2 class="pm-h2">Pick One To Start From</h2>
+      <p class="pm-p">Not forever. Just the structure you'd build on this year.</p>
+      <div class="pm-picks" id="pm-picks">
+        <button type="button" class="pm-pick m-a" data-k="a">One Fund</button>
+        <button type="button" class="pm-pick m-b" data-k="b">Three Fund</button>
+        <button type="button" class="pm-pick m-c" data-k="c">Core &amp; Satellite</button>
+      </div>
+      <div class="pm-verdict" id="pm-pick-out"><p class="pm-verdict-t">Choose A Structure</p><p class="pm-verdict-d">All three are legitimate. The wrong one is the one that doesn't match how you actually behave.</p></div>
+      <p class="pm-disclaimer-inline">Educational illustration only, not a recommendation. What suits you depends on facts this lesson can't see, and is worth discussing with a qualified professional.</p>
+    </section>
+
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="pm-sec pm-reveal" data-step="9">
+      <p class="pm-kicker">Recap · 9 / 10</p>
+      <h2 class="pm-h2">Here's What You Now Know</h2>
+      <p class="pm-p">The whole lesson, in five lines.</p>
+      <div class="pm-recap">
+        <div class="pm-recap-item"><span class="pm-recap-check m-a">✓</span><span>All three models can hold the same allocation. They differ in who does the work.</span></div>
+        <div class="pm-recap-item"><span class="pm-recap-check m-b">✓</span><span>A <b>target-date fund</b> is a whole portfolio in one holding, moving along a published <b>glide path</b>.</span></div>
+        <div class="pm-recap-item"><span class="pm-recap-check m-c">✓</span><span>A <b>three-fund portfolio</b> buys you control over every weight, and hands you the upkeep.</span></div>
+        <div class="pm-recap-item"><span class="pm-recap-check m-a">✓</span><span>Core and satellite only works while the satellites stay small.</span></div>
+        <div class="pm-recap-item"><span class="pm-recap-check m-b">✓</span><span>Each model fails differently: mismatch, neglect, or drift. Know which one is yours.</span></div>
+      </div>
+      <div class="pm-next-move">Your next move: <b>write down which model your current holdings actually form</b> — then decide whether that was a choice or an accident.</div>
+    </section>
+
+    <!-- ========== 10 · COMPLETE ========== -->
+    <section class="pm-sec pm-center pm-reveal" data-step="10">
+      <p class="pm-kicker center">Module Complete · 10 / 10</p>
+      <span class="pm-hero-ico">🚀</span>
+      <h2 class="pm-h2 center">You've Finished The Module</h2>
+      <p class="pm-sub center">You can describe a portfolio as weights, choose a split, place international and size exposure, and pick a structure to hold it all.</p>
+      <div class="pm-finish">
+        <span class="pm-finish-arrow" id="pm-fin-arrow" aria-hidden="true">↓</span>
+        <p class="pm-finish-lead" id="pm-fin-lead">Scroll Down To Continue</p>
+        <p class="pm-finish-sub" id="pm-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="pm-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="pm-quote">"SIMPLICITY IS THE MASTER KEY <span class="pm-green">TO FINANCIAL SUCCESS.</span>"<br><span class="pm-quote-by">— ATTRIBUTED TO JOHN C. BOGLE</span></p>
+    </section>
+
+    <p class="pm-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Portfolio models, costs and behaviour descriptions in this lesson are simplified and illustrative, not recommendations or predictions. Fund structures, fees and glide paths vary by provider — check the documents for anything you actually buy. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="pm-nav" id="pm-nav">
+      <button type="button" class="pm-nav-btn prev" id="pm-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="pm-nav-hint" id="pm-nav-hint"></span>
+      <button type="button" class="pm-nav-btn next" id="pm-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-pm{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --ma:#1568AE; --mabg:#EAF1FA; --mabd:#C5DBEF;
+    --mb:#12a08a; --mbbg:#E6F6F2; --mbbd:#BCE5DC;
+    --mc:#D99A23; --mcbg:#FBF2DF; --mcbd:#F0DCA9;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-pm *,#tn-pm *::before,#tn-pm *::after{box-sizing:border-box;}
+  #tn-pm .pm-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-pm .pm-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-pm .pm-reveal.in{opacity:1; transform:none;}
+  #tn-pm .pm-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-pm .pm-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-pm .pm-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-pm .pm-bico{display:flex;}
+  #tn-pm .pm-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-pm .pm-bsub{color:var(--ink2); font-weight:500;}
+  #tn-pm .pm-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-pm #pm-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-pm .pm-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-pm .pm-meta #pm-slide-label{color:var(--ink2);}
+  #tn-pm .pm-meta #pm-slide-count{color:var(--mut);}
+  #tn-pm .pm-sec{padding:16px 0 8px;}
+  #tn-pm .pm-sec.pm-hide{display:none;}
+  #tn-pm .pm-center{text-align:center;}
+  #tn-pm .pm-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-pm .pm-kicker.center{text-align:center;}
+  #tn-pm .pm-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-pm .pm-h2.center{text-align:center;}
+  #tn-pm .pm-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-pm .pm-p b{color:var(--ink); font-weight:700;}
+  #tn-pm .pm-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-pm .pm-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-pm .pm-note b{color:var(--ink); font-weight:700;}
+  #tn-pm .pm-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-pm .pm-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-pm .pm-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-pm .pm-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-pm .pm-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* model colour helpers */
+  #tn-pm .m-a{--mod:var(--ma); --modbg:var(--mabg); --modbd:var(--mabd);}
+  #tn-pm .m-b{--mod:var(--mb); --modbg:var(--mbbg); --modbd:var(--mbbd);}
+  #tn-pm .m-c{--mod:var(--mc); --modbg:var(--mcbg); --modbd:var(--mcbd);}
+  /* title */
+  #tn-pm .pm-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(27px,6.4vw,42px); line-height:1.13; text-align:center; margin:8px 0 14px;}
+  #tn-pm .pm-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-pm .pm-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-pm .pm-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-pm .pm-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-pm .pm-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-pm .pm-vocab-chip:hover{background:#DCF0E5;}
+  #tn-pm .pm-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-pm .pm-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-pm .pm-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-pm .pm-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-pm .pm-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-pm .pm-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* models */
+  #tn-pm .pm-models{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  #tn-pm .pm-model{position:relative; overflow:hidden; font-family:inherit; background:var(--modbg); border:1.5px solid var(--modbd); border-radius:15px; padding:16px 10px 13px; cursor:pointer; transition:all .18s;}
+  #tn-pm .pm-model-top{position:absolute; left:0; right:0; top:0; height:5px; background:var(--mod);}
+  #tn-pm .pm-model b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--mod);}
+  #tn-pm .pm-model small{display:block; font-size:11px; color:var(--ink2); margin-top:2px;}
+  #tn-pm .pm-dots{display:flex; gap:3px; justify-content:center; margin-top:9px;}
+  #tn-pm .pm-dots i{width:7px; height:7px; border-radius:50%; background:var(--mod); opacity:.75;}
+  #tn-pm .pm-model.on{box-shadow:0 0 0 3px var(--modbd); transform:translateY(-2px);}
+  #tn-pm .pm-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-pm .pm-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-pm .pm-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* comparison table */
+  #tn-pm .pm-table{border:1.5px solid var(--cardbd); border-radius:14px; overflow:hidden;}
+  #tn-pm .pm-thead,#tn-pm .pm-row{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; align-items:center; gap:6px; width:100%; text-align:left;}
+  #tn-pm .pm-thead{background:var(--mist); padding:11px 12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--mut);}
+  #tn-pm .pm-thead .m-a{color:var(--ma);} #tn-pm .pm-thead .m-b{color:var(--mb);} #tn-pm .pm-thead .m-c{color:var(--mc);}
+  #tn-pm .pm-row{background:#fff; border:none; border-top:1px solid var(--line); padding:13px 12px; cursor:pointer; font-family:inherit; transition:background .16s;}
+  #tn-pm .pm-row:hover{background:var(--mist);}
+  #tn-pm .pm-row > span:first-child{font-size:13.5px; font-weight:600;}
+  #tn-pm .pm-row > span + span{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2);}
+  #tn-pm .pm-row .m-a{color:var(--ma);} #tn-pm .pm-row .m-b{color:var(--mb);} #tn-pm .pm-row .m-c{color:var(--mc);}
+  #tn-pm .pm-row.on{background:var(--mist); box-shadow:inset 3px 0 0 var(--g);}
+  /* weather */
+  #tn-pm .pm-weather{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:14px;}
+  #tn-pm .pm-wx{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:12px 5px; cursor:pointer; transition:all .18s; line-height:1.25;}
+  #tn-pm .pm-wx i{display:block; font-style:normal; font-size:20px; margin-bottom:4px;}
+  #tn-pm .pm-wx.on{border-color:var(--b); background:var(--mabg); color:var(--b);}
+  #tn-pm .pm-gauges{display:flex; flex-direction:column; gap:10px;}
+  #tn-pm .pm-gauge{display:grid; grid-template-columns:96px 1fr 76px; align-items:center; gap:10px;}
+  #tn-pm .pm-gauge-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--mod);}
+  #tn-pm .pm-track{display:block; height:12px; border-radius:7px; background:#EAEFF3; overflow:hidden;}
+  #tn-pm .pm-track u{display:block; height:100%; width:0; background:var(--mod); border-radius:7px; transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-pm .pm-gauge b{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:var(--ink2); text-align:right;}
+  /* myth sorter */
+  #tn-pm .pm-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-pm .pm-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-pm .pm-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-pm .pm-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-pm .pm-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-pm .pm-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-pm .pm-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-pm .pm-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-pm .pm-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-pm .pm-sort-row.done .pm-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-pm .pm-sort-row.done .pm-sort-btns button.picked{opacity:1;}
+  #tn-pm .pm-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:4px 0 0; display:none;}
+  #tn-pm .pm-why b{font-family:'Poppins',sans-serif;}
+  #tn-pm .pm-sort-row .pm-why{flex-basis:100%; width:100%;}
+  #tn-pm .pm-sort-row.done .pm-why{display:block;}
+  /* cases */
+  #tn-pm .pm-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-pm .pm-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-pm .pm-case > p{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-pm .pm-cbtns{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-pm .pm-cbtns button{flex:1; min-width:104px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; border-radius:99px; padding:8px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-pm .pm-cbtns button[data-p="a"]{border:1.5px solid var(--mabd); color:var(--ma);}
+  #tn-pm .pm-cbtns button[data-p="b"]{border:1.5px solid var(--mbbd); color:var(--mb);}
+  #tn-pm .pm-cbtns button[data-p="c"]{border:1.5px solid var(--mcbd); color:var(--mc);}
+  #tn-pm .pm-case.done .pm-cbtns button{opacity:.35; pointer-events:none;}
+  #tn-pm .pm-case.done .pm-cbtns button.picked{opacity:1;}
+  #tn-pm .pm-case.done .pm-cbtns button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-pm .pm-case.done .pm-cbtns button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-pm .pm-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-pm .pm-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-pm .pm-case.done .pm-why{display:block;}
+  /* cost slider */
+  #tn-pm .pm-panel{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-pm .pm-readout{text-align:center;}
+  #tn-pm .pm-readout b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(30px,8vw,38px); line-height:1;}
+  #tn-pm .pm-readout span{font-size:11.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
+  #tn-pm .pm-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:14px 0 4px; background:linear-gradient(90deg,var(--g),var(--mc));}
+  #tn-pm .pm-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-pm .pm-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-pm .pm-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut);}
+  #tn-pm .pm-costgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:14px;}
+  #tn-pm .pm-cost{background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 8px; text-align:center;}
+  #tn-pm .pm-cost span{display:block; font-size:10px; letter-spacing:.04em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:5px; line-height:1.3;}
+  #tn-pm .pm-cost b{font-family:'Poppins',sans-serif; font-weight:800; font-size:16px;}
+  /* picks + verdict */
+  #tn-pm .pm-picks{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-pm .pm-pick{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--mod); background:var(--modbg); border:1.5px solid var(--modbd); border-radius:13px; padding:14px 6px; cursor:pointer; transition:all .18s;}
+  #tn-pm .pm-pick.on{background:var(--mod); color:#fff;}
+  #tn-pm .pm-verdict{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:12px;}
+  #tn-pm .pm-verdict.lean{background:var(--modbg); border-color:var(--modbd);}
+  #tn-pm .pm-verdict-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-pm .pm-verdict-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  /* recap + complete */
+  #tn-pm .pm-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-pm .pm-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-pm .pm-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--mod,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-pm .pm-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-pm .pm-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-pm .pm-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-pm .pm-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:pm-bob 1.6s ease-in-out infinite;}
+  #tn-pm .pm-finish-arrow.up{animation-name:pm-bob-up;}
+  @keyframes pm-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes pm-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-pm .pm-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-pm .pm-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-pm .pm-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-pm .pm-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-pm .pm-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-pm .pm-green{color:var(--g);}
+  #tn-pm .pm-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-pm .pm-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  #tn-pm .pm-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-pm .pm-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-pm .pm-nav-btn.prev{color:var(--ink2);}
+  #tn-pm .pm-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-pm .pm-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-pm .pm-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-pm .pm-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-pm .pm-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-pm .pm-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-pm .pm-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-pm .pm-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .pm-tip{position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .pm-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-pm .pm-wrap{padding:12px 14px 30px;}
+    #tn-pm .pm-models,#tn-pm .pm-picks{grid-template-columns:1fr;}
+    #tn-pm .pm-weather{grid-template-columns:1fr 1fr;}
+    #tn-pm .pm-costgrid{grid-template-columns:1fr;}
+    #tn-pm .pm-thead,#tn-pm .pm-row{grid-template-columns:1.4fr .9fr .9fr .9fr; gap:4px;}
+    #tn-pm .pm-row > span:first-child{font-size:12.5px;}
+    #tn-pm .pm-row > span + span{font-size:11px;}
+    #tn-pm .pm-gauge{grid-template-columns:82px 1fr 66px; gap:7px;}
+    #tn-pm .pm-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-pm .pm-bsub{display:none;}
+    #tn-pm .pm-nav-hint{display:none;}
+    #tn-pm .pm-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-pm .pm-reveal{opacity:1 !important; transform:none !important;}
+    #tn-pm #pm-bar,#tn-pm .pm-track u{transition:none;}
+    #tn-pm .pm-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-pm'); if(!root) return;
+  root.querySelectorAll('.pm-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('pm-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#pm-vocab-def');
+  root.querySelectorAll('#pm-vocab-chips .pm-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#pm-vocab-chips .pm-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · meet the models */
+  var MODEL={
+    a:['One Fund — A Target-Date Or All-In-One Fund','A single holding containing a complete portfolio: domestic stocks, international stocks and bonds, with the mix shifting along a published glide path. You make one decision ever. In exchange you accept the provider\u2019s weights and usually a slightly higher fee.'],
+    b:['Three Fund — US, International, Bonds','Three broad funds, and you set every weight yourself. Typically the cheapest of the three and entirely transparent. The work is yours: nothing adjusts on its own, and nobody reminds you.'],
+    c:['Core And Satellite — A Broad Base Plus Small Positions','A broad core holding most of the money, with a few small satellites around it for a tilt or a theme. It gives curiosity somewhere to live without letting it near the core.']
+  };
+  var mSeen={}, mT=root.querySelector('#pm-model-t'), mD=root.querySelector('#pm-model-d'),
+      mCount=root.querySelector('#pm-model-count');
+  root.querySelectorAll('#pm-models .pm-model').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#pm-models .pm-model').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      mT.textContent=MODEL[k][0]; mD.textContent=MODEL[k][1];
+      mSeen[k]=1; mCount.textContent='Opened '+keys(mSeen)+' Of 3';
+      state('model', keys(mSeen)); postHeight();
+    });
+  });
+
+  /* 3 · side by side */
+  var ROW={
+    holdings:['Holdings To Manage','One line on your statement, three, or half a dozen. This number drives almost everything else — every extra holding is another weight to watch and another thing to forget.'],
+    control:['Control Over Weights','An all-in-one fund decides your split for you; you can only choose a different fund. The other two hand you the dials, which is freedom if you want it and a chore if you don\u2019t.'],
+    effort:['Ongoing Effort','Near zero, low, or genuinely real. Be honest about which one you will still be doing in five years, because the answer decides whether the structure survives.'],
+    cost:['Typical Cost','All-in-one funds usually charge a little more for the convenience. A three-fund build is often the cheapest. Core and satellite depends entirely on what you bolt on.'],
+    fails:['How It Usually Fails','Each breaks differently. The one-fund breaks by mismatch — you picked a mix that was never right for you. Three-fund breaks by neglect. Core and satellite breaks by drift, as the satellites quietly grow into the core.']
+  };
+  var rSeen={}, rT=root.querySelector('#pm-row-t'), rD=root.querySelector('#pm-row-d'),
+      rCount=root.querySelector('#pm-row-count');
+  root.querySelectorAll('#pm-table .pm-row').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#pm-table .pm-row').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      rT.textContent=ROW[k][0]; rD.textContent=ROW[k][1];
+      rSeen[k]=1; rCount.textContent='Examined '+keys(rSeen)+' Of 5';
+      state('row', keys(rSeen)); postHeight();
+    });
+  });
+
+  /* 4 · the weather test */
+  var WX={
+    bull:{a:[20,'Easy'],b:[45,'Watchful'],c:[80,'Tempting'],
+      note:'Rising markets are when structures quietly break. The all-in-one just carries on. A three-fund drifts away from its target. Core and satellite is hardest — whatever ran hottest now begs to be topped up.'},
+    crash:{a:[35,'Hands Off'],b:[70,'Testing'],c:[90,'Brutal'],
+      note:'Everything falls. What differs is how many decisions you face while it does. One holding means one thing to not sell. Six holdings means six chances to intervene at the worst moment.'},
+    flat:{a:[25,'Dull'],b:[50,'Dull'],c:[85,'Itchy'],
+      note:'A decade that goes nowhere is the real test of patience. Boredom pushes people to add positions, which is exactly how a tidy core-and-satellite turns into a pile of holdings.'},
+    rates:{a:[30,'Automatic'],b:[60,'Manual'],c:[65,'Manual'],
+      note:'When rates move, the bond side of a portfolio reprices. An all-in-one handles its own bond mix. The others leave you deciding whether to do anything — and usually the answer is nothing.'}
+  };
+  var wSeen={}, wNote=root.querySelector('#pm-wx-note'), wCount=root.querySelector('#pm-wx-count');
+  function setWx(k){
+    var w=WX[k];
+    ['a','b','c'].forEach(function(m){
+      root.querySelector('#pm-g-'+m).style.width=w[m][0]+'%';
+      root.querySelector('#pm-v-'+m).textContent=w[m][1];
+    });
+    wNote.textContent=w.note;
+  }
+  root.querySelectorAll('#pm-weather .pm-wx').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#pm-weather .pm-wx').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      setWx(k); wSeen[k]=1;
+      wCount.textContent='Tested '+keys(wSeen)+' Of 4';
+      state('wx', keys(wSeen)); postHeight();
+    });
+  });
+  var wReset=root.querySelector('#pm-wx-reset');
+  if(wReset) wReset.addEventListener('click',function(){
+    wSeen={};
+    root.querySelectorAll('#pm-weather .pm-wx').forEach(function(x){ x.classList.remove('on'); });
+    ['a','b','c'].forEach(function(m){
+      root.querySelector('#pm-g-'+m).style.width='0%';
+      root.querySelector('#pm-v-'+m).textContent='—';
+    });
+    wNote.textContent='Pick a climate to see where the pressure lands.';
+    wCount.textContent='Tested 0 Of 4'; postHeight();
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#pm-myth-count');
+  root.querySelectorAll('#pm-myth .pm-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.pm-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#pm-myth .pm-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#pm-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#pm-myth .pm-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · which model fits? */
+  var CASE={
+    a:'Someone who finds this stressful needs fewer decisions, not better ones. An all-in-one fund removes the upkeep entirely, and the slightly higher fee buys a portfolio that still exists in ten years.',
+    b:'Wanting a specific international weight rules out handing the decision to a provider. Three broad funds give exactly that control at the lowest typical cost, and fee-consciousness suggests the upkeep will actually happen.',
+    c:'The impulse to buy individual stocks does not disappear because a lesson disapproves of it. Core and satellite gives that impulse a small, bounded place to live while the core stays untouched.'
+  };
+  var cLabel={a:'One Fund',b:'Three Fund',c:'Core &amp; Satellite'};
+  var caseCount=root.querySelector('#pm-case-count');
+  root.querySelectorAll('#pm-cases .pm-case').forEach(function(cs){
+    var ans=cs.getAttribute('data-ans'), why=cs.querySelector('.pm-why');
+    cs.querySelectorAll('.pm-cbtns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(cs.classList.contains('done')) return;
+        var ok=btn.getAttribute('data-p')===ans;
+        btn.classList.add('picked');
+        cs.querySelectorAll('.pm-cbtns button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        cs.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Agreed — ':'The better fit is ')+cLabel[ans]+'.</b> '+CASE[ans];
+        var n=root.querySelectorAll('#pm-cases .pm-case.done').length;
+        caseCount.textContent='Matched '+n+' Of 3';
+        state('case', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#pm-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#pm-cases .pm-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.pm-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Matched 0 Of 3'; postHeight();
+  });
+
+  /* 7 · what each extra fund costs */
+  var fundsEl=root.querySelector('#pm-funds'), nEl=root.querySelector('#pm-n'),
+      c1=root.querySelector('#pm-c1'), c2=root.querySelector('#pm-c2'), c3=root.querySelector('#pm-c3'),
+      costNote=root.querySelector('#pm-cost-note'), fSeen={};
+  function costCalc(){
+    var n=+fundsEl.value;
+    nEl.textContent=n;
+    c1.textContent=n;
+    c2.textContent = n<=2?'Minimal':(n<=4?'Low':(n<=7?'Moderate':'High'));
+    c3.textContent = n<=2?'None':(n<=4?'Low':(n<=7?'Likely':'Near Certain'));
+    costNote.textContent = n<=3
+      ? 'At this level the upkeep is trivial — a couple of weights to glance at once a year.'
+      : (n<=6
+        ? 'Workable, but each addition should be earning its place. If you cannot say what a fund adds that the others do not, it is probably overlap.'
+        : 'This is where portfolios quietly become unmanageable. Holdings start duplicating each other, and nobody reviews ten weights annually for long.');
+    fSeen[n]=1; state('cost', keys(fSeen)); postHeight();
+  }
+  if(fundsEl){ fundsEl.addEventListener('input',costCalc); costCalc(); }
+
+  /* 8 · pick one to start from */
+  var PICK={
+    a:['m-a','You Chose One Fund','The structure most likely to still be intact in a decade. Check which glide path your fund follows and whether its stock-to-bond mix actually matches the split you decided on earlier.'],
+    b:['m-b','You Chose Three Fund','The most control for the least cost, provided you do the upkeep. Write your three target weights down somewhere you will find them again.'],
+    c:['m-c','You Chose Core And Satellite','Workable if you set the satellite ceiling now, in writing, while you are calm. Decide the maximum percentage before you pick a single satellite.']
+  };
+  var pickOut=root.querySelector('#pm-pick-out');
+  root.querySelectorAll('#pm-picks .pm-pick').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#pm-picks .pm-pick').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var p=PICK[b.getAttribute('data-k')];
+      pickOut.className='pm-verdict lean '+p[0];
+      pickOut.innerHTML='<p class="pm-verdict-t">'+p[1]+'</p><p class="pm-verdict-d">'+p[2]+'</p>';
+      state('pick',1); postHeight();
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('pm-fin-arrow'), lead=document.getElementById('pm-fin-lead'), sub=document.getElementById('pm-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'\u2193',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'\u2191',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>\u2715</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-pm'); if(!root) return;
+  var ALT={
+    'three-fund portfolio':'three-fund portfolios?|three fund',
+    'target-date fund':'target-date funds?|all-in-one funds?',
+    'glide path':'glide paths?',
+    'core holding':'core holding|the core',
+    'satellite':'satellites?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#pm-vocab-chips .pm-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.pm-p, .pm-sub, .pm-note, .pm-why, .pm-recap-item span, .pm-h2, .pm-verdict-d, .pm-next-move, .pm-sort-row > span, .pm-case > p';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.pm-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='pm-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' \u2014 definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='pm-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.pm-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.pm-sec').forEach(function(sec){ TERMS.forEach(function(t){ wrap(sec,t); }); });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-pm'); if(!root) return;
+  var TOTAL=10, current=1;
+  var bar=root.querySelector('#pm-bar'), labelEl=root.querySelector('#pm-slide-label'),
+      countEl=root.querySelector('#pm-slide-count'), prevBtn=root.querySelector('#pm-prev'),
+      nextBtn=root.querySelector('#pm-next'), hintEl=root.querySelector('#pm-nav-hint'),
+      disclaimer=root.querySelector('.pm-disclaimer');
+  var labels={1:'Start Here',2:'The Line-Up',3:'Side By Side',4:'The Weather Test',5:'Myth Or Fact',6:'Match The Investor',7:'The Price Of Pieces',8:'Your Starting Point',9:'Recap',10:'Complete'};
+  var reqHints={2:'Open all 3 models to continue',3:'Examine all 5 rows to continue',4:'Test all 4 climates to continue',5:'Answer all 5 to continue',6:'Match all 3 investors to continue',7:'Try three settings to continue',8:'Pick a structure to continue'};
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.pm-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('pm-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('pm-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'model', need:3, hint:function(n){ return 'Opened '+n+' of 3 — open them all to continue'; }},
+    {step:3, key:'row',   need:5, hint:function(n){ return 'Examined '+n+' of 5 — examine them all to continue'; }},
+    {step:4, key:'wx',    need:4, hint:function(n){ return 'Tested '+n+' of 4 — run them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'case',  need:3, hint:function(n){ return 'Matched '+n+' of 3 — match them all to continue'; }},
+    {step:7, key:'cost',  need:3, hint:function(n){ return 'Tried '+n+' of 3 settings — keep sliding'; }},
+    {step:8, key:'pick',  need:1, hint:function(){ return 'Pick a structure to continue'; }}
+  ];
+  root.addEventListener('pm-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

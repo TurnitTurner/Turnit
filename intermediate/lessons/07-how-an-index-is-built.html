@@ -1,0 +1,764 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — HOW AN INDEX IS BUILT (AND WHY IT MATTERS)
+     (Intermediate · Module 2 · Lesson 7)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ib. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     Rule palette used as DATA colour, not decoration:
+       Who Gets In = blue #1568AE · How Much Each Gets = teal #12a08a
+       When It Changes = gold #D99A23
+       1  Title & Key Terms (never gated)  2  The Admissions Desk
+       3  The Weight Machine (creative)    4  The Ripple (creative)
+       5  Three Windows On One Market      6  Myth Or Fact (5)
+       7  Recap (6)                        8  Complete
+     Creative widgets, 2 of 2 allowed: the weight machine on slide 3 and the
+     ripple chain on slide 4. Every other slide is a standard format.
+     Five distinct mechanics, none repeated: admit/reject judgment, two-state
+     machine, chain nodes, sliding window, myth sorter.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     Real figures (sourced, as of writing): S&P 500 committee of 9 meeting
+     monthly; $22.7B market-cap floor (June 2026); positive earnings in the most
+     recent quarter AND across the last four combined; float >= 10%; rebalances
+     the third Friday of Mar/Jun/Sep/Dec. Russell: fully rules-based, annual
+     reconstitution the last Friday of June, ~$9T benchmarked. VOO top 10
+     ~38.6% (31 Mar 2026). RSP 0.20% expense ratio, ~0.20% per company.
+     VTI holds 3,303 companies tracking the CRSP US Total Market Index.
+     ============================================================ -->
+<div id="tn-ib">
+  <div class="ib-wrap">
+    <div class="ib-top">
+      <div class="ib-topbar">
+        <div class="ib-brand"><span class="ib-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="ib-word">TURNIT</span><span class="ib-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="ib-progress"><span id="ib-bar"></span></div>
+      <div class="ib-meta"><span id="ib-slide-label">Start Here</span><span id="ib-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="ib-sec ib-center ib-reveal" data-step="1">
+      <p class="ib-kicker center">Funds Under The Hood · 1 / 8</p>
+      <h1 class="ib-hero-title">HOW AN INDEX <span class="ib-hero-grad">IS BUILT</span></h1>
+      <p class="ib-sub center">An index is a rulebook, not a shopping list. Three rules decide everything your fund owns.</p>
+      <div class="ib-vocab">
+        <span class="ib-vocab-label">Key Terms In This Lesson</span>
+        <div class="ib-vocab-chips" id="ib-vocab-chips">
+          <button type="button" class="ib-vocab-chip" data-t="Index" data-def="A published set of rules for which companies belong in a list and how much space each one gets. A fund that tracks it simply follows the rules.">Index</button>
+          <button type="button" class="ib-vocab-chip r-a" data-t="Eligibility Rules" data-def="The tests a company must pass to be included — size, profitability, where it is listed and how much of it trades freely.">Eligibility Rules</button>
+          <button type="button" class="ib-vocab-chip r-b" data-t="Weighting" data-def="How the index splits space between the companies in it. Cap-weighting gives the biggest companies the most; equal weighting gives everyone the same.">Weighting</button>
+          <button type="button" class="ib-vocab-chip r-c" data-t="Reconstitution" data-def="The scheduled rebuild when companies are added and dropped. It happens on published dates, so everyone can see it coming.">Reconstitution</button>
+          <button type="button" class="ib-vocab-chip" data-t="Free Float" data-def="The share of a company that is actually available to trade, rather than locked up with founders, governments or insiders.">Free Float</button>
+        </div>
+        <div class="ib-vocab-def" id="ib-vocab-def">Tap a term to see what it means.</div>
+        <span class="ib-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="ib-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE ADMISSIONS DESK ========== -->
+    <section class="ib-sec ib-reveal" data-step="2">
+      <p class="ib-kicker">Who Gets In · 2 / 8</p>
+      <h2 class="ib-h2">You Run The Admissions Desk</h2>
+      <p class="ib-p">Here are the real S&amp;P 500 eligibility rules. Four companies apply — admit or reject each one.</p>
+      <div class="ib-rulebook">
+        <span class="ib-rulebook-cap">The Rulebook</span>
+        <div class="ib-rule-items">
+          <span class="ib-rule-item">Market cap above <b>$22.7B</b></span>
+          <span class="ib-rule-item">Profitable last quarter <b>and</b> last four combined</span>
+          <span class="ib-rule-item">At least <b>10%</b> of shares freely traded</span>
+          <span class="ib-rule-item">A US company on a US exchange</span>
+        </div>
+      </div>
+      <div class="ib-apps" id="ib-apps">
+        <div class="ib-app" data-ans="yes" data-rule="big">
+          <p class="ib-app-t">A $340B software company. Profitable every quarter for a decade. 92% of shares publicly traded.</p>
+          <div class="ib-app-btns"><button type="button" data-p="yes">✓ Admit</button><button type="button" data-p="no">✕ Reject</button></div>
+          <p class="ib-why"></p>
+        </div>
+        <div class="ib-app" data-ans="no" data-rule="profit">
+          <p class="ib-app-t">A $61B electric-vehicle maker. Growing fast, widely held — and it lost money last quarter.</p>
+          <div class="ib-app-btns"><button type="button" data-p="yes">✓ Admit</button><button type="button" data-p="no">✕ Reject</button></div>
+          <p class="ib-why"></p>
+        </div>
+        <div class="ib-app" data-ans="no" data-rule="float">
+          <p class="ib-app-t">A $140B company, solidly profitable. The founding family still holds 94% of the shares.</p>
+          <div class="ib-app-btns"><button type="button" data-p="yes">✓ Admit</button><button type="button" data-p="no">✕ Reject</button></div>
+          <p class="ib-why"></p>
+        </div>
+        <div class="ib-app" data-ans="yes" data-rule="fresh">
+          <p class="ib-app-t">A $45B healthcare company. Profitable four straight quarters, listed in New York, heavily traded.</p>
+          <div class="ib-app-btns"><button type="button" data-p="yes">✓ Admit</button><button type="button" data-p="no">✕ Reject</button></div>
+          <p class="ib-why"></p>
+        </div>
+      </div>
+      <p class="ib-count" id="ib-adm-count">Judged 0 Of 4</p>
+      <div class="ib-reset-row"><button type="button" class="ib-reset-btn" id="ib-adm-reset">↺ Start Over</button></div>
+      <p class="ib-disclaimer-inline">Criteria and the market-cap floor as published by S&amp;P Dow Jones Indices; the floor is reviewed quarterly and moves. Clearing every test earns a company consideration, not a seat — a nine-person committee still votes.</p>
+    </section>
+
+    <!-- ========== 3 · THE WEIGHT MACHINE ========== -->
+    <section class="ib-sec ib-reveal" data-step="3">
+      <p class="ib-kicker">How Much Each Gets · 3 / 8</p>
+      <h2 class="ib-h2">Same 500 Companies, Different Money</h2>
+      <p class="ib-p">Weighting decides where your money actually lands. Flip the machine and watch it move.</p>
+      <div class="ib-machine">
+        <div class="ib-modes" id="ib-modes">
+          <button type="button" class="ib-mode r-b on" data-k="cap"><b>Cap-Weighted</b><span>VOO · 0.03%</span></button>
+          <button type="button" class="ib-mode r-c" data-k="eq"><b>Equal-Weighted</b><span>RSP · 0.20%</span></button>
+        </div>
+        <div class="ib-wbars" id="ib-wbars">
+          <div class="ib-wrow"><span class="ib-wlab">#1 Largest</span><span class="ib-wtrack"><i></i></span><span class="ib-wval">7.5%</span></div>
+          <div class="ib-wrow"><span class="ib-wlab">#2</span><span class="ib-wtrack"><i></i></span><span class="ib-wval">6.8%</span></div>
+          <div class="ib-wrow"><span class="ib-wlab">#3</span><span class="ib-wtrack"><i></i></span><span class="ib-wval">6.0%</span></div>
+          <div class="ib-wrow"><span class="ib-wlab">#4</span><span class="ib-wtrack"><i></i></span><span class="ib-wval">4.2%</span></div>
+          <div class="ib-wrow"><span class="ib-wlab">#5</span><span class="ib-wtrack"><i></i></span><span class="ib-wval">3.5%</span></div>
+        </div>
+      </div>
+      <div class="ib-stats">
+        <div class="ib-stat"><span>Biggest Holding</span><b id="ib-w-big">7.5%</b></div>
+        <div class="ib-stat"><span>Top 10 Of The Fund</span><b id="ib-w-top">38.6%</b></div>
+        <div class="ib-stat"><span>Your $1,000 In #1</span><b id="ib-w-dol">$75</b></div>
+      </div>
+      <div class="ib-note" id="ib-w-note">Tap both modes to see what the same 500 companies look like from each side.</div>
+      <p class="ib-count" id="ib-w-count">Flipped 0 Of 2</p>
+      <p class="ib-disclaimer-inline">Individual weights are illustrative and shift daily; the 38.6% top-ten figure is VOO's as of 31 March 2026, and RSP resets every company to roughly 0.20% each quarter. Neither fund is a recommendation.</p>
+    </section>
+
+    <!-- ========== 4 · THE RIPPLE ========== -->
+    <section class="ib-sec ib-reveal" data-step="4">
+      <p class="ib-kicker">When It Changes · 4 / 8</p>
+      <h2 class="ib-h2">One Rule Change, Four Consequences</h2>
+      <p class="ib-p">A company clears every test. Tap each link in the chain to follow what happens next.</p>
+      <div class="ib-chain" id="ib-chain">
+        <div class="ib-link">
+          <button type="button" class="ib-node r-a" data-k="1"><span class="ib-node-n">1</span><span class="ib-node-t">The Rules Say Yes</span></button>
+          <p class="ib-node-d">The committee meets, applies the tests and votes. No one argues about whether the business is any good.</p>
+        </div>
+        <div class="ib-link">
+          <button type="button" class="ib-node r-b" data-k="2"><span class="ib-node-n">2</span><span class="ib-node-t">It Gets Announced</span></button>
+          <p class="ib-node-d">The change is published about five trading days before it takes effect. Everybody finds out at the same time.</p>
+        </div>
+        <div class="ib-link">
+          <button type="button" class="ib-node r-c" data-k="3"><span class="ib-node-n">3</span><span class="ib-node-t">The Funds Must Buy</span></button>
+          <p class="ib-node-d">Every fund tracking that index has to hold it. They have no choice — tracking the index is the whole job.</p>
+        </div>
+        <div class="ib-link last">
+          <button type="button" class="ib-node r-a" data-k="4"><span class="ib-node-n">4</span><span class="ib-node-t">The Price Moves First</span></button>
+          <p class="ib-node-d">Traders can see the buying coming, so the stock often moves before a single fund manager places an order.</p>
+        </div>
+      </div>
+      <div class="ib-note">Roughly <b>$9 trillion</b> is benchmarked to Russell indexes alone. Their yearly reconstitution, the last Friday of June, is routinely one of the heaviest trading days of the year.</div>
+      <p class="ib-count" id="ib-chain-count">Followed 0 Of 4</p>
+      <div class="ib-reset-row"><button type="button" class="ib-reset-btn" id="ib-chain-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 5 · THREE WINDOWS ON ONE MARKET ========== -->
+    <section class="ib-sec ib-reveal" data-step="5">
+      <p class="ib-kicker">Three Windows · 5 / 8</p>
+      <h2 class="ib-h2">Three Rulebooks, Three Slices</h2>
+      <p class="ib-p">Every US company, largest on the left. Tap an index to see which slice it takes.</p>
+      <div class="ib-market">
+        <div class="ib-mbar"><span class="ib-window" id="ib-window"></span></div>
+        <div class="ib-mends"><span>Largest</span><span>~3,300 US Companies</span><span>Smallest</span></div>
+      </div>
+      <div class="ib-wins" id="ib-wins">
+        <button type="button" class="ib-win r-a" data-k="sp">S&amp;P 500</button>
+        <button type="button" class="ib-win r-c" data-k="r2">Russell 2000</button>
+        <button type="button" class="ib-win r-b" data-k="tot">Total Market</button>
+      </div>
+      <div class="ib-reveal-box" id="ib-win-box"><b id="ib-win-t">Tap An Index</b><span id="ib-win-d">Three rulebooks, one market, three very different answers.</span></div>
+      <p class="ib-count" id="ib-win-count">Opened 0 Of 3</p>
+    </section>
+
+    <!-- ========== 6 · MYTH OR FACT ========== -->
+    <section class="ib-sec ib-reveal" data-step="6">
+      <p class="ib-kicker">Myth Or Fact · 6 / 8</p>
+      <h2 class="ib-h2">Myth Or Fact?</h2>
+      <p class="ib-p">Five claims about how indexes work. Tap your answer.</p>
+      <div class="ib-sort" id="ib-myth">
+        <div class="ib-sort-row" data-answer="myth"><span>An index is a list someone picks by hand each year.</span><div class="ib-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ib-why"><b>Myth.</b> Nearly all of them run on published rules. Even the S&amp;P 500, which does have a nine-person committee, applies fixed tests before anyone votes — and Russell's indexes use no discretion at all.</p></div>
+        <div class="ib-sort-row" data-answer="fact"><span>A fund buys more of a company because it got bigger, not because it got better.</span><div class="ib-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ib-why"><b>Fact.</b> Cap-weighting follows price. When a stock doubles, its weight roughly doubles, and the fund holds more of it. Nobody judged the business.</p></div>
+        <div class="ib-sort-row" data-answer="myth"><span>The S&amp;P 500 will take any big enough company.</span><div class="ib-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ib-why"><b>Myth.</b> It also wants profits — positive earnings last quarter and across the last four combined — plus a free float of at least 10%. Size is one test of several.</p></div>
+        <div class="ib-sort-row" data-answer="myth"><span>Two funds holding the same 500 companies must perform the same.</span><div class="ib-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ib-why"><b>Myth.</b> VOO and RSP hold identical companies in very different proportions. Same names, different weighting, and they do not move together.</p></div>
+        <div class="ib-sort-row" data-answer="fact"><span>An index change can move a stock before any fund trades it.</span><div class="ib-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ib-why"><b>Fact.</b> Changes are published days ahead and the money that must follow is enormous, so the price often adjusts while the funds are still waiting for the effective date.</p></div>
+      </div>
+      <p class="ib-count" id="ib-myth-count">Answered 0 Of 5</p>
+      <div class="ib-reset-row"><button type="button" class="ib-reset-btn" id="ib-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="ib-sec ib-reveal" data-step="7">
+      <p class="ib-kicker">Recap · 7 / 8</p>
+      <h2 class="ib-h2">Here's What You Now Know</h2>
+      <p class="ib-p">The whole lesson, in six lines.</p>
+      <div class="ib-recap">
+        <div class="ib-recap-item"><span class="ib-recap-check r-a">✓</span><span>An index is a rulebook, not a shopping list.</span></div>
+        <div class="ib-recap-item"><span class="ib-recap-check r-b">✓</span><span>Three rules do all the work: who gets in, how much each gets, when it changes.</span></div>
+        <div class="ib-recap-item"><span class="ib-recap-check r-c">✓</span><span>Eligibility rules are more than size — the S&amp;P 500 wants profits and a real free float.</span></div>
+        <div class="ib-recap-item"><span class="ib-recap-check r-a">✓</span><span>Weighting decides where your money lands: VOO's top ten is about 38.6% of the fund, while RSP gives each of 500 companies roughly 0.20%.</span></div>
+        <div class="ib-recap-item"><span class="ib-recap-check r-b">✓</span><span>Reconstitution runs on a published calendar, so a fund's trades surprise nobody.</span></div>
+        <div class="ib-recap-item"><span class="ib-recap-check r-c">✓</span><span>Trillions follow these rules, which is why a rule change moves real money.</span></div>
+      </div>
+      <div class="ib-next-move">Your next move: <b>find the words "tracks the ___ Index" on a fund you own</b>, then look up that index's rules. They are published, and almost nobody reads them.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="ib-sec ib-center ib-reveal" data-step="8">
+      <p class="ib-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="ib-hero-ico">🚀</span>
+      <h2 class="ib-h2 center">You've Finished The Lesson</h2>
+      <p class="ib-sub center">You can now read an index's rules and say what they will do to your money.</p>
+      <div class="ib-finish">
+        <span class="ib-finish-arrow" id="ib-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ib-finish-lead" id="ib-fin-lead">Scroll Down To Continue</p>
+        <p class="ib-finish-sub" id="ib-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ib-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ib-pullquote">"DON'T LOOK FOR THE NEEDLE IN THE HAYSTACK. <span class="ib-green">JUST BUY THE HAYSTACK.</span>"<br><span class="ib-pullquote-by">— JOHN BOGLE</span></p>
+    </section>
+
+    <p class="ib-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Index rules, thresholds, weights and holdings change constantly — every figure here is accurate as of writing and should be checked against the current methodology before you act on it. Funds are named to illustrate how rules differ, not as recommendations. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="ib-nav" id="ib-nav">
+      <button type="button" class="ib-nav-btn prev" id="ib-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ib-nav-hint" id="ib-nav-hint"></span>
+      <button type="button" class="ib-nav-btn next" id="ib-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ib{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* rule palette — used as data colour throughout */
+    --ra:#1568AE; --rabg:#EAF1FA; --rabd:#C5DBEF;
+    --rb:#12a08a; --rbbg:#E6F6F2; --rbbd:#BCE5DC;
+    --rc:#D99A23; --rcbg:#FBF2DF; --rcbd:#F0DCA9;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-ib *,#tn-ib *::before,#tn-ib *::after{box-sizing:border-box;}
+  #tn-ib .ib-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ib .ib-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ib .ib-reveal.in{opacity:1; transform:none;}
+  #tn-ib .ib-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ib .ib-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ib .ib-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-ib .ib-bico{display:flex;}
+  #tn-ib .ib-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ib .ib-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ib .ib-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ib #ib-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ib .ib-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ib .ib-meta #ib-slide-label{color:var(--ink2);}
+  #tn-ib .ib-meta #ib-slide-count{color:var(--mut);}
+  #tn-ib .ib-sec{padding:16px 0 8px;}
+  #tn-ib .ib-sec.ib-hide{display:none;}
+  #tn-ib .ib-center{text-align:center;}
+  #tn-ib .ib-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ib .ib-kicker.center{text-align:center;}
+  #tn-ib .ib-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-ib .ib-h2.center{text-align:center;}
+  #tn-ib .ib-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ib .ib-p b{color:var(--ink); font-weight:700;}
+  #tn-ib .ib-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ib .ib-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-ib .ib-note b{color:var(--ink); font-weight:700;}
+  #tn-ib .ib-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ib .ib-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-ib .ib-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ib .ib-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ib .ib-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* rule colour helpers */
+  #tn-ib .r-a{--r:var(--ra); --rbg:var(--rabg); --rbd:var(--rabd);}
+  #tn-ib .r-b{--r:var(--rb); --rbg:var(--rbbg); --rbd:var(--rbbd);}
+  #tn-ib .r-c{--r:var(--rc); --rbg:var(--rcbg); --rbd:var(--rcbd);}
+  /* title */
+  #tn-ib .ib-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(29px,7vw,45px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-ib .ib-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ib .ib-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ib .ib-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ib .ib-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ib .ib-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ib .ib-vocab-chip.r-a,#tn-ib .ib-vocab-chip.r-b,#tn-ib .ib-vocab-chip.r-c{color:var(--r); background:var(--rbg); border-color:var(--rbd);}
+  #tn-ib .ib-vocab-chip:hover{filter:brightness(.97);}
+  #tn-ib .ib-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ib .ib-vocab-chip.r-a.on,#tn-ib .ib-vocab-chip.r-b.on,#tn-ib .ib-vocab-chip.r-c.on{background:var(--r); color:#fff; border-color:var(--r);}
+  #tn-ib .ib-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ib .ib-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ib .ib-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-ib .ib-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-ib .ib-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-ib .ib-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ib .ib-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-ib .ib-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · admissions desk */
+  #tn-ib .ib-rulebook{background:#16202B; border-radius:14px; padding:13px 16px 14px; margin-bottom:14px;}
+  #tn-ib .ib-rulebook-cap{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#8FE3C2; margin-bottom:9px;}
+  #tn-ib .ib-rule-items{display:grid; grid-template-columns:1fr 1fr; gap:7px 14px;}
+  #tn-ib .ib-rule-item{font-size:12.5px; color:#C7D5E2; line-height:1.4; padding-left:15px; position:relative;}
+  #tn-ib .ib-rule-item::before{content:"✓"; position:absolute; left:0; top:0; color:#8FE3C2; font-weight:800; font-size:11px;}
+  #tn-ib .ib-rule-item b{color:#fff; font-weight:700;}
+  #tn-ib .ib-apps{display:flex; flex-direction:column; gap:10px;}
+  #tn-ib .ib-app{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-ib .ib-app-t{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-ib .ib-app-btns{display:flex; gap:8px;}
+  #tn-ib .ib-app-btns button{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; border-radius:99px; padding:8px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ib .ib-app-btns button[data-p="yes"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ib .ib-app-btns button[data-p="no"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ib .ib-app.done .ib-app-btns button{opacity:.35; pointer-events:none;}
+  #tn-ib .ib-app.done .ib-app-btns button.picked{opacity:1;}
+  #tn-ib .ib-app.done .ib-app-btns button.answer{opacity:1;}
+  #tn-ib .ib-app.done .ib-app-btns button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-ib .ib-app.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-ib .ib-app.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ib .ib-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-ib .ib-why b{font-family:'Poppins',sans-serif;}
+  #tn-ib .ib-app.done .ib-why{display:block;}
+  /* 3 · weight machine */
+  #tn-ib .ib-machine{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:14px 16px 16px;}
+  #tn-ib .ib-modes{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;}
+  #tn-ib .ib-mode{font-family:inherit; background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:12px 10px; cursor:pointer; transition:all .18s;}
+  #tn-ib .ib-mode b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink);}
+  #tn-ib .ib-mode span{display:block; font-size:11.5px; color:var(--ink2); margin-top:2px;}
+  #tn-ib .ib-mode.on{background:var(--rbg); border-color:var(--rbd);}
+  #tn-ib .ib-mode.on b{color:var(--r);}
+  #tn-ib .ib-wrow{display:flex; align-items:center; gap:10px; margin-bottom:9px;}
+  #tn-ib .ib-wrow:last-child{margin-bottom:0;}
+  #tn-ib .ib-wlab{flex:0 0 76px; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:var(--ink2);}
+  #tn-ib .ib-wtrack{flex:1; height:18px; background:#E9EFF4; border-radius:6px; overflow:hidden;}
+  #tn-ib .ib-wtrack i{display:block; height:100%; width:0; border-radius:6px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .55s cubic-bezier(.2,.7,.2,1);}
+  #tn-ib .ib-wval{flex:0 0 50px; text-align:right; font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; color:var(--ink);}
+  #tn-ib .ib-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:12px;}
+  #tn-ib .ib-stat{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:11px 10px; text-align:center;}
+  #tn-ib .ib-stat span{display:block; font-size:10.5px; font-weight:600; color:var(--mut); line-height:1.3;}
+  #tn-ib .ib-stat b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,3.8vw,19px); color:var(--ink); margin-top:4px;}
+  /* 4 · the ripple chain */
+  #tn-ib .ib-chain{display:flex; flex-direction:column;}
+  #tn-ib .ib-link{position:relative; padding-left:0;}
+  #tn-ib .ib-link::after{content:""; position:absolute; left:26px; top:100%; width:2px; height:12px; background:var(--cardbd);}
+  #tn-ib .ib-link.last::after{display:none;}
+  #tn-ib .ib-link + .ib-link{margin-top:12px;}
+  #tn-ib .ib-node{display:flex; align-items:center; gap:12px; width:100%; text-align:left; font-family:inherit;
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:12px 15px; cursor:pointer; transition:all .18s;}
+  #tn-ib .ib-node-n{flex:none; width:26px; height:26px; border-radius:50%; background:var(--cardbd); color:var(--ink2);
+    display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; transition:all .18s;}
+  #tn-ib .ib-node-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px;}
+  #tn-ib .ib-node:hover{border-color:var(--rbd);}
+  #tn-ib .ib-node.on{background:var(--rbg); border-color:var(--rbd);}
+  #tn-ib .ib-node.on .ib-node-n{background:var(--r); color:#fff;}
+  #tn-ib .ib-node.on .ib-node-t{color:var(--r);}
+  #tn-ib .ib-node-d{font-size:13px; color:var(--ink2); line-height:1.55; margin:9px 0 0 38px; display:none;}
+  #tn-ib .ib-link.open .ib-node-d{display:block;}
+  #tn-ib .ib-link.open::after{background:var(--rbd);}
+  /* 5 · three windows */
+  #tn-ib .ib-market{margin-bottom:14px;}
+  #tn-ib .ib-mbar{position:relative; height:62px; border-radius:12px; overflow:hidden;
+    background:linear-gradient(90deg,#1568AE 0%,#3C86BE 22%,#6FA8CF 48%,#A6C8E0 74%,#D2E2EF 100%);}
+  #tn-ib .ib-window{position:absolute; top:0; bottom:0; left:0; width:0;
+    background:rgba(255,255,255,.34); border:2.5px solid #16202B; border-radius:10px;
+    box-shadow:0 0 0 2px rgba(255,255,255,.5) inset;
+    transition:left .5s cubic-bezier(.2,.7,.2,1), width .5s cubic-bezier(.2,.7,.2,1), opacity .3s; opacity:0;}
+  #tn-ib .ib-window.on{opacity:1;}
+  #tn-ib .ib-mends{display:flex; justify-content:space-between; margin-top:7px; font-size:11px; font-weight:600; color:var(--mut);}
+  #tn-ib .ib-wins{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-ib .ib-win{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--r); background:var(--rbg); border:1.5px solid var(--rbd); border-radius:13px; padding:12px 6px; cursor:pointer; transition:all .18s;}
+  #tn-ib .ib-win.on{background:var(--r); color:#fff;}
+  /* 6 · myth sorter */
+  #tn-ib .ib-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ib .ib-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ib .ib-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-ib .ib-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ib .ib-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ib .ib-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ib .ib-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ib .ib-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ib .ib-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ib .ib-sort-row.done .ib-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ib .ib-sort-row.done .ib-sort-btns button.picked{opacity:1;}
+  #tn-ib .ib-sort-row .ib-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-ib .ib-sort-row.done .ib-why{display:block;}
+  /* recap + complete */
+  #tn-ib .ib-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ib .ib-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-ib .ib-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--r,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ib .ib-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-ib .ib-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-ib .ib-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-ib .ib-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ib .ib-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ib-bob 1.6s ease-in-out infinite;}
+  #tn-ib .ib-finish-arrow.up{animation-name:ib-bob-up;}
+  @keyframes ib-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ib-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-ib .ib-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-ib .ib-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ib .ib-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ib .ib-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-ib .ib-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ib .ib-green{color:var(--g);}
+  #tn-ib .ib-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-ib .ib-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-ib .ib-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ib .ib-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-ib .ib-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ib .ib-nav-btn.prev{color:var(--ink2);}
+  #tn-ib .ib-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ib .ib-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-ib .ib-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ib .ib-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ib .ib-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ib .ib-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-ib .ib-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-ib .ib-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .ib-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .ib-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-ib .ib-wrap{padding:12px 14px 30px;}
+    #tn-ib .ib-rule-items{grid-template-columns:1fr;}
+    #tn-ib .ib-modes{grid-template-columns:1fr;}
+    #tn-ib .ib-wins{grid-template-columns:1fr;}
+    #tn-ib .ib-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ib .ib-stats{grid-template-columns:1fr; gap:7px;}
+    #tn-ib .ib-stat{display:flex; align-items:center; justify-content:space-between; text-align:left; padding:9px 13px;}
+    #tn-ib .ib-stat b{margin-top:0;}
+    #tn-ib .ib-wlab{flex:0 0 64px; font-size:11px;}
+    #tn-ib .ib-bsub{display:none;}
+    #tn-ib .ib-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ib .ib-nav{padding-top:10px; row-gap:0;}
+    #tn-ib .ib-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ib .ib-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ib #ib-bar,#tn-ib .ib-wtrack i,#tn-ib .ib-window{transition:none;}
+    #tn-ib .ib-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-ib'); if(!root) return;
+  root.querySelectorAll('.ib-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('ib-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#ib-vocab-def');
+  root.querySelectorAll('#ib-vocab-chips .ib-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ib-vocab-chips .ib-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the admissions desk */
+  var AWHY={
+    big:'In it goes, comfortably. $340B is many times the floor, a decade of profits clears the earnings test, and 92% free float is far above the 10% minimum.',
+    fresh:'In it goes. $45B clears the $22.7B floor, four straight profitable quarters satisfies the earnings test, and it is US-listed and widely traded — comfortable rather than spectacular, which is all the rulebook asks.',
+    profit:'Rejected on profits. The index wants positive earnings last quarter and across the last four combined. Size and excitement count for nothing here.',
+    float:'Rejected on free float. With 94% locked up, only 6% of the shares actually trade, and the index needs at least 10% available.'
+  };
+  var admCount=root.querySelector('#ib-adm-count');
+  root.querySelectorAll('#ib-apps .ib-app').forEach(function(row){
+    var ans=row.getAttribute('data-ans'), rule=row.getAttribute('data-rule'),
+        why=row.querySelector('.ib-why');
+    row.querySelectorAll('.ib-app-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var ok=(btn.getAttribute('data-p')===ans);
+        btn.classList.add('picked');
+        row.querySelectorAll('.ib-app-btns button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        row.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right — ':'Actually, ')+(ans==='yes'?'admit':'reject')+'.</b> '+AWHY[rule];
+        var n=root.querySelectorAll('#ib-apps .ib-app.done').length;
+        admCount.textContent='Judged '+n+' Of 4';
+        state('adm', n); postHeight();
+      });
+    });
+  });
+  var admReset=root.querySelector('#ib-adm-reset');
+  if(admReset) admReset.addEventListener('click',function(){
+    root.querySelectorAll('#ib-apps .ib-app').forEach(function(r){
+      r.classList.remove('done','right','off');
+      r.querySelector('.ib-why').innerHTML='';
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    admCount.textContent='Judged 0 Of 4'; postHeight();
+  });
+
+  /* 3 · the weight machine (creative 1 of 2) */
+  var WT={
+    cap:{ w:[7.5,6.8,6.0,4.2,3.5], big:'7.5%', top:'38.6%', dol:'$75',
+          note:'Cap-weighting hands the most money to whatever is already largest. Buy VOO and about 38.6% of every dollar lands in ten companies.' },
+    eq: { w:[0.2,0.2,0.2,0.2,0.2], big:'0.20%', top:'2.0%', dol:'$2',
+          note:'Equal weighting gives all 500 the same slice, so RSP’s biggest holding is also its smallest. Same companies, and your money is somewhere else entirely.' }
+  };
+  var wSeen={}, wRows=root.querySelectorAll('#ib-wbars .ib-wrow'),
+      wBig=root.querySelector('#ib-w-big'), wTop=root.querySelector('#ib-w-top'),
+      wDol=root.querySelector('#ib-w-dol'), wNote=root.querySelector('#ib-w-note'),
+      wCount=root.querySelector('#ib-w-count');
+  function setMode(k,record){
+    var m=WT[k], max=Math.max.apply(null,m.w);
+    wRows.forEach(function(row,i){
+      row.querySelector('.ib-wtrack i').style.width=(m.w[i]/max*100)+'%';
+      row.querySelector('.ib-wval').textContent=(k==='eq'?'0.20%':m.w[i].toFixed(1)+'%');
+    });
+    wBig.textContent=m.big; wTop.textContent=m.top; wDol.textContent=m.dol;
+    wNote.textContent=m.note;
+    if(record){
+      wSeen[k]=1; wCount.textContent='Flipped '+keys(wSeen)+' Of 2';
+      state('wt', keys(wSeen));
+    }
+    postHeight();
+  }
+  root.querySelectorAll('#ib-modes .ib-mode').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ib-modes .ib-mode').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); setMode(b.getAttribute('data-k'), true);
+    });
+  });
+  setMode('cap', false);
+
+  /* 4 · the ripple chain (creative 2 of 2) */
+  var chainCount=root.querySelector('#ib-chain-count');
+  root.querySelectorAll('#ib-chain .ib-node').forEach(function(node){
+    node.addEventListener('click',function(){
+      node.classList.add('on');
+      node.parentNode.classList.add('open');
+      var n=root.querySelectorAll('#ib-chain .ib-link.open').length;
+      chainCount.textContent='Followed '+n+' Of 4';
+      state('chain', n); postHeight();
+    });
+  });
+  var chainReset=root.querySelector('#ib-chain-reset');
+  if(chainReset) chainReset.addEventListener('click',function(){
+    root.querySelectorAll('#ib-chain .ib-link').forEach(function(l){ l.classList.remove('open'); });
+    root.querySelectorAll('#ib-chain .ib-node').forEach(function(n){ n.classList.remove('on'); });
+    chainCount.textContent='Followed 0 Of 4'; postHeight();
+  });
+
+  /* 5 · three windows on one market */
+  var WIN={
+    sp: {l:0, w:15, t:'S&P 500 — The Left Edge',
+         d:'500 large companies: about 15% of the names, and roughly 80% of all US stock market value. A small slice of the list, most of the money.'},
+    r2: {l:30, w:61, t:'Russell 2000 — The Long Tail',
+         d:'The 2,000 companies ranked below the largest 1,000. The standard small-cap benchmark, and it skips the giants entirely.'},
+    tot:{l:0, w:100, t:'Total Market — All Of It',
+         d:'Essentially every US listed company. VTI tracks the CRSP US Total Market Index and holds 3,303 of them for 0.03% a year.'}
+  };
+  var winSeen={}, winEl=root.querySelector('#ib-window'),
+      winT=root.querySelector('#ib-win-t'), winD=root.querySelector('#ib-win-d'),
+      winCount=root.querySelector('#ib-win-count');
+  root.querySelectorAll('#ib-wins .ib-win').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ib-wins .ib-win').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k'), v=WIN[k];
+      winEl.classList.add('on');
+      winEl.style.left=v.l+'%'; winEl.style.width=v.w+'%';
+      winT.textContent=v.t; winD.textContent=v.d;
+      winSeen[k]=1; winCount.textContent='Opened '+keys(winSeen)+' Of 3';
+      state('win', keys(winSeen)); postHeight();
+    });
+  });
+
+  /* 6 · myth or fact */
+  var mythCount=root.querySelector('#ib-myth-count');
+  root.querySelectorAll('#ib-myth .ib-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ib-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ib-myth .ib-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#ib-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#ib-myth .ib-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('ib-fin-arrow'), lead=document.getElementById('ib-fin-lead'), sub=document.getElementById('ib-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-ib'); if(!root) return;
+  var ALT={
+    'index':'indexe?s?',
+    'eligibility rules':'eligibility rules?|eligibility',
+    'weighting':'weightings?|cap-weighting|cap-weighted|equal weighting|equal-weighted|weighted',
+    'reconstitution':'reconstitutions?',
+    'free float':'free float|public float'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#ib-vocab-chips .ib-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.ib-p, .ib-sub, .ib-note, .ib-why, .ib-recap-item span, .ib-h2, .ib-next-move, .ib-sort-row > span, .ib-app-t, .ib-node-d, .ib-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.ib-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='ib-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='ib-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ib-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.ib-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ib'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#ib-bar'), labelEl=root.querySelector('#ib-slide-label'),
+      countEl=root.querySelector('#ib-slide-count'), prevBtn=root.querySelector('#ib-prev'),
+      nextBtn=root.querySelector('#ib-next'), hintEl=root.querySelector('#ib-nav-hint'),
+      disclaimer=root.querySelector('.ib-disclaimer');
+  var labels={1:'Start Here',2:'The Admissions Desk',3:'The Weight Machine',4:'The Ripple',5:'Three Windows',6:'Myth Or Fact',7:'Recap',8:'Complete'};
+  var reqHints={2:'Judge all 4 applicants to continue',3:'Flip both modes to continue',4:'Follow all 4 links to continue',5:'Open all 3 indexes to continue',6:'Answer all 5 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.ib-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ib-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ib-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'adm',   need:4, hint:function(n){ return 'Judged '+n+' of 4 — judge them all to continue'; }},
+    {step:3, key:'wt',    need:2, hint:function(n){ return n<1?'Flip both modes to continue':'Now try the other mode'; }},
+    {step:4, key:'chain', need:4, hint:function(n){ return 'Followed '+n+' of 4 — tap every link to continue'; }},
+    {step:5, key:'win',   need:3, hint:function(n){ return 'Opened '+n+' of 3 — open them all to continue'; }},
+    {step:6, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }}
+  ];
+  root.addEventListener('ib-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

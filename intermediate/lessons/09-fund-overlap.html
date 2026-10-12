@@ -1,0 +1,733 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — FUND OVERLAP: OWNING THE SAME THING TWICE
+     (Intermediate · Module 2 · Lesson 9)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ov. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     Fund palette used as DATA colour, not decoration:
+       VOO = blue #1568AE · VTI = teal #12a08a · QQQ = gold #D99A23
+       1  Title & Key Terms (never gated)  2  The Three Funds
+       3  The Overlap Lens (Venn)          4  The X-Ray (company grid)
+       5  Myth Or Fact (5)                 6  What Would You Do? (3)
+       7  Recap (6)                        8  Complete
+     Creative widgets, 2 of 2 allowed: the animated Venn lens on slide 3 and
+     the company-by-fund X-ray grid on slide 4. Everything else is standard.
+     Five distinct mechanics, none repeated within the lesson: fund cards,
+     Venn pair picker, X-ray row grid, myth sorter, scenario decisions.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     Real figures (sourced, as of writing): VOO and VTI overlap 88.6% by weight;
+     VOO and QQQ roughly 35-46% by weight depending on method, so the lesson
+     says "about half"; VTI and VXUS hold US and non-US companies respectively,
+     so their overlap is near zero by construction. QQQ tracks the Nasdaq-100,
+     holds about 101 companies and charges 0.20%. The Nasdaq-100 excludes
+     financial companies, which is why JPMorgan sits in VOO and VTI but not QQQ.
+     Holdings counts are deliberately not restated here; Lesson 8 carries them.
+     ============================================================ -->
+<div id="tn-ov">
+  <div class="ov-wrap">
+    <div class="ov-top">
+      <div class="ov-topbar">
+        <div class="ov-brand"><span class="ov-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="ov-word">TURNIT</span><span class="ov-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="ov-progress"><span id="ov-bar"></span></div>
+      <div class="ov-meta"><span id="ov-slide-label">Start Here</span><span id="ov-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="ov-sec ov-center ov-reveal" data-step="1">
+      <p class="ov-kicker center">Funds Under The Hood · 1 / 8</p>
+      <h1 class="ov-hero-title">OWNING THE SAME <span class="ov-hero-grad">THING TWICE</span></h1>
+      <p class="ov-sub center">Three funds can feel like three decisions and add up to one. Here is how to see it.</p>
+      <div class="ov-vocab">
+        <span class="ov-vocab-label">Key Terms In This Lesson</span>
+        <div class="ov-vocab-chips" id="ov-vocab-chips">
+          <button type="button" class="ov-vocab-chip f-a" data-t="Overlap" data-def="The companies two funds both hold. Counting them is easy; what matters is how much of your money sits in them.">Overlap</button>
+          <button type="button" class="ov-vocab-chip f-b" data-t="Weighted Overlap" data-def="Overlap measured by money rather than by name count. Two funds can share a small share of their holdings and still put most of your money in the same places.">Weighted Overlap</button>
+          <button type="button" class="ov-vocab-chip f-c" data-t="Double Counting" data-def="Treating two overlapping funds as two separate bets. The position is bigger than it looks, and so is the risk attached to it.">Double Counting</button>
+          <button type="button" class="ov-vocab-chip f-a" data-t="Concentration" data-def="How much of your money depends on a small number of companies. Overlap raises it quietly, without any single purchase looking aggressive.">Concentration</button>
+          <button type="button" class="ov-vocab-chip f-b" data-t="Complement" data-def="A fund that holds what your existing funds do not. It is the only kind of addition that actually widens what you own.">Complement</button>
+        </div>
+        <div class="ov-vocab-def" id="ov-vocab-def">Tap a term to see what it means.</div>
+        <span class="ov-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="ov-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE THREE FUNDS ========== -->
+    <section class="ov-sec ov-reveal" data-step="2">
+      <p class="ov-kicker">The Portfolio · 2 / 8</p>
+      <h2 class="ov-h2">Three Funds, Bought On Purpose</h2>
+      <p class="ov-p">A common starting portfolio. Tap each one to see what its rules actually buy.</p>
+      <div class="ov-funds" id="ov-funds">
+        <button type="button" class="ov-fund f-a" data-k="voo"><span class="ov-fund-t">VOO</span><span class="ov-fund-s">The S&amp;P 500</span></button>
+        <button type="button" class="ov-fund f-b" data-k="vti"><span class="ov-fund-t">VTI</span><span class="ov-fund-s">The Whole US Market</span></button>
+        <button type="button" class="ov-fund f-c" data-k="qqq"><span class="ov-fund-t">QQQ</span><span class="ov-fund-s">The Nasdaq-100</span></button>
+      </div>
+      <div class="ov-reveal-box" id="ov-fund-box"><b id="ov-fund-t">Tap A Fund</b><span id="ov-fund-d">Three different names, three different rulebooks. That part is true.</span></div>
+      <p class="ov-count" id="ov-fund-count">Reviewed 0 Of 3</p>
+      <div class="ov-note">Nothing here is a mistake on its own. The overlap — and the concentration it creates — only appears when you hold them together.</div>
+    </section>
+
+    <!-- ========== 3 · THE OVERLAP LENS ========== -->
+    <section class="ov-sec ov-reveal" data-step="3">
+      <p class="ov-kicker">The Lens · 3 / 8</p>
+      <h2 class="ov-h2">How Much Is The Same?</h2>
+      <p class="ov-p">Pick a pair. The circles move to the real weighted overlap between them.</p>
+      <div class="ov-lens">
+        <svg class="ov-venn" viewBox="0 0 340 200" role="img" aria-label="Two circles showing how much two funds overlap">
+          <circle class="ov-c1" id="ov-c1" cx="153" cy="100" r="62"/>
+          <circle class="ov-c2" id="ov-c2" cx="187" cy="100" r="62"/>
+          <text class="ov-cl1" id="ov-cl1" x="100" y="26" text-anchor="middle">VOO</text>
+          <text class="ov-cl2" id="ov-cl2" x="240" y="26" text-anchor="middle">VTI</text>
+        </svg>
+        <div class="ov-lens-read"><b id="ov-ov-pct">88.6%</b><span id="ov-ov-lab">Of VTI's Money Is In The Same Companies As VOO</span></div>
+      </div>
+      <div class="ov-pairs" id="ov-pairs">
+        <button type="button" class="ov-pair on" data-k="a">VOO + VTI</button>
+        <button type="button" class="ov-pair" data-k="b">VOO + QQQ</button>
+        <button type="button" class="ov-pair" data-k="c">VTI + VXUS</button>
+      </div>
+      <div class="ov-note" id="ov-lens-note">Try all three and watch where the circles pull apart.</div>
+      <p class="ov-count" id="ov-lens-count">Compared 0 Of 3</p>
+      <p class="ov-disclaimer-inline">The circles are a schematic, not a scale drawing; the percentage beside them is the figure that matters. Overlap numbers come from published fund holdings at the time of writing and shift as the funds do. Different tools measure overlap differently, which is why the VOO and QQQ figure is given as a range.</p>
+    </section>
+
+    <!-- ========== 4 · THE X-RAY ========== -->
+    <section class="ov-sec ov-reveal" data-step="4">
+      <p class="ov-kicker">The X-Ray · 4 / 8</p>
+      <h2 class="ov-h2">Which Funds Hold This Company?</h2>
+      <p class="ov-p">Tap a company to see where it shows up. Double counting is easiest to spot one name at a time.</p>
+      <div class="ov-xray" id="ov-xray">
+        <div class="ov-xhead"><span></span><i class="f-a">VOO</i><i class="f-b">VTI</i><i class="f-c">QQQ</i></div>
+        <button type="button" class="ov-xrow" data-k="aapl" data-in="111"><span class="ov-xname">Apple</span><em class="f-a"></em><em class="f-b"></em><em class="f-c"></em></button>
+        <button type="button" class="ov-xrow" data-k="msft" data-in="111"><span class="ov-xname">Microsoft</span><em class="f-a"></em><em class="f-b"></em><em class="f-c"></em></button>
+        <button type="button" class="ov-xrow" data-k="nvda" data-in="111"><span class="ov-xname">Nvidia</span><em class="f-a"></em><em class="f-b"></em><em class="f-c"></em></button>
+        <button type="button" class="ov-xrow" data-k="jpm" data-in="110"><span class="ov-xname">JPMorgan Chase</span><em class="f-a"></em><em class="f-b"></em><em class="f-c"></em></button>
+        <button type="button" class="ov-xrow" data-k="small" data-in="010"><span class="ov-xname">A Small Regional Manufacturer</span><em class="f-a"></em><em class="f-b"></em><em class="f-c"></em></button>
+      </div>
+      <div class="ov-reveal-box" id="ov-x-box"><b id="ov-x-t">Tap A Row</b><span id="ov-x-d">Three funds, one column each. Watch which rows fill up and which stay empty.</span></div>
+      <div class="ov-note">The names at the top are the ones every fund agrees on, and that agreement is where concentration comes from.</div>
+      <p class="ov-count" id="ov-x-count">Scanned 0 Of 5</p>
+      <div class="ov-reset-row"><button type="button" class="ov-reset-btn" id="ov-x-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="ov-sec ov-reveal" data-step="5">
+      <p class="ov-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="ov-h2">Myth Or Fact?</h2>
+      <p class="ov-p">Five claims about holding more than one fund. Tap your answer.</p>
+      <div class="ov-sort" id="ov-myth">
+        <div class="ov-sort-row" data-answer="myth"><span>More funds means more diversification.</span><div class="ov-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ov-why"><b>Myth.</b> Adding a fund only widens what you own if it holds something new. Three funds that all buy large US companies is one bet bought three times.</p></div>
+        <div class="ov-sort-row" data-answer="fact"><span>Two funds can share few holdings and still overlap heavily.</span><div class="ov-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ov-why"><b>Fact.</b> This is why weighted overlap matters. What counts is where the money sits, not how many names appear on both lists.</p></div>
+        <div class="ov-sort-row" data-answer="myth"><span>Overlap means you are paying fees twice on the same company.</span><div class="ov-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ov-why"><b>Myth.</b> Each fund charges only on the money you hold in it, so nothing is billed twice. The cost of overlap is concentration you did not choose, not a double fee.</p></div>
+        <div class="ov-sort-row" data-answer="fact"><span>A total US market fund already contains the entire S&amp;P 500.</span><div class="ov-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ov-why"><b>Fact.</b> VTI holds the whole US market, so every company in VOO is inside it already. Buying both means part of your money is counted twice.</p></div>
+        <div class="ov-sort-row" data-answer="myth"><span>If two funds overlap, one of them is the wrong fund.</span><div class="ov-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ov-why"><b>Myth.</b> Overlap is a fact to measure, not a verdict. Holding one of the two deliberately is fine; holding both while believing you are spread across two different things is the actual problem.</p></div>
+      </div>
+      <p class="ov-count" id="ov-myth-count">Answered 0 Of 5</p>
+      <div class="ov-reset-row"><button type="button" class="ov-reset-btn" id="ov-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHAT WOULD YOU DO? ========== -->
+    <section class="ov-sec ov-reveal" data-step="6">
+      <p class="ov-kicker">Your Move · 6 / 8</p>
+      <h2 class="ov-h2">Three Decisions</h2>
+      <p class="ov-p">You own all three funds. Pick the honest answer.</p>
+      <div class="ov-cases" id="ov-cases">
+        <div class="ov-case" data-ans="0">
+          <p class="ov-case-q">Holding VOO and VTI in equal amounts means you are:</p>
+          <div class="ov-copts"><button type="button" data-i="0">Leaning harder into large US companies</button><button type="button" data-i="1">Spread across two separate markets</button><button type="button" data-i="2">Hedging one fund against the other</button></div>
+          <p class="ov-why"></p>
+        </div>
+        <div class="ov-case" data-ans="2">
+          <p class="ov-case-q">You want to actually widen what you own. Which addition does most?</p>
+          <div class="ov-copts"><button type="button" data-i="0">Another S&amp;P 500 fund from a different company</button><button type="button" data-i="1">A large-cap growth fund</button><button type="button" data-i="2">A total international fund</button></div>
+          <p class="ov-why"></p>
+        </div>
+        <div class="ov-case" data-ans="1">
+          <p class="ov-case-q">You find 90% overlap between two funds you hold. The real cost is:</p>
+          <div class="ov-copts"><button type="button" data-i="0">You pay roughly double the fees</button><button type="button" data-i="1">You are less diversified than you believed</button><button type="button" data-i="2">Your returns are cut in half</button></div>
+          <p class="ov-why"></p>
+        </div>
+      </div>
+      <p class="ov-count" id="ov-case-count">Answered 0 Of 3</p>
+      <div class="ov-reset-row"><button type="button" class="ov-reset-btn" id="ov-case-reset">↺ Start Over</button></div>
+      <p class="ov-disclaimer-inline">Educational illustration, not a recommendation. What belongs in your own portfolio depends on facts this lesson cannot see.</p>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="ov-sec ov-reveal" data-step="7">
+      <p class="ov-kicker">Recap · 7 / 8</p>
+      <h2 class="ov-h2">Here's What You Now Know</h2>
+      <p class="ov-p">The whole lesson, in six lines.</p>
+      <div class="ov-recap">
+        <div class="ov-recap-item"><span class="ov-recap-check f-a">✓</span><span>Fund names tell you nothing about whether two funds hold the same companies.</span></div>
+        <div class="ov-recap-item"><span class="ov-recap-check f-b">✓</span><span>Weighted overlap is the number that matters — where the money sits, not how many names match.</span></div>
+        <div class="ov-recap-item"><span class="ov-recap-check f-c">✓</span><span>VOO and VTI overlap about 88.6% by weight, because the whole US market already contains the S&amp;P 500.</span></div>
+        <div class="ov-recap-item"><span class="ov-recap-check f-a">✓</span><span>Overlap costs you concentration, not double fees — the position is bigger than it looks.</span></div>
+        <div class="ov-recap-item"><span class="ov-recap-check f-b">✓</span><span>A real complement holds what you don't already own; another large US fund does not.</span></div>
+        <div class="ov-recap-item"><span class="ov-recap-check f-c">✓</span><span>Overlap is a measurement, not a verdict. Holding one deliberately beats holding both by accident.</span></div>
+      </div>
+      <div class="ov-next-move">Your next move: <b>list every fund you own and find their three largest holdings.</b> If the same names keep appearing, you already have your answer.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="ov-sec ov-center ov-reveal" data-step="8">
+      <p class="ov-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="ov-hero-ico">🚀</span>
+      <h2 class="ov-h2 center">You've Finished The Lesson</h2>
+      <p class="ov-sub center">You can now tell the difference between owning more funds and owning more.</p>
+      <div class="ov-finish">
+        <span class="ov-finish-arrow" id="ov-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ov-finish-lead" id="ov-fin-lead">Scroll Down To Continue</p>
+        <p class="ov-finish-sub" id="ov-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ov-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ov-pullquote">"WIDE DIVERSIFICATION IS ONLY REQUIRED WHEN INVESTORS <span class="ov-green">DO NOT UNDERSTAND WHAT THEY ARE DOING.</span>"<br><span class="ov-pullquote-by">— WARREN BUFFETT</span></p>
+    </section>
+
+    <p class="ov-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Overlap figures and fund holdings were published at the time of writing and change constantly — check current holdings before acting. Funds are named because they are widely held and easy to look up, not as recommendations. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="ov-nav" id="ov-nav">
+      <button type="button" class="ov-nav-btn prev" id="ov-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ov-nav-hint" id="ov-nav-hint"></span>
+      <button type="button" class="ov-nav-btn next" id="ov-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ov{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* fund palette — used as data colour throughout */
+    --fa:#1568AE; --fabg:#EAF1FA; --fabd:#C5DBEF;
+    --fb:#12a08a; --fbbg:#E6F6F2; --fbbd:#BCE5DC;
+    --fc:#D99A23; --fcbg:#FBF2DF; --fcbd:#F0DCA9;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-ov *,#tn-ov *::before,#tn-ov *::after{box-sizing:border-box;}
+  #tn-ov .ov-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ov .ov-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ov .ov-reveal.in{opacity:1; transform:none;}
+  #tn-ov .ov-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ov .ov-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ov .ov-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-ov .ov-bico{display:flex;}
+  #tn-ov .ov-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ov .ov-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ov .ov-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ov #ov-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ov .ov-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ov .ov-meta #ov-slide-label{color:var(--ink2);}
+  #tn-ov .ov-meta #ov-slide-count{color:var(--mut);}
+  #tn-ov .ov-sec{padding:16px 0 8px;}
+  #tn-ov .ov-sec.ov-hide{display:none;}
+  #tn-ov .ov-center{text-align:center;}
+  #tn-ov .ov-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ov .ov-kicker.center{text-align:center;}
+  #tn-ov .ov-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-ov .ov-h2.center{text-align:center;}
+  #tn-ov .ov-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ov .ov-p b{color:var(--ink); font-weight:700;}
+  #tn-ov .ov-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ov .ov-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-ov .ov-note b{color:var(--ink); font-weight:700;}
+  #tn-ov .ov-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ov .ov-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-ov .ov-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ov .ov-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ov .ov-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* fund colour helpers */
+  #tn-ov .f-a{--f:var(--fa); --fbg:var(--fabg); --fbd:var(--fabd);}
+  #tn-ov .f-b{--f:var(--fb); --fbg:var(--fbbg); --fbd:var(--fbbd);}
+  #tn-ov .f-c{--f:var(--fc); --fbg:var(--fcbg); --fbd:var(--fcbd);}
+  /* title */
+  #tn-ov .ov-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.6vw,44px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-ov .ov-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ov .ov-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ov .ov-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ov .ov-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ov .ov-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ov .ov-vocab-chip.f-a,#tn-ov .ov-vocab-chip.f-b,#tn-ov .ov-vocab-chip.f-c{color:var(--f); background:var(--fbg); border-color:var(--fbd);}
+  #tn-ov .ov-vocab-chip:hover{filter:brightness(.97);}
+  #tn-ov .ov-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ov .ov-vocab-chip.f-a.on,#tn-ov .ov-vocab-chip.f-b.on,#tn-ov .ov-vocab-chip.f-c.on{background:var(--f); color:#fff; border-color:var(--f);}
+  #tn-ov .ov-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ov .ov-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ov .ov-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-ov .ov-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-ov .ov-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-ov .ov-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ov .ov-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-ov .ov-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · fund cards */
+  #tn-ov .ov-funds{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  #tn-ov .ov-fund{font-family:inherit; background:var(--fbg); border:1.5px solid var(--fbd); border-radius:15px; padding:15px 10px 13px; cursor:pointer; transition:all .18s;}
+  #tn-ov .ov-fund-t{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; color:var(--f); letter-spacing:.01em;}
+  #tn-ov .ov-fund-s{display:block; font-size:11.5px; color:var(--ink2); margin-top:3px; line-height:1.35;}
+  #tn-ov .ov-fund.on{box-shadow:0 0 0 3px var(--fbd); transform:translateY(-2px);}
+  /* 3 · the overlap lens */
+  #tn-ov .ov-lens{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:10px 14px 16px;}
+  #tn-ov .ov-venn{display:block; width:100%; max-width:380px; height:auto; margin:0 auto;}
+  #tn-ov .ov-c1{fill:rgba(21,104,174,.42); stroke:#1568AE; stroke-width:2.5; transition:cx .6s cubic-bezier(.3,1.2,.4,1);}
+  #tn-ov .ov-c2{fill:rgba(18,160,138,.42); stroke:#12a08a; stroke-width:2.5; transition:cx .6s cubic-bezier(.3,1.2,.4,1);}
+  #tn-ov .ov-cl1,#tn-ov .ov-cl2{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; transition:x .6s cubic-bezier(.3,1.2,.4,1);}
+  #tn-ov .ov-cl1{fill:#1568AE;} #tn-ov .ov-cl2{fill:#12a08a;}
+  #tn-ov .ov-lens-read{text-align:center; margin-top:4px;}
+  #tn-ov .ov-lens-read b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(30px,8vw,42px); line-height:1.05; color:var(--ink);}
+  #tn-ov .ov-lens-read span{display:block; font-size:12.5px; color:var(--ink2); margin-top:4px; line-height:1.4;}
+  #tn-ov .ov-pairs{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:12px;}
+  #tn-ov .ov-pair{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:11px 5px; cursor:pointer; transition:all .18s;}
+  #tn-ov .ov-pair:hover{border-color:var(--selbd);}
+  #tn-ov .ov-pair.on{background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  /* 4 · the x-ray */
+  #tn-ov .ov-xray{border:1.5px solid var(--cardbd); border-radius:14px; overflow:hidden;}
+  #tn-ov .ov-xhead{display:grid; grid-template-columns:1fr 46px 46px 46px; gap:0; background:#16202B; padding:9px 13px;}
+  #tn-ov .ov-xhead i{font-style:normal; text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5px; color:var(--f);}
+  #tn-ov .ov-xrow{display:grid; grid-template-columns:1fr 46px 46px 46px; align-items:center; width:100%; text-align:left;
+    font-family:inherit; background:#fff; border:none; border-top:1px solid var(--cardbd); padding:12px 13px; cursor:pointer; transition:background .18s;}
+  #tn-ov .ov-xrow:first-of-type{border-top:none;}
+  #tn-ov .ov-xrow:hover{background:var(--mist);}
+  #tn-ov .ov-xrow.on{background:var(--tint);}
+  #tn-ov .ov-xname{font-size:13.5px; font-weight:600; color:var(--ink); line-height:1.3; padding-right:6px;}
+  #tn-ov .ov-xrow em{justify-self:center; font-style:normal; width:24px; height:24px; border-radius:50%;
+    background:#EDF1F5; border:1.5px solid var(--cardbd); display:flex; align-items:center; justify-content:center;
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; color:var(--mut); transition:all .25s;}
+  #tn-ov .ov-xrow em.hit{background:var(--f); border-color:var(--f); color:#fff;}
+  #tn-ov .ov-xrow em.hit::after{content:"\2713";}
+  #tn-ov .ov-xrow em.miss::after{content:"\2013"; color:var(--mut);}
+  /* 5 · myth sorter */
+  #tn-ov .ov-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ov .ov-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ov .ov-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-ov .ov-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ov .ov-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ov .ov-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ov .ov-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ov .ov-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ov .ov-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ov .ov-sort-row.done .ov-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ov .ov-sort-row.done .ov-sort-btns button.picked{opacity:1;}
+  #tn-ov .ov-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-ov .ov-why b{font-family:'Poppins',sans-serif;}
+  #tn-ov .ov-sort-row .ov-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-ov .ov-sort-row.done .ov-why{display:block;}
+  /* 6 · decisions */
+  #tn-ov .ov-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-ov .ov-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-ov .ov-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-ov .ov-copts{display:flex; flex-direction:column; gap:7px;}
+  #tn-ov .ov-copts button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 13px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ov .ov-copts button:hover{border-color:var(--selbd);}
+  #tn-ov .ov-case.done .ov-copts button{opacity:.35; pointer-events:none;}
+  #tn-ov .ov-case.done .ov-copts button.picked{opacity:1;}
+  #tn-ov .ov-case.done .ov-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-ov .ov-case.done .ov-copts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-ov .ov-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-ov .ov-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ov .ov-case.done .ov-why{display:block;}
+  /* recap + complete */
+  #tn-ov .ov-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ov .ov-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-ov .ov-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--f,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ov .ov-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-ov .ov-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-ov .ov-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-ov .ov-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ov .ov-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ov-bob 1.6s ease-in-out infinite;}
+  #tn-ov .ov-finish-arrow.up{animation-name:ov-bob-up;}
+  @keyframes ov-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ov-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-ov .ov-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-ov .ov-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ov .ov-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ov .ov-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-ov .ov-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ov .ov-green{color:var(--g);}
+  #tn-ov .ov-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-ov .ov-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-ov .ov-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ov .ov-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-ov .ov-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ov .ov-nav-btn.prev{color:var(--ink2);}
+  #tn-ov .ov-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ov .ov-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-ov .ov-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ov .ov-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ov .ov-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ov .ov-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-ov .ov-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-ov .ov-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .ov-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .ov-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-ov .ov-wrap{padding:12px 14px 30px;}
+    #tn-ov .ov-funds{grid-template-columns:1fr;}
+    #tn-ov .ov-fund{display:flex; align-items:baseline; gap:10px; text-align:left; padding:12px 15px;}
+    #tn-ov .ov-fund-s{margin-top:0;}
+    #tn-ov .ov-pairs{grid-template-columns:1fr;}
+    #tn-ov .ov-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ov .ov-xhead,#tn-ov .ov-xrow{grid-template-columns:1fr 38px 38px 38px; padding-left:11px; padding-right:11px;}
+    #tn-ov .ov-xname{font-size:12.5px;}
+    #tn-ov .ov-bsub{display:none;}
+    #tn-ov .ov-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ov .ov-nav{padding-top:10px; row-gap:0;}
+    #tn-ov .ov-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ov .ov-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ov #ov-bar,#tn-ov .ov-c1,#tn-ov .ov-c2,#tn-ov .ov-cl1,#tn-ov .ov-cl2,#tn-ov .ov-xrow em{transition:none;}
+    #tn-ov .ov-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-ov'); if(!root) return;
+  root.querySelectorAll('.ov-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('ov-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#ov-vocab-def');
+  root.querySelectorAll('#ov-vocab-chips .ov-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ov-vocab-chips .ov-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the three funds */
+  var FUND={
+    voo:['VOO — The 500 Largest','Follows the S&P 500: the biggest US companies, each held in proportion to its size. A reasonable single holding for a lot of people.'],
+    vti:['VTI — Everything In The US','Follows the whole US market, from the giants down to the small names. Also cap-weighted, so the giants still take up most of the room.'],
+    qqq:['QQQ — The Nasdaq-100','Follows the 100 largest non-financial companies listed on the Nasdaq. Heavily tilted toward technology, and it charges 0.20% against VOO’s 0.03%.']
+  };
+  var fSeen={}, fT=root.querySelector('#ov-fund-t'), fD=root.querySelector('#ov-fund-d'),
+      fCount=root.querySelector('#ov-fund-count');
+  root.querySelectorAll('#ov-funds .ov-fund').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ov-funds .ov-fund').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      fT.textContent=FUND[k][0]; fD.textContent=FUND[k][1];
+      fSeen[k]=1; fCount.textContent='Reviewed '+keys(fSeen)+' Of 3';
+      state('fund', keys(fSeen)); postHeight();
+    });
+  });
+
+  /* 3 · the overlap lens (creative 1 of 2) */
+  var R=62, CX=170;
+  var PAIR={
+    a:{ov:0.886, pct:'88.6%', l:'VOO', r:'VTI', lc:'#1568AE', rc:'#12a08a',
+        lab:'Of VTI’s Money Is In The Same Companies As VOO',
+        note:'The whole US market already contains the S&P 500, so these are not two bets. Holding both just buys part of one of them a second time.'},
+    b:{ov:0.46, pct:'~46%', l:'VOO', r:'QQQ', lc:'#1568AE', rc:'#D99A23',
+        lab:'Of QQQ’s Money Sits In Companies VOO Already Owns',
+        note:'Different names, different index, different fee — and roughly half the same money. Estimates range from about 35% to 46% depending on how the tool measures it.'},
+    c:{ov:0.02, pct:'~0%', l:'VTI', r:'VXUS', lc:'#12a08a', rc:'#D99A23',
+        lab:'Overlap Between A US Fund And An International One',
+        note:'This is what a real complement looks like. One holds US companies, the other holds everything outside the US, so almost nothing is counted twice.'}
+  };
+  var lSeen={}, c1=root.querySelector('#ov-c1'), c2=root.querySelector('#ov-c2'),
+      cl1=root.querySelector('#ov-cl1'), cl2=root.querySelector('#ov-cl2'),
+      ovPct=root.querySelector('#ov-ov-pct'), ovLab=root.querySelector('#ov-ov-lab'),
+      lensNote=root.querySelector('#ov-lens-note'), lensCount=root.querySelector('#ov-lens-count');
+  function setPair(k, record){
+    var p=PAIR[k], d=(1-p.ov)*(2*R);
+    c1.setAttribute('cx', (CX-d/2).toFixed(1));
+    c2.setAttribute('cx', (CX+d/2).toFixed(1));
+    c1.style.fill='rgba(21,104,174,.42)'; c1.style.stroke=p.lc;
+    c2.style.stroke=p.rc;
+    c2.style.fill = p.rc==='#12a08a' ? 'rgba(18,160,138,.42)' : 'rgba(217,154,35,.42)';
+    cl1.textContent=p.l; cl2.textContent=p.r;
+    cl1.style.fill=p.lc; cl2.style.fill=p.rc;
+    cl1.setAttribute('x', Math.max(34,(CX-d/2-R+14)).toFixed(0));
+    cl2.setAttribute('x', Math.min(306,(CX+d/2+R-14)).toFixed(0));
+    ovPct.textContent=p.pct; ovLab.textContent=p.lab; lensNote.textContent=p.note;
+    if(record){
+      lSeen[k]=1; lensCount.textContent='Compared '+keys(lSeen)+' Of 3';
+      state('lens', keys(lSeen));
+    }
+    postHeight();
+  }
+  root.querySelectorAll('#ov-pairs .ov-pair').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ov-pairs .ov-pair').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); setPair(b.getAttribute('data-k'), true);
+    });
+  });
+  setPair('a', false);
+
+  /* 4 · the x-ray (creative 2 of 2) */
+  var XR={
+    aapl:['In All Three','One of the largest companies in the US, so it is in the S&P 500, in the total market fund, and in the Nasdaq-100. Three funds, one company, three times over.'],
+    msft:['In All Three Again','Same story. The companies big enough to dominate one of these funds are big enough to dominate all of them.'],
+    nvda:['And Again','By the time you have bought your third fund, your three largest positions are the same three companies — just bought through different doors.'],
+    jpm:['In Two Of Three','A major US bank sits in the S&P 500 and the total market, but not in QQQ: the Nasdaq-100 leaves financial companies out by rule. This is the kind of gap a fund name never tells you about.'],
+    small:['In One Of Three','Only the total market fund reaches this far down. It is also weighted by size, so a company this small is a rounding error in what you own.']
+  };
+  var xSeen={}, xT=root.querySelector('#ov-x-t'), xD=root.querySelector('#ov-x-d'),
+      xCount=root.querySelector('#ov-x-count');
+  root.querySelectorAll('#ov-xray .ov-xrow').forEach(function(row){
+    row.addEventListener('click',function(){
+      root.querySelectorAll('#ov-xray .ov-xrow').forEach(function(x){ x.classList.remove('on'); });
+      row.classList.add('on');
+      var pat=row.getAttribute('data-in'), ems=row.querySelectorAll('em');
+      for(var i=0;i<ems.length;i++){
+        ems[i].classList.remove('hit','miss');
+        ems[i].classList.add(pat.charAt(i)==='1' ? 'hit' : 'miss');
+      }
+      var k=row.getAttribute('data-k');
+      xT.textContent=XR[k][0]; xD.textContent=XR[k][1];
+      xSeen[k]=1; xCount.textContent='Scanned '+keys(xSeen)+' Of 5';
+      state('xray', keys(xSeen)); postHeight();
+    });
+  });
+  var xReset=root.querySelector('#ov-x-reset');
+  if(xReset) xReset.addEventListener('click',function(){
+    root.querySelectorAll('#ov-xray .ov-xrow').forEach(function(r){
+      r.classList.remove('on');
+      r.querySelectorAll('em').forEach(function(e){ e.classList.remove('hit','miss'); });
+    });
+    xT.textContent='Tap A Row';
+    xD.textContent='Three funds, one column each. Watch which rows fill up and which stay empty.';
+    xCount.textContent='Scanned 0 Of 5'; postHeight();
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#ov-myth-count');
+  root.querySelectorAll('#ov-myth .ov-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ov-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ov-myth .ov-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#ov-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#ov-myth .ov-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · what would you do? */
+  var CWHY=[
+    'Both funds are cap-weighted and both are dominated by the same large US companies. Holding them equally does not spread you out; it concentrates you further into the names you already owned.',
+    'An international fund holds companies none of your three funds reach. Another US large-cap fund — whatever its name or provider — buys you more of what you have.',
+    'Each fund charges only on the money inside it, so there is no double fee. What you lose is the diversification you thought you had: one bad stretch for large US companies now hits every holding at once.'
+  ];
+  var caseCount=root.querySelector('#ov-case-count');
+  root.querySelectorAll('#ov-cases .ov-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.ov-why');
+    c.querySelectorAll('.ov-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.ov-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#ov-cases .ov-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 3';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#ov-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#ov-cases .ov-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.ov-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('ov-fin-arrow'), lead=document.getElementById('ov-fin-lead'), sub=document.getElementById('ov-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-ov'); if(!root) return;
+  var ALT={
+    'overlap':'overlaps?|overlapping',
+    'weighted overlap':'weighted overlap',
+    'double counting':'double counting|counted twice',
+    'concentration':'concentration|concentrates?',
+    'complement':'complements?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#ov-vocab-chips .ov-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.ov-p, .ov-sub, .ov-note, .ov-why, .ov-recap-item span, .ov-h2, .ov-next-move, .ov-sort-row > span, .ov-case-q, .ov-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.ov-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='ov-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='ov-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ov-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.ov-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ov'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#ov-bar'), labelEl=root.querySelector('#ov-slide-label'),
+      countEl=root.querySelector('#ov-slide-count'), prevBtn=root.querySelector('#ov-prev'),
+      nextBtn=root.querySelector('#ov-next'), hintEl=root.querySelector('#ov-nav-hint'),
+      disclaimer=root.querySelector('.ov-disclaimer');
+  var labels={1:'Start Here',2:'The Portfolio',3:'The Lens',4:'The X-Ray',5:'Myth Or Fact',6:'Your Move',7:'Recap',8:'Complete'};
+  var reqHints={2:'Review all 3 funds to continue',3:'Compare all 3 pairs to continue',4:'Scan all 5 companies to continue',5:'Answer all 5 to continue',6:'Answer all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.ov-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ov-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ov-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'fund',  need:3, hint:function(n){ return 'Reviewed '+n+' of 3 — tap them all to continue'; }},
+    {step:3, key:'lens',  need:3, hint:function(n){ return 'Compared '+n+' of 3 — try every pair to continue'; }},
+    {step:4, key:'xray',  need:5, hint:function(n){ return 'Scanned '+n+' of 5 — scan them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('ov-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

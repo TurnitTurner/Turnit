@@ -1,0 +1,993 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — ETFs VS. MUTUAL FUNDS: WHAT ACTUALLY DIFFERS
+     (Intermediate · Module 2 · Lesson 6)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ef. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     Wrapper palette used as DATA colour, not decoration:
+       ETF = blue #1568AE · Mutual Fund = teal #12a08a · Thin market = gold #D99A23
+       1  Title & Key Terms (never gated)   2  Three Real Funds
+       3  The Trading Day Clock (creative)  4  What A Spread Costs (creative)
+       5  Side By Side (5 rows)             6  Myth Or Fact (5)
+       7  The Share-Class Twist             8  Which Wrapper? (3 cases)
+       9  Recap                             10 Complete
+     Creative widgets, 2 of 2 allowed: the trading-day clock on slide 3 and the
+     live quote / spread calculator on slide 4. Everything else is standard.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     Real figures: VOO 0.03% · VFIAX 0.04% ($3,000 min) · SPY 0.0945%.
+     VOO and VFIAX are share classes of the same Vanguard 500 Index Fund.
+     The intraday price path on slide 3 and the quotes on slide 4 are clearly
+     labelled as illustrations, not recorded market data.
+     ============================================================ -->
+<div id="tn-ef">
+  <div class="ef-wrap">
+    <div class="ef-top">
+      <div class="ef-topbar">
+        <div class="ef-brand"><span class="ef-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="ef-word">TURNIT</span><span class="ef-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="ef-progress"><span id="ef-bar"></span></div>
+      <div class="ef-meta"><span id="ef-slide-label">Start Here</span><span id="ef-slide-count">Slide 1 Of 10</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="ef-sec ef-center ef-reveal" data-step="1">
+      <p class="ef-kicker center">Funds Under The Hood · 1 / 10</p>
+      <h1 class="ef-hero-title">ETFs VS. <span class="ef-hero-grad">MUTUAL FUNDS</span></h1>
+      <p class="ef-sub center">Two funds can track the same index and still behave nothing alike when you go to buy one. The difference is the wrapper, not the strategy.</p>
+      <div class="ef-vocab">
+        <span class="ef-vocab-label">Key Terms In This Lesson</span>
+        <div class="ef-vocab-chips" id="ef-vocab-chips">
+          <button type="button" class="ef-vocab-chip w-m" data-t="NAV" data-def="Net asset value — what one share of a fund is actually worth, worked out once a day after the market closes. Every mutual fund order placed that day fills at this one price.">NAV</button>
+          <button type="button" class="ef-vocab-chip w-e" data-t="Intraday Trading" data-def="Buying or selling at any moment while the market is open, at the price showing right then. This is the defining feature of the ETF wrapper.">Intraday Trading</button>
+          <button type="button" class="ef-vocab-chip w-w" data-t="Bid-Ask Spread" data-def="The gap between the highest price a buyer will pay and the lowest a seller will accept. You cross it on every ETF trade, and it goes to whoever is on the other side — not to the fund.">Bid-Ask Spread</button>
+          <button type="button" class="ef-vocab-chip" data-t="Expense Ratio" data-def="The slice of your money a fund keeps each year to run itself, quoted as a percentage. It is deducted from the fund quietly, so you never see a bill for it.">Expense Ratio</button>
+          <button type="button" class="ef-vocab-chip" data-t="Share Class" data-def="One of several versions of the same underlying fund, each with its own ticker, minimum and fee. Two share classes can hold the identical portfolio in different wrappers.">Share Class</button>
+        </div>
+        <div class="ef-vocab-def" id="ef-vocab-def">Tap a term to see what it means.</div>
+        <span class="ef-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="ef-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THREE REAL FUNDS ========== -->
+    <section class="ef-sec ef-reveal" data-step="2">
+      <p class="ef-kicker">Three Real Funds · 2 / 10</p>
+      <h2 class="ef-h2">Same Index, Three Price Tags</h2>
+      <p class="ef-p">All three of these hold the S&amp;P 500. Same 500 companies, same weights, three different expense ratios. Tap each to see what it charges and why.</p>
+      <div class="ef-tickers" id="ef-tickers">
+        <button type="button" class="ef-tk w-e" data-k="voo">
+          <span class="ef-tk-head"><b>VOO</b><i>ETF</i></span>
+          <span class="ef-tk-name">Vanguard S&amp;P 500 ETF</span>
+          <span class="ef-tk-er">0.03%</span>
+        </button>
+        <button type="button" class="ef-tk w-m" data-k="vfiax">
+          <span class="ef-tk-head"><b>VFIAX</b><i>Mutual Fund</i></span>
+          <span class="ef-tk-name">Vanguard 500 Index Admiral</span>
+          <span class="ef-tk-er">0.04%</span>
+        </button>
+        <button type="button" class="ef-tk w-w" data-k="spy">
+          <span class="ef-tk-head"><b>SPY</b><i>ETF</i></span>
+          <span class="ef-tk-name">SPDR S&amp;P 500 ETF Trust</span>
+          <span class="ef-tk-er">0.0945%</span>
+        </button>
+      </div>
+      <div class="ef-bars">
+        <span class="ef-bars-cap">What Each Costs On $10,000 Invested, Per Year</span>
+        <div class="ef-bar-row w-e" data-k="voo"><span class="ef-bar-lab">VOO</span><span class="ef-bar-track"><i style="width:32%"></i></span><span class="ef-bar-val">$3.00</span></div>
+        <div class="ef-bar-row w-m" data-k="vfiax"><span class="ef-bar-lab">VFIAX</span><span class="ef-bar-track"><i style="width:42%"></i></span><span class="ef-bar-val">$4.00</span></div>
+        <div class="ef-bar-row w-w" data-k="spy"><span class="ef-bar-lab">SPY</span><span class="ef-bar-track"><i style="width:100%"></i></span><span class="ef-bar-val">$9.45</span></div>
+      </div>
+      <div class="ef-reveal-box" id="ef-tk-box"><b id="ef-tk-t">Tap A Fund Above</b><span id="ef-tk-d">Two of these are ETFs and one is a mutual fund. The fee gaps have nothing to do with which is which.</span></div>
+      <p class="ef-count" id="ef-tk-count">Reviewed 0 Of 3</p>
+      <p class="ef-disclaimer-inline">Expense ratios as published by the fund providers at the time of writing; they change, so check the current figure before you act. For scale, a typical actively managed US stock fund charges many times all three of these.</p>
+    </section>
+
+    <!-- ========== 3 · THE TRADING DAY CLOCK ========== -->
+    <section class="ef-sec ef-reveal" data-step="3">
+      <p class="ef-kicker">The Trading Day · 3 / 10</p>
+      <h2 class="ef-h2">When Do You Get A Price?</h2>
+      <p class="ef-p">Here is one fund's price across a single market day. Drag the handle to place an order at different times, and watch what each wrapper fills at — the price showing right then, or the day's closing NAV.</p>
+      <div class="ef-clock">
+        <svg class="ef-chart" viewBox="0 0 600 236" role="img" aria-label="Illustrative intraday price chart for one trading day">
+          <rect class="ef-ah" x="507" y="24" width="71" height="182"/>
+          <g class="ef-grid">
+            <line x1="46" x2="578" y1="24" y2="24"/>
+            <line x1="46" x2="578" y1="76" y2="76"/>
+            <line x1="46" x2="578" y1="128" y2="128"/>
+            <line x1="46" x2="578" y1="180" y2="180"/>
+            <line x1="46" x2="578" y1="206" y2="206"/>
+          </g>
+          <g class="ef-ylab">
+            <text x="40" y="28" text-anchor="end">616</text>
+            <text x="40" y="80" text-anchor="end">614</text>
+            <text x="40" y="132" text-anchor="end">612</text>
+            <text x="40" y="184" text-anchor="end">610</text>
+          </g>
+          <polyline class="ef-line" id="ef-line" points=""/>
+          <line class="ef-flat" x1="507" x2="578" y1="73.4" y2="73.4"/>
+          <line class="ef-navline" x1="46" x2="578" y1="73.4" y2="73.4"/>
+          <text class="ef-navlab" x="574" y="68" text-anchor="end">4 PM NAV · $614.10</text>
+          <text class="ef-ahlab" x="542" y="199" text-anchor="middle">After Hours</text>
+          <line class="ef-mark" id="ef-mark" x1="117" x2="117" y1="24" y2="206"/>
+          <circle class="ef-dot" id="ef-dot" r="6" cx="117" cy="185"/>
+          <g class="ef-xlab">
+            <text x="46" y="226" text-anchor="start">9:30 AM</text>
+            <text x="259" y="226" text-anchor="middle">12:30 PM</text>
+            <text x="507" y="226" text-anchor="middle">4:00 PM</text>
+          </g>
+        </svg>
+        <div class="ef-slide-top"><label for="ef-slider">Order Placed At</label><span class="ef-slide-v" id="ef-time">10:30 AM</span></div>
+        <input id="ef-slider" class="ef-range" type="range" min="0" max="450" step="5" value="60" aria-label="Time of day the order is placed">
+      </div>
+      <div class="ef-fills">
+        <div class="ef-fill w-e"><span class="ef-fill-tag">ETF · VOO</span><b id="ef-etf-p">$609.80</b><span class="ef-fill-d" id="ef-etf-d">The price on screen right then.</span></div>
+        <div class="ef-fill w-m"><span class="ef-fill-tag">Mutual Fund · VFIAX</span><b id="ef-mf-p">$614.10</b><span class="ef-fill-d" id="ef-mf-d">Tonight's NAV, whenever you ordered.</span></div>
+      </div>
+      <div class="ef-verdict" id="ef-clock-out"><p class="ef-verdict-t">Move The Handle</p><p class="ef-verdict-d">Try the morning, the middle of the day, the afternoon, and after the closing bell.</p></div>
+      <p class="ef-count" id="ef-clock-count">Explored 0 Of 4 Parts Of The Day</p>
+      <p class="ef-disclaimer-inline">The price path above is an illustration of how one trading day can move, not a record of a real one. Over a whole day the gap intraday trading can capture is usually small — this chart stretches it so you can see it at all.</p>
+    </section>
+
+    <!-- ========== 4 · WHAT A SPREAD COSTS ========== -->
+    <section class="ef-sec ef-reveal" data-step="4">
+      <p class="ef-kicker">The Hidden Toll · 4 / 10</p>
+      <h2 class="ef-h2">The Toll You Pay To Get In</h2>
+      <p class="ef-p">Every ETF trade crosses a bid-ask spread. Pick a fund and an order size to see what that crossing costs, and how it stacks up against a year of fees.</p>
+      <div class="ef-quote" id="ef-quote">
+        <div class="ef-quote-head"><b id="ef-q-t">VOO</b><span id="ef-q-sub">About $1 trillion in assets. Millions of shares change hands every day.</span></div>
+        <div class="ef-quote-grid">
+          <div class="ef-q-cell"><span>Bid</span><b id="ef-q-bid">612.48</b></div>
+          <div class="ef-q-cell mid"><span>Spread</span><b id="ef-q-sp">$0.02</b></div>
+          <div class="ef-q-cell"><span>Ask</span><b id="ef-q-ask">612.50</b></div>
+        </div>
+      </div>
+      <div class="ef-picks">
+        <div class="ef-pick-grp" id="ef-q-funds">
+          <span class="ef-pick-lab">Fund</span>
+          <div class="ef-pick-btns">
+            <button type="button" class="ef-pick w-e on" data-k="voo">VOO</button>
+            <button type="button" class="ef-pick w-w" data-k="thin">A Thinly Traded ETF</button>
+          </div>
+        </div>
+        <div class="ef-pick-grp" id="ef-q-sizes">
+          <span class="ef-pick-lab">Order Size</span>
+          <div class="ef-pick-btns">
+            <button type="button" class="ef-pick on" data-n="1">1 Share</button>
+            <button type="button" class="ef-pick" data-n="10">10 Shares</button>
+            <button type="button" class="ef-pick" data-n="100">100 Shares</button>
+          </div>
+        </div>
+      </div>
+      <div class="ef-stats">
+        <div class="ef-stat"><span>Order Value</span><b id="ef-s-val">$612.50</b></div>
+        <div class="ef-stat"><span>Spread Cost, Once</span><b id="ef-s-sp">$0.02</b></div>
+        <div class="ef-stat"><span>Expense Ratio, Per Year</span><b id="ef-s-fee">$0.18</b></div>
+      </div>
+      <div class="ef-note" id="ef-s-note">Pick a fund and a size to see how the two costs compare.</div>
+      <p class="ef-count" id="ef-q-count">Tried 0 Of 4 Combinations</p>
+      <p class="ef-disclaimer-inline">Quotes are illustrative. A heavily traded fund like VOO typically shows a spread of a cent or so; thinly traded funds can show far wider ones, and both move throughout the day. Mutual funds have no spread at all — you transact with the fund itself at NAV.</p>
+    </section>
+
+    <!-- ========== 5 · SIDE BY SIDE ========== -->
+    <section class="ef-sec ef-reveal" data-step="5">
+      <p class="ef-kicker">Side By Side · 5 / 10</p>
+      <h2 class="ef-h2">Five Differences That Matter</h2>
+      <p class="ef-p">Five rows, two wrappers. Open each one to see what it means for you rather than for the fund.</p>
+      <div class="ef-tbl" id="ef-tbl">
+        <div class="ef-trow">
+          <div class="ef-tlabel">When you get a price</div>
+          <div class="ef-tcells">
+            <div class="ef-tcell w-e"><span>ETF</span><b>Whenever you trade</b></div>
+            <div class="ef-tcell w-m"><span>Mutual Fund</span><b>Once, at the 4 PM NAV</b></div>
+          </div>
+          <button type="button" class="ef-tbtn">What This Means →</button>
+          <p class="ef-trow-why">Intraday trading cuts both ways. You can act on a price you can see, and you can also talk yourself into trading when nothing needed doing. A fund that prices once a day quietly removes that option.</p>
+        </div>
+        <div class="ef-trow">
+          <div class="ef-tlabel">What it takes to get in</div>
+          <div class="ef-tcells">
+            <div class="ef-tcell w-e"><span>ETF</span><b>One share — or a fraction</b></div>
+            <div class="ef-tcell w-m"><span>Mutual Fund</span><b>Often a dollar minimum</b></div>
+          </div>
+          <button type="button" class="ef-tbtn">What This Means →</button>
+          <p class="ef-trow-why">VFIAX asks for $3,000 to open a position. VOO asks for the price of one share, and many brokerages will sell you a sliver of that. For someone starting with $100, the wrapper is the whole decision.</p>
+        </div>
+        <div class="ef-trow">
+          <div class="ef-tlabel">What you pay to transact</div>
+          <div class="ef-tcells">
+            <div class="ef-tcell w-e"><span>ETF</span><b>The bid-ask spread</b></div>
+            <div class="ef-tcell w-m"><span>Mutual Fund</span><b>Usually nothing</b></div>
+          </div>
+          <button type="button" class="ef-tbtn">What This Means →</button>
+          <p class="ef-trow-why">You buy a mutual fund from the fund itself, at one price, so there is no gap to cross. On a big, liquid ETF the spread is pennies. On a small one it can quietly cost more than a year of fees.</p>
+        </div>
+        <div class="ef-trow">
+          <div class="ef-tlabel">What it charges each year</div>
+          <div class="ef-tcells">
+            <div class="ef-tcell w-e"><span>ETF</span><b>VOO: 0.03%</b></div>
+            <div class="ef-tcell w-m"><span>Mutual Fund</span><b>VFIAX: 0.04%</b></div>
+          </div>
+          <button type="button" class="ef-tbtn">What This Means →</button>
+          <p class="ef-trow-why">One basis point apart — a dollar a year on $10,000. The expense ratio is set by how the fund is run, not by which wrapper it comes in, which is why SPY costs three times VOO while holding the same index.</p>
+        </div>
+        <div class="ef-trow">
+          <div class="ef-tlabel">Automatic contributions</div>
+          <div class="ef-tcells">
+            <div class="ef-tcell w-e"><span>ETF</span><b>Depends on your broker</b></div>
+            <div class="ef-tcell w-m"><span>Mutual Fund</span><b>Built for it</b></div>
+          </div>
+          <button type="button" class="ef-tbtn">What This Means →</button>
+          <p class="ef-trow-why">A mutual fund takes an exact dollar amount every payday without being asked twice. ETFs trade in shares, so $200 rarely divides cleanly — some brokerages handle it with fractional shares, and some still don't.</p>
+        </div>
+      </div>
+      <p class="ef-count" id="ef-row-count">Opened 0 Of 5</p>
+      <div class="ef-reset-row"><button type="button" class="ef-reset-btn" id="ef-row-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · MYTH OR FACT ========== -->
+    <section class="ef-sec ef-reveal" data-step="6">
+      <p class="ef-kicker">Myth Or Fact · 6 / 10</p>
+      <h2 class="ef-h2">Myth Or Fact?</h2>
+      <p class="ef-p">Five claims you will hear about these two wrappers. Tap your answer.</p>
+      <div class="ef-sort" id="ef-myth">
+        <div class="ef-sort-row" data-answer="myth"><span>ETFs are always the cheaper of the two.</span><div class="ef-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ef-why"><b>Myth.</b> VOO charges 0.03% and VFIAX charges 0.04% for the same index — a rounding error. Meanwhile SPY, an ETF, charges more than both. The wrapper does not set the expense ratio.</p></div>
+        <div class="ef-sort-row" data-answer="myth"><span>A mutual fund order placed at 10 AM fills at the 10 AM price.</span><div class="ef-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ef-why"><b>Myth.</b> Everyone who ordered that day gets the same NAV, worked out after the close. Ordering at 10 AM and ordering at 3:59 PM land on the identical price.</p></div>
+        <div class="ef-sort-row" data-answer="fact"><span>You can buy an ETF at any moment the market is open.</span><div class="ef-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ef-why"><b>Fact.</b> Intraday trading is what the wrapper is for. It behaves like a stock on the exchange, which is a convenience and a temptation in equal measure.</p></div>
+        <div class="ef-sort-row" data-answer="fact"><span>Two funds in different wrappers can be the same fund underneath.</span><div class="ef-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ef-why"><b>Fact.</b> VOO and VFIAX are two share classes of one Vanguard fund. Same portfolio, same manager, same holdings — different ticker, minimum and wrapper. The next slide takes this apart.</p></div>
+        <div class="ef-sort-row" data-answer="myth"><span>The bid-ask spread is a fee the fund company charges you.</span><div class="ef-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ef-why"><b>Myth.</b> It is the gap between what buyers are bidding and what sellers are asking, and it goes to whoever took the other side of your trade. The fund never sees a cent of it.</p></div>
+      </div>
+      <p class="ef-count" id="ef-myth-count">Answered 0 Of 5</p>
+      <div class="ef-reset-row"><button type="button" class="ef-reset-btn" id="ef-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · THE SHARE-CLASS TWIST ========== -->
+    <section class="ef-sec ef-reveal" data-step="7">
+      <p class="ef-kicker">The Twist · 7 / 10</p>
+      <h2 class="ef-h2">Sometimes It Is Literally The Same Fund</h2>
+      <p class="ef-p">Two tickers, two wrappers, two sets of rules. Tap each to see what is actually underneath.</p>
+      <div class="ef-two" id="ef-two">
+        <button type="button" class="ef-side w-e" data-k="voo"><b>VOO</b><span>ETF share class</span></button>
+        <button type="button" class="ef-side w-m" data-k="vfiax"><b>VFIAX</b><span>Admiral share class</span></button>
+      </div>
+      <div class="ef-reveal-box" id="ef-two-box"><b id="ef-two-t">Tap Both</b><span id="ef-two-d">One of these you buy on an exchange. The other you buy from the fund company. Look at what you end up owning.</span></div>
+      <div class="ef-callout" id="ef-callout">
+        <span class="ef-callout-tag">The Twist</span>
+        <p>They are not two competing funds. They are two share classes of the same Vanguard 500 Index Fund, holding one shared portfolio. Vanguard will convert VFIAX into VOO without triggering a taxable sale — because nothing is really being sold.</p>
+        <p>So when someone asks whether ETFs beat mutual funds, the honest answer is that the question is often about packaging. What you own is the index. What the wrapper changes is how you get in, how little you can start with, and what you pay on the way through the door.</p>
+      </div>
+      <p class="ef-count" id="ef-two-count">Opened 0 Of 2</p>
+      <p class="ef-disclaimer-inline">Share-class structures and conversion rules differ by provider and are not available for every fund. Conversions can have tax consequences in some situations, so check with the provider and a qualified professional about your own account.</p>
+    </section>
+
+    <!-- ========== 8 · WHICH WRAPPER? ========== -->
+    <section class="ef-sec ef-reveal" data-step="8">
+      <p class="ef-kicker">Which Wrapper? · 8 / 10</p>
+      <h2 class="ef-h2">Three Situations, Three Answers</h2>
+      <p class="ef-p">Same index in both wrappers. Pick the one that fits each situation better — the answer usually turns on minimums, the bid-ask spread and what your account allows, not on which wrapper is cleverer.</p>
+      <div class="ef-match" id="ef-match">
+        <div class="ef-mrow" data-ans="mf"><p>You move $200 into the same fund every payday, automatically, and never log in to check it.</p><div class="ef-mbtns"><button type="button" data-p="etf">ETF</button><button type="button" data-p="mf">Mutual Fund</button></div><p class="ef-why"></p></div>
+        <div class="ef-mrow" data-ans="etf"><p>It's 2:15 PM, you've decided, and you want in at the price you can see — not tonight's.</p><div class="ef-mbtns"><button type="button" data-p="etf">ETF</button><button type="button" data-p="mf">Mutual Fund</button></div><p class="ef-why"></p></div>
+        <div class="ef-mrow" data-ans="mf"><p>You're investing inside a workplace 401(k) whose menu lists mutual funds only.</p><div class="ef-mbtns"><button type="button" data-p="etf">ETF</button><button type="button" data-p="mf">Mutual Fund</button></div><p class="ef-why"></p></div>
+      </div>
+      <p class="ef-count" id="ef-case-count">Answered 0 Of 3</p>
+      <div class="ef-note">Notice how often the answer came down to plumbing — what your account allows, what your contribution divides into — rather than which wrapper is better. The expense ratio barely came into it.</div>
+      <div class="ef-reset-row"><button type="button" class="ef-reset-btn" id="ef-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="ef-sec ef-reveal" data-step="9">
+      <p class="ef-kicker">Recap · 9 / 10</p>
+      <h2 class="ef-h2">Here's What You Now Know</h2>
+      <p class="ef-p">The whole lesson, in five lines.</p>
+      <div class="ef-recap">
+        <div class="ef-recap-item"><span class="ef-recap-check w-e">✓</span><span>An ETF prices continuously, so intraday trading is possible. A mutual fund prices once, and every order that day fills at the same <b>NAV</b>.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check w-m">✓</span><span>The expense ratio is set by how a fund is run, not by its wrapper — SPY charges three times VOO for the same 500 companies.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check w-w">✓</span><span>ETF trades cross a bid-ask spread. It is pennies on a big fund and quietly expensive on a small one.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check w-e">✓</span><span>Mutual funds take exact dollar amounts and often demand a minimum; ETFs take shares and start at one.</span></div>
+        <div class="ef-recap-item"><span class="ef-recap-check w-m">✓</span><span>VOO and VFIAX are share classes of a single fund, so "which is better" is often a question about packaging.</span></div>
+      </div>
+      <div class="ef-next-move">Your next move: <b>look up the expense ratio and minimum of a fund you already own.</b> Both are published, and the wrapper will be named right next to them.</div>
+    </section>
+
+    <!-- ========== 10 · COMPLETE ========== -->
+    <section class="ef-sec ef-center ef-reveal" data-step="10">
+      <p class="ef-kicker center">Lesson Complete · 10 / 10</p>
+      <span class="ef-hero-ico">🚀</span>
+      <h2 class="ef-h2 center">You've Finished The Lesson</h2>
+      <p class="ef-sub center">You can now look at two funds tracking the same index and say exactly what differs — and what doesn't.</p>
+      <div class="ef-finish">
+        <span class="ef-finish-arrow" id="ef-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ef-finish-lead" id="ef-fin-lead">Scroll Down To Continue</p>
+        <p class="ef-finish-sub" id="ef-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ef-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ef-pullquote">"THE TWO GREATEST ENEMIES OF THE EQUITY FUND INVESTOR ARE <span class="ef-green">EXPENSES AND EMOTIONS.</span>"<br><span class="ef-pullquote-by">— JOHN BOGLE</span></p>
+    </section>
+
+    <p class="ef-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Specific funds are named to illustrate how wrappers differ, not as recommendations. Expense ratios, minimums and share-class rules change — verify current figures with the provider before acting, and consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="ef-nav" id="ef-nav">
+      <button type="button" class="ef-nav-btn prev" id="ef-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ef-nav-hint" id="ef-nav-hint"></span>
+      <button type="button" class="ef-nav-btn next" id="ef-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ef{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* wrapper palette — used as data colour throughout */
+    --etf:#1568AE; --etfbg:#EAF1FA; --etfbd:#C5DBEF;
+    --mf:#12a08a;  --mfbg:#E6F6F2;  --mfbd:#BCE5DC;
+    --wn:#D99A23;  --wnbg:#FBF2DF;  --wnbd:#F0DCA9;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-ef *,#tn-ef *::before,#tn-ef *::after{box-sizing:border-box;}
+  #tn-ef .ef-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ef .ef-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ef .ef-reveal.in{opacity:1; transform:none;}
+  #tn-ef .ef-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ef .ef-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ef .ef-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-ef .ef-bico{display:flex;}
+  #tn-ef .ef-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ef .ef-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ef .ef-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ef #ef-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ef .ef-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ef .ef-meta #ef-slide-label{color:var(--ink2);}
+  #tn-ef .ef-meta #ef-slide-count{color:var(--mut);}
+  #tn-ef .ef-sec{padding:16px 0 8px;}
+  #tn-ef .ef-sec.ef-hide{display:none;}
+  #tn-ef .ef-center{text-align:center;}
+  #tn-ef .ef-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ef .ef-kicker.center{text-align:center;}
+  #tn-ef .ef-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-ef .ef-h2.center{text-align:center;}
+  #tn-ef .ef-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ef .ef-p b{color:var(--ink); font-weight:700;}
+  #tn-ef .ef-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ef .ef-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-ef .ef-note b{color:var(--ink); font-weight:700;}
+  #tn-ef .ef-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ef .ef-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-ef .ef-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ef .ef-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ef .ef-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* wrapper colour helpers */
+  #tn-ef .w-e{--w:var(--etf); --wbg:var(--etfbg); --wbd:var(--etfbd);}
+  #tn-ef .w-m{--w:var(--mf);  --wbg:var(--mfbg);  --wbd:var(--mfbd);}
+  #tn-ef .w-w{--w:var(--wn);  --wbg:var(--wnbg);  --wbd:var(--wnbd);}
+  /* title */
+  #tn-ef .ef-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.6vw,44px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-ef .ef-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ef .ef-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ef .ef-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ef .ef-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ef .ef-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ef .ef-vocab-chip.w-e,#tn-ef .ef-vocab-chip.w-m,#tn-ef .ef-vocab-chip.w-w{color:var(--w); background:var(--wbg); border-color:var(--wbd);}
+  #tn-ef .ef-vocab-chip:hover{filter:brightness(.97);}
+  #tn-ef .ef-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ef .ef-vocab-chip.w-e.on,#tn-ef .ef-vocab-chip.w-m.on,#tn-ef .ef-vocab-chip.w-w.on{background:var(--w); color:#fff; border-color:var(--w);}
+  #tn-ef .ef-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ef .ef-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ef .ef-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-ef .ef-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-ef .ef-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-ef .ef-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ef .ef-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-ef .ef-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · ticker cards + fee bars */
+  #tn-ef .ef-tickers{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  #tn-ef .ef-tk{position:relative; overflow:hidden; text-align:left; font-family:inherit; background:var(--wbg); border:1.5px solid var(--wbd); border-radius:15px; padding:13px 13px 12px; cursor:pointer; transition:all .18s;}
+  #tn-ef .ef-tk-head{display:flex; align-items:baseline; justify-content:space-between; gap:6px; flex-wrap:wrap;}
+  #tn-ef .ef-tk-head b{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:var(--w); letter-spacing:.01em;}
+  #tn-ef .ef-tk-head i{font-style:normal; font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:#fff; background:var(--w); border-radius:99px; padding:3px 7px; white-space:nowrap;}
+  #tn-ef .ef-tk-name{display:block; font-size:11.5px; color:var(--ink2); line-height:1.35; margin-top:5px; min-height:31px;}
+  #tn-ef .ef-tk-er{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); margin-top:6px;}
+  #tn-ef .ef-tk.on{box-shadow:0 0 0 3px var(--wbd); transform:translateY(-2px);}
+  #tn-ef .ef-bars{margin-top:14px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:14px; padding:14px 16px 12px;}
+  #tn-ef .ef-bars-cap{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut); margin-bottom:11px;}
+  #tn-ef .ef-bar-row{display:flex; align-items:center; gap:10px; margin-bottom:9px;}
+  #tn-ef .ef-bar-row:last-child{margin-bottom:0;}
+  #tn-ef .ef-bar-lab{flex:0 0 48px; font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; color:var(--w);}
+  #tn-ef .ef-bar-track{flex:1; height:14px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ef .ef-bar-track i{display:block; height:100%; border-radius:99px; background:var(--w); transition:transform .3s;}
+  #tn-ef .ef-bar-row.lit .ef-bar-track i{box-shadow:0 0 0 2px var(--wbd);}
+  #tn-ef .ef-bar-val{flex:0 0 52px; text-align:right; font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; color:var(--ink);}
+  /* 3 · trading day clock */
+  #tn-ef .ef-clock{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:14px 16px 16px;}
+  #tn-ef .ef-chart{display:block; width:100%; height:auto;}
+  #tn-ef .ef-ah{fill:#EDF1F5;}
+  #tn-ef .ef-grid line{stroke:#DFE7EE; stroke-width:1;}
+  #tn-ef .ef-ylab text,#tn-ef .ef-xlab text{font-family:'Inter',sans-serif; font-size:11px; font-weight:600; fill:var(--mut);}
+  #tn-ef .ef-line{fill:none; stroke:var(--etf); stroke-width:2.6; stroke-linejoin:round; stroke-linecap:round;}
+  #tn-ef .ef-flat{stroke:var(--mut); stroke-width:2; stroke-dasharray:3 4;}
+  #tn-ef .ef-navline{stroke:var(--mf); stroke-width:2; stroke-dasharray:6 5;}
+  #tn-ef .ef-navlab{font-family:'Poppins',sans-serif; font-size:10.5px; font-weight:700; fill:var(--mf);}
+  #tn-ef .ef-ahlab{font-family:'Poppins',sans-serif; font-size:10.5px; font-weight:700; fill:var(--mut);}
+  #tn-ef .ef-mark{stroke:var(--ink); stroke-width:1.5; stroke-dasharray:2 3; opacity:.5;}
+  #tn-ef .ef-dot{fill:#fff; stroke:var(--etf); stroke-width:3.5;}
+  #tn-ef .ef-slide-top{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-top:12px;}
+  #tn-ef .ef-slide-top label{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2);}
+  #tn-ef .ef-slide-v{font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; color:var(--b);}
+  #tn-ef .ef-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:6px 0 0; background:linear-gradient(90deg,#BBD5EA 0%,#BBD5EA 86.7%,#C3CBD4 86.7%,#C3CBD4 100%);}
+  #tn-ef .ef-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-ef .ef-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-ef .ef-fills{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;}
+  #tn-ef .ef-fill{background:var(--wbg); border:1.5px solid var(--wbd); border-radius:14px; padding:13px 14px;}
+  #tn-ef .ef-fill-tag{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10px; letter-spacing:.07em; text-transform:uppercase; color:var(--w);}
+  #tn-ef .ef-fill b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(19px,4.6vw,24px); color:var(--ink); margin:4px 0 4px;}
+  #tn-ef .ef-fill-d{display:block; font-size:12px; color:var(--ink2); line-height:1.45;}
+  #tn-ef .ef-verdict{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:12px;}
+  #tn-ef .ef-verdict.lean{background:var(--wbg); border-color:var(--wbd);}
+  #tn-ef .ef-verdict-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-ef .ef-verdict-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  /* 4 · quote + spread */
+  #tn-ef .ef-quote{background:#16202B; border-radius:16px; padding:15px 17px 14px; color:#E6EDF3;}
+  #tn-ef .ef-quote-head b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; color:#fff; letter-spacing:.01em;}
+  #tn-ef .ef-quote-head span{display:block; font-size:12px; color:#9FB2C4; line-height:1.45; margin-top:3px;}
+  #tn-ef .ef-quote-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:13px;}
+  #tn-ef .ef-q-cell{background:#1F2B3A; border-radius:11px; padding:9px 8px; text-align:center;}
+  #tn-ef .ef-q-cell.mid{background:#2A3A4D;}
+  #tn-ef .ef-q-cell span{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8FA6BA;}
+  #tn-ef .ef-q-cell b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(14px,3.6vw,17px); color:#fff; margin-top:3px;}
+  #tn-ef .ef-q-cell.mid b{color:#F3C86B;}
+  #tn-ef .ef-picks{margin-top:12px; display:flex; flex-direction:column; gap:10px;}
+  #tn-ef .ef-pick-lab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut); margin-bottom:6px;}
+  #tn-ef .ef-pick-btns{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-ef .ef-pick{flex:1; min-width:92px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 12px; cursor:pointer; transition:all .18s;}
+  #tn-ef .ef-pick:hover{border-color:var(--selbd);}
+  #tn-ef .ef-pick.on{background:var(--wbg,var(--tint)); border-color:var(--wbd,var(--selbd)); color:var(--w,var(--g));}
+  #tn-ef .ef-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:12px;}
+  #tn-ef .ef-stat{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:11px 10px; text-align:center;}
+  #tn-ef .ef-stat span{display:block; font-size:10.5px; font-weight:600; color:var(--mut); line-height:1.3;}
+  #tn-ef .ef-stat b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(14px,3.6vw,17px); color:var(--ink); margin-top:4px;}
+  /* 5 · comparison table */
+  #tn-ef .ef-tbl{display:flex; flex-direction:column; gap:10px;}
+  #tn-ef .ef-trow{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:13px 15px; transition:all .2s;}
+  #tn-ef .ef-trow.open{border-color:var(--selbd); background:#fff;}
+  #tn-ef .ef-tlabel{font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; margin-bottom:10px;}
+  #tn-ef .ef-tcells{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-ef .ef-tcell{background:var(--wbg); border:1px solid var(--wbd); border-radius:11px; padding:9px 11px;}
+  #tn-ef .ef-tcell span{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--w);}
+  #tn-ef .ef-tcell b{display:block; font-size:13px; font-weight:700; color:var(--ink); line-height:1.35; margin-top:3px;}
+  #tn-ef .ef-tbtn{margin-top:11px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1.5px solid var(--selbd); border-radius:99px; padding:7px 15px; cursor:pointer; transition:all .15s;}
+  #tn-ef .ef-tbtn:hover{filter:brightness(.97);}
+  #tn-ef .ef-trow.open .ef-tbtn{display:none;}
+  #tn-ef .ef-trow-why{font-size:13px; color:var(--ink2); line-height:1.55; margin:11px 0 0; display:none;}
+  #tn-ef .ef-trow.open .ef-trow-why{display:block;}
+  /* 6 · myth sorter */
+  #tn-ef .ef-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ef .ef-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ef .ef-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-ef .ef-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ef .ef-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ef .ef-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ef .ef-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ef .ef-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ef .ef-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ef .ef-sort-row.done .ef-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ef .ef-sort-row.done .ef-sort-btns button.picked{opacity:1;}
+  #tn-ef .ef-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-ef .ef-why b{font-family:'Poppins',sans-serif;}
+  #tn-ef .ef-sort-row .ef-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-ef .ef-sort-row.done .ef-why{display:block;}
+  /* 7 · share-class twist */
+  #tn-ef .ef-two{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-ef .ef-side{font-family:inherit; border-radius:14px; padding:16px 12px; cursor:pointer; transition:all .18s; background:var(--wbg); border:1.5px solid var(--wbd); color:var(--w);}
+  #tn-ef .ef-side b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:17px;}
+  #tn-ef .ef-side span{display:block; font-family:'Inter',sans-serif; font-size:11.5px; color:var(--ink2); margin-top:3px;}
+  #tn-ef .ef-side.on{box-shadow:0 0 0 3px var(--wbd); transform:translateY(-2px);}
+  #tn-ef .ef-callout{margin-top:12px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; border-radius:16px; padding:16px 18px; display:none;}
+  #tn-ef .ef-callout.on{display:block;}
+  #tn-ef .ef-callout-tag{display:inline-block; font-family:'Poppins',sans-serif; font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--g); border-radius:99px; padding:4px 11px; margin-bottom:9px;}
+  #tn-ef .ef-callout p{font-size:14px; color:var(--ink2); line-height:1.6; margin:0 0 10px;}
+  #tn-ef .ef-callout p:last-child{margin-bottom:0;}
+  /* 8 · which wrapper */
+  #tn-ef .ef-match{display:flex; flex-direction:column; gap:10px;}
+  #tn-ef .ef-mrow{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-ef .ef-mrow > p{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-ef .ef-mbtns{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-ef .ef-mbtns button{flex:1; min-width:104px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; border-radius:99px; padding:8px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ef .ef-mbtns button[data-p="etf"]{border:1.5px solid var(--etfbd); color:var(--etf);}
+  #tn-ef .ef-mbtns button[data-p="mf"]{border:1.5px solid var(--mfbd); color:var(--mf);}
+  #tn-ef .ef-mrow.done .ef-mbtns button{opacity:.35; pointer-events:none;}
+  #tn-ef .ef-mrow.done .ef-mbtns button.picked{opacity:1;}
+  #tn-ef .ef-mrow.done .ef-mbtns button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-ef .ef-mrow.done .ef-mbtns button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-ef .ef-mrow.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-ef .ef-mrow.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ef .ef-mrow.done .ef-why{display:block;}
+  /* recap + complete */
+  #tn-ef .ef-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ef .ef-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-ef .ef-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--w,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ef .ef-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-ef .ef-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-ef .ef-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-ef .ef-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ef .ef-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ef-bob 1.6s ease-in-out infinite;}
+  #tn-ef .ef-finish-arrow.up{animation-name:ef-bob-up;}
+  @keyframes ef-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ef-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-ef .ef-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-ef .ef-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ef .ef-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ef .ef-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-ef .ef-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ef .ef-green{color:var(--g);}
+  #tn-ef .ef-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-ef .ef-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-ef .ef-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ef .ef-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-ef .ef-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ef .ef-nav-btn.prev{color:var(--ink2);}
+  #tn-ef .ef-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ef .ef-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-ef .ef-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ef .ef-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ef .ef-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ef .ef-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-ef .ef-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-ef .ef-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .ef-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .ef-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-ef .ef-wrap{padding:12px 14px 30px;}
+    #tn-ef .ef-tickers{grid-template-columns:1fr;}
+    #tn-ef .ef-tk-name{min-height:0;}
+    #tn-ef .ef-fills,#tn-ef .ef-two,#tn-ef .ef-tcells{grid-template-columns:1fr;}
+    #tn-ef .ef-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ef .ef-stats{grid-template-columns:1fr; gap:7px;}
+    #tn-ef .ef-stat{display:flex; align-items:center; justify-content:space-between; text-align:left; padding:9px 13px;}
+    #tn-ef .ef-stat b{margin-top:0;}
+    #tn-ef .ef-clock{padding:12px 12px 14px;}
+    #tn-ef .ef-bsub{display:none;}
+    #tn-ef .ef-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ef .ef-nav{padding-top:10px; row-gap:0;}
+    #tn-ef .ef-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ef .ef-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ef #ef-bar,#tn-ef .ef-bar-track i{transition:none;}
+    #tn-ef .ef-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-ef'); if(!root) return;
+  root.querySelectorAll('.ef-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('ef-state')); }
+  function keys(o){ return Object.keys(o).length; }
+  function money(n){ return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#ef-vocab-def');
+  root.querySelectorAll('#ef-vocab-chips .ef-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ef-vocab-chips .ef-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · three real funds */
+  var TK={
+    voo:['VOO — 0.03% · $3 A Year On $10,000','Vanguard’s S&P 500 ETF, and the first ETF to pass $1 trillion in assets. You buy it the way you buy a stock: a share at a time, at whatever price is showing right now.'],
+    vfiax:['VFIAX — 0.04% · $4 A Year On $10,000','The same index in a mutual fund wrapper. A dollar a year more than VOO on $10,000 — but it asks for $3,000 to open a position, and it prices once a day instead of continuously.'],
+    spy:['SPY — 0.0945% · $9.45 A Year On $10,000','The oldest US ETF, launched in 1993, and still the most heavily traded one on the market. It charges roughly three times VOO for the identical 500 companies. Age and trading volume explain the gap, not strategy.']
+  };
+  var tkSeen={}, tkT=root.querySelector('#ef-tk-t'), tkD=root.querySelector('#ef-tk-d'),
+      tkCount=root.querySelector('#ef-tk-count');
+  root.querySelectorAll('#ef-tickers .ef-tk').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.getAttribute('data-k');
+      root.querySelectorAll('#ef-tickers .ef-tk').forEach(function(x){ x.classList.remove('on'); });
+      root.querySelectorAll('.ef-bar-row').forEach(function(x){ x.classList.remove('lit'); });
+      b.classList.add('on');
+      var bar=root.querySelector('.ef-bar-row[data-k="'+k+'"]'); if(bar) bar.classList.add('lit');
+      tkT.textContent=TK[k][0]; tkD.textContent=TK[k][1];
+      tkSeen[k]=1; tkCount.textContent='Reviewed '+keys(tkSeen)+' Of 3';
+      state('tk', keys(tkSeen)); postHeight();
+    });
+  });
+
+  /* 3 · the trading day clock (creative 1 of 2) */
+  var PATH=[611.20,610.80,610.45,609.90,609.80,610.30,610.95,611.55,612.10,612.80,613.40,
+            613.15,612.85,612.30,611.90,612.20,612.60,613.35,614.05,614.70,615.20,
+            614.90,614.60,614.20,613.75,613.95,614.10];
+  var NAV=614.10, CLOSE_M=390, MMAX=450;
+  function xFor(m){ return 46 + m*(532/MMAX); }
+  function yFor(p){ return 206 - (p-609)*26; }
+  function priceAt(m){
+    if(m>=CLOSE_M) return NAV;
+    var i=m/15, lo=Math.floor(i), hi=Math.min(PATH.length-1,lo+1), f=i-lo;
+    return PATH[lo]+(PATH[hi]-PATH[lo])*f;
+  }
+  function fmtTime(m){
+    var tot=570+m, h=Math.floor(tot/60), mi=tot%60, ap=h>=12?'PM':'AM', hh=h%12;
+    if(hh===0) hh=12;
+    return hh+':'+(mi<10?'0':'')+mi+' '+ap;
+  }
+  function bucket(m){ return m>=CLOSE_M ? 'after' : (m<130 ? 'am' : (m<260 ? 'mid' : 'pm')); }
+  var line=root.querySelector('#ef-line');
+  if(line){
+    var pts=[];
+    for(var i=0;i<PATH.length;i++) pts.push(xFor(i*15).toFixed(1)+','+yFor(PATH[i]).toFixed(1));
+    line.setAttribute('points', pts.join(' '));
+  }
+  var slider=root.querySelector('#ef-slider'), timeLab=root.querySelector('#ef-time'),
+      mark=root.querySelector('#ef-mark'), dot=root.querySelector('#ef-dot'),
+      etfP=root.querySelector('#ef-etf-p'), etfD=root.querySelector('#ef-etf-d'),
+      mfP=root.querySelector('#ef-mf-p'), mfD=root.querySelector('#ef-mf-d'),
+      clockOut=root.querySelector('#ef-clock-out'), clockCount=root.querySelector('#ef-clock-count');
+  var bSeen={};
+  function renderClock(record){
+    var m=+slider.value, t=fmtTime(m), x=xFor(m);
+    timeLab.textContent = m>=CLOSE_M ? t+' · After Hours' : t;
+    mark.setAttribute('x1',x); mark.setAttribute('x2',x);
+    dot.setAttribute('cx',x); dot.setAttribute('cy',yFor(priceAt(m)));
+    var vt,vd;
+    if(m>=CLOSE_M){
+      etfP.textContent='—';
+      etfD.textContent='The market is shut. Your order waits for tomorrow’s open and fills at whatever the price is then.';
+      mfP.textContent='—';
+      mfD.textContent='Past the cut-off. Your order gets tomorrow’s NAV, not today’s '+money(NAV)+'.';
+      vt='After The Bell, Nobody Gets Today’s Price';
+      vd='Once the market closes, both wrappers put you in the same queue for tomorrow. The whole difference between them only exists while trading is open.';
+      clockOut.className='ef-verdict lean w-w';
+    } else {
+      var p=priceAt(m), d=p-NAV;
+      etfP.textContent=money(p);
+      etfD.textContent='The price showing at '+t+'. You see it before you confirm the order.';
+      mfP.textContent=money(NAV);
+      mfD.textContent='Tonight’s NAV — the same fill whether you ordered at '+t+' or two minutes after the open.';
+      if(Math.abs(d)<0.06){
+        vt='Within Pennies Of Each Other';
+        vd='At '+t+' the two wrappers land on almost the same price. That is what happens most of the time, which is why timing is a far smaller deal than it feels.';
+        clockOut.className='ef-verdict lean';
+      } else if(d<0){
+        vt='Trading Early Got You In '+money(Math.abs(d))+' Lower';
+        vd='Buying at '+t+' beat the closing NAV by '+money(Math.abs(d))+' a share on this particular day. Being able to act on that is the ETF’s advantage — and you could only know it afterwards.';
+        clockOut.className='ef-verdict lean w-e';
+      } else {
+        vt='Trading Then Cost You '+money(d)+' More';
+        vd='Buying at '+t+' was '+money(d)+' a share worse than simply taking the closing NAV. Same wrapper, same ability to choose — this time the choice went against you.';
+        clockOut.className='ef-verdict lean w-m';
+      }
+    }
+    clockOut.innerHTML='<p class="ef-verdict-t">'+vt+'</p><p class="ef-verdict-d">'+vd+'</p>';
+    if(record){
+      bSeen[bucket(m)]=1;
+      clockCount.textContent='Explored '+keys(bSeen)+' Of 4 Parts Of The Day';
+      state('clock', keys(bSeen));
+    }
+    postHeight();
+  }
+  if(slider){
+    slider.addEventListener('input',function(){ renderClock(true); });
+    slider.addEventListener('change',function(){ renderClock(true); });
+    renderClock(false);
+  }
+
+  /* 4 · what a spread costs (creative 2 of 2) */
+  var LIQ={
+    voo:{t:'VOO', sub:'About $1 trillion in assets. Millions of shares change hands every day.', bid:612.48, ask:612.50, er:0.03, w:'w-e'},
+    thin:{t:'A Thinly Traded Niche ETF', sub:'A small sector fund. Some days only a few thousand shares trade at all.', bid:48.62, ask:48.73, er:0.58, w:'w-w'}
+  };
+  var qFund='voo', qSize=1, qSeen={},
+      qT=root.querySelector('#ef-q-t'), qSub=root.querySelector('#ef-q-sub'),
+      qBid=root.querySelector('#ef-q-bid'), qAsk=root.querySelector('#ef-q-ask'), qSp=root.querySelector('#ef-q-sp'),
+      sVal=root.querySelector('#ef-s-val'), sSp=root.querySelector('#ef-s-sp'), sFee=root.querySelector('#ef-s-fee'),
+      sNote=root.querySelector('#ef-s-note'), qCount=root.querySelector('#ef-q-count');
+  function renderQuote(record){
+    var f=LIQ[qFund], spread=f.ask-f.bid, val=f.ask*qSize,
+        spCost=spread*qSize, fee=val*f.er/100,
+        weeks=spCost/fee*52;
+    qT.textContent=f.t; qSub.textContent=f.sub;
+    qBid.textContent=f.bid.toFixed(2); qAsk.textContent=f.ask.toFixed(2);
+    qSp.textContent=money(spread);
+    sVal.textContent=money(val); sSp.textContent=money(spCost); sFee.textContent=money(fee);
+    var span = weeks<14 ? Math.round(weeks)+' weeks' : Math.round(weeks/4.33)+' months';
+    sNote.innerHTML='Crossing that spread once costs about <b>'+span+'</b> of this fund’s expense ratio ('+f.er+'%). '
+      + (qFund==='voo'
+         ? 'On a fund this heavily traded the toll is close to nothing — which is exactly why size and volume matter.'
+         : 'On a fund this thinly traded you pay more to get in the door than you pay the fund for months of work.')
+      + ' Change the order size and watch the dollars move while that proportion stays put.';
+    if(record){
+      qSeen[qFund+':'+qSize]=1;
+      qCount.textContent='Tried '+Math.min(keys(qSeen),4)+' Of 4 Combinations';
+      state('spread', keys(qSeen));
+    }
+    postHeight();
+  }
+  root.querySelectorAll('#ef-q-funds .ef-pick').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ef-q-funds .ef-pick').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); qFund=b.getAttribute('data-k'); renderQuote(true);
+    });
+  });
+  root.querySelectorAll('#ef-q-sizes .ef-pick').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ef-q-sizes .ef-pick').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); qSize=+b.getAttribute('data-n'); renderQuote(true);
+    });
+  });
+  renderQuote(false);
+
+  /* 5 · side by side */
+  var rowCount=root.querySelector('#ef-row-count');
+  root.querySelectorAll('#ef-tbl .ef-trow').forEach(function(row){
+    var btn=row.querySelector('.ef-tbtn'); if(!btn) return;
+    btn.addEventListener('click',function(){
+      row.classList.add('open');
+      var n=root.querySelectorAll('#ef-tbl .ef-trow.open').length;
+      rowCount.textContent='Opened '+n+' Of 5';
+      state('row', n); postHeight();
+    });
+  });
+  var rowReset=root.querySelector('#ef-row-reset');
+  if(rowReset) rowReset.addEventListener('click',function(){
+    root.querySelectorAll('#ef-tbl .ef-trow').forEach(function(r){ r.classList.remove('open'); });
+    rowCount.textContent='Opened 0 Of 5'; postHeight();
+  });
+
+  /* 6 · myth or fact */
+  var mythCount=root.querySelector('#ef-myth-count');
+  root.querySelectorAll('#ef-myth .ef-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ef-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ef-myth .ef-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#ef-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#ef-myth .ef-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 7 · the share-class twist */
+  var TWO={
+    voo:['VOO — Bought On An Exchange','You place an order with your brokerage and buy from another investor at the price on screen. One share gets you in, and you cross a bid-ask spread of about a penny on the way. Expense ratio: 0.03%.'],
+    vfiax:['VFIAX — Bought From The Fund','You transact with Vanguard itself at the end of the day, at one NAV, with no spread to cross. It takes exact dollar amounts, which suits automatic investing — but it wants $3,000 to begin. Expense ratio: 0.04%.']
+  };
+  var twSeen={}, twT=root.querySelector('#ef-two-t'), twD=root.querySelector('#ef-two-d'),
+      twCount=root.querySelector('#ef-two-count'), callout=root.querySelector('#ef-callout');
+  root.querySelectorAll('#ef-two .ef-side').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ef-two .ef-side').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      twT.textContent=TWO[k][0]; twD.textContent=TWO[k][1];
+      twSeen[k]=1;
+      twCount.textContent='Opened '+keys(twSeen)+' Of 2';
+      if(keys(twSeen)>=2 && callout) callout.classList.add('on');
+      state('tw', keys(twSeen)); postHeight();
+    });
+  });
+
+  /* 8 · which wrapper */
+  var CWHY={
+    mf:[ 'A mutual fund takes an exact dollar amount on a schedule and asks nothing of you afterwards. No order to place, no spread, no leftover cash because $200 did not divide into whole shares.',
+         'The plan menu decides this one, not you. Most workplace plans still list mutual funds only, and that is fine — the index underneath is what does the work.' ],
+    etf:[ 'Intraday trading is the whole point of the wrapper. You buy at a price you can see and it is done. A mutual fund order would sit until the close and fill at the NAV whatever you did in the meantime.' ]
+  };
+  var cIdx={mf:0,etf:0}, cLabel={etf:'An ETF',mf:'A Mutual Fund'};
+  var caseCount=root.querySelector('#ef-case-count');
+  root.querySelectorAll('#ef-match .ef-mrow').forEach(function(row,ri){
+    var ans=row.getAttribute('data-ans'), why=row.querySelector('.ef-why');
+    var txt = ans==='mf' ? CWHY.mf[ri===0?0:1] : CWHY.etf[0];
+    row.querySelectorAll('.ef-mbtns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'), ok=(pick===ans);
+        btn.classList.add('picked');
+        row.querySelectorAll('.ef-mbtns button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        row.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right — ':'The better fit is ')+cLabel[ans]+'.</b> '+txt;
+        var n=root.querySelectorAll('#ef-match .ef-mrow.done').length;
+        caseCount.textContent='Answered '+n+' Of 3';
+        state('case', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#ef-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#ef-match .ef-mrow').forEach(function(r){
+      r.classList.remove('done','right','off');
+      r.querySelector('.ef-why').innerHTML='';
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('ef-fin-arrow'), lead=document.getElementById('ef-fin-lead'), sub=document.getElementById('ef-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-ef'); if(!root) return;
+  var ALT={
+    'nav':'NAV',
+    'intraday trading':'intraday trading|intraday',
+    'bid-ask spread':'bid-ask spreads?|spreads?',
+    'expense ratio':'expense ratios?',
+    'share class':'share class(?:es)?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#ef-vocab-chips .ef-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.ef-p, .ef-sub, .ef-note, .ef-why, .ef-recap-item span, .ef-h2, .ef-verdict-d, .ef-next-move, .ef-sort-row > span, .ef-mrow > p, .ef-tlabel, .ef-trow-why, .ef-callout p, .ef-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.ef-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='ef-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='ef-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ef-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.ef-sec').forEach(function(sec){ TERMS.forEach(function(t){ wrap(sec,t); }); });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ef'); if(!root) return;
+  var TOTAL=10, current=1;
+  var bar=root.querySelector('#ef-bar'), labelEl=root.querySelector('#ef-slide-label'),
+      countEl=root.querySelector('#ef-slide-count'), prevBtn=root.querySelector('#ef-prev'),
+      nextBtn=root.querySelector('#ef-next'), hintEl=root.querySelector('#ef-nav-hint'),
+      disclaimer=root.querySelector('.ef-disclaimer');
+  var labels={1:'Start Here',2:'Three Real Funds',3:'The Trading Day',4:'The Hidden Toll',5:'Side By Side',6:'Myth Or Fact',7:'The Twist',8:'Which Wrapper?',9:'Recap',10:'Complete'};
+  var reqHints={2:'Tap all 3 funds to continue',3:'Try all 4 parts of the day to continue',4:'Try 4 combinations to continue',5:'Open all 5 rows to continue',6:'Answer all 5 to continue',7:'Tap both share classes to continue',8:'Answer all 3 to continue'};
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.ef-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ef-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ef-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'tk',     need:3, hint:function(n){ return 'Reviewed '+n+' of 3 — tap them all to continue'; }},
+    {step:3, key:'clock',  need:4, hint:function(n){ return 'Explored '+n+' of 4 parts of the day — try the morning, midday, afternoon and after the close'; }},
+    {step:4, key:'spread', need:4, hint:function(n){ return 'Tried '+n+' of 4 combinations — change the fund and the size'; }},
+    {step:5, key:'row',    need:5, hint:function(n){ return 'Opened '+n+' of 5 — open them all to continue'; }},
+    {step:6, key:'myth',   need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:7, key:'tw',     need:2, hint:function(n){ return n<1?'Tap both share classes to continue':'Now tap the other one'; }},
+    {step:8, key:'case',   need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('ef-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

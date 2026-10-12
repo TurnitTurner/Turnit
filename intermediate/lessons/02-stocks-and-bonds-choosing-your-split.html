@@ -1,0 +1,995 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — STOCKS AND BONDS: CHOOSING YOUR SPLIT
+     (Intermediate · Module 1 · Lesson 2)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-sb. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     13 slides, one interactive per slide, Next locked until the activity is done:
+       1  Title & Key Terms (never gated)   2  The Drop Test (scenario)
+       3  The Trade-Off Meter (slider)      4  What A Bad Year Felt Like (scratch)
+       5  Which Way Does It Push? (drag)    6  Capacity vs Tolerance (two pickers)
+       7  Myth Or Fact (6)                  8  The Rule-Of-Thumb Trap
+       9  What Would Make You Sell?         10 Pick A Working Split
+       11 The Rule You'll Follow            12 Recap
+       13 Complete (scroll-down prompt)
+     Creative widgets, 2 of 2 allowed: the scratch-off panels on slide 4 (with a
+     Reveal All fallback) and the drag-and-drop sort on slide 5 (which also works
+     by tapping an item then tapping a bucket, so it never depends on dragging).
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     ============================================================ -->
+<div id="tn-sb">
+  <div class="sb-wrap">
+    <div class="sb-top">
+      <div class="sb-topbar">
+        <div class="sb-brand"><span class="sb-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="sb-word">TURNIT</span><span class="sb-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="sb-progress"><span id="sb-bar"></span></div>
+      <div class="sb-meta"><span id="sb-slide-label">Start Here</span><span id="sb-slide-count">Slide 1 Of 13</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="sb-sec sb-center sb-reveal" data-step="1">
+      <p class="sb-kicker center">Stocks And Bonds · 1 / 13</p>
+      <h1 class="sb-hero-title">CHOOSING <span class="sb-hero-grad">YOUR SPLIT</span></h1>
+      <p class="sb-sub center">One number decides most of your experience as an investor. This lesson is about picking it honestly.</p>
+      <div class="sb-vocab">
+        <span class="sb-vocab-label">Key Terms In This Lesson</span>
+        <div class="sb-vocab-chips" id="sb-vocab-chips">
+          <button type="button" class="sb-vocab-chip" data-t="Volatility" data-def="How much a holding's value swings around, up and down, over short stretches. High volatility is a bumpy ride, not automatically a loss.">Volatility</button>
+          <button type="button" class="sb-vocab-chip" data-t="Drawdown" data-def="The fall from a portfolio's highest point to its lowest before it recovers. It is the number that actually tests people.">Drawdown</button>
+          <button type="button" class="sb-vocab-chip" data-t="Risk Capacity" data-def="How much loss your situation can absorb — driven by your timeline, income, and what the money is for. It is arithmetic, not feelings.">Risk Capacity</button>
+          <button type="button" class="sb-vocab-chip" data-t="Risk Tolerance" data-def="How much loss you can live through without selling. It is about temperament, and it only shows up in a real downturn.">Risk Tolerance</button>
+          <button type="button" class="sb-vocab-chip" data-t="Time Horizon" data-def="How long until you need to spend the money. The single biggest input into a stock-and-bond split.">Time Horizon</button>
+          <button type="button" class="sb-vocab-chip" data-t="Equity Risk Premium" data-def="The extra return investors have historically demanded for holding stocks instead of safer assets. It is compensation for the bumpy ride, never a guarantee.">Equity Risk Premium</button>
+        </div>
+        <div class="sb-vocab-def" id="sb-vocab-def">Tap a term to see what it means.</div>
+        <span class="sb-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="sb-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE DROP TEST ========== -->
+    <section class="sb-sec sb-reveal" data-step="2">
+      <p class="sb-kicker">The Drop Test · 2 / 13</p>
+      <h2 class="sb-h2">Your Portfolio Just Fell 30%</h2>
+      <p class="sb-p">It's Monday. Your $40,000 is now $28,000, and nobody knows when it stops. What do you actually do?</p>
+      <div class="sb-choices" id="sb-drop">
+        <button type="button" class="sb-choice" data-k="sell">Sell Some To Stop The Bleeding</button>
+        <button type="button" class="sb-choice" data-k="hold">Do Nothing And Wait It Out</button>
+        <button type="button" class="sb-choice" data-k="buy">Keep Buying On Schedule</button>
+      </div>
+      <div class="sb-verdict" id="sb-drop-out"><p class="sb-verdict-t">Pick The Honest Answer</p><p class="sb-verdict-d">Not the admirable one. The one you'd actually do at 9am on a red Monday.</p></div>
+      <p class="sb-disclaimer-inline">There's no scored answer here. The point is that your split should match the response you'd really have.</p>
+    </section>
+
+    <!-- ========== 3 · THE TRADE-OFF METER ========== -->
+    <section class="sb-sec sb-reveal" data-step="3">
+      <p class="sb-kicker">The Trade-Off · 3 / 13</p>
+      <h2 class="sb-h2">Every Point Of Growth Has A Price</h2>
+      <p class="sb-p">Slide through the range. Growth and volatility never move in opposite directions.</p>
+      <div class="sb-panel">
+        <div class="sb-splitbar"><span class="sb-splitbar-s" id="sb-bar-stock">70% Stocks</span><span class="sb-splitbar-b" id="sb-bar-bond">30% Bonds</span></div>
+        <input id="sb-split" class="sb-range" type="range" min="0" max="100" value="70" step="10" aria-label="Percentage in stocks">
+        <div class="sb-scale"><span>All Bonds</span><span>All Stocks</span></div>
+        <div class="sb-tradegrid">
+          <div class="sb-trade"><span>Long-Run Growth Potential</span><b id="sb-growth">Higher</b><i class="sb-meter"><u id="sb-growth-fill"></u></i></div>
+          <div class="sb-trade red"><span>Depth Of A Bad Stretch</span><b id="sb-pain">Deeper</b><i class="sb-meter"><u id="sb-pain-fill"></u></i></div>
+        </div>
+        <div class="sb-note" id="sb-trade-note">Move the slider to at least three settings to see the pattern.</div>
+      </div>
+      <p class="sb-disclaimer-inline">Directional illustration only. These are not forecasts, and no split guarantees either outcome.</p>
+    </section>
+
+    <!-- ========== 4 · WHAT A BAD YEAR FELT LIKE ========== -->
+    <section class="sb-sec sb-reveal" data-step="4">
+      <p class="sb-kicker">The Hidden Cost · 4 / 13</p>
+      <h2 class="sb-h2">Scratch Off The Part Nobody Shows You</h2>
+      <p class="sb-p">Growth charts are printed everywhere. The drawdown is what you have to sit through. Scratch each panel.</p>
+      <div class="sb-scratchgrid" id="sb-scratch">
+        <div class="sb-scratch" data-k="a" data-label="30 / 70">
+          <div class="sb-scratch-under"><b>A Mild Dip</b><span>A conservative mix tends to sag rather than crash — easier to hold, and slower to grow the rest of the time.</span></div>
+          <canvas class="sb-scratch-top" width="300" height="190" aria-hidden="true"></canvas>
+          <span class="sb-scratch-tag">30 / 70</span>
+        </div>
+        <div class="sb-scratch" data-k="b" data-label="60 / 40">
+          <div class="sb-scratch-under"><b>A Real Jolt</b><span>The middle mix still falls hard enough to frighten people. Most who abandon a plan do it from somewhere near here.</span></div>
+          <canvas class="sb-scratch-top" width="300" height="190" aria-hidden="true"></canvas>
+          <span class="sb-scratch-tag">60 / 40</span>
+        </div>
+        <div class="sb-scratch" data-k="c" data-label="90 / 10">
+          <div class="sb-scratch-under"><b>A Gut Punch</b><span>An equity-heavy mix can halve in a severe bear market and take years to recover. Workable — only if you never had to sell.</span></div>
+          <canvas class="sb-scratch-top" width="300" height="190" aria-hidden="true"></canvas>
+          <span class="sb-scratch-tag">90 / 10</span>
+        </div>
+      </div>
+      <p class="sb-count" id="sb-scratch-count">Revealed 0 Of 3</p>
+      <div class="sb-reset-row"><button type="button" class="sb-ghost-btn" id="sb-scratch-all">Reveal All</button><button type="button" class="sb-reset-btn" id="sb-scratch-reset">↺ Start Over</button></div>
+      <p class="sb-disclaimer-inline">Qualitative descriptions of how these mixes have typically behaved in past downturns — not specific figures, and not a prediction.</p>
+    </section>
+
+    <!-- ========== 5 · WHICH WAY DOES IT PUSH? ========== -->
+    <section class="sb-sec sb-reveal" data-step="5">
+      <p class="sb-kicker">Which Way? · 5 / 13</p>
+      <h2 class="sb-h2">Six Facts, Two Directions</h2>
+      <p class="sb-p">Drag each card into a column — or tap the card, then tap a column.</p>
+      <div class="sb-dragpool" id="sb-pool">
+        <button type="button" class="sb-card" data-k="1" data-ans="stock">This money is earmarked for retirement in 25 years</button>
+        <button type="button" class="sb-card" data-k="2" data-ans="bond">You're buying a house in two years</button>
+        <button type="button" class="sb-card" data-k="3" data-ans="stock">Your income is stable and you save every month</button>
+        <button type="button" class="sb-card" data-k="4" data-ans="bond">You sold everything in the last downturn</button>
+        <button type="button" class="sb-card" data-k="5" data-ans="stock">You have a separate emergency fund already</button>
+        <button type="button" class="sb-card" data-k="6" data-ans="bond">You plan to start spending this within five years</button>
+      </div>
+      <div class="sb-zones">
+        <div class="sb-zone" data-z="stock"><p class="sb-zone-t">More Stocks</p><div class="sb-zone-in"></div></div>
+        <div class="sb-zone" data-z="bond"><p class="sb-zone-t">More Bonds</p><div class="sb-zone-in"></div></div>
+      </div>
+      <p class="sb-count" id="sb-drag-count">Placed 0 Of 6</p>
+      <div class="sb-reset-row"><button type="button" class="sb-reset-btn" id="sb-drag-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · CAPACITY VS TOLERANCE ========== -->
+    <section class="sb-sec sb-reveal" data-step="6">
+      <p class="sb-kicker">Two Different Questions · 6 / 13</p>
+      <h2 class="sb-h2">What You Can Afford vs. What You Can Stand</h2>
+      <p class="sb-p">These are separate, and the lower of the two usually wins. Pick one from each row.</p>
+      <div class="sb-axis">
+        <p class="sb-axis-lab">Risk Capacity — What Your Situation Allows</p>
+        <div class="sb-axis-opts" id="sb-cap">
+          <button type="button" class="sb-pill" data-v="1">Low</button>
+          <button type="button" class="sb-pill" data-v="2">Medium</button>
+          <button type="button" class="sb-pill" data-v="3">High</button>
+        </div>
+      </div>
+      <div class="sb-axis">
+        <p class="sb-axis-lab">Risk Tolerance — What You Can Sit Through</p>
+        <div class="sb-axis-opts" id="sb-tol">
+          <button type="button" class="sb-pill" data-v="1">Low</button>
+          <button type="button" class="sb-pill" data-v="2">Medium</button>
+          <button type="button" class="sb-pill" data-v="3">High</button>
+        </div>
+      </div>
+      <div class="sb-verdict" id="sb-axis-out"><p class="sb-verdict-t">Pick One From Each Row</p><p class="sb-verdict-d">A mix your situation allows but your nerves can't hold is not a workable mix.</p></div>
+    </section>
+
+    <!-- ========== 7 · MYTH OR FACT ========== -->
+    <section class="sb-sec sb-reveal" data-step="7">
+      <p class="sb-kicker">Myth Or Fact · 7 / 13</p>
+      <h2 class="sb-h2">Myth Or Fact?</h2>
+      <p class="sb-p">Six claims about the split. Tap your answer.</p>
+      <div class="sb-sort" id="sb-myth">
+        <div class="sb-sort-row" data-answer="myth"><span>Bonds are the safe part, so they can't lose money.</span><div class="sb-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sb-why"><b>Myth.</b> Bond prices fall when interest rates rise, and 2022 showed that a bond fund can post a meaningfully negative year. They are steadier than stocks, not immune.</p></div>
+        <div class="sb-sort-row" data-answer="fact"><span>Your split matters more in a crash than in a boom.</span><div class="sb-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sb-why"><b>Fact.</b> In a rising market almost any mix looks fine. The split earns its keep in the fall, when it decides how much you lose and whether you stay invested.</p></div>
+        <div class="sb-sort-row" data-answer="myth"><span>You should pick the highest stock percentage you can tolerate.</span><div class="sb-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sb-why"><b>Myth.</b> Tolerance is only half of it. If the money is needed in three years, what you can stomach is irrelevant — your capacity for loss is what binds.</p></div>
+        <div class="sb-sort-row" data-answer="fact"><span>Holding bonds usually costs you some long-run growth.</span><div class="sb-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sb-why"><b>Fact.</b> That is the deal being struck. You give up part of the expected return to make the ride survivable — worth it if it keeps you invested, wasted if you'd have held on anyway.</p></div>
+        <div class="sb-sort-row" data-answer="myth"><span>Bonds are only worth holding once you’re close to retirement.</span><div class="sb-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sb-why"><b>Myth.</b> Bonds do a job at any age: they steady the portfolio and give you something to spend from that isn’t down 30%. How much you hold changes with your situation, but "none until you’re 60" is a rule of convenience, not of reasoning.</p></div>
+        <div class="sb-sort-row" data-answer="fact"><span>Two people the same age can correctly hold very different splits.</span><div class="sb-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sb-why"><b>Fact.</b> Same age, different timelines, incomes, and temperaments. Age is one input among several, not the answer.</p></div>
+      </div>
+      <p class="sb-count" id="sb-myth-count">Answered 0 Of 6</p>
+      <div class="sb-reset-row"><button type="button" class="sb-reset-btn" id="sb-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 8 · THE RULE-OF-THUMB TRAP ========== -->
+    <section class="sb-sec sb-reveal" data-step="8">
+      <p class="sb-kicker">Rules Of Thumb · 8 / 13</p>
+      <h2 class="sb-h2">Where The Shortcuts Break</h2>
+      <p class="sb-p">Three rules people repeat. Tap each to see what it gets right, and what it misses about your time horizon.</p>
+      <div class="sb-rules" id="sb-rules">
+        <button type="button" class="sb-rule" data-k="age"><b>110 Minus Your Age</b><span>The Classic</span></button>
+        <button type="button" class="sb-rule" data-k="hundred"><b>100% Stocks Until 40</b><span>The Online Favourite</span></button>
+        <button type="button" class="sb-rule" data-k="sixty"><b>Always 60 / 40</b><span>The Default</span></button>
+      </div>
+      <div class="sb-verdict" id="sb-rule-out"><p class="sb-verdict-t">Tap A Rule Above</p><p class="sb-verdict-d">Each is a useful sketch and a poor final answer.</p></div>
+      <p class="sb-count" id="sb-rules-count">Examined 0 Of 3</p>
+    </section>
+
+    <!-- ========== 9 · WHAT WOULD MAKE YOU SELL? ========== -->
+    <section class="sb-sec sb-reveal" data-step="9">
+      <p class="sb-kicker">Pressure Test · 9 / 13</p>
+      <h2 class="sb-h2">Three Moments That Break Plans</h2>
+      <p class="sb-p">Pick what you'd do. You'll see what each choice implies.</p>
+      <div class="sb-scenarios" id="sb-scen">
+        <div class="sb-scen" data-k="s1" data-ans="b">
+          <p class="sb-scen-q">Your fund is down 18% and a friend just made 40% on one stock.</p>
+          <div class="sb-scen-opts"><button type="button" data-p="a">Move A Chunk Into That Stock</button><button type="button" data-p="b">Leave The Plan Alone</button></div>
+          <p class="sb-scen-why"></p>
+        </div>
+        <div class="sb-scen" data-k="s2" data-ans="b">
+          <p class="sb-scen-q">You lose your job. The portfolio is down 12% and rent is due in three weeks.</p>
+          <div class="sb-scen-opts"><button type="button" data-p="a">Sell Investments To Cover Rent</button><button type="button" data-p="b">Use The Emergency Fund First</button></div>
+          <p class="sb-scen-why"></p>
+        </div>
+        <div class="sb-scen" data-k="s3" data-ans="b">
+          <p class="sb-scen-q">Markets have risen for three straight years. Your mix has drifted well past your target.</p>
+          <div class="sb-scen-opts"><button type="button" data-p="a">Let It Ride, It's Working</button><button type="button" data-p="b">Note It Against Your Written Target</button></div>
+          <p class="sb-scen-why"></p>
+        </div>
+      </div>
+      <p class="sb-count" id="sb-scen-count">Answered 0 Of 3</p>
+      <div class="sb-reset-row"><button type="button" class="sb-reset-btn" id="sb-scen-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 10 · PICK A WORKING SPLIT ========== -->
+    <section class="sb-sec sb-reveal" data-step="10">
+      <p class="sb-kicker">Your Split · 10 / 13</p>
+      <h2 class="sb-h2">Pick One You'd Still Hold In March 2020</h2>
+      <p class="sb-p">Not the boldest. The one you'd have held through the worst month you remember — that is your real risk tolerance.</p>
+      <div class="sb-splits" id="sb-picks">
+        <button type="button" class="sb-split-pick" data-k="a">100 / 0</button>
+        <button type="button" class="sb-split-pick" data-k="b">80 / 20</button>
+        <button type="button" class="sb-split-pick" data-k="c">60 / 40</button>
+        <button type="button" class="sb-split-pick" data-k="d">40 / 60</button>
+        <button type="button" class="sb-split-pick" data-k="e">20 / 80</button>
+      </div>
+      <div class="sb-verdict" id="sb-pick-out"><p class="sb-verdict-t">Choose A Split</p><p class="sb-verdict-d">Stocks first, bonds second — the way allocations are usually written.</p></div>
+      <p class="sb-disclaimer-inline">Educational illustration. What suits you depends on facts this lesson can't see, and is worth discussing with a qualified professional.</p>
+    </section>
+
+    <!-- ========== 11 · THE RULE YOU'LL FOLLOW ========== -->
+    <section class="sb-sec sb-reveal" data-step="11">
+      <p class="sb-kicker">Pre-Commitment · 11 / 13</p>
+      <h2 class="sb-h2">Decide Now, Not Then</h2>
+      <p class="sb-p">The point of choosing in calm weather is having something to follow in bad weather. Pick the rule you'll actually keep.</p>
+      <div class="sb-rulepick" id="sb-commit">
+        <button type="button" class="sb-commit" data-k="a"><b>I Won't Change My Split During A Fall</b><span>Changes happen only when my life changes, not when the market does.</span></button>
+        <button type="button" class="sb-commit" data-k="b"><b>I'll Review It On One Set Date A Year</b><span>Same date every year, whatever the market is doing that week.</span></button>
+        <button type="button" class="sb-commit" data-k="c"><b>I'll Write Down Why Before Any Change</b><span>If I can't write a reason that isn't a headline, I don't change it.</span></button>
+      </div>
+      <div class="sb-verdict" id="sb-commit-out"><p class="sb-verdict-t">Pick One To Keep</p><p class="sb-verdict-d">One rule you follow beats three you admire.</p></div>
+    </section>
+
+    <!-- ========== 12 · RECAP ========== -->
+    <section class="sb-sec sb-reveal" data-step="12">
+      <p class="sb-kicker">Recap · 12 / 13</p>
+      <h2 class="sb-h2">Here's What You Now Know</h2>
+      <p class="sb-p">The whole lesson, in six lines.</p>
+      <div class="sb-recap">
+        <div class="sb-recap-item"><span class="sb-recap-check">✓</span><span>Growth and <b>drawdown</b> move together. You cannot buy one without the other.</span></div>
+        <div class="sb-recap-item"><span class="sb-recap-check">✓</span><span><b>Risk capacity</b> is arithmetic — your timeline and what the money is for.</span></div>
+        <div class="sb-recap-item"><span class="sb-recap-check">✓</span><span><b>Risk tolerance</b> is temperament, and the lower of the two should win.</span></div>
+        <div class="sb-recap-item"><span class="sb-recap-check">✓</span><span>Bonds steady the ride and cost some long-run growth. That's the trade, not a flaw.</span></div>
+        <div class="sb-recap-item"><span class="sb-recap-check">✓</span><span>Age-based rules are a sketch. They know nothing about your job or your nerves.</span></div>
+        <div class="sb-recap-item"><span class="sb-recap-check">✓</span><span>The best split is the one you'd still be holding at the bottom.</span></div>
+      </div>
+      <div class="sb-next-move">Your next move: <b>write your split and your rule in the same place you wrote your target.</b> A decision made calmly is only useful if you can find it later.</div>
+    </section>
+
+    <!-- ========== 13 · COMPLETE ========== -->
+    <section class="sb-sec sb-center sb-reveal" data-step="13">
+      <p class="sb-kicker center">Lesson Complete · 13 / 13</p>
+      <span class="sb-hero-ico">🚀</span>
+      <h2 class="sb-h2 center">You've Finished The Lesson</h2>
+      <p class="sb-sub center">You've picked a split on purpose, and written down what would make you change it.</p>
+      <div class="sb-finish">
+        <span class="sb-finish-arrow" id="sb-fin-arrow" aria-hidden="true">↓</span>
+        <p class="sb-finish-lead" id="sb-fin-lead">Scroll Down To Continue</p>
+        <p class="sb-finish-sub" id="sb-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="sb-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="sb-quote">"THE INVESTOR'S CHIEF PROBLEM — AND EVEN HIS WORST ENEMY — <span class="sb-green">IS LIKELY TO BE HIMSELF.</span>"<br><span class="sb-quote-by">— BENJAMIN GRAHAM</span></p>
+    </section>
+
+    <p class="sb-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Splits, behaviour descriptions, and downturn illustrations in this lesson are simplified and hypothetical, not recommendations or predictions. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="sb-nav" id="sb-nav">
+      <button type="button" class="sb-nav-btn prev" id="sb-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="sb-nav-hint" id="sb-nav-hint"></span>
+      <button type="button" class="sb-nav-btn next" id="sb-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-sb{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE; --gold:#E0A93C; --goldbg:#FBF1DE; --goldbd:#F0DBA8;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-sb *,#tn-sb *::before,#tn-sb *::after{box-sizing:border-box;}
+  #tn-sb .sb-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-sb .sb-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-sb .sb-reveal.in{opacity:1; transform:none;}
+  #tn-sb .sb-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-sb .sb-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-sb .sb-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-sb .sb-bico{display:flex;}
+  #tn-sb .sb-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-sb .sb-bsub{color:var(--ink2); font-weight:500;}
+  #tn-sb .sb-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-sb #sb-bar{display:block; height:100%; width:8%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-sb .sb-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-sb .sb-meta #sb-slide-label{color:var(--ink2);}
+  #tn-sb .sb-meta #sb-slide-count{color:var(--mut);}
+  #tn-sb .sb-sec{padding:16px 0 8px;}
+  #tn-sb .sb-sec.sb-hide{display:none;}
+  #tn-sb .sb-center{text-align:center;}
+  #tn-sb .sb-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-sb .sb-kicker.center{text-align:center;}
+  #tn-sb .sb-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-sb .sb-h2.center{text-align:center;}
+  #tn-sb .sb-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-sb .sb-p b{color:var(--ink); font-weight:700;}
+  #tn-sb .sb-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-sb .sb-panel{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:22px 20px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-sb .sb-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:16px; line-height:1.5;}
+  #tn-sb .sb-note b{color:var(--ink); font-weight:700;}
+  #tn-sb .sb-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-sb .sb-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-sb .sb-reset-row{display:flex; justify-content:center; gap:9px; margin-top:14px; flex-wrap:wrap;}
+  #tn-sb .sb-reset-btn,#tn-sb .sb-ghost-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-sb .sb-ghost-btn{color:var(--b); border-color:#B9CFE4;}
+  #tn-sb .sb-reset-btn:hover,#tn-sb .sb-ghost-btn:hover{background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-sb .sb-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(30px,7.6vw,46px); line-height:1.13; text-align:center; margin:8px 0 14px;}
+  #tn-sb .sb-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-sb .sb-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-sb .sb-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-sb .sb-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-sb .sb-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-sb .sb-vocab-chip:hover{background:#DCF0E5;}
+  #tn-sb .sb-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-sb .sb-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-sb .sb-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-sb .sb-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-sb .sb-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-sb .sb-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* choices + verdict */
+  #tn-sb .sb-choices{display:flex; flex-direction:column; gap:9px;}
+  #tn-sb .sb-choice{font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:15px 16px; cursor:pointer; text-align:left; transition:all .18s;}
+  #tn-sb .sb-choice.on{border-color:var(--b); background:#EAF1FA;}
+  #tn-sb .sb-verdict{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:14px;}
+  #tn-sb .sb-verdict.warm{background:var(--goldbg); border-color:var(--goldbd);}
+  #tn-sb .sb-verdict.good{background:var(--tint); border-color:var(--selbd);}
+  #tn-sb .sb-verdict-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-sb .sb-verdict-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  /* trade-off meter */
+  #tn-sb .sb-splitbar{display:flex; border-radius:11px; overflow:hidden; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:#fff; margin-bottom:10px;}
+  #tn-sb .sb-splitbar span{padding:10px 8px; text-align:center; white-space:nowrap; transition:flex-basis .25s ease;}
+  #tn-sb .sb-splitbar-s{background:var(--b); flex:0 0 70%;}
+  #tn-sb .sb-splitbar-b{background:var(--gold); flex:1;}
+  #tn-sb .sb-range{-webkit-appearance:none; appearance:none; width:100%; height:9px; border-radius:6px; outline:none; margin:6px 0 4px; background:linear-gradient(90deg,var(--gold),var(--b));}
+  #tn-sb .sb-range::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer; box-shadow:0 2px 8px rgba(21,104,174,.4);}
+  #tn-sb .sb-range::-moz-range-thumb{width:24px; height:24px; border-radius:50%; background:#fff; border:3px solid var(--b); cursor:pointer;}
+  #tn-sb .sb-scale{display:flex; justify-content:space-between; font-size:11.5px; color:var(--mut); margin-bottom:6px;}
+  #tn-sb .sb-tradegrid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;}
+  #tn-sb .sb-trade{background:#fff; border:1px solid var(--line); border-radius:13px; padding:14px 12px; text-align:center;}
+  #tn-sb .sb-trade span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:6px;}
+  #tn-sb .sb-trade b{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:var(--b);}
+  #tn-sb .sb-trade.red b{color:var(--no);}
+  #tn-sb .sb-meter{display:block; height:7px; border-radius:5px; background:#EAEFF3; margin-top:9px; overflow:hidden;}
+  #tn-sb .sb-meter u{display:block; height:100%; width:70%; background:var(--b); transition:width .25s ease;}
+  #tn-sb .sb-trade.red .sb-meter u{background:var(--no);}
+  /* scratch cards */
+  #tn-sb .sb-scratchgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  #tn-sb .sb-scratch{position:relative; border-radius:15px; overflow:hidden; border:1.5px solid var(--cardbd); background:var(--tint); min-height:190px; touch-action:none;}
+  #tn-sb .sb-scratch-under{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:16px 13px; text-align:center;}
+  #tn-sb .sb-scratch-under b{font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px;}
+  #tn-sb .sb-scratch-under span{font-size:12px; color:var(--ink2); line-height:1.45;}
+  #tn-sb .sb-scratch-top{position:absolute; inset:0; width:100%; height:100%; cursor:grab; display:block;}
+  #tn-sb .sb-scratch.done .sb-scratch-top{display:none;}
+  #tn-sb .sb-scratch-tag{position:absolute; top:10px; left:10px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; color:var(--g); background:#fff; border:1px solid var(--selbd); border-radius:99px; padding:3px 9px; pointer-events:none; opacity:0; transition:opacity .2s;}
+  #tn-sb .sb-scratch.done .sb-scratch-tag{opacity:1;}
+  /* drag sort */
+  #tn-sb .sb-dragpool{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; min-height:56px; padding:10px; background:var(--mist); border:1.5px dashed var(--cardbd); border-radius:14px;}
+  #tn-sb .sb-card{font-family:'Inter',sans-serif; font-size:13px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:10px 13px; cursor:grab; text-align:left; transition:border-color .15s, background .15s, transform .12s; touch-action:none; user-select:none;}
+  #tn-sb .sb-card.sel{border-color:var(--b); background:#EAF1FA; transform:scale(1.03);}
+  #tn-sb .sb-card.drag{position:fixed; z-index:9999; pointer-events:none; box-shadow:0 14px 30px -12px rgba(0,0,0,.35); opacity:.95;}
+  #tn-sb .sb-card.ok{border-color:var(--selbd); background:var(--tint);}
+  #tn-sb .sb-card.no{border-color:var(--nobd); background:var(--nobg);}
+  #tn-sb .sb-zones{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;}
+  #tn-sb .sb-zone{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:12px; min-height:130px; transition:all .18s;}
+  #tn-sb .sb-zone.hot{border-color:var(--b); background:#EAF1FA;}
+  #tn-sb .sb-zone-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; text-align:center; margin:0 0 9px; color:var(--ink2);}
+  #tn-sb .sb-zone-in{display:flex; flex-direction:column; gap:7px;}
+  /* axis pickers */
+  #tn-sb .sb-axis{margin-bottom:12px;}
+  #tn-sb .sb-axis-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; margin:0 0 7px;}
+  #tn-sb .sb-axis-opts{display:grid; grid-template-columns:repeat(3,1fr); gap:8px;}
+  #tn-sb .sb-pill{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:99px; padding:11px 8px; cursor:pointer; transition:all .18s;}
+  #tn-sb .sb-pill.on{background:var(--b); color:#fff; border-color:var(--b);}
+  /* myth sorter */
+  #tn-sb .sb-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-sb .sb-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-sb .sb-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-sb .sb-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-sb .sb-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-sb .sb-sort-btns button[data-p="myth"]{border:1.5px solid #F5C6BE; color:var(--no);}
+  #tn-sb .sb-sort-btns button[data-p="fact"]{border:1.5px solid #BFE6D6; color:var(--g);}
+  #tn-sb .sb-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-sb .sb-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-sb .sb-sort-row.done .sb-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-sb .sb-sort-row.done .sb-sort-btns button.picked{opacity:1;}
+  #tn-sb .sb-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.5; margin:4px 0 0; display:none;}
+  #tn-sb .sb-why b{font-family:'Poppins',sans-serif;}
+  #tn-sb .sb-sort-row.done .sb-why{display:block;}
+  /* rules */
+  #tn-sb .sb-rules{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-sb .sb-rule{font-family:'Poppins',sans-serif; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 8px; cursor:pointer; transition:all .18s;}
+  #tn-sb .sb-rule b{display:block; font-weight:700; font-size:13px; line-height:1.3;}
+  #tn-sb .sb-rule span{display:block; font-family:'Inter',sans-serif; font-size:11.5px; font-weight:600; color:var(--mut); margin-top:4px;}
+  #tn-sb .sb-rule.on{border-color:var(--b); background:#EAF1FA;}
+  /* scenarios */
+  #tn-sb .sb-scenarios{display:flex; flex-direction:column; gap:10px;}
+  #tn-sb .sb-scen{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px 16px;}
+  #tn-sb .sb-scen.done{border-color:var(--selbd); background:#fff;}
+  #tn-sb .sb-scen-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-sb .sb-scen-opts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-sb .sb-scen-opts button{flex:1; min-width:150px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:10px 12px; cursor:pointer; transition:all .15s;}
+  #tn-sb .sb-scen.done .sb-scen-opts button{opacity:.45; pointer-events:none;}
+  #tn-sb .sb-scen.done .sb-scen-opts button.picked{opacity:1; border-color:var(--b); background:#EAF1FA;}
+  #tn-sb .sb-scen.ok{border-color:var(--selbd);}
+  #tn-sb .sb-scen.off{border-color:var(--nobd);}
+  #tn-sb .sb-scen.done .sb-scen-opts button.best{opacity:1; border-color:var(--g); background:var(--tint); color:var(--g);}
+  #tn-sb .sb-scen.done .sb-scen-opts button.best::after{content:" \2713"; font-weight:800;}
+  #tn-sb .sb-scen.done .sb-scen-opts button.wrong{opacity:1; border-color:var(--nobd); background:var(--nobg); color:var(--no);}
+  #tn-sb .sb-verdict-2{margin-top:9px;}
+  #tn-sb .sb-scen-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-sb .sb-scen.done .sb-scen-why{display:block;}
+  #tn-sb .sb-scen-why b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* split picks + commit */
+  #tn-sb .sb-splits{display:grid; grid-template-columns:repeat(5,1fr); gap:8px;}
+  #tn-sb .sb-split-pick{font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:15px 4px; cursor:pointer; transition:all .18s;}
+  #tn-sb .sb-split-pick.on{border-color:var(--b); background:#EAF1FA; color:var(--b);}
+  #tn-sb .sb-rulepick{display:flex; flex-direction:column; gap:9px;}
+  #tn-sb .sb-commit{text-align:left; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; cursor:pointer; font-family:inherit; transition:all .18s;}
+  #tn-sb .sb-commit b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-bottom:3px;}
+  #tn-sb .sb-commit span{display:block; font-size:13px; color:var(--ink2); line-height:1.45;}
+  #tn-sb .sb-commit.on{border-color:var(--g); background:var(--tint);}
+  /* recap + complete */
+  #tn-sb .sb-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-sb .sb-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-sb .sb-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-sb .sb-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-sb .sb-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-sb .sb-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-sb .sb-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:sb-bob 1.6s ease-in-out infinite;}
+  #tn-sb .sb-finish-arrow.up{animation-name:sb-bob-up;}
+  @keyframes sb-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes sb-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-sb .sb-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-sb .sb-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-sb .sb-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-sb .sb-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-sb .sb-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-sb .sb-green{color:var(--g);}
+  #tn-sb .sb-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-sb .sb-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  #tn-sb .sb-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-sb .sb-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-sb .sb-nav-btn.prev{color:var(--ink2);}
+  #tn-sb .sb-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-sb .sb-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-sb .sb-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-sb .sb-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-sb .sb-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-sb .sb-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-sb .sb-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-sb .sb-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .sb-tip{position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .sb-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-sb .sb-wrap{padding:12px 14px 30px;}
+    #tn-sb .sb-scratchgrid,#tn-sb .sb-rules{grid-template-columns:1fr;}
+    #tn-sb .sb-splits{grid-template-columns:repeat(3,1fr);}
+    #tn-sb .sb-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-sb .sb-bsub{display:none;}
+    #tn-sb .sb-nav-hint{display:none;}
+    #tn-sb .sb-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-sb .sb-reveal{opacity:1 !important; transform:none !important;}
+    #tn-sb #sb-bar,#tn-sb .sb-meter u,#tn-sb .sb-splitbar span{transition:none;}
+    #tn-sb .sb-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-sb'); if(!root) return;
+  root.querySelectorAll('.sb-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('sb-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#sb-vocab-def');
+  root.querySelectorAll('#sb-vocab-chips .sb-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#sb-vocab-chips .sb-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the drop test */
+  var DROP={
+    sell:['warm','Selling Stops The Pain — And Locks It In','That instinct is real and extremely common. It also means a 90% stock mix is probably wrong for you: the loss becomes permanent the moment you sell. A milder split you can hold beats a bold one you abandon.'],
+    hold:['good','Doing Nothing Is A Decision','Sitting still through a fall is what makes an equity-heavy mix work. Worth being honest, though — most people believe they would, and fewer actually do.'],
+    buy:['good','Buying Into A Fall Is Rare','If you genuinely keep contributing while prices drop, you can carry more stocks than most. Just make sure the money you are adding is not money you will need soon.']
+  };
+  var dropOut=root.querySelector('#sb-drop-out');
+  root.querySelectorAll('#sb-drop .sb-choice').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sb-drop .sb-choice').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var d=DROP[b.getAttribute('data-k')];
+      dropOut.className='sb-verdict '+d[0];
+      dropOut.innerHTML='<p class="sb-verdict-t">'+d[1]+'</p><p class="sb-verdict-d">'+d[2]+'</p>';
+      state('drop',1); postHeight();
+    });
+  });
+
+  /* 3 · trade-off meter */
+  var split=root.querySelector('#sb-split'), seen={};
+  var barS=root.querySelector('#sb-bar-stock'), barB=root.querySelector('#sb-bar-bond'),
+      growth=root.querySelector('#sb-growth'), pain=root.querySelector('#sb-pain'),
+      gFill=root.querySelector('#sb-growth-fill'), pFill=root.querySelector('#sb-pain-fill'),
+      tNote=root.querySelector('#sb-trade-note');
+  function words(v){
+    if(v>=90) return ['Highest','Deepest'];
+    if(v>=70) return ['High','Deep'];
+    if(v>=50) return ['Moderate','Noticeable'];
+    if(v>=30) return ['Lower','Milder'];
+    return ['Lowest','Mildest'];
+  }
+  function tradeCalc(){
+    var v=+split.value, w=words(v);
+    barS.style.flexBasis=v+'%'; barS.textContent=v+'% Stocks';
+    barB.textContent=(100-v)+'% Bonds';
+    barS.style.display = v===0 ? 'none' : '';
+    barB.style.display = v===100 ? 'none' : '';
+    growth.textContent=w[0]; pain.textContent=w[1];
+    gFill.style.width=Math.max(4,v)+'%'; pFill.style.width=Math.max(4,v)+'%';
+    seen[v]=1;
+    if(keys(seen)>=3) tNote.innerHTML='Notice what never happens: <b>the two bars never move in opposite directions</b>. There is no setting with high growth and a mild fall.';
+    state('trade', keys(seen)); postHeight();
+  }
+  if(split){ split.addEventListener('input',tradeCalc); tradeCalc(); }
+
+  /* 4 · scratch cards — canvas overlay, with a Reveal All fallback */
+  var scratched={}, scCount=root.querySelector('#sb-scratch-count');
+  function paintCover(cv){
+    var ctx=cv.getContext('2d');
+    ctx.globalCompositeOperation='source-over';
+    var g=ctx.createLinearGradient(0,0,cv.width,cv.height);
+    g.addColorStop(0,'#9FB4C6'); g.addColorStop(1,'#7D93A8');
+    ctx.fillStyle=g; ctx.fillRect(0,0,cv.width,cv.height);
+    ctx.fillStyle='rgba(255,255,255,.92)';
+    ctx.font='700 15px Poppins, sans-serif'; ctx.textAlign='center';
+    ctx.fillText('Scratch To Reveal', cv.width/2, cv.height/2);
+    ctx.globalCompositeOperation='destination-out';
+  }
+  function reveal(card){
+    if(card.classList.contains('done')) return;
+    card.classList.add('done');
+    scratched[card.getAttribute('data-k')]=1;
+    scCount.textContent='Revealed '+keys(scratched)+' Of 3';
+    state('scratch', keys(scratched)); postHeight();
+  }
+  root.querySelectorAll('#sb-scratch .sb-scratch').forEach(function(card){
+    var cv=card.querySelector('canvas'), ctx=cv.getContext('2d'), drawing=false, hits=0;
+    paintCover(cv);
+    function scratchAt(e){
+      var r=cv.getBoundingClientRect();
+      var x=(e.clientX-r.left)*(cv.width/r.width), y=(e.clientY-r.top)*(cv.height/r.height);
+      ctx.beginPath(); ctx.arc(x,y,26,0,Math.PI*2); ctx.fill();
+      if(++hits>18) reveal(card);
+    }
+    cv.addEventListener('pointerdown',function(e){ drawing=true; cv.setPointerCapture(e.pointerId); scratchAt(e); });
+    cv.addEventListener('pointermove',function(e){ if(drawing) scratchAt(e); });
+    cv.addEventListener('pointerup',function(){ drawing=false; });
+    cv.addEventListener('pointercancel',function(){ drawing=false; });
+    /* keyboard and assistive route: a plain click also reveals */
+    cv.addEventListener('click',function(){ hits+=6; if(hits>18) reveal(card); });
+    card._resetScratch=function(){ card.classList.remove('done'); hits=0; paintCover(cv); };
+  });
+  var scAll=root.querySelector('#sb-scratch-all');
+  if(scAll) scAll.addEventListener('click',function(){
+    root.querySelectorAll('#sb-scratch .sb-scratch').forEach(reveal);
+  });
+  var scReset=root.querySelector('#sb-scratch-reset');
+  if(scReset) scReset.addEventListener('click',function(){
+    scratched={};
+    root.querySelectorAll('#sb-scratch .sb-scratch').forEach(function(c){ if(c._resetScratch) c._resetScratch(); });
+    scCount.textContent='Revealed 0 Of 3'; postHeight();
+  });
+
+  /* 5 · drag-and-drop sort — pointer drag, or tap the card then tap a column */
+  var placed={}, dragCount=root.querySelector('#sb-drag-count'), pool=root.querySelector('#sb-pool');
+  var selected=null, ghost=null, dragging=null;
+  function zones(){ return Array.prototype.slice.call(root.querySelectorAll('#tn-sb .sb-zone')); }
+  function place(card, zone){
+    if(card.classList.contains('ok')||card.classList.contains('no')) return;
+    var ok=card.getAttribute('data-ans')===zone.getAttribute('data-z');
+    card.classList.remove('sel'); card.classList.add(ok?'ok':'no');
+    zone.querySelector('.sb-zone-in').appendChild(card);
+    placed[card.getAttribute('data-k')]=1;
+    dragCount.textContent='Placed '+keys(placed)+' Of 6';
+    state('drag', keys(placed));
+    selected=null; postHeight();
+  }
+  root.querySelectorAll('#sb-pool .sb-card').forEach(function(card){
+    card.addEventListener('click',function(e){
+      if(card.classList.contains('ok')||card.classList.contains('no')) return;
+      if(card._moved){ card._moved=false; return; }
+      root.querySelectorAll('#tn-sb .sb-card').forEach(function(c){ c.classList.remove('sel'); });
+      if(selected===card){ selected=null; return; }
+      selected=card; card.classList.add('sel');
+    });
+    card.addEventListener('pointerdown',function(e){
+      if(card.classList.contains('ok')||card.classList.contains('no')) return;
+      if(e.pointerType==='mouse' && e.button!==0) return;
+      dragging={card:card, x:e.clientX, y:e.clientY, started:false};
+    });
+  });
+  document.addEventListener('pointermove',function(e){
+    if(!dragging) return;
+    var dx=e.clientX-dragging.x, dy=e.clientY-dragging.y;
+    if(!dragging.started && Math.abs(dx)+Math.abs(dy) < 6) return;
+    if(!dragging.started){
+      dragging.started=true; dragging.card._moved=true;
+      var r=dragging.card.getBoundingClientRect();
+      ghost=dragging.card.cloneNode(true);
+      ghost.classList.add('drag');
+      ghost.style.width=r.width+'px'; ghost.style.left=r.left+'px'; ghost.style.top=r.top+'px';
+      document.body.appendChild(ghost);
+      dragging.ox=e.clientX-r.left; dragging.oy=e.clientY-r.top;
+      dragging.card.style.opacity='.35';
+    }
+    ghost.style.left=(e.clientX-dragging.ox)+'px';
+    ghost.style.top=(e.clientY-dragging.oy)+'px';
+    var over=null;
+    zones().forEach(function(z){
+      var r=z.getBoundingClientRect();
+      var hot=e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
+      z.classList.toggle('hot',hot); if(hot) over=z;
+    });
+    dragging.over=over;
+  });
+  document.addEventListener('pointerup',function(){
+    if(!dragging) return;
+    if(ghost){ ghost.remove(); ghost=null; }
+    dragging.card.style.opacity='';
+    zones().forEach(function(z){ z.classList.remove('hot'); });
+    if(dragging.started && dragging.over) place(dragging.card, dragging.over);
+    dragging=null;
+  });
+  zones().forEach(function(z){
+    z.addEventListener('click',function(){ if(selected) place(selected, z); });
+  });
+  var dragReset=root.querySelector('#sb-drag-reset');
+  if(dragReset) dragReset.addEventListener('click',function(){
+    placed={}; selected=null;
+    root.querySelectorAll('#tn-sb .sb-card').forEach(function(c){
+      c.classList.remove('ok','no','sel'); pool.appendChild(c);
+    });
+    dragCount.textContent='Placed 0 Of 6'; postHeight();
+  });
+
+  /* 6 · capacity vs tolerance */
+  var cap=0, tol=0, axisOut=root.querySelector('#sb-axis-out');
+  var AX={
+    '1':'A lower ceiling. Whatever your nerves say, a short timeline or a tight budget caps how much can sensibly sit in stocks.',
+    '2':'A middle setting. Room for meaningful equity exposure, with bonds doing real work.',
+    '3':'A high ceiling. A long runway and steady income mean a bad stretch can be waited out.'
+  };
+  function axisCalc(){
+    if(!cap||!tol) return;
+    var low=Math.min(cap,tol);
+    var msg = cap===tol
+      ? 'Your capacity and tolerance agree, which makes this easy: build to that level and write it down.'
+      : (cap<tol
+        ? 'Your nerves can take more than your situation allows. The situation wins — the money still has a deadline, however calm you are.'
+        : 'Your situation allows more than your nerves can take. Your nerves win: the best mix on paper is worthless if you sell at the bottom.');
+    axisOut.className='sb-verdict '+(low===1?'warm':'good');
+    axisOut.innerHTML='<p class="sb-verdict-t">The Lower Of The Two Sets Your Ceiling</p><p class="sb-verdict-d">'+msg+' '+AX[String(low)]+'</p>';
+    state('axis',1); postHeight();
+  }
+  root.querySelectorAll('#sb-cap .sb-pill').forEach(function(p){
+    p.addEventListener('click',function(){
+      root.querySelectorAll('#sb-cap .sb-pill').forEach(function(x){ x.classList.remove('on'); });
+      p.classList.add('on'); cap=+p.getAttribute('data-v'); axisCalc();
+    });
+  });
+  root.querySelectorAll('#sb-tol .sb-pill').forEach(function(p){
+    p.addEventListener('click',function(){
+      root.querySelectorAll('#sb-tol .sb-pill').forEach(function(x){ x.classList.remove('on'); });
+      p.classList.add('on'); tol=+p.getAttribute('data-v'); axisCalc();
+    });
+  });
+
+  /* 7 · myth or fact */
+  var mythCount=root.querySelector('#sb-myth-count');
+  root.querySelectorAll('#sb-myth .sb-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.sb-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#sb-myth .sb-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 6';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#sb-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#sb-myth .sb-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 6'; postHeight();
+  });
+
+  /* 8 · rules of thumb */
+  var RULES={
+    age:['110 Minus Your Age',
+      '<b>What it says:</b> subtract your age from 110 and hold that percentage in stocks \u2014 so a 30-year-old lands near 80% stocks, a 60-year-old near 50%.',
+      '<b>Where it breaks:</b> it is right that equity exposure usually falls as the money gets closer to being spent. It is wrong that a birthday is the only input \u2014 it knows nothing about your job security, your other savings, or what the money is for.'],
+    hundred:['100% Stocks Until 40',
+      '<b>What it says:</b> hold no bonds at all while you are young, on the grounds that decades of runway make the extra growth worth every fall along the way.',
+      '<b>Where it breaks:</b> defensible on capacity alone if the money is genuinely untouched for decades. It quietly assumes you will sit through a halving without flinching, and most abandoned portfolios were built on exactly that assumption.'],
+    sixty:['Always 60 / 40',
+      '<b>What it says:</b> keep 60% in stocks and 40% in bonds, permanently, regardless of age or circumstance.',
+      '<b>Where it breaks:</b> a reasonable middle that has anchored portfolios for decades. But "always" is doing the damage \u2014 the same split cannot suit someone spending the money in four years and someone spending it in forty.']
+  };
+  var rulesSeen={}, ruleOut=root.querySelector('#sb-rule-out'), rulesCount=root.querySelector('#sb-rules-count');
+  root.querySelectorAll('#sb-rules .sb-rule').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sb-rules .sb-rule').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var r=RULES[b.getAttribute('data-k')];
+      ruleOut.className='sb-verdict';
+      ruleOut.innerHTML='<p class="sb-verdict-t">'+r[0]+'</p><p class="sb-verdict-d">'+r[1]+'</p><p class="sb-verdict-d sb-verdict-2">'+r[2]+'</p>';
+      rulesSeen[b.getAttribute('data-k')]=1;
+      rulesCount.textContent='Examined '+keys(rulesSeen)+' Of 3';
+      state('rules', keys(rulesSeen)); postHeight();
+    });
+  });
+
+  /* 9 · pressure test */
+  var SCEN={
+    s1:{a:'That is chasing, and it is the most expensive habit in investing. The 40% you heard about already happened; what you would be buying is the price after it.',
+        b:'A plan you only follow when it is winning is not a plan. Your friend\u2019s single stock also carries a risk your fund does not.'},
+    s2:{a:'Selling investments to cover rent is exactly what a cash cushion exists to prevent. It turns a paper fall into a permanent one at the worst moment.',
+        b:'This is what the emergency fund is for. It keeps a rough month from reaching into your long-term money.'},
+    s3:{a:'Letting it ride feels harmless in a rising market, which is precisely when the mix quietly gets riskier than you chose.',
+        b:'Noticing the drift against a written target is the whole reason for writing one down. What you do about it is a decision for another lesson.'}
+  };
+  var SCEN_LEAD={true:'<b>The Steadier Choice.</b> ', false:'<b>The Riskier Choice.</b> '};
+  var scenCount=root.querySelector('#sb-scen-count');
+  root.querySelectorAll('#sb-scen .sb-scen').forEach(function(sc){
+    var k=sc.getAttribute('data-k'), why=sc.querySelector('.sb-scen-why');
+    sc.querySelectorAll('.sb-scen-opts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(sc.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'), best=sc.getAttribute('data-ans'), ok=(pick===best);
+        btn.classList.add('picked', ok?'right':'wrong');
+        sc.querySelectorAll('.sb-scen-opts button').forEach(function(o){
+          if(o.getAttribute('data-p')===best) o.classList.add('best');
+        });
+        sc.classList.add('done', ok?'ok':'off');
+        why.innerHTML=SCEN_LEAD[ok]+SCEN[k][pick];
+        var n=root.querySelectorAll('#sb-scen .sb-scen.done').length;
+        scenCount.textContent='Answered '+n+' Of 3';
+        state('scen', n); postHeight();
+      });
+    });
+  });
+  var scenReset=root.querySelector('#sb-scen-reset');
+  if(scenReset) scenReset.addEventListener('click',function(){
+    root.querySelectorAll('#sb-scen .sb-scen').forEach(function(sc){
+      sc.classList.remove('done');
+      sc.querySelector('.sb-scen-why').innerHTML='';
+      sc.classList.remove('ok','off');
+      sc.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','right','wrong','best'); });
+    });
+    scenCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  /* 10 · pick a working split */
+  var PICK={
+    a:['warm','100 / 0 — No Shock Absorber','Every dollar rides the market. Workable only with a long timeline and a genuinely strong stomach, since there is nothing in the portfolio to cushion a fall.'],
+    b:['good','80 / 20 — Growth-Leaning','Mostly equities with a small buffer. The bonds will not prevent a painful year, but they take some edge off it.'],
+    c:['good','60 / 40 — The Middle','Enough stocks to grow, enough bonds to steady. Still falls hard in a bad market — just less hard.'],
+    d:['good','40 / 60 — Stability-Leaning','The ride smooths out noticeably, and long-run growth potential steps down with it. Often chosen when the money has a date attached.'],
+    e:['warm','20 / 80 — Capital-Preserving','Built to hold its value more than to grow it. Sensible for money needed soon; a slow setting for money you will not touch for decades.']
+  };
+  var pickOut=root.querySelector('#sb-pick-out');
+  root.querySelectorAll('#sb-picks .sb-split-pick').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sb-picks .sb-split-pick').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var p=PICK[b.getAttribute('data-k')];
+      pickOut.className='sb-verdict '+p[0];
+      pickOut.innerHTML='<p class="sb-verdict-t">'+p[1]+'</p><p class="sb-verdict-d">'+p[2]+'</p>';
+      state('pick',1); postHeight();
+    });
+  });
+
+  /* 11 · the rule you'll follow */
+  var commitOut=root.querySelector('#sb-commit-out');
+  root.querySelectorAll('#sb-commit .sb-commit').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sb-commit .sb-commit').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      commitOut.className='sb-verdict good';
+      commitOut.innerHTML='<p class="sb-verdict-t">Written Down, It Becomes A Rule</p><p class="sb-verdict-d">Put it wherever you keep your target split. The value of deciding this calmly is that the decision is already made when calm is in short supply.</p>';
+      state('commit',1); postHeight();
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('sb-fin-arrow'), lead=document.getElementById('sb-fin-lead'), sub=document.getElementById('sb-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'\u2193',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'\u2191',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>\u2715</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-sb'); if(!root) return;
+  var ALT={
+    'volatility':'volatility|volatile',
+    'drawdown':'drawdowns?',
+    'risk capacity':'risk capacity|capacity',
+    'risk tolerance':'risk tolerance|tolerance',
+    'time horizon':'time horizons?|timelines?',
+    'equity risk premium':'equity risk premium'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#sb-vocab-chips .sb-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.sb-p, .sb-sub, .sb-note, .sb-why, .sb-recap-item span, .sb-h2, .sb-verdict-d, .sb-scen-why, .sb-next-move, .sb-sort-row > span, .sb-scen-q, .sb-axis-lab, .sb-scratch-under span';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.sb-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='sb-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' \u2014 definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='sb-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.sb-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.sb-sec').forEach(function(sec){ TERMS.forEach(function(t){ wrap(sec,t); }); });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-sb'); if(!root) return;
+  var TOTAL=13, current=1;
+  var bar=root.querySelector('#sb-bar'), labelEl=root.querySelector('#sb-slide-label'),
+      countEl=root.querySelector('#sb-slide-count'), prevBtn=root.querySelector('#sb-prev'),
+      nextBtn=root.querySelector('#sb-next'), hintEl=root.querySelector('#sb-nav-hint'),
+      disclaimer=root.querySelector('.sb-disclaimer');
+  var labels={1:'Start Here',2:'The Drop Test',3:'The Trade-Off',4:'The Hidden Cost',5:'Which Way?',6:'Two Questions',7:'Myth Or Fact',8:'Rules Of Thumb',9:'Pressure Test',10:'Your Split',11:'Pre-Commitment',12:'Recap',13:'Complete'};
+  var reqHints={2:'Choose your honest answer to continue',3:'Try at least three settings to continue',4:'Reveal all 3 panels to continue',5:'Place all 6 cards to continue',6:'Pick one from each row to continue',7:'Answer all 6 to continue',8:'Examine all 3 rules to continue',9:'Answer all 3 scenarios to continue',10:'Pick a split to continue',11:'Pick a rule to continue'};
+  var done={1:true,12:true,13:true};
+  var secByStep={};
+  root.querySelectorAll('.sb-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('sb-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('sb-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'drop',   need:1, hint:function(){ return 'Choose your honest answer to continue'; }},
+    {step:3, key:'trade',  need:3, hint:function(n){ return 'Tried '+n+' of 3 settings — keep sliding'; }},
+    {step:4, key:'scratch',need:3, hint:function(n){ return 'Revealed '+n+' of 3 — scratch them all, or use Reveal All'; }},
+    {step:5, key:'drag',   need:6, hint:function(n){ return 'Placed '+n+' of 6 — place them all to continue'; }},
+    {step:6, key:'axis',   need:1, hint:function(){ return 'Pick one from each row to continue'; }},
+    {step:7, key:'myth',   need:6, hint:function(n){ return 'Answered '+n+' of 6 — answer them all to continue'; }},
+    {step:8, key:'rules',  need:3, hint:function(n){ return 'Examined '+n+' of 3 — examine them all to continue'; }},
+    {step:9, key:'scen',   need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }},
+    {step:10,key:'pick',   need:1, hint:function(){ return 'Pick a split to continue'; }},
+    {step:11,key:'commit', need:1, hint:function(){ return 'Pick a rule to continue'; }}
+  ];
+  root.addEventListener('sb-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

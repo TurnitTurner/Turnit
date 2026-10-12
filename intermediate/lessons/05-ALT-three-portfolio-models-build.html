@@ -1,0 +1,783 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — THREE PORTFOLIO MODELS COMPARED  (build-bench rebuild)
+     (Intermediate · Module 1 · Lesson 5 — module capstone)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-bx. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     Role palette, used as DATA colour:
+       Core = blue #1568AE · Supporting = teal #12a08a · Satellite = gold #D99A23
+
+       1  Title & Key Terms (never gated)   2  The Fund Shelf
+       3  Free Build (bench)                4  Three Challenges (bench)
+       5  Side By Side                      6  Myth Or Fact (5)
+       7  The Overbuild Trap (bench)        8  Pick One To Start From
+       9  Recap                             10 Complete
+
+     ONE creative widget reused three times: the build bench. The learner taps
+     funds onto a bench; a classifier names what they just built. Each fund
+     carries its own breadth, so Core / Supporting / Satellite roles assign
+     themselves — one tap per fund, no second step.
+       slide 3 — free build, any recognised model unlocks
+       slide 4 — three set challenges, build each model to order
+       slide 7 — keep adding until the overlap warning fires
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     ============================================================ -->
+<div id="tn-bx">
+  <div class="bx-wrap">
+    <div class="bx-top">
+      <div class="bx-topbar">
+        <div class="bx-brand"><span class="bx-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="12" width="18" height="9" rx="2"/><rect x="7" y="7" width="10" height="5" rx="1.5"/><rect x="10" y="3" width="4" height="4" rx="1"/></svg></span><span class="bx-word">TURNIT</span><span class="bx-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="bx-progress"><span id="bx-bar"></span></div>
+      <div class="bx-meta"><span id="bx-slide-label">Start Here</span><span id="bx-slide-count">Slide 1 Of 10</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="bx-sec bx-center bx-reveal" data-step="1">
+      <p class="bx-kicker center">The Capstone · 1 / 10</p>
+      <h1 class="bx-hero-title">THREE PORTFOLIO <span class="bx-hero-grad">MODELS COMPARED</span></h1>
+      <p class="bx-sub center">You won't read about these three. You'll build all of them.</p>
+      <div class="bx-vocab">
+        <span class="bx-vocab-label">Key Terms In This Lesson</span>
+        <div class="bx-vocab-chips" id="bx-vocab-chips">
+          <button type="button" class="bx-vocab-chip" data-t="Three-Fund Portfolio" data-def="A common build: one US stock fund, one international stock fund, one bond fund. Three holdings, full coverage, and you control every weight.">Three-Fund Portfolio</button>
+          <button type="button" class="bx-vocab-chip" data-t="Target-Date Fund" data-def="A single fund containing a complete portfolio, built around a retirement year. It shifts toward bonds as that year approaches.">Target-Date Fund</button>
+          <button type="button" class="bx-vocab-chip" data-t="Glide Path" data-def="The pre-set schedule by which a target-date fund reduces stocks and adds bonds over the years. Published in advance, and it varies by provider.">Glide Path</button>
+          <button type="button" class="bx-vocab-chip" data-t="Core Holding" data-def="The broad fund that makes up most of a portfolio. The part that is supposed to be boring.">Core Holding</button>
+          <button type="button" class="bx-vocab-chip" data-t="Satellite" data-def="A small deliberate position held alongside the core — a tilt, a theme, a sector. Kept small enough that being wrong is survivable.">Satellite</button>
+        </div>
+        <div class="bx-vocab-def" id="bx-vocab-def">Tap a term to see what it means.</div>
+        <span class="bx-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="bx-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE FUND SHELF ========== -->
+    <section class="bx-sec bx-reveal" data-step="2">
+      <p class="bx-kicker">The Shelf · 2 / 10</p>
+      <h2 class="bx-h2">Know Your Parts First</h2>
+      <p class="bx-p">Eight funds you'll be building with — one target-date fund, several broad options, and three satellite tilts. Inspect at least five.</p>
+      <div class="bx-shelf inspect" id="bx-inspect"></div>
+      <div class="bx-reveal-box" id="bx-inspect-box"><b id="bx-ins-t">Tap A Fund</b><span id="bx-ins-d">Breadth is what matters here — how much of the market each one covers.</span></div>
+      <p class="bx-count" id="bx-inspect-count">Inspected 0 Of 5</p>
+    </section>
+
+    <!-- ========== 3 · FREE BUILD ========== -->
+    <section class="bx-sec bx-reveal" data-step="3">
+      <p class="bx-kicker">Free Build · 3 / 10</p>
+      <h2 class="bx-h2">Put Something On The Bench</h2>
+      <p class="bx-p">Tap funds to add them. The bench names whatever you've made — a core holding on its own is a start, but build a recognised model to continue.</p>
+      <div class="bx-bench" data-bench="free"></div>
+    </section>
+
+    <!-- ========== 4 · THREE CHALLENGES ========== -->
+    <section class="bx-sec bx-reveal" data-step="4">
+      <p class="bx-kicker">Build To Order · 4 / 10</p>
+      <h2 class="bx-h2">Now Build All Three</h2>
+      <p class="bx-p">Three briefs, same bench: a one-fund build, a three-fund portfolio, and a core with a satellite. Clear each one.</p>
+      <div class="bx-challenges" id="bx-challenges">
+        <div class="bx-chal" data-c="one"><span class="bx-chal-dot"></span><b>One Fund</b><small>A whole portfolio in a single holding</small></div>
+        <div class="bx-chal" data-c="three"><span class="bx-chal-dot"></span><b>Three Fund</b><small>US, international and bonds, weights yours</small></div>
+        <div class="bx-chal" data-c="core"><span class="bx-chal-dot"></span><b>Core &amp; Satellite</b><small>A broad base plus one or two small bets</small></div>
+      </div>
+      <div class="bx-bench" data-bench="chal"></div>
+    </section>
+
+    <!-- ========== 5 · SIDE BY SIDE ========== -->
+    <section class="bx-sec bx-reveal" data-step="5">
+      <p class="bx-kicker">Side By Side · 5 / 10</p>
+      <h2 class="bx-h2">The Same Five Questions</h2>
+      <p class="bx-p">You've built all three. Now compare them on what separates them once a glide path and your own upkeep enter the picture — tap a row.</p>
+      <div class="bx-table" id="bx-table">
+        <div class="bx-thead"><span>Question</span><span class="r-c">One</span><span class="r-s">Three</span><span class="r-t">Core</span></div>
+        <button type="button" class="bx-row" data-k="holdings"><span>Holdings To Manage</span><span class="r-c">1</span><span class="r-s">3</span><span class="r-t">4–6</span></button>
+        <button type="button" class="bx-row" data-k="control"><span>Control Over Weights</span><span class="r-c">None</span><span class="r-s">Full</span><span class="r-t">Full</span></button>
+        <button type="button" class="bx-row" data-k="effort"><span>Ongoing Effort</span><span class="r-c">Near Zero</span><span class="r-s">Low</span><span class="r-t">Real</span></button>
+        <button type="button" class="bx-row" data-k="cost"><span>Typical Cost</span><span class="r-c">Slightly Higher</span><span class="r-s">Lowest</span><span class="r-t">Varies</span></button>
+        <button type="button" class="bx-row" data-k="fails"><span>How It Usually Fails</span><span class="r-c">Mismatch</span><span class="r-s">Neglect</span><span class="r-t">Drift</span></button>
+      </div>
+      <div class="bx-reveal-box" id="bx-row-box"><b id="bx-row-t">Tap A Row</b><span id="bx-row-d">Five questions worth asking before you commit to a structure.</span></div>
+      <p class="bx-count" id="bx-row-count">Examined 0 Of 5</p>
+    </section>
+
+    <!-- ========== 6 · MYTH OR FACT ========== -->
+    <section class="bx-sec bx-reveal" data-step="6">
+      <p class="bx-kicker">Myth Or Fact · 6 / 10</p>
+      <h2 class="bx-h2">Myth Or Fact?</h2>
+      <p class="bx-p">Five claims about portfolio structure. Tap your answer.</p>
+      <div class="bx-sort" id="bx-myth">
+        <div class="bx-sort-row" data-answer="myth"><span>More funds means a more sophisticated portfolio.</span><div class="bx-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bx-why"><b>Myth.</b> Complexity is a cost, not a credential. An extra fund earns its place only by adding exposure you don't already have — otherwise you've bought admin.</p></div>
+        <div class="bx-sort-row" data-answer="fact"><span>A target-date fund holds an entire portfolio inside one ticker.</span><div class="bx-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bx-why"><b>Fact.</b> Stocks, bonds, domestic and international all sit inside it, with the mix shifting along a published glide path. One line on your statement, a full portfolio underneath.</p></div>
+        <div class="bx-sort-row" data-answer="myth"><span>A one-fund portfolio can't match your own risk tolerance.</span><div class="bx-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bx-why"><b>Myth.</b> You can pick a fund whose mix suits you, including one aimed at a different year than your actual retirement. What you give up is fine-tuning, not suitability.</p></div>
+        <div class="bx-sort-row" data-answer="fact"><span>The simplest model you'll actually stick with usually beats the clever one you won't.</span><div class="bx-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bx-why"><b>Fact.</b> Structures fail through neglect far more often than through design. A portfolio you maintain beats a better one you abandon in year three.</p></div>
+        <div class="bx-sort-row" data-answer="myth"><span>Core and satellite means half your money sits in bets.</span><div class="bx-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bx-why"><b>Myth.</b> The core is the point — it's meant to be most of the portfolio. Satellites are deliberately small, sized so being wrong is an irritation rather than a disaster.</p></div>
+      </div>
+      <p class="bx-count" id="bx-myth-count">Answered 0 Of 5</p>
+      <div class="bx-reset-row"><button type="button" class="bx-reset-btn" id="bx-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · THE OVERBUILD TRAP ========== -->
+    <section class="bx-sec bx-reveal" data-step="7">
+      <p class="bx-kicker">The Overbuild Trap · 7 / 10</p>
+      <h2 class="bx-h2">Keep Adding And See What Breaks</h2>
+      <p class="bx-p">Build a sensible portfolio, then keep going. Every extra satellite is another weight to maintain, and the bench flags the moment a holding stops adding anything — trigger an overlap warning to continue.</p>
+      <div class="bx-bench" data-bench="over"></div>
+    </section>
+
+    <!-- ========== 8 · PICK ONE TO START FROM ========== -->
+    <section class="bx-sec bx-reveal" data-step="8">
+      <p class="bx-kicker">Your Starting Point · 8 / 10</p>
+      <h2 class="bx-h2">Pick One To Start From</h2>
+      <p class="bx-p">Not forever. Just the structure you'd build on this year.</p>
+      <div class="bx-picks" id="bx-picks">
+        <button type="button" class="bx-pick r-c" data-k="a">One Fund</button>
+        <button type="button" class="bx-pick r-s" data-k="b">Three Fund</button>
+        <button type="button" class="bx-pick r-t" data-k="c">Core &amp; Satellite</button>
+      </div>
+      <div class="bx-verdict" id="bx-pick-out"><p class="bx-verdict-t">Choose A Structure</p><p class="bx-verdict-d">All three are legitimate. The wrong one is the one that doesn't match how you actually behave.</p></div>
+      <p class="bx-disclaimer-inline">Educational illustration only, not a recommendation. What suits you depends on facts this lesson can't see, and is worth discussing with a qualified professional.</p>
+    </section>
+
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="bx-sec bx-reveal" data-step="9">
+      <p class="bx-kicker">Recap · 9 / 10</p>
+      <h2 class="bx-h2">Here's What You Now Know</h2>
+      <p class="bx-p">The whole lesson, in five lines.</p>
+      <div class="bx-recap">
+        <div class="bx-recap-item"><span class="bx-recap-check r-c">✓</span><span>All three models can hold the same allocation. They differ in who does the work.</span></div>
+        <div class="bx-recap-item"><span class="bx-recap-check r-s">✓</span><span>A <b>target-date fund</b> is a whole portfolio in one holding, moving along a published <b>glide path</b>.</span></div>
+        <div class="bx-recap-item"><span class="bx-recap-check r-t">✓</span><span>A <b>three-fund portfolio</b> buys control over every weight, and hands you the upkeep.</span></div>
+        <div class="bx-recap-item"><span class="bx-recap-check r-c">✓</span><span>Core and satellite only works while the <b>satellite</b> slice stays small.</span></div>
+        <div class="bx-recap-item"><span class="bx-recap-check r-s">✓</span><span>Each model fails differently: mismatch, neglect, or drift. Know which one is yours.</span></div>
+      </div>
+      <div class="bx-next-move">Your next move: <b>list what you actually hold and see which model it forms</b> — then decide whether that was a choice or an accident.</div>
+    </section>
+
+    <!-- ========== 10 · COMPLETE ========== -->
+    <section class="bx-sec bx-center bx-reveal" data-step="10">
+      <p class="bx-kicker center">Module Complete · 10 / 10</p>
+      <span class="bx-hero-ico">🚀</span>
+      <h2 class="bx-h2 center">You've Finished The Module</h2>
+      <p class="bx-sub center">You can describe a portfolio as weights, choose a split, place international and size exposure, and build a structure to hold it all.</p>
+      <div class="bx-finish">
+        <span class="bx-finish-arrow" id="bx-fin-arrow" aria-hidden="true">↓</span>
+        <p class="bx-finish-lead" id="bx-fin-lead">Scroll Down To Continue</p>
+        <p class="bx-finish-sub" id="bx-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="bx-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="bx-quote">"SIMPLICITY IS THE MASTER KEY <span class="bx-green">TO FINANCIAL SUCCESS.</span>"<br><span class="bx-quote-by">— ATTRIBUTED TO JOHN C. BOGLE</span></p>
+    </section>
+
+    <p class="bx-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The funds on the bench are generic fund types, not specific products, and the models, costs and warnings shown are simplified illustrations rather than recommendations or predictions. Fund structures, fees and glide paths vary by provider — check the documents for anything you actually buy. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="bx-nav" id="bx-nav">
+      <button type="button" class="bx-nav-btn prev" id="bx-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="bx-nav-hint" id="bx-nav-hint"></span>
+      <button type="button" class="bx-nav-btn next" id="bx-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-bx{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --core:#1568AE; --corebg:#EAF1FA; --corebd:#C5DBEF;
+    --sup:#12a08a;  --supbg:#E6F6F2;  --supbd:#BCE5DC;
+    --sat:#D99A23;  --satbg:#FBF2DF;  --satbd:#F0DCA9;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-bx *,#tn-bx *::before,#tn-bx *::after{box-sizing:border-box;}
+  #tn-bx .bx-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-bx .bx-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-bx .bx-reveal.in{opacity:1; transform:none;}
+  #tn-bx .bx-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-bx .bx-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-bx .bx-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-bx .bx-bico{display:flex;}
+  #tn-bx .bx-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-bx .bx-bsub{color:var(--ink2); font-weight:500;}
+  #tn-bx .bx-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-bx #bx-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-bx .bx-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-bx .bx-meta #bx-slide-label{color:var(--ink2);}
+  #tn-bx .bx-meta #bx-slide-count{color:var(--mut);}
+  #tn-bx .bx-sec{padding:16px 0 8px;}
+  #tn-bx .bx-sec.bx-hide{display:none;}
+  #tn-bx .bx-center{text-align:center;}
+  #tn-bx .bx-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-bx .bx-kicker.center{text-align:center;}
+  #tn-bx .bx-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-bx .bx-h2.center{text-align:center;}
+  #tn-bx .bx-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-bx .bx-p b{color:var(--ink); font-weight:700;}
+  #tn-bx .bx-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-bx .bx-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-bx .bx-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-bx .bx-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-bx .bx-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-bx .bx-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  #tn-bx .r-c{--role:var(--core); --rolebg:var(--corebg); --rolebd:var(--corebd);}
+  #tn-bx .r-s{--role:var(--sup);  --rolebg:var(--supbg);  --rolebd:var(--supbd);}
+  #tn-bx .r-t{--role:var(--sat);  --rolebg:var(--satbg);  --rolebd:var(--satbd);}
+  /* title */
+  #tn-bx .bx-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(27px,6.4vw,42px); line-height:1.13; text-align:center; margin:8px 0 14px;}
+  #tn-bx .bx-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-bx .bx-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-bx .bx-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-bx .bx-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-bx .bx-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-bx .bx-vocab-chip:hover{background:#DCF0E5;}
+  #tn-bx .bx-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-bx .bx-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-bx .bx-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-bx .bx-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-bx .bx-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-bx .bx-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* shelf */
+  #tn-bx .bx-shelf{display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
+  #tn-bx .bx-fund{position:relative; overflow:hidden; font-family:inherit; text-align:left; background:var(--rolebg); border:1.5px solid var(--rolebd); border-radius:13px; padding:11px 10px 10px; cursor:pointer; transition:all .16s;}
+  #tn-bx .bx-fund-top{position:absolute; left:0; right:0; top:0; height:4px; background:var(--role);}
+  #tn-bx .bx-fund b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; line-height:1.25; color:var(--ink);}
+  #tn-bx .bx-fund small{display:block; font-size:10.5px; color:var(--role); font-weight:700; margin-top:3px;}
+  #tn-bx .bx-fund:hover{transform:translateY(-2px);}
+  #tn-bx .bx-fund.on{box-shadow:0 0 0 3px var(--rolebd);}
+  #tn-bx .bx-fund.added{opacity:.42; cursor:default; transform:none;}
+  #tn-bx .bx-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-bx .bx-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-bx .bx-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* bench */
+  #tn-bx .bx-bench{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:18px; padding:16px; box-shadow:0 14px 40px -30px rgba(21,104,174,.5);}
+  #tn-bx .bx-bench-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin:0 0 8px;}
+  #tn-bx .bx-slots{display:flex; flex-direction:column; gap:7px; min-height:92px; padding:10px; background:var(--mist); border:1.5px dashed var(--cardbd); border-radius:13px; margin-bottom:12px;}
+  #tn-bx .bx-empty{font-size:13px; color:var(--mut); text-align:center; padding:14px 4px; margin:0;}
+  #tn-bx .bx-slot{display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--rolebd); border-left:5px solid var(--role); border-radius:11px; padding:9px 11px; animation:bx-in .22s ease;}
+  @keyframes bx-in{from{opacity:0; transform:translateY(-5px);}to{opacity:1; transform:none;}}
+  #tn-bx .bx-slot b{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;}
+  #tn-bx .bx-role{font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--role); border-radius:99px; padding:3px 8px;}
+  #tn-bx .bx-x{flex:none; width:24px; height:24px; border-radius:7px; border:1.5px solid var(--cardbd); background:#fff; color:var(--mut); font-size:14px; line-height:1; cursor:pointer; font-family:inherit;}
+  #tn-bx .bx-x:hover{color:var(--no); border-color:var(--nobd);}
+  #tn-bx .bx-verdictbar{border-radius:13px; padding:13px 15px; background:var(--mist); border:1.5px solid var(--line); transition:all .25s;}
+  #tn-bx .bx-verdictbar.hit{background:var(--tint); border-color:var(--selbd);}
+  #tn-bx .bx-verdictbar.warn{background:#FBF2DF; border-color:var(--satbd);}
+  #tn-bx .bx-vb-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 3px;}
+  #tn-bx .bx-vb-d{font-size:13px; color:var(--ink2); margin:0; line-height:1.5;}
+  #tn-bx .bx-flags{display:flex; flex-wrap:wrap; gap:6px; margin-top:9px;}
+  #tn-bx .bx-flag{font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; border-radius:99px; padding:4px 10px; background:#FBF2DF; color:#8a5a12; border:1px solid var(--satbd);}
+  #tn-bx .bx-flag.bad{background:var(--nobg); color:var(--no); border-color:var(--nobd);}
+  /* challenges */
+  #tn-bx .bx-challenges{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-bottom:12px;}
+  #tn-bx .bx-chal{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:12px 10px; text-align:center; transition:all .25s;}
+  #tn-bx .bx-chal b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;}
+  #tn-bx .bx-chal small{display:block; font-size:10.5px; color:var(--ink2); line-height:1.3; margin-top:3px;}
+  #tn-bx .bx-chal-dot{display:block; width:20px; height:20px; margin:0 auto 6px; border-radius:50%; border:2px solid var(--cardbd); background:#fff; transition:all .25s;}
+  #tn-bx .bx-chal.done{background:var(--tint); border-color:var(--selbd);}
+  #tn-bx .bx-chal.done .bx-chal-dot{background:var(--g); border-color:var(--g);}
+  #tn-bx .bx-chal.done .bx-chal-dot::after{content:"✓"; color:#fff; font-size:12px; font-weight:800; display:block; line-height:16px;}
+  /* table */
+  #tn-bx .bx-table{border:1.5px solid var(--cardbd); border-radius:14px; overflow:hidden;}
+  #tn-bx .bx-thead,#tn-bx .bx-row{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; align-items:center; gap:6px; width:100%; text-align:left;}
+  #tn-bx .bx-thead{background:var(--mist); padding:11px 12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--mut);}
+  #tn-bx .bx-thead .r-c,#tn-bx .bx-row .r-c{color:var(--core);}
+  #tn-bx .bx-thead .r-s,#tn-bx .bx-row .r-s{color:var(--sup);}
+  #tn-bx .bx-thead .r-t,#tn-bx .bx-row .r-t{color:var(--sat);}
+  #tn-bx .bx-row{background:#fff; border:none; border-top:1px solid var(--line); padding:13px 12px; cursor:pointer; font-family:inherit; transition:background .16s;}
+  #tn-bx .bx-row:hover{background:var(--mist);}
+  #tn-bx .bx-row > span:first-child{font-size:13.5px; font-weight:600;}
+  #tn-bx .bx-row > span + span{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;}
+  #tn-bx .bx-row.on{background:var(--mist); box-shadow:inset 3px 0 0 var(--g);}
+  /* myth sorter */
+  #tn-bx .bx-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-bx .bx-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-bx .bx-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-bx .bx-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-bx .bx-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bx .bx-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-bx .bx-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-bx .bx-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-bx .bx-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bx .bx-sort-row.done .bx-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-bx .bx-sort-row.done .bx-sort-btns button.picked{opacity:1;}
+  #tn-bx .bx-why{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink2); line-height:1.5; margin:4px 0 0; display:none;}
+  #tn-bx .bx-why b{font-family:'Poppins',sans-serif;}
+  #tn-bx .bx-sort-row.done .bx-why{display:block;}
+  /* picks */
+  #tn-bx .bx-picks{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-bx .bx-pick{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--role); background:var(--rolebg); border:1.5px solid var(--rolebd); border-radius:13px; padding:14px 6px; cursor:pointer; transition:all .18s;}
+  #tn-bx .bx-pick.on{background:var(--role); color:#fff;}
+  #tn-bx .bx-verdict{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:12px;}
+  #tn-bx .bx-verdict.lean{background:var(--rolebg); border-color:var(--rolebd);}
+  #tn-bx .bx-verdict-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-bx .bx-verdict-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  /* recap + complete */
+  #tn-bx .bx-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-bx .bx-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-bx .bx-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--role,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-bx .bx-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-bx .bx-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-bx .bx-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-bx .bx-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:bx-bob 1.6s ease-in-out infinite;}
+  #tn-bx .bx-finish-arrow.up{animation-name:bx-bob-up;}
+  @keyframes bx-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes bx-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-bx .bx-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-bx .bx-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-bx .bx-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-bx .bx-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; letter-spacing:.02em; margin:26px 0 0; line-height:1.5;}
+  #tn-bx .bx-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-bx .bx-green{color:var(--g);}
+  #tn-bx .bx-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-bx .bx-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  #tn-bx .bx-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-bx .bx-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-bx .bx-nav-btn.prev{color:var(--ink2);}
+  #tn-bx .bx-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-bx .bx-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-bx .bx-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-bx .bx-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-bx .bx-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-bx .bx-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-bx .bx-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-bx .bx-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .bx-tip{position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .bx-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-bx .bx-wrap{padding:12px 14px 30px;}
+    #tn-bx .bx-shelf{grid-template-columns:1fr 1fr;}
+    #tn-bx .bx-challenges{grid-template-columns:1fr;}
+    #tn-bx .bx-picks{grid-template-columns:1fr;}
+    #tn-bx .bx-thead,#tn-bx .bx-row{grid-template-columns:1.4fr .9fr .9fr .9fr; gap:4px;}
+    #tn-bx .bx-row > span:first-child{font-size:12.5px;}
+    #tn-bx .bx-row > span + span{font-size:11px;}
+    #tn-bx .bx-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-bx .bx-bsub{display:none;}
+    #tn-bx .bx-nav-hint{display:none;}
+    #tn-bx .bx-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-bx .bx-reveal{opacity:1 !important; transform:none !important;}
+    #tn-bx #bx-bar,#tn-bx .bx-chal-dot{transition:none;}
+    #tn-bx .bx-slot{animation:none;}
+    #tn-bx .bx-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ============================================================
+   THE BUILD BENCH
+   One component, instantiated three times. Each fund carries its own
+   breadth, so a holding's role (core / supporting / satellite) follows
+   from what it is rather than from a second tap by the learner.
+   classify() is pure: given a list of fund keys it returns a model
+   name, a note and any warning flags — which makes it testable on its
+   own, separately from the DOM.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-bx'); if(!root) return;
+  root.querySelectorAll('.bx-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('bx-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* ---- the parts ---- */
+  var FUNDS=[
+    {k:'td',  n:'Target-Date 2060',  role:'r-c', tag:'All-In-One', breadth:'all',  covers:['us','intl','bond'],
+     d:'A complete portfolio inside one holding: US and international stocks plus bonds, shifting along a published glide path as the target year approaches.'},
+    {k:'us',  n:'US Total Market',   role:'r-c', tag:'Broad Core', breadth:'broad', covers:['us'],
+     d:'Nearly every listed US company in one fund, weighted by size. The most common core holding there is.'},
+    {k:'sp',  n:'S&P 500 Index',     role:'r-c', tag:'Broad Core', breadth:'broad', covers:['us'],
+     d:'The 500 largest US companies. Broad, but already contained inside a total market fund — holding both adds weight, not coverage.'},
+    {k:'intl',n:'International',     role:'r-s', tag:'Supporting', breadth:'broad', covers:['intl'],
+     d:'Companies listed outside the US, across developed and emerging markets. The piece a US-only portfolio is missing.'},
+    {k:'bond',n:'Total Bond Market', role:'r-s', tag:'Supporting', breadth:'broad', covers:['bond'],
+     d:'Government and corporate bonds in one fund. The stabiliser: it moves less than stocks, which is the whole job.'},
+    {k:'sml', n:'Small-Cap Value',   role:'r-t', tag:'Satellite',  breadth:'narrow', covers:['us'],
+     d:'A deliberate tilt toward smaller, cheaper-looking companies. A slice of the market you already own, held at extra weight on purpose.'},
+    {k:'tech',n:'Tech Sector',       role:'r-t', tag:'Satellite',  breadth:'narrow', covers:['us'],
+     d:'One industry, concentrated. Already inside your broad US fund — buying it separately is a bet that this sector beats the rest.'},
+    {k:'reit',n:'Real Estate (REIT)',role:'r-t', tag:'Satellite',  breadth:'narrow', covers:['us'],
+     d:'Property companies bundled into a fund. Behaves differently enough from the broad market that some hold a small slice deliberately.'}
+  ];
+  var BY={}; FUNDS.forEach(function(f){ BY[f.k]=f; });
+
+  /* ---- the classifier: pure, so it can be tested on its own ---- */
+  function classify(list){
+    var f=list.map(function(k){ return BY[k]; });
+    var all=f.filter(function(x){ return x.breadth==='all'; });
+    var broad=f.filter(function(x){ return x.breadth==='broad'; });
+    var narrow=f.filter(function(x){ return x.breadth==='narrow'; });
+    var cov={}; f.forEach(function(x){ x.covers.forEach(function(c){ cov[c]=(cov[c]||0)+1; }); });
+    var flags=[];
+    if(f.length>1 && all.length) flags.push({t:'Overlap — the all-in-one already holds these',bad:true});
+    if(list.indexOf('us')>-1 && list.indexOf('sp')>-1) flags.push({t:'Overlap — the S&P 500 sits inside total market',bad:true});
+    if(narrow.length>=3) flags.push({t:'Satellites outnumber the core',bad:false});
+    if(f.length>=6) flags.push({t:'Six holdings is a lot to maintain',bad:false});
+    if(!f.length) return {model:'', note:'', flags:[], key:'empty'};
+    if(f.length===1 && all.length===1)
+      return {key:'one', model:'One Fund', hit:true,
+        note:'A whole portfolio in a single holding. One decision made once, and nothing to maintain — you accept the provider\u2019s weights in exchange.', flags:flags};
+    if(f.length===3 && broad.length===3 && cov.us && cov.intl && cov.bond)
+      return {key:'three', model:'Three-Fund Portfolio', hit:true,
+        note:'US stocks, international stocks and bonds — full coverage, no overlap, every weight yours to set. Typically the cheapest build of the three.', flags:flags};
+    if(broad.length>=1 && cov.us && narrow.length>=1 && narrow.length<=2 && !all.length)
+      return {key:'core', model:'Core & Satellite', hit:true,
+        note:'A broad base doing the heavy lifting, with one or two small positions beside it. It works precisely while the satellites stay small.', flags:flags};
+    if(narrow.length>=3)
+      return {key:'drift', model:'Satellite-Heavy', hit:false,
+        note:'There are more bets here than base. This is how a tidy core-and-satellite quietly turns into a pile of holdings nobody reviews.', flags:flags};
+    if(!cov.bond && !cov.intl && broad.length)
+      return {key:'partial', model:'US Stocks Only', hit:false,
+        note:'A real position, just an incomplete one — no bonds to steady it and nothing listed outside the US. Add a piece and see what it becomes.', flags:flags};
+    return {key:'none', model:'Not A Model Yet', hit:false,
+      note:'This combination doesn\u2019t form one of the three structures. Try adding or removing a holding.', flags:flags};
+  }
+
+  /* ---- bench factory ---- */
+  function bench(host, mode){
+    var picked=[], shelf=document.createElement('div'), slots=document.createElement('div'),
+        verdict=document.createElement('div'), lab=document.createElement('p'),
+        resetRow=document.createElement('div'), resetBtn=document.createElement('button');
+    shelf.className='bx-shelf'; slots.className='bx-slots'; verdict.className='bx-verdictbar';
+    lab.className='bx-bench-lab'; lab.textContent='Tap To Add';
+    resetRow.className='bx-reset-row'; resetBtn.type='button'; resetBtn.className='bx-reset-btn';
+    resetBtn.textContent='\u21ba Start Over';
+    resetRow.appendChild(resetBtn);
+    host.appendChild(lab); host.appendChild(shelf); host.appendChild(slots);
+    host.appendChild(verdict); host.appendChild(resetRow);
+
+    FUNDS.forEach(function(f){
+      var b=document.createElement('button');
+      b.type='button'; b.className='bx-fund '+f.role; b.setAttribute('data-k',f.k);
+      b.innerHTML='<span class="bx-fund-top"></span><b>'+f.n+'</b><small>'+f.tag+'</small>';
+      b.addEventListener('click',function(){ add(f.k); });
+      shelf.appendChild(b);
+    });
+
+    function add(k){
+      if(picked.indexOf(k)>-1) return;
+      picked.push(k); render();
+    }
+    function remove(k){ picked=picked.filter(function(x){ return x!==k; }); render(); }
+
+    function render(){
+      shelf.querySelectorAll('.bx-fund').forEach(function(b){
+        b.classList.toggle('added', picked.indexOf(b.getAttribute('data-k'))>-1);
+      });
+      slots.innerHTML='';
+      if(!picked.length){
+        var p=document.createElement('p'); p.className='bx-empty';
+        p.textContent='Bench empty — tap a fund above to start building.';
+        slots.appendChild(p);
+      } else {
+        picked.forEach(function(k){
+          var f=BY[k], row=document.createElement('div');
+          row.className='bx-slot '+f.role;
+          row.innerHTML='<b>'+f.n+'</b><span class="bx-role">'+f.tag+'</span>';
+          var x=document.createElement('button');
+          x.type='button'; x.className='bx-x'; x.setAttribute('aria-label','Remove '+f.n); x.textContent='\u2715';
+          x.addEventListener('click',function(){ remove(k); });
+          row.appendChild(x); slots.appendChild(row);
+        });
+      }
+      var r=classify(picked);
+      verdict.className='bx-verdictbar'+(r.hit?' hit':'')+((r.flags&&r.flags.length)?' warn':'');
+      if(!picked.length){
+        verdict.innerHTML='<p class="bx-vb-t">Nothing On The Bench</p><p class="bx-vb-d">Add a fund and this panel will name what you\u2019ve built.</p>';
+      } else {
+        verdict.innerHTML='<p class="bx-vb-t">'+r.model+'</p><p class="bx-vb-d">'+r.note+'</p>'+
+          (r.flags.length?'<div class="bx-flags">'+r.flags.map(function(fl){
+            return '<span class="bx-flag'+(fl.bad?' bad':'')+'">'+fl.t+'</span>'; }).join('')+'</div>':'');
+      }
+      onChange(r);
+      postHeight();
+    }
+    resetBtn.addEventListener('click',function(){ picked=[]; render(); });
+
+    var onChange=function(){};
+    render();
+    return { set onChange(fn){ onChange=fn; render(); }, reset:function(){ picked=[]; render(); } };
+  }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#bx-vocab-def');
+  root.querySelectorAll('#bx-vocab-chips .bx-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#bx-vocab-chips .bx-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the fund shelf — inspect, don't build */
+  var insSeen={}, insShelf=root.querySelector('#bx-inspect'),
+      insT=root.querySelector('#bx-ins-t'), insD=root.querySelector('#bx-ins-d'),
+      insCount=root.querySelector('#bx-inspect-count');
+  FUNDS.forEach(function(f){
+    var b=document.createElement('button');
+    b.type='button'; b.className='bx-fund '+f.role; b.setAttribute('data-k',f.k);
+    b.innerHTML='<span class="bx-fund-top"></span><b>'+f.n+'</b><small>'+f.tag+'</small>';
+    b.addEventListener('click',function(){
+      insShelf.querySelectorAll('.bx-fund').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      insT.textContent=f.n; insD.textContent=f.d;
+      insSeen[f.k]=1;
+      insCount.textContent='Inspected '+Math.min(keys(insSeen),5)+' Of 5';
+      state('inspect', keys(insSeen)); postHeight();
+    });
+    insShelf.appendChild(b);
+  });
+
+  /* 3 · free build */
+  var freeBench=bench(root.querySelector('.bx-bench[data-bench="free"]'),'free');
+  freeBench.onChange=function(r){ state('free', r.hit?1:0); };
+
+  /* 4 · three challenges */
+  var chalDone={}, chalBench=bench(root.querySelector('.bx-bench[data-bench="chal"]'),'chal');
+  chalBench.onChange=function(r){
+    if(r.hit && (r.key==='one'||r.key==='three'||r.key==='core') && !(r.flags||[]).some(function(f){return f.bad;})){
+      chalDone[r.key]=1;
+      var el=root.querySelector('#bx-challenges .bx-chal[data-c="'+r.key+'"]');
+      if(el) el.classList.add('done');
+    }
+    state('chal', keys(chalDone));
+  };
+
+  /* 7 · the overbuild trap */
+  var overBench=bench(root.querySelector('.bx-bench[data-bench="over"]'),'over');
+  overBench.onChange=function(r){
+    state('over', (r.flags||[]).some(function(f){ return f.bad; }) ? 1 : 0);
+  };
+
+  /* 5 · side by side */
+  var ROW={
+    holdings:['Holdings To Manage','One line on your statement, three, or half a dozen. This number drives almost everything else — every extra holding is another weight to watch and another thing to forget.'],
+    control:['Control Over Weights','An all-in-one fund decides your split for you; you can only choose a different fund. The other two hand you the dials, which is freedom if you want it and a chore if you don\u2019t.'],
+    effort:['Ongoing Effort','Near zero, low, or genuinely real. Be honest about which one you will still be doing in five years, because the answer decides whether the structure survives.'],
+    cost:['Typical Cost','All-in-one funds usually charge a little more for the convenience. A three-fund build is often the cheapest. Core and satellite depends entirely on what you bolt on.'],
+    fails:['How It Usually Fails','Each breaks differently. One-fund breaks by mismatch — a mix that was never right for you. Three-fund breaks by neglect. Core and satellite breaks by drift, as the satellites quietly grow into the core.']
+  };
+  var rSeen={}, rT=root.querySelector('#bx-row-t'), rD=root.querySelector('#bx-row-d'),
+      rCount=root.querySelector('#bx-row-count');
+  root.querySelectorAll('#bx-table .bx-row').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#bx-table .bx-row').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      rT.textContent=ROW[k][0]; rD.textContent=ROW[k][1];
+      rSeen[k]=1; rCount.textContent='Examined '+keys(rSeen)+' Of 5';
+      state('row', keys(rSeen)); postHeight();
+    });
+  });
+
+  /* 6 · myth or fact */
+  var mythCount=root.querySelector('#bx-myth-count');
+  root.querySelectorAll('#bx-myth .bx-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.bx-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#bx-myth .bx-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#bx-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#bx-myth .bx-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 8 · pick one to start from */
+  var PICK={
+    a:['r-c','You Chose One Fund','The structure most likely to still be intact in a decade. Check which glide path your fund follows and whether its stock-to-bond mix matches the split you decided on earlier.'],
+    b:['r-s','You Chose Three Fund','The most control for the least cost, provided you do the upkeep. Write your three target weights down somewhere you will find them again.'],
+    c:['r-t','You Chose Core And Satellite','Workable if you set the satellite ceiling now, in writing, while you are calm. Decide the maximum percentage before you pick a single satellite.']
+  };
+  var pickOut=root.querySelector('#bx-pick-out');
+  root.querySelectorAll('#bx-picks .bx-pick').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#bx-picks .bx-pick').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var p=PICK[b.getAttribute('data-k')];
+      pickOut.className='bx-verdict lean '+p[0];
+      pickOut.innerHTML='<p class="bx-verdict-t">'+p[1]+'</p><p class="bx-verdict-d">'+p[2]+'</p>';
+      state('pick',1); postHeight();
+    });
+  });
+
+  /* expose the classifier for testing */
+  root.bxClassify=classify;
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('bx-fin-arrow'), lead=document.getElementById('bx-fin-lead'), sub=document.getElementById('bx-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'\u2193',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'\u2191',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>\u2715</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — glossary harvested from the slide 1 chips.
+   First mention per slide only. Hover on desktop, tap on touch.
+   Only non-interactive text is scanned: a term inside a tappable
+   card would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-bx'); if(!root) return;
+  var ALT={
+    'three-fund portfolio':'three-fund portfolios?|three fund',
+    'target-date fund':'target-date funds?|all-in-one funds?',
+    'glide path':'glide paths?',
+    'core holding':'core holding|the core',
+    'satellite':'satellites?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#bx-vocab-chips .bx-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.bx-p, .bx-sub, .bx-why, .bx-recap-item span, .bx-h2, .bx-verdict-d, .bx-next-move, .bx-sort-row > span';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.bx-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='bx-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' \u2014 definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='bx-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.bx-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.bx-sec').forEach(function(sec){ TERMS.forEach(function(t){ wrap(sec,t); }); });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-bx'); if(!root) return;
+  var TOTAL=10, current=1;
+  var bar=root.querySelector('#bx-bar'), labelEl=root.querySelector('#bx-slide-label'),
+      countEl=root.querySelector('#bx-slide-count'), prevBtn=root.querySelector('#bx-prev'),
+      nextBtn=root.querySelector('#bx-next'), hintEl=root.querySelector('#bx-nav-hint'),
+      disclaimer=root.querySelector('.bx-disclaimer');
+  var labels={1:'Start Here',2:'The Shelf',3:'Free Build',4:'Build To Order',5:'Side By Side',6:'Myth Or Fact',7:'The Overbuild Trap',8:'Your Starting Point',9:'Recap',10:'Complete'};
+  var reqHints={2:'Inspect 5 funds to continue',3:'Build any recognised model to continue',4:'Clear all 3 briefs to continue',5:'Examine all 5 rows to continue',6:'Answer all 5 to continue',7:'Trigger an overlap warning to continue',8:'Pick a structure to continue'};
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.bx-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('bx-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('bx-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'inspect', need:5, hint:function(n){ return 'Inspected '+n+' of 5 — keep going'; }},
+    {step:3, key:'free',    need:1, hint:function(){ return 'Build any recognised model to continue'; }},
+    {step:4, key:'chal',    need:3, hint:function(n){ return 'Cleared '+n+' of 3 briefs — build the others'; }},
+    {step:5, key:'row',     need:5, hint:function(n){ return 'Examined '+n+' of 5 — examine them all to continue'; }},
+    {step:6, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:7, key:'over',    need:1, hint:function(){ return 'Keep adding until an overlap warning appears'; }},
+    {step:8, key:'pick',    need:1, hint:function(){ return 'Pick a structure to continue'; }}
+  ];
+  root.addEventListener('bx-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

@@ -1,0 +1,841 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — DIVIDENDS, REINVESTMENT, AND TOTAL RETURN
+     (Intermediate · Module 2 · Lesson 10)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-dr. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     DELIBERATELY NOT the card-grid look used in Fund Overlap (lesson 9):
+       slide 2 is a dark phone screen, slide 3 is a three-column split,
+       slide 4 is an animated race. No tap-a-tile-and-read-a-box slide.
+       1  Title & Key Terms (never gated)  2  The Notification Feed (creative)
+       3  Where The Money Came From        4  The Long Run (creative)
+       5  Myth Or Fact (5)                 6  Should They Reinvest? (3)
+       7  Recap (6)                        8  Complete
+     Creative widgets, 2 of 2 allowed: the broker notification feed on slide 2
+     and the animated growth race on slide 4.
+     Five distinct mechanics AND five distinct visual languages, none repeated:
+     phone notification stack, three-column progressive split, animated race,
+     myth sorter, scenario decisions.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     The notification is from a GENERIC "Your Brokerage" with a neutral glyph,
+     never a real company's name or branding on an invented message. Robinhood
+     is referenced only in prose, for the real settings path and the real fact
+     that it notifies you once a reinvestment completes.
+     Real figures (sourced, as of writing), S&P 500 1960-2025:
+       total return with dividends reinvested 10.48%/yr; price-only 7.44%/yr;
+       dividend contribution 3.04%/yr; dividends about 29-33% of annual total
+       return; $10,000 in 1960 reached roughly $7.19M reinvested against about
+       $1.36M with dividends spent. Robinhood DRIP: Account > Menu > Investing >
+       Dividend Reinvestment; reinvests during market hours on the trading day
+       after the pay date, buys fractional shares, notifies you when done.
+     Slide 4's race holds those annualised rates constant - an illustration of
+     the mechanism, not a replay of history. Labelled as such.
+     Tax treatment of dividends is NOT taught here - that is Module 3 Lesson 12.
+     ============================================================ -->
+<div id="tn-dr">
+  <div class="dr-wrap">
+    <div class="dr-top">
+      <div class="dr-topbar">
+        <div class="dr-brand"><span class="dr-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="dr-word">TURNIT</span><span class="dr-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="dr-progress"><span id="dr-bar"></span></div>
+      <div class="dr-meta"><span id="dr-slide-label">Start Here</span><span id="dr-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="dr-sec dr-center dr-reveal" data-step="1">
+      <p class="dr-kicker center">Funds Under The Hood · 1 / 8</p>
+      <h1 class="dr-hero-title">DIVIDENDS AND <span class="dr-hero-grad">TOTAL RETURN</span></h1>
+      <p class="dr-sub center">A dividend is not a bonus. What happens to it next is the part that matters.</p>
+      <div class="dr-vocab">
+        <span class="dr-vocab-label">Key Terms In This Lesson</span>
+        <div class="dr-vocab-chips" id="dr-vocab-chips">
+          <button type="button" class="dr-vocab-chip" data-t="Dividend" data-def="A share of a company's profits paid out to the people who own it, usually every three months. It is cash leaving the business and arriving in your account.">Dividend</button>
+          <button type="button" class="dr-vocab-chip" data-t="Distribution" data-def="What a fund passes on to its holders, typically quarterly. For a stock fund it is mostly the dividends its companies paid, collected and forwarded.">Distribution</button>
+          <button type="button" class="dr-vocab-chip" data-t="Ex-Dividend Date" data-def="The first day a share trades without the upcoming payment attached. The price typically falls by roughly the dividend that morning, because the cash is on its way out.">Ex-Dividend Date</button>
+          <button type="button" class="dr-vocab-chip" data-t="DRIP" data-def="A dividend reinvestment plan. Once switched on, each payment automatically buys more shares of the same holding instead of landing as cash.">DRIP</button>
+          <button type="button" class="dr-vocab-chip" data-t="Price Return" data-def="What the share price alone did over a period. It ignores every payment made along the way, which is why it understates what a holder actually earned.">Price Return</button>
+          <button type="button" class="dr-vocab-chip" data-t="Total Return" data-def="Price change plus dividends, with those dividends reinvested. It is the only figure that answers what you actually earned.">Total Return</button>
+        </div>
+        <div class="dr-vocab-def" id="dr-vocab-def">Tap a term to see what it means.</div>
+        <span class="dr-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="dr-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE NOTIFICATION FEED ========== -->
+    <section class="dr-sec dr-reveal" data-step="2">
+      <p class="dr-kicker">A Year Of Doing Nothing · 2 / 8</p>
+      <h2 class="dr-h2">This Is What It Looks Like</h2>
+      <p class="dr-p">You own 20 shares and switched one setting on. Advance through a year and watch your phone.</p>
+      <div class="dr-phone">
+        <div class="dr-ph-bar"><span>9:41</span><span class="dr-ph-dots">●●●</span></div>
+        <div class="dr-ph-screen">
+          <div class="dr-ph-date" id="dr-ph-date">Nothing yet this year</div>
+          <div class="dr-feed" id="dr-feed"></div>
+        </div>
+        <div class="dr-ph-foot">
+          <span><i>Shares Held</i><b id="dr-sh">20.0000</b></span>
+          <span><i>Reinvested</i><b id="dr-rein">$0.00</b></span>
+        </div>
+      </div>
+      <div class="dr-tickrow">
+        <button type="button" class="dr-tick" id="dr-tick">Advance One Quarter →</button>
+        <button type="button" class="dr-reset-btn" id="dr-feed-reset">↺ Start Over</button>
+      </div>
+      <p class="dr-count" id="dr-feed-count">0 Of 4 Quarters</p>
+      <div class="dr-note" id="dr-feed-note">Four payments a year is typical for a US stock fund. You will not touch anything.</div>
+      <p class="dr-disclaimer-inline">A generic illustration of a broker alert, not a real notification from any company, and the amounts are invented. Robinhood puts this setting under Account → Menu → Investing → Dividend Reinvestment, reinvests during market hours on the trading day after the pay date, and notifies you once it is done. Other brokerages word it differently; nearly all of them have it.</p>
+    </section>
+
+    <!-- ========== 3 · WHERE THE MONEY CAME FROM ========== -->
+    <section class="dr-sec dr-reveal" data-step="3">
+      <p class="dr-kicker">The Catch · 3 / 8</p>
+      <h2 class="dr-h2">Nothing Was Created</h2>
+      <p class="dr-p">Those alerts feel like income arriving. Step through what actually happened to one share.</p>
+      <div class="dr-cols" id="dr-cols">
+        <div class="dr-col on" data-c="1">
+          <span class="dr-col-cap">Before</span>
+          <div class="dr-stack">
+            <div class="dr-blk share" style="height:150px"><b>$100.00</b><i>share</i></div>
+          </div>
+          <span class="dr-col-tot">$100.00</span>
+        </div>
+        <span class="dr-arrow" id="dr-ar1">→</span>
+        <div class="dr-col" data-c="2">
+          <span class="dr-col-cap">Ex-Dividend Day</span>
+          <div class="dr-stack">
+            <div class="dr-blk share" style="height:116px"><b>$99.50</b><i>share</i></div>
+            <div class="dr-blk cash" style="height:31px"><b>$0.50</b><i>cash</i></div>
+          </div>
+          <span class="dr-col-tot">$100.00</span>
+        </div>
+        <span class="dr-arrow" id="dr-ar2">→</span>
+        <div class="dr-col" data-c="3">
+          <span class="dr-col-cap">Reinvested</span>
+          <div class="dr-stack">
+            <div class="dr-blk share" style="height:150px"><b>$100.00</b><i>1.0050 shares</i></div>
+          </div>
+          <span class="dr-col-tot">$100.00</span>
+        </div>
+      </div>
+      <div class="dr-steprow">
+        <button type="button" class="dr-step" id="dr-c2">Pay The Dividend →</button>
+        <button type="button" class="dr-step" id="dr-c3" disabled>Reinvest It →</button>
+      </div>
+      <div class="dr-note" id="dr-col-note">Watch the total underneath each column. It never moves.</div>
+      <p class="dr-count" id="dr-col-count">Stepped 0 Of 2</p>
+      <div class="dr-reset-row"><button type="button" class="dr-reset-btn" id="dr-col-reset">↺ Start Over</button></div>
+      <p class="dr-disclaimer-inline">Blocks are not drawn to scale — a payment this size would be invisible. Round numbers chosen for clarity, and in real trading the ex-dividend price also moves with everything else happening that morning.</p>
+    </section>
+
+    <!-- ========== 4 · THE LONG RUN ========== -->
+    <section class="dr-sec dr-reveal" data-step="4">
+      <p class="dr-kicker">The Long Run · 4 / 8</p>
+      <h2 class="dr-h2">So Why Does It Matter?</h2>
+      <p class="dr-p">Because each reinvested distribution earns on its own from then on. $10,000 in once, two settings.</p>
+      <div class="dr-race">
+        <div class="dr-race-yr"><span>Year</span><b id="dr-yr">0</b></div>
+        <div class="dr-race-row p-a">
+          <span class="dr-race-lab">Reinvested</span>
+          <span class="dr-race-track"><i id="dr-bar-a"></i></span>
+          <b class="dr-race-val" id="dr-val-a">$10,000</b>
+        </div>
+        <div class="dr-race-row p-c">
+          <span class="dr-race-lab">Taken As Cash</span>
+          <span class="dr-race-track"><i id="dr-bar-b"></i></span>
+          <b class="dr-race-val" id="dr-val-b">$10,000</b>
+        </div>
+        <div class="dr-gapline" id="dr-gapline">The gap between them is the whole lesson.</div>
+      </div>
+      <div class="dr-horiz" id="dr-horiz">
+        <button type="button" class="dr-hz" data-y="10">10 Years</button>
+        <button type="button" class="dr-hz" data-y="25">25 Years</button>
+        <button type="button" class="dr-hz" data-y="40">40 Years</button>
+      </div>
+      <div class="dr-record">
+        <span class="dr-rec-cap">And In Real Life, 1960–2025</span>
+        <p>The S&amp;P 500 compounded at <b>10.48% a year</b> with dividends reinvested against <b>7.44%</b> on price alone — dividends supplied roughly <b>a third</b> of the annual total return. $10,000 left alone became about <b>$7.19 million</b> reinvested, or roughly <b>$1.36 million</b> with every payment taken as cash.</p>
+      </div>
+      <p class="dr-count" id="dr-race-count">Run 0 Of 3</p>
+      <p class="dr-disclaimer-inline">The bars are an illustration, not a forecast and not a replay of history: they apply long-run averages evenly across every year, which no real market has done, and they exclude taxes and fees. The 1960–2025 figures were published at the time of writing and vary by provider and end date. Past performance never guarantees future results.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="dr-sec dr-reveal" data-step="5">
+      <p class="dr-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="dr-h2">Myth Or Fact?</h2>
+      <p class="dr-p">Five claims you will hear about dividends. Tap your answer.</p>
+      <div class="dr-sort" id="dr-myth">
+        <div class="dr-sort-row" data-answer="myth"><span>A dividend is extra money on top of what your shares are worth.</span><div class="dr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="dr-why"><b>Myth.</b> On the ex-dividend date the price typically falls by about the payment. The money moved from the company to you; it was not created.</p></div>
+        <div class="dr-sort-row" data-answer="fact"><span>Price return understates what a long-term holder earned.</span><div class="dr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="dr-why"><b>Fact.</b> Headline index numbers are usually price return. Over 1960–2025 that was 7.44% a year against a total return of 10.48% — a gap that compounds into millions.</p></div>
+        <div class="dr-sort-row" data-answer="myth"><span>Buying just before the ex-dividend date gets you free income.</span><div class="dr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="dr-why"><b>Myth.</b> You pay a price that still includes the payment, then watch it drop out. You end up with the same value split differently — and in a taxable account, a tax bill you did not need.</p></div>
+        <div class="dr-sort-row" data-answer="fact"><span>Reinvesting is a setting, not a decision you make each quarter.</span><div class="dr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="dr-why"><b>Fact.</b> A DRIP runs automatically once switched on, and most brokerages let you set it per holding. It is one of the few places where doing nothing is the active choice.</p></div>
+        <div class="dr-sort-row" data-answer="myth"><span>A higher yield means a better investment.</span><div class="dr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="dr-why"><b>Myth.</b> Yield is the payment divided by the price, so a falling price pushes it up. Some of the highest yields on the market belong to companies in visible trouble.</p></div>
+      </div>
+      <p class="dr-count" id="dr-myth-count">Answered 0 Of 5</p>
+      <div class="dr-reset-row"><button type="button" class="dr-reset-btn" id="dr-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · SHOULD THEY REINVEST? ========== -->
+    <section class="dr-sec dr-reveal" data-step="6">
+      <p class="dr-kicker">Three Situations · 6 / 8</p>
+      <h2 class="dr-h2">Should They Reinvest?</h2>
+      <p class="dr-p">A DRIP is usually right, not always. Pick the better answer for each.</p>
+      <div class="dr-cases" id="dr-cases">
+        <div class="dr-case" data-ans="1">
+          <p class="dr-case-q">A 24-year-old adding to a Roth IRA every month, who won't touch it for decades.</p>
+          <div class="dr-copts"><button type="button" data-i="0">Take the cash and decide later</button><button type="button" data-i="1">Reinvest automatically</button></div>
+          <p class="dr-why"></p>
+        </div>
+        <div class="dr-case" data-ans="0">
+          <p class="dr-case-q">A retiree who needs about $800 a month out of the portfolio to live on.</p>
+          <div class="dr-copts"><button type="button" data-i="0">Take the cash</button><button type="button" data-i="1">Reinvest, then sell shares for income</button></div>
+          <p class="dr-why"></p>
+        </div>
+        <div class="dr-case" data-ans="1">
+          <p class="dr-case-q">Someone whose portfolio has drifted well away from their target mix.</p>
+          <div class="dr-copts"><button type="button" data-i="0">Turn reinvesting off everywhere</button><button type="button" data-i="1">Point the payments at whatever is underweight</button></div>
+          <p class="dr-why"></p>
+        </div>
+      </div>
+      <p class="dr-count" id="dr-case-count">Answered 0 Of 3</p>
+      <div class="dr-reset-row"><button type="button" class="dr-reset-btn" id="dr-case-reset">↺ Start Over</button></div>
+      <p class="dr-disclaimer-inline">Educational illustration, not a recommendation. Which setting suits you depends on your income needs, your account type and your tax position — none of which this lesson can see.</p>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="dr-sec dr-reveal" data-step="7">
+      <p class="dr-kicker">Recap · 7 / 8</p>
+      <h2 class="dr-h2">Here's What You Now Know</h2>
+      <p class="dr-p">The whole lesson, in six lines.</p>
+      <div class="dr-recap">
+        <div class="dr-recap-item"><span class="dr-recap-check p-a">✓</span><span>Once a DRIP is switched on, reinvesting happens without you — a notification is usually the only sign.</span></div>
+        <div class="dr-recap-item"><span class="dr-recap-check p-c">✓</span><span>A dividend moves money between pockets. On the ex-dividend date the price drops by roughly the payment.</span></div>
+        <div class="dr-recap-item"><span class="dr-recap-check p-b">✓</span><span>Reinvesting adds nothing today. It works because every future distribution is calculated on a bigger holding.</span></div>
+        <div class="dr-recap-item"><span class="dr-recap-check p-a">✓</span><span>Price return is the headline number; total return is the one that counts what you were paid.</span></div>
+        <div class="dr-recap-item"><span class="dr-recap-check p-c">✓</span><span>Over 1960–2025 that was 7.44% a year against 10.48% — dividends were roughly a third of the result.</span></div>
+        <div class="dr-recap-item"><span class="dr-recap-check p-b">✓</span><span>A high yield is not a good deal. It is often just a price that fell.</span></div>
+      </div>
+      <div class="dr-next-move">Your next move: <b>open your brokerage and check whether reinvestment is on.</b> In Robinhood it's under Account → Investing. Plenty of people find theirs has been off the whole time.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="dr-sec dr-center dr-reveal" data-step="8">
+      <p class="dr-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="dr-hero-ico">🚀</span>
+      <h2 class="dr-h2 center">You've Finished The Lesson</h2>
+      <p class="dr-sub center">That's Module 2 done. You can now look under the hood of any fund you own.</p>
+      <div class="dr-finish">
+        <span class="dr-finish-arrow" id="dr-fin-arrow" aria-hidden="true">↓</span>
+        <p class="dr-finish-lead" id="dr-fin-lead">Scroll Down To Continue</p>
+        <p class="dr-finish-sub" id="dr-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="dr-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="dr-pullquote">"DO YOU KNOW THE ONLY THING THAT GIVES ME PLEASURE? <span class="dr-green">TO SEE MY DIVIDENDS COMING IN.</span>"<br><span class="dr-pullquote-by">— JOHN D. ROCKEFELLER</span></p>
+    </section>
+
+    <p class="dr-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The notification on slide 2 is a generic illustration with invented amounts, not a real alert from any company. The growth paths on slide 4 are built from long-run average rates, not forecasts, and exclude taxes and fees. Historical figures were published at the time of writing and vary by provider and end date. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="dr-nav" id="dr-nav">
+      <button type="button" class="dr-nav-btn prev" id="dr-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="dr-nav-hint" id="dr-nav-hint"></span>
+      <button type="button" class="dr-nav-btn next" id="dr-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-dr{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* path palette — green = money put back to work, amber = money taken out */
+    --pa:#209B73; --pabg:#E7F6EF; --pabd:#BFE6D6;
+    --pb:#1568AE; --pbbg:#EAF1FA; --pbbd:#C5DBEF;
+    --pc:#C8821B; --pcbg:#FBF2DF; --pcbd:#F0DCA9;
+    /* phone chrome */
+    --sc:#0E1419; --sc2:#1A232D; --scline:#283644; --sctx:#C9D6E2;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-dr *,#tn-dr *::before,#tn-dr *::after{box-sizing:border-box;}
+  #tn-dr .dr-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-dr .dr-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-dr .dr-reveal.in{opacity:1; transform:none;}
+  #tn-dr .dr-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-dr .dr-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-dr .dr-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-dr .dr-bico{display:flex;}
+  #tn-dr .dr-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-dr .dr-bsub{color:var(--ink2); font-weight:500;}
+  #tn-dr .dr-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-dr #dr-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-dr .dr-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-dr .dr-meta #dr-slide-label{color:var(--ink2);}
+  #tn-dr .dr-meta #dr-slide-count{color:var(--mut);}
+  #tn-dr .dr-sec{padding:16px 0 8px;}
+  #tn-dr .dr-sec.dr-hide{display:none;}
+  #tn-dr .dr-center{text-align:center;}
+  #tn-dr .dr-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-dr .dr-kicker.center{text-align:center;}
+  #tn-dr .dr-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-dr .dr-h2.center{text-align:center;}
+  #tn-dr .dr-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-dr .dr-p b{color:var(--ink); font-weight:700;}
+  #tn-dr .dr-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-dr .dr-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-dr .dr-note b{color:var(--ink); font-weight:700;}
+  #tn-dr .dr-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-dr .dr-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-dr .dr-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-dr .dr-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-dr .dr-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* path colour helpers */
+  #tn-dr .p-a{--p:var(--pa); --pbg:var(--pabg); --pbd:var(--pabd);}
+  #tn-dr .p-b{--p:var(--pb); --pbg:var(--pbbg); --pbd:var(--pbbd);}
+  #tn-dr .p-c{--p:var(--pc); --pbg:var(--pcbg); --pbd:var(--pcbd);}
+  /* title */
+  #tn-dr .dr-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.6vw,44px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-dr .dr-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-dr .dr-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-dr .dr-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-dr .dr-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-dr .dr-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-dr .dr-vocab-chip:hover{filter:brightness(.97);}
+  #tn-dr .dr-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-dr .dr-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-dr .dr-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-dr .dr-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-dr .dr-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-dr .dr-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · the phone notification feed */
+  #tn-dr .dr-phone{max-width:380px; margin:0 auto; background:var(--sc); border-radius:26px; padding:8px 8px 8px;
+    box-shadow:0 22px 50px -26px rgba(14,20,25,.85);}
+  #tn-dr .dr-ph-bar{display:flex; justify-content:space-between; align-items:center; padding:5px 13px 9px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#fff;}
+  #tn-dr .dr-ph-dots{font-size:7px; letter-spacing:2px; color:#6E8398;}
+  #tn-dr .dr-ph-screen{background:linear-gradient(170deg,#16202B,#0E1419); border-radius:20px 20px 0 0; padding:16px 12px 10px; min-height:240px;}
+  #tn-dr .dr-ph-date{text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:#7F93A6; margin-bottom:13px;}
+  #tn-dr .dr-feed{display:flex; flex-direction:column; gap:9px;}
+  #tn-dr .dr-notif{display:flex; gap:10px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.08);
+    border-radius:15px; padding:11px 12px; animation:dr-slide .42s cubic-bezier(.2,.9,.3,1.1);}
+  @keyframes dr-slide{from{opacity:0; transform:translateY(-14px) scale(.97);} to{opacity:1; transform:none;}}
+  #tn-dr .dr-n-ico{flex:none; width:30px; height:30px; border-radius:9px; background:var(--pa); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px;}
+  #tn-dr .dr-n-body{flex:1; min-width:0;}
+  #tn-dr .dr-n-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px;}
+  #tn-dr .dr-n-head b{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:#fff; letter-spacing:.02em;}
+  #tn-dr .dr-n-head i{font-style:normal; font-size:10.5px; color:#73879B; white-space:nowrap;}
+  #tn-dr .dr-n-body p{font-size:12.5px; color:var(--sctx); line-height:1.45; margin:3px 0 0;}
+  #tn-dr .dr-n-body p b{color:#7BE3B6; font-weight:700;}
+  #tn-dr .dr-ph-foot{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--scline); border-radius:0 0 20px 20px; overflow:hidden;}
+  #tn-dr .dr-ph-foot span{background:var(--sc2); padding:10px 13px; text-align:center;}
+  #tn-dr .dr-ph-foot i{display:block; font-style:normal; font-family:'Poppins',sans-serif; font-weight:700; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#73879B;}
+  #tn-dr .dr-ph-foot b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; color:#fff; margin-top:2px;}
+  #tn-dr .dr-tickrow{display:flex; justify-content:center; align-items:center; gap:10px; margin-top:14px; flex-wrap:wrap;}
+  #tn-dr .dr-tick{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:#fff;
+    background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:12px 22px; cursor:pointer; transition:all .18s;
+    box-shadow:0 12px 26px -16px rgba(21,104,174,.8);}
+  #tn-dr .dr-tick:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-dr .dr-tick:disabled{background:#E4E9EE; color:var(--mut); cursor:not-allowed; box-shadow:none;}
+  /* 3 · three-column split */
+  #tn-dr .dr-cols{display:flex; align-items:center; justify-content:center; gap:4px;}
+  #tn-dr .dr-col{flex:1; max-width:150px; text-align:center; opacity:.2; transition:opacity .45s;}
+  #tn-dr .dr-col.on{opacity:1;}
+  #tn-dr .dr-col-cap{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut); margin-bottom:7px; min-height:26px;}
+  #tn-dr .dr-stack{display:flex; flex-direction:column; gap:3px; justify-content:flex-end; height:152px;}
+  #tn-dr .dr-blk{border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden;}
+  #tn-dr .dr-blk b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(12px,3.1vw,16px); color:#fff; line-height:1.1;}
+  #tn-dr .dr-blk i{font-style:normal; font-size:10px; color:rgba(255,255,255,.82); margin-top:1px;}
+  #tn-dr .dr-blk.share{background:linear-gradient(160deg,#1C7FC9,#1568AE);}
+  #tn-dr .dr-blk.cash{background:linear-gradient(160deg,#E0A93C,var(--pc));}
+  #tn-dr .dr-col-tot{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin-top:8px; padding-top:7px; border-top:2px solid var(--cardbd);}
+  #tn-dr .dr-arrow{flex:none; font-size:19px; color:var(--mut); padding-bottom:30px; opacity:.22; transition:opacity .45s, color .45s;}
+  #tn-dr .dr-arrow.on{opacity:1; color:var(--g);}
+  #tn-dr .dr-steprow{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px;}
+  #tn-dr .dr-step{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#fff;
+    background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:13px; padding:13px 10px; cursor:pointer; transition:all .18s;}
+  #tn-dr .dr-step:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-dr .dr-step:disabled{background:#E4E9EE; color:var(--mut); cursor:not-allowed;}
+  #tn-dr .dr-step.done{background:var(--tint); color:var(--g); box-shadow:inset 0 0 0 1.5px var(--selbd);}
+  /* 4 · the race */
+  #tn-dr .dr-race{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:14px 16px 16px;}
+  #tn-dr .dr-race-yr{text-align:center; margin-bottom:12px;}
+  #tn-dr .dr-race-yr span{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--mut);}
+  #tn-dr .dr-race-yr b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:34px; line-height:1.1; color:var(--ink);}
+  #tn-dr .dr-race-row{margin-bottom:12px;}
+  #tn-dr .dr-race-lab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; color:var(--p); margin-bottom:5px;}
+  #tn-dr .dr-race-track{display:block; height:20px; background:#E3EAF1; border-radius:99px; overflow:hidden;}
+  #tn-dr .dr-race-track i{display:block; height:100%; width:0; border-radius:99px; background:var(--p);}
+  #tn-dr .dr-race-val{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(17px,4.4vw,22px); color:var(--ink); margin-top:5px;}
+  #tn-dr .dr-gapline{text-align:center; font-size:13px; color:var(--ink2); line-height:1.5; margin-top:4px; padding-top:11px; border-top:1px solid var(--cardbd);}
+  #tn-dr .dr-gapline b{font-family:'Poppins',sans-serif; font-weight:800; color:var(--ink);}
+  #tn-dr .dr-horiz{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:12px;}
+  #tn-dr .dr-hz{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:12px 6px; cursor:pointer; transition:all .18s;}
+  #tn-dr .dr-hz:hover{border-color:var(--selbd);}
+  #tn-dr .dr-hz.on{background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-dr .dr-record{margin-top:14px; background:linear-gradient(135deg,#EAF2F9,#E7F6EF); border:1.5px solid #CDE3DA; border-radius:14px; padding:14px 16px;}
+  #tn-dr .dr-rec-cap{display:inline-block; font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--g); border-radius:99px; padding:4px 10px; margin-bottom:8px;}
+  #tn-dr .dr-record p{font-size:13.5px; color:var(--ink2); line-height:1.6; margin:0;}
+  #tn-dr .dr-record b{font-family:'Poppins',sans-serif; font-weight:800; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-dr .dr-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-dr .dr-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-dr .dr-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-dr .dr-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-dr .dr-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-dr .dr-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-dr .dr-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-dr .dr-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-dr .dr-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-dr .dr-sort-row.done .dr-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-dr .dr-sort-row.done .dr-sort-btns button.picked{opacity:1;}
+  #tn-dr .dr-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-dr .dr-why b{font-family:'Poppins',sans-serif;}
+  #tn-dr .dr-sort-row .dr-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-dr .dr-sort-row.done .dr-why{display:block;}
+  /* 6 · scenarios */
+  #tn-dr .dr-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-dr .dr-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-dr .dr-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-dr .dr-copts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-dr .dr-copts button{flex:1; min-width:140px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 12px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-dr .dr-copts button:hover{border-color:var(--selbd);}
+  #tn-dr .dr-case.done .dr-copts button{opacity:.35; pointer-events:none;}
+  #tn-dr .dr-case.done .dr-copts button.picked{opacity:1;}
+  #tn-dr .dr-case.done .dr-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-dr .dr-case.done .dr-copts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-dr .dr-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-dr .dr-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-dr .dr-case.done .dr-why{display:block;}
+  /* recap + complete */
+  #tn-dr .dr-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-dr .dr-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-dr .dr-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--p,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-dr .dr-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-dr .dr-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-dr .dr-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-dr .dr-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-dr .dr-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:dr-bob 1.6s ease-in-out infinite;}
+  #tn-dr .dr-finish-arrow.up{animation-name:dr-bob-up;}
+  @keyframes dr-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes dr-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-dr .dr-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-dr .dr-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-dr .dr-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-dr .dr-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-dr .dr-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-dr .dr-green{color:var(--g);}
+  #tn-dr .dr-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-dr .dr-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-dr .dr-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-dr .dr-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-dr .dr-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-dr .dr-nav-btn.prev{color:var(--ink2);}
+  #tn-dr .dr-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-dr .dr-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-dr .dr-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-dr .dr-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-dr .dr-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-dr .dr-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-dr .dr-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-dr .dr-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .dr-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .dr-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-dr .dr-wrap{padding:12px 14px 30px;}
+    #tn-dr .dr-cols{gap:2px;}
+    #tn-dr .dr-col-cap{font-size:8.5px; letter-spacing:.04em;}
+    #tn-dr .dr-arrow{font-size:14px; padding-bottom:28px;}
+    #tn-dr .dr-blk i{font-size:9px;}
+    #tn-dr .dr-col-tot{font-size:12.5px;}
+    #tn-dr .dr-steprow{grid-template-columns:1fr;}
+    #tn-dr .dr-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-dr .dr-copts button{min-width:0; flex:1 1 100%;}
+    #tn-dr .dr-bsub{display:none;}
+    #tn-dr .dr-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-dr .dr-nav{padding-top:10px; row-gap:0;}
+    #tn-dr .dr-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-dr .dr-reveal{opacity:1 !important; transform:none !important;}
+    #tn-dr #dr-bar,#tn-dr .dr-col,#tn-dr .dr-arrow{transition:none;}
+    #tn-dr .dr-notif{animation:none;}
+    #tn-dr .dr-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-dr'); if(!root) return;
+  root.querySelectorAll('.dr-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('dr-state')); }
+  function keys(o){ return Object.keys(o).length; }
+  function money(n,dp){ if(dp===undefined) dp=2;
+    return '$'+n.toFixed(dp).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#dr-vocab-def');
+  root.querySelectorAll('#dr-vocab-chips .dr-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#dr-vocab-chips .dr-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the notification feed (creative 1 of 2) */
+  var QTR=[
+    {d:'Mar 28',  amt:30.84, px:612.00, sh:0.0504, lab:'Friday, March 28'},
+    {d:'Jun 27',  amt:32.10, px:619.50, sh:0.0518, lab:'Friday, June 27'},
+    {d:'Sep 26',  amt:31.46, px:626.80, sh:0.0502, lab:'Friday, September 26'},
+    {d:'Dec 26',  amt:33.72, px:632.40, sh:0.0533, lab:'Friday, December 26'}
+  ];
+  var qi=0, feed=root.querySelector('#dr-feed'), phDate=root.querySelector('#dr-ph-date'),
+      shEl=root.querySelector('#dr-sh'), reinEl=root.querySelector('#dr-rein'),
+      tick=root.querySelector('#dr-tick'), feedCount=root.querySelector('#dr-feed-count'),
+      feedNote=root.querySelector('#dr-feed-note');
+  function feedReset(){
+    qi=0; feed.innerHTML='';
+    phDate.textContent='Nothing yet this year';
+    shEl.textContent='20.0000'; reinEl.textContent=money(0);
+    tick.disabled=false; tick.textContent='Advance One Quarter →';
+    feedCount.textContent='0 Of 4 Quarters';
+    feedNote.textContent='Four payments a year is typical for a US stock fund. You will not touch anything.';
+    postHeight();
+  }
+  tick.addEventListener('click',function(){
+    if(qi>=QTR.length) return;
+    var q=QTR[qi], shares=20, total=0, i;
+    for(i=0;i<=qi;i++){ shares+=QTR[i].sh; total+=QTR[i].amt; }
+    var n=document.createElement('div');
+    n.className='dr-notif';
+    n.innerHTML='<span class="dr-n-ico">▲</span><div class="dr-n-body">'
+      +'<div class="dr-n-head"><b>Your Brokerage</b><i>'+q.d+'</i></div>'
+      +'<p>Dividend reinvested — <b>'+money(q.amt)+'</b> from VOO bought '+q.sh.toFixed(4)+' shares at '+money(q.px)+'.</p></div>';
+    feed.insertBefore(n, feed.firstChild);
+    phDate.textContent=q.lab;
+    shEl.textContent=shares.toFixed(4);
+    reinEl.textContent=money(total);
+    qi++;
+    feedCount.textContent=qi+' Of 4 Quarters';
+    if(qi>=QTR.length){
+      tick.disabled=true; tick.textContent='A Full Year Done';
+      feedNote.innerHTML='You opened the app <b>zero times</b>. Four alerts, '+money(total)+' put straight back to work, and '
+        +(shares-20).toFixed(4)+' more shares than you started the year with.';
+    } else {
+      feedNote.textContent='Still nothing for you to do. '+(QTR.length-qi)+' more to come this year.';
+    }
+    state('feed', qi); postHeight();
+  });
+  var fR=root.querySelector('#dr-feed-reset');
+  if(fR) fR.addEventListener('click',feedReset);
+
+  /* 3 · where the money came from */
+  var colSeen={}, cols=root.querySelectorAll('#dr-cols .dr-col'),
+      ar1=root.querySelector('#dr-ar1'), ar2=root.querySelector('#dr-ar2'),
+      c2b=root.querySelector('#dr-c2'), c3b=root.querySelector('#dr-c3'),
+      colNote=root.querySelector('#dr-col-note'), colCount=root.querySelector('#dr-col-count');
+  function colReset(){
+    for(var i=0;i<cols.length;i++){ cols[i].classList.toggle('on', i===0); }
+    ar1.classList.remove('on'); ar2.classList.remove('on');
+    c2b.classList.remove('done'); c2b.disabled=false;
+    c3b.classList.remove('done'); c3b.disabled=true;
+    colNote.textContent='Watch the total underneath each column. It never moves.';
+    colCount.textContent='Stepped 0 Of 2'; postHeight();
+  }
+  c2b.addEventListener('click',function(){
+    cols[1].classList.add('on'); ar1.classList.add('on');
+    c2b.classList.add('done'); c2b.disabled=true; c3b.disabled=false;
+    colNote.textContent='The share is worth 50 cents less and you are holding 50 cents. The total is identical. A company paying a dividend hands you part of itself — it does not add anything to it.';
+    colSeen.pay=1; colCount.textContent='Stepped '+keys(colSeen)+' Of 2';
+    state('cols', keys(colSeen)); postHeight();
+  });
+  c3b.addEventListener('click',function(){
+    cols[2].classList.add('on'); ar2.classList.add('on');
+    c3b.classList.add('done'); c3b.disabled=true;
+    colNote.innerHTML='Still $100.00 — reinvesting made you no richer today. What changed is that you now hold <b>1.0050 shares instead of 1</b>, so the next payment is calculated on a bigger holding. Repeat that for thirty years and it stops being a rounding error.';
+    colSeen.rein=1; colCount.textContent='Stepped '+keys(colSeen)+' Of 2';
+    state('cols', keys(colSeen)); postHeight();
+  });
+  var cR=root.querySelector('#dr-col-reset');
+  if(cR) cR.addEventListener('click',colReset);
+
+  /* 4 · the long run (creative 2 of 2) */
+  var PR=0.0744, DV=0.0304, TRATE=PR+DV, START=10000;
+  function paths(y){
+    var rein=START*Math.pow(1+TRATE,y), bal=START, cash=0;
+    for(var i=0;i<y;i++){ cash+=bal*DV; bal*=(1+PR); }
+    return {rein:rein, spent:bal+cash, bal:bal, cash:cash};
+  }
+  var hzSeen={}, yrEl=root.querySelector('#dr-yr'),
+      barA=root.querySelector('#dr-bar-a'), barB=root.querySelector('#dr-bar-b'),
+      valA=root.querySelector('#dr-val-a'), valB=root.querySelector('#dr-val-b'),
+      gapEl=root.querySelector('#dr-gapline'), raceCount=root.querySelector('#dr-race-count');
+  var timer=null;
+  function runRace(Y){
+    if(timer){ clearInterval(timer); timer=null; }
+    var end=paths(Y), max=end.rein, step=0, STEPS=36;
+    timer=setInterval(function(){
+      step++;
+      var y=Math.round(Y*step/STEPS), p=paths(y);
+      yrEl.textContent=y;
+      barA.style.width=(p.rein/max*100)+'%';
+      barB.style.width=(p.spent/max*100)+'%';
+      valA.textContent=money(p.rein,0);
+      valB.textContent=money(p.spent,0);
+      if(step>=STEPS){
+        clearInterval(timer); timer=null;
+        yrEl.textContent=Y;
+        gapEl.innerHTML='After '+Y+' years the gap is <b>'+money(end.rein-end.spent,0)+'</b>. The cash path still holds '
+          +money(end.bal,0)+' in shares plus '+money(end.cash,0)+' collected along the way — it simply never put the payments back to work.';
+        hzSeen[Y]=1; raceCount.textContent='Run '+keys(hzSeen)+' Of 3';
+        state('race', keys(hzSeen));
+      }
+      postHeight();
+    },42);
+  }
+  root.querySelectorAll('#dr-horiz .dr-hz').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#dr-horiz .dr-hz').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); runRace(+b.getAttribute('data-y'));
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#dr-myth-count');
+  root.querySelectorAll('#dr-myth .dr-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.dr-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#dr-myth .dr-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#dr-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#dr-myth .dr-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · should they reinvest? */
+  var CWHY=[
+    'Decades of runway and no need for the money. Automatic reinvestment turns every payment into more shares without a decision each quarter, which is exactly the engine slide 4 showed.',
+    'Reinvesting and then selling shares to raise the same cash means two transactions where none was needed. Letting the payments land as cash covers the spending directly.',
+    'Switch the payments to cash and direct them — along with new contributions — into whatever has fallen behind. You nudge the mix back toward target without selling anything.'
+  ];
+  var caseCount=root.querySelector('#dr-case-count');
+  root.querySelectorAll('#dr-cases .dr-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.dr-why');
+    c.querySelectorAll('.dr-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.dr-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#dr-cases .dr-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 3';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#dr-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#dr-cases .dr-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.dr-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('dr-fin-arrow'), lead=document.getElementById('dr-fin-lead'), sub=document.getElementById('dr-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-dr'); if(!root) return;
+  var ALT={
+    'dividend':'dividends?',
+    'distribution':'distributions?',
+    'ex-dividend date':'ex-dividend dates?|ex-dividend',
+    'drip':'DRIP|dividend reinvestment',
+    'price return':'price returns?',
+    'total return':'total returns?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#dr-vocab-chips .dr-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  /* longest phrase first, so "ex-dividend date" is never eaten by "dividend" */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.dr-p, .dr-sub, .dr-note, .dr-why, .dr-recap-item span, .dr-h2, .dr-next-move, .dr-sort-row > span, .dr-case-q, .dr-record p, .dr-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.dr-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='dr-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='dr-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.dr-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.dr-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-dr'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#dr-bar'), labelEl=root.querySelector('#dr-slide-label'),
+      countEl=root.querySelector('#dr-slide-count'), prevBtn=root.querySelector('#dr-prev'),
+      nextBtn=root.querySelector('#dr-next'), hintEl=root.querySelector('#dr-nav-hint'),
+      disclaimer=root.querySelector('.dr-disclaimer');
+  var labels={1:'Start Here',2:'A Year Of Doing Nothing',3:'The Catch',4:'The Long Run',5:'Myth Or Fact',6:'Three Situations',7:'Recap',8:'Complete'};
+  var reqHints={2:'Advance all 4 quarters to continue',3:'Step through both to continue',4:'Run all 3 horizons to continue',5:'Answer all 5 to continue',6:'Answer all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.dr-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('dr-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('dr-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'feed',  need:4, hint:function(n){ return n+' of 4 quarters — advance through the year to continue'; }},
+    {step:3, key:'cols',  need:2, hint:function(n){ return n<1?'Step through both to continue':'Now reinvest it'; }},
+    {step:4, key:'race',  need:3, hint:function(n){ return 'Run '+n+' of 3 horizons to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('dr-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

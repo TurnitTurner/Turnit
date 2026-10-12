@@ -1,0 +1,747 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — LARGE, MID, AND SMALL COMPANIES
+     (Intermediate · Module 1 · Lesson 4)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-sz. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     Tier palette used consistently as DATA colour, not decoration:
+       Large = blue #1568AE · Mid = teal #12a08a · Small = gold #E0A93C
+       1  Title & Key Terms (never gated)   2  What Counts As Big?
+       3  The Scale Of It (bubble widget)   4  What Your Fund Already Holds
+       5  Which Tier Is This?               6  Myth Or Fact (5)
+       7  The Tilt Compass (creative)       8  The Small-Cap Debate
+       9  Recap                             10 Complete
+     Creative widgets, 2 of 2 allowed: the proportional bubble scale on slide 3
+     and the tilt compass on slide 7. Everything else is a standard format.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     ============================================================ -->
+<div id="tn-sz">
+  <div class="sz-wrap">
+    <div class="sz-top">
+      <div class="sz-topbar">
+        <div class="sz-brand"><span class="sz-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="sz-word">TURNIT</span><span class="sz-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="sz-progress"><span id="sz-bar"></span></div>
+      <div class="sz-meta"><span id="sz-slide-label">Start Here</span><span id="sz-slide-count">Slide 1 Of 10</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="sz-sec sz-center sz-reveal" data-step="1">
+      <p class="sz-kicker center">Company Size · 1 / 10</p>
+      <h1 class="sz-hero-title">LARGE, MID, <span class="sz-hero-grad">AND SMALL</span></h1>
+      <p class="sz-sub center">Your fund already splits the market into sizes. This lesson is about what that split actually does.</p>
+      <div class="sz-vocab">
+        <span class="sz-vocab-label">Key Terms In This Lesson</span>
+        <div class="sz-vocab-chips" id="sz-vocab-chips">
+          <button type="button" class="sz-vocab-chip" data-t="Market Cap" data-def="A company's share price multiplied by its number of shares — the market's price tag on the whole business. It is how companies get sorted into sizes.">Market Cap</button>
+          <button type="button" class="sz-vocab-chip t-l" data-t="Large-Cap" data-def="The biggest companies, commonly those above roughly $10 billion in market cap. Household names, widely owned, heavily analysed.">Large-Cap</button>
+          <button type="button" class="sz-vocab-chip t-m" data-t="Mid-Cap" data-def="The middle tier, commonly around $2–10 billion. Established enough to have survived, small enough to still grow quickly.">Mid-Cap</button>
+          <button type="button" class="sz-vocab-chip t-s" data-t="Small-Cap" data-def="Smaller listed companies, commonly under about $2 billion. More room to run, more that can go wrong, and far bigger swings.">Small-Cap</button>
+          <button type="button" class="sz-vocab-chip" data-t="Cap-Weighted" data-def="A fund that holds each company in proportion to its market cap, so the largest companies take up the most space automatically.">Cap-Weighted</button>
+        </div>
+        <div class="sz-vocab-def" id="sz-vocab-def">Tap a term to see what it means.</div>
+        <span class="sz-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="sz-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · WHAT COUNTS AS BIG? ========== -->
+    <section class="sz-sec sz-reveal" data-step="2">
+      <p class="sz-kicker">The Tiers · 2 / 10</p>
+      <h2 class="sz-h2">Three Tiers, One Measuring Stick</h2>
+      <p class="sz-p">Companies are sorted by market cap. Tap each tier to see where the lines usually fall.</p>
+      <div class="sz-tiers" id="sz-tiers">
+        <button type="button" class="sz-tier t-l" data-k="l"><span class="sz-tier-bar"></span><b>Large-Cap</b><small>Above ~$10B</small></button>
+        <button type="button" class="sz-tier t-m" data-k="m"><span class="sz-tier-bar"></span><b>Mid-Cap</b><small>~$2B – $10B</small></button>
+        <button type="button" class="sz-tier t-s" data-k="s"><span class="sz-tier-bar"></span><b>Small-Cap</b><small>Under ~$2B</small></button>
+      </div>
+      <div class="sz-reveal-box" id="sz-tier-box"><b id="sz-tier-t">Tap A Tier Above</b><span id="sz-tier-d">Three labels you'll see on almost every fund.</span></div>
+      <p class="sz-count" id="sz-tier-count">Reviewed 0 Of 3</p>
+      <p class="sz-disclaimer-inline">These cut-offs are conventions, not rules. Index providers draw the lines differently, and the thresholds drift upward over time.</p>
+    </section>
+
+    <!-- ========== 3 · THE SCALE OF IT ========== -->
+    <section class="sz-sec sz-reveal" data-step="3">
+      <p class="sz-kicker">The Scale · 3 / 10</p>
+      <h2 class="sz-h2">The Tiers Are Not Equal Thirds</h2>
+      <p class="sz-p">Three labels, wildly different weights. Tap each bubble to see how much of the market each tier of market cap holds.</p>
+      <div class="sz-bubbles" id="sz-bubbles">
+        <button type="button" class="sz-bub t-l" data-k="l" style="--size:230px"><span>Large</span><i>~3/4</i></button>
+        <button type="button" class="sz-bub t-m" data-k="m" style="--size:112px"><span>Mid</span><i>~1/5</i></button>
+        <button type="button" class="sz-bub t-s" data-k="s" style="--size:74px"><span>Small</span><i>&lt;1/10</i></button>
+      </div>
+      <div class="sz-reveal-box" id="sz-bub-box"><b id="sz-bub-t">Tap A Bubble</b><span id="sz-bub-d">Each circle is drawn roughly to scale by share of total US market value.</span></div>
+      <p class="sz-count" id="sz-bub-count">Explored 0 Of 3</p>
+      <p class="sz-disclaimer-inline">Approximate proportions of total US stock market value, rounded hard for clarity. The exact split depends on whose definitions you use and shifts over time.</p>
+    </section>
+
+    <!-- ========== 4 · WHAT YOUR FUND ALREADY HOLDS ========== -->
+    <section class="sz-sec sz-reveal" data-step="4">
+      <p class="sz-kicker">Your Fund · 4 / 10</p>
+      <h2 class="sz-h2">You Already Own A Size Mix</h2>
+      <p class="sz-p">Two common funds, two different size profiles — both cap-weighted. Tap both to compare.</p>
+      <div class="sz-fundpick" id="sz-funds">
+        <button type="button" class="sz-fundbtn" data-k="total">A Total Market Fund</button>
+        <button type="button" class="sz-fundbtn" data-k="500">A Large-Cap Index Fund</button>
+      </div>
+      <div class="sz-stack" id="sz-stack">
+        <div class="sz-layer t-l" data-l="l"><span>Large</span><b id="sz-l-l">—</b></div>
+        <div class="sz-layer t-m" data-l="m"><span>Mid</span><b id="sz-l-m">—</b></div>
+        <div class="sz-layer t-s" data-l="s"><span>Small</span><b id="sz-l-s">—</b></div>
+      </div>
+      <div class="sz-note" id="sz-fund-note">Tap both funds to see how their size mixes differ.</div>
+    </section>
+
+    <!-- ========== 5 · WHICH TIER IS THIS? ========== -->
+    <section class="sz-sec sz-reveal" data-step="5">
+      <p class="sz-kicker">Spot The Tier · 5 / 10</p>
+      <h2 class="sz-h2">Which Tier Is This?</h2>
+      <p class="sz-p">Four businesses, no names. Guess the market cap tier, and you'll see why.</p>
+      <div class="sz-match" id="sz-match">
+        <div class="sz-mrow" data-ans="l"><p>A software company whose products sit on most office computers worldwide.</p><div class="sz-mbtns"><button type="button" data-p="l">Large</button><button type="button" data-p="m">Mid</button><button type="button" data-p="s">Small</button></div><p class="sz-why"></p></div>
+        <div class="sz-mrow" data-ans="s"><p>A regional chain of 40 restaurants that just listed on an exchange.</p><div class="sz-mbtns"><button type="button" data-p="l">Large</button><button type="button" data-p="m">Mid</button><button type="button" data-p="s">Small</button></div><p class="sz-why"></p></div>
+        <div class="sz-mrow" data-ans="m"><p>A specialist medical-device maker, profitable for a decade, known mainly inside its industry.</p><div class="sz-mbtns"><button type="button" data-p="l">Large</button><button type="button" data-p="m">Mid</button><button type="button" data-p="s">Small</button></div><p class="sz-why"></p></div>
+        <div class="sz-mrow" data-ans="l"><p>A bank with branches in every state and a name your parents would recognise.</p><div class="sz-mbtns"><button type="button" data-p="l">Large</button><button type="button" data-p="m">Mid</button><button type="button" data-p="s">Small</button></div><p class="sz-why"></p></div>
+      </div>
+      <p class="sz-count" id="sz-match-count">Matched 0 Of 4</p>
+      <div class="sz-reset-row"><button type="button" class="sz-reset-btn" id="sz-match-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · MYTH OR FACT ========== -->
+    <section class="sz-sec sz-reveal" data-step="6">
+      <p class="sz-kicker">Myth Or Fact · 6 / 10</p>
+      <h2 class="sz-h2">Myth Or Fact?</h2>
+      <p class="sz-p">Five claims about company size. Tap your answer.</p>
+      <div class="sz-sort" id="sz-myth">
+        <div class="sz-sort-row" data-answer="myth"><span>Small companies always grow faster than large ones.</span><div class="sz-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sz-why"><b>Myth.</b> Small companies have more room to grow, which is not the same as growing. Many never scale, some fail outright, and the tier's returns lean heavily on a minority that do work out.</p></div>
+        <div class="sz-sort-row" data-answer="fact"><span>A cap-weighted total market fund is dominated by its largest holdings.</span><div class="sz-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sz-why"><b>Fact.</b> Owning thousands of companies sounds spread out, but weighting by size means the biggest names drive most of the movement. Breadth of holdings is not the same as breadth of exposure.</p></div>
+        <div class="sz-sort-row" data-answer="myth"><span>Large-cap means safe.</span><div class="sz-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sz-why"><b>Myth.</b> Large companies tend to move less violently, but size is no shield. Plenty of household names have fallen hard, and a few have disappeared entirely.</p></div>
+        <div class="sz-sort-row" data-answer="fact"><span>Small-cap funds typically swing more than large-cap funds.</span><div class="sz-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sz-why"><b>Fact.</b> Smaller companies are more sensitive to borrowing costs, single customers and one bad quarter. That shows up as deeper falls and sharper recoveries.</p></div>
+        <div class="sz-sort-row" data-answer="myth"><span>Buying a small-cap fund is how you find the next big company early.</span><div class="sz-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sz-why"><b>Myth.</b> A fund buys the whole tier, winners and failures together. You are buying the average outcome of hundreds of small companies, not an early stake in one.</p></div>
+      </div>
+      <p class="sz-count" id="sz-myth-count">Answered 0 Of 5</p>
+      <div class="sz-reset-row"><button type="button" class="sz-reset-btn" id="sz-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · THE TILT COMPASS ========== -->
+    <section class="sz-sec sz-reveal" data-step="7">
+      <p class="sz-kicker">The Compass · 7 / 10</p>
+      <h2 class="sz-h2">Which Way Would You Tilt?</h2>
+      <p class="sz-p">Point the needle. Each direction is a real position, and each costs you something.</p>
+      <div class="sz-compass">
+        <svg class="sz-dial" viewBox="0 0 220 220" aria-hidden="true">
+          <circle class="sz-dial-face" cx="110" cy="110" r="94"/>
+          <circle class="sz-dial-inner" cx="110" cy="110" r="70"/>
+          <path class="sz-arc a-l" d="M110 110 L110 16 A94 94 0 0 1 191 157 Z"/>
+          <path class="sz-arc a-s" d="M110 110 L191 157 A94 94 0 0 1 29 157 Z"/>
+          <path class="sz-arc a-m" d="M110 110 L29 157 A94 94 0 0 1 110 16 Z"/>
+          <g class="sz-needle" id="sz-needle"><path d="M110 110 L110 36" /><circle cx="110" cy="110" r="9"/></g>
+        </svg>
+        <div class="sz-dirs" id="sz-dirs">
+          <button type="button" class="sz-dir t-l" data-k="l" data-deg="0">Tilt Large</button>
+          <button type="button" class="sz-dir t-s" data-k="s" data-deg="120">Tilt Small</button>
+          <button type="button" class="sz-dir t-m" data-k="m" data-deg="240">Stay Neutral</button>
+        </div>
+      </div>
+      <div class="sz-verdict" id="sz-compass-out"><p class="sz-verdict-t">Point The Needle</p><p class="sz-verdict-d">There is no north on this compass — only trade-offs.</p></div>
+      <p class="sz-disclaimer-inline">Educational illustration, not a recommendation. What suits you depends on facts this lesson can't see.</p>
+    </section>
+
+    <!-- ========== 8 · THE SMALL-CAP DEBATE ========== -->
+    <section class="sz-sec sz-reveal" data-step="8">
+      <p class="sz-kicker">An Open Argument · 8 / 10</p>
+      <h2 class="sz-h2">The Small-Cap Debate Is Not Settled</h2>
+      <p class="sz-p">Serious researchers disagree about this one. Read both sides before you decide.</p>
+      <div class="sz-debate" id="sz-debate">
+        <button type="button" class="sz-side for" data-k="for"><b>The Case For</b><span>Why some tilt small</span></button>
+        <button type="button" class="sz-side against" data-k="against"><b>The Case Against</b><span>Why others don't</span></button>
+      </div>
+      <div class="sz-reveal-box" id="sz-debate-box"><b id="sz-debate-t">Tap Both Sides</b><span id="sz-debate-d">An honest look means hearing the argument you disagree with.</span></div>
+      <p class="sz-count" id="sz-debate-count">Heard 0 Of 2</p>
+    </section>
+
+    <!-- ========== 9 · RECAP ========== -->
+    <section class="sz-sec sz-reveal" data-step="9">
+      <p class="sz-kicker">Recap · 9 / 10</p>
+      <h2 class="sz-h2">Here's What You Now Know</h2>
+      <p class="sz-p">The whole lesson, in five lines.</p>
+      <div class="sz-recap">
+        <div class="sz-recap-item"><span class="sz-recap-check t-l">✓</span><span><b>Market cap</b> sorts companies into tiers, and the cut-offs are conventions rather than rules.</span></div>
+        <div class="sz-recap-item"><span class="sz-recap-check t-m">✓</span><span>The tiers are nothing like equal: large-caps are roughly three-quarters of US market value.</span></div>
+        <div class="sz-recap-item"><span class="sz-recap-check t-s">✓</span><span>A <b>cap-weighted</b> fund gives you that same lopsided mix automatically.</span></div>
+        <div class="sz-recap-item"><span class="sz-recap-check t-l">✓</span><span>Smaller companies swing harder in both directions — more room to grow, more that can break.</span></div>
+        <div class="sz-recap-item"><span class="sz-recap-check t-m">✓</span><span>Whether a small-cap tilt pays is genuinely unsettled, and anyone certain about it is overselling.</span></div>
+      </div>
+      <div class="sz-next-move">Your next move: <b>look up the size breakdown of a fund you already own.</b> Most providers publish it, and most people have never looked.</div>
+    </section>
+
+    <!-- ========== 10 · COMPLETE ========== -->
+    <section class="sz-sec sz-center sz-reveal" data-step="10">
+      <p class="sz-kicker center">Lesson Complete · 10 / 10</p>
+      <span class="sz-hero-ico">🚀</span>
+      <h2 class="sz-h2 center">You've Finished The Lesson</h2>
+      <p class="sz-sub center">You can now read a fund's size breakdown and say what it means for your portfolio.</p>
+      <div class="sz-finish">
+        <span class="sz-finish-arrow" id="sz-fin-arrow" aria-hidden="true">↓</span>
+        <p class="sz-finish-lead" id="sz-fin-lead">Scroll Down To Continue</p>
+        <p class="sz-finish-sub" id="sz-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="sz-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="sz-quote">"THE BIG MONEY IS NOT IN THE BUYING OR THE SELLING, <span class="sz-green">BUT IN THE WAITING.</span>"<br><span class="sz-quote-by">— ATTRIBUTED TO CHARLIE MUNGER</span></p>
+    </section>
+
+    <p class="sz-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Size thresholds, market proportions and fund examples in this lesson are approximate and illustrative, not recommendations or predictions. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="sz-nav" id="sz-nav">
+      <button type="button" class="sz-nav-btn prev" id="sz-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="sz-nav-hint" id="sz-nav-hint"></span>
+      <button type="button" class="sz-nav-btn next" id="sz-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-sz{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* tier palette — used as data colour throughout */
+    --lg:#1568AE; --lgbg:#EAF1FA; --lgbd:#C5DBEF;
+    --md:#12a08a; --mdbg:#E6F6F2; --mdbd:#BCE5DC;
+    --sm:#D99A23; --smbg:#FBF2DF; --smbd:#F0DCA9;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-sz *,#tn-sz *::before,#tn-sz *::after{box-sizing:border-box;}
+  #tn-sz .sz-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-sz .sz-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-sz .sz-reveal.in{opacity:1; transform:none;}
+  #tn-sz .sz-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-sz .sz-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-sz .sz-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-sz .sz-bico{display:flex;}
+  #tn-sz .sz-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-sz .sz-bsub{color:var(--ink2); font-weight:500;}
+  #tn-sz .sz-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-sz #sz-bar{display:block; height:100%; width:10%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-sz .sz-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-sz .sz-meta #sz-slide-label{color:var(--ink2);}
+  #tn-sz .sz-meta #sz-slide-count{color:var(--mut);}
+  #tn-sz .sz-sec{padding:16px 0 8px;}
+  #tn-sz .sz-sec.sz-hide{display:none;}
+  #tn-sz .sz-center{text-align:center;}
+  #tn-sz .sz-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-sz .sz-kicker.center{text-align:center;}
+  #tn-sz .sz-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-sz .sz-h2.center{text-align:center;}
+  #tn-sz .sz-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-sz .sz-p b{color:var(--ink); font-weight:700;}
+  #tn-sz .sz-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-sz .sz-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-sz .sz-note b{color:var(--ink); font-weight:700;}
+  #tn-sz .sz-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-sz .sz-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-sz .sz-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-sz .sz-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-sz .sz-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* tier colour helpers */
+  #tn-sz .t-l{--tier:var(--lg); --tierbg:var(--lgbg); --tierbd:var(--lgbd);}
+  #tn-sz .t-m{--tier:var(--md); --tierbg:var(--mdbg); --tierbd:var(--mdbd);}
+  #tn-sz .t-s{--tier:var(--sm); --tierbg:var(--smbg); --tierbd:var(--smbd);}
+  /* title */
+  #tn-sz .sz-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(30px,7.4vw,46px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-sz .sz-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-sz .sz-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-sz .sz-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-sz .sz-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-sz .sz-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-sz .sz-vocab-chip.t-l,#tn-sz .sz-vocab-chip.t-m,#tn-sz .sz-vocab-chip.t-s{color:var(--tier); background:var(--tierbg); border-color:var(--tierbd);}
+  #tn-sz .sz-vocab-chip:hover{filter:brightness(.97);}
+  #tn-sz .sz-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-sz .sz-vocab-chip.t-l.on,#tn-sz .sz-vocab-chip.t-m.on,#tn-sz .sz-vocab-chip.t-s.on{background:var(--tier); color:#fff; border-color:var(--tier);}
+  #tn-sz .sz-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-sz .sz-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-sz .sz-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-sz .sz-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-sz .sz-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* tiers */
+  #tn-sz .sz-tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  #tn-sz .sz-tier{position:relative; overflow:hidden; font-family:inherit; background:var(--tierbg); border:1.5px solid var(--tierbd); border-radius:15px; padding:16px 10px 14px; cursor:pointer; transition:all .18s;}
+  #tn-sz .sz-tier-bar{position:absolute; left:0; right:0; top:0; height:5px; background:var(--tier);}
+  #tn-sz .sz-tier b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--tier);}
+  #tn-sz .sz-tier small{display:block; font-size:11.5px; color:var(--ink2); margin-top:3px;}
+  #tn-sz .sz-tier.on{box-shadow:0 0 0 3px var(--tierbd); transform:translateY(-2px);}
+  #tn-sz .sz-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-sz .sz-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-sz .sz-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* bubbles */
+  #tn-sz .sz-bubbles{display:flex; align-items:center; justify-content:center; gap:6px; min-height:250px; flex-wrap:wrap;}
+  #tn-sz .sz-bub{width:var(--size); height:var(--size); border-radius:50%; border:none; cursor:pointer; font-family:'Poppins',sans-serif;
+    background:var(--tier); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+    transition:transform .25s cubic-bezier(.2,.8,.3,1.2), box-shadow .25s, filter .2s; box-shadow:0 10px 26px -14px rgba(22,32,43,.6);}
+  #tn-sz .sz-bub span{font-weight:800; font-size:clamp(12px,3.4vw,16px);}
+  #tn-sz .sz-bub i{font-style:normal; font-weight:600; font-size:clamp(10px,2.8vw,12.5px); opacity:.92;}
+  #tn-sz .sz-bub:hover{filter:brightness(1.06);}
+  #tn-sz .sz-bub.on{transform:scale(1.06); box-shadow:0 14px 30px -12px rgba(22,32,43,.7);}
+  /* fund stack */
+  #tn-sz .sz-fundpick{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;}
+  #tn-sz .sz-fundbtn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 10px; cursor:pointer; transition:all .18s;}
+  #tn-sz .sz-fundbtn.on{border-color:var(--b); background:var(--lgbg); color:var(--b);}
+  #tn-sz .sz-stack{display:flex; height:66px; border-radius:13px; overflow:hidden; border:1.5px solid var(--cardbd); background:var(--mist);}
+  #tn-sz .sz-layer{flex:0 0 33.33%; background:var(--tier); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;
+    transition:flex-basis .45s cubic-bezier(.2,.7,.2,1); overflow:hidden; white-space:nowrap;}
+  #tn-sz .sz-layer span{font-size:10.5px; font-weight:700; opacity:.9;}
+  #tn-sz .sz-layer b{font-family:'Poppins',sans-serif; font-weight:800; font-size:14px;}
+  /* match */
+  #tn-sz .sz-match{display:flex; flex-direction:column; gap:10px;}
+  #tn-sz .sz-mrow{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-sz .sz-mrow > p{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-sz .sz-mbtns{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-sz .sz-mbtns button{flex:1; min-width:84px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; border-radius:99px; padding:8px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-sz .sz-mbtns button[data-p="l"]{border:1.5px solid var(--lgbd); color:var(--lg);}
+  #tn-sz .sz-mbtns button[data-p="m"]{border:1.5px solid var(--mdbd); color:var(--md);}
+  #tn-sz .sz-mbtns button[data-p="s"]{border:1.5px solid var(--smbd); color:var(--sm);}
+  #tn-sz .sz-mrow.done .sz-mbtns button{opacity:.35; pointer-events:none;}
+  #tn-sz .sz-mrow.done .sz-mbtns button.picked{opacity:1;}
+  #tn-sz .sz-mrow.done .sz-mbtns button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-sz .sz-mrow.done .sz-mbtns button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-sz .sz-mrow.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-sz .sz-mrow.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-sz .sz-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-sz .sz-why b{font-family:'Poppins',sans-serif;}
+  #tn-sz .sz-mrow.done .sz-why{display:block;}
+  /* myth sorter */
+  #tn-sz .sz-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-sz .sz-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-sz .sz-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-sz .sz-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-sz .sz-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-sz .sz-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-sz .sz-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-sz .sz-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-sz .sz-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-sz .sz-sort-row.done .sz-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-sz .sz-sort-row.done .sz-sort-btns button.picked{opacity:1;}
+  #tn-sz .sz-sort-row .sz-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-sz .sz-sort-row.done .sz-why{display:block;}
+  /* compass */
+  #tn-sz .sz-compass{text-align:center;}
+  #tn-sz .sz-dial{width:clamp(180px,52vw,230px); height:auto;}
+  #tn-sz .sz-dial-face{fill:#fff; stroke:var(--cardbd); stroke-width:2;}
+  #tn-sz .sz-dial-inner{fill:#fff; stroke:var(--line); stroke-width:1.5;}
+  #tn-sz .sz-arc{opacity:.9; transition:opacity .3s;}
+  #tn-sz .sz-arc.a-l{fill:var(--lgbg);} #tn-sz .sz-arc.a-m{fill:var(--mdbg);} #tn-sz .sz-arc.a-s{fill:var(--smbg);}
+  #tn-sz .sz-needle{transform-origin:110px 110px; transition:transform .55s cubic-bezier(.3,1.4,.4,1);}
+  #tn-sz .sz-needle path{stroke:var(--ink); stroke-width:5; stroke-linecap:round; fill:none;}
+  #tn-sz .sz-needle circle{fill:var(--ink);}
+  #tn-sz .sz-dirs{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:12px;}
+  #tn-sz .sz-dir{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--tier); background:var(--tierbg); border:1.5px solid var(--tierbd); border-radius:13px; padding:12px 6px; cursor:pointer; transition:all .18s;}
+  #tn-sz .sz-dir.on{background:var(--tier); color:#fff;}
+  #tn-sz .sz-verdict{background:var(--mist); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-top:12px;}
+  #tn-sz .sz-verdict.lean{background:var(--tierbg); border-color:var(--tierbd);}
+  #tn-sz .sz-verdict-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; margin:0 0 6px;}
+  #tn-sz .sz-verdict-d{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  /* debate */
+  #tn-sz .sz-debate{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-sz .sz-side{font-family:inherit; border-radius:14px; padding:16px 12px; cursor:pointer; transition:all .18s; border:1.5px solid;}
+  #tn-sz .sz-side.for{background:var(--mdbg); border-color:var(--mdbd); color:var(--md);}
+  #tn-sz .sz-side.against{background:var(--smbg); border-color:var(--smbd); color:var(--sm);}
+  #tn-sz .sz-side b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px;}
+  #tn-sz .sz-side span{display:block; font-family:'Inter',sans-serif; font-size:11.5px; color:var(--ink2); margin-top:3px;}
+  #tn-sz .sz-side.on{box-shadow:0 0 0 3px currentColor; filter:brightness(1.02);}
+  /* recap + complete */
+  #tn-sz .sz-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-sz .sz-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-sz .sz-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--tier,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-sz .sz-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-sz .sz-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-sz .sz-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-sz .sz-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:sz-bob 1.6s ease-in-out infinite;}
+  #tn-sz .sz-finish-arrow.up{animation-name:sz-bob-up;}
+  @keyframes sz-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes sz-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-sz .sz-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-sz .sz-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-sz .sz-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-sz .sz-quote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-sz .sz-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-sz .sz-green{color:var(--g);}
+  #tn-sz .sz-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-sz .sz-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  #tn-sz .sz-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-sz .sz-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-sz .sz-nav-btn.prev{color:var(--ink2);}
+  #tn-sz .sz-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-sz .sz-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-sz .sz-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-sz .sz-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-sz .sz-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-sz .sz-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-sz .sz-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-sz .sz-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .sz-tip{position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .sz-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-sz .sz-wrap{padding:12px 14px 30px;}
+    #tn-sz .sz-tiers{grid-template-columns:1fr;}
+    #tn-sz .sz-fundpick,#tn-sz .sz-debate{grid-template-columns:1fr;}
+    #tn-sz .sz-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-sz .sz-bubbles{gap:4px;}
+    #tn-sz .sz-bsub{display:none;}
+    #tn-sz .sz-nav-hint{display:none;}
+    #tn-sz .sz-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-sz .sz-reveal{opacity:1 !important; transform:none !important;}
+    #tn-sz #sz-bar,#tn-sz .sz-bub,#tn-sz .sz-layer,#tn-sz .sz-needle{transition:none;}
+    #tn-sz .sz-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-sz'); if(!root) return;
+  root.querySelectorAll('.sz-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('sz-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#sz-vocab-def');
+  root.querySelectorAll('#sz-vocab-chips .sz-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#sz-vocab-chips .sz-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the tiers */
+  var TIER={
+    l:['Large-Cap — Above Roughly $10 Billion','The companies whose names you already know. Heavily researched, widely held, and steadier than the rest — which also means fewer surprises in either direction.'],
+    m:['Mid-Cap — Roughly $2 To $10 Billion','Past the fragile early stage, not yet giants. Often the least talked-about tier, and the one most portfolios hold without ever deciding to.'],
+    s:['Small-Cap — Under Roughly $2 Billion','Hundreds of smaller businesses, many unprofitable, some excellent. More room to grow, and a far wider range of outcomes at both ends.']
+  };
+  var tSeen={}, tT=root.querySelector('#sz-tier-t'), tD=root.querySelector('#sz-tier-d'),
+      tCount=root.querySelector('#sz-tier-count');
+  root.querySelectorAll('#sz-tiers .sz-tier').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sz-tiers .sz-tier').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      tT.textContent=TIER[k][0]; tD.textContent=TIER[k][1];
+      tSeen[k]=1; tCount.textContent='Reviewed '+keys(tSeen)+' Of 3';
+      state('tier', keys(tSeen)); postHeight();
+    });
+  });
+
+  /* 3 · the scale of it */
+  var BUB={
+    l:['Large-Caps Take Up Most Of The Room','Roughly three-quarters of US market value sits in the largest companies. In a cap-weighted fund, they are most of what you own, whatever the holdings count says.'],
+    m:['Mid-Caps Are The Quiet Middle','Around a fifth of the market. Big enough to matter, small enough that almost nobody builds a portfolio around them deliberately.'],
+    s:['Small-Caps Are A Thin Slice','Under a tenth of total market value, spread across the largest number of companies. A lot of names, not much weight.']
+  };
+  var bSeen={}, bT=root.querySelector('#sz-bub-t'), bD=root.querySelector('#sz-bub-d'),
+      bCount=root.querySelector('#sz-bub-count');
+  root.querySelectorAll('#sz-bubbles .sz-bub').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sz-bubbles .sz-bub').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      bT.textContent=BUB[k][0]; bD.textContent=BUB[k][1];
+      bSeen[k]=1; bCount.textContent='Explored '+keys(bSeen)+' Of 3';
+      state('bub', keys(bSeen)); postHeight();
+    });
+  });
+
+  /* 4 · what your fund already holds */
+  var FUND={
+    total:{mix:[72,20,8], note:'A total market fund holds all three tiers, but cap-weighting means the large companies still dominate. You own thousands of names; you are exposed mainly to a few hundred.'},
+    '500':{mix:[95,5,0],  note:'A large-cap index fund is almost entirely one tier by design. Nothing wrong with that — just worth knowing that "the index" is not "the market".'}
+  };
+  var fSeen={}, fNote=root.querySelector('#sz-fund-note');
+  function setMix(k){
+    var f=FUND[k], ids=['l','m','s'];
+    f.mix.forEach(function(v,i){
+      var lay=root.querySelector('.sz-layer[data-l="'+ids[i]+'"]');
+      lay.style.flexBasis=v+'%';
+      lay.style.display = v===0 ? 'none' : '';
+      root.querySelector('#sz-l-'+ids[i]).textContent=v+'%';
+    });
+    fNote.textContent=f.note;
+  }
+  root.querySelectorAll('#sz-funds .sz-fundbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sz-funds .sz-fundbtn').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      setMix(k); fSeen[k]=1;
+      state('fund', keys(fSeen)); postHeight();
+    });
+  });
+
+  /* 5 · which tier is this? */
+  var MWHY={
+    l:'Household names with worldwide reach are almost always large-cap — that recognition is itself a sign of size.',
+    m:'Profitable, established, but known mainly inside its own industry: that is the mid-cap profile in a sentence.',
+    s:'A recent listing with a regional footprint points to small-cap — a real business, just not a big one yet.'
+  };
+  var mLabel={l:'Large',m:'Mid',s:'Small'};
+  var matchCount=root.querySelector('#sz-match-count');
+  root.querySelectorAll('#sz-match .sz-mrow').forEach(function(row){
+    var ans=row.getAttribute('data-ans'), why=row.querySelector('.sz-why');
+    row.querySelectorAll('.sz-mbtns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        var pick=btn.getAttribute('data-p'), ok=(pick===ans);
+        btn.classList.add('picked');
+        row.querySelectorAll('.sz-mbtns button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        row.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right — ':'The answer is ')+mLabel[ans]+'.</b> '+MWHY[ans];
+        var n=root.querySelectorAll('#sz-match .sz-mrow.done').length;
+        matchCount.textContent='Matched '+n+' Of 4';
+        state('match', n); postHeight();
+      });
+    });
+  });
+  var matchReset=root.querySelector('#sz-match-reset');
+  if(matchReset) matchReset.addEventListener('click',function(){
+    root.querySelectorAll('#sz-match .sz-mrow').forEach(function(r){
+      r.classList.remove('done','right','off');
+      r.querySelector('.sz-why').innerHTML='';
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    matchCount.textContent='Matched 0 Of 4'; postHeight();
+  });
+
+  /* 6 · myth or fact */
+  var mythCount=root.querySelector('#sz-myth-count');
+  root.querySelectorAll('#sz-myth .sz-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.sz-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#sz-myth .sz-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#sz-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#sz-myth .sz-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 7 · the tilt compass */
+  var COMP={
+    l:['t-l','Tilting Large','You are leaning further into the companies that already dominate your fund. Steadier, more familiar — and you give up most of whatever the smaller tiers do when they run.'],
+    s:['t-s','Tilting Small','A deliberate bet on the thinnest slice of the market. Historically bumpier, with long stretches of underperformance that have tested people out of the position.'],
+    m:['t-m','Staying Neutral','Hold each tier at its market weight and take no view at all. The default inside a total market fund, and the only option here that requires no forecast.']
+  };
+  var needle=root.querySelector('#sz-needle'), compOut=root.querySelector('#sz-compass-out');
+  root.querySelectorAll('#sz-dirs .sz-dir').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sz-dirs .sz-dir').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      needle.style.transform='rotate('+b.getAttribute('data-deg')+'deg)';
+      var c=COMP[b.getAttribute('data-k')];
+      compOut.className='sz-verdict lean '+c[0];
+      compOut.innerHTML='<p class="sz-verdict-t">'+c[1]+'</p><p class="sz-verdict-d">'+c[2]+'</p>';
+      state('compass',1); postHeight();
+    });
+  });
+
+  /* 8 · the small-cap debate */
+  var DEB={
+    'for':['The Case For A Small-Cap Tilt','Researchers have long documented stretches where smaller companies outpaced larger ones, and the usual explanation is compensation for extra risk: they are more fragile, less liquid, and less covered by analysts. If that compensation is real, holding more of them should pay over very long periods.'],
+    'against':['The Case Against','The effect has been weak or absent for long stretches since it was first published, and some argue it was never as strong as the early data suggested once trading costs and failed companies are counted properly. A tilt that needs decades to show up is also a tilt most people abandon first.']
+  };
+  var dSeen={}, dT=root.querySelector('#sz-debate-t'), dD=root.querySelector('#sz-debate-d'),
+      dCount=root.querySelector('#sz-debate-count');
+  root.querySelectorAll('#sz-debate .sz-side').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#sz-debate .sz-side').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var d=DEB[b.getAttribute('data-k')];
+      dT.textContent=d[0]; dD.textContent=d[1];
+      dSeen[b.getAttribute('data-k')]=1;
+      dCount.textContent='Heard '+keys(dSeen)+' Of 2';
+      state('debate', keys(dSeen)); postHeight();
+    });
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('sz-fin-arrow'), lead=document.getElementById('sz-fin-lead'), sub=document.getElementById('sz-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'\u2193',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'\u2191',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>\u2715</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-sz'); if(!root) return;
+  var ALT={
+    'market cap':'market cap|market capitalisation',
+    'large-cap':'large-caps?|large companies',
+    'mid-cap':'mid-caps?',
+    'small-cap':'small-caps?',
+    'cap-weighted':'cap-weighted|cap-weighting'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#sz-vocab-chips .sz-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  var PROSE='.sz-p, .sz-sub, .sz-note, .sz-why, .sz-recap-item span, .sz-h2, .sz-verdict-d, .sz-next-move, .sz-sort-row > span, .sz-mrow > p';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.sz-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='sz-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' \u2014 definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='sz-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.sz-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.sz-sec').forEach(function(sec){ TERMS.forEach(function(t){ wrap(sec,t); }); });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-sz'); if(!root) return;
+  var TOTAL=10, current=1;
+  var bar=root.querySelector('#sz-bar'), labelEl=root.querySelector('#sz-slide-label'),
+      countEl=root.querySelector('#sz-slide-count'), prevBtn=root.querySelector('#sz-prev'),
+      nextBtn=root.querySelector('#sz-next'), hintEl=root.querySelector('#sz-nav-hint'),
+      disclaimer=root.querySelector('.sz-disclaimer');
+  var labels={1:'Start Here',2:'The Tiers',3:'The Scale',4:'Your Fund',5:'Spot The Tier',6:'Myth Or Fact',7:'The Compass',8:'An Open Argument',9:'Recap',10:'Complete'};
+  var reqHints={2:'Review all 3 tiers to continue',3:'Tap all 3 bubbles to continue',4:'Compare both funds to continue',5:'Match all 4 to continue',6:'Answer all 5 to continue',7:'Point the needle to continue',8:'Hear both sides to continue'};
+  var done={1:true,9:true,10:true};
+  var secByStep={};
+  root.querySelectorAll('.sz-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('sz-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('sz-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'tier',    need:3, hint:function(n){ return 'Reviewed '+n+' of 3 — review them all to continue'; }},
+    {step:3, key:'bub',     need:3, hint:function(n){ return 'Explored '+n+' of 3 — tap them all to continue'; }},
+    {step:4, key:'fund',    need:2, hint:function(n){ return n<1?'Compare both funds to continue':'Now tap the other fund'; }},
+    {step:5, key:'match',   need:4, hint:function(n){ return 'Matched '+n+' of 4 — match them all to continue'; }},
+    {step:6, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:7, key:'compass', need:1, hint:function(){ return 'Point the needle to continue'; }},
+    {step:8, key:'debate',  need:2, hint:function(n){ return n<1?'Hear both sides to continue':'Now hear the other side'; }}
+  ];
+  root.addEventListener('sz-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>
