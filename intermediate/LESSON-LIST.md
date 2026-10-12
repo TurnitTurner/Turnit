@@ -115,8 +115,32 @@ half-understanding. If they get covered, put them in one lesson called something
 
 ## Backlog across the built lessons
 
-- Lesson 5 duplicate — pick a version.
-- Lessons 01–05 lack the sticky-nav mobile fix that 06–10 have.
-- Lessons 03, 04, both 05s and 06 have 5-line recaps; the standard is 6.
-- Lesson 01 has 7 key-term chips; the standard is 5–6.
-- No Intermediate quizzes built yet.
+All 10 built lessons now pass both verification harnesses (static + behavioural),
+at desktop and phone widths. What was fixed:
+
+- **Lesson 5 duplicate resolved** — kept the weather-test version (now
+  `05-three-portfolio-models.html`); the assemble-a-portfolio-bench version was
+  dropped because it repeated lesson 1's own build-a-mix mechanic.
+- **Sticky nav** added to lessons 01–05 (06–10 already had it).
+- **5-line recaps** brought up to the 6-line standard on 03, 04, 05, and 06, each
+  with a 6th line summarizing a real idea from the lesson that wasn't recapped yet.
+- **Lesson 01's chip count** trimmed from 7 to 6 (cut "Equities" as a near-duplicate
+  of "stocks," which the lesson already uses as its primary word).
+- Lesson 02's unprefixed `.red` class renamed to `.sb-red`, and its three
+  single-letter scenario answers (all "b") varied by reordering two option pairs.
+- Two pre-existing bugs the behavioural harness caught: a green hover term landing
+  inside an `<h2>` on lesson 01 ("Allocation") and lesson 04 ("Small-Cap"), fixed
+  by rewording each headline per BUILD-GUIDE §14.
+- A real regression surfaced by adding the sticky nav: on lesson 02's drag-sort
+  slide, the sticky bar could overlap a reset button or the disabled Previous
+  button once content grew, causing click-intercept failures. Fixed with
+  `scroll-margin-bottom` on reset buttons across 01–05.
+- `verify/verify-lesson.js` itself had two latent gaps that happened to surface
+  during this pass (not caused by any lesson edit): its generic click-driver
+  never handled a card-to-zone drag-sort widget (lesson 02) or a click-N-times
+  counter button (lesson 10's phone-notification feed), and its rapid-fire
+  button clicking could cancel a timed animation before it registered (lesson
+  10's growth race). All three are now handled generically, not lesson-specific
+  hacks, so future lessons reusing these patterns are covered too.
+
+**No Intermediate quizzes built yet** — still open.

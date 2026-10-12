@@ -86,23 +86,13 @@ Two things the tools can't judge — check them by eye on a 390px screenshot:
 |---|---|
 | Built | 10 lessons — Modules 1 and 2 complete |
 | Outlined | 25 lessons — Modules 3–7 |
-| Passing every check | 07, 08, 09, 10 |
+| Passing every check | all 10 (01–10), at desktop and phone widths |
+| Intermediate quizzes | not built yet |
 
-### Known backlog
-
-| Issue | Affects |
-|---|---|
-| **Sticky nav missing** — Next can sit below the fold on a phone | 01, 02, 03, 04, both 05s |
-| 5-line recaps (standard is 6) | 03, 04, both 05s, 06 |
-| 7 key-term chips (standard is 5–6) | 01 |
-| One unprefixed class (`.red` / `.inspect`) | 02, 05-ALT |
-| Three single-letter answers all "b" | 02 |
-| **Lesson 5 ships twice** — pick a version | 05 and 05-ALT |
-| No Intermediate quizzes exist yet | — |
-
-The sticky-nav one is the only item students would actually notice. It came out of real
-course feedback and is fixed in 06–10; the patch is a CSS block plus one media-query
-change, documented in BUILD-GUIDE §8.
+The lesson-5 duplicate, the missing sticky nav on 01–05, the 5-line recaps, lesson 01's
+7th chip, and a couple of bugs the harness itself was missing (see LESSON-LIST.md's
+backlog section for the full list) have all been fixed and reverified. Nothing in the
+backlog currently blocks shipping 01–10.
 
 > `01` reports a warning about gate keys `jobs` and `myth`. That one is **fine** — the
 > lesson publishes those keys dynamically, which a regex can't resolve. Verified by hand.

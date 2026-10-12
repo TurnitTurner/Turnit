@@ -74,6 +74,19 @@ async function drive(pg, step) {
     }
     if (await unlocked(pg)) return;
   }
+  // a single repeatable button (e.g. "Advance One Quarter ->") is a click-N-times
+  // counter, not a pick-one-of-several choice, so it's safe to click it repeatedly
+  // until it unlocks, disables itself, or stops changing anything.
+  const soleBtn = await pg.$$(`[data-step="${step}"] button:not([disabled]):not(.${PX}-reset-btn)`);
+  if (soleBtn.length === 1) {
+    for (let i = 0; i < 8; i++) {
+      const stillThere = await pg.$(`[data-step="${step}"] button:not([disabled]):not(.${PX}-reset-btn)`);
+      if (!stillThere) break;
+      try { await stillThere.click({ timeout: 1200 }); } catch (e) { break; }
+      await pg.waitForTimeout(90);
+      if (await unlocked(pg)) return;
+    }
+  }
   for (let pass = 0; pass < 3; pass++) {
     const btns = await pg.$$(`[data-step="${step}"] button:not([disabled]):not(.${PX}-reset-btn)`);
     if (!btns.length) break;
@@ -85,6 +98,20 @@ async function drive(pg, step) {
     // a timed widget (growth race) may still be running — give it one chance
     await pg.waitForTimeout(2200);
     if (await unlocked(pg)) return;
+  }
+  // fallback for a small set of mutually-exclusive timed-animation buttons (e.g.
+  // three horizon buttons that each restart/cancel a shared race on click): the
+  // fast passes above click them close together, which can cancel an animation
+  // before it finishes and registers, so only the last button clicked ever
+  // completes. Click what's left one at a time, waiting out a full animation
+  // cycle between each, so every button gets an uninterrupted run.
+  const remaining = await pg.$$(`[data-step="${step}"] button:not([disabled]):not(.${PX}-reset-btn)`);
+  if (remaining.length >= 2 && remaining.length <= 5) {
+    for (const b of remaining) {
+      try { await b.click({ timeout: 1200 }); } catch (e) { continue; }
+      await pg.waitForTimeout(1800);
+      if (await unlocked(pg)) return;
+    }
   }
 }
 
