@@ -36,7 +36,6 @@
           <button type="button" class="al-vocab-chip" data-t="Asset Allocation" data-def="How your money is split across different kinds of investments. It is the split itself, not the funds you used to get there.">Asset Allocation</button>
           <button type="button" class="al-vocab-chip" data-t="Asset Class" data-def="A group of investments that behave in broadly similar ways, such as stocks, bonds, or cash.">Asset Class</button>
           <button type="button" class="al-vocab-chip" data-t="Weight" data-def="The share of your total portfolio held in one thing, written as a percentage.">Weight</button>
-          <button type="button" class="al-vocab-chip" data-t="Equities" data-def="Another word for stocks — ownership stakes in companies.">Equities</button>
           <button type="button" class="al-vocab-chip" data-t="Fixed Income" data-def="Another word for bonds — loans that pay interest on a set schedule.">Fixed Income</button>
           <button type="button" class="al-vocab-chip" data-t="Money Market Fund" data-def="A fund holding very short-term, high-quality debt. It is where cash waits: steady value, modest interest, and quick to withdraw.">Money Market Fund</button>
           <button type="button" class="al-vocab-chip" data-t="Total Market Fund" data-def="One fund designed to hold nearly every company in a market, rather than a chosen slice of it.">Total Market Fund</button>
@@ -69,7 +68,7 @@
     <!-- ========== 3 · BUILD A MIX ========== -->
     <section class="al-sec al-reveal" data-step="3">
       <p class="al-kicker">Build A Mix · 3 / 13</p>
-      <h2 class="al-h2">An Allocation Is Just Percentages</h2>
+      <h2 class="al-h2">A Mix Is Just Percentages</h2>
       <p class="al-p">Set a mix that totals 100%. The ring shows the weight of each asset class.</p>
       <div class="al-panel">
         <div class="al-donutwrap">
@@ -307,7 +306,7 @@
   #tn-al .al-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
   #tn-al .al-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
   #tn-al .al-reset-row{display:flex; justify-content:center; margin-top:14px;}
-  #tn-al .al-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-al .al-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
   #tn-al .al-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
   /* title slide */
   #tn-al .al-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(27px,6.6vw,42px); line-height:1.14; text-align:center; margin:8px 0 14px;}
@@ -438,9 +437,14 @@
   #tn-al .al-quote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
   #tn-al .al-green{color:var(--g);}
   #tn-al .al-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
-  /* nav */
-  #tn-al .al-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  /* nav — sticky so Next is always reachable */
+  #tn-al .al-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
   #tn-al .al-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-al .al-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
   #tn-al .al-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
   #tn-al .al-nav-btn.prev{color:var(--ink2);}
   #tn-al .al-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
@@ -462,7 +466,8 @@
     #tn-al .al-hook-grid .al-hook-box{flex:1 1 45%;}
     #tn-al .al-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
     #tn-al .al-bsub{display:none;}
-    #tn-al .al-nav-hint{display:none;}
+    #tn-al .al-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-al .al-nav{padding-top:10px; row-gap:0;}
     #tn-al .al-nav-btn{padding:11px 16px; font-size:13.5px;}
   }
   @media (prefers-reduced-motion:reduce){
@@ -749,7 +754,6 @@
     'asset allocation':'asset allocations?|allocations?',
     'asset class':'asset classes|asset class',
     'weight':'weights?|weighted',
-    'equities':'equities|equity',
     'fixed income':'fixed income',
     'total market fund':'total market funds?',
     'money market fund':'money market funds?'

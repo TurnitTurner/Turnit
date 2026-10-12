@@ -74,7 +74,7 @@
         <div class="sb-scale"><span>All Bonds</span><span>All Stocks</span></div>
         <div class="sb-tradegrid">
           <div class="sb-trade"><span>Long-Run Growth Potential</span><b id="sb-growth">Higher</b><i class="sb-meter"><u id="sb-growth-fill"></u></i></div>
-          <div class="sb-trade red"><span>Depth Of A Bad Stretch</span><b id="sb-pain">Deeper</b><i class="sb-meter"><u id="sb-pain-fill"></u></i></div>
+          <div class="sb-trade sb-red"><span>Depth Of A Bad Stretch</span><b id="sb-pain">Deeper</b><i class="sb-meter"><u id="sb-pain-fill"></u></i></div>
         </div>
         <div class="sb-note" id="sb-trade-note">Move the slider to at least three settings to see the pattern.</div>
       </div>
@@ -190,9 +190,9 @@
       <h2 class="sb-h2">Three Moments That Break Plans</h2>
       <p class="sb-p">Pick what you'd do. You'll see what each choice implies.</p>
       <div class="sb-scenarios" id="sb-scen">
-        <div class="sb-scen" data-k="s1" data-ans="b">
+        <div class="sb-scen" data-k="s1" data-ans="a">
           <p class="sb-scen-q">Your fund is down 18% and a friend just made 40% on one stock.</p>
-          <div class="sb-scen-opts"><button type="button" data-p="a">Move A Chunk Into That Stock</button><button type="button" data-p="b">Leave The Plan Alone</button></div>
+          <div class="sb-scen-opts"><button type="button" data-p="a">Leave The Plan Alone</button><button type="button" data-p="b">Move A Chunk Into That Stock</button></div>
           <p class="sb-scen-why"></p>
         </div>
         <div class="sb-scen" data-k="s2" data-ans="b">
@@ -200,9 +200,9 @@
           <div class="sb-scen-opts"><button type="button" data-p="a">Sell Investments To Cover Rent</button><button type="button" data-p="b">Use The Emergency Fund First</button></div>
           <p class="sb-scen-why"></p>
         </div>
-        <div class="sb-scen" data-k="s3" data-ans="b">
+        <div class="sb-scen" data-k="s3" data-ans="a">
           <p class="sb-scen-q">Markets have risen for three straight years. Your mix has drifted well past your target.</p>
-          <div class="sb-scen-opts"><button type="button" data-p="a">Let It Ride, It's Working</button><button type="button" data-p="b">Note It Against Your Written Target</button></div>
+          <div class="sb-scen-opts"><button type="button" data-p="a">Note It Against Your Written Target</button><button type="button" data-p="b">Let It Ride, It's Working</button></div>
           <p class="sb-scen-why"></p>
         </div>
       </div>
@@ -321,7 +321,7 @@
   #tn-sb .sb-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
   #tn-sb .sb-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
   #tn-sb .sb-reset-row{display:flex; justify-content:center; gap:9px; margin-top:14px; flex-wrap:wrap;}
-  #tn-sb .sb-reset-btn,#tn-sb .sb-ghost-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-sb .sb-reset-btn,#tn-sb .sb-ghost-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
   #tn-sb .sb-ghost-btn{color:var(--b); border-color:#B9CFE4;}
   #tn-sb .sb-reset-btn:hover,#tn-sb .sb-ghost-btn:hover{background:var(--mist); border-color:var(--selbd);}
   /* title */
@@ -360,10 +360,10 @@
   #tn-sb .sb-trade{background:#fff; border:1px solid var(--line); border-radius:13px; padding:14px 12px; text-align:center;}
   #tn-sb .sb-trade span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-bottom:6px;}
   #tn-sb .sb-trade b{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:var(--b);}
-  #tn-sb .sb-trade.red b{color:var(--no);}
+  #tn-sb .sb-trade.sb-red b{color:var(--no);}
   #tn-sb .sb-meter{display:block; height:7px; border-radius:5px; background:#EAEFF3; margin-top:9px; overflow:hidden;}
   #tn-sb .sb-meter u{display:block; height:100%; width:70%; background:var(--b); transition:width .25s ease;}
-  #tn-sb .sb-trade.red .sb-meter u{background:var(--no);}
+  #tn-sb .sb-trade.sb-red .sb-meter u{background:var(--no);}
   /* scratch cards */
   #tn-sb .sb-scratchgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
   #tn-sb .sb-scratch{position:relative; border-radius:15px; overflow:hidden; border:1.5px solid var(--cardbd); background:var(--tint); min-height:190px; touch-action:none;}
@@ -459,8 +459,13 @@
   #tn-sb .sb-green{color:var(--g);}
   #tn-sb .sb-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
   /* nav */
-  #tn-sb .sb-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  #tn-sb .sb-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
   #tn-sb .sb-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-sb .sb-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
   #tn-sb .sb-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
   #tn-sb .sb-nav-btn.prev{color:var(--ink2);}
   #tn-sb .sb-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
@@ -480,7 +485,8 @@
     #tn-sb .sb-splits{grid-template-columns:repeat(3,1fr);}
     #tn-sb .sb-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
     #tn-sb .sb-bsub{display:none;}
-    #tn-sb .sb-nav-hint{display:none;}
+    #tn-sb .sb-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-sb .sb-nav{padding-top:10px; row-gap:0;}
     #tn-sb .sb-nav-btn{padding:11px 16px; font-size:13.5px;}
   }
   @media (prefers-reduced-motion:reduce){

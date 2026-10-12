@@ -57,6 +57,23 @@ async function drive(pg, step) {
     }
     if (await unlocked(pg)) return;
   }
+  // card -> zone sort widgets: a button carrying data-ans is a draggable/tappable
+  // card; a non-button element carrying a matching data-z is its destination. The
+  // generic button pass below would click every card but never the zones (they
+  // aren't buttons), so place each card in its matching zone first.
+  const zoneCards = await pg.$$(`[data-step="${step}"] button[data-ans]`);
+  const zones = await pg.$$(`[data-step="${step}"] [data-z]`);
+  if (zoneCards.length && zones.length) {
+    for (const c of zoneCards) {
+      const ans = await c.getAttribute('data-ans');
+      try { await c.click({ timeout: 1200 }); } catch (e) { /* hidden or detached */ }
+      await pg.waitForTimeout(80);
+      const zone = await pg.$(`[data-step="${step}"] [data-z="${ans}"]`);
+      if (zone) { try { await zone.click({ timeout: 1200 }); } catch (e) { /* hidden or detached */ } }
+      await pg.waitForTimeout(80);
+    }
+    if (await unlocked(pg)) return;
+  }
   for (let pass = 0; pass < 3; pass++) {
     const btns = await pg.$$(`[data-step="${step}"] button:not([disabled]):not(.${PX}-reset-btn)`);
     if (!btns.length) break;
@@ -79,7 +96,7 @@ async function run(w, h, label) {
   const errs = [];
   pg.on('pageerror', (e) => errs.push('pageerror: ' + e.message));
   pg.on('console', (m) => {
-    if (m.type() === 'error' && !/ERR_TUNNEL|ERR_NAME|fonts\.googleapis/.test(m.text())) {
+    if (m.type() === 'error' && !/ERR_TUNNEL|ERR_NAME|ERR_CERT_AUTHORITY_INVALID|fonts\.googleapis/.test(m.text())) {
       errs.push('console: ' + m.text());
     }
   });
@@ -138,8 +155,15 @@ async function run(w, h, label) {
   const disc = await pg.evaluate((p) => getComputedStyle(document.querySelector('.' + p + '-disclaimer')).display, PX);
   if (disc === 'none') fail(`${label}: the full disclaimer is hidden on the final slide`);
 
-  // walk all the way back
-  for (let i = 0; i < TOTAL - 1; i++) { await pg.click(`#${PX}-prev`); await pg.waitForTimeout(120); }
+  // walk all the way back (stop early if prev is already disabled, e.g. a gate
+  // upstream never opened and the forward walk didn't reach the last slide —
+  // that's already recorded as its own failure above, so don't also hang here)
+  for (let i = 0; i < TOTAL - 1; i++) {
+    const prevDisabled = await pg.evaluate((p) => document.querySelector('#' + p + '-prev').classList.contains('is-disabled'), PX);
+    if (prevDisabled) break;
+    await pg.click(`#${PX}-prev`);
+    await pg.waitForTimeout(120);
+  }
   const back = await cur();
   if (!back.includes('1 Of')) fail(`${label}: Previous did not return to slide 1 (landed on "${back}")`);
   console.log(`  walked back to ${back}`);

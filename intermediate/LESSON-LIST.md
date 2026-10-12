@@ -16,11 +16,7 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 2 | Stocks And Bonds: Choosing Your Split | `02-stocks-and-bonds-choosing-your-split.html` | 13 |
 | 3 | Why International Exposure Exists | `03-why-international-exposure-exists.html` | 9 |
 | 4 | Large, Mid, And Small Companies | `04-large-mid-and-small-companies.html` | 10 |
-| 5 | Three Portfolio Models Compared | `05-three-portfolio-models-compared.html` | 10 |
-| 5 | ↳ *alternate version* | `05-ALT-three-portfolio-models-build.html` | 10 |
-
-> **Decision needed:** lesson 5 exists in two finished versions. `-compared` uses a
-> weather-test widget; `-ALT-build` uses an assemble-a-portfolio bench. Ship one.
+| 5 | Three Portfolio Models Compared | `05-three-portfolio-models.html` | 10 |
 
 ## Module 2 — Funds Under The Hood ✅ complete
 

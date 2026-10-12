@@ -167,6 +167,7 @@
         <div class="ix-recap-item"><span class="ix-recap-check">✓</span><span>Leadership has switched between US and international more than once, and nobody rings a bell at the turn.</span></div>
         <div class="ix-recap-item"><span class="ix-recap-check">✓</span><span>Foreign revenue from US companies is not the same as foreign ownership.</span></div>
         <div class="ix-recap-item"><span class="ix-recap-check">✓</span><span>Currency movement comes along with international holdings — in both directions.</span></div>
+        <div class="ix-recap-item"><span class="ix-recap-check">✓</span><span>There's no single correct international share — 0%, 10–20%, 30–40%, and global market weight are all positions serious investors actually hold.</span></div>
       </div>
       <div class="ix-next-move">Your next move: <b>check what share of your stocks is already international.</b> Many broad funds hold none at all, and most people are surprised by the answer.</div>
     </section>
@@ -237,7 +238,7 @@
   #tn-ix .ix-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
   #tn-ix .ix-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
   #tn-ix .ix-reset-row{display:flex; justify-content:center; margin-top:14px;}
-  #tn-ix .ix-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ix .ix-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
   #tn-ix .ix-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
   /* title */
   #tn-ix .ix-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6.2vw,40px); line-height:1.14; text-align:center; margin:8px 0 14px;}
@@ -333,8 +334,13 @@
   #tn-ix .ix-green{color:var(--g);}
   #tn-ix .ix-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
   /* nav */
-  #tn-ix .ix-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);}
+  #tn-ix .ix-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
   #tn-ix .ix-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ix .ix-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
   #tn-ix .ix-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
   #tn-ix .ix-nav-btn.prev{color:var(--ink2);}
   #tn-ix .ix-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
@@ -354,7 +360,8 @@
     #tn-ix .ix-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
     #tn-ix .ix-stone-lab{font-size:10.5px;}
     #tn-ix .ix-bsub{display:none;}
-    #tn-ix .ix-nav-hint{display:none;}
+    #tn-ix .ix-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ix .ix-nav{padding-top:10px; row-gap:0;}
     #tn-ix .ix-nav-btn{padding:11px 16px; font-size:13.5px;}
   }
   @media (prefers-reduced-motion:reduce){
