@@ -1,0 +1,729 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — ASSET LOCATION: WHAT BELONGS IN WHICH ACCOUNT
+     (Intermediate · Module 3 · Lesson 11)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-lc. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  Same Fund, Two Accounts (creative)
+       3  Efficient Or Inefficient?         4  Three Buckets
+       5  Myth Or Fact (5)                  6  Build The Placement (4)
+       7  Recap (6)                         8  Complete
+     Creative widget, 1 of 2 allowed: slide 2's simplified 1099 form vs.
+     "no form issued" contrast — a document look not used by any other
+     lesson so far (lesson 8 reconstructed a fund page, lesson 10 used a
+     phone notification feed; this is a tax form snippet).
+     Slides 3, 4 and 6 are standard formats (sort, tap-reveal comparison,
+     scenario decisions) kept in their usual shape, per BUILD-GUIDE §9.
+     Gating reads state published on the container, so spamming one
+     control can never unlock a slide; once unlocked, a slide stays
+     unlocked after Start Over.
+     Does NOT teach: exact capital-gains brackets (Lesson 13), qualified
+     vs. ordinary dividend mechanics beyond "REIT dividends are mostly
+     ordinary" (Lesson 12 covers the full qualified/ordinary rule), or
+     how to actually execute a tax-loss harvest (Lesson 14). Account
+     contribution limits and Roth-vs-Traditional mechanics were already
+     taught in Foundations Module 2 and are not repeated here.
+     Real figures (sourced, as of writing):
+       Vanguard Total Bond Market ETF (BND) yield ~4.0-4.3% through
+       Sept 2026 (multiple trackers: ycharts.com, chartrow.com,
+       dividendvision.com) — used to ground the "$10,000 -> ~$400/yr"
+       illustration on slide 2.
+       Nareit year-end data: of 2025 REIT common-share distributions,
+       79% were classified as ordinary income, 11% as long-term capital
+       gains, 10% as return of capital (reit.com/news/blog/market-
+       commentary, year-end 2025 tax-treatment roundup). Used on slide 5
+       and in the REIT chip definition. The Section 199A pass-through
+       deduction (which can lower the effective rate on the ordinary
+       portion) is deliberately not covered — a layer of detail beyond
+       what this lesson needs.
+       Closing quote verified against the opinion: Judge Learned Hand,
+       Gregory v. Helvering, 69 F.2d 809 (2d Cir. 1934) — "Any one may
+       so arrange his affairs that his taxes shall be as low as
+       possible... there is not even a patriotic duty to increase one's
+       taxes." Widely quoted; multiple sources (Tulane Law Review, FEE)
+       confirm this wording and citation.
+     ============================================================ -->
+<div id="tn-lc">
+  <div class="lc-wrap">
+    <div class="lc-top">
+      <div class="lc-topbar">
+        <div class="lc-brand"><span class="lc-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="lc-word">TURNIT</span><span class="lc-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="lc-progress"><span id="lc-bar"></span></div>
+      <div class="lc-meta"><span id="lc-slide-label">Start Here</span><span id="lc-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="lc-sec lc-center lc-reveal" data-step="1">
+      <p class="lc-kicker center">Tax-Smart Investing · 1 / 8</p>
+      <h1 class="lc-hero-title">ASSET <span class="lc-hero-grad">LOCATION</span></h1>
+      <p class="lc-sub center">The exact same investment can cost you more — or less — in tax, depending only on which account holds it.</p>
+      <div class="lc-vocab">
+        <span class="lc-vocab-label">Key Terms In This Lesson</span>
+        <div class="lc-vocab-chips" id="lc-vocab-chips">
+          <button type="button" class="lc-vocab-chip" data-t="Asset Location" data-def="Which account type holds an investment — taxable, tax-deferred, or tax-exempt. A separate decision from asset allocation, which is what you own.">Asset Location</button>
+          <button type="button" class="lc-vocab-chip" data-t="Tax-Efficient" data-def="An investment that generates little taxable income on its own, like a broad stock index fund you rarely sell. Growth sits untaxed until you choose to sell.">Tax-Efficient</button>
+          <button type="button" class="lc-vocab-chip" data-t="Tax-Inefficient" data-def="An investment that generates income taxed every year you hold it, like a bond fund's interest or most REIT dividends — even if you never touch it.">Tax-Inefficient</button>
+          <button type="button" class="lc-vocab-chip" data-t="Tax-Deferred Account" data-def="An account like a Traditional 401(k) or IRA where growth isn't taxed year to year. Tax is paid later, when the money comes out.">Tax-Deferred Account</button>
+          <button type="button" class="lc-vocab-chip" data-t="Tax-Exempt Account" data-def="An account like a Roth IRA or Roth 401(k) where qualified withdrawals — including all the growth — are never taxed.">Tax-Exempt Account</button>
+          <button type="button" class="lc-vocab-chip" data-t="REIT" data-def="A Real Estate Investment Trust. It owns income-producing property and passes most of its profit straight through to shareholders, which is why most REIT dividends are taxed as ordinary income rather than the lower qualified-dividend rate.">REIT</button>
+        </div>
+        <div class="lc-vocab-def" id="lc-vocab-def">Tap a term to see what it means.</div>
+        <span class="lc-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="lc-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · SAME FUND, TWO ACCOUNTS ========== -->
+    <section class="lc-sec lc-reveal" data-step="2">
+      <p class="lc-kicker">The Same Dollar, Two Outcomes · 2 / 8</p>
+      <h2 class="lc-h2">One Bond Fund. Two Accounts. Two Outcomes.</h2>
+      <p class="lc-p">A $10,000 position in a typical bond fund, yielding around 4%, pays roughly $400 a year in interest. Tap each account to see what happens to it.</p>
+      <div class="lc-docs" id="lc-docs">
+        <button type="button" class="lc-doc at" id="lc-doc-tax" data-k="tax">
+          <span class="lc-doc-tab">Taxable Brokerage Account</span>
+          <span class="lc-doc-body">
+            <span class="lc-doc-prompt">Tap To See The Tax Form</span>
+            <span class="lc-doc-reveal" id="lc-doc-tax-reveal">
+              <span class="lc-doc-head">Form 1099-DIV / 1099-INT</span>
+              <span class="lc-doc-row"><i>Box 1a</i><b>Ordinary Dividends &amp; Interest</b><em>$400.00</em></span>
+              <span class="lc-doc-note">That $400 is taxable income this year, whether or not you touched the account. Your broker reports it straight to the IRS.</span>
+            </span>
+          </span>
+        </button>
+        <button type="button" class="lc-doc ad" id="lc-doc-ira" data-k="ira">
+          <span class="lc-doc-tab">Traditional IRA</span>
+          <span class="lc-doc-body">
+            <span class="lc-doc-prompt">Tap To See The Tax Form</span>
+            <span class="lc-doc-reveal" id="lc-doc-ira-reveal">
+              <span class="lc-doc-head">No Tax Form Issued</span>
+              <span class="lc-doc-row"><i>This Year</i><b>Nothing To Report</b><em>—</em></span>
+              <span class="lc-doc-note">The same $400 stays inside the account, untaxed, for as long as it's in there. Tax arrives only later, when money is withdrawn.</span>
+            </span>
+          </span>
+        </button>
+      </div>
+      <p class="lc-count" id="lc-doc-count">Revealed 0 Of 2</p>
+      <p class="lc-disclaimer-inline">A simplified illustration of a 1099 form, not a real document. The 4% yield and $400 figure are illustrative, based on a typical total bond market fund's yield at the time of writing; actual amounts depend on the fund and the year.</p>
+    </section>
+
+    <!-- ========== 3 · EFFICIENT OR INEFFICIENT? ========== -->
+    <section class="lc-sec lc-reveal" data-step="3">
+      <p class="lc-kicker">Sort By Tax Behavior · 3 / 8</p>
+      <h2 class="lc-h2">Efficient, Or Inefficient?</h2>
+      <p class="lc-p">Tap each investment, then tap where it belongs.</p>
+      <div class="lc-pool" id="lc-pool">
+        <button type="button" class="lc-card" data-k="1" data-ans="eff">Broad U.S. Stock Index Fund</button>
+        <button type="button" class="lc-card" data-k="2" data-ans="inf">Total Bond Market Fund</button>
+        <button type="button" class="lc-card" data-k="3" data-ans="inf">REIT Fund</button>
+        <button type="button" class="lc-card" data-k="4" data-ans="eff">A Stock You Plan To Hold For Decades</button>
+        <button type="button" class="lc-card" data-k="5" data-ans="inf">High-Turnover Actively Managed Fund</button>
+        <button type="button" class="lc-card" data-k="6" data-ans="eff">International Stock Index Fund</button>
+      </div>
+      <div class="lc-zones">
+        <div class="lc-zone lc-eff" data-z="eff"><p class="lc-zone-t">Tax-Efficient</p><div class="lc-zone-in"></div></div>
+        <div class="lc-zone lc-inf" data-z="inf"><p class="lc-zone-t">Tax-Inefficient</p><div class="lc-zone-in"></div></div>
+      </div>
+      <p class="lc-count" id="lc-sort-count">Placed 0 Of 6</p>
+      <div class="lc-reset-row"><button type="button" class="lc-reset-btn" id="lc-sort-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 4 · THREE BUCKETS ========== -->
+    <section class="lc-sec lc-reveal" data-step="4">
+      <p class="lc-kicker">Three Buckets · 4 / 8</p>
+      <h2 class="lc-h2">Where Could It Actually Go?</h2>
+      <p class="lc-p">Tap each account type to see how it handles tax.</p>
+      <div class="lc-accts" id="lc-accts">
+        <button type="button" class="lc-acct at" data-t="Taxable Brokerage" data-d="No contribution limit and no withdrawal rules. But interest, dividends, and realized gains are taxed as they happen — in the account's own year.">Taxable Brokerage</button>
+        <button type="button" class="lc-acct ad" data-t="Tax-Deferred (Traditional 401(k)/IRA)" data-d="Growth isn't taxed year to year. Tax arrives later, when you withdraw — taxed as ordinary income at that point.">Tax-Deferred</button>
+        <button type="button" class="lc-acct ax" data-t="Tax-Exempt (Roth 401(k)/IRA)" data-d="Qualified growth and withdrawals are never taxed — not now, and not later.">Tax-Exempt</button>
+      </div>
+      <div class="lc-reveal-box" id="lc-acct-box"><b id="lc-acct-t">Tap An Account Type</b><span id="lc-acct-d">Three different ways the same dollar of growth gets treated.</span></div>
+      <p class="lc-count" id="lc-acct-count">Reviewed 0 Of 3</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="lc-sec lc-reveal" data-step="5">
+      <p class="lc-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="lc-h2">Myth Or Fact?</h2>
+      <p class="lc-p">Five claims you'll hear about asset location. Tap your answer.</p>
+      <div class="lc-sort" id="lc-myth">
+        <div class="lc-sort-row" data-answer="myth"><span>Asset location changes how much risk your portfolio is taking.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Myth.</b> Location only changes which account holds each piece of your mix — not the mix itself. Move the exact same 70/30 stock-bond split between a taxable account and an IRA, and the risk is unchanged.</p></div>
+        <div class="lc-sort-row" data-answer="myth"><span>A bond fund is generally a better fit for a taxable account than for an IRA.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Myth.</b> It's the opposite. A bond fund's interest is taxed every year it's held, in any account — except that in a tax-deferred or tax-exempt account, that yearly bill simply doesn't happen. Taxable accounts are usually the worse fit for a bond fund, not the better one.</p></div>
+        <div class="lc-sort-row" data-answer="fact"><span>Most REIT dividends are taxed as ordinary income, not the lower qualified rate.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Fact.</b> Nareit's data on 2025 REIT distributions found about 79% were taxed as ordinary income. REITs pass nearly all their profit straight through instead of paying corporate tax themselves, which is also why the dividends they pay don't usually qualify for the lower rate.</p></div>
+        <div class="lc-sort-row" data-answer="myth"><span>Putting municipal bonds in a Roth IRA is a smart tax move.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Myth.</b> Municipal bond interest is already exempt from federal tax in a regular taxable account. Putting it in a Roth spends limited tax-advantaged space protecting income that was never going to be taxed anyway.</p></div>
+        <div class="lc-sort-row" data-answer="fact"><span>Moving a holding from a taxable account into an IRA usually means selling it first.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Fact.</b> Outside a few narrow in-kind transfer rules, you can't just move a holding between accounts — you sell it in the taxable account first. That sale can trigger capital gains tax right then, even though the goal was reducing future tax.</p></div>
+      </div>
+      <p class="lc-count" id="lc-myth-count">Answered 0 Of 5</p>
+      <div class="lc-reset-row"><button type="button" class="lc-reset-btn" id="lc-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · BUILD THE PLACEMENT ========== -->
+    <section class="lc-sec lc-reveal" data-step="6">
+      <p class="lc-kicker">Four Holdings · 6 / 8</p>
+      <h2 class="lc-h2">Build The Placement</h2>
+      <p class="lc-p">You have both a taxable account and a tax-advantaged one. Pick where each holding fits better.</p>
+      <div class="lc-cases" id="lc-cases">
+        <div class="lc-case" data-ans="1">
+          <p class="lc-case-q">A total bond market fund you'll hold for years.</p>
+          <div class="lc-copts"><button type="button" data-i="0">Taxable Account</button><button type="button" data-i="1">Tax-Advantaged Account</button></div>
+          <p class="lc-why"></p>
+        </div>
+        <div class="lc-case" data-ans="0">
+          <p class="lc-case-q">A broad U.S. stock index fund you plan to hold for 20+ years.</p>
+          <div class="lc-copts"><button type="button" data-i="0">Taxable Account</button><button type="button" data-i="1">Tax-Advantaged Account</button></div>
+          <p class="lc-why"></p>
+        </div>
+        <div class="lc-case" data-ans="1">
+          <p class="lc-case-q">A REIT fund.</p>
+          <div class="lc-copts"><button type="button" data-i="0">Taxable Account</button><button type="button" data-i="1">Tax-Advantaged Account</button></div>
+          <p class="lc-why"></p>
+        </div>
+        <div class="lc-case" data-ans="1">
+          <p class="lc-case-q">An actively managed fund that trades frequently.</p>
+          <div class="lc-copts"><button type="button" data-i="0">Taxable Account</button><button type="button" data-i="1">Tax-Advantaged Account</button></div>
+          <p class="lc-why"></p>
+        </div>
+      </div>
+      <p class="lc-count" id="lc-case-count">Answered 0 Of 4</p>
+      <div class="lc-reset-row"><button type="button" class="lc-reset-btn" id="lc-case-reset">↺ Start Over</button></div>
+      <p class="lc-disclaimer-inline">Educational illustration, not a recommendation. The right placement depends on which accounts you actually have, how much room is in each, and your full tax picture — none of which this lesson can see.</p>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="lc-sec lc-reveal" data-step="7">
+      <p class="lc-kicker">Recap · 7 / 8</p>
+      <h2 class="lc-h2">Here's What You Now Know</h2>
+      <p class="lc-p">The whole lesson, in six lines.</p>
+      <div class="lc-recap">
+        <div class="lc-recap-item"><span class="lc-recap-check at">✓</span><span>Asset location is which account holds an investment — a separate decision from asset allocation, which is what you own.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check ad">✓</span><span>Tax-inefficient holdings, like bond funds and REITs, generate income that's taxed every year, in any account you hold them.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check ax">✓</span><span>Tax-advantaged accounts shelter that yearly bill. Tax-efficient holdings, like broad stock index funds, don't need the shelter as much.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check at">✓</span><span>Most REIT dividends are taxed as ordinary income, not the lower qualified rate — about 79% of 2025 distributions, per Nareit.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check ad">✓</span><span>Municipal bonds are already tax-exempt, so putting them in a Roth wastes space that could shelter something actually taxable.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check ax">✓</span><span>Moving a holding from taxable into an IRA usually means selling first, which can trigger its own tax bill.</span></div>
+      </div>
+      <div class="lc-next-move">Your next move: <b>check where your bond funds and any REIT holdings actually sit.</b> If they're in a taxable account and you also have room in an IRA or 401(k), that's worth a second look.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="lc-sec lc-center lc-reveal" data-step="8">
+      <p class="lc-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="lc-hero-ico">🗂️</span>
+      <h2 class="lc-h2 center">You've Finished The Lesson</h2>
+      <p class="lc-sub center">Module 3 is underway. Next: how dividends themselves actually get taxed.</p>
+      <div class="lc-finish">
+        <span class="lc-finish-arrow" id="lc-fin-arrow" aria-hidden="true">↓</span>
+        <p class="lc-finish-lead" id="lc-fin-lead">Scroll Down To Continue</p>
+        <p class="lc-finish-sub" id="lc-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="lc-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="lc-pullquote">"ANY ONE MAY SO ARRANGE HIS AFFAIRS THAT HIS TAXES SHALL BE AS LOW AS POSSIBLE… <span class="lc-green">THERE IS NOT EVEN A PATRIOTIC DUTY TO INCREASE ONE'S TAXES.</span>"<br><span class="lc-pullquote-by">— JUDGE LEARNED HAND, GREGORY V. HELVERING (1934)</span></p>
+    </section>
+
+    <p class="lc-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The 1099 form on slide 2 is a simplified illustration, not a real document, and its dollar figures are illustrative. The REIT dividend statistic (about 79% ordinary income for 2025 distributions) was published at the time of writing and will change for future years. Tax rules vary by situation and change over time. Consider speaking with a qualified tax professional about your own situation.</p>
+
+    <div class="lc-nav" id="lc-nav">
+      <button type="button" class="lc-nav-btn prev" id="lc-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="lc-nav-hint" id="lc-nav-hint"></span>
+      <button type="button" class="lc-nav-btn next" id="lc-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-lc{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* account-type palette: amber = taxable (gets taxed now), blue = tax-deferred, green = tax-exempt */
+    --ata:#C8821B; --atbg:#FBF2DF; --atbd:#F0DCA9;
+    --ada:#1568AE; --adbg:#EAF1FA; --adbd:#C5DBEF;
+    --axa:#209B73; --axbg:#E7F6EF; --axbd:#BFE6D6;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-lc *,#tn-lc *::before,#tn-lc *::after{box-sizing:border-box;}
+  #tn-lc .lc-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-lc .lc-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-lc .lc-reveal.in{opacity:1; transform:none;}
+  #tn-lc .lc-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-lc .lc-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-lc .lc-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-lc .lc-bico{display:flex;}
+  #tn-lc .lc-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-lc .lc-bsub{color:var(--ink2); font-weight:500;}
+  #tn-lc .lc-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-lc #lc-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-lc .lc-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-lc .lc-meta #lc-slide-label{color:var(--ink2);}
+  #tn-lc .lc-meta #lc-slide-count{color:var(--mut);}
+  #tn-lc .lc-sec{padding:16px 0 8px;}
+  #tn-lc .lc-sec.lc-hide{display:none;}
+  #tn-lc .lc-center{text-align:center;}
+  #tn-lc .lc-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-lc .lc-kicker.center{text-align:center;}
+  #tn-lc .lc-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-lc .lc-h2.center{text-align:center;}
+  #tn-lc .lc-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-lc .lc-p b{color:var(--ink); font-weight:700;}
+  #tn-lc .lc-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-lc .lc-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-lc .lc-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-lc .lc-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-lc .lc-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-lc .lc-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-lc .lc-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* account colour helpers */
+  #tn-lc .at{--a:var(--ata); --abg:var(--atbg); --abd:var(--atbd);}
+  #tn-lc .ad{--a:var(--ada); --abg:var(--adbg); --abd:var(--adbd);}
+  #tn-lc .ax{--a:var(--axa); --abg:var(--axbg); --abd:var(--axbd);}
+  /* title */
+  #tn-lc .lc-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.6vw,44px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-lc .lc-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-lc .lc-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-lc .lc-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-lc .lc-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-lc .lc-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-lc .lc-vocab-chip:hover{filter:brightness(.97);}
+  #tn-lc .lc-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-lc .lc-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-lc .lc-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-lc .lc-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-lc .lc-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-lc .lc-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · tax-document reveal (creative) */
+  #tn-lc .lc-docs{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
+  #tn-lc .lc-doc{flex:1; min-width:240px; max-width:320px; text-align:left; background:#fff; border:1.5px solid var(--abd); border-radius:16px; padding:0; cursor:pointer; overflow:hidden; transition:all .18s;}
+  #tn-lc .lc-doc:hover{border-color:var(--a); transform:translateY(-2px);}
+  #tn-lc .lc-doc-tab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#fff; background:var(--a); padding:9px 14px;}
+  #tn-lc .lc-doc-body{display:block; padding:14px 16px 16px;}
+  #tn-lc .lc-doc-prompt{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--mut); text-align:center; padding:10px 0;}
+  #tn-lc .lc-doc.done .lc-doc-prompt{display:none;}
+  #tn-lc .lc-doc-reveal{display:none;}
+  #tn-lc .lc-doc.done .lc-doc-reveal{display:block; animation:lc-in .3s ease;}
+  @keyframes lc-in{from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:none;}}
+  #tn-lc .lc-doc-head{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink); border-bottom:1.5px dashed var(--cardbd); padding-bottom:8px; margin-bottom:9px;}
+  #tn-lc .lc-doc-row{display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; font-size:12px; margin-bottom:10px;}
+  #tn-lc .lc-doc-row i{font-style:normal; color:var(--mut); flex:none;}
+  #tn-lc .lc-doc-row b{font-family:'Poppins',sans-serif; font-weight:700; color:var(--ink); flex:1; min-width:90px;}
+  #tn-lc .lc-doc-row em{font-style:normal; font-family:'Poppins',sans-serif; font-weight:800; color:var(--a); flex:none;}
+  #tn-lc .lc-doc-note{display:block; font-size:12px; color:var(--ink2); line-height:1.5;}
+  /* 3 · efficient/inefficient sort */
+  #tn-lc .lc-pool{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+  #tn-lc .lc-card{font-family:'Inter',sans-serif; font-size:13px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:10px 13px; cursor:pointer; transition:border-color .15s, background .15s, transform .12s;}
+  #tn-lc .lc-card.sel{border-color:var(--b); background:#EAF1FA; transform:scale(1.03);}
+  #tn-lc .lc-card.placed{display:none;}
+  #tn-lc .lc-zones{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;}
+  #tn-lc .lc-zone{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:12px; min-height:120px; transition:all .18s;}
+  #tn-lc .lc-zone.hot{border-color:var(--b); background:#EAF1FA;}
+  #tn-lc .lc-zone-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; text-align:center; margin:0 0 9px; color:var(--ink2);}
+  #tn-lc .lc-zone.lc-eff .lc-zone-t{color:var(--g);}
+  #tn-lc .lc-zone.lc-inf .lc-zone-t{color:var(--ata);}
+  #tn-lc .lc-zone-in{display:flex; flex-direction:column; gap:7px;}
+  #tn-lc .lc-zone-in .lc-card{cursor:default; font-size:12px; padding:8px 11px;}
+  #tn-lc .lc-zone.lc-eff .lc-zone-in .lc-card{border-color:var(--selbd); background:var(--tint);}
+  #tn-lc .lc-zone.lc-inf .lc-zone-in .lc-card{border-color:var(--atbd); background:var(--atbg);}
+  /* 4 · three buckets tap-reveal */
+  #tn-lc .lc-accts{display:flex; flex-wrap:wrap; gap:9px; justify-content:center;}
+  #tn-lc .lc-acct{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--a); background:var(--abg); border:1.5px solid var(--abd); border-radius:13px; padding:12px 16px; cursor:pointer; transition:all .18s;}
+  #tn-lc .lc-acct:hover{filter:brightness(.97);}
+  #tn-lc .lc-acct.on{background:var(--a); color:#fff;}
+  #tn-lc .lc-reveal-box{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center;}
+  #tn-lc .lc-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; margin-bottom:5px;}
+  #tn-lc .lc-reveal-box span{font-size:13px; color:var(--ink2); line-height:1.55;}
+  /* 5 · myth sorter */
+  #tn-lc .lc-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-lc .lc-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-lc .lc-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-lc .lc-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-lc .lc-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-lc .lc-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-lc .lc-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-lc .lc-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-lc .lc-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-lc .lc-sort-row.done .lc-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-lc .lc-sort-row.done .lc-sort-btns button.picked{opacity:1;}
+  #tn-lc .lc-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-lc .lc-why b{font-family:'Poppins',sans-serif;}
+  #tn-lc .lc-sort-row .lc-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-lc .lc-sort-row.done .lc-why{display:block;}
+  /* 6 · scenarios */
+  #tn-lc .lc-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-lc .lc-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-lc .lc-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-lc .lc-copts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-lc .lc-copts button{flex:1; min-width:140px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 12px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-lc .lc-copts button:hover{border-color:var(--selbd);}
+  #tn-lc .lc-case.done .lc-copts button{opacity:.35; pointer-events:none;}
+  #tn-lc .lc-case.done .lc-copts button.picked{opacity:1;}
+  #tn-lc .lc-case.done .lc-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-lc .lc-case.done .lc-copts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-lc .lc-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-lc .lc-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-lc .lc-case.done .lc-why{display:block;}
+  /* recap + complete */
+  #tn-lc .lc-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-lc .lc-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-lc .lc-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--a,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-lc .lc-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-lc .lc-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-lc .lc-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-lc .lc-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-lc .lc-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:lc-bob 1.6s ease-in-out infinite;}
+  #tn-lc .lc-finish-arrow.up{animation-name:lc-bob-up;}
+  @keyframes lc-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes lc-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-lc .lc-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-lc .lc-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-lc .lc-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-lc .lc-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-lc .lc-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-lc .lc-green{color:var(--g);}
+  #tn-lc .lc-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-lc .lc-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-lc .lc-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-lc .lc-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-lc .lc-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-lc .lc-nav-btn.prev{color:var(--ink2);}
+  #tn-lc .lc-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-lc .lc-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-lc .lc-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-lc .lc-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-lc .lc-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-lc .lc-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-lc .lc-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-lc .lc-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .lc-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .lc-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-lc .lc-wrap{padding:12px 14px 30px;}
+    #tn-lc .lc-docs{flex-direction:column;}
+    #tn-lc .lc-doc{max-width:none;}
+    #tn-lc .lc-zones{grid-template-columns:1fr;}
+    #tn-lc .lc-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-lc .lc-copts button{min-width:0; flex:1 1 100%;}
+    #tn-lc .lc-bsub{display:none;}
+    #tn-lc .lc-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-lc .lc-nav{padding-top:10px; row-gap:0;}
+    #tn-lc .lc-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-lc .lc-reveal{opacity:1 !important; transform:none !important;}
+    #tn-lc #lc-bar{transition:none;}
+    #tn-lc .lc-doc-reveal{animation:none;}
+    #tn-lc .lc-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-lc'); if(!root) return;
+  root.querySelectorAll('.lc-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('lc-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#lc-vocab-def');
+  root.querySelectorAll('#lc-vocab-chips .lc-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#lc-vocab-chips .lc-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · tax-document reveal (creative 1 of 1) */
+  var docSeen={}, docCount=root.querySelector('#lc-doc-count');
+  root.querySelectorAll('#lc-docs .lc-doc').forEach(function(d){
+    d.addEventListener('click',function(){
+      if(d.classList.contains('done')) return;
+      d.classList.add('done');
+      docSeen[d.getAttribute('data-k')]=1;
+      docCount.textContent='Revealed '+keys(docSeen)+' Of 2';
+      state('docs', keys(docSeen)); postHeight();
+    });
+  });
+
+  /* 3 · efficient / inefficient sort */
+  var placed={}, sortCount=root.querySelector('#lc-sort-count'), pool=root.querySelector('#lc-pool');
+  function zones(){ return Array.prototype.slice.call(root.querySelectorAll('#tn-lc .lc-zone')); }
+  function place(card, zone){
+    card.classList.add('placed'); card.classList.remove('sel');
+    zone.querySelector('.lc-zone-in').appendChild(card);
+  }
+  root.querySelectorAll('#lc-pool .lc-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      if(card.classList.contains('placed')) return;
+      root.querySelectorAll('#tn-lc .lc-card').forEach(function(c){ c.classList.remove('sel'); });
+      card.classList.add('sel');
+      zones().forEach(function(z){ z.classList.add('hot'); });
+    });
+  });
+  zones().forEach(function(z){
+    z.addEventListener('click',function(){
+      var sel=root.querySelector('#tn-lc .lc-card.sel'); if(!sel) return;
+      place(sel, z);
+      zones().forEach(function(zz){ zz.classList.remove('hot'); });
+      placed[sel.getAttribute('data-k')]=1;
+      sortCount.textContent='Placed '+keys(placed)+' Of 6';
+      state('sort', keys(placed)); postHeight();
+    });
+  });
+  var sortReset=root.querySelector('#lc-sort-reset');
+  if(sortReset) sortReset.addEventListener('click',function(){
+    root.querySelectorAll('#tn-lc .lc-card').forEach(function(c){ c.classList.remove('placed','sel'); pool.appendChild(c); });
+    placed={}; sortCount.textContent='Placed 0 Of 6'; postHeight();
+  });
+
+  /* 4 · three buckets tap-reveal */
+  var acctSeen={}, acctT=root.querySelector('#lc-acct-t'), acctD=root.querySelector('#lc-acct-d'), acctCount=root.querySelector('#lc-acct-count');
+  root.querySelectorAll('#lc-accts .lc-acct').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#lc-accts .lc-acct').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      acctT.textContent=b.getAttribute('data-t'); acctD.textContent=b.getAttribute('data-d');
+      acctSeen[b.getAttribute('data-t')]=1;
+      acctCount.textContent='Reviewed '+keys(acctSeen)+' Of 3';
+      state('accts', keys(acctSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#lc-myth-count');
+  root.querySelectorAll('#lc-myth .lc-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.lc-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#lc-myth .lc-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#lc-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#lc-myth .lc-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · build the placement */
+  var CWHY=[
+    'A bond fund’s interest is taxed every year it’s held. A tax-advantaged account shelters that yearly bill; a taxable account does not.',
+    'Broad stock index funds already generate little taxable income on their own, so they don’t need the shelter as much — save the limited tax-advantaged space for less efficient holdings instead.',
+    'Most REIT dividends are taxed as ordinary income. Sheltering them in a tax-advantaged account avoids that yearly bill.',
+    'Frequent trading inside a fund can generate taxable distributions even if you never sell your own shares. A tax-advantaged account absorbs that without a yearly bill.'
+  ];
+  var caseCount=root.querySelector('#lc-case-count');
+  root.querySelectorAll('#lc-cases .lc-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.lc-why');
+    c.querySelectorAll('.lc-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.lc-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#lc-cases .lc-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#lc-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#lc-cases .lc-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.lc-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('lc-fin-arrow'), lead=document.getElementById('lc-fin-lead'), sub=document.getElementById('lc-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-lc'); if(!root) return;
+  var ALT={
+    'asset location':'asset locations?',
+    'tax-efficient':'tax-efficient',
+    'tax-inefficient':'tax-inefficient',
+    'tax-deferred account':'tax-deferred accounts?|tax-deferred',
+    'tax-exempt account':'tax-exempt accounts?|tax-exempt',
+    'reit':'REITs?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#lc-vocab-chips .lc-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    var flags=(t==='REIT')?'':'i';
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b',flags)});
+  });
+  /* longest phrase first, so "tax-exempt account" is never eaten by "tax-exempt" */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.lc-p, .lc-sub, .lc-note, .lc-why, .lc-recap-item span, .lc-h2, .lc-next-move, .lc-sort-row > span, .lc-case-q, .lc-doc-note, .lc-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.lc-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='lc-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='lc-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.lc-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.lc-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-lc'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#lc-bar'), labelEl=root.querySelector('#lc-slide-label'),
+      countEl=root.querySelector('#lc-slide-count'), prevBtn=root.querySelector('#lc-prev'),
+      nextBtn=root.querySelector('#lc-next'), hintEl=root.querySelector('#lc-nav-hint'),
+      disclaimer=root.querySelector('.lc-disclaimer');
+  var labels={1:'Start Here',2:'Same Fund, Two Accounts',3:'Efficient Or Inefficient?',4:'Three Buckets',5:'Myth Or Fact',6:'Build The Placement',7:'Recap',8:'Complete'};
+  var reqHints={2:'Reveal both to continue',3:'Place all 6 to continue',4:'Review all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.lc-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('lc-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('lc-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'docs',  need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both to continue'; }},
+    {step:3, key:'sort',  need:6, hint:function(n){ return 'Placed '+n+' of 6 — sort them all to continue'; }},
+    {step:4, key:'accts', need:3, hint:function(n){ return 'Reviewed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('lc-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

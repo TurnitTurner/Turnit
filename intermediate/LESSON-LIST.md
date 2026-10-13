@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **10 built** (Modules 1 and 2 complete)
+7 modules · 35 lessons · **11 built** (Modules 1 and 2 complete, Module 3 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -36,15 +36,15 @@ and basic capital gains. Nothing in this course re-teaches those.
 
 ---
 
-## Module 3 — Tax-Smart Investing ⬜ not built
+## Module 3 — Tax-Smart Investing 🔶 underway (1 of 5)
 
-| # | Lesson |
-|---|---|
-| 11 | Asset Location: What Belongs In Which Account |
-| 12 | Qualified vs. Ordinary Dividends |
-| 13 | Holding Periods And The Capital Gains Brackets |
-| 14 | Tax-Loss Harvesting, And The Wash-Sale Rule |
-| 15 | What A 1099 Actually Tells You |
+| # | Lesson | File | Slides |
+|---|---|---|---|
+| 11 | Asset Location: What Belongs In Which Account | `11-asset-location.html` | 8 |
+| 12 | Qualified vs. Ordinary Dividends | — | — |
+| 13 | Holding Periods And The Capital Gains Brackets | — | — |
+| 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | — | — |
+| 15 | What A 1099 Actually Tells You | — | — |
 
 ## Module 4 — Risk You Cannot See In A Chart ⬜ not built
 
@@ -115,8 +115,22 @@ half-understanding. If they get covered, put them in one lesson called something
 
 ## Backlog across the built lessons
 
-All 10 built lessons now pass both verification harnesses (static + behavioural),
-at desktop and phone widths. What was fixed:
+All 11 built lessons now pass both verification harnesses (static + behavioural),
+at desktop and phone widths.
+
+**Lesson 11 ("Asset Location"), built this pass:** prefix `lc`, 8 slides. Covers
+asset location vs. asset allocation, tax-efficient vs. tax-inefficient holdings,
+the three account tax treatments, a REIT-ordinary-dividend myth/fact grounded in
+2025 Nareit data (79% of distributions taxed as ordinary income), a 4-case
+placement exercise, and a 6-line recap. Closes on a verified Learned Hand quote
+(*Gregory v. Helvering*, 69 F.2d 809, 2d Cir. 1934). One creative widget used (a
+simplified 1099-form reveal on slide 2); slides 3, 4 and 6 use standard formats
+(sort, tap-reveal comparison, scenario decisions) per the 1–2 widget cap. Carries
+heavier hedging per this file's own note on lessons 11/14/23. One bug caught by
+static checks and fixed before commit: two unprefixed helper classes (`ef`/`in`
+on the sort-zone divs) renamed to `lc-eff`/`lc-inf`.
+
+What was fixed in the Module 1–2 backlog pass:
 
 - **Lesson 5 duplicate resolved** — kept the weather-test version (now
   `05-three-portfolio-models.html`); the assemble-a-portfolio-bench version was
