@@ -18,24 +18,17 @@
      control can never unlock a slide; once unlocked, a slide stays
      unlocked after Start Over.
      Does NOT teach: exact capital-gains brackets (Lesson 13), qualified
-     vs. ordinary dividend mechanics beyond "REIT dividends are mostly
-     ordinary" (Lesson 12 covers the full qualified/ordinary rule), or
-     how to actually execute a tax-loss harvest (Lesson 14). Account
+     vs. ordinary dividend mechanics (Lesson 12 covers the full rule),
+     or how to actually execute a tax-loss harvest (Lesson 14). Account
      contribution limits and Roth-vs-Traditional mechanics were already
-     taught in Foundations Module 2 and are not repeated here.
+     taught in Foundations Module 2 and are not repeated here. REITs and
+     municipal bonds are deliberately left out — neither was introduced
+     in an earlier lesson, and both need their own groundwork first.
      Real figures (sourced, as of writing):
        Vanguard Total Bond Market ETF (BND) yield ~4.0-4.3% through
        Sept 2026 (multiple trackers: ycharts.com, chartrow.com,
        dividendvision.com) — used to ground the "$10,000 -> ~$400/yr"
        illustration on slide 2.
-       Nareit year-end data: of 2025 REIT common-share distributions,
-       79% were classified as ordinary income, 11% as long-term capital
-       gains, 10% as return of capital (reit.com/news/blog/market-
-       commentary, year-end 2025 tax-treatment roundup). Used on slide 5
-       and in the REIT chip definition. The Section 199A pass-through
-       deduction (which can lower the effective rate on the ordinary
-       portion) is deliberately not covered — a layer of detail beyond
-       what this lesson needs.
        Closing quote verified against the opinion: Judge Learned Hand,
        Gregory v. Helvering, 69 F.2d 809 (2d Cir. 1934) — "Any one may
        so arrange his affairs that his taxes shall be as low as
@@ -63,10 +56,9 @@
         <div class="lc-vocab-chips" id="lc-vocab-chips">
           <button type="button" class="lc-vocab-chip" data-t="Asset Location" data-def="Which account type holds an investment — taxable, tax-deferred, or tax-exempt. A separate decision from asset allocation, which is what you own.">Asset Location</button>
           <button type="button" class="lc-vocab-chip" data-t="Tax-Efficient" data-def="An investment that generates little taxable income on its own, like a broad stock index fund you rarely sell. Growth sits untaxed until you choose to sell.">Tax-Efficient</button>
-          <button type="button" class="lc-vocab-chip" data-t="Tax-Inefficient" data-def="An investment that generates income taxed every year you hold it, like a bond fund's interest or most REIT dividends — even if you never touch it.">Tax-Inefficient</button>
+          <button type="button" class="lc-vocab-chip" data-t="Tax-Inefficient" data-def="An investment that generates income taxed every year you hold it, like a bond fund's interest or a stock fund's dividends — even if you never touch it.">Tax-Inefficient</button>
           <button type="button" class="lc-vocab-chip" data-t="Tax-Deferred Account" data-def="An account like a Traditional 401(k) or IRA where growth isn't taxed year to year. Tax is paid later, when the money comes out.">Tax-Deferred Account</button>
           <button type="button" class="lc-vocab-chip" data-t="Tax-Exempt Account" data-def="An account like a Roth IRA or Roth 401(k) where qualified withdrawals — including all the growth — are never taxed.">Tax-Exempt Account</button>
-          <button type="button" class="lc-vocab-chip" data-t="REIT" data-def="A Real Estate Investment Trust. It owns income-producing property and passes most of its profit straight through to shareholders, which is why most REIT dividends are taxed as ordinary income rather than the lower qualified-dividend rate.">REIT</button>
         </div>
         <div class="lc-vocab-def" id="lc-vocab-def">Tap a term to see what it means.</div>
         <span class="lc-vocab-note">Each is highlighted in green the first time it appears later on.</span>
@@ -78,7 +70,7 @@
     <section class="lc-sec lc-reveal" data-step="2">
       <p class="lc-kicker">The Same Dollar, Two Outcomes · 2 / 8</p>
       <h2 class="lc-h2">One Bond Fund. Two Accounts. Two Outcomes.</h2>
-      <p class="lc-p">A $10,000 position in a typical bond fund, yielding around 4%, pays roughly $400 a year in interest. Tap each account to see what happens to it.</p>
+      <p class="lc-p">A $10,000 position in a typical bond fund — a tax-inefficient holding — yields around 4% and pays roughly $400 a year in interest. Tap each account to see what a tax-deferred account does differently from a taxable one.</p>
       <div class="lc-docs" id="lc-docs">
         <button type="button" class="lc-doc at" id="lc-doc-tax" data-k="tax">
           <span class="lc-doc-tab">Taxable Brokerage Account</span>
@@ -111,11 +103,11 @@
     <section class="lc-sec lc-reveal" data-step="3">
       <p class="lc-kicker">Sort By Tax Behavior · 3 / 8</p>
       <h2 class="lc-h2">Efficient, Or Inefficient?</h2>
-      <p class="lc-p">Tap each investment, then tap where it belongs.</p>
+      <p class="lc-p">Tap each investment, then sort it by its tax behavior: tax-efficient, or tax-inefficient.</p>
       <div class="lc-pool" id="lc-pool">
         <button type="button" class="lc-card" data-k="1" data-ans="eff">Broad U.S. Stock Index Fund</button>
         <button type="button" class="lc-card" data-k="2" data-ans="inf">Total Bond Market Fund</button>
-        <button type="button" class="lc-card" data-k="3" data-ans="inf">REIT Fund</button>
+        <button type="button" class="lc-card" data-k="3" data-ans="inf">A Certificate Of Deposit (CD)</button>
         <button type="button" class="lc-card" data-k="4" data-ans="eff">A Stock You Plan To Hold For Decades</button>
         <button type="button" class="lc-card" data-k="5" data-ans="inf">High-Turnover Actively Managed Fund</button>
         <button type="button" class="lc-card" data-k="6" data-ans="eff">International Stock Index Fund</button>
@@ -132,7 +124,7 @@
     <section class="lc-sec lc-reveal" data-step="4">
       <p class="lc-kicker">Three Buckets · 4 / 8</p>
       <h2 class="lc-h2">Where Could It Actually Go?</h2>
-      <p class="lc-p">Tap each account type to see how it handles tax.</p>
+      <p class="lc-p">Tap each account type — taxable, tax-deferred account, or tax-exempt account — to see how it handles tax.</p>
       <div class="lc-accts" id="lc-accts">
         <button type="button" class="lc-acct at" data-t="Taxable Brokerage" data-d="No contribution limit and no withdrawal rules. But interest, dividends, and realized gains are taxed as they happen — in the account's own year.">Taxable Brokerage</button>
         <button type="button" class="lc-acct ad" data-t="Tax-Deferred (Traditional 401(k)/IRA)" data-d="Growth isn't taxed year to year. Tax arrives later, when you withdraw — taxed as ordinary income at that point.">Tax-Deferred</button>
@@ -150,8 +142,8 @@
       <div class="lc-sort" id="lc-myth">
         <div class="lc-sort-row" data-answer="myth"><span>Asset location changes how much risk your portfolio is taking.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Myth.</b> Location only changes which account holds each piece of your mix — not the mix itself. Move the exact same 70/30 stock-bond split between a taxable account and an IRA, and the risk is unchanged.</p></div>
         <div class="lc-sort-row" data-answer="myth"><span>A bond fund is generally a better fit for a taxable account than for an IRA.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Myth.</b> It's the opposite. A bond fund's interest is taxed every year it's held, in any account — except that in a tax-deferred or tax-exempt account, that yearly bill simply doesn't happen. Taxable accounts are usually the worse fit for a bond fund, not the better one.</p></div>
-        <div class="lc-sort-row" data-answer="fact"><span>Most REIT dividends are taxed as ordinary income, not the lower qualified rate.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Fact.</b> Nareit's data on 2025 REIT distributions found about 79% were taxed as ordinary income. REITs pass nearly all their profit straight through instead of paying corporate tax themselves, which is also why the dividends they pay don't usually qualify for the lower rate.</p></div>
-        <div class="lc-sort-row" data-answer="myth"><span>Putting municipal bonds in a Roth IRA is a smart tax move.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Myth.</b> Municipal bond interest is already exempt from federal tax in a regular taxable account. Putting it in a Roth spends limited tax-advantaged space protecting income that was never going to be taxed anyway.</p></div>
+        <div class="lc-sort-row" data-answer="fact"><span>A mutual fund's capital gains distribution is taxable in a brokerage account even if you never sell a single share yourself.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Fact.</b> When a fund manager sells winners inside the fund, the resulting gain is distributed to every shareholder and taxed that year in a taxable account — whether or not you personally sold anything. In a tax-deferred or tax-exempt account, that same distribution isn't taxed as it happens.</p></div>
+        <div class="lc-sort-row" data-answer="myth"><span>If two accounts hold the exact same overall stock-and-bond mix, it doesn't matter which specific holdings sit in which account.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Myth.</b> That's asset location, not allocation — and it does matter. The same 70/30 mix can generate very different tax bills depending on whether the bond fund sits in the taxable account or the IRA, even though the overall mix looks identical on paper.</p></div>
         <div class="lc-sort-row" data-answer="fact"><span>Moving a holding from a taxable account into an IRA usually means selling it first.</span><div class="lc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="lc-why"><b>Fact.</b> Outside a few narrow in-kind transfer rules, you can't just move a holding between accounts — you sell it in the taxable account first. That sale can trigger capital gains tax right then, even though the goal was reducing future tax.</p></div>
       </div>
       <p class="lc-count" id="lc-myth-count">Answered 0 Of 5</p>
@@ -162,7 +154,7 @@
     <section class="lc-sec lc-reveal" data-step="6">
       <p class="lc-kicker">Four Holdings · 6 / 8</p>
       <h2 class="lc-h2">Build The Placement</h2>
-      <p class="lc-p">You have both a taxable account and a tax-advantaged one. Pick where each holding fits better.</p>
+      <p class="lc-p">Asset location is choosing which account fits which holding. You have both a taxable account and a tax-advantaged one — pick where each one fits better.</p>
       <div class="lc-cases" id="lc-cases">
         <div class="lc-case" data-ans="1">
           <p class="lc-case-q">A total bond market fund you'll hold for years.</p>
@@ -175,7 +167,7 @@
           <p class="lc-why"></p>
         </div>
         <div class="lc-case" data-ans="1">
-          <p class="lc-case-q">A REIT fund.</p>
+          <p class="lc-case-q">A dividend-focused stock fund you reinvest in every year.</p>
           <div class="lc-copts"><button type="button" data-i="0">Taxable Account</button><button type="button" data-i="1">Tax-Advantaged Account</button></div>
           <p class="lc-why"></p>
         </div>
@@ -197,21 +189,21 @@
       <p class="lc-p">The whole lesson, in six lines.</p>
       <div class="lc-recap">
         <div class="lc-recap-item"><span class="lc-recap-check at">✓</span><span>Asset location is which account holds an investment — a separate decision from asset allocation, which is what you own.</span></div>
-        <div class="lc-recap-item"><span class="lc-recap-check ad">✓</span><span>Tax-inefficient holdings, like bond funds and REITs, generate income that's taxed every year, in any account you hold them.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check ad">✓</span><span>Tax-inefficient holdings, like bond funds and dividend-paying funds, generate income that's taxed every year, in any account you hold them.</span></div>
         <div class="lc-recap-item"><span class="lc-recap-check ax">✓</span><span>Tax-advantaged accounts shelter that yearly bill. Tax-efficient holdings, like broad stock index funds, don't need the shelter as much.</span></div>
-        <div class="lc-recap-item"><span class="lc-recap-check at">✓</span><span>Most REIT dividends are taxed as ordinary income, not the lower qualified rate — about 79% of 2025 distributions, per Nareit.</span></div>
-        <div class="lc-recap-item"><span class="lc-recap-check ad">✓</span><span>Municipal bonds are already tax-exempt, so putting them in a Roth wastes space that could shelter something actually taxable.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check at">✓</span><span>A fund's capital gains distribution is taxed in a taxable account the year it's paid, even if you never personally sell a share.</span></div>
+        <div class="lc-recap-item"><span class="lc-recap-check ad">✓</span><span>Two accounts can hold the exact same overall stock-bond mix and still produce very different tax bills, depending on which specific holding sits where.</span></div>
         <div class="lc-recap-item"><span class="lc-recap-check ax">✓</span><span>Moving a holding from taxable into an IRA usually means selling first, which can trigger its own tax bill.</span></div>
       </div>
-      <div class="lc-next-move">Your next move: <b>check where your bond funds and any REIT holdings actually sit.</b> If they're in a taxable account and you also have room in an IRA or 401(k), that's worth a second look.</div>
+      <div class="lc-next-move">Your next move: <b>check where your bond funds and dividend-paying funds actually sit.</b> If they're in a taxable account and you also have room in an IRA or 401(k), that's worth a second look.</div>
     </section>
 
     <!-- ========== 8 · COMPLETE ========== -->
     <section class="lc-sec lc-center lc-reveal" data-step="8">
       <p class="lc-kicker center">Lesson Complete · 8 / 8</p>
-      <span class="lc-hero-ico">🗂️</span>
+      <span class="lc-hero-ico">🚀</span>
       <h2 class="lc-h2 center">You've Finished The Lesson</h2>
-      <p class="lc-sub center">Module 3 is underway. Next: how dividends themselves actually get taxed.</p>
+      <p class="lc-sub center">Asset location is just the first piece of tax-smart investing. Next: how dividends themselves actually get taxed.</p>
       <div class="lc-finish">
         <span class="lc-finish-arrow" id="lc-fin-arrow" aria-hidden="true">↓</span>
         <p class="lc-finish-lead" id="lc-fin-lead">Scroll Down To Continue</p>
@@ -221,7 +213,7 @@
       <p class="lc-pullquote">"ANY ONE MAY SO ARRANGE HIS AFFAIRS THAT HIS TAXES SHALL BE AS LOW AS POSSIBLE… <span class="lc-green">THERE IS NOT EVEN A PATRIOTIC DUTY TO INCREASE ONE'S TAXES.</span>"<br><span class="lc-pullquote-by">— JUDGE LEARNED HAND, GREGORY V. HELVERING (1934)</span></p>
     </section>
 
-    <p class="lc-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The 1099 form on slide 2 is a simplified illustration, not a real document, and its dollar figures are illustrative. The REIT dividend statistic (about 79% ordinary income for 2025 distributions) was published at the time of writing and will change for future years. Tax rules vary by situation and change over time. Consider speaking with a qualified tax professional about your own situation.</p>
+    <p class="lc-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The 1099 form on slide 2 is a simplified illustration, not a real document, and its dollar figures are illustrative. Tax rules vary by situation and change over time. Consider speaking with a qualified tax professional about your own situation.</p>
 
     <div class="lc-nav" id="lc-nav">
       <button type="button" class="lc-nav-btn prev" id="lc-prev"><span aria-hidden="true">←</span> Previous</button>
@@ -315,7 +307,6 @@
   #tn-lc .lc-pool{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
   #tn-lc .lc-card{font-family:'Inter',sans-serif; font-size:13px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:10px 13px; cursor:pointer; transition:border-color .15s, background .15s, transform .12s;}
   #tn-lc .lc-card.sel{border-color:var(--b); background:#EAF1FA; transform:scale(1.03);}
-  #tn-lc .lc-card.placed{display:none;}
   #tn-lc .lc-zones{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;}
   #tn-lc .lc-zone{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:12px; min-height:120px; transition:all .18s;}
   #tn-lc .lc-zone.hot{border-color:var(--b); background:#EAF1FA;}
@@ -323,9 +314,11 @@
   #tn-lc .lc-zone.lc-eff .lc-zone-t{color:var(--g);}
   #tn-lc .lc-zone.lc-inf .lc-zone-t{color:var(--ata);}
   #tn-lc .lc-zone-in{display:flex; flex-direction:column; gap:7px;}
-  #tn-lc .lc-zone-in .lc-card{cursor:default; font-size:12px; padding:8px 11px;}
-  #tn-lc .lc-zone.lc-eff .lc-zone-in .lc-card{border-color:var(--selbd); background:var(--tint);}
-  #tn-lc .lc-zone.lc-inf .lc-zone-in .lc-card{border-color:var(--atbd); background:var(--atbg);}
+  #tn-lc .lc-zone-in .lc-card{cursor:default; font-size:12px; padding:8px 28px 8px 11px; position:relative;}
+  #tn-lc .lc-zone-in .lc-card.correct{border-color:var(--selbd); background:var(--tint); color:var(--g);}
+  #tn-lc .lc-zone-in .lc-card.wrong{border-color:var(--nobd); background:var(--nobg); color:var(--no);}
+  #tn-lc .lc-zone-in .lc-card.correct::after{content:"✓"; position:absolute; right:10px; top:50%; transform:translateY(-50%); font-weight:800;}
+  #tn-lc .lc-zone-in .lc-card.wrong::after{content:"✗"; position:absolute; right:10px; top:50%; transform:translateY(-50%); font-weight:800;}
   /* 4 · three buckets tap-reveal */
   #tn-lc .lc-accts{display:flex; flex-wrap:wrap; gap:9px; justify-content:center;}
   #tn-lc .lc-acct{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--a); background:var(--abg); border:1.5px solid var(--abd); border-radius:13px; padding:12px 16px; cursor:pointer; transition:all .18s;}
@@ -459,8 +452,8 @@
   /* 3 · efficient / inefficient sort */
   var placed={}, sortCount=root.querySelector('#lc-sort-count'), pool=root.querySelector('#lc-pool');
   function zones(){ return Array.prototype.slice.call(root.querySelectorAll('#tn-lc .lc-zone')); }
-  function place(card, zone){
-    card.classList.add('placed'); card.classList.remove('sel');
+  function place(card, zone, correct){
+    card.classList.add('placed', correct?'correct':'wrong'); card.classList.remove('sel');
     zone.querySelector('.lc-zone-in').appendChild(card);
   }
   root.querySelectorAll('#lc-pool .lc-card').forEach(function(card){
@@ -474,7 +467,8 @@
   zones().forEach(function(z){
     z.addEventListener('click',function(){
       var sel=root.querySelector('#tn-lc .lc-card.sel'); if(!sel) return;
-      place(sel, z);
+      var correct=sel.getAttribute('data-ans')===z.getAttribute('data-z');
+      place(sel, z, correct);
       zones().forEach(function(zz){ zz.classList.remove('hot'); });
       placed[sel.getAttribute('data-k')]=1;
       sortCount.textContent='Placed '+keys(placed)+' Of 6';
@@ -483,7 +477,7 @@
   });
   var sortReset=root.querySelector('#lc-sort-reset');
   if(sortReset) sortReset.addEventListener('click',function(){
-    root.querySelectorAll('#tn-lc .lc-card').forEach(function(c){ c.classList.remove('placed','sel'); pool.appendChild(c); });
+    root.querySelectorAll('#tn-lc .lc-card').forEach(function(c){ c.classList.remove('placed','sel','correct','wrong'); pool.appendChild(c); });
     placed={}; sortCount.textContent='Placed 0 Of 6'; postHeight();
   });
 
@@ -528,7 +522,7 @@
   var CWHY=[
     'A bond fund’s interest is taxed every year it’s held. A tax-advantaged account shelters that yearly bill; a taxable account does not.',
     'Broad stock index funds already generate little taxable income on their own, so they don’t need the shelter as much — save the limited tax-advantaged space for less efficient holdings instead.',
-    'Most REIT dividends are taxed as ordinary income. Sheltering them in a tax-advantaged account avoids that yearly bill.',
+    'Dividends are taxed in the year they’re paid — whether you take the cash or reinvest it. A tax-advantaged account shelters that yearly bill; a taxable account does not.',
     'Frequent trading inside a fund can generate taxable distributions even if you never sell your own shares. A tax-advantaged account absorbs that without a yearly bill.'
   ];
   var caseCount=root.querySelector('#lc-case-count');
@@ -598,15 +592,13 @@
     'tax-efficient':'tax-efficient',
     'tax-inefficient':'tax-inefficient',
     'tax-deferred account':'tax-deferred accounts?|tax-deferred',
-    'tax-exempt account':'tax-exempt accounts?|tax-exempt',
-    'reit':'REITs?'
+    'tax-exempt account':'tax-exempt accounts?|tax-exempt'
   };
   var TERMS=[];
   root.querySelectorAll('#lc-vocab-chips .lc-vocab-chip').forEach(function(chip){
     var t=chip.getAttribute('data-t');
     var alt=ALT[t.toLowerCase()]||t.toLowerCase();
-    var flags=(t==='REIT')?'':'i';
-    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b',flags)});
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
   });
   /* longest phrase first, so "tax-exempt account" is never eaten by "tax-exempt" */
   TERMS.sort(function(a,b){ return b.t.length-a.t.length; });

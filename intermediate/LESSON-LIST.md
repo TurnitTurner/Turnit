@@ -120,15 +120,22 @@ at desktop and phone widths.
 
 **Lesson 11 ("Asset Location"), built this pass:** prefix `lc`, 8 slides. Covers
 asset location vs. asset allocation, tax-efficient vs. tax-inefficient holdings,
-the three account tax treatments, a REIT-ordinary-dividend myth/fact grounded in
-2025 Nareit data (79% of distributions taxed as ordinary income), a 4-case
-placement exercise, and a 6-line recap. Closes on a verified Learned Hand quote
-(*Gregory v. Helvering*, 69 F.2d 809, 2d Cir. 1934). One creative widget used (a
-simplified 1099-form reveal on slide 2); slides 3, 4 and 6 use standard formats
-(sort, tap-reveal comparison, scenario decisions) per the 1–2 widget cap. Carries
-heavier hedging per this file's own note on lessons 11/14/23. One bug caught by
-static checks and fixed before commit: two unprefixed helper classes (`ef`/`in`
-on the sort-zone divs) renamed to `lc-eff`/`lc-inf`.
+the three account tax treatments, a fund-distribution tax fact, and a 4-case
+placement exercise, closing with a 6-line recap. Closes on a verified Learned
+Hand quote (*Gregory v. Helvering*, 69 F.2d 809, 2d Cir. 1934). One creative
+widget used (a simplified 1099-form reveal on slide 2); slides 3, 4 and 6 use
+standard formats (sort, tap-reveal comparison, scenario decisions) per the 1–2
+widget cap. Carries heavier hedging per this file's own note on lessons 11/14/23.
+
+Fixed after initial review: two unprefixed helper classes (`ef`/`in` on the
+sort-zone divs) renamed to `lc-eff`/`lc-inf`; slide 3's sort widget wasn't
+showing where a card landed or whether it was right (cards were hidden via
+`display:none` on placement, with no correctness check at all) — now a placed
+card stays visible in its zone with a green ✓ or red ✗; REITs and municipal
+bonds were cut entirely since neither is introduced before Module 3 (replaced
+with a CD, a fund-distribution fact, and a dividend-reinvestment case, with
+extra term mentions woven in to keep the glossary density up); and the
+Complete-slide icon was swapped from 🗂️ to 🚀, matching every other lesson.
 
 What was fixed in the Module 1–2 backlog pass:
 
