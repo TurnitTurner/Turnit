@@ -84,9 +84,9 @@ Two things the tools can't judge — check them by eye on a 390px screenshot:
 
 | | |
 |---|---|
-| Built | 11 lessons — Modules 1 and 2 complete, Module 3 underway (1 of 5) |
-| Outlined | 24 lessons — Modules 3 (remainder) –7 |
-| Passing every check | all 11 (01–11), at desktop and phone widths |
+| Built | 15 lessons — Modules 1, 2, and 3 complete |
+| Outlined | 20 lessons — Modules 4–7 |
+| Passing every check | all 15 (01–15), at desktop and phone widths |
 | Intermediate quizzes | not built yet |
 
 The lesson-5 duplicate, the missing sticky nav on 01–05, the 5-line recaps, lesson 01's

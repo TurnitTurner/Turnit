@@ -1,0 +1,737 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — WHAT A 1099 ACTUALLY TELLS YOU
+     (Intermediate · Module 3 · Lesson 15)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-fm. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  One Form, Three Sections (creative)
+       3  Read The Numbers (4)              4  What Each Form Covers
+       5  Myth Or Fact (5)                  6  Do The Math (4)
+       7  Recap (6)                         8  Complete
+     Creative widget, 1 of 2 allowed: slide 2's annotated consolidated
+     1099 reconstruction — a 1099-DIV panel and a 1099-B panel with real
+     box numbers and labels, tappable hotspots revealing what each one
+     means and tying back to Lessons 12-14. Modeled on Lesson 8's
+     annotated fund page, but a brand-new document type: not the
+     simplified single-box snippet Lesson 11 used, and the first full
+     reconstruction of an actual 1099 in this course. Slides 3, 4 and 6
+     are standard quiz / side-by-side / scenario formats.
+     Gating reads state published on the container, so spamming one
+     control can never unlock a slide; once unlocked, a slide stays
+     unlocked after Start Over.
+     This lesson closes Module 3: it deliberately reuses concepts from
+     11-14 (qualified/ordinary split, short/long-term, wash-sale
+     disallowance) in the context of reading paperwork, not by re-teaching
+     any of them from scratch. REITs and municipal bonds are not used as
+     examples; neither has been introduced in an earlier lesson.
+     Real figures (sourced, as of writing):
+       Form 1099-DIV box layout: Box 1a Total Ordinary Dividends, Box 1b
+       Qualified Dividends (a subset of 1a), Box 2a Total Capital Gain
+       Distributions — current IRS instructions for Form 1099-DIV.
+       Form 1099-B box layout (2025 revision): 1a Description, 1b Date
+       Acquired, 1c Date Sold, 1d Proceeds, 1e Cost Or Other Basis, 1f
+       Accrued Market Discount, 1g Wash Sale Loss Disallowed, Box 2
+       checked Short-Term/Long-Term/Ordinary — current IRS form and
+       TaxAct's box-by-box guide agree on this layout; box numbers have
+       changed across tax years (the 2012-13 forms used different
+       numbers), so this reflects the current form only.
+       All dollar figures on the sample forms (slide 2) and in the word
+       problems (slide 6) are invented for teaching clarity, not a real
+       taxpayer's numbers.
+     ============================================================ -->
+<div id="tn-fm">
+  <div class="fm-wrap">
+    <div class="fm-top">
+      <div class="fm-topbar">
+        <div class="fm-brand"><span class="fm-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="fm-word">TURNIT</span><span class="fm-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="fm-progress"><span id="fm-bar"></span></div>
+      <div class="fm-meta"><span id="fm-slide-label">Start Here</span><span id="fm-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="fm-sec fm-center fm-reveal" data-step="1">
+      <p class="fm-kicker center">Tax-Smart Investing · 1 / 8</p>
+      <h1 class="fm-hero-title">READING YOUR <span class="fm-hero-grad">1099</span></h1>
+      <p class="fm-sub center">Four lessons of tax rules, all showing up as a handful of boxes on one form.</p>
+      <div class="fm-vocab">
+        <span class="fm-vocab-label">Key Terms In This Lesson</span>
+        <div class="fm-vocab-chips" id="fm-vocab-chips">
+          <button type="button" class="fm-vocab-chip" data-t="Consolidated 1099" data-def="One combined document most brokerages send, bundling your 1099-DIV, 1099-INT, and 1099-B into a single mailing instead of three separate forms.">Consolidated 1099</button>
+          <button type="button" class="fm-vocab-chip" data-t="Form 1099-DIV" data-def="Reports dividends and some capital gain distributions. Box 1a shows total ordinary dividends; box 1b shows how much of that was qualified.">Form 1099-DIV</button>
+          <button type="button" class="fm-vocab-chip" data-t="Form 1099-B" data-def="Reports what happened when you sold something — proceeds, cost basis, the resulting gain or loss, and whether it was short-term or long-term.">Form 1099-B</button>
+          <button type="button" class="fm-vocab-chip" data-t="Proceeds" data-def="What you received from a sale, before subtracting what you paid for the asset. Shown on Form 1099-B.">Proceeds</button>
+          <button type="button" class="fm-vocab-chip" data-t="Cost Basis" data-def="What you originally paid for the asset, including purchase costs. Your gain or loss is proceeds minus this number.">Cost Basis</button>
+          <button type="button" class="fm-vocab-chip" data-t="Wash Sale Adjustment" data-def="The amount of a loss the broker has already flagged as disallowed under the wash-sale rule — reported on Form 1099-B and added to the replacement shares' cost basis.">Wash Sale Adjustment</button>
+        </div>
+        <div class="fm-vocab-def" id="fm-vocab-def">Tap a term to see what it means.</div>
+        <span class="fm-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="fm-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · ONE FORM, THREE SECTIONS ========== -->
+    <section class="fm-sec fm-reveal" data-step="2">
+      <p class="fm-kicker">Reading The Real Thing · 2 / 8</p>
+      <h2 class="fm-h2">One Form, Several Sections</h2>
+      <p class="fm-p">A simplified consolidated 1099. Tap each numbered box to see what it actually means.</p>
+      <div class="fm-doc" id="fm-doc">
+        <div class="fm-docpanel">
+          <div class="fm-doc-tab">Form 1099-DIV</div>
+          <div class="fm-doc-rows">
+            <button type="button" class="fm-box" data-k="b1a" data-why="This is the full dividend amount paid this year — taxed at your ordinary rate unless Box 1b says otherwise.">
+              <span class="fm-box-n">1a</span><span class="fm-box-lab">Total Ordinary Dividends</span><span class="fm-box-amt">$1,850.00</span>
+            </button>
+            <button type="button" class="fm-box" data-k="b1b" data-why="$1,620 of the $1,850 was qualified — taxed at the lower 0/15/20% rate instead. The remaining $230 stays ordinary.">
+              <span class="fm-box-n">1b</span><span class="fm-box-lab">Qualified Dividends</span><span class="fm-box-amt">$1,620.00</span>
+            </button>
+            <button type="button" class="fm-box" data-k="b2a" data-why="A capital gain the fund itself distributed to you, taxed at the long-term rate — separate from anything you personally sold.">
+              <span class="fm-box-n">2a</span><span class="fm-box-lab">Total Capital Gain Distributions</span><span class="fm-box-amt">$240.00</span>
+            </button>
+          </div>
+        </div>
+        <div class="fm-docpanel">
+          <div class="fm-doc-tab">Form 1099-B — One Sale</div>
+          <div class="fm-doc-rows">
+            <div class="fm-rowstatic"><span class="fm-box-n">1b</span><span class="fm-box-lab">Date Acquired</span><span class="fm-box-amt">06/02/2025</span></div>
+            <div class="fm-rowstatic"><span class="fm-box-n">1c</span><span class="fm-box-lab">Date Sold</span><span class="fm-box-amt">11/02/2025</span></div>
+            <button type="button" class="fm-box" data-k="b1d" data-why="What this sale brought in — before subtracting what was paid for the shares.">
+              <span class="fm-box-n">1d</span><span class="fm-box-lab">Proceeds</span><span class="fm-box-amt">$6,950.00</span>
+            </button>
+            <button type="button" class="fm-box" data-k="b1e" data-why="What was originally paid for the shares. Proceeds minus cost basis is a $1,450 loss, before the wash-sale line below.">
+              <span class="fm-box-n">1e</span><span class="fm-box-lab">Cost Basis</span><span class="fm-box-amt">$8,400.00</span>
+            </button>
+            <button type="button" class="fm-box" data-k="b1g" data-why="$150 of that $1,450 loss was disallowed because a replacement was bought inside the 61-day window. The usable loss is $1,300, and the $150 rolls into the replacement shares' cost basis.">
+              <span class="fm-box-n">1g</span><span class="fm-box-lab">Wash Sale Loss Disallowed</span><span class="fm-box-amt">$150.00</span>
+            </button>
+            <div class="fm-rowstatic"><span class="fm-box-n">2</span><span class="fm-box-lab">Term</span><span class="fm-box-amt">☑ Short-Term</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="fm-doc-detail" id="fm-doc-detail">Tap a box above to see what it means.</div>
+      <p class="fm-count" id="fm-doc-count">Checked 0 Of 6</p>
+      <p class="fm-disclaimer-inline">A simplified illustration of a consolidated 1099, not a real document. All figures are invented for teaching clarity.</p>
+    </section>
+
+    <!-- ========== 3 · READ THE NUMBERS ========== -->
+    <section class="fm-sec fm-reveal" data-step="3">
+      <p class="fm-kicker">Four Quick Checks · 3 / 8</p>
+      <h2 class="fm-h2">Read The Numbers</h2>
+      <p class="fm-p">Given what's on the box, tap the right answer.</p>
+      <div class="fm-cases" id="fm-readcases">
+        <div class="fm-case" data-ans="1">
+          <p class="fm-case-q">Box 1a shows $3,000. Box 1b also shows $3,000. What does that tell you?</p>
+          <div class="fm-copts"><button type="button" data-i="0">None of it is taxed at the lower rate</button><button type="button" data-i="1">All of it is taxed at the lower rate</button><button type="button" data-i="2">Half of it is taxed at the lower rate</button></div>
+          <p class="fm-why"></p>
+        </div>
+        <div class="fm-case" data-ans="2">
+          <p class="fm-case-q">Box 1g shows $150. What happened to that $150?</p>
+          <div class="fm-copts"><button type="button" data-i="0">Paid out as an extra dividend</button><button type="button" data-i="1">Refunded by the broker</button><button type="button" data-i="2">Disallowed under the wash-sale rule</button></div>
+          <p class="fm-why"></p>
+        </div>
+        <div class="fm-case" data-ans="0">
+          <p class="fm-case-q">Box 2 is checked "Short-Term." How is this gain taxed?</p>
+          <div class="fm-copts"><button type="button" data-i="0">At your ordinary income rate</button><button type="button" data-i="1">At the 0/15/20% preferential rate</button><button type="button" data-i="2">It isn't taxed at all</button></div>
+          <p class="fm-why"></p>
+        </div>
+        <div class="fm-case" data-ans="1">
+          <p class="fm-case-q">Box 1e (cost basis) is blank on one of your sales. What should you do?</p>
+          <div class="fm-copts"><button type="button" data-i="0">Assume the gain or loss is zero</button><button type="button" data-i="1">Use your own purchase records to figure the gain or loss</button><button type="button" data-i="2">Leave that sale off your return</button></div>
+          <p class="fm-why"></p>
+        </div>
+      </div>
+      <p class="fm-count" id="fm-readcase-count">Answered 0 Of 4</p>
+      <div class="fm-reset-row"><button type="button" class="fm-reset-btn" id="fm-readcase-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 4 · WHAT EACH FORM COVERS ========== -->
+    <section class="fm-sec fm-reveal" data-step="4">
+      <p class="fm-kicker">Two Forms, Different Jobs · 4 / 8</p>
+      <h2 class="fm-h2">What Each One Covers</h2>
+      <p class="fm-p">Same consolidated mailing, two different stories. Tap each to see what it reports.</p>
+      <div class="fm-split">
+        <div class="fm-splitcol">
+          <p class="fm-splitcol-t div">Form 1099-DIV</p>
+          <button type="button" class="fm-ex" data-k="e1">The ordinary-vs-qualified split on what you were paid</button>
+          <button type="button" class="fm-ex" data-k="e2">Capital gains a fund distributed, even if you never sold anything</button>
+        </div>
+        <div class="fm-splitcol">
+          <p class="fm-splitcol-t bx">Form 1099-B</p>
+          <button type="button" class="fm-ex" data-k="e3">Proceeds and cost basis for every sale you made</button>
+          <button type="button" class="fm-ex" data-k="e4">Any wash-sale adjustments the broker already applied</button>
+        </div>
+      </div>
+      <div class="fm-exbox" id="fm-exbox">Tap an example above to see why.</div>
+      <p class="fm-count" id="fm-ex-count">Revealed 0 Of 4</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="fm-sec fm-reveal" data-step="5">
+      <p class="fm-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="fm-h2">Myth Or Fact?</h2>
+      <p class="fm-p">Five claims you'll hear about your 1099. Tap your answer.</p>
+      <div class="fm-sort" id="fm-myth">
+        <div class="fm-sort-row" data-answer="myth"><span>If box 1e (cost basis) is blank, you don't need to figure out your own cost basis.</span><div class="fm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fm-why"><b>Myth.</b> A blank box usually means the broker wasn't required to track it — often shares bought before 2012. You still need your own purchase records.</p></div>
+        <div class="fm-sort-row" data-answer="fact"><span>A single broker can send you one consolidated 1099 that bundles dividend, interest, and sale information together.</span><div class="fm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fm-why"><b>Fact.</b> Most brokerages mail one combined document instead of three separate forms — the sections inside still carry each form's own name and box numbers.</p></div>
+        <div class="fm-sort-row" data-answer="myth"><span>Box 1a (total ordinary dividends) and box 1b (qualified dividends) are always two completely different numbers.</span><div class="fm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fm-why"><b>Myth.</b> Box 1b is a slice of box 1a, not a separate total — the two can even be equal if every dividend you were paid happened to qualify.</p></div>
+        <div class="fm-sort-row" data-answer="fact"><span>A wash-sale adjustment on your 1099-B doesn't erase the loss — it rolls into the cost basis of the shares you bought back.</span><div class="fm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fm-why"><b>Fact.</b> The disallowed amount becomes extra basis on the replacement shares, so the benefit is deferred rather than gone for good.</p></div>
+        <div class="fm-sort-row" data-answer="myth"><span>You can just copy the numbers from your 1099 onto your return without double-checking them.</span><div class="fm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="fm-why"><b>Myth.</b> Brokers sometimes issue corrected 1099s after the original. Checking the numbers against your own records catches errors before they become your problem.</p></div>
+      </div>
+      <p class="fm-count" id="fm-myth-count">Answered 0 Of 5</p>
+      <div class="fm-reset-row"><button type="button" class="fm-reset-btn" id="fm-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · DO THE MATH ========== -->
+    <section class="fm-sec fm-reveal" data-step="6">
+      <p class="fm-kicker">Four Word Problems · 6 / 8</p>
+      <h2 class="fm-h2">Do The Math</h2>
+      <p class="fm-p">Put the last four lessons to work on fresh numbers.</p>
+      <div class="fm-cases" id="fm-mathcases">
+        <div class="fm-case" data-ans="2">
+          <p class="fm-case-q">Box 1a: $5,000. Box 1b: $4,200. How much is NOT qualified?</p>
+          <div class="fm-copts"><button type="button" data-i="0">$4,200</button><button type="button" data-i="1">$5,000</button><button type="button" data-i="2">$800</button></div>
+          <p class="fm-why"></p>
+        </div>
+        <div class="fm-case" data-ans="1">
+          <p class="fm-case-q">Box 1d (proceeds): $12,000. Box 1e (cost basis): $9,500. What's the gain?</p>
+          <div class="fm-copts"><button type="button" data-i="0">$21,500</button><button type="button" data-i="1">$2,500</button><button type="button" data-i="2">$9,500</button></div>
+          <p class="fm-why"></p>
+        </div>
+        <div class="fm-case" data-ans="0">
+          <p class="fm-case-q">Box 2 checked Long-Term. Gain is $2,500, taxed at 15%. Tax owed?</p>
+          <div class="fm-copts"><button type="button" data-i="0">$375</button><button type="button" data-i="1">$500</button><button type="button" data-i="2">$625</button></div>
+          <p class="fm-why"></p>
+        </div>
+        <div class="fm-case" data-ans="2">
+          <p class="fm-case-q">Box 1g shows $300. What happened to that $300 of loss?</p>
+          <div class="fm-copts"><button type="button" data-i="0">Carried forward to next year automatically</button><button type="button" data-i="1">Taxed at the ordinary rate</button><button type="button" data-i="2">Disallowed, added to the replacement shares' basis</button></div>
+          <p class="fm-why"></p>
+        </div>
+      </div>
+      <p class="fm-count" id="fm-mathcase-count">Answered 0 Of 4</p>
+      <div class="fm-reset-row"><button type="button" class="fm-reset-btn" id="fm-mathcase-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="fm-sec fm-reveal" data-step="7">
+      <p class="fm-kicker">Recap · 7 / 8</p>
+      <h2 class="fm-h2">Here's What You Now Know</h2>
+      <p class="fm-p">The whole lesson, in six lines.</p>
+      <div class="fm-recap">
+        <div class="fm-recap-item"><span class="fm-recap-check">✓</span><span>A consolidated 1099 bundles your dividend, interest, and sale reporting into one document.</span></div>
+        <div class="fm-recap-item"><span class="fm-recap-check">✓</span><span>Box 1a is total ordinary dividends; box 1b is the slice of that taxed at the lower qualified rate.</span></div>
+        <div class="fm-recap-item"><span class="fm-recap-check">✓</span><span>Form 1099-B reports proceeds and cost basis for each sale — the difference is your gain or loss.</span></div>
+        <div class="fm-recap-item"><span class="fm-recap-check">✓</span><span>Box 2 tells you short-term or long-term, which decides which rate table applies.</span></div>
+        <div class="fm-recap-item"><span class="fm-recap-check">✓</span><span>A wash-sale adjustment doesn't erase a loss — it rolls into the replacement shares' cost basis.</span></div>
+        <div class="fm-recap-item"><span class="fm-recap-check">✓</span><span>If cost basis is blank, the broker didn't track it — you still need your own records.</span></div>
+      </div>
+      <div class="fm-next-move">Your next move: <b>pull up last year's 1099 and find boxes 1a, 1b, and 2 on an actual sale.</b> You now know what each one is telling you.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="fm-sec fm-center fm-reveal" data-step="8">
+      <p class="fm-kicker center">Module 3 Complete · 8 / 8</p>
+      <span class="fm-hero-ico">🚀</span>
+      <h2 class="fm-h2 center">You've Finished The Lesson</h2>
+      <p class="fm-sub center">That's Module 3 done — tax-smart investing, start to finish. Module 4 looks at risk you can't see in a chart.</p>
+      <div class="fm-finish">
+        <span class="fm-finish-arrow" id="fm-fin-arrow" aria-hidden="true">↓</span>
+        <p class="fm-finish-lead" id="fm-fin-lead">Scroll Down To Continue</p>
+        <p class="fm-finish-sub" id="fm-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="fm-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="fm-pullquote">"KNOW WHAT YOU OWN, <span class="fm-green">AND KNOW WHY YOU OWN IT.</span>"<br><span class="fm-pullquote-by">— PETER LYNCH, ONE UP ON WALL STREET</span></p>
+    </section>
+
+    <p class="fm-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The 1099 sections on slide 2 are a simplified illustration, not a real document, and all dollar figures throughout this lesson are invented for teaching clarity. Box numbers and layouts shown reflect the current tax year's forms and change over time. Consider speaking with a qualified tax professional about your own situation.</p>
+
+    <div class="fm-nav" id="fm-nav">
+      <button type="button" class="fm-nav-btn prev" id="fm-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="fm-nav-hint" id="fm-nav-hint"></span>
+      <button type="button" class="fm-nav-btn next" id="fm-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-fm{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-fm *,#tn-fm *::before,#tn-fm *::after{box-sizing:border-box;}
+  #tn-fm .fm-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-fm .fm-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-fm .fm-reveal.in{opacity:1; transform:none;}
+  #tn-fm .fm-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-fm .fm-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-fm .fm-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-fm .fm-bico{display:flex;}
+  #tn-fm .fm-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-fm .fm-bsub{color:var(--ink2); font-weight:500;}
+  #tn-fm .fm-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-fm #fm-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-fm .fm-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-fm .fm-meta #fm-slide-label{color:var(--ink2);}
+  #tn-fm .fm-meta #fm-slide-count{color:var(--mut);}
+  #tn-fm .fm-sec{padding:16px 0 8px;}
+  #tn-fm .fm-sec.fm-hide{display:none;}
+  #tn-fm .fm-center{text-align:center;}
+  #tn-fm .fm-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-fm .fm-kicker.center{text-align:center;}
+  #tn-fm .fm-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-fm .fm-h2.center{text-align:center;}
+  #tn-fm .fm-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-fm .fm-p b{color:var(--ink); font-weight:700;}
+  #tn-fm .fm-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-fm .fm-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-fm .fm-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-fm .fm-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-fm .fm-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-fm .fm-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-fm .fm-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,42px); line-height:1.14; text-align:center; margin:8px 0 14px;}
+  #tn-fm .fm-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-fm .fm-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-fm .fm-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-fm .fm-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-fm .fm-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-fm .fm-vocab-chip:hover{filter:brightness(.97);}
+  #tn-fm .fm-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-fm .fm-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-fm .fm-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-fm .fm-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-fm .fm-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-fm .fm-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · annotated 1099 (creative) */
+  #tn-fm .fm-doc{display:flex; flex-direction:column; gap:14px;}
+  #tn-fm .fm-docpanel{border:1.5px solid var(--cardbd); border-radius:14px; overflow:hidden; background:#fff;}
+  #tn-fm .fm-doc-tab{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:#fff; background:var(--b); padding:10px 14px;}
+  #tn-fm .fm-doc-rows{display:flex; flex-direction:column; gap:1px; background:var(--cardbd);}
+  #tn-fm .fm-box{display:flex; align-items:center; gap:10px; background:#fff; border:none; padding:11px 14px; cursor:pointer; text-align:left; transition:background .15s; width:100%;}
+  #tn-fm .fm-box:hover{background:var(--mist);}
+  #tn-fm .fm-box.done{background:var(--tint);}
+  #tn-fm .fm-rowstatic{display:flex; align-items:center; gap:10px; background:var(--mist); padding:11px 14px;}
+  #tn-fm .fm-box-n{flex:none; width:26px; height:26px; border-radius:7px; background:var(--cardbg); border:1.5px solid var(--cardbd); color:var(--ink2); font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; display:flex; align-items:center; justify-content:center;}
+  #tn-fm .fm-box.done .fm-box-n{background:var(--g); border-color:var(--g); color:#fff;}
+  #tn-fm .fm-box-lab{flex:1; font-size:12.5px; font-weight:600; color:var(--ink2); min-width:0;}
+  #tn-fm .fm-box-amt{flex:none; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink);}
+  #tn-fm .fm-doc-detail{text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.6; margin:14px auto 0; max-width:560px; min-height:40px;}
+  #tn-fm .fm-doc-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 3 & 6 · scenarios */
+  #tn-fm .fm-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-fm .fm-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-fm .fm-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-fm .fm-copts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-fm .fm-copts button{flex:1; min-width:140px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 12px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-fm .fm-copts button:hover{border-color:var(--selbd);}
+  #tn-fm .fm-case.done .fm-copts button{opacity:.35; pointer-events:none;}
+  #tn-fm .fm-case.done .fm-copts button.picked{opacity:1;}
+  #tn-fm .fm-case.done .fm-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-fm .fm-case.done .fm-copts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-fm .fm-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-fm .fm-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-fm .fm-case.done .fm-why{display:block;}
+  #tn-fm .fm-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-fm .fm-why b{font-family:'Poppins',sans-serif;}
+  /* 4 · side-by-side split */
+  #tn-fm .fm-split{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  #tn-fm .fm-splitcol{display:flex; flex-direction:column; gap:8px;}
+  #tn-fm .fm-splitcol-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; text-align:center; margin:0 0 2px;}
+  #tn-fm .fm-splitcol-t.div{color:var(--b);}
+  #tn-fm .fm-splitcol-t.bx{color:var(--g);}
+  #tn-fm .fm-ex{font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 12px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-fm .fm-ex:hover{border-color:var(--selbd);}
+  #tn-fm .fm-ex.done{background:var(--mist); border-color:var(--selbd); color:var(--ink2);}
+  #tn-fm .fm-exbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-fm .fm-exbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-fm .fm-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-fm .fm-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-fm .fm-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-fm .fm-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-fm .fm-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-fm .fm-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-fm .fm-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-fm .fm-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-fm .fm-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-fm .fm-sort-row.done .fm-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-fm .fm-sort-row.done .fm-sort-btns button.picked{opacity:1;}
+  #tn-fm .fm-sort-row .fm-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-fm .fm-sort-row.done .fm-why{display:block;}
+  /* recap + complete */
+  #tn-fm .fm-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-fm .fm-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-fm .fm-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-fm .fm-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-fm .fm-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-fm .fm-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-fm .fm-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-fm .fm-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:fm-bob 1.6s ease-in-out infinite;}
+  #tn-fm .fm-finish-arrow.up{animation-name:fm-bob-up;}
+  @keyframes fm-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes fm-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-fm .fm-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-fm .fm-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-fm .fm-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-fm .fm-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-fm .fm-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-fm .fm-green{color:var(--g);}
+  #tn-fm .fm-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-fm .fm-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-fm .fm-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-fm .fm-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-fm .fm-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-fm .fm-nav-btn.prev{color:var(--ink2);}
+  #tn-fm .fm-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-fm .fm-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-fm .fm-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-fm .fm-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-fm .fm-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-fm .fm-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-fm .fm-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-fm .fm-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .fm-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .fm-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-fm .fm-wrap{padding:12px 14px 30px;}
+    #tn-fm .fm-split{grid-template-columns:1fr;}
+    #tn-fm .fm-box-lab{font-size:11.5px;}
+    #tn-fm .fm-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-fm .fm-copts button{min-width:0; flex:1 1 100%;}
+    #tn-fm .fm-bsub{display:none;}
+    #tn-fm .fm-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-fm .fm-nav{padding-top:10px; row-gap:0;}
+    #tn-fm .fm-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-fm .fm-reveal{opacity:1 !important; transform:none !important;}
+    #tn-fm #fm-bar{transition:none;}
+    #tn-fm .fm-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-fm'); if(!root) return;
+  root.querySelectorAll('.fm-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('fm-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#fm-vocab-def');
+  root.querySelectorAll('#fm-vocab-chips .fm-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#fm-vocab-chips .fm-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · annotated 1099 (creative 1 of 1) */
+  var docSeen={}, docDetail=root.querySelector('#fm-doc-detail'), docCount=root.querySelector('#fm-doc-count');
+  root.querySelectorAll('#fm-doc .fm-box').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var lab=btn.querySelector('.fm-box-lab').textContent, amt=btn.querySelector('.fm-box-amt').textContent;
+      docDetail.innerHTML='<b>'+lab+' ('+amt+'):</b> '+btn.getAttribute('data-why');
+      docSeen[btn.getAttribute('data-k')]=1;
+      docCount.textContent='Checked '+keys(docSeen)+' Of 6';
+      state('doc', keys(docSeen)); postHeight();
+    });
+  });
+
+  /* 3 · read the numbers */
+  var RWHY=[
+    'Box 1b is a slice of box 1a. Equal numbers means every dollar reported happened to qualify for the lower rate.',
+    'Box 1g is the wash-sale adjustment — that amount is added to the cost basis of whatever replaced the sold shares.',
+    '“Short-Term” checked in Box 2 means this gain is taxed at your ordinary income rate, not the preferential 0/15/20% table.',
+    'A blank cost-basis box means the broker wasn’t required to track it, often for shares bought before 2012. Your own records fill the gap.'
+  ];
+  var readCount=root.querySelector('#fm-readcase-count');
+  root.querySelectorAll('#fm-readcases .fm-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.fm-why');
+    c.querySelectorAll('.fm-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.fm-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+RWHY[ci];
+        var n=root.querySelectorAll('#fm-readcases .fm-case.done').length;
+        readCount.textContent='Answered '+n+' Of 4';
+        state('read', n); postHeight();
+      });
+    });
+  });
+  var readReset=root.querySelector('#fm-readcase-reset');
+  if(readReset) readReset.addEventListener('click',function(){
+    root.querySelectorAll('#fm-readcases .fm-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.fm-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    readCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  /* 4 · what each form covers */
+  var EXW={
+    e1:'Box 1a shows the full amount; box 1b carves out the part taxed at the lower 0/15/20% rate.',
+    e2:'Reported in box 2a, even when you personally never sold a single share.',
+    e3:'Boxes 1d and 1e, one row per sale — the difference between them is your gain or loss.',
+    e4:'Box 1g, if a repurchase inside the 61-day window disallowed part of a loss.'
+  };
+  var exSeen={}, exBox=root.querySelector('#fm-exbox'), exCount=root.querySelector('#fm-ex-count');
+  root.querySelectorAll('#tn-fm .fm-ex').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      exBox.innerHTML='<b>'+btn.textContent+':</b> '+EXW[k];
+      exSeen[k]=1;
+      exCount.textContent='Revealed '+keys(exSeen)+' Of 4';
+      state('ex', keys(exSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#fm-myth-count');
+  root.querySelectorAll('#fm-myth .fm-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.fm-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#fm-myth .fm-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#fm-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#fm-myth .fm-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · do the math */
+  var MWHY=[
+    '$5,000 minus $4,200 is $800 — the part of the dividend that stays at your ordinary rate.',
+    '$12,000 proceeds minus $9,500 cost basis is a $2,500 gain.',
+    '$2,500 times 15% is $375.',
+    'Box 1g is the wash-sale adjustment — disallowed, then added to the cost basis of the replacement shares.'
+  ];
+  var mathCount=root.querySelector('#fm-mathcase-count');
+  root.querySelectorAll('#fm-mathcases .fm-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.fm-why');
+    c.querySelectorAll('.fm-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.fm-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+MWHY[ci];
+        var n=root.querySelectorAll('#fm-mathcases .fm-case.done').length;
+        mathCount.textContent='Answered '+n+' Of 4';
+        state('math', n); postHeight();
+      });
+    });
+  });
+  var mathReset=root.querySelector('#fm-mathcase-reset');
+  if(mathReset) mathReset.addEventListener('click',function(){
+    root.querySelectorAll('#fm-mathcases .fm-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.fm-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    mathCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('fm-fin-arrow'), lead=document.getElementById('fm-fin-lead'), sub=document.getElementById('fm-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-fm'); if(!root) return;
+  var ALT={
+    'consolidated 1099':'consolidated 1099s?',
+    'form 1099-div':'form 1099-divs?|1099-div',
+    'form 1099-b':'form 1099-bs?|1099-b',
+    'proceeds':'proceeds',
+    'cost basis':'cost basis',
+    'wash sale adjustment':'wash[- ]sale adjustments?|wash-sale'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#fm-vocab-chips .fm-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so "form 1099-div" is never eaten by a shorter overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.fm-p, .fm-sub, .fm-note, .fm-why, .fm-recap-item span, .fm-h2, .fm-next-move, .fm-sort-row > span, .fm-case-q, .fm-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.fm-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='fm-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='fm-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.fm-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.fm-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-fm'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#fm-bar'), labelEl=root.querySelector('#fm-slide-label'),
+      countEl=root.querySelector('#fm-slide-count'), prevBtn=root.querySelector('#fm-prev'),
+      nextBtn=root.querySelector('#fm-next'), hintEl=root.querySelector('#fm-nav-hint'),
+      disclaimer=root.querySelector('.fm-disclaimer');
+  var labels={1:'Start Here',2:'One Form, Several Sections',3:'Read The Numbers',4:'What Each One Covers',5:'Myth Or Fact',6:'Do The Math',7:'Recap',8:'Complete'};
+  var reqHints={2:'Check all 6 to continue',3:'Answer all 4 to continue',4:'Reveal all 4 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.fm-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('fm-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('fm-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'doc',  need:6, hint:function(n){ return 'Checked '+n+' of 6 — tap them all to continue'; }},
+    {step:3, key:'read', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }},
+    {step:4, key:'ex',   need:4, hint:function(n){ return 'Revealed '+n+' of 4 — tap them all to continue'; }},
+    {step:5, key:'myth', need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'math', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('fm-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

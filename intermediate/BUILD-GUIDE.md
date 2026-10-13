@@ -45,6 +45,11 @@ Every lesson gets a unique two-letter prefix. Used so far:
 | `fp` | How To Read A Fund Page |
 | `ov` | Fund Overlap |
 | `dr` | Dividends And Total Return |
+| `lc` | Asset Location |
+| `qd` | Qualified Vs. Ordinary Dividends |
+| `cg` | Holding Periods And The Capital Gains Brackets |
+| `tl` | Tax-Loss Harvesting, And The Wash-Sale Rule |
+| `fm` | What A 1099 Actually Tells You |
 
 Pick a new unused prefix for each new lesson. Then:
 

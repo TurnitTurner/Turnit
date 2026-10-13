@@ -1,0 +1,759 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — HOLDING PERIODS AND THE CAPITAL GAINS BRACKETS
+     (Intermediate · Module 3 · Lesson 13)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-cg. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  Where Your Gain Lands (creative)
+       3  Short-Term, Or Long-Term?         4  Same $5,000, Two Bills (calculator)
+       5  Myth Or Fact (5)                  6  Which Zone? (4)
+       7  Recap (6)                         8  Complete
+     Creative widget, 1 of 2 allowed: slide 2's stacking bar — ordinary
+     income fills a horizontal bar first, then a highlighted gain segment
+     stacks on top and is shown splitting across rate-zone boundaries when
+     it crosses one. A different visual from lesson 12's day-count ruler
+     and every earlier lesson's look.
+     Slide 4 is a standard calculator (deliberately reuses lesson 12's
+     three income presets and real bracket figures for cross-lesson
+     consistency, applied here to a sale instead of a dividend). Slides 3
+     and 6 are standard scenario-decision / quiz formats.
+     Gating reads state published on the container, so spamming one
+     control can never unlock a slide; once unlocked, a slide stays
+     unlocked after Start Over.
+     Does NOT re-teach qualified vs. ordinary dividends (Lesson 12) or
+     wash sales (Lesson 14). REITs and municipal bonds are not used as
+     examples; neither has been introduced in an earlier lesson.
+     Real figures (sourced, as of writing; tax year 2026, per Rev. Proc.
+     2025-32, filed in 2027), single filer:
+       Long-term capital gains / qualified dividend brackets: 0% up to
+       $49,450; 15% from $49,451 to $545,500; 20% above $545,500 — the
+       same figures used in Lesson 12, reused here rather than restated
+       differently, per the cross-lesson consistency rule.
+       Ordinary brackets used for the slide-4 calculator: 12% marginal at
+       $45,000 taxable income, 24% at $120,000, 35% at $600,000 (2026
+       table, same Rev. Proc.) — identical to Lesson 12's calculator
+       scenarios, reused on purpose.
+       Short-term vs. long-term threshold: held one year or less is
+       short-term; more than one year is long-term (IRC §1222) — holding
+       exactly one year to the day is still short-term, a common trap.
+     ============================================================ -->
+<div id="tn-cg">
+  <div class="cg-wrap">
+    <div class="cg-top">
+      <div class="cg-topbar">
+        <div class="cg-brand"><span class="cg-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="cg-word">TURNIT</span><span class="cg-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="cg-progress"><span id="cg-bar"></span></div>
+      <div class="cg-meta"><span id="cg-slide-label">Start Here</span><span id="cg-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="cg-sec cg-center cg-reveal" data-step="1">
+      <p class="cg-kicker center">Tax-Smart Investing · 1 / 8</p>
+      <h1 class="cg-hero-title">SHORT-TERM <span class="cg-hero-grad">OR LONG-TERM?</span></h1>
+      <p class="cg-sub center">One extra day of holding can move a sale from your paycheck's tax rate to a lower one built just for investors.</p>
+      <div class="cg-vocab">
+        <span class="cg-vocab-label">Key Terms In This Lesson</span>
+        <div class="cg-vocab-chips" id="cg-vocab-chips">
+          <button type="button" class="cg-vocab-chip" data-t="Short-Term Capital Gain" data-def="Profit from selling an asset you held one year or less. Taxed at your ordinary income rate, the same as a paycheck.">Short-Term Capital Gain</button>
+          <button type="button" class="cg-vocab-chip" data-t="Long-Term Capital Gain" data-def="Profit from selling an asset you held more than one year. Taxed at the lower 0%, 15%, or 20% rate instead.">Long-Term Capital Gain</button>
+          <button type="button" class="cg-vocab-chip" data-t="Holding Period" data-def="How long you owned the asset before selling it, counted from the day after you bought it through the day you sold it.">Holding Period</button>
+          <button type="button" class="cg-vocab-chip" data-t="Cost Basis" data-def="What you originally paid for the asset, including purchase costs. Your gain is the sale price minus this number.">Cost Basis</button>
+          <button type="button" class="cg-vocab-chip" data-t="Income Stacking" data-def="How a capital gain is taxed as if it sits on top of your ordinary income — that income fills the lower brackets first, and the gain is taxed at whatever bracket starts where it leaves off.">Income Stacking</button>
+          <button type="button" class="cg-vocab-chip" data-t="Capital Gains Bracket" data-def="One of three zones — 0%, 15%, or 20% — a long-term gain falls into, based on your total taxable income including the gain.">Capital Gains Bracket</button>
+        </div>
+        <div class="cg-vocab-def" id="cg-vocab-def">Tap a term to see what it means.</div>
+        <span class="cg-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="cg-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · WHERE YOUR GAIN LANDS ========== -->
+    <section class="cg-sec cg-reveal" data-step="2">
+      <p class="cg-kicker">Where Your Gain Lands · 2 / 8</p>
+      <h2 class="cg-h2">Your Gain Doesn't Start At Zero</h2>
+      <p class="cg-p">Income stacking means your ordinary income fills in first. Tap an income level to watch a long-term gain land in its bracket.</p>
+      <div class="cg-stackbar">
+        <div class="cg-stackbar-track" id="cg-stackbar-track">
+          <div class="cg-zone z0"></div><div class="cg-zone z15"></div><div class="cg-zone z20"></div>
+          <div class="cg-stackbar-ord" id="cg-stackbar-ord"></div>
+          <div class="cg-stackbar-gain" id="cg-stackbar-gain"></div>
+        </div>
+        <div class="cg-stackbar-labels"><span>0% Zone</span><span>15% Zone</span><span>20% Zone</span></div>
+      </div>
+      <div class="cg-stackresult" id="cg-stackresult">Tap a scenario below to see where the gain lands.</div>
+      <div class="cg-scens" id="cg-stackscens">
+        <button type="button" class="cg-scen" data-k="1" data-ord="30000" data-gain="20000">$30,000 Income, $20,000 Gain</button>
+        <button type="button" class="cg-scen" data-k="2" data-ord="100000" data-gain="20000">$100,000 Income, $20,000 Gain</button>
+        <button type="button" class="cg-scen" data-k="3" data-ord="540000" data-gain="20000">$540,000 Income, $20,000 Gain</button>
+      </div>
+      <p class="cg-count" id="cg-stack-count">Tested 0 Of 3</p>
+      <p class="cg-disclaimer-inline">Single filer, 2026 brackets. The bar is scaled to $700,000 for display and is illustrative, not a tax return.</p>
+    </section>
+
+    <!-- ========== 3 · SHORT-TERM, OR LONG-TERM? ========== -->
+    <section class="cg-sec cg-reveal" data-step="3">
+      <p class="cg-kicker">Four Holdings · 3 / 8</p>
+      <h2 class="cg-h2">Which One Is It?</h2>
+      <p class="cg-p">The dates decide it, not the dollar amount. Tap the right answer for each.</p>
+      <div class="cg-cases" id="cg-datecases">
+        <div class="cg-case" data-ans="0">
+          <p class="cg-case-q">Bought March 2025, sold November 2025.</p>
+          <div class="cg-copts"><button type="button" data-i="0">Short-Term</button><button type="button" data-i="1">Long-Term</button></div>
+          <p class="cg-why"></p>
+        </div>
+        <div class="cg-case" data-ans="1">
+          <p class="cg-case-q">Bought January 2025, sold March 2026.</p>
+          <div class="cg-copts"><button type="button" data-i="0">Short-Term</button><button type="button" data-i="1">Long-Term</button></div>
+          <p class="cg-why"></p>
+        </div>
+        <div class="cg-case" data-ans="0">
+          <p class="cg-case-q">Bought June 2024, sold June 2025 — exactly one year later to the day.</p>
+          <div class="cg-copts"><button type="button" data-i="0">Short-Term</button><button type="button" data-i="1">Long-Term</button></div>
+          <p class="cg-why"></p>
+        </div>
+        <div class="cg-case" data-ans="1">
+          <p class="cg-case-q">Bought October 2023, sold October 2025.</p>
+          <div class="cg-copts"><button type="button" data-i="0">Short-Term</button><button type="button" data-i="1">Long-Term</button></div>
+          <p class="cg-why"></p>
+        </div>
+      </div>
+      <p class="cg-count" id="cg-datecase-count">Answered 0 Of 4</p>
+      <div class="cg-reset-row"><button type="button" class="cg-reset-btn" id="cg-datecase-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 4 · SAME $5,000, TWO BILLS ========== -->
+    <section class="cg-sec cg-reveal" data-step="4">
+      <p class="cg-kicker">Same $5,000, Two Bills · 4 / 8</p>
+      <h2 class="cg-h2">What's The Dollar Difference?</h2>
+      <p class="cg-p">Pick a taxable income level, then toggle this $5,000 gain between short-term and long-term.</p>
+      <div class="cg-incomes" id="cg-incomes">
+        <button type="button" class="cg-inc" data-k="45" data-ord="12" data-q="0">$45,000</button>
+        <button type="button" class="cg-inc" data-k="120" data-ord="24" data-q="15">$120,000</button>
+        <button type="button" class="cg-inc" data-k="600" data-ord="35" data-q="20">$600,000</button>
+      </div>
+      <div class="cg-toggle" id="cg-toggle">
+        <button type="button" class="cg-tog on" data-m="ord">Short-Term</button>
+        <button type="button" class="cg-tog" data-m="q">Long-Term</button>
+      </div>
+      <div class="cg-calcbox" id="cg-calcbox">
+        <span class="cg-calc-lab">Tax Owed On The $5,000</span>
+        <span class="cg-calc-amt" id="cg-calc-amt">Pick an income level</span>
+        <span class="cg-calc-sub" id="cg-calc-sub"></span>
+      </div>
+      <p class="cg-count" id="cg-calc-count">Checked 0 Of 3 Income Levels</p>
+      <p class="cg-disclaimer-inline">Single filer, 2026 brackets. Each income level's own marginal bracket is applied as a flat rate — a stated simplification, not a line-by-line tax return.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="cg-sec cg-reveal" data-step="5">
+      <p class="cg-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="cg-h2">Myth Or Fact?</h2>
+      <p class="cg-p">Five claims you'll hear about holding periods and brackets. Tap your answer.</p>
+      <div class="cg-sort" id="cg-myth">
+        <div class="cg-sort-row" data-answer="myth"><span>If part of your gain pushes you into the 20% bracket, your entire gain is taxed at 20%.</span><div class="cg-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cg-why"><b>Myth.</b> Only the slice of the gain above the threshold gets the higher rate. The rest stays in the lower zone it already filled.</p></div>
+        <div class="cg-sort-row" data-answer="fact"><span>Your ordinary income is counted first when figuring out which capital-gains bracket your gain falls into.</span><div class="cg-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cg-why"><b>Fact.</b> That's income stacking. Your wages and other ordinary income fill the brackets from zero up, and the gain is taxed on whatever room is left above that.</p></div>
+        <div class="cg-sort-row" data-answer="myth"><span>Reinvesting a dividend instead of taking it as cash resets the holding period on your original shares.</span><div class="cg-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cg-why"><b>Myth.</b> A reinvested dividend buys new shares with their own fresh holding period. Your original shares keep the clock they already had.</p></div>
+        <div class="cg-sort-row" data-answer="fact"><span>A gain is short-term if you hold the asset for one year or less, and long-term only once you've held it more than one year.</span><div class="cg-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cg-why"><b>Fact.</b> Exactly one year to the day still counts as short-term. You need at least one day past the anniversary.</p></div>
+        <div class="cg-sort-row" data-answer="myth"><span>Long-term losses get a special lower tax rate, the same way long-term gains do.</span><div class="cg-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cg-why"><b>Myth.</b> There's no preferential rate on a loss — a loss just offsets income. Holding period mainly matters for which gains it can offset first.</p></div>
+      </div>
+      <p class="cg-count" id="cg-myth-count">Answered 0 Of 5</p>
+      <div class="cg-reset-row"><button type="button" class="cg-reset-btn" id="cg-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH ZONE? ========== -->
+    <section class="cg-sec cg-reveal" data-step="6">
+      <p class="cg-kicker">Four Scenarios · 6 / 8</p>
+      <h2 class="cg-h2">Which Zone?</h2>
+      <p class="cg-p">Stack the gain on the income yourself. Which rate applies?</p>
+      <div class="cg-cases" id="cg-zonecases">
+        <div class="cg-case" data-ans="0">
+          <p class="cg-case-q">$20,000 ordinary income. $10,000 long-term gain.</p>
+          <div class="cg-copts3"><button type="button" data-i="0">0%</button><button type="button" data-i="1">15%</button><button type="button" data-i="2">20%</button></div>
+          <p class="cg-why"></p>
+        </div>
+        <div class="cg-case" data-ans="1">
+          <p class="cg-case-q">$200,000 ordinary income. $15,000 long-term gain.</p>
+          <div class="cg-copts3"><button type="button" data-i="0">0%</button><button type="button" data-i="1">15%</button><button type="button" data-i="2">20%</button></div>
+          <p class="cg-why"></p>
+        </div>
+        <div class="cg-case" data-ans="2">
+          <p class="cg-case-q">$560,000 ordinary income. $5,000 long-term gain.</p>
+          <div class="cg-copts3"><button type="button" data-i="0">0%</button><button type="button" data-i="1">15%</button><button type="button" data-i="2">20%</button></div>
+          <p class="cg-why"></p>
+        </div>
+        <div class="cg-case" data-ans="0">
+          <p class="cg-case-q">$45,000 ordinary income. $3,000 long-term gain.</p>
+          <div class="cg-copts3"><button type="button" data-i="0">0%</button><button type="button" data-i="1">15%</button><button type="button" data-i="2">20%</button></div>
+          <p class="cg-why"></p>
+        </div>
+      </div>
+      <p class="cg-count" id="cg-zonecase-count">Answered 0 Of 4</p>
+      <div class="cg-reset-row"><button type="button" class="cg-reset-btn" id="cg-zonecase-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="cg-sec cg-reveal" data-step="7">
+      <p class="cg-kicker">Recap · 7 / 8</p>
+      <h2 class="cg-h2">Here's What You Now Know</h2>
+      <p class="cg-p">The whole lesson, in six lines.</p>
+      <div class="cg-recap">
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>A gain is short-term if held one year or less, long-term only once held more than one year — exactly one year still counts as short-term.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>Short-term gains are taxed at your regular income rate. Long-term gains get the lower 0%, 15%, or 20% rate instead.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>Your ordinary income is counted first. A long-term gain stacks on top of it when figuring out which rate zone applies.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>A single gain can straddle two rate zones — part at 15%, part at 20% — if it crosses a threshold.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>Only the portion of the gain above a threshold gets the higher rate — never the whole gain.</span></div>
+        <div class="cg-recap-item"><span class="cg-recap-check">✓</span><span>Reinvesting a dividend starts a new holding period only for the new shares bought — your original shares are unaffected.</span></div>
+      </div>
+      <div class="cg-next-move">Your next move: <b>find one holding close to its one-year mark and check the date before you sell.</b> A few extra days can change which rate applies.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="cg-sec cg-center cg-reveal" data-step="8">
+      <p class="cg-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="cg-hero-ico">🚀</span>
+      <h2 class="cg-h2 center">You've Finished The Lesson</h2>
+      <p class="cg-sub center">Module 3 continues. Next: using a loss on purpose, and the rule that can undo it.</p>
+      <div class="cg-finish">
+        <span class="cg-finish-arrow" id="cg-fin-arrow" aria-hidden="true">↓</span>
+        <p class="cg-finish-lead" id="cg-fin-lead">Scroll Down To Continue</p>
+        <p class="cg-finish-sub" id="cg-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="cg-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="cg-pullquote">"IN THIS WORLD, NOTHING IS CERTAIN, <span class="cg-green">EXCEPT DEATH AND TAXES.</span>"<br><span class="cg-pullquote-by">— BENJAMIN FRANKLIN, LETTER TO JEAN-BAPTISTE LE ROY (1789)</span></p>
+    </section>
+
+    <p class="cg-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Tax brackets and thresholds shown are for the 2026 tax year, published at the time of writing, and will change in future years. The slide-4 calculator applies one marginal rate per income level as a simplification, not an exact tax-return computation. Tax rules vary by situation. Consider speaking with a qualified tax professional about your own situation.</p>
+
+    <div class="cg-nav" id="cg-nav">
+      <button type="button" class="cg-nav-btn prev" id="cg-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="cg-nav-hint" id="cg-nav-hint"></span>
+      <button type="button" class="cg-nav-btn next" id="cg-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-cg{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* rate-zone palette: green = 0%, amber = 15%, red = 20% */
+    --z0:#209B73; --z0bg:#E7F6EF;
+    --z15:#C8821B; --z15bg:#FBF2DF;
+    --z20:#C0392B; --z20bg:#FDECEA;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-cg *,#tn-cg *::before,#tn-cg *::after{box-sizing:border-box;}
+  #tn-cg .cg-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-cg .cg-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-cg .cg-reveal.in{opacity:1; transform:none;}
+  #tn-cg .cg-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-cg .cg-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-cg .cg-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-cg .cg-bico{display:flex;}
+  #tn-cg .cg-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-cg .cg-bsub{color:var(--ink2); font-weight:500;}
+  #tn-cg .cg-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-cg #cg-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-cg .cg-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-cg .cg-meta #cg-slide-label{color:var(--ink2);}
+  #tn-cg .cg-meta #cg-slide-count{color:var(--mut);}
+  #tn-cg .cg-sec{padding:16px 0 8px;}
+  #tn-cg .cg-sec.cg-hide{display:none;}
+  #tn-cg .cg-center{text-align:center;}
+  #tn-cg .cg-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-cg .cg-kicker.center{text-align:center;}
+  #tn-cg .cg-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-cg .cg-h2.center{text-align:center;}
+  #tn-cg .cg-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-cg .cg-p b{color:var(--ink); font-weight:700;}
+  #tn-cg .cg-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-cg .cg-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-cg .cg-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-cg .cg-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-cg .cg-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-cg .cg-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-cg .cg-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,42px); line-height:1.14; text-align:center; margin:8px 0 14px;}
+  #tn-cg .cg-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-cg .cg-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-cg .cg-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-cg .cg-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-cg .cg-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-cg .cg-vocab-chip:hover{filter:brightness(.97);}
+  #tn-cg .cg-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-cg .cg-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-cg .cg-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-cg .cg-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-cg .cg-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-cg .cg-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · stacking bar (creative) */
+  #tn-cg .cg-stackbar{max-width:580px; margin:0 auto;}
+  #tn-cg .cg-stackbar-track{position:relative; height:54px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; overflow:hidden;}
+  #tn-cg .cg-zone{position:absolute; top:0; bottom:0;}
+  #tn-cg .cg-zone.z0{left:0; width:7.06%; background:var(--z0bg);}
+  #tn-cg .cg-zone.z15{left:7.06%; width:70.86%; background:var(--z15bg);}
+  #tn-cg .cg-zone.z20{left:77.93%; width:22.07%; background:var(--z20bg);}
+  #tn-cg .cg-stackbar-ord{position:absolute; top:16px; height:8px; left:0; width:0; border-radius:0 99px 99px 0; background:var(--ink2); transition:width .35s, opacity .35s; opacity:0;}
+  #tn-cg .cg-stackbar-gain{position:absolute; top:30px; height:10px; left:0; width:0; border-radius:4px; background:var(--b); box-shadow:0 0 0 2px #fff, 0 0 0 3.5px var(--b); transition:left .35s, width .35s, opacity .35s; opacity:0;}
+  #tn-cg .cg-stackbar-labels{display:flex; font-size:10px; font-weight:700; font-family:'Poppins',sans-serif; color:var(--mut); margin-top:6px;}
+  #tn-cg .cg-stackbar-labels span:nth-child(1){width:7.06%; text-align:left;}
+  #tn-cg .cg-stackbar-labels span:nth-child(2){width:70.86%; text-align:center;}
+  #tn-cg .cg-stackbar-labels span:nth-child(3){width:22.07%; text-align:right;}
+  #tn-cg .cg-stackresult{text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.6; margin:14px auto 0; max-width:540px; min-height:40px;}
+  #tn-cg .cg-stackresult b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  #tn-cg .cg-scens{display:flex; flex-direction:column; gap:8px; margin-top:12px;}
+  #tn-cg .cg-scen{font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:700; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 14px; cursor:pointer; text-align:center; transition:all .15s;}
+  #tn-cg .cg-scen:hover{border-color:var(--selbd);}
+  #tn-cg .cg-scen.on{border-color:var(--b); background:#EAF1FA;}
+  /* 3 & 6 · scenarios */
+  #tn-cg .cg-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-cg .cg-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-cg .cg-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-cg .cg-copts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-cg .cg-copts button{flex:1; min-width:140px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 12px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cg .cg-copts3{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-cg .cg-copts3 button{flex:1; min-width:70px; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cg .cg-copts button:hover,#tn-cg .cg-copts3 button:hover{border-color:var(--selbd);}
+  #tn-cg .cg-case.done .cg-copts button,#tn-cg .cg-case.done .cg-copts3 button{opacity:.35; pointer-events:none;}
+  #tn-cg .cg-case.done .cg-copts button.picked,#tn-cg .cg-case.done .cg-copts3 button.picked{opacity:1;}
+  #tn-cg .cg-case.done .cg-copts button.answer,#tn-cg .cg-case.done .cg-copts3 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-cg .cg-case.done .cg-copts button.answer::after,#tn-cg .cg-case.done .cg-copts3 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-cg .cg-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-cg .cg-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-cg .cg-case.done .cg-why{display:block;}
+  #tn-cg .cg-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-cg .cg-why b{font-family:'Poppins',sans-serif;}
+  /* 4 · calculator */
+  #tn-cg .cg-incomes{display:flex; gap:8px; justify-content:center; flex-wrap:wrap;}
+  #tn-cg .cg-inc{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 16px; cursor:pointer; transition:all .15s;}
+  #tn-cg .cg-inc:hover{border-color:var(--selbd);}
+  #tn-cg .cg-inc.on{background:var(--b); color:#fff; border-color:var(--b);}
+  #tn-cg .cg-toggle{display:flex; gap:8px; justify-content:center; margin-top:14px;}
+  #tn-cg .cg-tog{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 16px; cursor:pointer; transition:all .15s;}
+  #tn-cg .cg-tog.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  #tn-cg .cg-calcbox{max-width:360px; margin:16px auto 0; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:18px 20px; text-align:center;}
+  #tn-cg .cg-calc-lab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
+  #tn-cg .cg-calc-amt{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:32px; color:var(--ink); margin:8px 0 4px;}
+  #tn-cg .cg-calc-sub{display:block; font-size:12.5px; color:var(--ink2); line-height:1.5;}
+  #tn-cg .cg-calc-sub b{color:var(--g); font-family:'Poppins',sans-serif;}
+  /* 5 · myth sorter */
+  #tn-cg .cg-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-cg .cg-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-cg .cg-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-cg .cg-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-cg .cg-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cg .cg-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-cg .cg-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-cg .cg-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-cg .cg-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-cg .cg-sort-row.done .cg-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-cg .cg-sort-row.done .cg-sort-btns button.picked{opacity:1;}
+  #tn-cg .cg-sort-row .cg-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-cg .cg-sort-row.done .cg-why{display:block;}
+  /* recap + complete */
+  #tn-cg .cg-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-cg .cg-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-cg .cg-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-cg .cg-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-cg .cg-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-cg .cg-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-cg .cg-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-cg .cg-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:cg-bob 1.6s ease-in-out infinite;}
+  #tn-cg .cg-finish-arrow.up{animation-name:cg-bob-up;}
+  @keyframes cg-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes cg-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-cg .cg-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-cg .cg-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-cg .cg-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-cg .cg-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-cg .cg-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-cg .cg-green{color:var(--g);}
+  #tn-cg .cg-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-cg .cg-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-cg .cg-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-cg .cg-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-cg .cg-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-cg .cg-nav-btn.prev{color:var(--ink2);}
+  #tn-cg .cg-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-cg .cg-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-cg .cg-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-cg .cg-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-cg .cg-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-cg .cg-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-cg .cg-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-cg .cg-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .cg-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .cg-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-cg .cg-wrap{padding:12px 14px 30px;}
+    #tn-cg .cg-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-cg .cg-copts button{min-width:0; flex:1 1 100%;}
+    #tn-cg .cg-copts3 button{min-width:60px;}
+    #tn-cg .cg-bsub{display:none;}
+    #tn-cg .cg-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-cg .cg-nav{padding-top:10px; row-gap:0;}
+    #tn-cg .cg-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-cg .cg-reveal{opacity:1 !important; transform:none !important;}
+    #tn-cg #cg-bar{transition:none;}
+    #tn-cg .cg-stackbar-ord,#tn-cg .cg-stackbar-gain{transition:none;}
+    #tn-cg .cg-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-cg'); if(!root) return;
+  root.querySelectorAll('.cg-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('cg-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#cg-vocab-def');
+  root.querySelectorAll('#cg-vocab-chips .cg-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#cg-vocab-chips .cg-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the stacking bar (creative 1 of 2) */
+  var CAP=700000, Z0=49450, Z15=545500;
+  function pct(d){ return Math.min(100, d/CAP*100); }
+  var stackSeen={}, stackCount=root.querySelector('#cg-stack-count'), stackResult=root.querySelector('#cg-stackresult'),
+      ordEl=root.querySelector('#cg-stackbar-ord'), gainEl=root.querySelector('#cg-stackbar-gain');
+  root.querySelectorAll('#cg-stackscens .cg-scen').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#cg-stackscens .cg-scen').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var ord=+btn.getAttribute('data-ord'), gain=+btn.getAttribute('data-gain');
+      var gainEnd=ord+gain;
+      ordEl.style.opacity=1; ordEl.style.width=pct(ord)+'%';
+      gainEl.style.opacity=1; gainEl.style.left=pct(ord)+'%'; gainEl.style.width=(pct(gainEnd)-pct(ord))+'%';
+      var in0=Math.max(0, Math.min(gainEnd,Z0)-Math.max(ord,0));
+      var in15=Math.max(0, Math.min(gainEnd,Z15)-Math.max(ord,Z0));
+      var in20=Math.max(0, gainEnd-Math.max(ord,Z15));
+      var parts=[];
+      if(in0>0) parts.push('$'+in0.toLocaleString()+' at 0%');
+      if(in15>0) parts.push('$'+in15.toLocaleString()+' at 15%');
+      if(in20>0) parts.push('$'+in20.toLocaleString()+' at 20%');
+      var verdict = parts.length>1 ? 'The gain <b>splits across zones</b>: '+parts.join(', ')+'.' : 'The entire gain lands <b>'+parts[0].split(' at ')[1]+'</b>: '+parts[0]+'.';
+      stackResult.innerHTML=verdict;
+      stackSeen[btn.getAttribute('data-k')]=1;
+      stackCount.textContent='Tested '+keys(stackSeen)+' Of 3';
+      state('stack', keys(stackSeen)); postHeight();
+    });
+  });
+
+  /* 3 · short-term or long-term */
+  var DWHY=[
+    'About eight months held — a year or less, so it stays short-term.',
+    'About 14 months held — past the one-year mark, so it’s long-term.',
+    'Exactly one year to the day is still “one year or less.” You need at least one day past the anniversary.',
+    'Two full years held — comfortably long-term.'
+  ];
+  var dateCount=root.querySelector('#cg-datecase-count');
+  root.querySelectorAll('#cg-datecases .cg-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.cg-why');
+    c.querySelectorAll('.cg-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.cg-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+DWHY[ci];
+        var n=root.querySelectorAll('#cg-datecases .cg-case.done').length;
+        dateCount.textContent='Answered '+n+' Of 4';
+        state('dates', n); postHeight();
+      });
+    });
+  });
+  var dateReset=root.querySelector('#cg-datecase-reset');
+  if(dateReset) dateReset.addEventListener('click',function(){
+    root.querySelectorAll('#cg-datecases .cg-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.cg-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    dateCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  /* 4 · calculator */
+  var incSeen={}, incCount=root.querySelector('#cg-calc-count'), calcAmt=root.querySelector('#cg-calc-amt'),
+      calcSub=root.querySelector('#cg-calc-sub'), curInc=null, curMode='ord';
+  var AMT=5000;
+  function renderCalc(){
+    if(!curInc){ calcAmt.textContent='Pick an income level'; calcSub.textContent=''; return; }
+    var rate=(curMode==='ord'?curInc.ord:curInc.q)/100;
+    var tax=AMT*rate;
+    calcAmt.textContent='$'+tax.toFixed(0);
+    var otherRate=(curMode==='ord'?curInc.q:curInc.ord)/100, otherTax=AMT*otherRate;
+    var diff=Math.abs(tax-otherTax);
+    calcSub.innerHTML='At '+(rate*100).toFixed(0)+'% — the other treatment owes $'+otherTax.toFixed(0)+'. <b>$'+diff.toFixed(0)+' difference.</b>';
+  }
+  root.querySelectorAll('#cg-incomes .cg-inc').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#cg-incomes .cg-inc').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      curInc={ord:+btn.getAttribute('data-ord'), q:+btn.getAttribute('data-q')};
+      incSeen[btn.getAttribute('data-k')]=1;
+      incCount.textContent='Checked '+keys(incSeen)+' Of 3 Income Levels';
+      renderCalc();
+      state('calc', keys(incSeen)); postHeight();
+    });
+  });
+  root.querySelectorAll('#cg-toggle .cg-tog').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#cg-toggle .cg-tog').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      curMode=btn.getAttribute('data-m');
+      renderCalc(); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#cg-myth-count');
+  root.querySelectorAll('#cg-myth .cg-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.cg-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#cg-myth .cg-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#cg-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#cg-myth .cg-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · which zone */
+  var ZWHY=[
+    'All $30,000 (income plus gain) sits under $49,450 — the entire gain lands in the 0% zone.',
+    'From $200,000 to $215,000 sits inside the 15% zone ($49,451–$545,500) the whole way.',
+    'From $560,000 to $565,000 sits above $545,500 — the entire gain lands in the 20% zone.',
+    'From $45,000 to $48,000 stays under $49,450 — the entire gain lands in the 0% zone.'
+  ];
+  var zoneCount=root.querySelector('#cg-zonecase-count');
+  root.querySelectorAll('#cg-zonecases .cg-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.cg-why');
+    c.querySelectorAll('.cg-copts3 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.cg-copts3 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+ZWHY[ci];
+        var n=root.querySelectorAll('#cg-zonecases .cg-case.done').length;
+        zoneCount.textContent='Answered '+n+' Of 4';
+        state('zones', n); postHeight();
+      });
+    });
+  });
+  var zoneReset=root.querySelector('#cg-zonecase-reset');
+  if(zoneReset) zoneReset.addEventListener('click',function(){
+    root.querySelectorAll('#cg-zonecases .cg-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.cg-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    zoneCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('cg-fin-arrow'), lead=document.getElementById('cg-fin-lead'), sub=document.getElementById('cg-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-cg'); if(!root) return;
+  var ALT={
+    'short-term capital gain':'short-term capital gains?|short-term',
+    'long-term capital gain':'long-term capital gains?|long-term',
+    'holding period':'holding periods?',
+    'cost basis':'cost basis',
+    'income stacking':'income stacking|stacks? on top of|stacking',
+    'capital gains bracket':'capital gains brackets?|rate zones?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#cg-vocab-chips .cg-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so "long-term capital gain" is never eaten by "long-term" */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.cg-p, .cg-sub, .cg-note, .cg-why, .cg-recap-item span, .cg-h2, .cg-next-move, .cg-sort-row > span, .cg-case-q, .cg-stackresult, .cg-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.cg-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='cg-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='cg-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.cg-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.cg-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-cg'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#cg-bar'), labelEl=root.querySelector('#cg-slide-label'),
+      countEl=root.querySelector('#cg-slide-count'), prevBtn=root.querySelector('#cg-prev'),
+      nextBtn=root.querySelector('#cg-next'), hintEl=root.querySelector('#cg-nav-hint'),
+      disclaimer=root.querySelector('.cg-disclaimer');
+  var labels={1:'Start Here',2:'Where Your Gain Lands',3:'Short-Term Or Long-Term?',4:'Dollar Difference',5:'Myth Or Fact',6:'Which Zone?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Test all 3 to continue',3:'Answer all 4 to continue',4:'Check all 3 income levels to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.cg-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('cg-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('cg-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'stack', need:3, hint:function(n){ return 'Tested '+n+' of 3 — test them all to continue'; }},
+    {step:3, key:'dates', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }},
+    {step:4, key:'calc',  need:3, hint:function(n){ return 'Checked '+n+' of 3 — try every income level to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'zones', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('cg-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

@@ -1,0 +1,747 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — QUALIFIED VS. ORDINARY DIVIDENDS
+     (Intermediate · Module 3 · Lesson 12)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-qd. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  The 61-Day Test (creative)
+       3  Two Rates, Same Form              4  What's The Dollar Difference? (calculator)
+       5  Myth Or Fact (5)                  6  Which Rate Applies? (4)
+       7  Recap (6)                         8  Complete
+     Creative widget, 1 of 2 allowed: slide 2's day-count ruler — a shaded
+     121-day qualifying window around the ex-dividend date, with 4 tappable
+     buy/sell scenarios that draw their own held-span bar and the overlap
+     with the window. A visual not used by any earlier lesson (lesson 10's
+     phone feed, lesson 11's tax-form contrast, etc. all look different).
+     Slide 4 is a standard calculator (toggle + income presets), not a
+     second creative slot. Slides 3 and 6 are standard formats (side-by-side
+     comparison, scenario decisions).
+     Gating reads state published on the container, so spamming one
+     control can never unlock a slide; once unlocked, a slide stays
+     unlocked after Start Over.
+     Does NOT teach: short-term vs. long-term capital GAINS on a sale, or
+     how the gain itself stacks on ordinary income (Lesson 13 covers that
+     in full) — this lesson is dividends only. REITs and municipal bonds
+     are not used as examples; neither has been introduced in an earlier
+     lesson.
+     Real figures (sourced, as of writing; tax year 2026, per Rev. Proc.
+     2025-32, filed in 2027):
+       Qualified-dividend / long-term capital-gains brackets, single filer:
+       0% up to $49,450; 15% from $49,451 to $545,500; 20% above
+       $545,500. (Multiple trackers agree on these breakpoints citing Rev.
+       Proc. 2025-32 directly; a few secondary sites still show the 2025
+       figures under a 2026 heading, which were not used here.)
+       2026 single-filer ordinary brackets used for the slide-4 calculator:
+       12% at $45,000 taxable income, 24% at $120,000, 35% at $600,000 —
+       each is that income level's marginal bracket under the 2026 table
+       (10/12/22/24/32/35/37%, also Rev. Proc. 2025-32). The calculator
+       applies one flat marginal rate per scenario as a stated
+       simplification, not an exact bracket-by-bracket computation.
+       Holding-period rule (common stock): more than 60 days held within
+       the 121-day period beginning 60 days before the ex-dividend date;
+       the day sold counts, the day bought does not. (Vanguard, Fidelity,
+       Stash, PGCalc all agree on this wording.) Preferred stock uses a
+       stricter 91-of-181-day test and is not covered here.
+     ============================================================ -->
+<div id="tn-qd">
+  <div class="qd-wrap">
+    <div class="qd-top">
+      <div class="qd-topbar">
+        <div class="qd-brand"><span class="qd-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="qd-word">TURNIT</span><span class="qd-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="qd-progress"><span id="qd-bar"></span></div>
+      <div class="qd-meta"><span id="qd-slide-label">Start Here</span><span id="qd-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="qd-sec qd-center qd-reveal" data-step="1">
+      <p class="qd-kicker center">Tax-Smart Investing · 1 / 8</p>
+      <h1 class="qd-hero-title">QUALIFIED <span class="qd-hero-grad">VS. ORDINARY</span></h1>
+      <p class="qd-sub center">Two dividends can look identical on your statement and still owe completely different tax bills.</p>
+      <div class="qd-vocab">
+        <span class="qd-vocab-label">Key Terms In This Lesson</span>
+        <div class="qd-vocab-chips" id="qd-vocab-chips">
+          <button type="button" class="qd-vocab-chip" data-t="Qualified Dividend" data-def="A dividend taxed at the lower 0%, 15%, or 20% rate — the same rates as long-term capital gains — if you've held the underlying stock long enough around its ex-dividend date.">Qualified Dividend</button>
+          <button type="button" class="qd-vocab-chip" data-t="Ordinary Dividend" data-def="A dividend taxed at your regular income tax rate. This is the default; a dividend only escapes it by meeting the holding-period rule.">Ordinary Dividend</button>
+          <button type="button" class="qd-vocab-chip" data-t="Holding Period Requirement" data-def="The minimum stretch of time you must hold a stock — more than 60 days within a 121-day window around the ex-dividend date — for its dividend to qualify for the lower rate.">Holding Period Requirement</button>
+          <button type="button" class="qd-vocab-chip" data-t="Ex-Dividend Date" data-def="The first day a share trades without the upcoming payment attached — the anchor point the holding-period window is measured around.">Ex-Dividend Date</button>
+          <button type="button" class="qd-vocab-chip" data-t="Preferential Rate" data-def="The 0%, 15%, or 20% rate applied to qualified dividends and long-term capital gains — lower than ordinary income tax rates for most filers.">Preferential Rate</button>
+        </div>
+        <div class="qd-vocab-def" id="qd-vocab-def">Tap a term to see what it means.</div>
+        <span class="qd-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="qd-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE 61-DAY TEST ========== -->
+    <section class="qd-sec qd-reveal" data-step="2">
+      <p class="qd-kicker">The 61-Day Test · 2 / 8</p>
+      <h2 class="qd-h2">Did You Hold It Long Enough?</h2>
+      <p class="qd-p">The holding period requirement: more than 60 days held within a 121-day window around the ex-dividend date. Tap each scenario to test it.</p>
+      <div class="qd-ruler">
+        <div class="qd-ruler-track" id="qd-ruler-track">
+          <div class="qd-ruler-window"></div>
+          <div class="qd-ruler-exdiv"></div>
+          <div class="qd-ruler-held" id="qd-ruler-held"></div>
+          <div class="qd-ruler-overlap" id="qd-ruler-overlap"></div>
+        </div>
+        <div class="qd-ruler-labels"><span>60 Days Before</span><span class="qd-ruler-ex-label">Ex-Div Date</span><span>60 Days After</span></div>
+      </div>
+      <div class="qd-scenresult" id="qd-scenresult">Tap a scenario below to test it against the window.</div>
+      <div class="qd-scens" id="qd-scens">
+        <button type="button" class="qd-scen" data-k="1" data-buy="-75" data-sell="75">Bought 75 days before, still holding</button>
+        <button type="button" class="qd-scen" data-k="2" data-buy="-10" data-sell="20">Bought 10 days before, sold 20 days after</button>
+        <button type="button" class="qd-scen" data-k="3" data-buy="-50" data-sell="5">Bought 50 days before, sold 5 days after</button>
+        <button type="button" class="qd-scen" data-k="4" data-buy="-70" data-sell="45">Bought 70 days before, sold 45 days after</button>
+      </div>
+      <p class="qd-count" id="qd-scen-count">Tested 0 Of 4</p>
+      <p class="qd-disclaimer-inline">Shown for common stock. The window shifts in real life only by its anchor date — the math itself (more than 60 of 121 days) never changes. Preferred stock uses a stricter test not covered here.</p>
+    </section>
+
+    <!-- ========== 3 · TWO RATES, SAME FORM ========== -->
+    <section class="qd-sec qd-reveal" data-step="3">
+      <p class="qd-kicker">Two Rates, Same Form · 3 / 8</p>
+      <h2 class="qd-h2">What Actually Separates Them</h2>
+      <p class="qd-p">Same word on your statement — an ordinary dividend or a qualified dividend — two different tax outcomes. Tap each example.</p>
+      <div class="qd-split">
+        <div class="qd-splitcol">
+          <p class="qd-splitcol-t no">Usually Ordinary</p>
+          <button type="button" class="qd-ex" data-k="e1">A stock bought three weeks before the ex-dividend date and sold two weeks after</button>
+          <button type="button" class="qd-ex" data-k="e2">A dividend from a foreign company with no qualifying U.S. tax treaty</button>
+        </div>
+        <div class="qd-splitcol">
+          <p class="qd-splitcol-t yes">Usually Qualified</p>
+          <button type="button" class="qd-ex" data-k="e3">A U.S. company's common stock held for three years</button>
+          <button type="button" class="qd-ex" data-k="e4">A broad U.S. stock index fund bought last year and never touched</button>
+        </div>
+      </div>
+      <div class="qd-exbox" id="qd-exbox">Tap an example above to see why.</div>
+      <p class="qd-count" id="qd-ex-count">Revealed 0 Of 4</p>
+    </section>
+
+    <!-- ========== 4 · WHAT'S THE DOLLAR DIFFERENCE? ========== -->
+    <section class="qd-sec qd-reveal" data-step="4">
+      <p class="qd-kicker">Same $2,000, Different Bills · 4 / 8</p>
+      <h2 class="qd-h2">What's The Dollar Difference?</h2>
+      <p class="qd-p">Pick a taxable income level, then toggle this $2,000 between an ordinary dividend and a qualified dividend taxed at the preferential rate.</p>
+      <div class="qd-incomes" id="qd-incomes">
+        <button type="button" class="qd-inc" data-k="45" data-ord="12" data-q="0">$45,000</button>
+        <button type="button" class="qd-inc" data-k="120" data-ord="24" data-q="15">$120,000</button>
+        <button type="button" class="qd-inc" data-k="600" data-ord="35" data-q="20">$600,000</button>
+      </div>
+      <div class="qd-toggle" id="qd-toggle">
+        <button type="button" class="qd-tog on" data-m="ord">Taxed As Ordinary</button>
+        <button type="button" class="qd-tog" data-m="q">Taxed As Qualified</button>
+      </div>
+      <div class="qd-calcbox" id="qd-calcbox">
+        <span class="qd-calc-lab">Tax Owed On The $2,000</span>
+        <span class="qd-calc-amt" id="qd-calc-amt">Pick an income level</span>
+        <span class="qd-calc-sub" id="qd-calc-sub"></span>
+      </div>
+      <p class="qd-count" id="qd-calc-count">Checked 0 Of 3 Income Levels</p>
+      <p class="qd-disclaimer-inline">Single filer, 2026 brackets. Each income level's own marginal bracket is applied as a flat rate — a stated simplification, not a line-by-line tax return.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="qd-sec qd-reveal" data-step="5">
+      <p class="qd-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="qd-h2">Myth Or Fact?</h2>
+      <p class="qd-p">Five claims you'll hear about dividend taxes. Tap your answer.</p>
+      <div class="qd-sort" id="qd-myth">
+        <div class="qd-sort-row" data-answer="myth"><span>All dividends from U.S. companies are automatically taxed at the lower qualified rate.</span><div class="qd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="qd-why"><b>Myth.</b> The company being American doesn't matter if the holding-period rule isn't met. Sell too soon around the ex-dividend date and the same company's dividend stays ordinary.</p></div>
+        <div class="qd-sort-row" data-answer="fact"><span>Qualified dividends are taxed using the same 0%, 15%, and 20% brackets as long-term capital gains.</span><div class="qd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="qd-why"><b>Fact.</b> They share one rate table. A taxable income under about $49,450 (single, 2026) pays 0% federal tax on either one.</p></div>
+        <div class="qd-sort-row" data-answer="myth"><span>Dividends paid inside a 401(k) or IRA are taxed as either qualified or ordinary the year they're paid.</span><div class="qd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="qd-why"><b>Myth.</b> The qualified/ordinary split only matters in a taxable account. Inside a tax-deferred or tax-exempt account, nothing is taxed as it's paid at all.</p></div>
+        <div class="qd-sort-row" data-answer="fact"><span>A stock bought the day before the ex-dividend date and sold the next day won't produce a qualified dividend.</span><div class="qd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="qd-why"><b>Fact.</b> That's roughly two days held — nowhere near the 61-day minimum. The dividend stays ordinary no matter how well-known the company is.</p></div>
+        <div class="qd-sort-row" data-answer="myth"><span>If your income is low enough, you can still owe some federal tax on a qualified dividend.</span><div class="qd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="qd-why"><b>Myth.</b> Inside the 0% bracket, the federal income tax owed on a qualified dividend is exactly $0 — not a small amount, none.</p></div>
+      </div>
+      <p class="qd-count" id="qd-myth-count">Answered 0 Of 5</p>
+      <div class="qd-reset-row"><button type="button" class="qd-reset-btn" id="qd-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH RATE APPLIES? ========== -->
+    <section class="qd-sec qd-reveal" data-step="6">
+      <p class="qd-kicker">Four Holdings · 6 / 8</p>
+      <h2 class="qd-h2">Which Rate Applies?</h2>
+      <p class="qd-p">Run the holding period requirement yourself. Tap the right answer for each.</p>
+      <div class="qd-cases" id="qd-cases">
+        <div class="qd-case" data-ans="0">
+          <p class="qd-case-q">Bought a stock 5 days before the ex-dividend date, sold it 25 days after.</p>
+          <div class="qd-copts"><button type="button" data-i="0">Ordinary</button><button type="button" data-i="1">Qualified</button></div>
+          <p class="qd-why"></p>
+        </div>
+        <div class="qd-case" data-ans="1">
+          <p class="qd-case-q">Bought a stock 120 days before the ex-dividend date, sold it 10 days after.</p>
+          <div class="qd-copts"><button type="button" data-i="0">Ordinary</button><button type="button" data-i="1">Qualified</button></div>
+          <p class="qd-why"></p>
+        </div>
+        <div class="qd-case" data-ans="1">
+          <p class="qd-case-q">Bought a stock 80 days before the ex-dividend date, sold it 50 days after.</p>
+          <div class="qd-copts"><button type="button" data-i="0">Ordinary</button><button type="button" data-i="1">Qualified</button></div>
+          <p class="qd-why"></p>
+        </div>
+        <div class="qd-case" data-ans="0">
+          <p class="qd-case-q">Bought a stock 45 days before the ex-dividend date, sold it 10 days after.</p>
+          <div class="qd-copts"><button type="button" data-i="0">Ordinary</button><button type="button" data-i="1">Qualified</button></div>
+          <p class="qd-why"></p>
+        </div>
+      </div>
+      <p class="qd-count" id="qd-case-count">Answered 0 Of 4</p>
+      <div class="qd-reset-row"><button type="button" class="qd-reset-btn" id="qd-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="qd-sec qd-reveal" data-step="7">
+      <p class="qd-kicker">Recap · 7 / 8</p>
+      <h2 class="qd-h2">Here's What You Now Know</h2>
+      <p class="qd-p">The whole lesson, in six lines.</p>
+      <div class="qd-recap">
+        <div class="qd-recap-item"><span class="qd-recap-check">✓</span><span>Ordinary is the default rate for a dividend. Qualified — the lower 0/15/20% rate — has to be earned by meeting the holding-period rule.</span></div>
+        <div class="qd-recap-item"><span class="qd-recap-check">✓</span><span>The rule: hold the stock for more than 60 days within the 121-day window centered on its ex-dividend date.</span></div>
+        <div class="qd-recap-item"><span class="qd-recap-check">✓</span><span>Qualified dividends and long-term capital gains share the same 0%, 15%, and 20% rate table.</span></div>
+        <div class="qd-recap-item"><span class="qd-recap-check">✓</span><span>The qualified/ordinary split only matters in a taxable account — tax-advantaged accounts skip it entirely.</span></div>
+        <div class="qd-recap-item"><span class="qd-recap-check">✓</span><span>At low enough income, the federal tax on a qualified dividend is exactly $0.</span></div>
+        <div class="qd-recap-item"><span class="qd-recap-check">✓</span><span>The dollar gap between the two rates grows with your income — it was $240 at $45,000 and $300 at $600,000 on the same $2,000.</span></div>
+      </div>
+      <div class="qd-next-move">Your next move: <b>pull up last year's 1099-DIV and compare boxes 1a and 1b.</b> If they're not equal, part of what you were paid was ordinary.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="qd-sec qd-center qd-reveal" data-step="8">
+      <p class="qd-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="qd-hero-ico">🚀</span>
+      <h2 class="qd-h2 center">You've Finished The Lesson</h2>
+      <p class="qd-sub center">Module 3 continues. Next: holding periods and the capital-gains brackets on a sale, not just a dividend.</p>
+      <div class="qd-finish">
+        <span class="qd-finish-arrow" id="qd-fin-arrow" aria-hidden="true">↓</span>
+        <p class="qd-finish-lead" id="qd-fin-lead">Scroll Down To Continue</p>
+        <p class="qd-finish-sub" id="qd-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="qd-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="qd-pullquote">"TAXES ARE WHAT WE PAY FOR CIVILIZED SOCIETY, <span class="qd-green">INCLUDING THE CHANCE TO INSURE.</span>"<br><span class="qd-pullquote-by">— JUSTICE OLIVER WENDELL HOLMES JR., COMPAÑÍA GENERAL DE TABACOS V. COLLECTOR (1927)</span></p>
+    </section>
+
+    <p class="qd-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Tax brackets and thresholds shown are for the 2026 tax year, published at the time of writing, and will change in future years. The slide-4 calculator applies one marginal rate per income level as a simplification, not an exact tax-return computation. Tax rules vary by situation. Consider speaking with a qualified tax professional about your own situation.</p>
+
+    <div class="qd-nav" id="qd-nav">
+      <button type="button" class="qd-nav-btn prev" id="qd-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="qd-nav-hint" id="qd-nav-hint"></span>
+      <button type="button" class="qd-nav-btn next" id="qd-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-qd{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-qd *,#tn-qd *::before,#tn-qd *::after{box-sizing:border-box;}
+  #tn-qd .qd-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-qd .qd-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-qd .qd-reveal.in{opacity:1; transform:none;}
+  #tn-qd .qd-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-qd .qd-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-qd .qd-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-qd .qd-bico{display:flex;}
+  #tn-qd .qd-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-qd .qd-bsub{color:var(--ink2); font-weight:500;}
+  #tn-qd .qd-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-qd #qd-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-qd .qd-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-qd .qd-meta #qd-slide-label{color:var(--ink2);}
+  #tn-qd .qd-meta #qd-slide-count{color:var(--mut);}
+  #tn-qd .qd-sec{padding:16px 0 8px;}
+  #tn-qd .qd-sec.qd-hide{display:none;}
+  #tn-qd .qd-center{text-align:center;}
+  #tn-qd .qd-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-qd .qd-kicker.center{text-align:center;}
+  #tn-qd .qd-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-qd .qd-h2.center{text-align:center;}
+  #tn-qd .qd-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-qd .qd-p b{color:var(--ink); font-weight:700;}
+  #tn-qd .qd-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-qd .qd-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-qd .qd-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-qd .qd-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-qd .qd-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-qd .qd-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-qd .qd-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(28px,6.6vw,44px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-qd .qd-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-qd .qd-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-qd .qd-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-qd .qd-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-qd .qd-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-qd .qd-vocab-chip:hover{filter:brightness(.97);}
+  #tn-qd .qd-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-qd .qd-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-qd .qd-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-qd .qd-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-qd .qd-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-qd .qd-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · the day-count ruler (creative) */
+  #tn-qd .qd-ruler{max-width:560px; margin:0 auto;}
+  #tn-qd .qd-ruler-track{position:relative; height:54px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; overflow:hidden;}
+  #tn-qd .qd-ruler-window{position:absolute; left:10%; width:80%; top:0; bottom:0; background:var(--tint); border-left:1.5px dashed var(--selbd); border-right:1.5px dashed var(--selbd);}
+  #tn-qd .qd-ruler-exdiv{position:absolute; left:50%; top:0; bottom:0; width:2px; background:var(--ink2); transform:translateX(-1px);}
+  #tn-qd .qd-ruler-held{position:absolute; top:14px; height:8px; border-radius:99px; background:var(--cardbd); transition:left .35s, width .35s, opacity .35s; opacity:0;}
+  #tn-qd .qd-ruler-overlap{position:absolute; top:30px; height:10px; border-radius:99px; transition:left .35s, width .35s, opacity .35s, background .2s; opacity:0;}
+  #tn-qd .qd-ruler-overlap.yes{background:var(--g);}
+  #tn-qd .qd-ruler-overlap.no{background:var(--no);}
+  #tn-qd .qd-ruler-labels{display:flex; justify-content:space-between; font-size:10.5px; font-weight:600; color:var(--mut); margin-top:6px; padding:0 2px;}
+  #tn-qd .qd-ruler-ex-label{color:var(--ink2); font-weight:700;}
+  #tn-qd .qd-scenresult{text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; margin:14px auto 0; max-width:540px; min-height:40px;}
+  #tn-qd .qd-scenresult b{font-family:'Poppins',sans-serif;}
+  #tn-qd .qd-scenresult.yes b{color:var(--g);}
+  #tn-qd .qd-scenresult.no b{color:var(--no);}
+  #tn-qd .qd-scens{display:flex; flex-direction:column; gap:8px; margin-top:10px;}
+  #tn-qd .qd-scen{font-family:'Inter',sans-serif; font-size:13.5px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 14px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-qd .qd-scen:hover{border-color:var(--selbd);}
+  #tn-qd .qd-scen.on{border-color:var(--b); background:#EAF1FA;}
+  /* 3 · side-by-side example split */
+  #tn-qd .qd-split{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  #tn-qd .qd-splitcol{display:flex; flex-direction:column; gap:8px;}
+  #tn-qd .qd-splitcol-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; text-align:center; margin:0 0 2px;}
+  #tn-qd .qd-splitcol-t.no{color:var(--no);}
+  #tn-qd .qd-splitcol-t.yes{color:var(--g);}
+  #tn-qd .qd-ex{font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 12px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-qd .qd-ex:hover{border-color:var(--selbd);}
+  #tn-qd .qd-ex.done{background:var(--mist); border-color:var(--selbd); color:var(--ink2);}
+  #tn-qd .qd-exbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-qd .qd-exbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · calculator */
+  #tn-qd .qd-incomes{display:flex; gap:8px; justify-content:center; flex-wrap:wrap;}
+  #tn-qd .qd-inc{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 16px; cursor:pointer; transition:all .15s;}
+  #tn-qd .qd-inc:hover{border-color:var(--selbd);}
+  #tn-qd .qd-inc.on{background:var(--b); color:#fff; border-color:var(--b);}
+  #tn-qd .qd-toggle{display:flex; gap:8px; justify-content:center; margin-top:14px;}
+  #tn-qd .qd-tog{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 16px; cursor:pointer; transition:all .15s;}
+  #tn-qd .qd-tog.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  #tn-qd .qd-calcbox{max-width:360px; margin:16px auto 0; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:18px 20px; text-align:center;}
+  #tn-qd .qd-calc-lab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
+  #tn-qd .qd-calc-amt{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:32px; color:var(--ink); margin:8px 0 4px;}
+  #tn-qd .qd-calc-sub{display:block; font-size:12.5px; color:var(--ink2); line-height:1.5;}
+  #tn-qd .qd-calc-sub b{color:var(--g); font-family:'Poppins',sans-serif;}
+  /* 5 · myth sorter */
+  #tn-qd .qd-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-qd .qd-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-qd .qd-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-qd .qd-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-qd .qd-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-qd .qd-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-qd .qd-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-qd .qd-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-qd .qd-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-qd .qd-sort-row.done .qd-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-qd .qd-sort-row.done .qd-sort-btns button.picked{opacity:1;}
+  #tn-qd .qd-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-qd .qd-why b{font-family:'Poppins',sans-serif;}
+  #tn-qd .qd-sort-row .qd-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-qd .qd-sort-row.done .qd-why{display:block;}
+  /* 6 · scenarios */
+  #tn-qd .qd-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-qd .qd-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-qd .qd-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-qd .qd-copts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-qd .qd-copts button{flex:1; min-width:140px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 12px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-qd .qd-copts button:hover{border-color:var(--selbd);}
+  #tn-qd .qd-case.done .qd-copts button{opacity:.35; pointer-events:none;}
+  #tn-qd .qd-case.done .qd-copts button.picked{opacity:1;}
+  #tn-qd .qd-case.done .qd-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-qd .qd-case.done .qd-copts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-qd .qd-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-qd .qd-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-qd .qd-case.done .qd-why{display:block;}
+  /* recap + complete */
+  #tn-qd .qd-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-qd .qd-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-qd .qd-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-qd .qd-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-qd .qd-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-qd .qd-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-qd .qd-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-qd .qd-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:qd-bob 1.6s ease-in-out infinite;}
+  #tn-qd .qd-finish-arrow.up{animation-name:qd-bob-up;}
+  @keyframes qd-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes qd-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-qd .qd-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-qd .qd-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-qd .qd-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-qd .qd-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-qd .qd-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-qd .qd-green{color:var(--g);}
+  #tn-qd .qd-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-qd .qd-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-qd .qd-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-qd .qd-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-qd .qd-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-qd .qd-nav-btn.prev{color:var(--ink2);}
+  #tn-qd .qd-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-qd .qd-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-qd .qd-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-qd .qd-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-qd .qd-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-qd .qd-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-qd .qd-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-qd .qd-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .qd-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .qd-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-qd .qd-wrap{padding:12px 14px 30px;}
+    #tn-qd .qd-split{grid-template-columns:1fr;}
+    #tn-qd .qd-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-qd .qd-copts button{min-width:0; flex:1 1 100%;}
+    #tn-qd .qd-bsub{display:none;}
+    #tn-qd .qd-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-qd .qd-nav{padding-top:10px; row-gap:0;}
+    #tn-qd .qd-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-qd .qd-reveal{opacity:1 !important; transform:none !important;}
+    #tn-qd #qd-bar{transition:none;}
+    #tn-qd .qd-ruler-held,#tn-qd .qd-ruler-overlap{transition:none;}
+    #tn-qd .qd-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-qd'); if(!root) return;
+  root.querySelectorAll('.qd-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('qd-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#qd-vocab-def');
+  root.querySelectorAll('#qd-vocab-chips .qd-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#qd-vocab-chips .qd-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the day-count ruler (creative 1 of 2) */
+  var SPAN=150, OFF=75; /* display range -75..+75, window -60..+60 */
+  function pct(day){ return (day+OFF)/SPAN*100; }
+  var scenSeen={}, scenCount=root.querySelector('#qd-scen-count'), scenResult=root.querySelector('#qd-scenresult'),
+      heldEl=root.querySelector('#qd-ruler-held'), overlapEl=root.querySelector('#qd-ruler-overlap');
+  root.querySelectorAll('#qd-scens .qd-scen').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#qd-scens .qd-scen').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var buy=+btn.getAttribute('data-buy'), sell=+btn.getAttribute('data-sell');
+      var winStart=-60, winEnd=60;
+      var ovStart=Math.max(buy,winStart), ovEnd=Math.min(sell,winEnd);
+      var ovDays=Math.max(0, ovEnd-ovStart);
+      var qualifies=ovDays>60;
+      heldEl.style.opacity=1;
+      heldEl.style.left=pct(buy)+'%';
+      heldEl.style.width=(pct(sell)-pct(buy))+'%';
+      overlapEl.style.opacity=1;
+      overlapEl.className='qd-ruler-overlap '+(qualifies?'yes':'no');
+      if(ovDays>0){
+        overlapEl.style.left=pct(ovStart)+'%';
+        overlapEl.style.width=(pct(ovEnd)-pct(ovStart))+'%';
+      } else {
+        overlapEl.style.width='0%';
+      }
+      scenResult.className='qd-scenresult '+(qualifies?'yes':'no');
+      scenResult.innerHTML='Held <b>'+ovDays+' of the 121 days</b> in the window — <b>'+(qualifies?'Qualifies for the lower rate':'Stays ordinary, needs 61')+'</b>.';
+      scenSeen[btn.getAttribute('data-k')]=1;
+      scenCount.textContent='Tested '+keys(scenSeen)+' Of 4';
+      state('ruler', keys(scenSeen)); postHeight();
+    });
+  });
+
+  /* 3 · two rates, same form */
+  var EXW={
+    e1:'Held only about five weeks within the window — short of the 61-day minimum.',
+    e2:'The IRS only extends the lower rate to U.S. companies and foreign companies that meet specific treaty or exchange-listing tests.',
+    e3:'Three years clears the 61-day window many times over.',
+    e4:'The fund itself met the holding-period rule on the stocks it owns, and so did you on the fund’s own shares.'
+  };
+  var exSeen={}, exBox=root.querySelector('#qd-exbox'), exCount=root.querySelector('#qd-ex-count');
+  root.querySelectorAll('#tn-qd .qd-ex').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      exBox.innerHTML='<b>'+btn.textContent+':</b> '+EXW[k];
+      exSeen[k]=1;
+      exCount.textContent='Revealed '+keys(exSeen)+' Of 4';
+      state('ex', keys(exSeen)); postHeight();
+    });
+  });
+
+  /* 4 · calculator */
+  var incSeen={}, incCount=root.querySelector('#qd-calc-count'), calcAmt=root.querySelector('#qd-calc-amt'),
+      calcSub=root.querySelector('#qd-calc-sub'), curInc=null, curMode='ord';
+  var AMT=2000;
+  function renderCalc(){
+    if(!curInc){ calcAmt.textContent='Pick an income level'; calcSub.textContent=''; return; }
+    var rate=(curMode==='ord'?curInc.ord:curInc.q)/100;
+    var tax=AMT*rate;
+    calcAmt.textContent='$'+tax.toFixed(0);
+    var otherRate=(curMode==='ord'?curInc.q:curInc.ord)/100, otherTax=AMT*otherRate;
+    var diff=Math.abs(tax-otherTax);
+    calcSub.innerHTML='At '+(rate*100).toFixed(0)+'% — the other treatment owes $'+otherTax.toFixed(0)+'. <b>$'+diff.toFixed(0)+' difference.</b>';
+  }
+  root.querySelectorAll('#qd-incomes .qd-inc').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#qd-incomes .qd-inc').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      curInc={ord:+btn.getAttribute('data-ord'), q:+btn.getAttribute('data-q')};
+      incSeen[btn.getAttribute('data-k')]=1;
+      incCount.textContent='Checked '+keys(incSeen)+' Of 3 Income Levels';
+      renderCalc();
+      state('calc', keys(incSeen)); postHeight();
+    });
+  });
+  root.querySelectorAll('#qd-toggle .qd-tog').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      root.querySelectorAll('#qd-toggle .qd-tog').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      curMode=btn.getAttribute('data-m');
+      renderCalc(); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#qd-myth-count');
+  root.querySelectorAll('#qd-myth .qd-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.qd-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#qd-myth .qd-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#qd-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#qd-myth .qd-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · which rate applies */
+  var CWHY=[
+    'Only 30 days fell inside the 121-day window — well short of the 61 needed.',
+    '70 days fell inside the window, comfortably over the 61 needed.',
+    '110 days fell inside the window — the long hold before the date carries it.',
+    'Only 55 days fell inside the window. Close, but not over 60.'
+  ];
+  var caseCount=root.querySelector('#qd-case-count');
+  root.querySelectorAll('#qd-cases .qd-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.qd-why');
+    c.querySelectorAll('.qd-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.qd-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#qd-cases .qd-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#qd-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#qd-cases .qd-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.qd-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('qd-fin-arrow'), lead=document.getElementById('qd-fin-lead'), sub=document.getElementById('qd-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-qd'); if(!root) return;
+  var ALT={
+    'qualified dividend':'qualified dividends?',
+    'ordinary dividend':'ordinary dividends?',
+    'holding period requirement':'holding-period requirements?|holding period',
+    'ex-dividend date':'ex-dividend dates?',
+    'preferential rate':'preferential rates?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#qd-vocab-chips .qd-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so "ex-dividend date" is never eaten by a shorter overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.qd-p, .qd-sub, .qd-note, .qd-why, .qd-recap-item span, .qd-h2, .qd-next-move, .qd-sort-row > span, .qd-case-q, .qd-scenresult, .qd-exbox, .qd-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.qd-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='qd-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='qd-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.qd-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.qd-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-qd'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#qd-bar'), labelEl=root.querySelector('#qd-slide-label'),
+      countEl=root.querySelector('#qd-slide-count'), prevBtn=root.querySelector('#qd-prev'),
+      nextBtn=root.querySelector('#qd-next'), hintEl=root.querySelector('#qd-nav-hint'),
+      disclaimer=root.querySelector('.qd-disclaimer');
+  var labels={1:'Start Here',2:'The 61-Day Test',3:'Two Rates, Same Form',4:'Dollar Difference',5:'Myth Or Fact',6:'Which Rate Applies?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Test all 4 to continue',3:'Reveal all 4 to continue',4:'Check all 3 income levels to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.qd-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('qd-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('qd-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'ruler', need:4, hint:function(n){ return 'Tested '+n+' of 4 — test them all to continue'; }},
+    {step:3, key:'ex',    need:4, hint:function(n){ return 'Revealed '+n+' of 4 — tap them all to continue'; }},
+    {step:4, key:'calc',  need:3, hint:function(n){ return 'Checked '+n+' of 3 — try every income level to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('qd-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

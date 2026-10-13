@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **11 built** (Modules 1 and 2 complete, Module 3 underway)
+7 modules · 35 lessons · **15 built** (Modules 1, 2, and 3 complete)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -36,15 +36,15 @@ and basic capital gains. Nothing in this course re-teaches those.
 
 ---
 
-## Module 3 — Tax-Smart Investing 🔶 underway (1 of 5)
+## Module 3 — Tax-Smart Investing ✅ complete
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 11 | Asset Location: What Belongs In Which Account | `11-asset-location.html` | 8 |
-| 12 | Qualified vs. Ordinary Dividends | — | — |
-| 13 | Holding Periods And The Capital Gains Brackets | — | — |
-| 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | — | — |
-| 15 | What A 1099 Actually Tells You | — | — |
+| 12 | Qualified vs. Ordinary Dividends | `12-qualified-vs-ordinary-dividends.html` | 8 |
+| 13 | Holding Periods And The Capital Gains Brackets | `13-holding-periods-and-capital-gains-brackets.html` | 8 |
+| 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | `14-tax-loss-harvesting-and-wash-sale-rule.html` | 8 |
+| 15 | What A 1099 Actually Tells You | `15-what-a-1099-actually-tells-you.html` | 8 |
 
 ## Module 4 — Risk You Cannot See In A Chart ⬜ not built
 
@@ -136,6 +136,43 @@ bonds were cut entirely since neither is introduced before Module 3 (replaced
 with a CD, a fund-distribution fact, and a dividend-reinvestment case, with
 extra term mentions woven in to keep the glossary density up); and the
 Complete-slide icon was swapped from 🗂️ to 🚀, matching every other lesson.
+
+**Lessons 12-15, built this pass — Module 3 complete:**
+
+- **Lesson 12 ("Qualified vs. Ordinary Dividends"), prefix `qd`:** creative
+  widget is a day-count ruler — a shaded 121-day qualifying window around
+  the ex-dividend date, with 4 tappable buy/sell scenarios that draw their
+  own held-span bar and the overlap. Slide 4 is a standard ordinary/
+  qualified tax calculator across 3 income presets, using real 2026
+  single-filer brackets (Rev. Proc. 2025-32).
+- **Lesson 13 ("Holding Periods And The Capital Gains Brackets"), prefix
+  `cg`:** creative widget is a stacking bar — ordinary income fills a
+  horizontal bar first, then a highlighted gain segment stacks on top and
+  visibly splits across rate-zone boundaries when it crosses one.
+  Deliberately reuses Lesson 12's income presets and bracket figures for
+  cross-lesson consistency, applied to a sale instead of a dividend.
+- **Lesson 14 ("Tax-Loss Harvesting, And The Wash-Sale Rule"), prefix
+  `tl`:** creative widget is a year-end netting worksheet/ledger with five
+  tappable summary rows showing real arithmetic down to the $3,000
+  ordinary-income offset and carryforward. Carries heavier hedging per
+  this file's own note on lessons 11/14/23 — slide 6 exists specifically
+  to name real friction (costs, time out of market, professional advice),
+  and nothing in the lesson walks through placing an actual trade.
+- **Lesson 15 ("What A 1099 Actually Tells You"), prefix `fm`:** creative
+  widget is a full annotated consolidated-1099 reconstruction (1099-DIV
+  and 1099-B panels with real box numbers/labels) — the first full 1099
+  reconstruction in the course, closing the loop Lessons 11 and 14
+  deliberately left open. Closes Module 3.
+
+All four were caught and fixed mid-build by their own verification pass:
+two unescaped apostrophes inside JS string literals on Lesson 14 (syntax
+errors caught by `node --check`), a headline on Lesson 13 that
+accidentally contained two chip terms verbatim (green words landing in an
+`<h2>`), low green-term coverage on 12 and 14 from explanatory text sitting
+in `id`'d reveal boxes the hover-term scanner skips by design (fixed by
+weaving the same terms into static instruction lines instead), and on
+Lesson 15, all 8 multiple-choice answers across two quiz slides landing on
+the first option (answer-key hygiene — repositioned for a mixed pattern).
 
 What was fixed in the Module 1–2 backlog pass:
 
