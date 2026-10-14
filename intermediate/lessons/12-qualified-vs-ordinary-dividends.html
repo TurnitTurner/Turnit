@@ -4,18 +4,21 @@
      (Intermediate · Module 3 · Lesson 12)
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-qd. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
-       1  Title & Key Terms (never gated)   2  The 61-Day Test (creative)
-       3  Two Rates, Same Form              4  What's The Dollar Difference? (calculator)
-       5  Myth Or Fact (5)                  6  Which Rate Applies? (4)
-       7  Recap (6)                         8  Complete
-     Creative widget, 1 of 2 allowed: slide 2's day-count ruler — a shaded
+       1  Title & Key Terms (never gated)   2  Ordinary Vs. Qualified, Defined
+       3  The 61-Day Test (creative)        4  Two Rates, Same Form
+       5  What's The Dollar Difference? (calculator)
+       6  Myth Or Fact (5)                  7  Which Rate Applies? (4)
+       8  Recap (6)                         9  Complete
+     Creative widget, 1 of 2 allowed: slide 3's day-count ruler — a shaded
      121-day qualifying window around the ex-dividend date, with 4 tappable
      buy/sell scenarios that draw their own held-span bar and the overlap
      with the window. A visual not used by any earlier lesson (lesson 10's
      phone feed, lesson 11's tax-form contrast, etc. all look different).
-     Slide 4 is a standard calculator (toggle + income presets), not a
-     second creative slot. Slides 3 and 6 are standard formats (side-by-side
-     comparison, scenario decisions).
+     Slide 5 is a standard calculator (toggle + income presets), not a
+     second creative slot. Slides 2, 4 and 7 are standard formats (two
+     comparison tables and scenario decisions) — slide 2 was added after
+     review to go deeper on the ordinary/qualified distinction itself,
+     before the holding-period mechanics on slide 3.
      Gating reads state published on the container, so spamming one
      control can never unlock a slide; once unlocked, a slide stays
      unlocked after Start Over.
@@ -50,12 +53,12 @@
         <div class="qd-brand"><span class="qd-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="qd-word">TURNIT</span><span class="qd-bsub">Intermediate Investing</span></div>
       </div>
       <div class="qd-progress"><span id="qd-bar"></span></div>
-      <div class="qd-meta"><span id="qd-slide-label">Start Here</span><span id="qd-slide-count">Slide 1 Of 8</span></div>
+      <div class="qd-meta"><span id="qd-slide-label">Start Here</span><span id="qd-slide-count">Slide 1 Of 9</span></div>
     </div>
 
     <!-- ========== 1 · TITLE & KEY TERMS ========== -->
     <section class="qd-sec qd-center qd-reveal" data-step="1">
-      <p class="qd-kicker center">Tax-Smart Investing · 1 / 8</p>
+      <p class="qd-kicker center">Tax-Smart Investing · 1 / 9</p>
       <h1 class="qd-hero-title">QUALIFIED <span class="qd-hero-grad">VS. ORDINARY</span></h1>
       <p class="qd-sub center">Two dividends can look identical on your statement and still owe completely different tax bills.</p>
       <div class="qd-vocab">
@@ -73,9 +76,41 @@
       <div class="qd-next-move">Nothing here is required — tap Next when you're ready.</div>
     </section>
 
-    <!-- ========== 2 · THE 61-DAY TEST ========== -->
+    <!-- ========== 2 · ORDINARY VS. QUALIFIED, DEFINED ========== -->
     <section class="qd-sec qd-reveal" data-step="2">
-      <p class="qd-kicker">The 61-Day Test · 2 / 8</p>
+      <p class="qd-kicker">Two Kinds Of Dividend · 2 / 9</p>
+      <h2 class="qd-h2">What Actually Makes One “Qualified”?</h2>
+      <p class="qd-p">The lower rate exists to tax a dividend more like a reward for long-term ownership than like paycheck income — but only once your holding period proves that's what's actually happening. Tap each row to compare the two.</p>
+      <div class="qd-deftable" id="qd-deftable">
+        <div class="qd-defgrp">
+          <p class="qd-defgrp-lab">The Default</p>
+          <div class="qd-defpair">
+            <button type="button" class="qd-defcell no" data-k="od1" data-why="Every dividend starts out ordinary. Nothing special has to happen for this to apply.">Ordinary</button>
+            <button type="button" class="qd-defcell yes" data-k="qd1" data-why="Qualified status has to be earned — it's never the starting point.">Qualified</button>
+          </div>
+        </div>
+        <div class="qd-defgrp">
+          <p class="qd-defgrp-lab">The Tax Rate</p>
+          <div class="qd-defpair">
+            <button type="button" class="qd-defcell no" data-k="od2" data-why="Taxed at your regular income tax rate — the same bracket your paycheck is taxed at, from 10% up to 37%.">Ordinary</button>
+            <button type="button" class="qd-defcell yes" data-k="qd2" data-why="Taxed at the lower 0%, 15%, or 20% rate — the same table used for long-term capital gains.">Qualified</button>
+          </div>
+        </div>
+        <div class="qd-defgrp">
+          <p class="qd-defgrp-lab">What It Takes</p>
+          <div class="qd-defpair">
+            <button type="button" class="qd-defcell no" data-k="od3" data-why="No extra requirement. A dividend only escapes this if it meets every condition for “qualified” instead.">Ordinary</button>
+            <button type="button" class="qd-defcell yes" data-k="qd3" data-why="Paid by a U.S. corporation (or a qualifying foreign one), and the stock held long enough around the ex-dividend date — the 61-day test on the next slide.">Qualified</button>
+          </div>
+        </div>
+      </div>
+      <div class="qd-defbox" id="qd-defbox">Tap a cell above to see how it compares.</div>
+      <p class="qd-count" id="qd-def-count">Compared 0 Of 6</p>
+    </section>
+
+    <!-- ========== 3 · THE 61-DAY TEST ========== -->
+    <section class="qd-sec qd-reveal" data-step="3">
+      <p class="qd-kicker">The 61-Day Test · 3 / 9</p>
       <h2 class="qd-h2">Did You Hold It Long Enough?</h2>
       <p class="qd-p">The holding period requirement: more than 60 days held within a 121-day window around the ex-dividend date. Tap each scenario to test it.</p>
       <div class="qd-ruler">
@@ -98,9 +133,9 @@
       <p class="qd-disclaimer-inline">Shown for common stock. The window shifts in real life only by its anchor date — the math itself (more than 60 of 121 days) never changes. Preferred stock uses a stricter test not covered here.</p>
     </section>
 
-    <!-- ========== 3 · TWO RATES, SAME FORM ========== -->
-    <section class="qd-sec qd-reveal" data-step="3">
-      <p class="qd-kicker">Two Rates, Same Form · 3 / 8</p>
+    <!-- ========== 4 · TWO RATES, SAME FORM ========== -->
+    <section class="qd-sec qd-reveal" data-step="4">
+      <p class="qd-kicker">Two Rates, Same Form · 4 / 9</p>
       <h2 class="qd-h2">What Actually Separates Them</h2>
       <p class="qd-p">Same word on your statement — an ordinary dividend or a qualified dividend — two different tax outcomes. Tap each example.</p>
       <div class="qd-split">
@@ -119,9 +154,9 @@
       <p class="qd-count" id="qd-ex-count">Revealed 0 Of 4</p>
     </section>
 
-    <!-- ========== 4 · WHAT'S THE DOLLAR DIFFERENCE? ========== -->
-    <section class="qd-sec qd-reveal" data-step="4">
-      <p class="qd-kicker">Same $2,000, Different Bills · 4 / 8</p>
+    <!-- ========== 5 · WHAT'S THE DOLLAR DIFFERENCE? ========== -->
+    <section class="qd-sec qd-reveal" data-step="5">
+      <p class="qd-kicker">Same $2,000, Different Bills · 5 / 9</p>
       <h2 class="qd-h2">What's The Dollar Difference?</h2>
       <p class="qd-p">Pick a taxable income level, then toggle this $2,000 between an ordinary dividend and a qualified dividend taxed at the preferential rate.</p>
       <div class="qd-incomes" id="qd-incomes">
@@ -142,9 +177,9 @@
       <p class="qd-disclaimer-inline">Single filer, 2026 brackets. Each income level's own marginal bracket is applied as a flat rate — a stated simplification, not a line-by-line tax return.</p>
     </section>
 
-    <!-- ========== 5 · MYTH OR FACT ========== -->
-    <section class="qd-sec qd-reveal" data-step="5">
-      <p class="qd-kicker">Myth Or Fact · 5 / 8</p>
+    <!-- ========== 6 · MYTH OR FACT ========== -->
+    <section class="qd-sec qd-reveal" data-step="6">
+      <p class="qd-kicker">Myth Or Fact · 6 / 9</p>
       <h2 class="qd-h2">Myth Or Fact?</h2>
       <p class="qd-p">Five claims you'll hear about dividend taxes. Tap your answer.</p>
       <div class="qd-sort" id="qd-myth">
@@ -158,9 +193,9 @@
       <div class="qd-reset-row"><button type="button" class="qd-reset-btn" id="qd-myth-reset">↺ Start Over</button></div>
     </section>
 
-    <!-- ========== 6 · WHICH RATE APPLIES? ========== -->
-    <section class="qd-sec qd-reveal" data-step="6">
-      <p class="qd-kicker">Four Holdings · 6 / 8</p>
+    <!-- ========== 7 · WHICH RATE APPLIES? ========== -->
+    <section class="qd-sec qd-reveal" data-step="7">
+      <p class="qd-kicker">Four Holdings · 7 / 9</p>
       <h2 class="qd-h2">Which Rate Applies?</h2>
       <p class="qd-p">Run the holding period requirement yourself. Tap the right answer for each.</p>
       <div class="qd-cases" id="qd-cases">
@@ -189,9 +224,9 @@
       <div class="qd-reset-row"><button type="button" class="qd-reset-btn" id="qd-case-reset">↺ Start Over</button></div>
     </section>
 
-    <!-- ========== 7 · RECAP ========== -->
-    <section class="qd-sec qd-reveal" data-step="7">
-      <p class="qd-kicker">Recap · 7 / 8</p>
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="qd-sec qd-reveal" data-step="8">
+      <p class="qd-kicker">Recap · 8 / 9</p>
       <h2 class="qd-h2">Here's What You Now Know</h2>
       <p class="qd-p">The whole lesson, in six lines.</p>
       <div class="qd-recap">
@@ -205,9 +240,9 @@
       <div class="qd-next-move">Your next move: <b>pull up last year's 1099-DIV and compare boxes 1a and 1b.</b> If they're not equal, part of what you were paid was ordinary.</div>
     </section>
 
-    <!-- ========== 8 · COMPLETE ========== -->
-    <section class="qd-sec qd-center qd-reveal" data-step="8">
-      <p class="qd-kicker center">Lesson Complete · 8 / 8</p>
+    <!-- ========== 9 · COMPLETE ========== -->
+    <section class="qd-sec qd-center qd-reveal" data-step="9">
+      <p class="qd-kicker center">Lesson Complete · 9 / 9</p>
       <span class="qd-hero-ico">🚀</span>
       <h2 class="qd-h2 center">You've Finished The Lesson</h2>
       <p class="qd-sub center">Module 3 continues. Next: holding periods and the capital-gains brackets on a sale, not just a dividend.</p>
@@ -220,7 +255,7 @@
       <p class="qd-pullquote">"TAXES ARE WHAT WE PAY FOR CIVILIZED SOCIETY, <span class="qd-green">INCLUDING THE CHANCE TO INSURE.</span>"<br><span class="qd-pullquote-by">— JUSTICE OLIVER WENDELL HOLMES JR., COMPAÑÍA GENERAL DE TABACOS V. COLLECTOR (1927)</span></p>
     </section>
 
-    <p class="qd-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Tax brackets and thresholds shown are for the 2026 tax year, published at the time of writing, and will change in future years. The slide-4 calculator applies one marginal rate per income level as a simplification, not an exact tax-return computation. Tax rules vary by situation. Consider speaking with a qualified tax professional about your own situation.</p>
+    <p class="qd-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Tax brackets and thresholds shown are for the 2026 tax year, published at the time of writing, and will change in future years. The slide-5 calculator applies one marginal rate per income level as a simplification, not an exact tax-return computation. Tax rules vary by situation. Consider speaking with a qualified tax professional about your own situation.</p>
 
     <div class="qd-nav" id="qd-nav">
       <button type="button" class="qd-nav-btn prev" id="qd-prev"><span aria-hidden="true">←</span> Previous</button>
@@ -284,7 +319,19 @@
   #tn-qd .qd-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   #tn-qd .qd-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
   #tn-qd .qd-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
-  /* 2 · the day-count ruler (creative) */
+  /* 2 · ordinary vs. qualified comparison table */
+  #tn-qd .qd-deftable{display:flex; flex-direction:column; gap:10px; max-width:480px; margin:0 auto;}
+  #tn-qd .qd-defgrp-lab{font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut); text-align:center; margin:0 0 6px;}
+  #tn-qd .qd-defpair{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  #tn-qd .qd-defcell{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border-radius:11px; padding:11px 12px; cursor:pointer; text-align:center; transition:all .15s; background:#fff;}
+  #tn-qd .qd-defcell.no{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-qd .qd-defcell.yes{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-qd .qd-defcell:hover{filter:brightness(.97);}
+  #tn-qd .qd-defcell.done.no{background:var(--nobg);}
+  #tn-qd .qd-defcell.done.yes{background:var(--tint);}
+  #tn-qd .qd-defbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-qd .qd-defbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 3 · the day-count ruler (creative) */
   #tn-qd .qd-ruler{max-width:560px; margin:0 auto;}
   #tn-qd .qd-ruler-track{position:relative; height:54px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; overflow:hidden;}
   #tn-qd .qd-ruler-window{position:absolute; left:10%; width:80%; top:0; bottom:0; background:var(--tint); border-left:1.5px dashed var(--selbd); border-right:1.5px dashed var(--selbd);}
@@ -303,7 +350,7 @@
   #tn-qd .qd-scen{font-family:'Inter',sans-serif; font-size:13.5px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 14px; cursor:pointer; text-align:left; transition:all .15s;}
   #tn-qd .qd-scen:hover{border-color:var(--selbd);}
   #tn-qd .qd-scen.on{border-color:var(--b); background:#EAF1FA;}
-  /* 3 · side-by-side example split */
+  /* 4 · side-by-side example split */
   #tn-qd .qd-split{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   #tn-qd .qd-splitcol{display:flex; flex-direction:column; gap:8px;}
   #tn-qd .qd-splitcol-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; text-align:center; margin:0 0 2px;}
@@ -314,7 +361,7 @@
   #tn-qd .qd-ex.done{background:var(--mist); border-color:var(--selbd); color:var(--ink2);}
   #tn-qd .qd-exbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
   #tn-qd .qd-exbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
-  /* 4 · calculator */
+  /* 5 · calculator */
   #tn-qd .qd-incomes{display:flex; gap:8px; justify-content:center; flex-wrap:wrap;}
   #tn-qd .qd-inc{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 16px; cursor:pointer; transition:all .15s;}
   #tn-qd .qd-inc:hover{border-color:var(--selbd);}
@@ -327,7 +374,7 @@
   #tn-qd .qd-calc-amt{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:32px; color:var(--ink); margin:8px 0 4px;}
   #tn-qd .qd-calc-sub{display:block; font-size:12.5px; color:var(--ink2); line-height:1.5;}
   #tn-qd .qd-calc-sub b{color:var(--g); font-family:'Poppins',sans-serif;}
-  /* 5 · myth sorter */
+  /* 6 · myth sorter */
   #tn-qd .qd-sort{display:flex; flex-direction:column; gap:10px;}
   #tn-qd .qd-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
   #tn-qd .qd-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
@@ -343,7 +390,7 @@
   #tn-qd .qd-why b{font-family:'Poppins',sans-serif;}
   #tn-qd .qd-sort-row .qd-why{flex-basis:100%; width:100%; margin-top:4px;}
   #tn-qd .qd-sort-row.done .qd-why{display:block;}
-  /* 6 · scenarios */
+  /* 7 · scenarios */
   #tn-qd .qd-cases{display:flex; flex-direction:column; gap:10px;}
   #tn-qd .qd-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
   #tn-qd .qd-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
@@ -435,7 +482,20 @@
     });
   });
 
-  /* 2 · the day-count ruler (creative 1 of 2) */
+  /* 2 · ordinary vs. qualified comparison table */
+  var defSeen={}, defBox=root.querySelector('#qd-defbox'), defCount=root.querySelector('#qd-def-count');
+  root.querySelectorAll('#qd-deftable .qd-defcell').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var grpLab=btn.closest('.qd-defgrp').querySelector('.qd-defgrp-lab').textContent;
+      defBox.innerHTML='<b>'+btn.textContent+' — '+grpLab+':</b> '+btn.getAttribute('data-why');
+      defSeen[btn.getAttribute('data-k')]=1;
+      defCount.textContent='Compared '+keys(defSeen)+' Of 6';
+      state('defs', keys(defSeen)); postHeight();
+    });
+  });
+
+  /* 3 · the day-count ruler (creative 1 of 2) */
   var SPAN=150, OFF=75; /* display range -75..+75, window -60..+60 */
   function pct(day){ return (day+OFF)/SPAN*100; }
   var scenSeen={}, scenCount=root.querySelector('#qd-scen-count'), scenResult=root.querySelector('#qd-scenresult'),
@@ -468,7 +528,7 @@
     });
   });
 
-  /* 3 · two rates, same form */
+  /* 4 · two rates, same form */
   var EXW={
     e1:'Held only about five weeks within the window — short of the 61-day minimum.',
     e2:'The IRS only extends the lower rate to U.S. companies and foreign companies that meet specific treaty or exchange-listing tests.',
@@ -487,7 +547,7 @@
     });
   });
 
-  /* 4 · calculator */
+  /* 5 · calculator */
   var incSeen={}, incCount=root.querySelector('#qd-calc-count'), calcAmt=root.querySelector('#qd-calc-amt'),
       calcSub=root.querySelector('#qd-calc-sub'), curInc=null, curMode='ord';
   var AMT=2000;
@@ -520,7 +580,7 @@
     });
   });
 
-  /* 5 · myth or fact */
+  /* 6 · myth or fact */
   var mythCount=root.querySelector('#qd-myth-count');
   root.querySelectorAll('#qd-myth .qd-sort-row').forEach(function(row){
     var ans=row.getAttribute('data-answer');
@@ -544,7 +604,7 @@
     mythCount.textContent='Answered 0 Of 5'; postHeight();
   });
 
-  /* 6 · which rate applies */
+  /* 7 · which rate applies */
   var CWHY=[
     'Only 30 days fell inside the 121-day window — well short of the 61 needed.',
     '70 days fell inside the window, comfortably over the 61 needed.',
@@ -688,14 +748,14 @@
 <script>
 (function(){
   var root=document.getElementById('tn-qd'); if(!root) return;
-  var TOTAL=8, current=1;
+  var TOTAL=9, current=1;
   var bar=root.querySelector('#qd-bar'), labelEl=root.querySelector('#qd-slide-label'),
       countEl=root.querySelector('#qd-slide-count'), prevBtn=root.querySelector('#qd-prev'),
       nextBtn=root.querySelector('#qd-next'), hintEl=root.querySelector('#qd-nav-hint'),
       disclaimer=root.querySelector('.qd-disclaimer');
-  var labels={1:'Start Here',2:'The 61-Day Test',3:'Two Rates, Same Form',4:'Dollar Difference',5:'Myth Or Fact',6:'Which Rate Applies?',7:'Recap',8:'Complete'};
-  var reqHints={2:'Test all 4 to continue',3:'Reveal all 4 to continue',4:'Check all 3 income levels to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
-  var done={1:true,7:true,8:true};
+  var labels={1:'Start Here',2:'Ordinary Vs. Qualified',3:'The 61-Day Test',4:'Two Rates, Same Form',5:'Dollar Difference',6:'Myth Or Fact',7:'Which Rate Applies?',8:'Recap',9:'Complete'};
+  var reqHints={2:'Compare all 6 to continue',3:'Test all 4 to continue',4:'Reveal all 4 to continue',5:'Check all 3 income levels to continue',6:'Answer all 5 to continue',7:'Answer all 4 to continue'};
+  var done={1:true,8:true,9:true};
   var secByStep={};
   root.querySelectorAll('.qd-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
   function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
@@ -730,11 +790,12 @@
   function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
   function num(k){ return +(root.getAttribute('data-'+k)||0); }
   var GATES=[
-    {step:2, key:'ruler', need:4, hint:function(n){ return 'Tested '+n+' of 4 — test them all to continue'; }},
-    {step:3, key:'ex',    need:4, hint:function(n){ return 'Revealed '+n+' of 4 — tap them all to continue'; }},
-    {step:4, key:'calc',  need:3, hint:function(n){ return 'Checked '+n+' of 3 — try every income level to continue'; }},
-    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
-    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+    {step:2, key:'defs',  need:6, hint:function(n){ return 'Compared '+n+' of 6 — tap them all to continue'; }},
+    {step:3, key:'ruler', need:4, hint:function(n){ return 'Tested '+n+' of 4 — test them all to continue'; }},
+    {step:4, key:'ex',    need:4, hint:function(n){ return 'Revealed '+n+' of 4 — tap them all to continue'; }},
+    {step:5, key:'calc',  need:3, hint:function(n){ return 'Checked '+n+' of 3 — try every income level to continue'; }},
+    {step:6, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:7, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
   ];
   root.addEventListener('qd-state',function(){
     GATES.forEach(function(g){

@@ -5,7 +5,7 @@
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-cg. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
        1  Title & Key Terms (never gated)   2  Where Your Gain Lands (creative)
-       3  Short-Term, Or Long-Term?         4  Same $5,000, Two Bills (calculator)
+       3  Short-Term, Or Long-Term?         4  Does One Day Really Matter?
        5  Myth Or Fact (5)                  6  Which Zone? (4)
        7  Recap (6)                         8  Complete
      Creative widget, 1 of 2 allowed: slide 2's stacking bar — ordinary
@@ -13,10 +13,15 @@
      stacks on top and is shown splitting across rate-zone boundaries when
      it crosses one. A different visual from lesson 12's day-count ruler
      and every earlier lesson's look.
-     Slide 4 is a standard calculator (deliberately reuses lesson 12's
-     three income presets and real bracket figures for cross-lesson
-     consistency, applied here to a sale instead of a dividend). Slides 3
-     and 6 are standard scenario-decision / quiz formats.
+     Slide 4 was rebuilt after review — the original reused lesson 12's
+     toggle + three-income-preset calculator shape almost exactly, just
+     applied to a sale instead of a dividend. It's now a one-day cliff
+     selector: six tappable days straddling the one-year mark on a single
+     fixed scenario ($45,000 gain, $120,000 other income), so the exact
+     dollar jump at day 365/366 is the whole point, not a side effect of a
+     toggle. Still reuses lesson 12's real bracket figures (24% ordinary,
+     15% long-term at that income level) for cross-lesson consistency.
+     Slides 3 and 6 are standard scenario-decision / quiz formats.
      Gating reads state published on the container, so spamming one
      control can never unlock a slide; once unlocked, a slide stays
      unlocked after Start Over.
@@ -29,10 +34,12 @@
        $49,450; 15% from $49,451 to $545,500; 20% above $545,500 — the
        same figures used in Lesson 12, reused here rather than restated
        differently, per the cross-lesson consistency rule.
-       Ordinary brackets used for the slide-4 calculator: 12% marginal at
-       $45,000 taxable income, 24% at $120,000, 35% at $600,000 (2026
-       table, same Rev. Proc.) — identical to Lesson 12's calculator
-       scenarios, reused on purpose.
+       Ordinary bracket used on slide 4: 24% marginal at $120,000 taxable
+       income (2026 table, same Rev. Proc.), paired with the 15% long-term
+       rate at that same income level — the middle scenario from Lesson
+       12's calculator, reused on purpose. The $45,000 gain is an
+       invented round number chosen for clean arithmetic, not a real
+       taxpayer's figure.
        Short-term vs. long-term threshold: held one year or less is
        short-term; more than one year is long-term (IRC §1222) — holding
        exactly one year to the day is still short-term, a common trap.
@@ -122,27 +129,22 @@
       <div class="cg-reset-row"><button type="button" class="cg-reset-btn" id="cg-datecase-reset">↺ Start Over</button></div>
     </section>
 
-    <!-- ========== 4 · SAME $5,000, TWO BILLS ========== -->
+    <!-- ========== 4 · THE COST OF ONE DAY ========== -->
     <section class="cg-sec cg-reveal" data-step="4">
-      <p class="cg-kicker">Same $5,000, Two Bills · 4 / 8</p>
-      <h2 class="cg-h2">What's The Dollar Difference?</h2>
-      <p class="cg-p">Pick a taxable income level, then toggle this $5,000 gain between short-term and long-term.</p>
-      <div class="cg-incomes" id="cg-incomes">
-        <button type="button" class="cg-inc" data-k="45" data-ord="12" data-q="0">$45,000</button>
-        <button type="button" class="cg-inc" data-k="120" data-ord="24" data-q="15">$120,000</button>
-        <button type="button" class="cg-inc" data-k="600" data-ord="35" data-q="20">$600,000</button>
+      <p class="cg-kicker">The Cost Of One Day · 4 / 8</p>
+      <h2 class="cg-h2">Does One Day Really Matter?</h2>
+      <p class="cg-p">A $45,000 gain, held almost exactly a year, with $120,000 of other taxable income. Tap a day to see what selling on it actually costs.</p>
+      <div class="cg-dayline" id="cg-dayline">
+        <button type="button" class="cg-day" data-d="360" data-term="0">Day 360</button>
+        <button type="button" class="cg-day" data-d="363" data-term="0">Day 363</button>
+        <button type="button" class="cg-day" data-d="365" data-term="0">Day 365</button>
+        <button type="button" class="cg-day" data-d="366" data-term="1">Day 366</button>
+        <button type="button" class="cg-day" data-d="368" data-term="1">Day 368</button>
+        <button type="button" class="cg-day" data-d="370" data-term="1">Day 370</button>
       </div>
-      <div class="cg-toggle" id="cg-toggle">
-        <button type="button" class="cg-tog on" data-m="ord">Short-Term</button>
-        <button type="button" class="cg-tog" data-m="q">Long-Term</button>
-      </div>
-      <div class="cg-calcbox" id="cg-calcbox">
-        <span class="cg-calc-lab">Tax Owed On The $5,000</span>
-        <span class="cg-calc-amt" id="cg-calc-amt">Pick an income level</span>
-        <span class="cg-calc-sub" id="cg-calc-sub"></span>
-      </div>
-      <p class="cg-count" id="cg-calc-count">Checked 0 Of 3 Income Levels</p>
-      <p class="cg-disclaimer-inline">Single filer, 2026 brackets. Each income level's own marginal bracket is applied as a flat rate — a stated simplification, not a line-by-line tax return.</p>
+      <div class="cg-dayresult" id="cg-dayresult">Tap a day above to test it.</div>
+      <p class="cg-count" id="cg-day-count">Tested 0 Of 6</p>
+      <p class="cg-disclaimer-inline">Single filer, 2026 brackets: 24% ordinary and 15% long-term at $120,000 of other taxable income. Illustrative figures, not a tax return.</p>
     </section>
 
     <!-- ========== 5 · MYTH OR FACT ========== -->
@@ -223,7 +225,7 @@
       <p class="cg-pullquote">"IN THIS WORLD, NOTHING IS CERTAIN, <span class="cg-green">EXCEPT DEATH AND TAXES.</span>"<br><span class="cg-pullquote-by">— BENJAMIN FRANKLIN, LETTER TO JEAN-BAPTISTE LE ROY (1789)</span></p>
     </section>
 
-    <p class="cg-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Tax brackets and thresholds shown are for the 2026 tax year, published at the time of writing, and will change in future years. The slide-4 calculator applies one marginal rate per income level as a simplification, not an exact tax-return computation. Tax rules vary by situation. Consider speaking with a qualified tax professional about your own situation.</p>
+    <p class="cg-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Tax brackets and thresholds shown are for the 2026 tax year, published at the time of writing, and will change in future years. Slide 4 applies one fixed marginal rate pair as a simplification, not an exact tax-return computation. Tax rules vary by situation. Consider speaking with a qualified tax professional about your own situation.</p>
 
     <div class="cg-nav" id="cg-nav">
       <button type="button" class="cg-nav-btn prev" id="cg-prev"><span aria-hidden="true">←</span> Previous</button>
@@ -330,19 +332,14 @@
   #tn-cg .cg-case.done .cg-why{display:block;}
   #tn-cg .cg-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
   #tn-cg .cg-why b{font-family:'Poppins',sans-serif;}
-  /* 4 · calculator */
-  #tn-cg .cg-incomes{display:flex; gap:8px; justify-content:center; flex-wrap:wrap;}
-  #tn-cg .cg-inc{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 16px; cursor:pointer; transition:all .15s;}
-  #tn-cg .cg-inc:hover{border-color:var(--selbd);}
-  #tn-cg .cg-inc.on{background:var(--b); color:#fff; border-color:var(--b);}
-  #tn-cg .cg-toggle{display:flex; gap:8px; justify-content:center; margin-top:14px;}
-  #tn-cg .cg-tog{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 16px; cursor:pointer; transition:all .15s;}
-  #tn-cg .cg-tog.on{background:var(--ink); color:#fff; border-color:var(--ink);}
-  #tn-cg .cg-calcbox{max-width:360px; margin:16px auto 0; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:18px 20px; text-align:center;}
-  #tn-cg .cg-calc-lab{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
-  #tn-cg .cg-calc-amt{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:32px; color:var(--ink); margin:8px 0 4px;}
-  #tn-cg .cg-calc-sub{display:block; font-size:12.5px; color:var(--ink2); line-height:1.5;}
-  #tn-cg .cg-calc-sub b{color:var(--g); font-family:'Poppins',sans-serif;}
+  /* 4 · the one-day cliff */
+  #tn-cg .cg-dayline{display:grid; grid-template-columns:repeat(6,1fr); gap:7px;}
+  #tn-cg .cg-day{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 4px; cursor:pointer; text-align:center; transition:all .15s;}
+  #tn-cg .cg-day:hover{border-color:var(--selbd);}
+  #tn-cg .cg-day.on[data-term="0"]{background:var(--z15bg); border-color:var(--z15); color:var(--z15);}
+  #tn-cg .cg-day.on[data-term="1"]{background:var(--z0bg); border-color:var(--z0); color:var(--z0);}
+  #tn-cg .cg-dayresult{max-width:480px; margin:16px auto 0; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:16px 18px; text-align:center; font-size:14px; color:var(--ink2); line-height:1.6; min-height:24px;}
+  #tn-cg .cg-dayresult b{font-family:'Poppins',sans-serif; color:var(--ink);}
   /* 5 · myth sorter */
   #tn-cg .cg-sort{display:flex; flex-direction:column; gap:10px;}
   #tn-cg .cg-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
@@ -498,36 +495,19 @@
     dateCount.textContent='Answered 0 Of 4'; postHeight();
   });
 
-  /* 4 · calculator */
-  var incSeen={}, incCount=root.querySelector('#cg-calc-count'), calcAmt=root.querySelector('#cg-calc-amt'),
-      calcSub=root.querySelector('#cg-calc-sub'), curInc=null, curMode='ord';
-  var AMT=5000;
-  function renderCalc(){
-    if(!curInc){ calcAmt.textContent='Pick an income level'; calcSub.textContent=''; return; }
-    var rate=(curMode==='ord'?curInc.ord:curInc.q)/100;
-    var tax=AMT*rate;
-    calcAmt.textContent='$'+tax.toFixed(0);
-    var otherRate=(curMode==='ord'?curInc.q:curInc.ord)/100, otherTax=AMT*otherRate;
-    var diff=Math.abs(tax-otherTax);
-    calcSub.innerHTML='At '+(rate*100).toFixed(0)+'% — the other treatment owes $'+otherTax.toFixed(0)+'. <b>$'+diff.toFixed(0)+' difference.</b>';
-  }
-  root.querySelectorAll('#cg-incomes .cg-inc').forEach(function(btn){
+  /* 4 · the one-day cliff */
+  var GAIN=45000, ORDRATE=0.24, LTRATE=0.15;
+  var daySeen={}, dayCount=root.querySelector('#cg-day-count'), dayResult=root.querySelector('#cg-dayresult');
+  root.querySelectorAll('#cg-dayline .cg-day').forEach(function(btn){
     btn.addEventListener('click',function(){
-      root.querySelectorAll('#cg-incomes .cg-inc').forEach(function(b){ b.classList.remove('on'); });
+      root.querySelectorAll('#cg-dayline .cg-day').forEach(function(b){ b.classList.remove('on'); });
       btn.classList.add('on');
-      curInc={ord:+btn.getAttribute('data-ord'), q:+btn.getAttribute('data-q')};
-      incSeen[btn.getAttribute('data-k')]=1;
-      incCount.textContent='Checked '+keys(incSeen)+' Of 3 Income Levels';
-      renderCalc();
-      state('calc', keys(incSeen)); postHeight();
-    });
-  });
-  root.querySelectorAll('#cg-toggle .cg-tog').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      root.querySelectorAll('#cg-toggle .cg-tog').forEach(function(b){ b.classList.remove('on'); });
-      btn.classList.add('on');
-      curMode=btn.getAttribute('data-m');
-      renderCalc(); postHeight();
+      var d=+btn.getAttribute('data-d'), isLong=btn.getAttribute('data-term')==='1';
+      var rate=isLong?LTRATE:ORDRATE, tax=GAIN*rate;
+      dayResult.innerHTML='Held <b>'+d+' days</b> → <b>'+(isLong?'Long-Term':'Short-Term')+'</b>. $45,000 × '+(rate*100).toFixed(0)+'% = <b>$'+tax.toLocaleString()+' owed</b>.';
+      daySeen[d]=1;
+      dayCount.textContent='Tested '+keys(daySeen)+' Of 6';
+      state('day', keys(daySeen)); postHeight();
     });
   });
 
@@ -557,10 +537,10 @@
 
   /* 6 · which zone */
   var ZWHY=[
-    'All $30,000 (income plus gain) sits under $49,450 — the entire gain lands in the 0% zone.',
-    'From $200,000 to $215,000 sits inside the 15% zone ($49,451–$545,500) the whole way.',
-    'From $560,000 to $565,000 sits above $545,500 — the entire gain lands in the 20% zone.',
-    'From $45,000 to $48,000 stays under $49,450 — the entire gain lands in the 0% zone.'
+    '$20,000 + $10,000 = $30,000 total. That’s under the $49,450 threshold, so the entire gain lands in the 0% zone.',
+    '$200,000 + $15,000 = $215,000 total. That’s between $49,451 and $545,500, so the entire gain lands in the 15% zone.',
+    '$560,000 + $5,000 = $565,000 total. That’s above $545,500, so the entire gain lands in the 20% zone.',
+    '$45,000 + $3,000 = $48,000 total. That’s under the $49,450 threshold, so the entire gain lands in the 0% zone.'
   ];
   var zoneCount=root.querySelector('#cg-zonecase-count');
   root.querySelectorAll('#cg-zonecases .cg-case').forEach(function(c,ci){
@@ -705,8 +685,8 @@
       countEl=root.querySelector('#cg-slide-count'), prevBtn=root.querySelector('#cg-prev'),
       nextBtn=root.querySelector('#cg-next'), hintEl=root.querySelector('#cg-nav-hint'),
       disclaimer=root.querySelector('.cg-disclaimer');
-  var labels={1:'Start Here',2:'Where Your Gain Lands',3:'Short-Term Or Long-Term?',4:'Dollar Difference',5:'Myth Or Fact',6:'Which Zone?',7:'Recap',8:'Complete'};
-  var reqHints={2:'Test all 3 to continue',3:'Answer all 4 to continue',4:'Check all 3 income levels to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var labels={1:'Start Here',2:'Where Your Gain Lands',3:'Short-Term Or Long-Term?',4:'The Cost Of One Day',5:'Myth Or Fact',6:'Which Zone?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Test all 3 to continue',3:'Answer all 4 to continue',4:'Test all 6 days to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
   var done={1:true,7:true,8:true};
   var secByStep={};
   root.querySelectorAll('.cg-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
@@ -744,7 +724,7 @@
   var GATES=[
     {step:2, key:'stack', need:3, hint:function(n){ return 'Tested '+n+' of 3 — test them all to continue'; }},
     {step:3, key:'dates', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }},
-    {step:4, key:'calc',  need:3, hint:function(n){ return 'Checked '+n+' of 3 — try every income level to continue'; }},
+    {step:4, key:'day',   need:6, hint:function(n){ return 'Tested '+n+' of 6 — test every day to continue'; }},
     {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
     {step:6, key:'zones', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
   ];

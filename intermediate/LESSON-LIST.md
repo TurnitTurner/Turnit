@@ -41,7 +41,7 @@ and basic capital gains. Nothing in this course re-teaches those.
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 11 | Asset Location: What Belongs In Which Account | `11-asset-location.html` | 8 |
-| 12 | Qualified vs. Ordinary Dividends | `12-qualified-vs-ordinary-dividends.html` | 8 |
+| 12 | Qualified vs. Ordinary Dividends | `12-qualified-vs-ordinary-dividends.html` | 9 |
 | 13 | Holding Periods And The Capital Gains Brackets | `13-holding-periods-and-capital-gains-brackets.html` | 8 |
 | 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | `14-tax-loss-harvesting-and-wash-sale-rule.html` | 8 |
 | 15 | What A 1099 Actually Tells You | `15-what-a-1099-actually-tells-you.html` | 8 |
@@ -163,6 +163,35 @@ Complete-slide icon was swapped from 🗂️ to 🚀, matching every other lesso
   and 1099-B panels with real box numbers/labels) — the first full 1099
   reconstruction in the course, closing the loop Lessons 11 and 14
   deliberately left open. Closes Module 3.
+
+**Lessons 12-15, revised after user feedback:**
+
+- **Lesson 12:** added a new slide 2, a tap-to-reveal comparison table
+  going deeper on ordinary vs. qualified before the holding-period
+  mechanics — 3 row-groups (The Default, The Tax Rate, What It Takes),
+  Ordinary and Qualified side by side, 6 cells total. The lesson is now
+  9 slides; everything after slide 1 renumbered.
+- **Lesson 13:** slide 4 was rebuilt — it originally reused Lesson 12's
+  toggle + three-income-preset calculator almost exactly, just applied
+  to a sale instead of a dividend. It's now a one-day cliff selector: six
+  tappable days straddling the one-year mark on one fixed scenario
+  ($45,000 gain, $120,000 other income), so the dollar jump between day
+  365 (short-term, $10,800) and day 366 (long-term, $6,750) is the whole
+  point. Slide 6's explanations now show the addition (e.g. "$20,000 +
+  $10,000 = $30,000") that leads to each threshold comparison, not just
+  the conclusion.
+- **Lesson 14:** slide 2 was rebuilt from two tap-reveal pills into an
+  SVG price chart of a position down 15%, with "Sell Now" and "Keep
+  Holding" buttons that each draw a different dashed continuation from
+  today's point and update the result — realized vs. unrealized made
+  visible rather than just defined. The lesson now has 2 of 2 creative
+  widgets (the chart plus the netting ledger).
+- **Lesson 15:** slides 3 and 6 originally described a box's contents in
+  plain text only ("Box 1a shows $3,000"), which read as confusing once
+  the actual form from slide 2 had scrolled out of view. Each of the 8
+  cases now opens with a small static box chip — reusing slide 2's exact
+  box styling — so the question is never divorced from what the form
+  shows.
 
 All four were caught and fixed mid-build by their own verification pass:
 two unescaped apostrophes inside JS string literals on Lesson 14 (syntax

@@ -15,7 +15,13 @@
      annotated fund page, but a brand-new document type: not the
      simplified single-box snippet Lesson 11 used, and the first full
      reconstruction of an actual 1099 in this course. Slides 3, 4 and 6
-     are standard quiz / side-by-side / scenario formats.
+     are standard quiz / side-by-side / scenario formats. Slides 3 and 6
+     were revised after review — their questions originally described a
+     box's contents in plain text only ("Box 1a shows $3,000"), which
+     read as confusing once the actual form from slide 2 had scrolled out
+     of view. Each case now opens with a small static box chip, styled
+     identically to slide 2's tappable boxes, so the question is never
+     divorced from what the form actually shows.
      Gating reads state published on the container, so spamming one
      control can never unlock a slide; once unlocked, a slide stays
      unlocked after Start Over.
@@ -120,22 +126,35 @@
       <p class="fm-p">Given what's on the box, tap the right answer.</p>
       <div class="fm-cases" id="fm-readcases">
         <div class="fm-case" data-ans="1">
-          <p class="fm-case-q">Box 1a shows $3,000. Box 1b also shows $3,000. What does that tell you?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">1a</span><span class="fm-box-lab">Total Ordinary Dividends</span><span class="fm-box-amt">$3,000.00</span></div>
+            <div class="fm-boxchip"><span class="fm-box-n">1b</span><span class="fm-box-lab">Qualified Dividends</span><span class="fm-box-amt">$3,000.00</span></div>
+          </div>
+          <p class="fm-case-q">What does this tell you?</p>
           <div class="fm-copts"><button type="button" data-i="0">None of it is taxed at the lower rate</button><button type="button" data-i="1">All of it is taxed at the lower rate</button><button type="button" data-i="2">Half of it is taxed at the lower rate</button></div>
           <p class="fm-why"></p>
         </div>
         <div class="fm-case" data-ans="2">
-          <p class="fm-case-q">Box 1g shows $150. What happened to that $150?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">1g</span><span class="fm-box-lab">Wash Sale Loss Disallowed</span><span class="fm-box-amt">$150.00</span></div>
+          </div>
+          <p class="fm-case-q">What happened to that $150?</p>
           <div class="fm-copts"><button type="button" data-i="0">Paid out as an extra dividend</button><button type="button" data-i="1">Refunded by the broker</button><button type="button" data-i="2">Disallowed under the wash-sale rule</button></div>
           <p class="fm-why"></p>
         </div>
         <div class="fm-case" data-ans="0">
-          <p class="fm-case-q">Box 2 is checked "Short-Term." How is this gain taxed?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">2</span><span class="fm-box-lab">Term</span><span class="fm-box-amt">☑ Short-Term</span></div>
+          </div>
+          <p class="fm-case-q">How is this gain taxed?</p>
           <div class="fm-copts"><button type="button" data-i="0">At your ordinary income rate</button><button type="button" data-i="1">At the 0/15/20% preferential rate</button><button type="button" data-i="2">It isn't taxed at all</button></div>
           <p class="fm-why"></p>
         </div>
         <div class="fm-case" data-ans="1">
-          <p class="fm-case-q">Box 1e (cost basis) is blank on one of your sales. What should you do?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">1e</span><span class="fm-box-lab">Cost Basis</span><span class="fm-box-amt">— Blank</span></div>
+          </div>
+          <p class="fm-case-q">This box is blank on one of your sales. What should you do?</p>
           <div class="fm-copts"><button type="button" data-i="0">Assume the gain or loss is zero</button><button type="button" data-i="1">Use your own purchase records to figure the gain or loss</button><button type="button" data-i="2">Leave that sale off your return</button></div>
           <p class="fm-why"></p>
         </div>
@@ -188,22 +207,36 @@
       <p class="fm-p">Put the last four lessons to work on fresh numbers.</p>
       <div class="fm-cases" id="fm-mathcases">
         <div class="fm-case" data-ans="2">
-          <p class="fm-case-q">Box 1a: $5,000. Box 1b: $4,200. How much is NOT qualified?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">1a</span><span class="fm-box-lab">Total Ordinary Dividends</span><span class="fm-box-amt">$5,000.00</span></div>
+            <div class="fm-boxchip"><span class="fm-box-n">1b</span><span class="fm-box-lab">Qualified Dividends</span><span class="fm-box-amt">$4,200.00</span></div>
+          </div>
+          <p class="fm-case-q">How much is NOT qualified?</p>
           <div class="fm-copts"><button type="button" data-i="0">$4,200</button><button type="button" data-i="1">$5,000</button><button type="button" data-i="2">$800</button></div>
           <p class="fm-why"></p>
         </div>
         <div class="fm-case" data-ans="1">
-          <p class="fm-case-q">Box 1d (proceeds): $12,000. Box 1e (cost basis): $9,500. What's the gain?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">1d</span><span class="fm-box-lab">Proceeds</span><span class="fm-box-amt">$12,000.00</span></div>
+            <div class="fm-boxchip"><span class="fm-box-n">1e</span><span class="fm-box-lab">Cost Basis</span><span class="fm-box-amt">$9,500.00</span></div>
+          </div>
+          <p class="fm-case-q">What's the gain?</p>
           <div class="fm-copts"><button type="button" data-i="0">$21,500</button><button type="button" data-i="1">$2,500</button><button type="button" data-i="2">$9,500</button></div>
           <p class="fm-why"></p>
         </div>
         <div class="fm-case" data-ans="0">
-          <p class="fm-case-q">Box 2 checked Long-Term. Gain is $2,500, taxed at 15%. Tax owed?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">2</span><span class="fm-box-lab">Term</span><span class="fm-box-amt">☑ Long-Term</span></div>
+          </div>
+          <p class="fm-case-q">This gain is $2,500, taxed at 15%. Tax owed?</p>
           <div class="fm-copts"><button type="button" data-i="0">$375</button><button type="button" data-i="1">$500</button><button type="button" data-i="2">$625</button></div>
           <p class="fm-why"></p>
         </div>
         <div class="fm-case" data-ans="2">
-          <p class="fm-case-q">Box 1g shows $300. What happened to that $300 of loss?</p>
+          <div class="fm-boxchips">
+            <div class="fm-boxchip"><span class="fm-box-n">1g</span><span class="fm-box-lab">Wash Sale Loss Disallowed</span><span class="fm-box-amt">$300.00</span></div>
+          </div>
+          <p class="fm-case-q">What happened to that loss?</p>
           <div class="fm-copts"><button type="button" data-i="0">Carried forward to next year automatically</button><button type="button" data-i="1">Taxed at the ordinary rate</button><button type="button" data-i="2">Disallowed, added to the replacement shares' basis</button></div>
           <p class="fm-why"></p>
         </div>
@@ -322,6 +355,9 @@
   #tn-fm .fm-box-amt{flex:none; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink);}
   #tn-fm .fm-doc-detail{text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.6; margin:14px auto 0; max-width:560px; min-height:40px;}
   #tn-fm .fm-doc-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 3 & 6 · box chips (reuse the slide-2 box look so a question is never divorced from what the form shows) */
+  #tn-fm .fm-boxchips{display:flex; flex-direction:column; gap:1px; background:var(--cardbd); border:1.5px solid var(--cardbd); border-radius:11px; overflow:hidden; margin-bottom:12px;}
+  #tn-fm .fm-boxchip{display:flex; align-items:center; gap:10px; background:var(--mist); padding:9px 12px;}
   /* 3 & 6 · scenarios */
   #tn-fm .fm-cases{display:flex; flex-direction:column; gap:10px;}
   #tn-fm .fm-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}

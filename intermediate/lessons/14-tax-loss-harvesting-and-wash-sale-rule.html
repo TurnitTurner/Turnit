@@ -4,17 +4,21 @@
      (Intermediate · Module 3 · Lesson 14)
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-tl. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
-       1  Title & Key Terms (never gated)   2  Paper Loss, Or Real One?
+       1  Title & Key Terms (never gated)   2  Realized, Or Still Just Watching? (creative)
        3  Netting It All Together (creative) 4  Wash Sale, Or Not? (4)
        5  Myth Or Fact (5)                  6  Before You'd Ever Do This (3)
        7  Recap (6)                         8  Complete
-     Creative widget, 1 of 2 allowed: slide 3's year-end netting worksheet
-     — a plain ledger of short/long-term gains and losses with five
-     tappable summary rows that reveal the arithmetic, ending at the real
-     $3,000 ordinary-income offset and carryforward. A document look, but
-     a worksheet/ledger, not a 1099 (that's Lesson 15's territory) and not
-     the 1099 snippet style used in Lesson 11. Slides 2, 4 and 6 are
-     standard tap-reveal / scenario-decision formats, not creative slots.
+     Creative widgets, 2 of 2 allowed: slide 2's hold-or-sell price chart
+     — an SVG line chart of a position down 15%, where tapping "Sell Now"
+     or "Keep Holding" draws a different dashed continuation from today's
+     point and updates the result, making realized vs. unrealized visceral
+     rather than just defined — and slide 3's year-end netting worksheet,
+     a plain ledger of short/long-term gains and losses with five tappable
+     summary rows that reveal the arithmetic, ending at the real $3,000
+     ordinary-income offset and carryforward. The ledger is a document
+     look, but a worksheet, not a 1099 (that's Lesson 15's territory) and
+     not the 1099 snippet style used in Lesson 11. Slides 4 and 6 are
+     standard scenario-decision / tap-reveal formats, not creative slots.
      HEAVIER HEDGING per this course's own notes: slide 6 exists
      specifically to name the real friction (costs, time-out-of-market,
      professional advice) and nothing on this lesson walks a learner
@@ -85,13 +89,26 @@
     <section class="tl-sec tl-reveal" data-step="2">
       <p class="tl-kicker">Paper Loss, Or Real One? · 2 / 8</p>
       <h2 class="tl-h2">Realized, Or Still Just Watching?</h2>
-      <p class="tl-p">Same 15% drop — an unrealized loss or a realized loss — two very different tax outcomes. Tap each to see why.</p>
-      <div class="tl-pair" id="tl-pair">
-        <button type="button" class="tl-pill" data-k="hold">Still Holding, Down 15%</button>
-        <button type="button" class="tl-pill" data-k="sold">Sold It, Down 15%</button>
+      <p class="tl-p">A position down 15%. Tap Sell or Hold on the chart and see what actually happens next.</p>
+      <div class="tl-chart">
+        <svg viewBox="0 0 360 150" class="tl-chart-svg" preserveAspectRatio="none">
+          <line x1="16" y1="130" x2="344" y2="130" class="tl-chart-axis"/>
+          <polyline points="16,18 64,34 112,50 160,62 208,76 220,86" class="tl-chart-base"/>
+          <circle cx="220" cy="86" r="4.5" class="tl-chart-today"/>
+          <polyline points="220,86 260,100 300,100 340,100" class="tl-chart-sell" id="tl-chart-sell"/>
+          <circle cx="340" cy="100" r="4" class="tl-chart-sell-dot" id="tl-chart-sell-dot"/>
+          <polyline points="220,86 260,78 300,70 340,74" class="tl-chart-hold" id="tl-chart-hold"/>
+          <circle cx="340" cy="74" r="4" class="tl-chart-hold-dot" id="tl-chart-hold-dot"/>
+        </svg>
+        <div class="tl-chart-ylabs"><span>$100</span><span class="tl-chart-ytoday">$85 Today</span></div>
       </div>
-      <div class="tl-revealbox" id="tl-revealbox">Tap one above to see how it's treated.</div>
-      <p class="tl-count" id="tl-pair-count">Reviewed 0 Of 2</p>
+      <div class="tl-chartbtns" id="tl-chartbtns">
+        <button type="button" class="tl-chartbtn sell" data-k="sell">Sell Now</button>
+        <button type="button" class="tl-chartbtn hold" data-k="hold">Keep Holding</button>
+      </div>
+      <div class="tl-chartresult" id="tl-chartresult">Tap one above to see what happens.</div>
+      <p class="tl-count" id="tl-chart-count">Explored 0 Of 2</p>
+      <p class="tl-disclaimer-inline">The price history is illustrative. The "Keep Holding" path is one hypothetical continuation, not a forecast — it could just as easily have kept falling.</p>
     </section>
 
     <!-- ========== 3 · NETTING IT ALL TOGETHER ========== -->
@@ -273,13 +290,30 @@
   #tn-tl .tl-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   #tn-tl .tl-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
   #tn-tl .tl-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
-  /* 2 · paper loss / real loss pills */
-  #tn-tl .tl-pair{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
-  #tn-tl .tl-pill{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:13px; padding:13px 18px; cursor:pointer; transition:all .15s;}
-  #tn-tl .tl-pill:hover{border-color:var(--selbd);}
-  #tn-tl .tl-pill.on{background:var(--ink); color:#fff; border-color:var(--ink);}
-  #tn-tl .tl-revealbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
-  #tn-tl .tl-revealbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 2 · hold-or-sell price chart (creative) */
+  #tn-tl .tl-chart{max-width:480px; margin:0 auto; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:14px 14px 8px;}
+  #tn-tl .tl-chart-svg{width:100%; height:auto; display:block; overflow:visible;}
+  #tn-tl .tl-chart-axis{stroke:var(--cardbd); stroke-width:1.5;}
+  #tn-tl .tl-chart-base{fill:none; stroke:var(--ink2); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round;}
+  #tn-tl .tl-chart-today{fill:var(--ink);}
+  #tn-tl .tl-chart-sell,#tn-tl .tl-chart-hold{fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:5 4; opacity:0; transition:opacity .3s;}
+  #tn-tl .tl-chart-sell{stroke:var(--no);}
+  #tn-tl .tl-chart-hold{stroke:var(--g);}
+  #tn-tl .tl-chart-sell.show,#tn-tl .tl-chart-hold.show{opacity:1;}
+  #tn-tl .tl-chart-sell-dot,#tn-tl .tl-chart-hold-dot{opacity:0; transition:opacity .3s;}
+  #tn-tl .tl-chart-sell-dot.show{opacity:1; fill:var(--no);}
+  #tn-tl .tl-chart-hold-dot.show{opacity:1; fill:var(--g);}
+  #tn-tl .tl-chart-ylabs{display:flex; justify-content:space-between; font-size:10.5px; font-weight:600; color:var(--mut); padding:4px 2px 6px;}
+  #tn-tl .tl-chart-ytoday{color:var(--ink2); font-weight:700;}
+  #tn-tl .tl-chartbtns{display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap;}
+  #tn-tl .tl-chartbtn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; background:#fff; border-radius:13px; padding:13px 20px; cursor:pointer; transition:all .15s;}
+  #tn-tl .tl-chartbtn.sell{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-tl .tl-chartbtn.hold{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-tl .tl-chartbtn:hover{filter:brightness(.97);}
+  #tn-tl .tl-chartbtn.sell.on{background:var(--nobg);}
+  #tn-tl .tl-chartbtn.hold.on{background:var(--tint);}
+  #tn-tl .tl-chartresult{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-tl .tl-chartresult b{font-family:'Poppins',sans-serif; color:var(--ink);}
   /* 3 · netting ledger (creative) */
   #tn-tl .tl-ledger-raw{display:flex; flex-direction:column; gap:1px; background:var(--cardbd); border:1px solid var(--cardbd); border-radius:12px 12px 0 0; overflow:hidden;}
   #tn-tl .tl-lraw{display:flex; justify-content:space-between; background:#fff; padding:10px 14px; font-size:13px; font-weight:600; color:var(--ink2);}
@@ -407,21 +441,27 @@
     });
   });
 
-  /* 2 · paper loss or real loss */
-  var PAIRW={
-    hold:'This is an unrealized loss. It can tell you something about your portfolio, but it does nothing on a tax return until you actually sell.',
-    sold:'This is a realized loss. Once the sale settles, it’s available to offset gains or income on this year’s return.'
+  /* 2 · hold-or-sell price chart (creative 1 of 2) */
+  var CHARTW={
+    sell:'Sold at $85 — a realized loss of $15 a share (15%). That loss is now locked in and available to offset gains or income on this year’s return.',
+    hold:'Still holding. In this illustration the price recovers to $90 — but it’s still down, and it could just as easily have kept falling. Either way, nothing has happened on your taxes, because nothing has been sold. It’s still an unrealized loss.'
   };
-  var pairSeen={}, pairBox=root.querySelector('#tl-revealbox'), pairCount=root.querySelector('#tl-pair-count');
-  root.querySelectorAll('#tl-pair .tl-pill').forEach(function(btn){
+  var chartSeen={}, chartCount=root.querySelector('#tl-chart-count'), chartResult=root.querySelector('#tl-chartresult'),
+      sellLine=root.querySelector('#tl-chart-sell'), sellDot=root.querySelector('#tl-chart-sell-dot'),
+      holdLine=root.querySelector('#tl-chart-hold'), holdDot=root.querySelector('#tl-chart-hold-dot');
+  root.querySelectorAll('#tl-chartbtns .tl-chartbtn').forEach(function(btn){
     btn.addEventListener('click',function(){
-      root.querySelectorAll('#tl-pair .tl-pill').forEach(function(b){ b.classList.remove('on'); });
-      btn.classList.add('on');
       var k=btn.getAttribute('data-k');
-      pairBox.innerHTML='<b>'+btn.textContent+':</b> '+PAIRW[k];
-      pairSeen[k]=1;
-      pairCount.textContent='Reviewed '+keys(pairSeen)+' Of 2';
-      state('pair', keys(pairSeen)); postHeight();
+      root.querySelectorAll('#tl-chartbtns .tl-chartbtn').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      sellLine.classList.toggle('show', k==='sell');
+      sellDot.classList.toggle('show', k==='sell');
+      holdLine.classList.toggle('show', k==='hold');
+      holdDot.classList.toggle('show', k==='hold');
+      chartResult.innerHTML='<b>'+btn.textContent+':</b> '+CHARTW[k];
+      chartSeen[k]=1;
+      chartCount.textContent='Explored '+keys(chartSeen)+' Of 2';
+      state('chart', keys(chartSeen)); postHeight();
     });
   });
 
@@ -630,7 +670,7 @@
       nextBtn=root.querySelector('#tl-next'), hintEl=root.querySelector('#tl-nav-hint'),
       disclaimer=root.querySelector('.tl-disclaimer');
   var labels={1:'Start Here',2:'Paper Loss, Or Real?',3:'Netting It Together',4:'Allowed, Or Not?',5:'Myth Or Fact',6:'Before You Would',7:'Recap',8:'Complete'};
-  var reqHints={2:'Review both to continue',3:'Check all 5 to continue',4:'Answer all 4 to continue',5:'Answer all 5 to continue',6:'Review all 3 to continue'};
+  var reqHints={2:'Try both to continue',3:'Check all 5 to continue',4:'Answer all 4 to continue',5:'Answer all 5 to continue',6:'Review all 3 to continue'};
   var done={1:true,7:true,8:true};
   var secByStep={};
   root.querySelectorAll('.tl-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
@@ -666,7 +706,7 @@
   function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
   function num(k){ return +(root.getAttribute('data-'+k)||0); }
   var GATES=[
-    {step:2, key:'pair',   need:2, hint:function(n){ return 'Reviewed '+n+' of 2 — tap both to continue'; }},
+    {step:2, key:'chart',  need:2, hint:function(n){ return 'Explored '+n+' of 2 — try both to continue'; }},
     {step:3, key:'ledger', need:5, hint:function(n){ return 'Checked '+n+' of 5 — tap them all to continue'; }},
     {step:4, key:'cases',  need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }},
     {step:5, key:'myth',   need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
