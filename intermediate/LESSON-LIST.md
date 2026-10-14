@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **15 built** (Modules 1, 2, and 3 complete)
+7 modules · 35 lessons · **16 built** (Modules 1, 2, and 3 complete, Module 4 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -46,15 +46,15 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | `14-tax-loss-harvesting-and-wash-sale-rule.html` | 8 |
 | 15 | What A 1099 Actually Tells You | `15-what-a-1099-actually-tells-you.html` | 8 |
 
-## Module 4 — Risk You Cannot See In A Chart ⬜ not built
+## Module 4 — Risk You Cannot See In A Chart 🔶 underway (1 of 5)
 
-| # | Lesson |
-|---|---|
-| 16 | Volatility vs. Drawdown vs. Permanent Loss |
-| 17 | Correlation: Why "Diversified" Can Still Move Together |
-| 18 | Sequence-Of-Returns Risk |
-| 19 | Concentration Risk: Company Stock And RSUs |
-| 20 | Your Real Risk Tolerance vs. Your Stated One |
+| # | Lesson | File | Slides |
+|---|---|---|---|
+| 16 | Volatility vs. Drawdown vs. Permanent Loss | `16-volatility-drawdown-and-permanent-loss.html` | 8 |
+| 17 | Correlation: Why "Diversified" Can Still Move Together | — | — |
+| 18 | Sequence-Of-Returns Risk | — | — |
+| 19 | Concentration Risk: Company Stock And RSUs | — | — |
+| 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
 
 ## Module 5 — Bonds And Cash, Properly ⬜ not built
 
@@ -202,6 +202,29 @@ in `id`'d reveal boxes the hover-term scanner skips by design (fixed by
 weaving the same terms into static instruction lines instead), and on
 Lesson 15, all 8 multiple-choice answers across two quiz slides landing on
 the first option (answer-key hygiene — repositioned for a mixed pattern).
+
+**Lesson 16 ("Volatility vs. Drawdown vs. Permanent Loss"), opens Module
+4, prefix `vd`:** creative widget is an annotated real S&P 500 chart of
+the Feb-Aug 2020 COVID crash — three tappable markers (Peak, Trough,
+Recovery) on an actual historical path, each revealing its real date and
+closing level (down 33.9% at the trough, a new high six months later).
+Distinct from Lesson 14's branching hold/sell chart: this one shows a
+single real history, not a hypothetical choice. Slide 4 ("Three
+Investors, Same Crash") walks the same real crash through three
+behavioral outcomes — sold at the bottom, held, kept contributing — to
+make "selling locks in the loss" concrete without re-teaching Lesson 14's
+tax-specific realized/unrealized framing. The Lehman Brothers bankruptcy
+is cited as the permanent-loss contrast to the index-level recovery.
+Closing quote required re-verification: the popular "voting machine /
+weighing machine, short run / long run" line often attributed to
+Benjamin Graham turned out to be Warren Buffett's own paraphrase, not a
+verified Graham quote — used the original wording from Graham & Dodd's
+*Security Analysis* (1934) instead. Two bugs caught by the lesson's own
+verification pass: a headline that accidentally contained the "Bear
+Market" chip term verbatim, and green-term coverage falling to 7 (needed
+≥10) because most of the explanatory text sits in `id`'d reveal boxes the
+scanner skips by design — fixed by weaving the same terms into static
+instruction lines.
 
 What was fixed in the Module 1–2 backlog pass:
 

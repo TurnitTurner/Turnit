@@ -50,6 +50,7 @@ Every lesson gets a unique two-letter prefix. Used so far:
 | `cg` | Holding Periods And The Capital Gains Brackets |
 | `tl` | Tax-Loss Harvesting, And The Wash-Sale Rule |
 | `fm` | What A 1099 Actually Tells You |
+| `vd` | Volatility Vs. Drawdown Vs. Permanent Loss |
 
 Pick a new unused prefix for each new lesson. Then:
 

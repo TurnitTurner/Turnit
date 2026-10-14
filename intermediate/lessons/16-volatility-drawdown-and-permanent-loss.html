@@ -1,0 +1,715 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — VOLATILITY VS. DRAWDOWN VS. PERMANENT LOSS
+     (Intermediate · Module 4 · Lesson 16)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-vd. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  The 2020 Crash, Annotated (creative)
+       3  Three Different Risks              4  Three Investors, Same Crash
+       5  Myth Or Fact (5)                  6  Which One Is It? (4)
+       7  Recap (6)                         8  Complete
+     Creative widget, 1 of 2 allowed: slide 2's annotated real S&P 500
+     chart of the Feb-Aug 2020 COVID crash — three tappable markers
+     (Peak, Trough, Recovery) on an actual historical path, each
+     revealing its real date and figure. Different from Lesson 14's
+     branching hold/sell chart: this one shows a single real history, not
+     a hypothetical choice. Slides 3, 4 and 6 are standard comparison /
+     scenario-decision formats.
+     Gating reads state published on the container, so spamming one
+     control can never unlock a slide; once unlocked, a slide stays
+     unlocked after Start Over.
+     Opens Module 4. Does NOT re-teach realized vs. unrealized loss for
+     tax purposes (Lesson 14) — "selling locks in the loss" here is about
+     risk and behavior, not a tax rule. Does not re-teach diversification
+     mechanics from Foundations; assumes the learner already holds a
+     diversified portfolio and is asking what happens to it under stress.
+     Real figures (sourced, as of writing), S&P 500, price-only (not
+     total return):
+       2020 COVID crash: closing peak 3,386.15 on Feb 19, 2020; closing
+       trough 2,237.40 on Mar 23, 2020 — a 33.9% decline in 23 trading
+       days, the fastest bear market on record. Recovered to a new
+       closing high of 3,389.78 on Aug 18, 2020 — about six months after
+       the peak. (Multiple sources, incl. a closing-price breakdown and
+       contemporaneous news coverage, agree on these dates and levels.)
+       2007-2009 financial crisis, cited for contrast only, not charted:
+       closing peak 1,565 on Oct 9, 2007; closing trough 676 on Mar 9,
+       2009 — a 56.8% decline (Atlanta Fed). Did not regain its prior
+       peak until Mar 28, 2013 — about 5.5 years.
+       Average intra-year decline, 1980-2023: 14.2%, yet the S&P 500
+       finished positive in 33 of those 44 years (JPMorgan Guide to the
+       Markets, as reproduced in multiple 2023-2024 secondary sources).
+       Permanent-loss example: Lehman Brothers filed for Chapter 11 on
+       Sept 15, 2008, the largest bankruptcy filing in U.S. history at
+       the time; its stock, which had traded above $80 a share in 2007,
+       was wiped out to $0 — a widely documented, uncontested fact, cited
+       here only as a contrast to the index-level recovery above, not
+       re-examined in detail.
+       Closing quote verified against Graham & Dodd, Security Analysis
+       (1934): the market described as "a voting machine," not the
+       popular "voting machine / weighing machine, short run / long run"
+       paraphrase often misattributed to Graham directly (that fuller
+       phrasing traces to Warren Buffett's own words, not a verified
+       Graham quote) — the wording used here is the original.
+     ============================================================ -->
+<div id="tn-vd">
+  <div class="vd-wrap">
+    <div class="vd-top">
+      <div class="vd-topbar">
+        <div class="vd-brand"><span class="vd-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="vd-word">TURNIT</span><span class="vd-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="vd-progress"><span id="vd-bar"></span></div>
+      <div class="vd-meta"><span id="vd-slide-label">Start Here</span><span id="vd-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="vd-sec vd-center vd-reveal" data-step="1">
+      <p class="vd-kicker center">Risk You Cannot See In A Chart · 1 / 8</p>
+      <h1 class="vd-hero-title">THREE KINDS <span class="vd-hero-grad">OF RISK</span></h1>
+      <p class="vd-sub center">A falling number on your screen could be nothing, or it could be everything. The difference is almost never obvious in the moment.</p>
+      <div class="vd-vocab">
+        <span class="vd-vocab-label">Key Terms In This Lesson</span>
+        <div class="vd-vocab-chips" id="vd-vocab-chips">
+          <button type="button" class="vd-vocab-chip" data-t="Volatility" data-def="How much an investment's price swings up and down over time. A normal, expected feature of investing, not a danger sign by itself.">Volatility</button>
+          <button type="button" class="vd-vocab-chip" data-t="Drawdown" data-def="A decline in value from a recent peak. It's a loss only on paper until you sell — and most drawdowns recover.">Drawdown</button>
+          <button type="button" class="vd-vocab-chip" data-t="Permanent Loss" data-def="Capital that's actually gone and isn't coming back — because you sold at the bottom, or because the investment itself was wiped out.">Permanent Loss</button>
+          <button type="button" class="vd-vocab-chip" data-t="Peak-To-Trough" data-def="The span from an investment's high point to its lowest point before it starts recovering — how a drawdown's size is measured.">Peak-To-Trough</button>
+          <button type="button" class="vd-vocab-chip" data-t="Recovery Time" data-def="How long it takes an investment to climb back to its previous peak after a drawdown. It varies enormously — months for some crashes, years for others.">Recovery Time</button>
+          <button type="button" class="vd-vocab-chip" data-t="Bear Market" data-def="A decline of 20% or more from a recent peak — the commonly used threshold for calling a drawdown a bear market.">Bear Market</button>
+        </div>
+        <div class="vd-vocab-def" id="vd-vocab-def">Tap a term to see what it means.</div>
+        <span class="vd-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="vd-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE 2020 CRASH, ANNOTATED ========== -->
+    <section class="vd-sec vd-reveal" data-step="2">
+      <p class="vd-kicker">A Real Drawdown · 2 / 8</p>
+      <h2 class="vd-h2">The Fastest Crash On Record</h2>
+      <p class="vd-p">The S&amp;P 500's peak-to-trough drawdown, February to August 2020 — a bear market by any definition. Tap each marker.</p>
+      <div class="vd-chart">
+        <svg viewBox="0 0 360 150" class="vd-chart-svg" preserveAspectRatio="none">
+          <line x1="16" y1="130" x2="344" y2="130" class="vd-chart-axis"/>
+          <polyline points="20,20 70,45 110,95 150,70 190,58 230,46 270,34 320,22 340,18" class="vd-chart-line"/>
+          <circle cx="20" cy="20" r="5" class="vd-mk" id="vd-mk-peak"/>
+          <circle cx="110" cy="95" r="5" class="vd-mk" id="vd-mk-trough"/>
+          <circle cx="340" cy="18" r="5" class="vd-mk" id="vd-mk-recov"/>
+        </svg>
+      </div>
+      <div class="vd-chartresult" id="vd-chartresult">Tap a marker above to see what happened there.</div>
+      <div class="vd-markbtns" id="vd-markbtns">
+        <button type="button" class="vd-markbtn" data-k="peak">Peak</button>
+        <button type="button" class="vd-markbtn" data-k="trough">Trough</button>
+        <button type="button" class="vd-markbtn" data-k="recov">Recovery</button>
+      </div>
+      <p class="vd-count" id="vd-mk-count">Checked 0 Of 3</p>
+      <p class="vd-disclaimer-inline">Price-only S&amp;P 500, not total return. The curve is stylized for legibility; the dates and closing levels at each marker are real.</p>
+    </section>
+
+    <!-- ========== 3 · THREE DIFFERENT RISKS ========== -->
+    <section class="vd-sec vd-reveal" data-step="3">
+      <p class="vd-kicker">Same Headline, Different Risk · 3 / 8</p>
+      <h2 class="vd-h2">Three Different Risks, One Headline</h2>
+      <p class="vd-p">"The market dropped" could mean volatility, a drawdown, or a permanent loss. Tap each to see the real-world version.</p>
+      <div class="vd-threecol" id="vd-threecol">
+        <button type="button" class="vd-tcard v" data-k="vol">
+          <span class="vd-tcard-t">Volatility</span>
+          <span class="vd-tcard-sub">Normal, constant movement</span>
+        </button>
+        <button type="button" class="vd-tcard d" data-k="draw">
+          <span class="vd-tcard-t">Drawdown</span>
+          <span class="vd-tcard-sub">A paper loss, so far</span>
+        </button>
+        <button type="button" class="vd-tcard p" data-k="perm">
+          <span class="vd-tcard-t">Permanent Loss</span>
+          <span class="vd-tcard-sub">Gone, for real</span>
+        </button>
+      </div>
+      <div class="vd-tcbox" id="vd-tcbox">Tap a card above to see a real example.</div>
+      <p class="vd-count" id="vd-tc-count">Revealed 0 Of 3</p>
+    </section>
+
+    <!-- ========== 4 · THREE INVESTORS, SAME CRASH ========== -->
+    <section class="vd-sec vd-reveal" data-step="4">
+      <p class="vd-kicker">Same Crash, Three Outcomes · 4 / 8</p>
+      <h2 class="vd-h2">What They Did Next Decided Everything</h2>
+      <p class="vd-p">All three held the same index fund through the same drawdown. What they did before it recovered decided everything.</p>
+      <div class="vd-investors" id="vd-investors">
+        <button type="button" class="vd-inv" data-k="a">Investor A — Sold On March 23, 2020</button>
+        <button type="button" class="vd-inv" data-k="b">Investor B — Did Nothing</button>
+        <button type="button" class="vd-inv" data-k="c">Investor C — Kept Contributing Every Paycheck</button>
+      </div>
+      <div class="vd-invbox" id="vd-invbox">Tap an investor above to see the outcome.</div>
+      <p class="vd-count" id="vd-inv-count">Revealed 0 Of 3</p>
+      <p class="vd-disclaimer-inline">Educational illustration based on real index dates and levels, not a recommendation. Past recoveries never guarantee future ones.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="vd-sec vd-reveal" data-step="5">
+      <p class="vd-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="vd-h2">Myth Or Fact?</h2>
+      <p class="vd-p">Five claims you'll hear about market drops. Tap your answer.</p>
+      <div class="vd-sort" id="vd-myth">
+        <div class="vd-sort-row" data-answer="myth"><span>A 20% drop in your portfolio means you've permanently lost 20% of your money.</span><div class="vd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vd-why"><b>Myth.</b> That's a drawdown, not a permanent loss — nothing is locked in until you actually sell.</p></div>
+        <div class="vd-sort-row" data-answer="fact"><span>The S&amp;P 500 has recovered from every drawdown in its history, eventually.</span><div class="vd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vd-why"><b>Fact.</b> True so far, including the 34% COVID crash and the 57% 2008 crisis — though "eventually" has meant anywhere from six months to over five years.</p></div>
+        <div class="vd-sort-row" data-answer="myth"><span>Volatility and the risk of permanent loss are basically the same thing.</span><div class="vd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vd-why"><b>Myth.</b> A diversified fund can be volatile and still fundamentally sound. Permanent loss is a different question — whether the value is actually gone for good.</p></div>
+        <div class="vd-sort-row" data-answer="fact"><span>Selling during a drawdown is what turns a temporary paper loss into a permanent one.</span><div class="vd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vd-why"><b>Fact.</b> The decline only becomes permanent for you at the moment you sell and lock in that price.</p></div>
+        <div class="vd-sort-row" data-answer="myth"><span>A single company's stock carries the same risk of permanent loss as a broad index fund.</span><div class="vd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vd-why"><b>Myth.</b> A single company can go to zero, as Lehman Brothers did in 2008. A fund spreading risk across hundreds of companies is far less exposed to any one of them failing.</p></div>
+      </div>
+      <p class="vd-count" id="vd-myth-count">Answered 0 Of 5</p>
+      <div class="vd-reset-row"><button type="button" class="vd-reset-btn" id="vd-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH ONE IS IT? ========== -->
+    <section class="vd-sec vd-reveal" data-step="6">
+      <p class="vd-kicker">Four Scenarios · 6 / 8</p>
+      <h2 class="vd-h2">Which One Is It?</h2>
+      <p class="vd-p">Classify each using what you now know about peak-to-trough moves. Tap the right answer for each.</p>
+      <div class="vd-cases" id="vd-cases">
+        <div class="vd-case" data-ans="0">
+          <p class="vd-case-q">A fund's price moves up 1% one day, down 1% the next, all week.</p>
+          <div class="vd-copts3"><button type="button" data-i="0">Volatility</button><button type="button" data-i="1">Drawdown</button><button type="button" data-i="2">Permanent Loss</button></div>
+          <p class="vd-why"></p>
+        </div>
+        <div class="vd-case" data-ans="1">
+          <p class="vd-case-q">A stock falls 25% over two months, then climbs to a new high the following year.</p>
+          <div class="vd-copts3"><button type="button" data-i="0">Volatility</button><button type="button" data-i="1">Drawdown</button><button type="button" data-i="2">Permanent Loss</button></div>
+          <p class="vd-why"></p>
+        </div>
+        <div class="vd-case" data-ans="2">
+          <p class="vd-case-q">A company you held goes bankrupt. The stock is delisted at $0.</p>
+          <div class="vd-copts3"><button type="button" data-i="0">Volatility</button><button type="button" data-i="1">Drawdown</button><button type="button" data-i="2">Permanent Loss</button></div>
+          <p class="vd-why"></p>
+        </div>
+        <div class="vd-case" data-ans="2">
+          <p class="vd-case-q">You sell your entire position during a 30% drop because you can't stand watching it fall further.</p>
+          <div class="vd-copts3"><button type="button" data-i="0">Volatility</button><button type="button" data-i="1">Drawdown</button><button type="button" data-i="2">Permanent Loss</button></div>
+          <p class="vd-why"></p>
+        </div>
+      </div>
+      <p class="vd-count" id="vd-case-count">Answered 0 Of 4</p>
+      <div class="vd-reset-row"><button type="button" class="vd-reset-btn" id="vd-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="vd-sec vd-reveal" data-step="7">
+      <p class="vd-kicker">Recap · 7 / 8</p>
+      <h2 class="vd-h2">Here's What You Now Know</h2>
+      <p class="vd-p">The whole lesson, in six lines.</p>
+      <div class="vd-recap">
+        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>Volatility is normal, constant price movement — not a warning sign by itself.</span></div>
+        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>A drawdown is a decline from a recent peak. It's a paper loss until you actually sell.</span></div>
+        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>A permanent loss is capital that's genuinely gone — locked in by selling, or because the investment itself was wiped out.</span></div>
+        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>The S&amp;P 500 fell 34% in early 2020 and recovered to a new high just six months later — a severe drawdown, not a permanent loss.</span></div>
+        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>Selling during a drawdown is what converts it into a permanent loss.</span></div>
+        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>A diversified fund isn't immune to drawdowns, but it's far less exposed than a single company to permanent loss.</span></div>
+      </div>
+      <div class="vd-next-move">Your next move: <b>before your next big drop, decide now what you'll do.</b> A plan made in advance is harder to panic out of than one made in the moment.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="vd-sec vd-center vd-reveal" data-step="8">
+      <p class="vd-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="vd-hero-ico">🚀</span>
+      <h2 class="vd-h2 center">You've Finished The Lesson</h2>
+      <p class="vd-sub center">Module 4 is underway. Next: why "diversified" can still mean everything moves together.</p>
+      <div class="vd-finish">
+        <span class="vd-finish-arrow" id="vd-fin-arrow" aria-hidden="true">↓</span>
+        <p class="vd-finish-lead" id="vd-fin-lead">Scroll Down To Continue</p>
+        <p class="vd-finish-sub" id="vd-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="vd-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="vd-pullquote">"THE MARKET IS NOT A WEIGHING MACHINE... <span class="vd-green">IT IS A VOTING MACHINE, WHEREON COUNTLESS INDIVIDUALS REGISTER CHOICES WHICH ARE THE PRODUCT PARTLY OF REASON AND PARTLY OF EMOTION.</span>"<br><span class="vd-pullquote-by">— BENJAMIN GRAHAM &amp; DAVID DODD, SECURITY ANALYSIS (1934)</span></p>
+    </section>
+
+    <p class="vd-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of permanent loss, and past performance never guarantees future results. Historical figures were published at the time of writing and are price-only (excluding dividends) unless noted. The Lehman Brothers example is a real, uncontested historical fact cited for contrast, not an endorsement or criticism of any specific investment. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="vd-nav" id="vd-nav">
+      <button type="button" class="vd-nav-btn prev" id="vd-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="vd-nav-hint" id="vd-nav-hint"></span>
+      <button type="button" class="vd-nav-btn next" id="vd-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-vd{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-vd *,#tn-vd *::before,#tn-vd *::after{box-sizing:border-box;}
+  #tn-vd .vd-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-vd .vd-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-vd .vd-reveal.in{opacity:1; transform:none;}
+  #tn-vd .vd-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-vd .vd-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-vd .vd-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-vd .vd-bico{display:flex;}
+  #tn-vd .vd-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-vd .vd-bsub{color:var(--ink2); font-weight:500;}
+  #tn-vd .vd-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-vd #vd-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-vd .vd-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-vd .vd-meta #vd-slide-label{color:var(--ink2);}
+  #tn-vd .vd-meta #vd-slide-count{color:var(--mut);}
+  #tn-vd .vd-sec{padding:16px 0 8px;}
+  #tn-vd .vd-sec.vd-hide{display:none;}
+  #tn-vd .vd-center{text-align:center;}
+  #tn-vd .vd-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-vd .vd-kicker.center{text-align:center;}
+  #tn-vd .vd-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-vd .vd-h2.center{text-align:center;}
+  #tn-vd .vd-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-vd .vd-p b{color:var(--ink); font-weight:700;}
+  #tn-vd .vd-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-vd .vd-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-vd .vd-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-vd .vd-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-vd .vd-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-vd .vd-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-vd .vd-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,42px); line-height:1.14; text-align:center; margin:8px 0 14px;}
+  #tn-vd .vd-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-vd .vd-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-vd .vd-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-vd .vd-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-vd .vd-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-vd .vd-vocab-chip:hover{filter:brightness(.97);}
+  #tn-vd .vd-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-vd .vd-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-vd .vd-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-vd .vd-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-vd .vd-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-vd .vd-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · annotated real chart (creative) */
+  #tn-vd .vd-chart{max-width:480px; margin:0 auto; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:16px 14px 10px;}
+  #tn-vd .vd-chart-svg{width:100%; height:auto; display:block; overflow:visible;}
+  #tn-vd .vd-chart-axis{stroke:var(--cardbd); stroke-width:1.5;}
+  #tn-vd .vd-chart-line{fill:none; stroke:var(--b); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round;}
+  #tn-vd .vd-mk{fill:var(--ink2); stroke:#fff; stroke-width:2; cursor:pointer; transition:fill .2s, r .2s;}
+  #tn-vd .vd-mk.on{fill:var(--g); r:7;}
+  #tn-vd .vd-chartresult{max-width:520px; margin:14px auto 0; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-vd .vd-chartresult b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  #tn-vd .vd-markbtns{display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap;}
+  #tn-vd .vd-markbtn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 18px; cursor:pointer; transition:all .15s;}
+  #tn-vd .vd-markbtn:hover{border-color:var(--selbd);}
+  #tn-vd .vd-markbtn.on{background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  /* 3 · three-card comparison */
+  #tn-vd .vd-threecol{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-vd .vd-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-vd .vd-tcard.v{border:1.5px solid var(--selbd);}
+  #tn-vd .vd-tcard.d{border:1.5px solid #F0DCA9;}
+  #tn-vd .vd-tcard.p{border:1.5px solid var(--nobd);}
+  #tn-vd .vd-tcard:hover{filter:brightness(.97);}
+  #tn-vd .vd-tcard.done.v{background:var(--tint);}
+  #tn-vd .vd-tcard.done.d{background:#FBF2DF;}
+  #tn-vd .vd-tcard.done.p{background:var(--nobg);}
+  #tn-vd .vd-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink);}
+  #tn-vd .vd-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-vd .vd-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-vd .vd-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · three investors */
+  #tn-vd .vd-investors{display:flex; flex-direction:column; gap:8px;}
+  #tn-vd .vd-inv{font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:700; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:12px 14px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-vd .vd-inv:hover{border-color:var(--selbd);}
+  #tn-vd .vd-inv.done{background:var(--mist); border-color:var(--selbd); color:var(--ink2);}
+  #tn-vd .vd-invbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-vd .vd-invbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-vd .vd-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-vd .vd-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-vd .vd-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-vd .vd-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-vd .vd-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-vd .vd-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-vd .vd-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-vd .vd-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-vd .vd-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-vd .vd-sort-row.done .vd-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-vd .vd-sort-row.done .vd-sort-btns button.picked{opacity:1;}
+  #tn-vd .vd-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-vd .vd-why b{font-family:'Poppins',sans-serif;}
+  #tn-vd .vd-sort-row .vd-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-vd .vd-sort-row.done .vd-why{display:block;}
+  /* 6 · scenarios */
+  #tn-vd .vd-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-vd .vd-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-vd .vd-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-vd .vd-copts3{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-vd .vd-copts3 button{flex:1; min-width:100px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-vd .vd-copts3 button:hover{border-color:var(--selbd);}
+  #tn-vd .vd-case.done .vd-copts3 button{opacity:.35; pointer-events:none;}
+  #tn-vd .vd-case.done .vd-copts3 button.picked{opacity:1;}
+  #tn-vd .vd-case.done .vd-copts3 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-vd .vd-case.done .vd-copts3 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-vd .vd-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-vd .vd-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-vd .vd-case.done .vd-why{display:block;}
+  /* recap + complete */
+  #tn-vd .vd-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-vd .vd-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-vd .vd-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-vd .vd-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-vd .vd-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-vd .vd-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-vd .vd-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-vd .vd-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:vd-bob 1.6s ease-in-out infinite;}
+  #tn-vd .vd-finish-arrow.up{animation-name:vd-bob-up;}
+  @keyframes vd-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes vd-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-vd .vd-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-vd .vd-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-vd .vd-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-vd .vd-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-vd .vd-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-vd .vd-green{color:var(--g);}
+  #tn-vd .vd-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-vd .vd-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-vd .vd-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-vd .vd-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-vd .vd-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-vd .vd-nav-btn.prev{color:var(--ink2);}
+  #tn-vd .vd-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-vd .vd-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-vd .vd-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-vd .vd-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-vd .vd-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-vd .vd-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-vd .vd-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-vd .vd-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .vd-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .vd-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-vd .vd-wrap{padding:12px 14px 30px;}
+    #tn-vd .vd-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-vd .vd-tcard{flex-direction:row; justify-content:space-between; padding:12px 14px;}
+    #tn-vd .vd-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-vd .vd-copts3 button{min-width:0; flex:1 1 100%;}
+    #tn-vd .vd-bsub{display:none;}
+    #tn-vd .vd-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-vd .vd-nav{padding-top:10px; row-gap:0;}
+    #tn-vd .vd-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-vd .vd-reveal{opacity:1 !important; transform:none !important;}
+    #tn-vd #vd-bar{transition:none;}
+    #tn-vd .vd-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-vd'); if(!root) return;
+  root.querySelectorAll('.vd-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('vd-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#vd-vocab-def');
+  root.querySelectorAll('#vd-vocab-chips .vd-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#vd-vocab-chips .vd-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · annotated real chart (creative 1 of 2) */
+  var MKW={
+    peak:'<b>Feb 19, 2020 — Closing High: 3,386.15.</b> The S&P 500’s pre-crash peak. Twenty-three trading days later it would be down 34%.',
+    trough:'<b>Mar 23, 2020 — Closing Low: 2,237.40.</b> Down 33.9% from the peak — the fastest bear market on record. Anyone who sold here locked that loss in.',
+    recov:'<b>Aug 18, 2020 — New Closing High: 3,389.78.</b> About six months after the peak, the index was back above where it started — as if the crash had never happened, for anyone still holding.'
+  };
+  var mkSeen={}, mkCount=root.querySelector('#vd-mk-count'), chartResult=root.querySelector('#vd-chartresult');
+  function selectMarker(k){
+    root.querySelectorAll('.vd-mk').forEach(function(m){ m.classList.remove('on'); });
+    root.querySelectorAll('.vd-markbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-k')===k); });
+    document.getElementById('vd-mk-'+k).classList.add('on');
+    chartResult.innerHTML=MKW[k];
+    mkSeen[k]=1;
+    mkCount.textContent='Checked '+keys(mkSeen)+' Of 3';
+    state('mk', keys(mkSeen)); postHeight();
+  }
+  root.querySelectorAll('.vd-markbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){ selectMarker(btn.getAttribute('data-k')); });
+  });
+  root.querySelectorAll('.vd-mk').forEach(function(mk){
+    mk.addEventListener('click',function(){ selectMarker(mk.id.replace('vd-mk-','')); });
+  });
+
+  /* 3 · three different risks */
+  var TCW={
+    vol:'A typical index fund moves up or down 1-2% on an ordinary day. Over 1980-2023, the S&P 500’s biggest dip within a calendar year averaged 14.2% — even in years that finished positive.',
+    draw:'The S&P 500 fell about 34% from its February 2020 peak to its March 2020 trough — and recovered to a new high just six months later.',
+    perm:'Lehman Brothers filed for bankruptcy in September 2008. Its stock, once worth over $80 a share, went to zero and never came back.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#vd-tcbox'), tcCount=root.querySelector('#vd-tc-count');
+  root.querySelectorAll('#vd-threecol .vd-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.vd-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 3';
+      state('tc', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 4 · three investors, same crash */
+  var INVW={
+    a:'Locked in the full 34% drawdown as a permanent loss. By the time the market recovered in August, that money was already gone — it never got to participate.',
+    b:'Watched the balance fall 34%, did nothing, and was fully recovered by August 2020 — and kept compounding from there.',
+    c:'Kept buying through the crash at prices up to 34% lower, picking up extra shares that then rode the full recovery — finishing ahead of Investor B once the market came back.'
+  };
+  var invSeen={}, invBox=root.querySelector('#vd-invbox'), invCount=root.querySelector('#vd-inv-count');
+  root.querySelectorAll('#vd-investors .vd-inv').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      invBox.innerHTML='<b>'+btn.textContent+':</b> '+INVW[k];
+      invSeen[k]=1;
+      invCount.textContent='Revealed '+keys(invSeen)+' Of 3';
+      state('inv', keys(invSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#vd-myth-count');
+  root.querySelectorAll('#vd-myth .vd-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.vd-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#vd-myth .vd-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#vd-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#vd-myth .vd-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · which one is it */
+  var CWHY=[
+    'Small, routine ups and downs with no lasting trend — that’s volatility, not a loss of any kind.',
+    'A decline that fully recovered is a drawdown — painful in the moment, but not a permanent loss.',
+    'A bankruptcy that wipes out the stock entirely is a permanent loss — there’s no recovery to wait for.',
+    'The drop itself was a drawdown. Selling during it is the act that converts it into a permanent loss.'
+  ];
+  var caseCount=root.querySelector('#vd-case-count');
+  root.querySelectorAll('#vd-cases .vd-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.vd-why');
+    c.querySelectorAll('.vd-copts3 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.vd-copts3 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#vd-cases .vd-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#vd-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#vd-cases .vd-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.vd-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('vd-fin-arrow'), lead=document.getElementById('vd-fin-lead'), sub=document.getElementById('vd-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-vd'); if(!root) return;
+  var ALT={
+    'volatility':'volatility|volatile',
+    'drawdown':'drawdowns?',
+    'permanent loss':'permanent losses?',
+    'peak-to-trough':'peak-to-trough',
+    'recovery time':'recovery times?|recovered',
+    'bear market':'bear markets?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#vd-vocab-chips .vd-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so "permanent loss" is never eaten by a shorter overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.vd-p, .vd-sub, .vd-note, .vd-why, .vd-recap-item span, .vd-h2, .vd-next-move, .vd-sort-row > span, .vd-case-q, .vd-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.vd-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='vd-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='vd-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.vd-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.vd-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-vd'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#vd-bar'), labelEl=root.querySelector('#vd-slide-label'),
+      countEl=root.querySelector('#vd-slide-count'), prevBtn=root.querySelector('#vd-prev'),
+      nextBtn=root.querySelector('#vd-next'), hintEl=root.querySelector('#vd-nav-hint'),
+      disclaimer=root.querySelector('.vd-disclaimer');
+  var labels={1:'Start Here',2:'A Real Drawdown',3:'Three Different Risks',4:'Three Investors',5:'Myth Or Fact',6:'Which One Is It?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Check all 3 markers to continue',3:'Reveal all 3 to continue',4:'Reveal all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.vd-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('vd-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('vd-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'mk',    need:3, hint:function(n){ return 'Checked '+n+' of 3 — check them all to continue'; }},
+    {step:3, key:'tc',    need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:4, key:'inv',   need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('vd-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>
