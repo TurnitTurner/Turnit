@@ -248,6 +248,18 @@ seconds, after tracing through the verification harness's timed-widget
 fallback strategy and finding the longer duration left too little margin
 to resolve reliably.
 
+**Lesson 16, slide 2 — on-chart point markers added per user request.**
+Peak/Crash/Trough/Recovery were previously named only in the callout
+row below the chart; four small labeled markers (a white dot + outlined
+text, reusing the tracking dot's fill/stroke treatment for visual
+consistency) now sit directly on the chart line itself, at the exact
+same coordinates the polyline already bends through. Each marker fades
+in at the same moment its callout unlocks (both driven by the same
+`unlockUpTo(f)` keyframe-threshold check), so the chart and the callout
+row stay in sync rather than needing separate timing logic. Markers are
+additive and never removed, consistent with the slide's existing
+"once unlocked, stays unlocked" behavior across replays.
+
 **Lesson 17 ("Correlation: Why 'Diversified' Can Still Move Together"),
 prefix `cr`:** both creative widgets were deliberately built as new
 mechanics rather than reusing Lesson 14's or Lesson 16's flat-vs-reacted
