@@ -196,8 +196,8 @@
         <div class="cr-port-col" id="cr-port-a">
           <p class="cr-port-head">Portfolio A — 8 Holdings</p>
           <div class="cr-port-chips">
-            <span>Cloud Software Co.</span><span>Chipmaker Co.</span><span>Social Media Co.</span><span>E-Commerce Co.</span>
-            <span>Streaming Co.</span><span>Search Engine Co.</span><span>Smartphone Maker Co.</span><span>Cybersecurity Co.</span>
+            <span data-fate="fail">Cloud Software Co.</span><span data-fate="fail">Chipmaker Co.</span><span data-fate="fail">Social Media Co.</span><span data-fate="fail">E-Commerce Co.</span>
+            <span data-fate="fail">Streaming Co.</span><span data-fate="fail">Search Engine Co.</span><span data-fate="fail">Smartphone Maker Co.</span><span data-fate="fail">Cybersecurity Co.</span>
           </div>
           <button type="button" class="cr-port-btn" data-k="a">See What Happens In A Downturn</button>
           <div class="cr-port-box" id="cr-port-box-a"></div>
@@ -205,8 +205,8 @@
         <div class="cr-port-col" id="cr-port-b">
           <p class="cr-port-head">Portfolio B — 8 Holdings</p>
           <div class="cr-port-chips">
-            <span>U.S. Tech Fund</span><span>U.S. Healthcare Fund</span><span>U.S. Energy Fund</span><span>U.S. Consumer Staples Fund</span>
-            <span>U.S. Financials Fund</span><span>International Stock Fund</span><span>U.S. Small-Company Fund</span><span>U.S. Long-Term Bond Fund</span>
+            <span data-fate="fail">U.S. Tech Fund</span><span data-fate="survive">U.S. Healthcare Fund</span><span data-fate="survive">U.S. Energy Fund</span><span data-fate="survive">U.S. Consumer Staples Fund</span>
+            <span data-fate="fail">U.S. Financials Fund</span><span data-fate="fail">International Stock Fund</span><span data-fate="fail">U.S. Small-Company Fund</span><span data-fate="survive">U.S. Long-Term Bond Fund</span>
           </div>
           <button type="button" class="cr-port-btn" data-k="b">See What Happens In A Downturn</button>
           <div class="cr-port-box" id="cr-port-box-b"></div>
@@ -419,7 +419,9 @@
   #tn-cr .cr-port-col{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px;}
   #tn-cr .cr-port-head{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); margin:0 0 10px;}
   #tn-cr .cr-port-chips{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px;}
-  #tn-cr .cr-port-chips span{font-size:10.5px; font-weight:600; color:var(--ink2); background:#fff; border:1px solid var(--cardbd); border-radius:99px; padding:4px 9px;}
+  #tn-cr .cr-port-chips span{font-size:10.5px; font-weight:600; color:var(--ink2); background:#fff; border:1px solid var(--cardbd); border-radius:99px; padding:4px 9px; transition:all .3s ease;}
+  #tn-cr .cr-port-chips span.fail{color:var(--no); background:var(--nobg); border-color:var(--nobd);}
+  #tn-cr .cr-port-chips span.survive{color:var(--g); background:var(--tint); border-color:var(--selbd);}
   #tn-cr .cr-port-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:10px; padding:10px 6px; cursor:pointer; transition:all .15s;}
   #tn-cr .cr-port-btn:hover:not(:disabled){transform:translateY(-1px);}
   #tn-cr .cr-port-btn:disabled{opacity:.5; cursor:default;}
@@ -628,15 +630,19 @@
 
   /* 4 · one bet or eight */
   var PORTW={
-    a:'All eight of these are large U.S. technology companies. In a broad tech sell-off, most or all of them tend to fall together — eight holdings, but close to <b>one real bet</b> on a single sector.',
-    b:'These eight span different industries, sizes, and even countries. A problem in one sector — energy, say — doesn’t necessarily touch healthcare or international stocks the same way. Eight holdings here behave much more like <b>eight separate bets</b>.'
+    a:'All eight turned red — in a broad tech sell-off, most or all of them tend to fall together. Eight holdings, but close to <b>one real bet</b> on a single sector.',
+    b:'Four held up, four didn’t. A problem in one sector — tech, say — doesn’t necessarily touch healthcare or long-term bonds the same way. That split is an actual <b>diversification benefit</b>, not just a bigger number of tickers.'
   };
   var portSeen={}, portCount=root.querySelector('#cr-port-count');
   root.querySelectorAll('.cr-port-btn').forEach(function(btn){
     btn.addEventListener('click',function(){
-      var k=btn.getAttribute('data-k'), box=root.querySelector('#cr-port-box-'+k);
+      var k=btn.getAttribute('data-k'), box=root.querySelector('#cr-port-box-'+k),
+          col=root.querySelector('#cr-port-'+k);
       btn.disabled=true; btn.textContent='Revealed';
       box.innerHTML=PORTW[k]; box.classList.add('show');
+      col.querySelectorAll('.cr-port-chips span').forEach(function(chip){
+        chip.classList.add(chip.getAttribute('data-fate'));
+      });
       portSeen[k]=1;
       portCount.textContent='Revealed '+keys(portSeen)+' Of 2';
       state('port', keys(portSeen)); postHeight();

@@ -103,7 +103,7 @@
     <section class="sr-sec sr-reveal" data-step="2">
       <p class="sr-kicker">A Real Seven-Year Stretch, Reordered · 2 / 8</p>
       <h2 class="sr-h2">Same Seven Years, Different Order</h2>
-      <p class="sr-p">Below are the S&amp;P 500's real annual returns for 2000 through 2006 — a real example of sequence-of-returns risk, the reason the order returns arrive in can matter as much as their average. Account A gets them in order. Account B gets the exact same seven numbers, reversed. Both start at $500,000 and both withdraw $20,000 at the start of each year — the decumulation case this slide focuses on. Tap to add one year at a time.</p>
+      <p class="sr-p">Below are the S&amp;P 500's real annual returns for 2000 through 2006 — a real example of sequence-of-returns risk, the reason the order returns arrive in can matter as much as their average. Account A experiences them in the order they actually happened: 2000 first, 2006 last. Account B experiences the exact same seven numbers in the opposite order — 2006's return first, then 2005's, and so on back to 2000's return last — so the same bad years land at the end of the stretch instead of the start. Both start at $500,000 and both withdraw $20,000 at the start of each year — the decumulation case this slide focuses on. Tap to add one year at a time.</p>
       <div class="sr-stmt-wrap">
         <div class="sr-stmt">
           <p class="sr-stmt-head">Account A — 2000 Through 2006, In Order</p>
@@ -320,7 +320,8 @@
   #tn-sr .sr-stmt-start{font-size:11.5px; color:var(--mut); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--cardbd);}
   #tn-sr .sr-stmt-rows{display:flex; flex-direction:column; gap:5px; min-height:14px;}
   #tn-sr .sr-stmt-row{display:flex; justify-content:space-between; align-items:center; gap:6px; font-size:11.5px; background:#fff; border:1px solid var(--cardbd); border-radius:8px; padding:6px 8px; font-variant-numeric:tabular-nums;}
-  #tn-sr .sr-stmt-yr{font-weight:700; color:var(--ink2); flex:none; width:36px;}
+  #tn-sr .sr-stmt-yr{font-weight:700; color:var(--ink2); flex:none; width:36px; font-size:10.5px;}
+  #tn-sr #sr-stmt-rows-b .sr-stmt-yr{width:62px;}
   #tn-sr .sr-stmt-ret{font-weight:800; flex:none; width:52px; text-align:center;}
   #tn-sr .sr-stmt-ret.up{color:var(--g);}
   #tn-sr .sr-stmt-ret.down{color:var(--no);}
@@ -500,7 +501,7 @@
     nextBtn.addEventListener('click',function(){
       if(step>=N) return;
       addRow(rowsA, YEARS_CHRONO[step], RETURNS_CHRONO[step], seriesA[step]);
-      addRow(rowsB, 'Yr '+(step+1), RETURNS_REV[step], seriesB[step]);
+      addRow(rowsB, 'Yr '+(step+1)+' ('+YEARS_CHRONO[N-1-step]+')', RETURNS_REV[step], seriesB[step]);
       step++;
       countEl.textContent='Years Shown '+step+' Of '+N;
       if(step>=N){
