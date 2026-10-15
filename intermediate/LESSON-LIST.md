@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **19 built** (Modules 1, 2, and 3 complete, Module 4 underway)
+7 modules · 35 lessons · **20 built** (Modules 1, 2, 3, and 4 complete)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -46,7 +46,7 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | `14-tax-loss-harvesting-and-wash-sale-rule.html` | 8 |
 | 15 | What A 1099 Actually Tells You | `15-what-a-1099-actually-tells-you.html` | 8 |
 
-## Module 4 — Risk You Cannot See In A Chart 🔶 underway (4 of 5)
+## Module 4 — Risk You Cannot See In A Chart ✅ complete
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
@@ -54,6 +54,7 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 17 | Correlation: Why "Diversified" Can Still Move Together | `17-correlation-why-diversified-can-still-move-together.html` | 8 |
 | 18 | Sequence-Of-Returns Risk | `18-sequence-of-returns-risk.html` | 8 |
 | 19 | Concentration Risk: Company Stock And RSUs | `19-concentration-risk-company-stock-and-rsus.html` | 8 |
+| 20 | Your Real Risk Tolerance vs. Your Stated One | `20-your-real-risk-tolerance-vs-your-stated-one.html` | 8 |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
 
 ## Module 5 — Bonds And Cash, Properly ⬜ not built
@@ -452,11 +453,101 @@ filed Chapter 11; about 4,000 Houston employees were laid off the next
 day, December 3, 2001, per contemporaneous AP wire reporting and
 Senate testimony from a former employee. Closing quote — "They lied to
 us, kept encouraging us to hold onto our stock, and never let on that
-our company was in serious trouble" — is verbatim Senate HELP
-Committee testimony from former Enron employee Steven Lacey (Feb. 7,
-2002, as reported by the IBEW Journal), found on the first search
-attempt and checked for duplication against every other quote already
-in this repo before shipping.
+our company was in serious trouble," Steven Lacey — was revised after
+a post-ship review: the first draft additionally claimed a specific
+Feb. 7, 2002 Senate HELP Committee hearing and a Portland General
+Electric affiliation for Lacey, neither of which could actually be
+confirmed (direct fetches of the IBEW Journal page and a related
+Senate transcript failed in this environment, and the IBEW article's
+own URL suggests a different publication date than the hearing date
+first claimed). Softened to only what's directly supported — the
+quote's wording and its IBEW Journal (2002) attribution — rather than
+assert a reconciliation that couldn't be checked. The duplication
+check this lesson's header originally said had been run (`grep -ril`
+for the quote text across this repo) had in fact not been; it was
+actually run as part of the same review and confirmed the quote
+unique.
+
+**Two usability fixes per user feedback, after Lesson 19 shipped:**
+Lesson 17 slide 4 ("One Bet, Or Eight?") — tapping "See What Happens In
+A Downturn" only changed a text box below the two portfolios; the eight
+holding chips in each portfolio never visually reacted, so the slide
+read as inert. Gave each chip a `data-fate="fail"|"survive"` attribute
+and a class toggle on reveal: Portfolio A's eight correlated tech
+holdings all turn red together (true to the slide's point — they're
+close to one real bet), Portfolio B's eight genuinely diversified
+holdings split 4 red / 4 green, making the diversification benefit
+visible on the holdings themselves rather than only described in prose.
+Lesson 18 slide 2 ("Same Seven Years, Different Order") — the intro
+asserted Account B gets the same seven returns "reversed" without ever
+explaining what that means concretely, leaving the mechanism to be
+inferred from comparing two columns of numbers. Rewrote the intro to
+spell it out (2006's return first, working backward to 2000's last, so
+the bad years land at the end instead of the start) and added the real
+calendar year next to each of Account B's "Yr N" row labels (e.g. "Yr 1
+(2006)"), so the reversal is visible in the widget itself, not just
+asserted in prose.
+
+**Lesson 16 slide 2 — on-chart point markers, per user request.**
+Peak/Crash/Trough/Recovery were previously named only in the callout
+row below the chart. Added four small labeled markers (a white dot +
+outlined text, reusing the tracking dot's own fill/stroke treatment)
+directly on the chart line at the exact coordinates it already bends
+through, fading in at the same moment each callout unlocks — both
+driven off the one existing `unlockUpTo(f)` keyframe check, so the
+chart and the callout row can't drift out of sync.
+
+**Lesson 20 ("Your Real Risk Tolerance vs. Your Stated One"), prefix
+`rt`, closes Module 4:** scoped carefully against three lessons that
+already own adjacent territory — Lesson 2 already defines and chips
+both "Risk Tolerance" and "Risk Capacity" by name (confirmed via
+`grep -ril "risk tolerance"` before writing a single word), so this
+lesson references them only in prose, never re-chipping either; Lesson
+2's own "pick a split you'd still hold" widget and Lesson 16 slide 5's
+"Three Investors, Same Crash" story both already use March 2020, so
+this lesson uses the 2007-2009 financial crisis as its historical
+anchor instead — a different real crash, not reused anywhere else in
+the course this way; Lesson 32 (Module 7, not yet built) will own the
+Investment Policy Statement, so this lesson is careful never to assign
+the learner a risk-profile label or a recommended allocation — slide
+2's reveal shows only the historical dollar consequence of whichever
+choice was picked, neutrally, which is the compliance line the whole
+slide is built around. Both creative widgets are new mechanics: slide
+2 is a generic, unbranded "new account" questionnaire where picking
+one of four mutually-exclusive, permanently-locking answers (modeling
+a real decision's irreversibility) reveals the real dollar outcome
+that choice would have produced, computed directly from the S&P 500's
+2007 peak (1,565), 2009 trough (676), and 2013 recovery level already
+verified in Lesson 16's own header — not re-derived or hand-typed:
+sell-everything locks in about $43,195 permanently; sell-half nets
+about $71,597; staying invested recovers to about $100,000; staying
+invested and adding $20,000 more at the trough grows to about
+$146,302. Slide 3 ("Guess The Gap") is a predict-then-reveal format
+new to this course — the learner guesses the size of the real
+investor "behavior gap" from four banded options before Morningstar's
+own "Mind the Gap 2024" figure (roughly 1-1.5 percentage points a
+year, dollar-weighted vs. time-weighted returns, persistent across
+the decade-long periods it measures) is revealed, then taps a second
+button to learn the mechanism. Both widgets were built with the
+verification harness's rapid 3-pass click loop specifically in mind
+(flagged by an advisor review before writing any code): because both
+use four mutually-exclusive, permanently-disabling buttons rather
+than a single repeatable one, the first successful click commits an
+answer and disables its three siblings, so later click attempts in
+the same pass fail harmlessly instead of racing or double-counting.
+Other real figures: Tversky & Kahneman's 1992 paper's famous
+loss-aversion coefficient of 2.25 is a median from just 25 graduate
+students; a 2024 meta-analysis of 607 later estimates found a more
+moderate mean of 1.955 — "roughly twice as intensely" is used in
+-lesson as the figure both the original study and the more robust
+modern re-estimate support, rather than citing 2.25 as an uncontested
+constant. ICI data on 2008's $233 billion in equity-fund outflows is
+cited at one remove, as reported by trade press, since the original
+ICI release itself wasn't located and read directly. Closing quote —
+"Everybody has plans until they get hit for the first time" — uses
+Mike Tyson's original 1987 Associated Press wording (per Quote
+Investigator's sourcing) rather than the far more common but later
+-drifted "punched in the face/mouth" variants.
 
 What was fixed in the Module 1–2 backlog pass:
 

@@ -1,0 +1,779 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — YOUR REAL RISK TOLERANCE VS. YOUR STATED ONE
+     (Intermediate · Module 4 · Lesson 20, closes Module 4)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-rt. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  What Would You Actually Do? (creative)
+       3  Guess The Gap (creative)          4  Say Vs. Do
+       5  Myth Or Fact (5)                  6  Stated Or Revealed? (4)
+       7  Recap (6)                         8  Complete
+     Creative widgets, 2 of 2 allowed, both new mechanics: slide 2 is a generic,
+     unbranded "new account" risk questionnaire — four mutually-exclusive, permanent
+     choices (sell everything / sell half / hold / buy more) at a real historical
+     decision point. Picking one locks it in (the other three disable, mirroring the
+     lesson's own point that a real decision, once made, can't be unmade) and reveals
+     the real dollar outcome that choice would have produced, computed from the real
+     S&P 500 2007-2009 peak/trough/recovery levels already used and verified in
+     Lesson 16's header. No risk-profile label or allocation is ever assigned to the
+     learner — only the historical dollar consequence of the path picked, which is
+     the compliance line this slide is built around: show the gap, never grade the
+     learner. Slide 3 is a predict-then-reveal format new to this course: the learner
+     guesses the size of the real "behavior gap" (dollar-weighted vs. time-weighted
+     investor returns) from four banded options before being shown Morningstar's own
+     published figure, then taps a second button to reveal the mechanism behind it.
+     Both widgets use simple mutually-exclusive button reveals for their actual output
+     (a standard, already-used pattern) — what's new is the framing and the real data
+     behind each, not a novel animation technique. Slides 4, 5 and 6 are standard
+     comparison / myth-or-fact / scenario-decision formats.
+     Gating reads state published on the container, so spamming one control can never
+     unlock a slide; once unlocked, a slide stays unlocked after Start Over. Both
+     slide 2 and slide 3 use mutually-exclusive, permanently-disabling button groups
+     (not a single repeatable button), so the verification harness's 3-pass rapid
+     -click loop is handled correctly: the first successful click commits an answer,
+     disables its three siblings, and opens the gate — later click attempts on the
+     already-disabled siblings fail harmlessly rather than double-counting or racing.
+     Scope, deliberately: does not redefine or re-chip "Risk Tolerance" or "Risk
+     Capacity" — Lesson 2 already defines both by name and this lesson references
+     them only in prose, never as a vocab chip here. Does not reuse March 2020 as
+     this lesson's historical anchor — Lesson 2's own "pick a split you'd still hold"
+     widget and Lesson 16 slide 5's "Three Investors, Same Crash" story both already
+     use March 2020 for closely related points, so this lesson uses the 2007-2009
+     financial crisis instead, a different real crash that hasn't been used this way
+     anywhere else in the course. Does not build a questionnaire-to-allocation mapper
+     or produce any stated "you are a [type] investor" result — Lesson 32 (Module 7)
+     owns the Investment Policy Statement, and assigning a profile label here would
+     cross into advice territory the way Lessons 11 and 14 are careful to avoid.
+     Real figures (sourced, as of writing): S&P 500 figures reused from Lesson 16's
+     own verified header (not re-derived): closing peak 1,565 on Oct. 9, 2007;
+     closing trough 676 on Mar. 9, 2009 (a 56.8% decline, Atlanta Fed, as cited in
+     Lesson 16); did not regain its prior closing peak until Mar. 28, 2013. Slide 2's
+     four dollar outcomes are computed directly from those two index levels (not
+     hand-typed): a $100,000 position held from the 2007 peak into the 2009 trough is
+     worth about $43,195 at the trough (100000 x 676/1565); selling entirely there
+     locks in $43,195 permanently; selling half there and leaving the rest invested
+     to the 2013 recovery yields about $71,597 (half stays $21,598 cash, half grows
+     back to $50,000); staying fully invested through the whole round trip returns to
+     about $100,000 by 2013; staying invested and adding $20,000 more at the trough
+     grows the original position back to $100,000 and the added $20,000 (bought at
+     the lowest price) to about $46,302, for roughly $146,302 total. Morningstar's own
+     "Mind the Gap 2024" research found the average investor dollar in U.S. managed
+     funds and ETFs earned about 7.0% annually over the decade ended Dec. 31, 2024
+     (dollar-weighted), versus a gap of roughly 1.1-1.2 percentage points a year
+     behind the funds' own time-weighted total returns — described by Morningstar as
+     persistent across the trailing 10-year periods it has measured ending 2020
+     through 2024, not a one-time event. "About 1-1.5 percentage points a year" is
+     used in-lesson as the band that figure falls into, rather than a single decimal
+     Morningstar itself reports with some variation by source. Tversky & Kahneman's
+     1992 cumulative prospect theory paper fit a median loss-aversion coefficient of
+     2.25 from a small sample (25 graduate students) — a 2024 meta-analysis of 607
+     later estimates found a more moderate mean of 1.955; "roughly twice as intensely"
+     is used in-lesson as the figure both the original study and the more robust
+     modern re-estimate support, rather than citing 2.25 as if it were a precise,
+     uncontested constant. ICI (Investment Company Institute) data, as reported by
+     trade press, put 2008 full-year net outflows from U.S. equity funds at about
+     $233 billion — the largest annual outflow since ICI began tracking in 1984; the
+     original ICI release itself was not located and read directly, so this figure is
+     reported at the same one-step remove as the secondary sources presenting it.
+     Closing quote: "Everybody has plans until they get hit for the first time" —
+     Mike Tyson, as quoted in an Associated Press wire story (August 1987) per Quote
+     Investigator's sourcing of the earliest traceable version; the much more popular
+     "punched in the face/mouth" wordings are later drifted variants, so the original
+     1987 wording is used here instead. Checked for duplication against every other
+     quote already used in this repo (`grep -ril "hit for the first time"` across
+     `intermediate/` and the Foundations-level lesson files at the repo root) before
+     shipping — confirmed unique.
+     ============================================================ -->
+<div id="tn-rt">
+  <div class="rt-wrap">
+    <div class="rt-top">
+      <div class="rt-topbar">
+        <div class="rt-brand"><span class="rt-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="rt-word">TURNIT</span><span class="rt-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="rt-progress"><span id="rt-bar"></span></div>
+      <div class="rt-meta"><span id="rt-slide-label">Start Here</span><span id="rt-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="rt-sec rt-center rt-reveal" data-step="1">
+      <p class="rt-kicker center">What You'd Say vs. What You'd Actually Do · 1 / 8</p>
+      <h1 class="rt-hero-title">YOUR REAL RISK TOLERANCE <span class="rt-hero-grad">VS. YOUR STATED ONE</span></h1>
+      <p class="rt-sub center">A questionnaire answer and a real decision under real pressure are not the same thing — and the gap between them has a name, and a dollar cost.</p>
+      <div class="rt-vocab">
+        <span class="rt-vocab-label">Key Terms In This Lesson</span>
+        <div class="rt-vocab-chips" id="rt-vocab-chips">
+          <button type="button" class="rt-vocab-chip" data-t="Behavior Gap" data-def="The difference between the return an investment actually produced and the return the average investor in it actually earned — caused mainly by the timing of when money moved in and out.">Behavior Gap</button>
+          <button type="button" class="rt-vocab-chip" data-t="Loss Aversion" data-def="The tendency to feel the pain of a loss more intensely than the pleasure of an equally-sized gain — a well-documented asymmetry in how people actually experience risk, not just a mild preference.">Loss Aversion</button>
+          <button type="button" class="rt-vocab-chip" data-t="Dollar-Weighted Return" data-def="A return calculated using when money actually moved in and out of an investment — it weights periods with more money invested more heavily, which is why it can differ from the investment's own published return.">Dollar-Weighted Return</button>
+          <button type="button" class="rt-vocab-chip" data-t="Stated Preference" data-def="What someone says they would do, typically on a questionnaire, before anything is actually at stake.">Stated Preference</button>
+          <button type="button" class="rt-vocab-chip" data-t="Revealed Preference" data-def="What someone actually does when a real decision, with real money and real consequences, is in front of them.">Revealed Preference</button>
+          <button type="button" class="rt-vocab-chip" data-t="Capitulation" data-def="Selling an investment specifically because the pain of watching it fall has become too much to bear — usually happens near a low point, not as part of any plan.">Capitulation</button>
+        </div>
+        <div class="rt-vocab-def" id="rt-vocab-def">Tap a term to see what it means.</div>
+        <span class="rt-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="rt-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · WHAT WOULD YOU ACTUALLY DO? ========== -->
+    <section class="rt-sec rt-reveal" data-step="2">
+      <p class="rt-kicker">A Real Decision Point, 2009 · 2 / 8</p>
+      <h2 class="rt-h2">What Would You Actually Do?</h2>
+      <p class="rt-p">A $100,000 investment in a stock index fund has fallen to about $43,000 over roughly a year and a half — real history, not a worst case. Nobody yet knows it's about to turn around. Pick one — a stated preference with real money actually on the line. It's permanent: selling here, out of pain rather than plan, is exactly what capitulation looks like.</p>
+      <div class="rt-quest">
+        <p class="rt-quest-label">New Account Questionnaire — "What Would You Do?"</p>
+        <div class="rt-quest-opts" id="rt-quest-opts">
+          <button type="button" class="rt-quest-opt" data-k="sell-all">Sell Everything, Move To Cash</button>
+          <button type="button" class="rt-quest-opt" data-k="sell-half">Sell About Half</button>
+          <button type="button" class="rt-quest-opt" data-k="hold">Do Nothing, Stay Invested</button>
+          <button type="button" class="rt-quest-opt" data-k="buy-more">Buy More While It's Down</button>
+        </div>
+        <div class="rt-quest-result" id="rt-quest-result" hidden></div>
+      </div>
+      <p class="rt-count" id="rt-quest-count">Answer Locked In: Not Yet</p>
+      <p class="rt-disclaimer-inline">S&amp;P 500 price levels, 2007-2013 — see the lesson footer for full sourcing. An illustrative scenario, not a prediction or a recommendation about any specific decision.</p>
+    </section>
+
+    <!-- ========== 3 · GUESS THE GAP ========== -->
+    <section class="rt-sec rt-reveal" data-step="3">
+      <p class="rt-kicker">A Real, Persistent Number · 3 / 8</p>
+      <h2 class="rt-h2">Guess The Gap</h2>
+      <p class="rt-p">Fund companies report one time-weighted return. On average, investors in those exact same funds earn a different dollar-weighted return — the behavior gap, caused by when they buy and sell, not the fund's own performance. Guess its size before seeing the real number.</p>
+      <div class="rt-guess-opts" id="rt-guess-opts">
+        <button type="button" class="rt-guess-opt" data-k="none">No Real Gap</button>
+        <button type="button" class="rt-guess-opt" data-k="small">About 0.5 Points A Year</button>
+        <button type="button" class="rt-guess-opt" data-k="mid">About 1-1.5 Points A Year</button>
+        <button type="button" class="rt-guess-opt" data-k="big">2+ Points A Year</button>
+      </div>
+      <div class="rt-guess-reveal" id="rt-guess-reveal" hidden></div>
+      <div class="rt-guess-why-row">
+        <button type="button" class="rt-guess-why" id="rt-guess-why" disabled>Why Does This Happen?</button>
+      </div>
+      <div class="rt-guess-whybox" id="rt-guess-whybox"></div>
+      <p class="rt-count" id="rt-guess-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 4 · SAY VS. DO ========== -->
+    <section class="rt-sec rt-reveal" data-step="4">
+      <p class="rt-kicker">Three Facts, One Pattern · 4 / 8</p>
+      <h2 class="rt-h2">Say Vs. Do</h2>
+      <p class="rt-p">A stated preference, a revealed preference, and the gap between them. Tap each to see the real version.</p>
+      <div class="rt-threecol" id="rt-threecol">
+        <button type="button" class="rt-tcard s" data-k="say">
+          <span class="rt-tcard-t">What People Say</span>
+          <span class="rt-tcard-sub">In a calm moment</span>
+        </button>
+        <button type="button" class="rt-tcard d" data-k="do">
+          <span class="rt-tcard-t">What The Data Shows</span>
+          <span class="rt-tcard-sub">Under real pressure</span>
+        </button>
+        <button type="button" class="rt-tcard g" data-k="gap">
+          <span class="rt-tcard-t">The Gap Between Them</span>
+          <span class="rt-tcard-sub">What it means</span>
+        </button>
+      </div>
+      <div class="rt-tcbox" id="rt-tcbox">Tap a card above to see the real version.</div>
+      <p class="rt-count" id="rt-tc-count">Revealed 0 Of 3</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="rt-sec rt-reveal" data-step="5">
+      <p class="rt-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="rt-h2">Myth Or Fact?</h2>
+      <p class="rt-p">Five claims you'll hear about risk and behavior. Tap your answer.</p>
+      <div class="rt-sort" id="rt-myth">
+        <div class="rt-sort-row" data-answer="myth"><span>A questionnaire filled out in a calm market reliably predicts what someone will actually do during a real crash.</span><div class="rt-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rt-why"><b>Myth.</b> A questionnaire answer is a stated preference, made with nothing actually at stake. It's a reasonable starting point, not a guarantee of future behavior.</p></div>
+        <div class="rt-sort-row" data-answer="fact"><span>The average investor's actual dollar-weighted return has tended to run behind the time-weighted return the funds they bought actually produced.</span><div class="rt-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rt-why"><b>Fact.</b> Morningstar's own research has found this gap running roughly 1-1.5 percentage points a year, and persistent across the periods it has measured.</p></div>
+        <div class="rt-sort-row" data-answer="fact"><span>Most people feel the pain of a loss roughly twice as intensely as the pleasure of an equally-sized gain.</span><div class="rt-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rt-why"><b>Fact.</b> That's loss aversion — a well-documented, roughly two-to-one asymmetry from behavioral-finance research, not just "people don't love losing."</p></div>
+        <div class="rt-sort-row" data-answer="myth"><span>Selling during a downturn and buying back in once it feels safe again is a proven way to improve returns.</span><div class="rt-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rt-why"><b>Myth.</b> This pattern — selling low, buying back higher once it feels calm — is a leading cause of the behavior gap itself, not a fix for it.</p></div>
+        <div class="rt-sort-row" data-answer="myth"><span>Simply knowing the behavior gap exists is enough, by itself, to guarantee you won't fall into it.</span><div class="rt-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rt-why"><b>Myth.</b> Awareness helps, but loss aversion operates in the moment, under real pressure — the same pressure that made the gap show up in the data in the first place.</p></div>
+      </div>
+      <p class="rt-count" id="rt-myth-count">Answered 0 Of 5</p>
+      <div class="rt-reset-row"><button type="button" class="rt-reset-btn" id="rt-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · STATED OR REVEALED? ========== -->
+    <section class="rt-sec rt-reveal" data-step="6">
+      <p class="rt-kicker">Four Moments · 6 / 8</p>
+      <h2 class="rt-h2">Stated Or Revealed?</h2>
+      <p class="rt-p">For each moment, is this a stated preference or a revealed one? Tap your answer.</p>
+      <div class="rt-cases" id="rt-cases">
+        <div class="rt-case" data-ans="0">
+          <p class="rt-case-q">On a new account questionnaire, someone selects "I can tolerate a 30% drop without selling."</p>
+          <div class="rt-copts2"><button type="button" data-i="0">Stated</button><button type="button" data-i="1">Revealed</button></div>
+          <p class="rt-why"></p>
+        </div>
+        <div class="rt-case" data-ans="1">
+          <p class="rt-case-q">During a real 30% drop, that same person sells everything within a week.</p>
+          <div class="rt-copts2"><button type="button" data-i="0">Revealed</button><button type="button" data-i="1">Stated</button></div>
+          <p class="rt-why"></p>
+        </div>
+        <div class="rt-case" data-ans="1">
+          <p class="rt-case-q">A fund's investors, on average, bought more shares after it had already risen and sold after it had already fallen.</p>
+          <div class="rt-copts2"><button type="button" data-i="0">Stated</button><button type="button" data-i="1">Revealed</button></div>
+          <p class="rt-why"></p>
+        </div>
+        <div class="rt-case" data-ans="0">
+          <p class="rt-case-q">An advisor asks a new client how they'd react to a market crash, before any money is invested.</p>
+          <div class="rt-copts2"><button type="button" data-i="0">Stated</button><button type="button" data-i="1">Revealed</button></div>
+          <p class="rt-why"></p>
+        </div>
+      </div>
+      <p class="rt-count" id="rt-case-count">Answered 0 Of 4</p>
+      <div class="rt-reset-row"><button type="button" class="rt-reset-btn" id="rt-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="rt-sec rt-reveal" data-step="7">
+      <p class="rt-kicker">Recap · 7 / 8</p>
+      <h2 class="rt-h2">Here's What You Now Know</h2>
+      <p class="rt-p">The whole lesson, in six lines.</p>
+      <div class="rt-recap">
+        <div class="rt-recap-item"><span class="rt-recap-check">✓</span><span>What you'd say on a questionnaire and what you'd actually do under real pressure are often different things.</span></div>
+        <div class="rt-recap-item"><span class="rt-recap-check">✓</span><span>In a real downturn, the decision you actually make is shaped by loss aversion, not just by what you reported beforehand.</span></div>
+        <div class="rt-recap-item"><span class="rt-recap-check">✓</span><span>Morningstar's own research has found investors' actual dollar-weighted returns running roughly 1-1.5 percentage points a year behind the time-weighted returns their funds produced — a persistent gap, not a one-time event.</span></div>
+        <div class="rt-recap-item"><span class="rt-recap-check">✓</span><span>In 2008 alone, investors pulled an estimated $233 billion out of U.S. equity funds — much of it while prices were still falling.</span></div>
+        <div class="rt-recap-item"><span class="rt-recap-check">✓</span><span>The same real decision point produced wildly different dollar outcomes in this lesson's scenario depending only on what someone actually did — selling at the bottom locked in a permanent loss; staying invested, or buying more, didn't.</span></div>
+        <div class="rt-recap-item"><span class="rt-recap-check">✓</span><span>A questionnaire answer written in a calm moment isn't a guarantee — it's a guess, made without the pressure that actually tests it.</span></div>
+      </div>
+      <div class="rt-next-move">Your next move: <b>the next time the market drops, write down what you actually did — not what you would have guessed beforehand.</b> That's the only real risk-tolerance questionnaire there is.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="rt-sec rt-center rt-reveal" data-step="8">
+      <p class="rt-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="rt-hero-ico">🚀</span>
+      <h2 class="rt-h2 center">You've Finished The Lesson</h2>
+      <p class="rt-sub center">That completes Module 4. Up next: Module 5, bonds and cash, properly.</p>
+      <div class="rt-finish">
+        <span class="rt-finish-arrow" id="rt-fin-arrow" aria-hidden="true">↓</span>
+        <p class="rt-finish-lead" id="rt-fin-lead">Scroll Down To Continue</p>
+        <p class="rt-finish-sub" id="rt-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="rt-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="rt-pullquote">"<span class="rt-green">EVERYBODY HAS PLANS UNTIL THEY GET HIT FOR THE FIRST TIME.</span>"<br><span class="rt-pullquote-by">— MIKE TYSON, ASSOCIATED PRESS (AUGUST 1987)</span></p>
+    </section>
+
+    <p class="rt-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, and past performance never guarantees future results. S&amp;P 500 figures (2007-2013) and the dollar outcomes computed from them are historical and illustrative, not predictions. Morningstar, ICI, and academic behavioral-finance figures are cited as published or reported by secondary sources, with ranges used where sources vary — see the lesson header for full detail. This lesson does not assign a risk-tolerance label or recommended allocation; it is intended to show the gap between stated and actual behavior, not to grade yours. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="rt-nav" id="rt-nav">
+      <button type="button" class="rt-nav-btn prev" id="rt-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="rt-nav-hint" id="rt-nav-hint"></span>
+      <button type="button" class="rt-nav-btn next" id="rt-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-rt{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-rt *,#tn-rt *::before,#tn-rt *::after{box-sizing:border-box;}
+  #tn-rt .rt-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-rt .rt-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-rt .rt-reveal.in{opacity:1; transform:none;}
+  #tn-rt .rt-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-rt .rt-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-rt .rt-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-rt .rt-bico{display:flex;}
+  #tn-rt .rt-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-rt .rt-bsub{color:var(--ink2); font-weight:500;}
+  #tn-rt .rt-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-rt #rt-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-rt .rt-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-rt .rt-meta #rt-slide-label{color:var(--ink2);}
+  #tn-rt .rt-meta #rt-slide-count{color:var(--mut);}
+  #tn-rt .rt-sec{padding:16px 0 8px;}
+  #tn-rt .rt-sec.rt-hide{display:none;}
+  #tn-rt .rt-center{text-align:center;}
+  #tn-rt .rt-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-rt .rt-kicker.center{text-align:center;}
+  #tn-rt .rt-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-rt .rt-h2.center{text-align:center;}
+  #tn-rt .rt-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-rt .rt-p b{color:var(--ink); font-weight:700;}
+  #tn-rt .rt-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-rt .rt-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-rt .rt-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-rt .rt-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-rt .rt-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-rt .rt-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-rt .rt-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,4.6vw,32px); line-height:1.2; text-align:center; margin:8px 0 14px;}
+  #tn-rt .rt-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-rt .rt-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-rt .rt-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-rt .rt-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-rt .rt-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-rt .rt-vocab-chip:hover{filter:brightness(.97);}
+  #tn-rt .rt-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-rt .rt-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-rt .rt-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-rt .rt-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-rt .rt-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-rt .rt-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · new-account questionnaire (creative 1 of 2) */
+  #tn-rt .rt-quest{max-width:520px; margin:0 auto; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:18px; padding:18px;}
+  #tn-rt .rt-quest-label{font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); text-align:center; margin:0 0 14px;}
+  #tn-rt .rt-quest-opts{display:flex; flex-direction:column; gap:8px;}
+  #tn-rt .rt-quest-opt{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:13px 14px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-rt .rt-quest-opt:hover:not(:disabled){border-color:var(--selbd);}
+  #tn-rt .rt-quest-opt.picked{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-rt .rt-quest-opt:disabled:not(.picked){opacity:.4; cursor:not-allowed;}
+  #tn-rt .rt-quest-result{margin-top:14px; background:#fff; border:1px solid var(--cardbd); border-radius:13px; padding:16px; text-align:center;}
+  #tn-rt .rt-quest-result[hidden]{display:none;}
+  #tn-rt .rt-quest-result-amt{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:var(--ink); margin-bottom:8px; font-variant-numeric:tabular-nums;}
+  #tn-rt .rt-quest-result-amt.down{color:var(--no);}
+  #tn-rt .rt-quest-result-amt.up{color:var(--g);}
+  #tn-rt .rt-quest-result p{font-size:13px; color:var(--ink2); line-height:1.55; margin:0;}
+  /* 3 · guess the gap (creative 2 of 2) */
+  #tn-rt .rt-guess-opts{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  #tn-rt .rt-guess-opt{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:12px 8px; cursor:pointer; transition:all .15s;}
+  #tn-rt .rt-guess-opt:hover:not(:disabled){border-color:var(--selbd);}
+  #tn-rt .rt-guess-opt.picked{background:var(--b); color:#fff; border-color:var(--b);}
+  #tn-rt .rt-guess-opt:disabled:not(.picked){opacity:.4; cursor:not-allowed;}
+  #tn-rt .rt-guess-reveal{margin-top:12px; background:var(--tint); border:1px solid var(--selbd); border-radius:13px; padding:14px 16px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55;}
+  #tn-rt .rt-guess-reveal[hidden]{display:none;}
+  #tn-rt .rt-guess-reveal b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-rt .rt-guess-why-row{display:flex; justify-content:center; margin-top:12px;}
+  #tn-rt .rt-guess-why{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 18px; cursor:pointer; transition:all .15s;}
+  #tn-rt .rt-guess-why:disabled{opacity:.45; cursor:not-allowed;}
+  #tn-rt .rt-guess-why:not(:disabled):hover{border-color:var(--selbd);}
+  #tn-rt .rt-guess-whybox{font-size:13px; color:var(--ink2); line-height:1.55; text-align:center; margin-top:10px; max-width:540px; margin-left:auto; margin-right:auto;}
+  /* 4 · three-card comparison */
+  #tn-rt .rt-threecol{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-rt .rt-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-rt .rt-tcard.s{border:1.5px solid var(--cardbd);}
+  #tn-rt .rt-tcard.d{border:1.5px solid #F0DCA9;}
+  #tn-rt .rt-tcard.g{border:1.5px solid var(--selbd);}
+  #tn-rt .rt-tcard:hover{filter:brightness(.97);}
+  #tn-rt .rt-tcard.done.s{background:var(--mist);}
+  #tn-rt .rt-tcard.done.d{background:#FBF2DF;}
+  #tn-rt .rt-tcard.done.g{background:var(--tint);}
+  #tn-rt .rt-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:center;}
+  #tn-rt .rt-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-rt .rt-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-rt .rt-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-rt .rt-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-rt .rt-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-rt .rt-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-rt .rt-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-rt .rt-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-rt .rt-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-rt .rt-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-rt .rt-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-rt .rt-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-rt .rt-sort-row.done .rt-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-rt .rt-sort-row.done .rt-sort-btns button.picked{opacity:1;}
+  #tn-rt .rt-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-rt .rt-why b{font-family:'Poppins',sans-serif;}
+  #tn-rt .rt-sort-row .rt-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-rt .rt-sort-row.done .rt-why{display:block;}
+  /* 6 · scenarios */
+  #tn-rt .rt-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-rt .rt-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-rt .rt-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-rt .rt-copts2{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-rt .rt-copts2 button{flex:1; min-width:120px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-rt .rt-copts2 button:hover{border-color:var(--selbd);}
+  #tn-rt .rt-case.done .rt-copts2 button{opacity:.35; pointer-events:none;}
+  #tn-rt .rt-case.done .rt-copts2 button.picked{opacity:1;}
+  #tn-rt .rt-case.done .rt-copts2 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-rt .rt-case.done .rt-copts2 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-rt .rt-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-rt .rt-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-rt .rt-case.done .rt-why{display:block;}
+  /* recap + complete */
+  #tn-rt .rt-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-rt .rt-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-rt .rt-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-rt .rt-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-rt .rt-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-rt .rt-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-rt .rt-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-rt .rt-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:rt-bob 1.6s ease-in-out infinite;}
+  #tn-rt .rt-finish-arrow.up{animation-name:rt-bob-up;}
+  @keyframes rt-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes rt-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-rt .rt-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-rt .rt-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-rt .rt-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-rt .rt-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-rt .rt-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-rt .rt-green{color:var(--g);}
+  #tn-rt .rt-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-rt .rt-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-rt .rt-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-rt .rt-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-rt .rt-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-rt .rt-nav-btn.prev{color:var(--ink2);}
+  #tn-rt .rt-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-rt .rt-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-rt .rt-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-rt .rt-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-rt .rt-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-rt .rt-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-rt .rt-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-rt .rt-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .rt-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .rt-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-rt .rt-wrap{padding:12px 14px 30px;}
+    #tn-rt .rt-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-rt .rt-tcard{flex-direction:row; justify-content:space-between; padding:12px 14px;}
+    #tn-rt .rt-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-rt .rt-copts2 button{min-width:0; flex:1 1 100%;}
+    #tn-rt .rt-bsub{display:none;}
+    #tn-rt .rt-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-rt .rt-nav{padding-top:10px; row-gap:0;}
+    #tn-rt .rt-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-rt .rt-reveal{opacity:1 !important; transform:none !important;}
+    #tn-rt #rt-bar{transition:none;}
+    #tn-rt .rt-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-rt'); if(!root) return;
+  root.querySelectorAll('.rt-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('rt-state')); }
+  function keys(o){ return Object.keys(o).length; }
+  function money(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#rt-vocab-def');
+  root.querySelectorAll('#rt-vocab-chips .rt-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#rt-vocab-chips .rt-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · what would you actually do (creative 1 of 2) */
+  (function(){
+    var opts=root.querySelectorAll('.rt-quest-opt'), result=root.querySelector('#rt-quest-result'),
+        countEl=root.querySelector('#rt-quest-count');
+    if(!opts.length) return;
+    var PEAK=1565, TROUGH=676, START=100000;
+    var atTrough=START*(TROUGH/PEAK);
+    var OUTCOMES={
+      'sell-all':{amt:atTrough, dir:'down', text:'You moved to cash at <b>'+money(atTrough)+'</b> — down 56.8% from the original $100,000. That loss is locked in. The market went on to fully recover by 2013, but none of that recovery reached this money, because it was already out.'},
+      'sell-half':(function(){
+        var half=atTrough/2, recovered=half*(PEAK/TROUGH), total=half+recovered;
+        return {amt:total, dir:'down', text:'You kept '+money(half)+' in cash and left '+money(half)+' invested. By 2013, the invested half had grown back to about '+money(recovered)+' — the cash half never did. Total: about <b>'+money(total)+'</b>, versus the $100,000 a fully-invested account would have.'};
+      })(),
+      'hold':{amt:START, dir:'up', text:'You stayed invested through the rest of the decline and the entire recovery. By 2013, when the index finally regained its 2007 high, this account was back to about <b>'+money(START)+'</b> — the full round trip, nothing locked in.'},
+      'buy-more':(function(){
+        var extra=20000, extraRecovered=extra*(PEAK/TROUGH), total=START+extraRecovered;
+        return {amt:total, dir:'up', text:'You stayed invested and added $20,000 more near the bottom. By 2013, the original position had recovered to about '+money(START)+', and the extra $20,000 — bought at depressed prices — had grown to about '+money(extraRecovered)+'. Total: about <b>'+money(total)+'</b>.'};
+      })()
+    };
+    var answered=false;
+    opts.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(answered) return;
+        answered=true;
+        var k=btn.getAttribute('data-k');
+        opts.forEach(function(o){ o.disabled=true; });
+        btn.classList.add('picked');
+        var o=OUTCOMES[k];
+        result.innerHTML='<span class="rt-quest-result-amt '+o.dir+'">'+money(o.amt)+' By 2013</span><p>'+o.text+'</p>';
+        result.hidden=false;
+        countEl.textContent='Answer Locked In: Yes';
+        state('quest', 1);
+        postHeight();
+      });
+    });
+  })();
+
+  /* 3 · guess the gap (creative 2 of 2) */
+  (function(){
+    var opts=root.querySelectorAll('.rt-guess-opt'), reveal=root.querySelector('#rt-guess-reveal'),
+        whyBtn=root.querySelector('#rt-guess-why'), whyBox=root.querySelector('#rt-guess-whybox'),
+        countEl=root.querySelector('#rt-guess-count');
+    if(!opts.length) return;
+    var GUESS_LABEL={none:'No Real Gap', small:'About 0.5 Points A Year', mid:'About 1-1.5 Points A Year', big:'2+ Points A Year'};
+    var revealed={}, guessed=false;
+    function mark(key){ if(!revealed[key]){ revealed[key]=1; countEl.textContent='Revealed '+keys(revealed)+' Of 2'; state('guess', keys(revealed)); } }
+    opts.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(guessed) return;
+        guessed=true;
+        var k=btn.getAttribute('data-k'), hit=(k==='mid');
+        opts.forEach(function(o){ o.disabled=true; });
+        btn.classList.add('picked');
+        reveal.innerHTML='You guessed <b>'+GUESS_LABEL[k]+'</b>. Morningstar’s own "Mind the Gap" research puts the real, persistent figure at roughly <b>1 to 1.5 percentage points a year</b> — investors’ actual dollar-weighted returns running behind the time-weighted returns their own funds produced, pretty much every year, for a decade.'+(hit?' That’s close to what you picked.':'');
+        reveal.hidden=false;
+        whyBtn.disabled=false;
+        mark('guess');
+        postHeight();
+      });
+    });
+    whyBtn.addEventListener('click',function(){
+      if(whyBtn.disabled) return;
+      whyBtn.disabled=true; whyBtn.textContent='Here’s Why';
+      whyBox.innerHTML='It isn’t that investors pick bad funds. A dollar-weighted return counts periods when more money was actually invested more heavily. When money pours in after a fund has already risen, and flows back out after it’s already fallen, that timing drags the investor’s own number down — even though the fund’s published return never changes.';
+      mark('why');
+      postHeight();
+    });
+  })();
+
+  /* 4 · say vs. do */
+  var TCW={
+    say:'In a calm market, most people describe themselves as able to handle significant volatility without panicking — a stated preference, costing nothing to claim.',
+    do:'In 2008 alone, investors pulled an estimated $233 billion out of U.S. equity funds — the largest annual outflow on record at the time — much of it while prices were still falling, not before.',
+    gap:'That’s revealed preference working against stated preference: the real decision, made under real pressure, often looks nothing like the forecast made in a calm moment.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#rt-tcbox'), tcCount=root.querySelector('#rt-tc-count');
+  root.querySelectorAll('#rt-threecol .rt-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.rt-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 3';
+      state('tc', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#rt-myth-count');
+  root.querySelectorAll('#rt-myth .rt-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.rt-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#rt-myth .rt-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#rt-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#rt-myth .rt-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · stated or revealed */
+  var CWHY=[
+    'A questionnaire answer, filled out with nothing actually at stake, is a stated preference by definition.',
+    'Actually selling, with real money and real consequences, is a revealed preference — the stated plan met reality.',
+    'What investors actually did with their money, not what they said they’d do, is a revealed preference — shown by the data itself.',
+    'This is a hypothetical answer, given before any money is invested — a stated preference, nothing revealed yet.'
+  ];
+  var caseCount=root.querySelector('#rt-case-count');
+  root.querySelectorAll('#rt-cases .rt-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.rt-why');
+    c.querySelectorAll('.rt-copts2 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.rt-copts2 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#rt-cases .rt-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#rt-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#rt-cases .rt-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.rt-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('rt-fin-arrow'), lead=document.getElementById('rt-fin-lead'), sub=document.getElementById('rt-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-rt'); if(!root) return;
+  var ALT={
+    'dollar-weighted return':'dollar-weighted returns?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#rt-vocab-chips .rt-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.rt-p, .rt-sub, .rt-note, .rt-why, .rt-recap-item span, .rt-h2, .rt-next-move, .rt-sort-row > span, .rt-case-q, .rt-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.rt-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='rt-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='rt-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.rt-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.rt-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-rt'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#rt-bar'), labelEl=root.querySelector('#rt-slide-label'),
+      countEl=root.querySelector('#rt-slide-count'), prevBtn=root.querySelector('#rt-prev'),
+      nextBtn=root.querySelector('#rt-next'), hintEl=root.querySelector('#rt-nav-hint'),
+      disclaimer=root.querySelector('.rt-disclaimer');
+  var labels={1:'Start Here',2:'What Would You Do?',3:'Guess The Gap',4:'Say Vs. Do',5:'Myth Or Fact',6:'Stated Or Revealed?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Pick one to continue',3:'Guess, then see why, to continue',4:'Reveal all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.rt-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('rt-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('rt-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'quest', need:1, hint:function(n){ return 'Pick one to continue'; }},
+    {step:3, key:'guess', need:2, hint:function(n){ return 'Revealed '+n+' of 2 — guess, then see why, to continue'; }},
+    {step:4, key:'tc',    need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('rt-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

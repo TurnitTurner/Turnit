@@ -54,6 +54,7 @@ Every lesson gets a unique two-letter prefix. Used so far:
 | `cr` | Correlation: Why "Diversified" Can Still Move Together |
 | `sr` | Sequence-Of-Returns Risk |
 | `cc` | Concentration Risk: Company Stock And RSUs |
+| `rt` | Your Real Risk Tolerance vs. Your Stated One |
 
 Pick a new unused prefix for each new lesson. Then:
 
@@ -326,6 +327,8 @@ learner-driven one-tap-per-row account-statement stepper (not auto-playing)
 instant 3-way toggle recomputing two results live from one shared JS function
 additive non-exclusive toggles feeding one live-recomputed gauge
 single shared trigger flipping two side-by-side status cards at once
+mutually-exclusive, permanently-locking questionnaire answer -> real $ outcome reveal
+predict-then-reveal (guess a real published figure, then see it and the mechanism)
 ```
 
 **Limit: 1–2 creative widgets per lesson.** The rest are standard formats, which are
