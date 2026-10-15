@@ -50,7 +50,7 @@ and basic capital gains. Nothing in this course re-teaches those.
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
-| 16 | Volatility vs. Drawdown vs. Permanent Loss | `16-volatility-drawdown-and-permanent-loss.html` | 8 |
+| 16 | Volatility vs. Drawdown vs. Permanent Loss | `16-volatility-drawdown-and-permanent-loss.html` | 9 |
 | 17 | Correlation: Why "Diversified" Can Still Move Together | — | — |
 | 18 | Sequence-Of-Returns Risk | — | — |
 | 19 | Concentration Risk: Company Stock And RSUs | — | — |
@@ -225,6 +225,28 @@ Market" chip term verbatim, and green-term coverage falling to 7 (needed
 ≥10) because most of the explanatory text sits in `id`'d reveal boxes the
 scanner skips by design — fixed by weaving the same terms into static
 instruction lines.
+
+**Lesson 16, revised after user feedback — now 9 slides, 2 of 2 creative
+widgets:** slide 2 was rebuilt from a static tap-marker chart into a
+dark, trading-app-styled chart (ticker, live-ticking price, green/red
+delta badge) that draws Apple's real Feb–Aug 2020 price path via
+`requestAnimationFrame` and unlocks four review callouts (Peak, Crash
+Day, Trough, Recovery) as the line passes them, each with its own
+independently-sourced date and price. Switched the headline example from
+the S&P 500 to a single real stock (AAPL) specifically so the crash could
+be narrated as something that happened *to a company*, not just an
+index. A new slide 3 ("A Headline, Then A Reaction") demonstrates why
+volatility happens at all: two real headline cards, each with its own
+mini chart that animates a price reaction on tap — a world event (WHO's
+Mar 11, 2020 pandemic declaration, AAPL −9.9% the next day) against
+company-specific news (AAPL's Jan 28, 2022 earnings beat, +7%) — with a
+closing note contrasting market-wide moves against single-company moves,
+foreshadowing Lesson 17's correlation topic without teaching it by name.
+The animation duration was deliberately kept to 1.8s (matching Lesson
+10's proven-safe ~1.5s precedent) rather than a more cinematic 4+
+seconds, after tracing through the verification harness's timed-widget
+fallback strategy and finding the longer duration left too little margin
+to resolve reliably.
 
 What was fixed in the Module 1–2 backlog pass:
 

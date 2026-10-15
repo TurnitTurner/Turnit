@@ -4,37 +4,69 @@
      (Intermediate · Module 4 · Lesson 16)
      Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
      Scoped under #tn-vd. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
-       1  Title & Key Terms (never gated)   2  The 2020 Crash, Annotated (creative)
-       3  Three Different Risks              4  Three Investors, Same Crash
-       5  Myth Or Fact (5)                  6  Which One Is It? (4)
-       7  Recap (6)                         8  Complete
-     Creative widget, 1 of 2 allowed: slide 2's annotated real S&P 500
-     chart of the Feb-Aug 2020 COVID crash — three tappable markers
-     (Peak, Trough, Recovery) on an actual historical path, each
-     revealing its real date and figure. Different from Lesson 14's
-     branching hold/sell chart: this one shows a single real history, not
-     a hypothetical choice. Slides 3, 4 and 6 are standard comparison /
-     scenario-decision formats.
+       1  Title & Key Terms (never gated)   2  Watch It Happen (creative, animated)
+       3  A Headline, Then A Reaction (creative) 4  Three Different Risks
+       5  Three Investors, Same Crash       6  Myth Or Fact (5)
+       7  Which One Is It? (4)              8  Recap (6)
+       9  Complete
+     Creative widgets, 2 of 2 allowed: slide 2 is an animated, trading-app
+     styled chart (dark card, live ticking price, green/red delta badge)
+     that draws Apple's real Feb-Aug 2020 price path in real time via
+     requestAnimationFrame, unlocking four review callouts (Peak, Crash
+     Day, Trough, Recovery) as the line passes them — different from the
+     static tap-marker chart this slide used before review, and from
+     Lesson 14's branching hold/sell chart (this one plays a single real
+     history, not a choice). Slide 3 is a cause-and-effect pair: two real
+     headlines, each with its own small chart that animates a price
+     reaction (flash + morphing line + counting delta number) when
+     tapped, contrasting a world event (moves everything) against
+     company-specific news (moves one stock). Slides 4, 5 and 7 are
+     standard comparison / scenario-decision formats.
      Gating reads state published on the container, so spamming one
      control can never unlock a slide; once unlocked, a slide stays
-     unlocked after Start Over.
+     unlocked after Start Over. The slide-2 animation plays once per
+     Play tap but review callouts, once unlocked, stay unlocked — and
+     `prefers-reduced-motion` skips straight to the fully-drawn end state
+     with every callout already unlocked.
      Opens Module 4. Does NOT re-teach realized vs. unrealized loss for
      tax purposes (Lesson 14) — "selling locks in the loss" here is about
      risk and behavior, not a tax rule. Does not re-teach diversification
      mechanics from Foundations; assumes the learner already holds a
      diversified portfolio and is asking what happens to it under stress.
-     Real figures (sourced, as of writing), S&P 500, price-only (not
-     total return):
-       2020 COVID crash: closing peak 3,386.15 on Feb 19, 2020; closing
-       trough 2,237.40 on Mar 23, 2020 — a 33.9% decline in 23 trading
-       days, the fastest bear market on record. Recovered to a new
-       closing high of 3,389.78 on Aug 18, 2020 — about six months after
-       the peak. (Multiple sources, incl. a closing-price breakdown and
-       contemporaneous news coverage, agree on these dates and levels.)
-       2007-2009 financial crisis, cited for contrast only, not charted:
-       closing peak 1,565 on Oct 9, 2007; closing trough 676 on Mar 9,
-       2009 — a 56.8% decline (Atlanta Fed). Did not regain its prior
-       peak until Mar 28, 2013 — about 5.5 years.
+     Does not teach correlation or systematic vs. idiosyncratic risk by
+     name (Lesson 17 owns that) — slide 3's note line only foreshadows it
+     in plain language.
+     Real figures (sourced, as of writing), individual-stock figures are
+     Apple Inc. (AAPL), price only, not adjusted for the Aug 2020 4-for-1
+     split (all figures below predate that split, so no adjustment issue
+     arises):
+       Peak: AAPL closed at $327.20 on Feb 12, 2020, its pre-crash high.
+       Crash day: AAPL closed at $248.23 on Mar 12, 2020, down $27.20
+       (9.9%) in a single session — the worst market day since 1987 at
+       the time, a day after the WHO declared COVID-19 a global pandemic
+       and a new U.S.-Europe travel ban was announced. Multiple
+       contemporaneous sources agree on this close and decline.
+       Trough: AAPL bottomed near $212.61 in the Mar 23, 2020 sell-off
+       (Benzinga, corroborated by a TradingView chart annotation) — about
+       35% below the February peak. Recovered to new highs within
+       months, per widely available price history; no single recovery
+       date is asserted for AAPL specifically (unlike the S&P 500's own
+       Aug 18, 2020 date, cited below).
+       Good-news reaction: AAPL rose about 7% on Jan 28, 2022, after
+       reporting record fiscal Q1 revenue and earnings the prior evening
+       — figure corroborated across three independent contemporaneous
+       sources (Schaeffers, FXStreet, iMore), none of which gave a more
+       precise decimal, so "about 7%" is used rather than false
+       precision.
+       S&P 500, price-only, cited on later slides for the index-level
+       story: closing peak 3,386.15 on Feb 19, 2020; closing trough
+       2,237.40 on Mar 23, 2020 — a 33.9% decline in 23 trading days, the
+       fastest bear market on record; recovered to a new closing high of
+       3,389.78 on Aug 18, 2020 — about six months after the peak.
+       2007-2009 financial crisis, cited for contrast only: closing peak
+       1,565 on Oct 9, 2007; closing trough 676 on Mar 9, 2009 — a 56.8%
+       decline (Atlanta Fed). Did not regain its prior peak until Mar 28,
+       2013 — about 5.5 years.
        Average intra-year decline, 1980-2023: 14.2%, yet the S&P 500
        finished positive in 33 of those 44 years (JPMorgan Guide to the
        Markets, as reproduced in multiple 2023-2024 secondary sources).
@@ -42,8 +74,10 @@
        Sept 15, 2008, the largest bankruptcy filing in U.S. history at
        the time; its stock, which had traded above $80 a share in 2007,
        was wiped out to $0 — a widely documented, uncontested fact, cited
-       here only as a contrast to the index-level recovery above, not
-       re-examined in detail.
+       here only as a contrast to the recoveries above, not re-examined
+       in detail. Apple and Lehman Brothers are both named only because
+       their real, dated history teaches the lesson cleanly — neither
+       mention is a recommendation or criticism of any investment.
        Closing quote verified against Graham & Dodd, Security Analysis
        (1934): the market described as "a voting machine," not the
        popular "voting machine / weighing machine, short run / long run"
@@ -58,18 +92,18 @@
         <div class="vd-brand"><span class="vd-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="vd-word">TURNIT</span><span class="vd-bsub">Intermediate Investing</span></div>
       </div>
       <div class="vd-progress"><span id="vd-bar"></span></div>
-      <div class="vd-meta"><span id="vd-slide-label">Start Here</span><span id="vd-slide-count">Slide 1 Of 8</span></div>
+      <div class="vd-meta"><span id="vd-slide-label">Start Here</span><span id="vd-slide-count">Slide 1 Of 9</span></div>
     </div>
 
     <!-- ========== 1 · TITLE & KEY TERMS ========== -->
     <section class="vd-sec vd-center vd-reveal" data-step="1">
-      <p class="vd-kicker center">Risk You Cannot See In A Chart · 1 / 8</p>
+      <p class="vd-kicker center">Risk You Cannot See In A Chart · 1 / 9</p>
       <h1 class="vd-hero-title">THREE KINDS <span class="vd-hero-grad">OF RISK</span></h1>
       <p class="vd-sub center">A falling number on your screen could be nothing, or it could be everything. The difference is almost never obvious in the moment.</p>
       <div class="vd-vocab">
         <span class="vd-vocab-label">Key Terms In This Lesson</span>
         <div class="vd-vocab-chips" id="vd-vocab-chips">
-          <button type="button" class="vd-vocab-chip" data-t="Volatility" data-def="How much an investment's price swings up and down over time. A normal, expected feature of investing, not a danger sign by itself.">Volatility</button>
+          <button type="button" class="vd-vocab-chip" data-t="Volatility" data-def="How much an investment's price swings up and down over time — usually driven by news, earnings, or world events. A normal, expected feature of investing, not a danger sign by itself.">Volatility</button>
           <button type="button" class="vd-vocab-chip" data-t="Drawdown" data-def="A decline in value from a recent peak. It's a loss only on paper until you sell — and most drawdowns recover.">Drawdown</button>
           <button type="button" class="vd-vocab-chip" data-t="Permanent Loss" data-def="Capital that's actually gone and isn't coming back — because you sold at the bottom, or because the investment itself was wiped out.">Permanent Loss</button>
           <button type="button" class="vd-vocab-chip" data-t="Peak-To-Trough" data-def="The span from an investment's high point to its lowest point before it starts recovering — how a drawdown's size is measured.">Peak-To-Trough</button>
@@ -82,33 +116,85 @@
       <div class="vd-next-move">Nothing here is required — tap Next when you're ready.</div>
     </section>
 
-    <!-- ========== 2 · THE 2020 CRASH, ANNOTATED ========== -->
+    <!-- ========== 2 · WATCH IT HAPPEN ========== -->
     <section class="vd-sec vd-reveal" data-step="2">
-      <p class="vd-kicker">A Real Drawdown · 2 / 8</p>
-      <h2 class="vd-h2">The Fastest Crash On Record</h2>
-      <p class="vd-p">The S&amp;P 500's peak-to-trough drawdown, February to August 2020 — a bear market by any definition. Tap each marker.</p>
-      <div class="vd-chart">
-        <svg viewBox="0 0 360 150" class="vd-chart-svg" preserveAspectRatio="none">
-          <line x1="16" y1="130" x2="344" y2="130" class="vd-chart-axis"/>
-          <polyline points="20,20 70,45 110,95 150,70 190,58 230,46 270,34 320,22 340,18" class="vd-chart-line"/>
-          <circle cx="20" cy="20" r="5" class="vd-mk" id="vd-mk-peak"/>
-          <circle cx="110" cy="95" r="5" class="vd-mk" id="vd-mk-trough"/>
-          <circle cx="340" cy="18" r="5" class="vd-mk" id="vd-mk-recov"/>
+      <p class="vd-kicker">A Real Stock, A Real Crash · 2 / 9</p>
+      <h2 class="vd-h2">Watch It Happen</h2>
+      <p class="vd-p">Apple's stock, February to August 2020 — the same crash, now animated. Tap Play, then review each moment as it unlocks.</p>
+      <div class="vd-rh">
+        <div class="vd-rh-top">
+          <div class="vd-rh-id"><span class="vd-rh-sym">AAPL</span><span class="vd-rh-name">Apple Inc.</span></div>
+          <div class="vd-rh-pricebox">
+            <span class="vd-rh-price" id="vd-rh-price">$327.20</span>
+            <span class="vd-rh-delta" id="vd-rh-delta">Tap Play To Start</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 360 150" class="vd-rh-svg" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="vdRhFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="currentColor" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="12" y1="132" x2="348" y2="132" class="vd-rh-axis"/>
+          <polygon id="vd-rh-fill" class="vd-rh-fill" points="20,132 20,132 150,132 200,132 340,132 340,132"/>
+          <polyline id="vd-rh-line" class="vd-rh-line" points="20,18 150,92 200,118 340,12"/>
+          <circle id="vd-rh-dot" class="vd-rh-dot" cx="20" cy="18" r="4.5"/>
         </svg>
+        <div class="vd-rh-tabs"><span>1D</span><span>1W</span><span>1M</span><span class="on">6M</span><span>1Y</span></div>
       </div>
-      <div class="vd-chartresult" id="vd-chartresult">Tap a marker above to see what happened there.</div>
-      <div class="vd-markbtns" id="vd-markbtns">
-        <button type="button" class="vd-markbtn" data-k="peak">Peak</button>
-        <button type="button" class="vd-markbtn" data-k="trough">Trough</button>
-        <button type="button" class="vd-markbtn" data-k="recov">Recovery</button>
+      <div class="vd-rh-controls">
+        <button type="button" class="vd-rh-play" id="vd-rh-play">▶ Play The Crash</button>
       </div>
-      <p class="vd-count" id="vd-mk-count">Checked 0 Of 3</p>
-      <p class="vd-disclaimer-inline">Price-only S&amp;P 500, not total return. The curve is stylized for legibility; the dates and closing levels at each marker are real.</p>
+      <div class="vd-rh-callouts" id="vd-rh-callouts">
+        <button type="button" class="vd-rh-callout" data-k="peak" disabled>Feb 12 — Peak</button>
+        <button type="button" class="vd-rh-callout" data-k="crash" disabled>Mar 12 — Crash Day</button>
+        <button type="button" class="vd-rh-callout" data-k="trough" disabled>Mar 23 — Trough</button>
+        <button type="button" class="vd-rh-callout" data-k="recov" disabled>Aug 2020 — Recovery</button>
+      </div>
+      <div class="vd-rh-detail" id="vd-rh-detail">Press Play, then tap each moment as it unlocks below the chart.</div>
+      <p class="vd-count" id="vd-rh-count">Reviewed 0 Of 4</p>
+      <p class="vd-disclaimer-inline">Apple (AAPL), price only. The connecting path is stylized for legibility — the price and date at each unlocked moment are real and independently sourced. Named because its real, dated history teaches this clearly, not as a recommendation.</p>
     </section>
 
-    <!-- ========== 3 · THREE DIFFERENT RISKS ========== -->
+    <!-- ========== 3 · A HEADLINE, THEN A REACTION ========== -->
     <section class="vd-sec vd-reveal" data-step="3">
-      <p class="vd-kicker">Same Headline, Different Risk · 3 / 8</p>
+      <p class="vd-kicker">Why Prices Actually Move · 3 / 9</p>
+      <h2 class="vd-h2">A Headline, Then A Reaction</h2>
+      <p class="vd-p">Volatility rarely comes from nowhere. Tap each real headline to watch the market react.</p>
+      <div class="vd-newscard bad" id="vd-news-bad">
+        <p class="vd-news-tag">🌍 World News · March 11, 2020</p>
+        <p class="vd-news-head">"WHO Declares COVID-19 A Global Pandemic"</p>
+        <div class="vd-newschart">
+          <svg viewBox="0 0 320 70" class="vd-newschart-svg" preserveAspectRatio="none">
+            <polyline class="vd-nc-flat" points="10,35 310,35"/>
+            <polyline class="vd-nc-react" id="vd-nc-bad-react" points="10,35 120,37 190,58 310,60"/>
+          </svg>
+          <span class="vd-newschart-delta" id="vd-news-bad-delta">0.0%</span>
+        </div>
+        <button type="button" class="vd-news-btn" id="vd-news-bad-btn">Tap To See The Reaction</button>
+        <p class="vd-news-result" id="vd-news-bad-result"></p>
+      </div>
+      <div class="vd-newscard good" id="vd-news-good">
+        <p class="vd-news-tag">📈 Company News · January 27, 2022</p>
+        <p class="vd-news-head">"Apple Reports Record Quarterly Earnings, Beats Estimates"</p>
+        <div class="vd-newschart">
+          <svg viewBox="0 0 320 70" class="vd-newschart-svg" preserveAspectRatio="none">
+            <polyline class="vd-nc-flat" points="10,35 310,35"/>
+            <polyline class="vd-nc-react" id="vd-nc-good-react" points="10,35 120,33 190,14 310,10"/>
+          </svg>
+          <span class="vd-newschart-delta" id="vd-news-good-delta">0.0%</span>
+        </div>
+        <button type="button" class="vd-news-btn" id="vd-news-good-btn">Tap To See The Reaction</button>
+        <p class="vd-news-result" id="vd-news-good-result"></p>
+      </div>
+      <div class="vd-note" id="vd-news-note">World events tend to move nearly every stock at once. Company-specific news mostly moves that one company — which is exactly why spreading your money across many companies softens the ride.</div>
+      <p class="vd-count" id="vd-news-count">Reacted 0 Of 2</p>
+    </section>
+
+    <!-- ========== 4 · THREE DIFFERENT RISKS ========== -->
+    <section class="vd-sec vd-reveal" data-step="4">
+      <p class="vd-kicker">Same Headline, Different Risk · 4 / 9</p>
       <h2 class="vd-h2">Three Different Risks, One Headline</h2>
       <p class="vd-p">"The market dropped" could mean volatility, a drawdown, or a permanent loss. Tap each to see the real-world version.</p>
       <div class="vd-threecol" id="vd-threecol">
@@ -129,9 +215,9 @@
       <p class="vd-count" id="vd-tc-count">Revealed 0 Of 3</p>
     </section>
 
-    <!-- ========== 4 · THREE INVESTORS, SAME CRASH ========== -->
-    <section class="vd-sec vd-reveal" data-step="4">
-      <p class="vd-kicker">Same Crash, Three Outcomes · 4 / 8</p>
+    <!-- ========== 5 · THREE INVESTORS, SAME CRASH ========== -->
+    <section class="vd-sec vd-reveal" data-step="5">
+      <p class="vd-kicker">Same Crash, Three Outcomes · 5 / 9</p>
       <h2 class="vd-h2">What They Did Next Decided Everything</h2>
       <p class="vd-p">All three held the same index fund through the same drawdown. What they did before it recovered decided everything.</p>
       <div class="vd-investors" id="vd-investors">
@@ -144,9 +230,9 @@
       <p class="vd-disclaimer-inline">Educational illustration based on real index dates and levels, not a recommendation. Past recoveries never guarantee future ones.</p>
     </section>
 
-    <!-- ========== 5 · MYTH OR FACT ========== -->
-    <section class="vd-sec vd-reveal" data-step="5">
-      <p class="vd-kicker">Myth Or Fact · 5 / 8</p>
+    <!-- ========== 6 · MYTH OR FACT ========== -->
+    <section class="vd-sec vd-reveal" data-step="6">
+      <p class="vd-kicker">Myth Or Fact · 6 / 9</p>
       <h2 class="vd-h2">Myth Or Fact?</h2>
       <p class="vd-p">Five claims you'll hear about market drops. Tap your answer.</p>
       <div class="vd-sort" id="vd-myth">
@@ -160,9 +246,9 @@
       <div class="vd-reset-row"><button type="button" class="vd-reset-btn" id="vd-myth-reset">↺ Start Over</button></div>
     </section>
 
-    <!-- ========== 6 · WHICH ONE IS IT? ========== -->
-    <section class="vd-sec vd-reveal" data-step="6">
-      <p class="vd-kicker">Four Scenarios · 6 / 8</p>
+    <!-- ========== 7 · WHICH ONE IS IT? ========== -->
+    <section class="vd-sec vd-reveal" data-step="7">
+      <p class="vd-kicker">Four Scenarios · 7 / 9</p>
       <h2 class="vd-h2">Which One Is It?</h2>
       <p class="vd-p">Classify each using what you now know about peak-to-trough moves. Tap the right answer for each.</p>
       <div class="vd-cases" id="vd-cases">
@@ -191,13 +277,13 @@
       <div class="vd-reset-row"><button type="button" class="vd-reset-btn" id="vd-case-reset">↺ Start Over</button></div>
     </section>
 
-    <!-- ========== 7 · RECAP ========== -->
-    <section class="vd-sec vd-reveal" data-step="7">
-      <p class="vd-kicker">Recap · 7 / 8</p>
+    <!-- ========== 8 · RECAP ========== -->
+    <section class="vd-sec vd-reveal" data-step="8">
+      <p class="vd-kicker">Recap · 8 / 9</p>
       <h2 class="vd-h2">Here's What You Now Know</h2>
       <p class="vd-p">The whole lesson, in six lines.</p>
       <div class="vd-recap">
-        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>Volatility is normal, constant price movement — not a warning sign by itself.</span></div>
+        <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>Volatility is normal, constant price movement, usually triggered by news or world events — not a warning sign by itself.</span></div>
         <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>A drawdown is a decline from a recent peak. It's a paper loss until you actually sell.</span></div>
         <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>A permanent loss is capital that's genuinely gone — locked in by selling, or because the investment itself was wiped out.</span></div>
         <div class="vd-recap-item"><span class="vd-recap-check">✓</span><span>The S&amp;P 500 fell 34% in early 2020 and recovered to a new high just six months later — a severe drawdown, not a permanent loss.</span></div>
@@ -207,9 +293,9 @@
       <div class="vd-next-move">Your next move: <b>before your next big drop, decide now what you'll do.</b> A plan made in advance is harder to panic out of than one made in the moment.</div>
     </section>
 
-    <!-- ========== 8 · COMPLETE ========== -->
-    <section class="vd-sec vd-center vd-reveal" data-step="8">
-      <p class="vd-kicker center">Lesson Complete · 8 / 8</p>
+    <!-- ========== 9 · COMPLETE ========== -->
+    <section class="vd-sec vd-center vd-reveal" data-step="9">
+      <p class="vd-kicker center">Lesson Complete · 9 / 9</p>
       <span class="vd-hero-ico">🚀</span>
       <h2 class="vd-h2 center">You've Finished The Lesson</h2>
       <p class="vd-sub center">Module 4 is underway. Next: why "diversified" can still mean everything moves together.</p>
@@ -222,7 +308,7 @@
       <p class="vd-pullquote">"THE MARKET IS NOT A WEIGHING MACHINE... <span class="vd-green">IT IS A VOTING MACHINE, WHEREON COUNTLESS INDIVIDUALS REGISTER CHOICES WHICH ARE THE PRODUCT PARTLY OF REASON AND PARTLY OF EMOTION.</span>"<br><span class="vd-pullquote-by">— BENJAMIN GRAHAM &amp; DAVID DODD, SECURITY ANALYSIS (1934)</span></p>
     </section>
 
-    <p class="vd-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of permanent loss, and past performance never guarantees future results. Historical figures were published at the time of writing and are price-only (excluding dividends) unless noted. The Lehman Brothers example is a real, uncontested historical fact cited for contrast, not an endorsement or criticism of any specific investment. Consider speaking with a qualified professional about your own situation.</p>
+    <p class="vd-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of permanent loss, and past performance never guarantees future results. Historical figures were published at the time of writing and are price-only (excluding dividends) unless noted. Apple and Lehman Brothers are both named because their real, dated history teaches this lesson clearly — neither mention is a recommendation or a criticism of any specific investment. Consider speaking with a qualified professional about your own situation.</p>
 
     <div class="vd-nav" id="vd-nav">
       <button type="button" class="vd-nav-btn prev" id="vd-prev"><span aria-hidden="true">←</span> Previous</button>
@@ -286,20 +372,68 @@
   #tn-vd .vd-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
   #tn-vd .vd-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
   #tn-vd .vd-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
-  /* 2 · annotated real chart (creative) */
-  #tn-vd .vd-chart{max-width:480px; margin:0 auto; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:16px 14px 10px;}
-  #tn-vd .vd-chart-svg{width:100%; height:auto; display:block; overflow:visible;}
-  #tn-vd .vd-chart-axis{stroke:var(--cardbd); stroke-width:1.5;}
-  #tn-vd .vd-chart-line{fill:none; stroke:var(--b); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round;}
-  #tn-vd .vd-mk{fill:var(--ink2); stroke:#fff; stroke-width:2; cursor:pointer; transition:fill .2s, r .2s;}
-  #tn-vd .vd-mk.on{fill:var(--g); r:7;}
-  #tn-vd .vd-chartresult{max-width:520px; margin:14px auto 0; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
-  #tn-vd .vd-chartresult b{font-family:'Poppins',sans-serif; color:var(--ink);}
-  #tn-vd .vd-markbtns{display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap;}
-  #tn-vd .vd-markbtn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:9px 18px; cursor:pointer; transition:all .15s;}
-  #tn-vd .vd-markbtn:hover{border-color:var(--selbd);}
-  #tn-vd .vd-markbtn.on{background:var(--tint); border-color:var(--selbd); color:var(--g);}
-  /* 3 · three-card comparison */
+  /* 2 · Robinhood-style animated chart (creative 1 of 2) */
+  #tn-vd .vd-rh{max-width:480px; margin:0 auto; background:#0B1016; border-radius:18px; padding:16px 16px 6px; box-shadow:0 20px 44px -26px rgba(11,16,22,.6);}
+  #tn-vd .vd-rh-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;}
+  #tn-vd .vd-rh-id{display:flex; flex-direction:column;}
+  #tn-vd .vd-rh-sym{font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:#fff; letter-spacing:.02em;}
+  #tn-vd .vd-rh-name{font-size:11.5px; color:#7C8A9A; margin-top:1px;}
+  #tn-vd .vd-rh-pricebox{display:flex; flex-direction:column; align-items:flex-end;}
+  #tn-vd .vd-rh-price{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:#fff; font-variant-numeric:tabular-nums;}
+  #tn-vd .vd-rh-delta{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#7C8A9A; margin-top:2px;}
+  #tn-vd .vd-rh-delta.up{color:var(--g);}
+  #tn-vd .vd-rh-delta.down{color:#FF6B57;}
+  #tn-vd .vd-rh-svg{width:100%; height:auto; display:block; overflow:visible;}
+  #tn-vd .vd-rh-axis{stroke:#1C2530; stroke-width:1;}
+  #tn-vd .vd-rh-fill{fill:url(#vdRhFill); stroke:none; color:#7C8A9A; transition:color .2s;}
+  #tn-vd .vd-rh-fill.up{color:var(--g);}
+  #tn-vd .vd-rh-fill.down{color:#FF6B57;}
+  #tn-vd .vd-rh-line{fill:none; stroke:#7C8A9A; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; transition:stroke .2s;}
+  #tn-vd .vd-rh-line.up{stroke:var(--g);}
+  #tn-vd .vd-rh-line.down{stroke:#FF6B57;}
+  #tn-vd .vd-rh-dot{fill:#fff; stroke:#0B1016; stroke-width:2; opacity:0;}
+  #tn-vd .vd-rh-dot.show{opacity:1;}
+  #tn-vd .vd-rh-tabs{display:flex; justify-content:space-between; padding:10px 2px 12px; margin-top:4px; border-top:1px solid #1C2530;}
+  #tn-vd .vd-rh-tabs span{font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; color:#53606E;}
+  #tn-vd .vd-rh-tabs span.on{color:#fff;}
+  #tn-vd .vd-rh-controls{display:flex; justify-content:center; margin-top:14px;}
+  #tn-vd .vd-rh-play{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:13px; padding:13px 26px; cursor:pointer; transition:all .18s; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-vd .vd-rh-play:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-vd .vd-rh-play:disabled{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-vd .vd-rh-callouts{display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:14px;}
+  #tn-vd .vd-rh-callout{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--mut); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:10px 8px; cursor:pointer; transition:all .15s;}
+  #tn-vd .vd-rh-callout:disabled{opacity:.45; cursor:not-allowed;}
+  #tn-vd .vd-rh-callout.unlocked{color:var(--ink); border-color:var(--selbd); background:var(--tint); animation:vd-pulse 1.4s ease-in-out 2;}
+  #tn-vd .vd-rh-callout.reviewed{color:var(--g); border-color:var(--selbd); background:var(--tint); animation:none;}
+  @keyframes vd-pulse{0%,100%{box-shadow:0 0 0 0 rgba(32,155,115,0);} 50%{box-shadow:0 0 0 5px rgba(32,155,115,.15);}}
+  #tn-vd .vd-rh-detail{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:12px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-vd .vd-rh-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 3 · headline reaction cards (creative 2 of 2) */
+  #tn-vd .vd-newscard{border:1.5px solid var(--cardbd); border-radius:16px; padding:16px 16px 14px; margin-bottom:12px; transition:border-color .3s, background .3s;}
+  #tn-vd .vd-newscard.reacted.bad{border-color:var(--nobd); background:var(--nobg); animation:vd-flash-bad .5s ease;}
+  #tn-vd .vd-newscard.reacted.good{border-color:var(--selbd); background:var(--tint); animation:vd-flash-good .5s ease;}
+  @keyframes vd-flash-bad{0%{background:#FBD5CF;} 100%{background:var(--nobg);}}
+  @keyframes vd-flash-good{0%{background:#BFE6D6;} 100%{background:var(--tint);}}
+  #tn-vd .vd-news-tag{font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); margin:0 0 6px;}
+  #tn-vd .vd-news-head{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:var(--ink); margin:0 0 12px; line-height:1.35;}
+  #tn-vd .vd-newschart{position:relative; background:#fff; border:1px solid var(--cardbd); border-radius:11px; padding:6px 10px;}
+  #tn-vd .vd-newschart-svg{width:100%; height:48px; display:block;}
+  #tn-vd .vd-nc-flat{fill:none; stroke:var(--mut); stroke-width:2; stroke-linecap:round;}
+  #tn-vd .vd-nc-react{fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; opacity:0; transition:opacity .4s;}
+  #tn-vd .vd-newscard.bad .vd-nc-react{stroke:var(--no);}
+  #tn-vd .vd-newscard.good .vd-nc-react{stroke:var(--g);}
+  #tn-vd .vd-newscard.reacted .vd-nc-flat{opacity:0;}
+  #tn-vd .vd-newscard.reacted .vd-nc-react{opacity:1;}
+  #tn-vd .vd-newschart-delta{position:absolute; top:8px; right:12px; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--mut);}
+  #tn-vd .vd-newscard.reacted.bad .vd-newschart-delta{color:var(--no);}
+  #tn-vd .vd-newscard.reacted.good .vd-newschart-delta{color:var(--g);}
+  #tn-vd .vd-news-btn{display:block; width:100%; margin-top:12px; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:11px; padding:11px; cursor:pointer; transition:all .15s;}
+  #tn-vd .vd-news-btn:hover:not(:disabled){transform:translateY(-1px);}
+  #tn-vd .vd-news-btn:disabled{opacity:.5; cursor:default;}
+  #tn-vd .vd-news-result{font-size:13px; color:var(--ink2); line-height:1.5; margin:12px 0 0; display:none;}
+  #tn-vd .vd-newscard.reacted .vd-news-result{display:block;}
+  #tn-vd .vd-note{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:14px 16px; margin-top:6px; text-align:center; font-size:13px; color:var(--ink2); line-height:1.55;}
+  /* 4 · three-card comparison */
   #tn-vd .vd-threecol{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
   #tn-vd .vd-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
   #tn-vd .vd-tcard.v{border:1.5px solid var(--selbd);}
@@ -313,14 +447,14 @@
   #tn-vd .vd-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
   #tn-vd .vd-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
   #tn-vd .vd-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
-  /* 4 · three investors */
+  /* 5 · three investors */
   #tn-vd .vd-investors{display:flex; flex-direction:column; gap:8px;}
   #tn-vd .vd-inv{font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:700; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:12px 14px; cursor:pointer; text-align:left; transition:all .15s;}
   #tn-vd .vd-inv:hover{border-color:var(--selbd);}
   #tn-vd .vd-inv.done{background:var(--mist); border-color:var(--selbd); color:var(--ink2);}
   #tn-vd .vd-invbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
   #tn-vd .vd-invbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
-  /* 5 · myth sorter */
+  /* 6 · myth sorter */
   #tn-vd .vd-sort{display:flex; flex-direction:column; gap:10px;}
   #tn-vd .vd-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
   #tn-vd .vd-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
@@ -336,7 +470,7 @@
   #tn-vd .vd-why b{font-family:'Poppins',sans-serif;}
   #tn-vd .vd-sort-row .vd-why{flex-basis:100%; width:100%; margin-top:4px;}
   #tn-vd .vd-sort-row.done .vd-why{display:block;}
-  /* 6 · scenarios */
+  /* 7 · scenarios */
   #tn-vd .vd-cases{display:flex; flex-direction:column; gap:10px;}
   #tn-vd .vd-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
   #tn-vd .vd-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
@@ -428,30 +562,120 @@
     });
   });
 
-  /* 2 · annotated real chart (creative 1 of 2) */
-  var MKW={
-    peak:'<b>Feb 19, 2020 — Closing High: 3,386.15.</b> The S&P 500’s pre-crash peak. Twenty-three trading days later it would be down 34%.',
-    trough:'<b>Mar 23, 2020 — Closing Low: 2,237.40.</b> Down 33.9% from the peak — the fastest bear market on record. Anyone who sold here locked that loss in.',
-    recov:'<b>Aug 18, 2020 — New Closing High: 3,389.78.</b> About six months after the peak, the index was back above where it started — as if the crash had never happened, for anyone still holding.'
-  };
-  var mkSeen={}, mkCount=root.querySelector('#vd-mk-count'), chartResult=root.querySelector('#vd-chartresult');
-  function selectMarker(k){
-    root.querySelectorAll('.vd-mk').forEach(function(m){ m.classList.remove('on'); });
-    root.querySelectorAll('.vd-markbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-k')===k); });
-    document.getElementById('vd-mk-'+k).classList.add('on');
-    chartResult.innerHTML=MKW[k];
-    mkSeen[k]=1;
-    mkCount.textContent='Checked '+keys(mkSeen)+' Of 3';
-    state('mk', keys(mkSeen)); postHeight();
-  }
-  root.querySelectorAll('.vd-markbtn').forEach(function(btn){
-    btn.addEventListener('click',function(){ selectMarker(btn.getAttribute('data-k')); });
-  });
-  root.querySelectorAll('.vd-mk').forEach(function(mk){
-    mk.addEventListener('click',function(){ selectMarker(mk.id.replace('vd-mk-','')); });
-  });
+  /* 2 · Robinhood-style animated chart (creative 1 of 2) */
+  (function(){
+    var line=root.querySelector('#vd-rh-line'), fill=root.querySelector('#vd-rh-fill'),
+        dot=root.querySelector('#vd-rh-dot'), priceEl=root.querySelector('#vd-rh-price'),
+        deltaEl=root.querySelector('#vd-rh-delta'), playBtn=root.querySelector('#vd-rh-play'),
+        detail=root.querySelector('#vd-rh-detail'), rhCount=root.querySelector('#vd-rh-count');
+    if(!line) return;
+    var START=327.20;
+    var KF=[
+      {frac:0,    price:327.20, k:'peak',  lab:'<b>Feb 12, 2020 — $327.20.</b> Apple’s pre-crash high. At this point nothing had happened yet — this was just a new all-time high, like dozens before it.'},
+      {frac:0.40, price:248.23, k:'crash', lab:'<b>Mar 12, 2020 — $248.23</b>, down 9.9% in a single day. The WHO had declared COVID-19 a global pandemic the day before, and a new travel ban had just been announced. Markets had their worst day since 1987 — and this had nothing to do with anything Apple itself did.'},
+      {frac:0.58, price:212.61, k:'trough', lab:'<b>Mar 23, 2020 — around $213</b>, roughly 35% below the February peak. The bottom. Nobody rang a bell to announce it — it only looked like the bottom in hindsight.'},
+      {frac:1.00, price:350.00, k:'recov', lab:'<b>Within months — new highs.</b> Every dollar of that 35% drawdown was gone: recovered, for anyone who was still holding.'}
+    ];
+    var reviewed={}, unlocked={}, totalLen=line.getTotalLength(), raf=null, startTs=null, DURATION=1800;
+    var reduceMotion=false;
+    try{ reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+    line.style.strokeDasharray=totalLen; line.style.strokeDashoffset=totalLen;
+    function priceAt(f){
+      for(var i=0;i<KF.length-1;i++){
+        if(f>=KF[i].frac && f<=KF[i+1].frac){
+          var seg=(f-KF[i].frac)/(KF[i+1].frac-KF[i].frac);
+          return KF[i].price+(KF[i+1].price-KF[i].price)*seg;
+        }
+      }
+      return KF[KF.length-1].price;
+    }
+    function unlockUpTo(f){
+      KF.forEach(function(k){
+        if(f>=k.frac && !unlocked[k.k]){
+          unlocked[k.k]=1;
+          var btn=root.querySelector('.vd-rh-callout[data-k="'+k.k+'"]');
+          if(btn){ btn.disabled=false; btn.classList.add('unlocked'); }
+        }
+      });
+    }
+    function renderFrame(f){
+      line.style.strokeDashoffset=totalLen*(1-f);
+      var pt=line.getPointAtLength(totalLen*f);
+      dot.setAttribute('cx',pt.x); dot.setAttribute('cy',pt.y); dot.classList.add('show');
+      fill.setAttribute('points','20,132 20,'+pt.y.toFixed(1)+' '+pt.x.toFixed(1)+','+pt.y.toFixed(1)+' '+pt.x.toFixed(1)+',132');
+      var price=priceAt(f), delta=(price-START)/START*100, up=delta>=0;
+      priceEl.textContent='$'+price.toFixed(2);
+      deltaEl.textContent=(up?'+':'')+delta.toFixed(1)+'% Since Feb 12';
+      deltaEl.classList.toggle('up',up); deltaEl.classList.toggle('down',!up);
+      line.classList.toggle('up',up); line.classList.toggle('down',!up);
+      fill.classList.toggle('up',up); fill.classList.toggle('down',!up);
+      unlockUpTo(f);
+    }
+    function finishAnimation(){
+      raf=null; playBtn.disabled=false; playBtn.textContent='↺ Replay The Crash';
+      postHeight();
+    }
+    function step(ts){
+      if(!startTs) startTs=ts;
+      var f=Math.min(1,(ts-startTs)/DURATION);
+      renderFrame(f);
+      if(f<1){ raf=requestAnimationFrame(step); } else { finishAnimation(); }
+    }
+    function play(){
+      if(raf) return;
+      playBtn.disabled=true; playBtn.textContent='Playing…';
+      if(reduceMotion){ renderFrame(1); finishAnimation(); return; }
+      startTs=null; raf=requestAnimationFrame(step);
+    }
+    playBtn.addEventListener('click',play);
+    root.querySelectorAll('.vd-rh-callout').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(btn.disabled) return;
+        var k=btn.getAttribute('data-k'), kf=null;
+        KF.forEach(function(x){ if(x.k===k) kf=x; });
+        btn.classList.add('reviewed'); btn.classList.remove('unlocked');
+        detail.innerHTML=kf.lab;
+        reviewed[k]=1;
+        rhCount.textContent='Reviewed '+keys(reviewed)+' Of 4';
+        state('rh', keys(reviewed)); postHeight();
+      });
+    });
+  })();
 
-  /* 3 · three different risks */
+  /* 3 · a headline, then a reaction (creative 2 of 2) */
+  (function(){
+    var NEWS={
+      bad:{delta:-9.9, result:'The next day, Apple fell 9.9% — not because of anything the company did, but because the whole market was reacting to the same world event at once. A world event like this moves nearly every stock together.'},
+      good:{delta:7.0, result:'The next day, Apple rose about 7% — purely on its own results. A broad index fund holding Apple alongside hundreds of other companies would not have moved nearly as much on this one company’s news.'}
+    };
+    var newsSeen={}, newsCount=root.querySelector('#vd-news-count');
+    function reactCard(key){
+      var card=root.querySelector('#vd-news-'+key), btn=root.querySelector('#vd-news-'+key+'-btn'),
+          deltaEl=root.querySelector('#vd-news-'+key+'-delta'), resultEl=root.querySelector('#vd-news-'+key+'-result');
+      if(card.classList.contains('reacted')) return;
+      card.classList.add('reacted'); btn.disabled=true; btn.textContent='Reacted';
+      var target=NEWS[key].delta, steps=18, step=0;
+      var iv=setInterval(function(){
+        step++;
+        var v=target*(step/steps);
+        deltaEl.textContent=(v>=0?'+':'')+v.toFixed(1)+'%';
+        if(step>=steps){
+          clearInterval(iv);
+          deltaEl.textContent=(target>=0?'+':'')+target.toFixed(1)+'%';
+          resultEl.textContent=NEWS[key].result;
+          newsSeen[key]=1;
+          newsCount.textContent='Reacted '+keys(newsSeen)+' Of 2';
+          state('news', keys(newsSeen)); postHeight();
+        }
+        postHeight();
+      },40);
+    }
+    var badBtn=root.querySelector('#vd-news-bad-btn'), goodBtn=root.querySelector('#vd-news-good-btn');
+    if(badBtn) badBtn.addEventListener('click',function(){ reactCard('bad'); });
+    if(goodBtn) goodBtn.addEventListener('click',function(){ reactCard('good'); });
+  })();
+
+  /* 4 · three different risks */
   var TCW={
     vol:'A typical index fund moves up or down 1-2% on an ordinary day. Over 1980-2023, the S&P 500’s biggest dip within a calendar year averaged 14.2% — even in years that finished positive.',
     draw:'The S&P 500 fell about 34% from its February 2020 peak to its March 2020 trough — and recovered to a new high just six months later.',
@@ -469,7 +693,7 @@
     });
   });
 
-  /* 4 · three investors, same crash */
+  /* 5 · three investors, same crash */
   var INVW={
     a:'Locked in the full 34% drawdown as a permanent loss. By the time the market recovered in August, that money was already gone — it never got to participate.',
     b:'Watched the balance fall 34%, did nothing, and was fully recovered by August 2020 — and kept compounding from there.',
@@ -487,7 +711,7 @@
     });
   });
 
-  /* 5 · myth or fact */
+  /* 6 · myth or fact */
   var mythCount=root.querySelector('#vd-myth-count');
   root.querySelectorAll('#vd-myth .vd-sort-row').forEach(function(row){
     var ans=row.getAttribute('data-answer');
@@ -511,7 +735,7 @@
     mythCount.textContent='Answered 0 Of 5'; postHeight();
   });
 
-  /* 6 · which one is it */
+  /* 7 · which one is it */
   var CWHY=[
     'Small, routine ups and downs with no lasting trend — that’s volatility, not a loss of any kind.',
     'A decline that fully recovered is a drawdown — painful in the moment, but not a permanent loss.',
@@ -656,14 +880,14 @@
 <script>
 (function(){
   var root=document.getElementById('tn-vd'); if(!root) return;
-  var TOTAL=8, current=1;
+  var TOTAL=9, current=1;
   var bar=root.querySelector('#vd-bar'), labelEl=root.querySelector('#vd-slide-label'),
       countEl=root.querySelector('#vd-slide-count'), prevBtn=root.querySelector('#vd-prev'),
       nextBtn=root.querySelector('#vd-next'), hintEl=root.querySelector('#vd-nav-hint'),
       disclaimer=root.querySelector('.vd-disclaimer');
-  var labels={1:'Start Here',2:'A Real Drawdown',3:'Three Different Risks',4:'Three Investors',5:'Myth Or Fact',6:'Which One Is It?',7:'Recap',8:'Complete'};
-  var reqHints={2:'Check all 3 markers to continue',3:'Reveal all 3 to continue',4:'Reveal all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
-  var done={1:true,7:true,8:true};
+  var labels={1:'Start Here',2:'Watch It Happen',3:'A Headline, A Reaction',4:'Three Different Risks',5:'Three Investors',6:'Myth Or Fact',7:'Which One Is It?',8:'Recap',9:'Complete'};
+  var reqHints={2:'Play it, then review all 4 moments to continue',3:'React to both headlines to continue',4:'Reveal all 3 to continue',5:'Reveal all 3 to continue',6:'Answer all 5 to continue',7:'Answer all 4 to continue'};
+  var done={1:true,8:true,9:true};
   var secByStep={};
   root.querySelectorAll('.vd-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
   function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
@@ -698,11 +922,12 @@
   function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
   function num(k){ return +(root.getAttribute('data-'+k)||0); }
   var GATES=[
-    {step:2, key:'mk',    need:3, hint:function(n){ return 'Checked '+n+' of 3 — check them all to continue'; }},
-    {step:3, key:'tc',    need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
-    {step:4, key:'inv',   need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
-    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
-    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+    {step:2, key:'rh',    need:4, hint:function(n){ return 'Reviewed '+n+' of 4 — play it and review every moment to continue'; }},
+    {step:3, key:'news',  need:2, hint:function(n){ return 'Reacted '+n+' of 2 — tap both headlines to continue'; }},
+    {step:4, key:'tc',    need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'inv',   need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:6, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:7, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
   ];
   root.addEventListener('vd-state',function(){
     GATES.forEach(function(g){
