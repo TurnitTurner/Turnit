@@ -353,17 +353,47 @@ overlap the very first green term on this lesson's title slide at
 desktop width, because of how tall the title/vocab block and the
 opening sentence of slide 2 happened to stack; confirmed by direct
 Playwright inspection (the element reported at that screen position
-was the nav, not the term) rather than guessed at, then fixed by
-trimming vertical spacing on the title slide until the term's position
-cleared the nav's footprint, with the fix verified against the actual
-harness rather than just the isolated repro. Closing quote: Warren
+was the nav, not the term) rather than guessed at. First fix attempt
+trimmed vertical spacing on the title slide until the term's position
+cleared the nav's footprint — reverted after review, since it was
+fragile (any later copy edit to slides 1 or 2 could reintroduce the
+same overlap, and the same risk existed for every future lesson, not
+just this one) and left this lesson's title slide spaced differently
+from every other lesson's for no content reason. The real fix is in
+`verify/verify-lesson.js` itself: the tooltip check now scrolls the
+term to the center of the viewport (`scrollIntoView({block:'center'})`)
+instead of using `scrollIntoViewIfNeeded`'s nearest-edge behavior,
+since the sticky-nav overlap only happens in the harness's own
+artificial all-slides-unhidden state (used to count green terms) that
+a real learner, who only ever sees one slide at a time, never
+encounters. Reverified against Lessons 16-18 with no regressions.
+Closing quote: Warren
 Buffett's "Be fearful when others are greedy, and greedy when others
 are fearful," verified against the actual text of his "Buy American. I
 Am." New York Times op-ed (Oct. 16, 2008) after an initial search for a
 sequence-of-returns-specific quote (Bengen, Milevsky) turned up nothing
 that could be confirmed as an exact, primary-sourced quotation — the
 same standard applied to the Graham and Markowitz quotes in Lessons 16
-and 17.
+and 17. Checked for duplication against every other quote in this
+repo (`grep -ril "fearful"` and `"buffett"` across both `intermediate/`
+and the separate Foundations-level lesson files at the repo root,
+which quote Buffett six different times) before shipping; confirmed
+unique.
+
+A second review caught a real self-contradiction in the first draft:
+slide 3 shows that reordering the same seven returns changes a
+*contributor's* ending balance by exactly as much as a withdrawer's
+(just in the opposite direction), but the myth/fact claim, a scenario
+case's explanation, and slide 2's own intro paragraph all separately
+implied order "only" or "mainly" matters during decumulation — directly
+contradicting the lesson's own widget. Fixed by rewriting all three to
+one consistent framing (order matters whenever money moves in or out;
+withdrawals make an early crash costly; contributions make a late
+crash costly) rather than patching each symptom differently. The same
+pass also caught slide 6's intro describing every case as an
+accumulation-vs-decumulation pair, when two of its four cases actually
+compare two people who are both already retired — reworded to cover
+both pairings it actually contains.
 
 What was fixed in the Module 1–2 backlog pass:
 

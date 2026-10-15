@@ -224,7 +224,13 @@ async function run(w, h, label) {
   // tooltip
   const el = await pg.$(`#tn-${PX} .${PX}-term`);
   if (el) {
-    await el.scrollIntoViewIfNeeded();
+    // Centered rather than scrollIntoViewIfNeeded's nearest-edge behaviour: this
+    // step runs right after every slide was force-unhidden to count green terms,
+    // a state a real learner (who only ever sees one slide at a time) never
+    // encounters. Centering keeps the term clear of the sticky bottom nav's
+    // footprint regardless of where it happens to land in that artificial tall
+    // page, instead of the check depending on incidental content height upstream.
+    await el.evaluate((e) => e.scrollIntoView({ block: 'center' }));
     await pg.waitForTimeout(350);
     if (w < 600) { await el.tap(); } else { await el.hover(); }
     await pg.waitForTimeout(280);
