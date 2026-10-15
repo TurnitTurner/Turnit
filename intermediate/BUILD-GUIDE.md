@@ -51,6 +51,7 @@ Every lesson gets a unique two-letter prefix. Used so far:
 | `tl` | Tax-Loss Harvesting, And The Wash-Sale Rule |
 | `fm` | What A 1099 Actually Tells You |
 | `vd` | Volatility Vs. Drawdown Vs. Permanent Loss |
+| `cr` | Correlation: Why "Diversified" Can Still Move Together |
 
 Pick a new unused prefix for each new lesson. Then:
 
@@ -311,6 +312,14 @@ value-lookup drill                 gap meter                     Venn pair picke
 company × fund X-ray grid          phone notification feed       three-column progressive split
 animated growth race               compass picker                scratch-off        drag-and-drop sort
 flip-card grid                     proportional bubbles          real-geometry globe
+definitions grid (tap cell → shared box)      day-picker live calculator
+branching hold/sell mini-chart (two polylines, tap to reveal outcome)
+annotated tax-form facsimile with tap chips
+single-line animated real-history chart with progressive-unlock review callouts
+(`requestAnimationFrame` stroke-dash reveal, dark trading-app styling)
+headline flash-reaction cards (tap → counting delta badge + morphing mini-chart)
+three-line simultaneous animated chart with tap-to-isolate legend
+stepped buttons that instantly redraw an illustrative second line against a fixed first
 ```
 
 **Limit: 1–2 creative widgets per lesson.** The rest are standard formats, which are

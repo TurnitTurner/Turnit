@@ -74,6 +74,11 @@
        return (dividends/interest reinvested), unlike most other price-only
        figures used elsewhere in this lesson — noted explicitly in the
        footer disclaimer to avoid conflating the two bases.
+       Slide 6's large-cap/small-cap case: a CME Group analysis (as
+       republished by Benzinga, 2020) put the average correlation between
+       the Russell 2000 (small-cap) and S&P 500 (large-cap) at about 0.8,
+       ranging roughly 0.6-0.96 on a one-year rolling basis — "roughly
+       0.8," high rather than moderate, is used in-lesson accordingly.
        Slide 3's two-line visual is explicitly illustrative only: the five
        hand-set paths are drawn to visually demonstrate what -1, -0.5, 0,
        +0.5 and +1 look like as shapes, not to assert that any specific
@@ -150,7 +155,7 @@
         </div>
         <button type="button" class="cr-rh3-showall" id="cr-rh3-showall" hidden>Show All Three Again</button>
       </div>
-      <div class="cr-rh3-detail" id="cr-rh3-detail">Press Play, then tap a line below to isolate it and see what actually happened.</div>
+      <div class="cr-rh3-detail" id="cr-rh3-detail">Press Play, then tap a name in the legend above to isolate that line and see what actually happened.</div>
       <p class="cr-count" id="cr-rh3-count">Reviewed 0 Of 3</p>
       <p class="cr-note" id="cr-rh3-note">All three reacted to the exact same <b>systematic risk</b> — one global event — but not in the same direction, or by the same amount. That's the nuance a single <b>correlation</b> number can hide.</p>
       <p class="cr-disclaimer-inline">AAPL and TLT, price/NAV only; JETS described qualitatively ("roughly cut in half") rather than with a precise peak-to-trough figure. The connecting shapes are stylized for legibility — see the lesson footer for full sourcing. Named because their real, dated history teaches this clearly, not as a recommendation.</p>
@@ -242,14 +247,14 @@
           <div class="cr-copts3"><button type="button" data-i="0">Low</button><button type="button" data-i="1">Moderate</button><button type="button" data-i="2">High</button></div>
           <p class="cr-why"></p>
         </div>
-        <div class="cr-case" data-ans="2">
+        <div class="cr-case" data-ans="1">
           <p class="cr-case-q">A U.S. large-company stock fund and a U.S. small-company stock fund, in an ordinary year.</p>
-          <div class="cr-copts3"><button type="button" data-i="0">High</button><button type="button" data-i="1">Low</button><button type="button" data-i="2">Moderate</button></div>
+          <div class="cr-copts3"><button type="button" data-i="0">Low</button><button type="button" data-i="1">High</button><button type="button" data-i="2">Moderate</button></div>
           <p class="cr-why"></p>
         </div>
-        <div class="cr-case" data-ans="1">
+        <div class="cr-case" data-ans="2">
           <p class="cr-case-q">A U.S. stock index fund and a long-term U.S. Treasury bond fund, in 2022 — a year both fell at the same time.</p>
-          <div class="cr-copts3"><button type="button" data-i="0">Low</button><button type="button" data-i="1">High</button><button type="button" data-i="2">Moderate</button></div>
+          <div class="cr-copts3"><button type="button" data-i="0">Moderate</button><button type="button" data-i="1">Low</button><button type="button" data-i="2">High</button></div>
           <p class="cr-why"></p>
         </div>
       </div>
@@ -385,6 +390,7 @@
   #tn-cr .cr-rh3-leg.reviewed{color:#fff; border-color:#3A4450; background:#1B2A24; animation:none;}
   @keyframes cr-pulse{0%,100%{box-shadow:0 0 0 0 rgba(32,155,115,0);} 50%{box-shadow:0 0 0 5px rgba(32,155,115,.2);}}
   #tn-cr .cr-rh3-showall{display:block; margin:10px auto 0; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:#8A97A6; background:transparent; border:1.5px solid #222D38; border-radius:99px; padding:7px 14px; cursor:pointer;}
+  #tn-cr .cr-rh3-showall[hidden]{display:none;}
   #tn-cr .cr-rh3-detail{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:12px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
   #tn-cr .cr-rh3-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
   #tn-cr .cr-note{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13px; color:var(--ink2); line-height:1.55;}
@@ -591,7 +597,7 @@
     showAll.addEventListener('click',function(){
       card.classList.remove('iso-aapl','iso-air','iso-bond');
       showAll.hidden=true;
-      detail.textContent='Press Play, then tap a line below to isolate it and see what actually happened.';
+      detail.textContent='Press Play, then tap a name in the legend above to isolate that line and see what actually happened.';
       postHeight();
     });
   })();
@@ -665,7 +671,7 @@
   var CWHY=[
     'Two companies in the same industry tend to react to the same news, the same economic cycle, the same investor sentiment — that’s high correlation.',
     'In a typical year, U.S. stocks and long-term Treasury bonds have historically had a low, sometimes even negative, correlation — stocks and bonds often don’t need the same economic conditions to do well.',
-    'Both are U.S. stocks, so they share plenty in common, but company size brings real differences in how they behave — moderate, not high or low.',
+    'Both are exposed to the same U.S. economic cycle, interest-rate environment, and investor sentiment. Despite real differences in company size, large- and small-cap U.S. stocks have historically moved together quite closely — researchers have estimated roughly 0.8 on the -1-to-+1 scale, which is high, not moderate.',
     'In 2022, the S&amp;P 500 fell about 18% and long-term Treasury bonds (TLT) fell roughly 31% — both down together, the opposite of their usual relationship. Rising interest rates hurt stock valuations and bond prices at the same time.'
   ];
   var caseCount=root.querySelector('#cr-case-count');
