@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **18 built** (Modules 1, 2, and 3 complete, Module 4 underway)
+7 modules · 35 lessons · **19 built** (Modules 1, 2, and 3 complete, Module 4 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -46,14 +46,14 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | `14-tax-loss-harvesting-and-wash-sale-rule.html` | 8 |
 | 15 | What A 1099 Actually Tells You | `15-what-a-1099-actually-tells-you.html` | 8 |
 
-## Module 4 — Risk You Cannot See In A Chart 🔶 underway (3 of 5)
+## Module 4 — Risk You Cannot See In A Chart 🔶 underway (4 of 5)
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 16 | Volatility vs. Drawdown vs. Permanent Loss | `16-volatility-drawdown-and-permanent-loss.html` | 9 |
 | 17 | Correlation: Why "Diversified" Can Still Move Together | `17-correlation-why-diversified-can-still-move-together.html` | 8 |
 | 18 | Sequence-Of-Returns Risk | `18-sequence-of-returns-risk.html` | 8 |
-| 19 | Concentration Risk: Company Stock And RSUs | — | — |
+| 19 | Concentration Risk: Company Stock And RSUs | `19-concentration-risk-company-stock-and-rsus.html` | 8 |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
 
 ## Module 5 — Bonds And Cash, Properly ⬜ not built
@@ -394,6 +394,57 @@ pass also caught slide 6's intro describing every case as an
 accumulation-vs-decumulation pair, when two of its four cases actually
 compare two people who are both already retired — reworded to cover
 both pairings it actually contains.
+
+**Lesson 19 ("Concentration Risk: Company Stock And RSUs"), prefix
+`cc`:** both creative widgets are new mechanics, chosen specifically
+against the now-current used-mechanics list (no hold/sell branch from
+Lesson 14, no stepper or mutually-exclusive toggle from Lesson 18, no
+dark animated chart from Lessons 16-17). Slide 2 ("Build Your
+Exposure") is an additive exposure builder: three independent,
+non-exclusive on/off toggles that each add a realistic dollar figure
+to a running "percent of portfolio in one company" gauge for a
+hypothetical employee, so a learner can freely explore every
+combination (toggling things back off costs no progress — the gate
+tracks which toggles have ever been switched on, not their current
+state) and watch ordinary, individually-reasonable benefits (an RSU
+grant, ESPP purchases, a stock-paid 401(k) match) stack into real
+concentration. Slide 3 ("What Happened At Enron") is a single shared
+trigger that flips two side-by-side status cards (Income, 401(k)
+Balance) from a neutral to a red state at the same instant, rather
+than two independently-tapped cards like Lesson 16's headline pair —
+built specifically to dramatize the lesson's point that employer-stock
+concentration hits income and net worth on the same day, from the same
+cause, not as two separate risks. Two "Learn More" buttons unlock
+after the flip for extended real detail. Deliberately uses Enron as
+the real case rather than Lehman Brothers (Lesson 16's own example) —
+a different real case teaching a different, additional point:
+concentration through an employer relationship specifically, not just
+holding one company's stock as an ordinary investment. Scoped
+narrowly on purpose: does not teach 401(k) vesting, net unrealized
+appreciation, or rollovers (reserved for Lesson 34 in Module 7), and
+does not re-chip idiosyncratic risk or sector concentration (Lesson
+17 owns those terms); does not state a recommended maximum percentage
+of employer stock to hold, the same compliance hedge Lessons 11 and 14
+use for "what should I do" territory. Real figures: a March 2002
+Senate Democratic Policy Committee study found Enron's 401(k) was
+57.7% company stock in 2001; separately, Sen. Edward Kennedy testified
+at a Senate HELP Committee hearing that Enron workers had "more than
+sixty percent" of their 401(k) in Enron stock — "more than half" is
+used in-lesson since both sources support it, rather than asserting
+one precise contested figure. A Congressional Research Service
+analysis cited in 2002 Senate testimony found 89% of the Enron stock
+held in 401(k)s had been purchased voluntarily by employees, not
+received through the match. Enron's stock traded near $90 in late 2000
+and closed at $0.26 on November 30, 2001, the day before the company
+filed Chapter 11; about 4,000 Houston employees were laid off the next
+day, December 3, 2001, per contemporaneous AP wire reporting and
+Senate testimony from a former employee. Closing quote — "They lied to
+us, kept encouraging us to hold onto our stock, and never let on that
+our company was in serious trouble" — is verbatim Senate HELP
+Committee testimony from former Enron employee Steven Lacey (Feb. 7,
+2002, as reported by the IBEW Journal), found on the first search
+attempt and checked for duplication against every other quote already
+in this repo before shipping.
 
 What was fixed in the Module 1–2 backlog pass:
 

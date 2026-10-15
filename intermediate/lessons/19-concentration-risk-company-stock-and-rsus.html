@@ -1,0 +1,776 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — CONCENTRATION RISK: COMPANY STOCK AND RSUs
+     (Intermediate · Module 4 · Lesson 19)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-cc. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  Build Your Exposure (creative, additive)
+       3  What Happened At Enron (creative) 4  Why Employer Stock Is Different
+       5  Myth Or Fact (5)                  6  More Concentrated, Or Less? (4)
+       7  Recap (6)                         8  Complete
+     Creative widgets, 2 of 2 allowed, both new mechanics chosen specifically to avoid
+     the recently-used list (hold/sell branching from Lesson 14; account-statement
+     steppers and instant mutually-exclusive toggles from Lesson 18; dark animated
+     line charts from Lessons 16-17): slide 2 is an ADDITIVE exposure builder — three
+     independent on/off toggles (not mutually exclusive, and nothing animates) that
+     each add a realistic dollar figure to a running "percent of portfolio in one
+     company" gauge, so the learner can freely explore every combination and watch
+     ordinary, independently-reasonable benefits (an RSU grant, ESPP purchases, a
+     stock-paid 401(k) match) stack into real concentration. Slide 3 is a single
+     shared trigger that flips two side-by-side status cards (Income, 401(k) Balance)
+     from a neutral "before" state to a red "after" state at the same instant — not
+     two independently-tapped cards like Lesson 16's headline pair — specifically to
+     dramatize the lesson's core point that employer-stock concentration hits income
+     and net worth on the same day, from the same cause, not two separate risks. Two
+     "Learn More" buttons unlock after the flip for extended real detail. Slides 4, 5
+     and 6 are standard comparison / myth-or-fact / scenario-decision formats.
+     Gating reads state published on the container, so spamming one control can never
+     unlock a slide; once unlocked, a slide stays unlocked after Start Over. Slide 2's
+     gate tracks which toggles have EVER been switched on (not their current on/off
+     state), so a learner exploring combinations by switching things back off never
+     loses progress.
+     Scope, deliberately: does not teach 401(k) vesting schedules, net unrealized
+     appreciation, or rollovers — Lesson 34 (Module 7) owns employer-plan mechanics in
+     depth. Does not re-teach or re-chip idiosyncratic risk or sector concentration —
+     Lesson 17 owns those terms by name; this lesson references the same underlying
+     idea (one company's problems hitting many related holdings at once) but names it
+     distinctly as "concentration risk" and "double exposure," specific to owning your
+     own employer's stock. Does not reuse Lehman Brothers as the headline permanent
+     -loss example (Lesson 16's); uses Enron instead, a different real case that
+     teaches a different, additional point — concentration through an employer
+     relationship, not just holding one company's stock as an ordinary investment.
+     Does not state a specific recommended maximum percentage of employer stock to
+     hold — deliberately hedged, consistent with how Lessons 11 and 14 handle
+     "what should I do" territory: the lesson describes the tradeoff and the real
+     numbers, never a directive threshold.
+     Real figures (sourced, as of writing): Enron's 401(k) company-stock
+     concentration — a March 2002 Senate Democratic Policy Committee study put it at
+     57.7% of plan assets in 2001; separately, Sen. Edward Kennedy testified at a
+     Senate HELP Committee hearing that Enron workers had "more than sixty percent"
+     of their 401(k) assets in Enron stock. "More than half" is used in-lesson as the
+     figure both sources support, rather than picking one precise contested number.
+     A Congressional Research Service analysis, cited in 2002 Senate testimony, found
+     89% of the Enron stock held in employee 401(k) accounts had been purchased
+     voluntarily by employees themselves, not received through the employer match.
+     Enron's stock traded near $90 a share in late 2000 (History.com; a separate
+     52-week high of $84.87 in Feb. 2001 is also reported, reflecting a different
+     measurement window) and closed at $0.26 on November 30, 2001 (History.com),
+     the day before Enron filed for Chapter 11 bankruptcy on December 2, 2001
+     (widely corroborated). About 4,000 Houston-based employees were told they were
+     laid off on December 3, 2001, the day after the bankruptcy filing, per
+     contemporaneous AP wire reporting and Senate testimony from a former Enron
+     employee (Deborah Perrotta) citing the same figure. Closing quote: "They lied to
+     us, kept encouraging us to hold onto our stock, and never let on that our
+     company was in serious trouble" — Steven Lacey, a former Enron/Portland General
+     Electric employee, in testimony before the Senate HELP Committee on February 7,
+     2002, as reported contemporaneously by the IBEW Journal. Checked for duplication
+     against every other quote already used in this repo (`grep -ril` across
+     `intermediate/` and the Foundations-level lesson files at the repo root) before
+     shipping — confirmed unique. Slide 2's "Jordan" scenario and all its dollar
+     figures are an illustrative hypothetical, explicitly labeled as such, not a real
+     individual or a recommendation of any kind.
+     ============================================================ -->
+<div id="tn-cc">
+  <div class="cc-wrap">
+    <div class="cc-top">
+      <div class="cc-topbar">
+        <div class="cc-brand"><span class="cc-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="cc-word">TURNIT</span><span class="cc-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="cc-progress"><span id="cc-bar"></span></div>
+      <div class="cc-meta"><span id="cc-slide-label">Start Here</span><span id="cc-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="cc-sec cc-center cc-reveal" data-step="1">
+      <p class="cc-kicker center">When Your Job And Your Portfolio Are The Same Bet · 1 / 8</p>
+      <h1 class="cc-hero-title">YOUR JOB AND YOUR PORTFOLIO — <span class="cc-hero-grad">SAME COMPANY, SAME RISK</span></h1>
+      <p class="cc-sub center">RSUs, an employee stock purchase plan, a stock-paid match — none of them feel like one big risky bet. Stacked together, they often are.</p>
+      <div class="cc-vocab">
+        <span class="cc-vocab-label">Key Terms In This Lesson</span>
+        <div class="cc-vocab-chips" id="cc-vocab-chips">
+          <button type="button" class="cc-vocab-chip" data-t="Concentration Risk" data-def="The risk of having too much of your wealth tied to the fortunes of a single company, rather than spread across many.">Concentration Risk</button>
+          <button type="button" class="cc-vocab-chip" data-t="Double Exposure" data-def="Having both your paycheck and a large share of your savings depend on the same employer, so one company's problems can hit your income and your net worth at the same time.">Double Exposure</button>
+          <button type="button" class="cc-vocab-chip" data-t="Human Capital" data-def="The economic value of your own future earning power — your job, your skills, your career — which behaves like an asset even though you can't sell it.">Human Capital</button>
+          <button type="button" class="cc-vocab-chip" data-t="RSU" data-def="Restricted Stock Unit — a promise from your employer to give you shares of its own stock in the future, once certain conditions are met. Worth whatever the stock is worth when you receive it.">RSU (Restricted Stock Unit)</button>
+          <button type="button" class="cc-vocab-chip" data-t="ESPP" data-def="Employee Stock Purchase Plan — a program letting employees buy their employer's stock, often at a discount, through payroll deductions.">ESPP (Employee Stock Purchase Plan)</button>
+          <button type="button" class="cc-vocab-chip" data-t="Single-Stock Exposure" data-def="How much of your total portfolio sits in one individual company's stock. It grows on its own as that stock's price rises, even if you never buy another share.">Single-Stock Exposure</button>
+        </div>
+        <div class="cc-vocab-def" id="cc-vocab-def">Tap a term to see what it means.</div>
+        <span class="cc-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="cc-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · BUILD YOUR EXPOSURE ========== -->
+    <section class="cc-sec cc-reveal" data-step="2">
+      <p class="cc-kicker">How It Stacks Up, One Benefit At A Time · 2 / 8</p>
+      <h2 class="cc-h2">Build Your Exposure</h2>
+      <p class="cc-p">Nobody sets out to build concentration risk on purpose — it usually stacks up from several ordinary benefits. Jordan's starting portfolio is already diversified. Tap each benefit on or off, in any order, and watch the percentage move.</p>
+      <div class="cc-build">
+        <p class="cc-build-name">Jordan's Portfolio</p>
+        <div class="cc-build-gauge">
+          <div class="cc-build-gaugebar"><span id="cc-build-fill"></span></div>
+          <p class="cc-build-pct" id="cc-build-pct">0%</p>
+          <p class="cc-build-pctlab">Of Total Portfolio In Jordan's Own Employer</p>
+        </div>
+        <div class="cc-build-toggles" id="cc-build-toggles">
+          <button type="button" class="cc-build-tog" data-k="rsu">
+            <span class="cc-build-tog-t">RSU Grants, Vested &amp; Held</span>
+            <span class="cc-build-tog-v">+$80,000</span>
+          </button>
+          <button type="button" class="cc-build-tog" data-k="espp">
+            <span class="cc-build-tog-t">ESPP Purchases, Accumulated</span>
+            <span class="cc-build-tog-v">+$25,000</span>
+          </button>
+          <button type="button" class="cc-build-tog" data-k="match">
+            <span class="cc-build-tog-t">401(k) Match, Paid In Company Stock</span>
+            <span class="cc-build-tog-v">+$15,000</span>
+          </button>
+        </div>
+        <p class="cc-build-base">Starting point: $380,000, already diversified across index funds.</p>
+      </div>
+      <p class="cc-count" id="cc-build-count">Explored 0 Of 3</p>
+      <p class="cc-disclaimer-inline">"Jordan" is a hypothetical illustration built from realistic, round dollar figures — not a real individual, and not a recommendation about any specific benefit.</p>
+    </section>
+
+    <!-- ========== 3 · WHAT HAPPENED AT ENRON ========== -->
+    <section class="cc-sec cc-reveal" data-step="3">
+      <p class="cc-kicker">When Both Bets Lose At Once · 3 / 8</p>
+      <h2 class="cc-h2">What Happened At Enron</h2>
+      <p class="cc-p">By 2001, the typical Enron employee's paycheck and their 401(k) were both riding on the same company — double exposure in its most extreme real form. Tap below to see what happened when it collapsed — both cards update at once.</p>
+      <div class="cc-enron">
+        <div class="cc-enron-col" id="cc-enron-income">
+          <p class="cc-enron-head">Income</p>
+          <p class="cc-enron-state" id="cc-enron-income-state">Employed At Enron</p>
+          <button type="button" class="cc-enron-more" id="cc-enron-income-more" disabled>Learn More</button>
+          <p class="cc-enron-detail" id="cc-enron-income-detail"></p>
+        </div>
+        <div class="cc-enron-col" id="cc-enron-401k">
+          <p class="cc-enron-head">401(k) Balance</p>
+          <p class="cc-enron-state" id="cc-enron-401k-state">Stock Near A High, Late 2000</p>
+          <button type="button" class="cc-enron-more" id="cc-enron-401k-more" disabled>Learn More</button>
+          <p class="cc-enron-detail" id="cc-enron-401k-detail"></p>
+        </div>
+      </div>
+      <div class="cc-enron-trigger-row">
+        <button type="button" class="cc-enron-trigger" id="cc-enron-trigger">See What Happened →</button>
+      </div>
+      <p class="cc-count" id="cc-enron-count">Revealed 0 Of 3</p>
+      <p class="cc-disclaimer-inline">Enron is named because its real, dated history teaches this clearly — see the lesson footer for full sourcing. Not every company that concentrates employee wealth this way ends the same way.</p>
+    </section>
+
+    <!-- ========== 4 · WHY EMPLOYER STOCK IS DIFFERENT ========== -->
+    <section class="cc-sec cc-reveal" data-step="4">
+      <p class="cc-kicker">Same Percentage, Different Risk · 4 / 8</p>
+      <h2 class="cc-h2">Why Employer Stock Is Different</h2>
+      <p class="cc-p">Picture two people, each with the same single-stock exposure: 30% of their portfolio in one company's stock. Tap each to see why the exact same percentage isn't the exact same risk.</p>
+      <div class="cc-compare" id="cc-compare">
+        <button type="button" class="cc-cbtn a" data-k="stranger">
+          <span class="cc-cbtn-t">A Stranger's Stock</span>
+          <span class="cc-cbtn-sub">A company they don't work for</span>
+        </button>
+        <button type="button" class="cc-cbtn b" data-k="employer">
+          <span class="cc-cbtn-t">Their Own Employer's Stock</span>
+          <span class="cc-cbtn-sub">The company that pays them</span>
+        </button>
+      </div>
+      <div class="cc-cbox" id="cc-cbox">Tap a card above to see the difference.</div>
+      <p class="cc-count" id="cc-compare-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="cc-sec cc-reveal" data-step="5">
+      <p class="cc-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="cc-h2">Myth Or Fact?</h2>
+      <p class="cc-p">Five claims you'll hear about employer stock. Tap your answer.</p>
+      <div class="cc-sort" id="cc-myth">
+        <div class="cc-sort-row" data-answer="myth"><span>If your company offers a discount on its stock through an ESPP, there's no real downside to buying as much as you can.</span><div class="cc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cc-why"><b>Myth.</b> The discount is real money, but holding the shares afterward still adds to single-stock exposure, on top of whatever your paycheck already riding on the same company.</p></div>
+        <div class="cc-sort-row" data-answer="fact"><span>Owning a lot of employer stock creates a different kind of risk than owning a lot of any other single stock, because your job is also on the line.</span><div class="cc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cc-why"><b>Fact.</b> That's double exposure: the same event can hit your paycheck and your portfolio at once, something an ordinary single-stock bet doesn't do.</p></div>
+        <div class="cc-sort-row" data-answer="myth"><span>RSUs are a fixed, guaranteed dollar amount, like a cash bonus.</span><div class="cc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cc-why"><b>Myth.</b> An RSU is a promise of shares, not cash — once it vests, it's simply worth whatever the stock is worth at that moment, which can be more or less than expected.</p></div>
+        <div class="cc-sort-row" data-answer="fact"><span>A company's own employees are sometimes among the last to find out when something is seriously wrong.</span><div class="cc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cc-why"><b>Fact.</b> Multiple former Enron employees testified before Congress that they were encouraged to keep holding company stock without being told how serious the company's problems already were.</p></div>
+        <div class="cc-sort-row" data-answer="myth"><span>There's a standard, official rule for the maximum percentage of your portfolio that should ever be in employer stock.</span><div class="cc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cc-why"><b>Myth.</b> No single universal rule exists. It depends on your own job security, savings elsewhere, and how much risk you can tolerate — which is exactly why it's worth deliberately tracking the number, not just sensing it.</p></div>
+      </div>
+      <p class="cc-count" id="cc-myth-count">Answered 0 Of 5</p>
+      <div class="cc-reset-row"><button type="button" class="cc-reset-btn" id="cc-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · MORE CONCENTRATED, OR LESS? ========== -->
+    <section class="cc-sec cc-reveal" data-step="6">
+      <p class="cc-kicker">Four Pairs · 6 / 8</p>
+      <h2 class="cc-h2">More Concentrated, Or Less?</h2>
+      <p class="cc-p">For each pair, who's carrying more concentration risk? Tap your answer.</p>
+      <div class="cc-cases" id="cc-cases">
+        <div class="cc-case" data-ans="1">
+          <p class="cc-case-q">Person A holds 10% of their portfolio in employer RSUs. Person B holds 40%.</p>
+          <div class="cc-copts2"><button type="button" data-i="0">Person A</button><button type="button" data-i="1">Person B</button></div>
+          <p class="cc-why"></p>
+        </div>
+        <div class="cc-case" data-ans="1">
+          <p class="cc-case-q">Person A works at a company and owns none of its stock. Person B works at the same kind of company and holds shares worth twice their annual salary.</p>
+          <div class="cc-copts2"><button type="button" data-i="0">Person A</button><button type="button" data-i="1">Person B</button></div>
+          <p class="cc-why"></p>
+        </div>
+        <div class="cc-case" data-ans="1">
+          <p class="cc-case-q">Person A holds 30% of their portfolio in a company they don't work for. Person B holds the same 30% in their own employer's stock.</p>
+          <div class="cc-copts2"><button type="button" data-i="0">Person A</button><button type="button" data-i="1">Person B</button></div>
+          <p class="cc-why"></p>
+        </div>
+        <div class="cc-case" data-ans="0">
+          <p class="cc-case-q">Person A has a diversified 401(k), but five years of unsold ESPP purchases now sit at 25% of their portfolio. Person B has a diversified 401(k) and never joined the ESPP.</p>
+          <div class="cc-copts2"><button type="button" data-i="0">Person A</button><button type="button" data-i="1">Person B</button></div>
+          <p class="cc-why"></p>
+        </div>
+      </div>
+      <p class="cc-count" id="cc-case-count">Answered 0 Of 4</p>
+      <div class="cc-reset-row"><button type="button" class="cc-reset-btn" id="cc-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="cc-sec cc-reveal" data-step="7">
+      <p class="cc-kicker">Recap · 7 / 8</p>
+      <h2 class="cc-h2">Here's What You Now Know</h2>
+      <p class="cc-p">The whole lesson, in six lines.</p>
+      <div class="cc-recap">
+        <div class="cc-recap-item"><span class="cc-recap-check">✓</span><span>Concentration risk is the risk of having too much wealth tied to a single company, however that concentration built up.</span></div>
+        <div class="cc-recap-item"><span class="cc-recap-check">✓</span><span>Owning your own employer's stock creates double exposure: your paycheck and your portfolio can both be hit by the same event, at the same time.</span></div>
+        <div class="cc-recap-item"><span class="cc-recap-check">✓</span><span>Your human capital — your own future earning power — already functions like an asset tied to your employer, even before you own a single share of its stock.</span></div>
+        <div class="cc-recap-item"><span class="cc-recap-check">✓</span><span>Concentration from employer stock usually builds gradually, from several ordinary benefits, rather than one big decision.</span></div>
+        <div class="cc-recap-item"><span class="cc-recap-check">✓</span><span>At Enron, Senate testimony found the typical employee's 401(k) held more than half its assets in company stock — stock that collapsed the same month about 4,000 employees lost their jobs.</span></div>
+        <div class="cc-recap-item"><span class="cc-recap-check">✓</span><span>There's no single official rule for how much employer stock is "too much" — it depends on your situation, but it's worth knowing the actual number.</span></div>
+      </div>
+      <div class="cc-next-move">Your next move: <b>add up every form of employer stock you hold — RSUs, ESPP, 401(k) match — as a percentage of your whole portfolio.</b> Most people have never actually added it up.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="cc-sec cc-center cc-reveal" data-step="8">
+      <p class="cc-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="cc-hero-ico">🚀</span>
+      <h2 class="cc-h2 center">You've Finished The Lesson</h2>
+      <p class="cc-sub center">Module 4 continues. Next: the gap between the risk tolerance you'd state on a form and the one you actually have.</p>
+      <div class="cc-finish">
+        <span class="cc-finish-arrow" id="cc-fin-arrow" aria-hidden="true">↓</span>
+        <p class="cc-finish-lead" id="cc-fin-lead">Scroll Down To Continue</p>
+        <p class="cc-finish-sub" id="cc-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="cc-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="cc-pullquote">"<span class="cc-green">THEY LIED TO US, KEPT ENCOURAGING US TO HOLD ONTO OUR STOCK, AND NEVER LET ON THAT OUR COMPANY WAS IN SERIOUS TROUBLE.</span>"<br><span class="cc-pullquote-by">— STEVEN LACEY, FORMER ENRON EMPLOYEE, SENATE HELP COMMITTEE TESTIMONY (FEB. 7, 2002)</span></p>
+    </section>
+
+    <p class="cc-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, and past performance never guarantees future results. This lesson does not cover 401(k) vesting schedules, net unrealized appreciation, or rollovers — see a later lesson for employer-plan mechanics. Enron is named because its real, dated history teaches this lesson clearly, not as a claim that every company offering stock-based benefits poses the same risk. "Jordan" in slide 2 is a hypothetical illustration, not a real person or a recommendation about any specific benefit. This lesson does not state a recommended maximum percentage of employer stock to hold; that depends on your own circumstances. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="cc-nav" id="cc-nav">
+      <button type="button" class="cc-nav-btn prev" id="cc-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="cc-nav-hint" id="cc-nav-hint"></span>
+      <button type="button" class="cc-nav-btn next" id="cc-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-cc{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-cc *,#tn-cc *::before,#tn-cc *::after{box-sizing:border-box;}
+  #tn-cc .cc-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-cc .cc-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-cc .cc-reveal.in{opacity:1; transform:none;}
+  #tn-cc .cc-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-cc .cc-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-cc .cc-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-cc .cc-bico{display:flex;}
+  #tn-cc .cc-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-cc .cc-bsub{color:var(--ink2); font-weight:500;}
+  #tn-cc .cc-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-cc #cc-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-cc .cc-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-cc .cc-meta #cc-slide-label{color:var(--ink2);}
+  #tn-cc .cc-meta #cc-slide-count{color:var(--mut);}
+  #tn-cc .cc-sec{padding:16px 0 8px;}
+  #tn-cc .cc-sec.cc-hide{display:none;}
+  #tn-cc .cc-center{text-align:center;}
+  #tn-cc .cc-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-cc .cc-kicker.center{text-align:center;}
+  #tn-cc .cc-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-cc .cc-h2.center{text-align:center;}
+  #tn-cc .cc-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-cc .cc-p b{color:var(--ink); font-weight:700;}
+  #tn-cc .cc-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-cc .cc-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-cc .cc-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-cc .cc-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-cc .cc-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-cc .cc-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-cc .cc-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,4.6vw,32px); line-height:1.2; text-align:center; margin:8px 0 14px;}
+  #tn-cc .cc-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-cc .cc-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-cc .cc-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-cc .cc-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-cc .cc-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-cc .cc-vocab-chip:hover{filter:brightness(.97);}
+  #tn-cc .cc-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-cc .cc-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-cc .cc-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-cc .cc-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-cc .cc-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-cc .cc-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · additive exposure builder (creative 1 of 2) */
+  #tn-cc .cc-build{max-width:480px; margin:0 auto; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:18px; padding:18px;}
+  #tn-cc .cc-build-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink2); text-align:center; margin:0 0 12px;}
+  #tn-cc .cc-build-gauge{text-align:center; margin-bottom:16px;}
+  #tn-cc .cc-build-gaugebar{height:14px; background:#E4E9EE; border-radius:99px; overflow:hidden; margin-bottom:10px;}
+  #tn-cc .cc-build-gaugebar span{display:block; height:100%; width:0%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .4s cubic-bezier(.2,.7,.2,1);}
+  #tn-cc .cc-build-pct{font-family:'Poppins',sans-serif; font-weight:800; font-size:30px; color:var(--ink); margin:0; font-variant-numeric:tabular-nums;}
+  #tn-cc .cc-build-pctlab{font-size:11.5px; color:var(--mut); font-weight:600; margin:2px 0 0;}
+  #tn-cc .cc-build-toggles{display:flex; flex-direction:column; gap:8px; margin-bottom:12px;}
+  #tn-cc .cc-build-tog{display:flex; justify-content:space-between; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-size:13px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:12px 14px; cursor:pointer; transition:all .15s; text-align:left;}
+  #tn-cc .cc-build-tog:hover{border-color:var(--selbd);}
+  #tn-cc .cc-build-tog.on{background:var(--tint); border-color:var(--g);}
+  #tn-cc .cc-build-tog-t{font-weight:700; flex:1;}
+  #tn-cc .cc-build-tog-v{font-weight:800; color:var(--mut); flex:none;}
+  #tn-cc .cc-build-tog.on .cc-build-tog-v{color:var(--g);}
+  #tn-cc .cc-build-base{font-size:11.5px; color:var(--mut); text-align:center; margin:0;}
+  /* 3 · what happened at enron (creative 2 of 2) */
+  #tn-cc .cc-enron{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  #tn-cc .cc-enron-col{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px; transition:all .3s; text-align:center;}
+  #tn-cc .cc-enron-col.hit{background:var(--nobg); border-color:var(--nobd); animation:cc-flash .5s ease;}
+  @keyframes cc-flash{0%{background:#FBD5CF;} 100%{background:var(--nobg);}}
+  #tn-cc .cc-enron-head{font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); margin:0 0 8px;}
+  #tn-cc .cc-enron-state{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); margin:0 0 10px; min-height:34px; display:flex; align-items:center; justify-content:center;}
+  #tn-cc .cc-enron-col.hit .cc-enron-state{color:var(--no);}
+  #tn-cc .cc-enron-more{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:7px 14px; cursor:pointer; transition:all .15s;}
+  #tn-cc .cc-enron-more:disabled{opacity:.45; cursor:not-allowed;}
+  #tn-cc .cc-enron-more:not(:disabled):hover{border-color:var(--selbd);}
+  #tn-cc .cc-enron-detail{font-size:12px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-cc .cc-enron-detail.show{display:block;}
+  #tn-cc .cc-enron-trigger-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-cc .cc-enron-trigger{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:13px; padding:13px 26px; cursor:pointer; transition:all .18s; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-cc .cc-enron-trigger:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-cc .cc-enron-trigger:disabled{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  /* 4 · comparison cards */
+  #tn-cc .cc-compare{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-cc .cc-cbtn{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:16px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cc .cc-cbtn.a{border:1.5px solid var(--cardbd);}
+  #tn-cc .cc-cbtn.b{border:1.5px solid var(--nobd);}
+  #tn-cc .cc-cbtn:hover{filter:brightness(.97);}
+  #tn-cc .cc-cbtn.done.a{background:var(--mist);}
+  #tn-cc .cc-cbtn.done.b{background:var(--nobg);}
+  #tn-cc .cc-cbtn-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); text-align:center;}
+  #tn-cc .cc-cbtn-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-cc .cc-cbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-cc .cc-cbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-cc .cc-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-cc .cc-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-cc .cc-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-cc .cc-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-cc .cc-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cc .cc-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-cc .cc-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-cc .cc-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-cc .cc-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-cc .cc-sort-row.done .cc-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-cc .cc-sort-row.done .cc-sort-btns button.picked{opacity:1;}
+  #tn-cc .cc-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-cc .cc-why b{font-family:'Poppins',sans-serif;}
+  #tn-cc .cc-sort-row .cc-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-cc .cc-sort-row.done .cc-why{display:block;}
+  /* 6 · scenarios */
+  #tn-cc .cc-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-cc .cc-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-cc .cc-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-cc .cc-copts2{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-cc .cc-copts2 button{flex:1; min-width:120px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cc .cc-copts2 button:hover{border-color:var(--selbd);}
+  #tn-cc .cc-case.done .cc-copts2 button{opacity:.35; pointer-events:none;}
+  #tn-cc .cc-case.done .cc-copts2 button.picked{opacity:1;}
+  #tn-cc .cc-case.done .cc-copts2 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-cc .cc-case.done .cc-copts2 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-cc .cc-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-cc .cc-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-cc .cc-case.done .cc-why{display:block;}
+  /* recap + complete */
+  #tn-cc .cc-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-cc .cc-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-cc .cc-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-cc .cc-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-cc .cc-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-cc .cc-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-cc .cc-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-cc .cc-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:cc-bob 1.6s ease-in-out infinite;}
+  #tn-cc .cc-finish-arrow.up{animation-name:cc-bob-up;}
+  @keyframes cc-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes cc-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-cc .cc-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-cc .cc-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-cc .cc-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-cc .cc-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-cc .cc-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-cc .cc-green{color:var(--g);}
+  #tn-cc .cc-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-cc .cc-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-cc .cc-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-cc .cc-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-cc .cc-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-cc .cc-nav-btn.prev{color:var(--ink2);}
+  #tn-cc .cc-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-cc .cc-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-cc .cc-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-cc .cc-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-cc .cc-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-cc .cc-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-cc .cc-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-cc .cc-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .cc-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .cc-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-cc .cc-wrap{padding:12px 14px 30px;}
+    #tn-cc .cc-enron{grid-template-columns:1fr;}
+    #tn-cc .cc-compare{grid-template-columns:1fr;}
+    #tn-cc .cc-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-cc .cc-copts2 button{min-width:0; flex:1 1 100%;}
+    #tn-cc .cc-bsub{display:none;}
+    #tn-cc .cc-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-cc .cc-nav{padding-top:10px; row-gap:0;}
+    #tn-cc .cc-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-cc .cc-reveal{opacity:1 !important; transform:none !important;}
+    #tn-cc #cc-bar{transition:none;}
+    #tn-cc .cc-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-cc'); if(!root) return;
+  root.querySelectorAll('.cc-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('cc-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#cc-vocab-def');
+  root.querySelectorAll('#cc-vocab-chips .cc-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#cc-vocab-chips .cc-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · build your exposure (creative 1 of 2) */
+  (function(){
+    var fill=root.querySelector('#cc-build-fill'), pctEl=root.querySelector('#cc-build-pct'),
+        countEl=root.querySelector('#cc-build-count');
+    if(!fill) return;
+    var BASE=380000, VALS={rsu:80000, espp:25000, match:15000};
+    var on={}, everOn={};
+    function recompute(){
+      var sum=0;
+      Object.keys(on).forEach(function(k){ if(on[k]) sum+=VALS[k]; });
+      var total=BASE+sum, pct= total? (sum/total*100) : 0;
+      fill.style.width=Math.min(100,pct)+'%';
+      pctEl.textContent=Math.round(pct)+'%';
+    }
+    root.querySelectorAll('.cc-build-tog').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var k=btn.getAttribute('data-k');
+        on[k]=!on[k];
+        btn.classList.toggle('on', on[k]);
+        if(on[k] && !everOn[k]){ everOn[k]=1; countEl.textContent='Explored '+keys(everOn)+' Of 3'; state('build', keys(everOn)); }
+        recompute(); postHeight();
+      });
+    });
+  })();
+
+  /* 3 · what happened at enron (creative 2 of 2) */
+  (function(){
+    var trigger=root.querySelector('#cc-enron-trigger'), countEl=root.querySelector('#cc-enron-count');
+    if(!trigger) return;
+    var revealed={};
+    function markRevealed(key,n){
+      if(!revealed[key]){ revealed[key]=1; countEl.textContent='Revealed '+keys(revealed)+' Of 3'; state('enron', keys(revealed)); }
+    }
+    trigger.addEventListener('click',function(){
+      if(trigger.disabled) return;
+      trigger.disabled=true; trigger.textContent='Both Hit At The Same Time';
+      ['income','401k'].forEach(function(id){
+        var col=root.querySelector('#cc-enron-'+id), state_=root.querySelector('#cc-enron-'+id+'-state'),
+            more=root.querySelector('#cc-enron-'+id+'-more');
+        col.classList.add('hit');
+        state_.textContent = id==='income' ? 'Chapter 11 Bankruptcy, Dec. 2, 2001' : 'Stock Closed At $0.26, Nov. 30, 2001';
+        more.disabled=false;
+      });
+      markRevealed('trigger');
+      postHeight();
+    });
+    var DETAIL={
+      income:'About 4,000 Houston-based employees were told they were laid off the very next day, December 3, 2001 — losing their paycheck in the same week their 401(k) was collapsing.',
+      '401k':'A Senate study found the typical Enron employee’s 401(k) held more than half its assets in Enron stock — and a Congressional Research Service analysis found 89% of those shares had been purchased voluntarily by employees themselves, not just received through the company match.'
+    };
+    ['income','401k'].forEach(function(id){
+      var more=root.querySelector('#cc-enron-'+id+'-more'), detail=root.querySelector('#cc-enron-'+id+'-detail');
+      more.addEventListener('click',function(){
+        if(more.disabled) return;
+        detail.textContent=DETAIL[id]; detail.classList.add('show');
+        more.disabled=true; more.textContent='Read';
+        markRevealed(id);
+        postHeight();
+      });
+    });
+  })();
+
+  /* 4 · why employer stock is different */
+  var CBOXW={
+    stranger:'If a company you don’t work for has a bad year, your portfolio takes a hit — but your paycheck, your benefits, and your job are untouched. The risk stays contained to your savings.',
+    employer:'If your own employer has a bad year, your portfolio AND your paycheck AND your job can all be hit by the exact same event, at the exact same time. Your human capital and your savings stop being two separate things.'
+  };
+  var compSeen={}, cbox=root.querySelector('#cc-cbox'), compCount=root.querySelector('#cc-compare-count');
+  root.querySelectorAll('#cc-compare .cc-cbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      cbox.innerHTML='<b>'+btn.querySelector('.cc-cbtn-t').textContent+':</b> '+CBOXW[k];
+      compSeen[k]=1;
+      compCount.textContent='Revealed '+keys(compSeen)+' Of 2';
+      state('compare', keys(compSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#cc-myth-count');
+  root.querySelectorAll('#cc-myth .cc-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.cc-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#cc-myth .cc-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#cc-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#cc-myth .cc-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · more concentrated, or less */
+  var CWHY=[
+    'Both are the same kind of exposure, just different sizes — 40% is a much larger single-stock bet than 10%, whoever the company is.',
+    'Person B carries the same single-stock exposure as any investor, but on top of it their paycheck depends on the same company — that’s double exposure Person A simply doesn’t have.',
+    'The percentage is identical, but Person B’s is their own employer. If that company struggles, Person B could lose income and portfolio value at once — Person A only risks the portfolio value.',
+    'Person A never noticed the ESPP purchases accumulating into real concentration — a reminder that this risk often builds from several small, reasonable decisions rather than one big one.'
+  ];
+  var caseCount=root.querySelector('#cc-case-count');
+  root.querySelectorAll('#cc-cases .cc-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.cc-why');
+    c.querySelectorAll('.cc-copts2 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.cc-copts2 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#cc-cases .cc-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#cc-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#cc-cases .cc-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.cc-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('cc-fin-arrow'), lead=document.getElementById('cc-fin-lead'), sub=document.getElementById('cc-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-cc'); if(!root) return;
+  var ALT={
+    'rsu':'rsus?',
+    'espp':'espps?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#cc-vocab-chips .cc-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.cc-p, .cc-sub, .cc-note, .cc-why, .cc-recap-item span, .cc-h2, .cc-next-move, .cc-sort-row > span, .cc-case-q, .cc-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.cc-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='cc-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='cc-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.cc-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.cc-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-cc'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#cc-bar'), labelEl=root.querySelector('#cc-slide-label'),
+      countEl=root.querySelector('#cc-slide-count'), prevBtn=root.querySelector('#cc-prev'),
+      nextBtn=root.querySelector('#cc-next'), hintEl=root.querySelector('#cc-nav-hint'),
+      disclaimer=root.querySelector('.cc-disclaimer');
+  var labels={1:'Start Here',2:'Build Your Exposure',3:'What Happened At Enron',4:'Why It’s Different',5:'Myth Or Fact',6:'More Or Less?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Explore all 3 toggles to continue',3:'See it, then read both Learn More panels to continue',4:'Reveal both to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.cc-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('cc-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('cc-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'build',   need:3, hint:function(n){ return 'Explored '+n+' of 3 — toggle every benefit on to continue'; }},
+    {step:3, key:'enron',   need:3, hint:function(n){ return 'Revealed '+n+' of 3 — see it, then read both Learn More panels to continue'; }},
+    {step:4, key:'compare', need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both cards to continue'; }},
+    {step:5, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',   need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('cc-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

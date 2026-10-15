@@ -53,6 +53,7 @@ Every lesson gets a unique two-letter prefix. Used so far:
 | `vd` | Volatility Vs. Drawdown Vs. Permanent Loss |
 | `cr` | Correlation: Why "Diversified" Can Still Move Together |
 | `sr` | Sequence-Of-Returns Risk |
+| `cc` | Concentration Risk: Company Stock And RSUs |
 
 Pick a new unused prefix for each new lesson. Then:
 
@@ -323,6 +324,8 @@ three-line simultaneous animated chart with tap-to-isolate legend
 stepped buttons that instantly redraw an illustrative second line against a fixed first
 learner-driven one-tap-per-row account-statement stepper (not auto-playing)
 instant 3-way toggle recomputing two results live from one shared JS function
+additive non-exclusive toggles feeding one live-recomputed gauge
+single shared trigger flipping two side-by-side status cards at once
 ```
 
 **Limit: 1–2 creative widgets per lesson.** The rest are standard formats, which are
