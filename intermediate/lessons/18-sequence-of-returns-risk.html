@@ -1,0 +1,783 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — SEQUENCE-OF-RETURNS RISK
+     (Intermediate · Module 4 · Lesson 18)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-sr. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  Same Seven Years, Different Order (creative)
+       3  Same Returns, Different Role (creative) 4  Why The First Few Years Matter Most
+       5  Myth Or Fact (5)                  6  Which Investor Faces More Risk? (4)
+       7  Recap (6)                         8  Complete
+     Creative widgets, 2 of 2 allowed, both new mechanics (not a reuse of Lesson 16's
+     or 17's animated-line-chart widgets, per explicit user feedback that interactives
+     should vary lesson to lesson): slide 2 is a learner-driven, one-year-at-a-time
+     account-statement stepper (not an auto-playing animation) — two real brokerage
+     statement cards fill in a row at a time as the learner taps, using the S&P 500's
+     real 2000-2006 annual total returns in order for Account A and the exact same
+     seven numbers reversed for Account B, both starting at $500,000 and withdrawing
+     $20,000 at the start of each year. Slide 3 is an instant 3-way toggle (No Cash
+     Flow / Withdrawing / Contributing) that recomputes the same two account orders
+     under three different cash-flow rules, proving with the learner's own real numbers
+     that order is irrelevant with no cash flows, matters a lot when withdrawing, and
+     matters in the opposite direction when contributing. Both widgets share one JS
+     calculation function (`calcSeries`) so the numbers shown in both places are
+     guaranteed consistent rather than independently hand-typed. Slides 4, 5 and 6 are
+     standard reveal / myth-or-fact / scenario-decision formats.
+     Gating reads state published on the container, so spamming one control can never
+     unlock a slide; once unlocked, a slide stays unlocked after Start Over. Slide 2's
+     "Show Year" button is a single repeatable control (7 taps needed, kept under the
+     verification harness's 8-click sole-button budget deliberately, rather than using
+     all 8 available years of real data, to leave margin) and needs no reduced-motion
+     handling since nothing animates — each tap instantly appends a row.
+     Opens with Module 4's third lesson. Does not teach or name a "safe withdrawal
+     rate" or the 4% rule — Module 7/8 territory, not this lesson's — "Withdrawal
+     Rate" is defined only generically (the amount taken out in a given year) and the
+     $20,000/$500,000 figures used throughout are stated as an illustrative scenario,
+     never framed as a recommended withdrawal rate. Does not re-teach dollar-cost
+     averaging itself (assumed entry-point knowledge per this course's scope); builds
+     on it directly via "Reverse Dollar-Cost Averaging." Does not re-teach correlation
+     (Lesson 17) or volatility/drawdown (Lesson 16) by name.
+     Real figures (sourced, as of writing): S&P 500 annual total returns (dividends
+     reinvested), 2000 through 2006, taken from a single consistent source (YCharts'
+     S&P 500 Annual Total Return series) to avoid mixing methodologies year to year:
+     2000 -9.10%, 2001 -11.89%, 2002 -22.10%, 2003 +28.68%, 2004 +10.88%, 2005 +4.91%,
+     2006 +15.79%. A seven-year window (rather than the full 2000-2009 "lost decade")
+     was deliberately chosen after computing both: reversing all ten years still
+     front-loads a crash into year 2 of the reversed order (2008's -37% lands early),
+     which weakens the contrast; 2000-2006 keeps the three down years (2000-2002) at
+     one end only, so reversing them cleanly moves the entire crash from the start of
+     the window to the end. All balances in both widgets are computed in JavaScript
+     from these seven numbers (`calcSeries`), not hand-typed, with $500,000 starting
+     balances and $20,000 moved at the start of each year before that year's return is
+     applied; withdrawals are a fixed dollar amount, not inflation-adjusted, stated
+     explicitly in-lesson. Account B's "reversed" order is an explicit illustrative
+     reordering of the same seven real numbers, never presented as a real retiree who
+     actually retired in 2006 — a real 2006 retiree's next six years (2007-2012) were a
+     different, unrelated real sequence, so Account B's rows are labeled "Year 1"
+     through "Year 7" rather than real calendar years, to avoid that misreading.
+     Verified by direct computation (not by hand): with no cash flow, both orders end
+     at an identical $540,691. Withdrawing $20,000/year, Account A (crash first) ends
+     at $359,211 and Account B (crash last) ends at $419,847 — Account B about 16.9%
+     ahead. Contributing $20,000/year instead, Account A ends at $722,170 and Account B
+     at $661,534 — the tilt exactly reverses (both gaps equal $60,636, a direct
+     consequence of the linear arithmetic, not a coincidence specific to these numbers).
+     Closing quote: "Be fearful when others are greedy, and greedy when others are
+     fearful," Warren Buffett, "Buy American. I Am.," The New York Times (Oct. 16,
+     2008) — verified against multiple contemporaneous reprints of the actual op-ed
+     text. Buffett is quoted elsewhere in this course on a different subject; reusing
+     an author for a second, independently-verified quote follows the same precedent
+     already set by this course's two Benjamin Graham quotes (Lessons 14 and 16).
+     ============================================================ -->
+<div id="tn-sr">
+  <div class="sr-wrap">
+    <div class="sr-top">
+      <div class="sr-topbar">
+        <div class="sr-brand"><span class="sr-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="sr-word">TURNIT</span><span class="sr-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="sr-progress"><span id="sr-bar"></span></div>
+      <div class="sr-meta"><span id="sr-slide-label">Start Here</span><span id="sr-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="sr-sec sr-center sr-reveal" data-step="1">
+      <p class="sr-kicker center">The Risk The Average Never Shows You · 1 / 8</p>
+      <h1 class="sr-hero-title">SAME AVERAGE RETURN, <span class="sr-hero-grad">DIFFERENT OUTCOME</span></h1>
+      <p class="sr-sub center">Two portfolios can earn the exact same average return and still end up wildly apart — because of something the average never captures: the order those returns arrived in.</p>
+      <div class="sr-vocab">
+        <span class="sr-vocab-label">Key Terms In This Lesson</span>
+        <div class="sr-vocab-chips" id="sr-vocab-chips">
+          <button type="button" class="sr-vocab-chip" data-t="Sequence-Of-Returns Risk" data-def="The risk that the order in which investment returns occur, not just their average, determines how long a portfolio lasts once money is being withdrawn from it.">Sequence-Of-Returns Risk</button>
+          <button type="button" class="sr-vocab-chip" data-t="Decumulation" data-def="The phase of investing where you're withdrawing money from a portfolio instead of adding to it — typically retirement.">Decumulation</button>
+          <button type="button" class="sr-vocab-chip" data-t="Accumulation Phase" data-def="The phase of investing where you're adding money to a portfolio instead of withdrawing it — typically your working years.">Accumulation Phase</button>
+          <button type="button" class="sr-vocab-chip" data-t="Portfolio Longevity" data-def="How long a portfolio lasts before it's depleted, given a particular withdrawal pattern and the returns it experiences along the way.">Portfolio Longevity</button>
+          <button type="button" class="sr-vocab-chip" data-t="Withdrawal Rate" data-def="The amount taken out of a portfolio in a given year, usually expressed as a percentage of its value.">Withdrawal Rate</button>
+          <button type="button" class="sr-vocab-chip" data-t="Reverse Dollar-Cost Averaging" data-def="Selling a fixed dollar amount on a schedule while prices fluctuate — the mirror image of dollar-cost averaging. A fixed withdrawal forces selling more shares when prices are down, which is why withdrawals amplify sequence risk.">Reverse Dollar-Cost Averaging</button>
+        </div>
+        <div class="sr-vocab-def" id="sr-vocab-def">Tap a term to see what it means.</div>
+        <span class="sr-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="sr-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · SAME SEVEN YEARS, DIFFERENT ORDER ========== -->
+    <section class="sr-sec sr-reveal" data-step="2">
+      <p class="sr-kicker">A Real Seven-Year Stretch, Reordered · 2 / 8</p>
+      <h2 class="sr-h2">Same Seven Years, Different Order</h2>
+      <p class="sr-p">Below are the S&amp;P 500's real annual returns for 2000 through 2006 — a real example of sequence-of-returns risk, and why order starts to matter once decumulation begins. Account A gets them in order. Account B gets the exact same seven numbers, reversed. Both start at $500,000 and both withdraw $20,000 at the start of each year. Tap to add one year at a time.</p>
+      <div class="sr-stmt-wrap">
+        <div class="sr-stmt">
+          <p class="sr-stmt-head">Account A — 2000 Through 2006, In Order</p>
+          <p class="sr-stmt-start">Starting Balance: $500,000</p>
+          <div class="sr-stmt-rows" id="sr-stmt-rows-a"></div>
+        </div>
+        <div class="sr-stmt">
+          <p class="sr-stmt-head">Account B — Same 7 Returns, Reversed</p>
+          <p class="sr-stmt-start">Starting Balance: $500,000</p>
+          <div class="sr-stmt-rows" id="sr-stmt-rows-b"></div>
+        </div>
+      </div>
+      <div class="sr-stmt-controls">
+        <button type="button" class="sr-stmt-next" id="sr-stmt-next">Show Year →</button>
+      </div>
+      <div class="sr-stmt-compare" id="sr-stmt-compare" hidden></div>
+      <p class="sr-count" id="sr-stmt-count">Years Shown 0 Of 7</p>
+      <p class="sr-disclaimer-inline">S&amp;P 500 total returns (dividends reinvested), YCharts. Account B is an illustrative reordering of the same seven real numbers, not a real retiree who retired in 2006 — see the lesson footer. $20,000/year is not inflation-adjusted.</p>
+    </section>
+
+    <!-- ========== 3 · SAME RETURNS, DIFFERENT ROLE ========== -->
+    <section class="sr-sec sr-reveal" data-step="3">
+      <p class="sr-kicker">Same Numbers, Opposite Effect · 3 / 8</p>
+      <h2 class="sr-h2">Same Returns, Different Role</h2>
+      <p class="sr-p">The same seven real returns from the last slide, used three different ways. Tap each to see what happens to the exact same starting $500,000 — the accumulation phase and the withdrawal-phase version of the same math, reverse dollar-cost averaging, pull in opposite directions.</p>
+      <div class="sr-mode-steps" id="sr-mode-steps">
+        <button type="button" class="sr-mode-btn" data-m="none">No Cash Flow</button>
+        <button type="button" class="sr-mode-btn" data-m="withdraw">Withdrawing $20,000/Year</button>
+        <button type="button" class="sr-mode-btn" data-m="contribute">Contributing $20,000/Year</button>
+      </div>
+      <div class="sr-mode-results" id="sr-mode-results">
+        <div class="sr-mode-card">
+          <p class="sr-mode-card-lab">Order A (2000 → 2006)</p>
+          <p class="sr-mode-card-bal" id="sr-mode-bal-a">—</p>
+        </div>
+        <div class="sr-mode-card">
+          <p class="sr-mode-card-lab">Order B (Reversed)</p>
+          <p class="sr-mode-card-bal" id="sr-mode-bal-b">—</p>
+        </div>
+      </div>
+      <div class="sr-mode-detail" id="sr-mode-detail">Tap a setting above to see what happens to both orders.</div>
+      <p class="sr-count" id="sr-mode-count">Tried 0 Of 3</p>
+    </section>
+
+    <!-- ========== 4 · WHY THE FIRST FEW YEARS MATTER MOST ========== -->
+    <section class="sr-sec sr-reveal" data-step="4">
+      <p class="sr-kicker">The Clock That Matters Most · 4 / 8</p>
+      <h2 class="sr-h2">Why The First Few Years Matter Most</h2>
+      <p class="sr-p">A downturn doesn't do equal damage no matter when it lands in retirement — it's a direct hit to portfolio longevity, and it interacts with whatever withdrawal rate you're using. Tap each to see why.</p>
+      <div class="sr-threecol" id="sr-threecol">
+        <button type="button" class="sr-tcard e" data-k="early">
+          <span class="sr-tcard-t">Early In Retirement</span>
+          <span class="sr-tcard-sub">The most dangerous timing</span>
+        </button>
+        <button type="button" class="sr-tcard m" data-k="mid">
+          <span class="sr-tcard-t">Mid-Retirement</span>
+          <span class="sr-tcard-sub">Usually cushioned by growth</span>
+        </button>
+        <button type="button" class="sr-tcard l" data-k="late">
+          <span class="sr-tcard-t">Late In Retirement</span>
+          <span class="sr-tcard-sub">Least time left to compound</span>
+        </button>
+      </div>
+      <div class="sr-tcbox" id="sr-tcbox">Tap a card above to see why timing changes the impact.</div>
+      <p class="sr-count" id="sr-tc-count">Revealed 0 Of 3</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="sr-sec sr-reveal" data-step="5">
+      <p class="sr-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="sr-h2">Myth Or Fact?</h2>
+      <p class="sr-p">Five claims you'll hear about withdrawals and timing. Tap your answer.</p>
+      <div class="sr-sort" id="sr-myth">
+        <div class="sr-sort-row" data-answer="myth"><span>Two portfolios earning the identical average annual return will always end up with the same balance.</span><div class="sr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sr-why"><b>Myth.</b> That's only true with no money moving in or out. Once withdrawals or contributions enter the picture, the order those returns arrived in changes the ending balance.</p></div>
+        <div class="sr-sort-row" data-answer="fact"><span>Sequence-of-returns risk mainly matters during decumulation, not while you're still contributing.</span><div class="sr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sr-why"><b>Fact.</b> With no withdrawals, order doesn't change the ending balance at all — it's specifically the act of regularly pulling money out that makes the order matter.</p></div>
+        <div class="sr-sort-row" data-answer="fact"><span>A market crash right after you retire is more dangerous to how long your money lasts than the same-size crash ten years into retirement.</span><div class="sr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sr-why"><b>Fact.</b> An early crash forces withdrawals from a portfolio that hasn't had time to grow, removing a larger share of what's left — and there's more time left for that damage to compound.</p></div>
+        <div class="sr-sort-row" data-answer="myth"><span>Dollar-cost averaging while contributing and sequence-of-returns risk while withdrawing work in the same direction.</span><div class="sr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sr-why"><b>Myth.</b> They're opposites. An early downturn helps a contributor (cheaper shares bought) and hurts a withdrawer (more shares sold at a lower price) — same mechanism, reversed direction.</p></div>
+        <div class="sr-sort-row" data-answer="myth"><span>There's absolutely nothing a retiree can do to reduce sequence-of-returns risk once withdrawals have started.</span><div class="sr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="sr-why"><b>Myth.</b> It can't be eliminated, but it isn't fixed in stone either — adjusting withdrawal amounts in down years, for instance, is a commonly discussed way people try to reduce its impact.</p></div>
+      </div>
+      <p class="sr-count" id="sr-myth-count">Answered 0 Of 5</p>
+      <div class="sr-reset-row"><button type="button" class="sr-reset-btn" id="sr-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH INVESTOR FACES MORE RISK? ========== -->
+    <section class="sr-sec sr-reveal" data-step="6">
+      <p class="sr-kicker">Four Pairs · 6 / 8</p>
+      <h2 class="sr-h2">Which Investor Faces More Risk?</h2>
+      <p class="sr-p">For each pair — one still in the accumulation phase, one already in decumulation — who currently faces more sequence-of-returns risk right now? Tap your answer.</p>
+      <div class="sr-cases" id="sr-cases">
+        <div class="sr-case" data-ans="1">
+          <p class="sr-case-q">Investor A is 28 and contributing every paycheck. Investor B is 66 and just started taking withdrawals.</p>
+          <div class="sr-copts2"><button type="button" data-i="0">Investor A</button><button type="button" data-i="1">Investor B</button></div>
+          <p class="sr-why"></p>
+        </div>
+        <div class="sr-case" data-ans="1">
+          <p class="sr-case-q">Investor A retired this year. Investor B retired 15 years ago and has been withdrawing steadily ever since.</p>
+          <div class="sr-copts2"><button type="button" data-i="0">Investor B</button><button type="button" data-i="1">Investor A</button></div>
+          <p class="sr-why"></p>
+        </div>
+        <div class="sr-case" data-ans="0">
+          <p class="sr-case-q">Investor A's portfolio fell 20% in their first year of retirement. Investor B's portfolio fell the same 20%, in their twelfth year of retirement.</p>
+          <div class="sr-copts2"><button type="button" data-i="0">Investor A</button><button type="button" data-i="1">Investor B</button></div>
+          <p class="sr-why"></p>
+        </div>
+        <div class="sr-case" data-ans="0">
+          <p class="sr-case-q">Investor A isn't withdrawing anything yet and is 10 years from retiring. Investor B is actively withdrawing a fixed dollar amount every year.</p>
+          <div class="sr-copts2"><button type="button" data-i="0">Investor B</button><button type="button" data-i="1">Investor A</button></div>
+          <p class="sr-why"></p>
+        </div>
+      </div>
+      <p class="sr-count" id="sr-case-count">Answered 0 Of 4</p>
+      <div class="sr-reset-row"><button type="button" class="sr-reset-btn" id="sr-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="sr-sec sr-reveal" data-step="7">
+      <p class="sr-kicker">Recap · 7 / 8</p>
+      <h2 class="sr-h2">Here's What You Now Know</h2>
+      <p class="sr-p">The whole lesson, in six lines.</p>
+      <div class="sr-recap">
+        <div class="sr-recap-item"><span class="sr-recap-check">✓</span><span>Sequence-of-returns risk is the risk that the order of returns — not just their average — determines how long a withdrawal portfolio lasts.</span></div>
+        <div class="sr-recap-item"><span class="sr-recap-check">✓</span><span>With no money moving in or out, reordering the exact same returns doesn't change the ending balance at all.</span></div>
+        <div class="sr-recap-item"><span class="sr-recap-check">✓</span><span>During decumulation, a fixed withdrawal forces selling more shares when prices are down — reverse dollar-cost averaging — which is why early losses do outsized damage.</span></div>
+        <div class="sr-recap-item"><span class="sr-recap-check">✓</span><span>During accumulation, the same mechanism works in your favor: an early downturn means buying more shares while they're cheap.</span></div>
+        <div class="sr-recap-item"><span class="sr-recap-check">✓</span><span>The first few years of retirement carry outsized weight — the same crash does more lasting damage early than it does later.</span></div>
+        <div class="sr-recap-item"><span class="sr-recap-check">✓</span><span>The same seven real S&amp;P 500 returns (2000-2006), just reordered, left one simulated account about 17% ahead of the other — same average return, different outcome.</span></div>
+      </div>
+      <div class="sr-next-move">Your next move: <b>if you're near retirement, ask what your plan actually does in a year the market falls 20% right out of the gate</b> — not just what it does on average.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="sr-sec sr-center sr-reveal" data-step="8">
+      <p class="sr-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="sr-hero-ico">🚀</span>
+      <h2 class="sr-h2 center">You've Finished The Lesson</h2>
+      <p class="sr-sub center">Module 4 continues. Next: what happens when a big chunk of your portfolio is a single company's stock.</p>
+      <div class="sr-finish">
+        <span class="sr-finish-arrow" id="sr-fin-arrow" aria-hidden="true">↓</span>
+        <p class="sr-finish-lead" id="sr-fin-lead">Scroll Down To Continue</p>
+        <p class="sr-finish-sub" id="sr-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="sr-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="sr-pullquote">"<span class="sr-green">BE FEARFUL WHEN OTHERS ARE GREEDY, AND GREEDY WHEN OTHERS ARE FEARFUL.</span>"<br><span class="sr-pullquote-by">— WARREN BUFFETT, "BUY AMERICAN. I AM.," THE NEW YORK TIMES (OCT. 16, 2008)</span></p>
+    </section>
+
+    <p class="sr-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, and past performance never guarantees future results. S&amp;P 500 annual total returns (2000-2006, dividends reinvested) are from YCharts. The $500,000 starting balance and $20,000 annual withdrawal are an illustrative scenario, not a recommended withdrawal rate or amount; withdrawals shown are a fixed dollar amount, not inflation-adjusted. "Account B" is an illustrative reordering of the same seven real annual returns, not a real retiree's actual historical experience. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="sr-nav" id="sr-nav">
+      <button type="button" class="sr-nav-btn prev" id="sr-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="sr-nav-hint" id="sr-nav-hint"></span>
+      <button type="button" class="sr-nav-btn next" id="sr-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-sr{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-sr *,#tn-sr *::before,#tn-sr *::after{box-sizing:border-box;}
+  #tn-sr .sr-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-sr .sr-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-sr .sr-reveal.in{opacity:1; transform:none;}
+  #tn-sr .sr-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-sr .sr-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-sr .sr-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-sr .sr-bico{display:flex;}
+  #tn-sr .sr-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-sr .sr-bsub{color:var(--ink2); font-weight:500;}
+  #tn-sr .sr-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-sr #sr-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-sr .sr-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-sr .sr-meta #sr-slide-label{color:var(--ink2);}
+  #tn-sr .sr-meta #sr-slide-count{color:var(--mut);}
+  #tn-sr .sr-sec{padding:16px 0 8px;}
+  #tn-sr .sr-sec.sr-hide{display:none;}
+  #tn-sr .sr-center{text-align:center;}
+  #tn-sr .sr-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-sr .sr-kicker.center{text-align:center;}
+  #tn-sr .sr-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-sr .sr-h2.center{text-align:center;}
+  #tn-sr .sr-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-sr .sr-p b{color:var(--ink); font-weight:700;}
+  #tn-sr .sr-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-sr .sr-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-sr .sr-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-sr .sr-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-sr .sr-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-sr .sr-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-sr .sr-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,5vw,35px); line-height:1.18; text-align:center; margin:4px 0 10px;}
+  #tn-sr .sr-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-sr .sr-vocab{max-width:480px; margin:0 auto 10px; padding:14px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-sr .sr-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-sr .sr-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:8px;}
+  #tn-sr .sr-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-sr .sr-vocab-chip:hover{filter:brightness(.97);}
+  #tn-sr .sr-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-sr .sr-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:6px; min-height:18px;}
+  #tn-sr .sr-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-sr .sr-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-sr .sr-next-move{margin:8px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:12px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-sr .sr-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · account-statement stepper (creative 1 of 2) */
+  #tn-sr .sr-stmt-wrap{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  #tn-sr .sr-stmt{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px;}
+  #tn-sr .sr-stmt-head{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; color:var(--ink); margin:0 0 4px;}
+  #tn-sr .sr-stmt-start{font-size:11.5px; color:var(--mut); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--cardbd);}
+  #tn-sr .sr-stmt-rows{display:flex; flex-direction:column; gap:5px; min-height:14px;}
+  #tn-sr .sr-stmt-row{display:flex; justify-content:space-between; align-items:center; gap:6px; font-size:11.5px; background:#fff; border:1px solid var(--cardbd); border-radius:8px; padding:6px 8px; font-variant-numeric:tabular-nums;}
+  #tn-sr .sr-stmt-yr{font-weight:700; color:var(--ink2); flex:none; width:36px;}
+  #tn-sr .sr-stmt-ret{font-weight:800; flex:none; width:52px; text-align:center;}
+  #tn-sr .sr-stmt-ret.up{color:var(--g);}
+  #tn-sr .sr-stmt-ret.down{color:var(--no);}
+  #tn-sr .sr-stmt-bal{font-weight:700; color:var(--ink); flex:1; text-align:right;}
+  #tn-sr .sr-stmt-final{margin-top:6px; padding-top:8px; border-top:1.5px solid var(--cardbd); font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:right;}
+  #tn-sr .sr-stmt-controls{display:flex; justify-content:center; margin-top:14px;}
+  #tn-sr .sr-stmt-next{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:13px; padding:13px 26px; cursor:pointer; transition:all .18s; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-sr .sr-stmt-next:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-sr .sr-stmt-next:disabled{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-sr .sr-stmt-compare{margin-top:14px; background:var(--tint); border:1px solid var(--selbd); border-radius:13px; padding:14px 16px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55;}
+  #tn-sr .sr-stmt-compare[hidden]{display:none;}
+  #tn-sr .sr-stmt-compare b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 3 · same returns, different role (creative 2 of 2) */
+  #tn-sr .sr-mode-steps{display:flex; flex-direction:column; gap:8px;}
+  #tn-sr .sr-mode-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:12px 14px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-sr .sr-mode-btn:hover{border-color:var(--selbd);}
+  #tn-sr .sr-mode-btn.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-sr .sr-mode-btn.done:not(.on){background:var(--mist); border-color:var(--selbd); color:var(--ink2);}
+  #tn-sr .sr-mode-results{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;}
+  #tn-sr .sr-mode-card{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px; text-align:center;}
+  #tn-sr .sr-mode-card-lab{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase; letter-spacing:.06em; margin:0 0 6px;}
+  #tn-sr .sr-mode-card-bal{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; color:var(--ink); margin:0; font-variant-numeric:tabular-nums;}
+  #tn-sr .sr-mode-detail{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:12px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-sr .sr-mode-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · three-card comparison */
+  #tn-sr .sr-threecol{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-sr .sr-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-sr .sr-tcard.e{border:1.5px solid var(--nobd);}
+  #tn-sr .sr-tcard.m{border:1.5px solid #F0DCA9;}
+  #tn-sr .sr-tcard.l{border:1.5px solid var(--selbd);}
+  #tn-sr .sr-tcard:hover{filter:brightness(.97);}
+  #tn-sr .sr-tcard.done.e{background:var(--nobg);}
+  #tn-sr .sr-tcard.done.m{background:#FBF2DF;}
+  #tn-sr .sr-tcard.done.l{background:var(--tint);}
+  #tn-sr .sr-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:center;}
+  #tn-sr .sr-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-sr .sr-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-sr .sr-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-sr .sr-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-sr .sr-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-sr .sr-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-sr .sr-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-sr .sr-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-sr .sr-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-sr .sr-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-sr .sr-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-sr .sr-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-sr .sr-sort-row.done .sr-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-sr .sr-sort-row.done .sr-sort-btns button.picked{opacity:1;}
+  #tn-sr .sr-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-sr .sr-why b{font-family:'Poppins',sans-serif;}
+  #tn-sr .sr-sort-row .sr-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-sr .sr-sort-row.done .sr-why{display:block;}
+  /* 6 · scenarios */
+  #tn-sr .sr-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-sr .sr-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-sr .sr-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-sr .sr-copts2{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-sr .sr-copts2 button{flex:1; min-width:120px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-sr .sr-copts2 button:hover{border-color:var(--selbd);}
+  #tn-sr .sr-case.done .sr-copts2 button{opacity:.35; pointer-events:none;}
+  #tn-sr .sr-case.done .sr-copts2 button.picked{opacity:1;}
+  #tn-sr .sr-case.done .sr-copts2 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-sr .sr-case.done .sr-copts2 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-sr .sr-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-sr .sr-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-sr .sr-case.done .sr-why{display:block;}
+  /* recap + complete */
+  #tn-sr .sr-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-sr .sr-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-sr .sr-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-sr .sr-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-sr .sr-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-sr .sr-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-sr .sr-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-sr .sr-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:sr-bob 1.6s ease-in-out infinite;}
+  #tn-sr .sr-finish-arrow.up{animation-name:sr-bob-up;}
+  @keyframes sr-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes sr-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-sr .sr-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-sr .sr-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-sr .sr-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-sr .sr-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-sr .sr-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-sr .sr-green{color:var(--g);}
+  #tn-sr .sr-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-sr .sr-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-sr .sr-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-sr .sr-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-sr .sr-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-sr .sr-nav-btn.prev{color:var(--ink2);}
+  #tn-sr .sr-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-sr .sr-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-sr .sr-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-sr .sr-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-sr .sr-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-sr .sr-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-sr .sr-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-sr .sr-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .sr-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .sr-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-sr .sr-wrap{padding:12px 14px 30px;}
+    #tn-sr .sr-stmt-wrap{grid-template-columns:1fr;}
+    #tn-sr .sr-mode-results{grid-template-columns:1fr;}
+    #tn-sr .sr-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-sr .sr-tcard{flex-direction:row; justify-content:space-between; padding:12px 14px;}
+    #tn-sr .sr-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-sr .sr-copts2 button{min-width:0; flex:1 1 100%;}
+    #tn-sr .sr-bsub{display:none;}
+    #tn-sr .sr-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-sr .sr-nav{padding-top:10px; row-gap:0;}
+    #tn-sr .sr-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-sr .sr-reveal{opacity:1 !important; transform:none !important;}
+    #tn-sr #sr-bar{transition:none;}
+    #tn-sr .sr-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-sr'); if(!root) return;
+  root.querySelectorAll('.sr-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('sr-state')); }
+  function keys(o){ return Object.keys(o).length; }
+  function money(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
+
+  /* shared across slides 2 and 3: the same 7 real S&P 500 annual returns, 2000-2006 */
+  var RETURNS_CHRONO=[-9.10,-11.89,-22.10,28.68,10.88,4.91,15.79];
+  var YEARS_CHRONO=[2000,2001,2002,2003,2004,2005,2006];
+  var RETURNS_REV=RETURNS_CHRONO.slice().reverse();
+  function calcSeries(returns, mode){
+    var bal=500000, out=[];
+    for(var i=0;i<returns.length;i++){
+      if(mode==='withdraw') bal-=20000; else if(mode==='contribute') bal+=20000;
+      bal=bal*(1+returns[i]/100);
+      out.push(bal);
+    }
+    return out;
+  }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#sr-vocab-def');
+  root.querySelectorAll('#sr-vocab-chips .sr-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#sr-vocab-chips .sr-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · same seven years, different order (creative 1 of 2) */
+  (function(){
+    var nextBtn=root.querySelector('#sr-stmt-next'), rowsA=root.querySelector('#sr-stmt-rows-a'),
+        rowsB=root.querySelector('#sr-stmt-rows-b'), compare=root.querySelector('#sr-stmt-compare'),
+        countEl=root.querySelector('#sr-stmt-count');
+    if(!nextBtn) return;
+    var seriesA=calcSeries(RETURNS_CHRONO,'withdraw'), seriesB=calcSeries(RETURNS_REV,'withdraw');
+    var step=0, N=RETURNS_CHRONO.length;
+    function addRow(container, label, ret, bal){
+      var row=document.createElement('div'); row.className='sr-stmt-row';
+      row.innerHTML='<span class="sr-stmt-yr">'+label+'</span><span class="sr-stmt-ret '+(ret>=0?'up':'down')+'">'+(ret>=0?'+':'')+ret.toFixed(1)+'%</span><span class="sr-stmt-bal">'+money(bal)+'</span>';
+      container.appendChild(row);
+    }
+    nextBtn.addEventListener('click',function(){
+      if(step>=N) return;
+      addRow(rowsA, YEARS_CHRONO[step], RETURNS_CHRONO[step], seriesA[step]);
+      addRow(rowsB, 'Yr '+(step+1), RETURNS_REV[step], seriesB[step]);
+      step++;
+      countEl.textContent='Years Shown '+step+' Of '+N;
+      if(step>=N){
+        nextBtn.disabled=true; nextBtn.textContent='All 7 Years Shown';
+        var finalA=seriesA[N-1], finalB=seriesB[N-1], diff=finalB-finalA, pct=(diff/finalA*100);
+        compare.innerHTML='Account B ended at <b>'+money(finalB)+'</b> — about '+pct.toFixed(1)+'% ahead of Account A’s <b>'+money(finalA)+'</b> — from the exact same seven returns, just reordered.';
+        compare.hidden=false;
+        state('yr', N);
+      } else {
+        state('yr', step);
+      }
+      postHeight();
+    });
+  })();
+
+  /* 3 · same returns, different role (creative 2 of 2) */
+  (function(){
+    var balA=root.querySelector('#sr-mode-bal-a'), balB=root.querySelector('#sr-mode-bal-b'),
+        detail=root.querySelector('#sr-mode-detail'), countEl=root.querySelector('#sr-mode-count');
+    if(!balA) return;
+    var DETAIL={
+      none:'With nothing moving in or out, the order of the exact same seven numbers doesn’t change the ending balance at all — multiplication doesn’t care what order you do it in.',
+      withdraw:'Add a fixed withdrawal every year and the order suddenly matters: Order B ends well ahead of Order A, just from facing the same bad years later instead of first.',
+      contribute:'Flip the same cash flow from withdrawing to contributing, and the tilt flips too: now Order A — the one with the early crash — comes out ahead, because an early downturn means buying shares while they’re cheap.'
+    };
+    var tried={};
+    root.querySelectorAll('.sr-mode-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var m=btn.getAttribute('data-m');
+        root.querySelectorAll('.sr-mode-btn').forEach(function(b){ b.classList.remove('on'); });
+        btn.classList.add('on','done');
+        var finA=calcSeries(RETURNS_CHRONO,m)[6], finB=calcSeries(RETURNS_REV,m)[6];
+        balA.textContent=money(finA); balB.textContent=money(finB);
+        detail.innerHTML='<b>'+(m==='none'?'No Cash Flow':m==='withdraw'?'Withdrawing $20,000/Year':'Contributing $20,000/Year')+':</b> '+DETAIL[m];
+        if(!tried[m]){ tried[m]=1; countEl.textContent='Tried '+keys(tried)+' Of 3'; state('mode', keys(tried)); }
+        postHeight();
+      });
+    });
+  })();
+
+  /* 4 · why the first few years matter most */
+  var TCW={
+    early:'A downturn right after you retire does the most damage: you’re taking full withdrawals from a portfolio that hasn’t had time to grow, so each withdrawal removes a larger share of what’s left — exactly what Account A, two slides back, ran into.',
+    mid:'The same-size downturn partway through retirement usually hurts less: by then the portfolio has typically grown past its starting point, so the same percentage drop is a smaller dollar amount relative to what’s already been banked.',
+    late:'A downturn late in retirement, assuming the portfolio is still intact, matters least for how long the money lasts — there’s simply less time left for the damage to compound against future withdrawals.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#sr-tcbox'), tcCount=root.querySelector('#sr-tc-count');
+  root.querySelectorAll('#sr-threecol .sr-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.sr-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 3';
+      state('risk', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#sr-myth-count');
+  root.querySelectorAll('#sr-myth .sr-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.sr-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#sr-myth .sr-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#sr-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#sr-myth .sr-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · which investor faces more risk */
+  var CWHY=[
+    'Investor B is in decumulation and currently exposed to sequence risk right at the start of retirement — the most sensitive window. Investor A is still contributing, where order doesn’t threaten portfolio longevity the same way.',
+    'Investor A just entered the most sequence-risk-sensitive window of retirement. Investor B is well past it — the early years already happened.',
+    'Investor A’s drop landed in year one, forcing withdrawals from a portfolio that hasn’t grown yet. The same drop twelve years in has far less time left to compound against future withdrawals.',
+    'Investor B is actively withdrawing, so the order of returns is shaping how long that money lasts right now. Investor A, still accumulating, isn’t exposed to this particular risk yet.'
+  ];
+  var caseCount=root.querySelector('#sr-case-count');
+  root.querySelectorAll('#sr-cases .sr-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.sr-why');
+    c.querySelectorAll('.sr-copts2 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.sr-copts2 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#sr-cases .sr-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#sr-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#sr-cases .sr-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.sr-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('sr-fin-arrow'), lead=document.getElementById('sr-fin-lead'), sub=document.getElementById('sr-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-sr'); if(!root) return;
+  var ALT={
+    'sequence-of-returns risk':'sequence-of-returns risk|sequence of returns risk',
+    'withdrawal rate':'withdrawal rates?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#sr-vocab-chips .sr-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.sr-p, .sr-sub, .sr-note, .sr-why, .sr-recap-item span, .sr-h2, .sr-next-move, .sr-sort-row > span, .sr-case-q, .sr-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.sr-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='sr-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='sr-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.sr-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.sr-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-sr'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#sr-bar'), labelEl=root.querySelector('#sr-slide-label'),
+      countEl=root.querySelector('#sr-slide-count'), prevBtn=root.querySelector('#sr-prev'),
+      nextBtn=root.querySelector('#sr-next'), hintEl=root.querySelector('#sr-nav-hint'),
+      disclaimer=root.querySelector('.sr-disclaimer');
+  var labels={1:'Start Here',2:'Same Seven Years',3:'Same Returns, Different Role',4:'Why Timing Matters',5:'Myth Or Fact',6:'Which Investor?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Show all 7 years to continue',3:'Try all 3 settings to continue',4:'Reveal all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.sr-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('sr-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('sr-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'yr',    need:7, hint:function(n){ return 'Years shown '+n+' of 7 — show every year to continue'; }},
+    {step:3, key:'mode',  need:3, hint:function(n){ return 'Tried '+n+' of 3 — try every setting to continue'; }},
+    {step:4, key:'risk',  need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('sr-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

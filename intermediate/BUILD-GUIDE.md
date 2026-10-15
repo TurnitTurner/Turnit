@@ -52,6 +52,7 @@ Every lesson gets a unique two-letter prefix. Used so far:
 | `fm` | What A 1099 Actually Tells You |
 | `vd` | Volatility Vs. Drawdown Vs. Permanent Loss |
 | `cr` | Correlation: Why "Diversified" Can Still Move Together |
+| `sr` | Sequence-Of-Returns Risk |
 
 Pick a new unused prefix for each new lesson. Then:
 
@@ -320,6 +321,8 @@ single-line animated real-history chart with progressive-unlock review callouts
 headline flash-reaction cards (tap → counting delta badge + morphing mini-chart)
 three-line simultaneous animated chart with tap-to-isolate legend
 stepped buttons that instantly redraw an illustrative second line against a fixed first
+learner-driven one-tap-per-row account-statement stepper (not auto-playing)
+instant 3-way toggle recomputing two results live from one shared JS function
 ```
 
 **Limit: 1–2 creative widgets per lesson.** The rest are standard formats, which are

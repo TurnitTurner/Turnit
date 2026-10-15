@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **17 built** (Modules 1, 2, and 3 complete, Module 4 underway)
+7 modules · 35 lessons · **18 built** (Modules 1, 2, and 3 complete, Module 4 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -46,13 +46,13 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | `14-tax-loss-harvesting-and-wash-sale-rule.html` | 8 |
 | 15 | What A 1099 Actually Tells You | `15-what-a-1099-actually-tells-you.html` | 8 |
 
-## Module 4 — Risk You Cannot See In A Chart 🔶 underway (2 of 5)
+## Module 4 — Risk You Cannot See In A Chart 🔶 underway (3 of 5)
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 16 | Volatility vs. Drawdown vs. Permanent Loss | `16-volatility-drawdown-and-permanent-loss.html` | 9 |
 | 17 | Correlation: Why "Diversified" Can Still Move Together | `17-correlation-why-diversified-can-still-move-together.html` | 8 |
-| 18 | Sequence-Of-Returns Risk | — | — |
+| 18 | Sequence-Of-Returns Risk | `18-sequence-of-returns-risk.html` | 8 |
 | 19 | Concentration Risk: Company Stock And RSUs | — | — |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
 
@@ -299,6 +299,71 @@ independent secondary sources quoting Markowitz's actual 1952 *Journal
 of Finance* paper — was used, while a longer surrounding sentence whose
 exact wording varies slightly between secondary quotations was
 deliberately left out rather than guessed at.
+
+A post-ship review caught three issues in Lesson 17, all fixed and
+reverified before Lesson 18 began: an author `display:block` CSS rule
+was overriding the `[hidden]` attribute on the "Show All Three Again"
+button, so it was visible on page load instead of only after an
+isolate action — fixed with an explicit `[hidden]` selector; slide 6's
+large-cap/small-cap case was marked "Moderate," but the real figure
+(researchers estimate roughly 0.8, per a CME Group analysis) is High —
+the case, its answer index, and its explanation were corrected; and
+BUILD-GUIDE's prefix table and used-mechanics list hadn't been updated
+since Lesson 10, so Lessons 11-17's mechanics (including both of
+Lesson 16's and 17's) are now listed, which matters directly for
+Lesson 18's "check the used-mechanics list" step.
+
+**Lesson 18 ("Sequence-Of-Returns Risk"), prefix `sr`:** both creative
+widgets are new mechanics — a learner-driven account-statement stepper
+(slide 2) and an instant 3-way toggle (slide 3) — specifically avoiding
+a third consecutive animated-line-chart slide after Lessons 16 and 17.
+Both widgets share one JavaScript function (`calcSeries`) so the dollar
+figures shown in both places are computed from the same code rather
+than independently hand-typed, and are driven by one real, consistently
+-sourced dataset: the S&P 500's actual annual total returns for
+2000-2006 (YCharts), used in chronological order for "Account A" and
+reversed for "Account B." A 2000-2009 full "lost decade" window was
+tried first and rejected: reversing all ten years still front-loads a
+crash into year 2 of the reversed order (2008's -37% lands early),
+weakening the contrast; 2000-2006 keeps the three down years at one end
+only, so reversing cleanly moves the whole crash from one end of the
+window to the other. All balances were verified by direct computation,
+not by hand: with no cash flow both orders land on an identical
+$540,691; withdrawing $20,000/year, the chronological order ends at
+$359,211 against $419,847 reversed; contributing the same $20,000/year
+instead, the tilt exactly reverses ($722,170 vs. $661,534) — both gaps
+equal $60,636, a consequence of the linear arithmetic rather than a
+coincidence picked for the demo. "Account B" is explicitly labeled as
+an illustrative reordering of the same seven real numbers ("Year 1"
+through "Year 7"), never as a real retiree who retired in 2006, since a
+real 2006 retiree's actual next six years were a different, unrelated
+real sequence. Slide 2's single repeatable "Show Year" button needs
+exactly 7 taps, deliberately kept one under the verification harness's
+8-click sole-button-loop budget rather than using all 8 years of
+available real data, to leave margin. The lesson stops short of naming
+or teaching a "safe withdrawal rate" or the 4% rule — reserved for a
+later module — defining "Withdrawal Rate" only generically and framing
+the $500,000/$20,000 figures as an illustrative scenario throughout,
+the same scope discipline Lesson 16 applied to correlation. One bug
+was caught by the lesson's own verification pass and fixed before
+shipping: the harness's final check (which un-hides every slide at
+once to scan for green terms) revealed that the page's sticky bottom
+nav — present on every lesson and normally harmless — happened to
+overlap the very first green term on this lesson's title slide at
+desktop width, because of how tall the title/vocab block and the
+opening sentence of slide 2 happened to stack; confirmed by direct
+Playwright inspection (the element reported at that screen position
+was the nav, not the term) rather than guessed at, then fixed by
+trimming vertical spacing on the title slide until the term's position
+cleared the nav's footprint, with the fix verified against the actual
+harness rather than just the isolated repro. Closing quote: Warren
+Buffett's "Be fearful when others are greedy, and greedy when others
+are fearful," verified against the actual text of his "Buy American. I
+Am." New York Times op-ed (Oct. 16, 2008) after an initial search for a
+sequence-of-returns-specific quote (Bengen, Milevsky) turned up nothing
+that could be confirmed as an exact, primary-sourced quotation — the
+same standard applied to the Graham and Markowitz quotes in Lessons 16
+and 17.
 
 What was fixed in the Module 1–2 backlog pass:
 
