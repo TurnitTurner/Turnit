@@ -1,0 +1,860 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — CORRELATION: WHY "DIVERSIFIED" CAN STILL MOVE TOGETHER
+     (Intermediate · Module 4 · Lesson 17)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-cr. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  Same Crash, Three Lines (creative, animated)
+       3  Two Lines, Five Settings (creative) 4  One Bet Or Eight?
+       5  Myth Or Fact (5)                  6  Same Direction Or Not? (4)
+       7  Recap (6)                         8  Complete
+     Creative widgets, 2 of 2 allowed: slide 2 is a dark, trading-app styled
+     card (reusing Lesson 16's visual language, which the learner liked) that
+     draws THREE real assets at once — a tech stock, an airline-sector ETF,
+     and a long-term Treasury bond ETF — through the same six real weeks in
+     2020, via requestAnimationFrame stroke-dash reveal on three simultaneous
+     polylines, then unlocks three legend buttons that each isolate their own
+     line (dimming the other two) and reveal that asset's real, sourced move.
+     This is a new mechanic, not a reuse of Lesson 14's or Lesson 16's
+     flat-vs-reacted mini-chart toggle. Slide 3 is a new mechanic too: five
+     stepped buttons (-1, -0.5, 0, +0.5, +1) that instantly redraw a second,
+     explicitly-labeled-illustrative line against a fixed first line, so the
+     learner watches co-movement itself change shape at each setting, with no
+     unverified real correlation figure attached to any step. Slides 4, 5
+     and 6 are standard comparison / myth-or-fact / scenario-decision formats.
+     Gating reads state published on the container, so spamming one control
+     can never unlock a slide; once unlocked, a slide stays unlocked after
+     Start Over. Slide 2's animation plays once per Play tap, but once
+     unlocked the three legend buttons stay unlocked — and
+     `prefers-reduced-motion` skips straight to the fully-drawn end state
+     with all three already unlocked.
+     Opens with Module 4's second lesson. Does not re-teach volatility,
+     drawdown, or permanent loss (Lesson 16) — this lesson assumes the
+     learner already knows a decline can be temporary, and asks a different
+     question: whether the things in a portfolio actually move differently
+     from each other at all. Does not re-teach asset allocation mechanics
+     from Foundations or Module 1 (stocks/bonds/international splits);
+     assumes the learner already holds a mix and is asking how its pieces
+     actually behave together, not what the mix should be.
+     Real figures (sourced, as of writing):
+       AAPL (Apple Inc.), reused and consistent with Lesson 16's own
+       sourcing: closed at $327.20 on Feb 12, 2020 (pre-crash high) and
+       bottomed near $212.61 on Mar 23, 2020 — about a 35% decline.
+       Airlines, sector level (deliberately not naming one airline to avoid
+       false precision from a single back-calculated close): the U.S.
+       Global Jets ETF (JETS), which tracks U.S.-listed airline stocks, was
+       described by a chart analyst on CNBC (Apr 2, 2020) as "basically cut
+       in half" after the February-March 2020 selloff; separate reporting
+       put JETS down roughly 57-58% year-to-date by late March/early April
+       2020 (InvestorPlace; a second outlet corroborating "nearly 58%").
+       "Roughly cut in half" is used in-lesson rather than a more precise
+       number, since the exact peak-to-trough figure for the ETF itself
+       (as opposed to the YTD figure, a longer window) was not found
+       isolated to the Feb 19-Mar 23 window specifically.
+       Long-term Treasury bonds (TLT, iShares 20+ Year Treasury Bond ETF):
+       jumped as much as 6.4% in a single trading session on Mar 6, 2020 —
+       its biggest one-day gain since the 2010 "flash crash" — as investors
+       rushed into Treasuries (BNN Bloomberg, Mar 6, 2020); touched a new
+       52-week high near $155.59 the same week (MarketBeat). It later gave
+       back part of that spike before settling (a sharp mid-March Treasury
+       sell-off during the broader "dash for cash" liquidity crunch, per
+       separate reporting), which is stated qualitatively only — no second
+       precise percentage is asserted for that later move. No single exact
+       Feb 19-Mar 23 peak-to-trough percentage is claimed for TLT; the
+       on-screen chart's shape is illustrative of this sourced, real
+       direction (sharp rise, partial pullback, finishes above where it
+       started) and displays no fabricated price or index numbers.
+       2022 (cited to show correlation is not fixed): the S&P 500's 2022
+       calendar-year total return was about -18% (YCharts: -18.11% for the
+       trailing one year to Dec 31, 2022; dqydj's Jan-Dec total-return
+       figure: -18.32% — "about -18%" used to avoid false precision across
+       two slightly different windows). TLT's 2022 total return was about
+       -31% (iShares/BlackRock's own fund page: -31.4%; independent
+       secondary sources cluster at roughly -31.2%). Both figures are TOTAL
+       return (dividends/interest reinvested), unlike most other price-only
+       figures used elsewhere in this lesson — noted explicitly in the
+       footer disclaimer to avoid conflating the two bases.
+       Slide 3's two-line visual is explicitly illustrative only: the five
+       hand-set paths are drawn to visually demonstrate what -1, -0.5, 0,
+       +0.5 and +1 look like as shapes, not to assert that any specific
+       real pair of investments sits at that exact number.
+       Closing quote: "Diversification is both observed and sensible," from
+       Harry Markowitz, "Portfolio Selection," The Journal of Finance
+       (1952) — the short phrase is reproduced consistently across
+       multiple independent secondary sources (ifa.com; a 2008 NABET
+       paper; Welton Investment Partners). The longer surrounding sentence
+       in the original varies slightly between secondary quotations ("a
+       rule of behavior which does not..." vs. "a rule which does not...")
+       and the primary PDF could not be fetched directly to resolve the
+       exact wording, so only the short, consistently-reproduced core
+       phrase is used here — the popular "diversification is the only free
+       lunch in investing" line attributed to Markowitz elsewhere was
+       searched and found unverified against any primary source (one paper
+       reportedly found no evidence he said it), so it was deliberately not
+       used, the same caution applied to Lesson 16's closing quote.
+     ============================================================ -->
+<div id="tn-cr">
+  <div class="cr-wrap">
+    <div class="cr-top">
+      <div class="cr-topbar">
+        <div class="cr-brand"><span class="cr-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="cr-word">TURNIT</span><span class="cr-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="cr-progress"><span id="cr-bar"></span></div>
+      <div class="cr-meta"><span id="cr-slide-label">Start Here</span><span id="cr-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="cr-sec cr-center cr-reveal" data-step="1">
+      <p class="cr-kicker center">The Risk Hiding Inside "Diversified" · 1 / 8</p>
+      <h1 class="cr-hero-title">WHY "DIVERSIFIED" <span class="cr-hero-grad">CAN STILL MOVE TOGETHER</span></h1>
+      <p class="cr-sub center">You can own ten different tickers and still be making basically one bet. Whether that's true comes down to a single idea: correlation.</p>
+      <div class="cr-vocab">
+        <span class="cr-vocab-label">Key Terms In This Lesson</span>
+        <div class="cr-vocab-chips" id="cr-vocab-chips">
+          <button type="button" class="cr-vocab-chip" data-t="Correlation" data-def="How closely two investments move in relation to each other, on a scale from -1 (perfect opposites) to +1 (perfect lockstep).">Correlation</button>
+          <button type="button" class="cr-vocab-chip" data-t="Correlation Coefficient" data-def="The actual number, from -1 to +1, that measures how closely two investments move together. A reading of 0 means no relationship at all.">Correlation Coefficient</button>
+          <button type="button" class="cr-vocab-chip" data-t="Systematic Risk" data-def="Risk that hits the entire market or economy at once — a recession, a rate hike, a pandemic — and can't be removed just by holding more things.">Systematic Risk</button>
+          <button type="button" class="cr-vocab-chip" data-t="Idiosyncratic Risk" data-def="Risk specific to one company or investment — a bad earnings report, a failed product, a lawsuit — that spreading your money across many different holdings can reduce.">Idiosyncratic Risk</button>
+          <button type="button" class="cr-vocab-chip" data-t="Sector Concentration" data-def="Owning many different holdings that are all exposed to the same industry, so they tend to rise and fall for the same reasons.">Sector Concentration</button>
+          <button type="button" class="cr-vocab-chip" data-t="Diversification Benefit" data-def="The reduction in overall portfolio risk that comes specifically from combining investments that don't move in lockstep with each other.">Diversification Benefit</button>
+        </div>
+        <div class="cr-vocab-def" id="cr-vocab-def">Tap a term to see what it means.</div>
+        <span class="cr-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="cr-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · SAME CRASH, THREE LINES ========== -->
+    <section class="cr-sec cr-reveal" data-step="2">
+      <p class="cr-kicker">Same World Event, Three Reactions · 2 / 8</p>
+      <h2 class="cr-h2">Same Crash, Three Lines</h2>
+      <p class="cr-p">When a world event hits, it doesn't check what you own first. That's systematic risk — and watching it hit three different assets at once is a faster way to feel what a correlation number is actually describing than any formula. Tap Play, then tap each line below to isolate it.</p>
+      <div class="cr-rh3">
+        <p class="cr-rh3-cap">Feb 19 – Mar 23, 2020 · three real assets, same timeline</p>
+        <svg viewBox="0 0 360 150" class="cr-rh3-svg" preserveAspectRatio="none">
+          <line x1="20" y1="70" x2="340" y2="70" class="cr-rh3-axis"/>
+          <polyline id="cr-l-aapl" class="cr-rh3-line aapl" points="20,70 140,85 220,105 340,118"/>
+          <polyline id="cr-l-air" class="cr-rh3-line air" points="20,70 140,95 220,122 340,135"/>
+          <polyline id="cr-l-bond" class="cr-rh3-line bond" points="20,70 140,35 220,45 340,55"/>
+          <circle id="cr-d-aapl" class="cr-rh3-dot aapl" cx="20" cy="70" r="4" opacity="0"/>
+          <circle id="cr-d-air" class="cr-rh3-dot air" cx="20" cy="70" r="4" opacity="0"/>
+          <circle id="cr-d-bond" class="cr-rh3-dot bond" cx="20" cy="70" r="4" opacity="0"/>
+        </svg>
+        <div class="cr-rh3-controls">
+          <button type="button" class="cr-rh3-play" id="cr-rh3-play">▶ Play It</button>
+        </div>
+        <div class="cr-rh3-legend" id="cr-rh3-legend">
+          <button type="button" class="cr-rh3-leg aapl" data-k="aapl" disabled><span class="cr-rh3-dotsw aapl"></span>AAPL</button>
+          <button type="button" class="cr-rh3-leg air" data-k="air" disabled><span class="cr-rh3-dotsw air"></span>Airlines (JETS)</button>
+          <button type="button" class="cr-rh3-leg bond" data-k="bond" disabled><span class="cr-rh3-dotsw bond"></span>Long Bonds (TLT)</button>
+        </div>
+        <button type="button" class="cr-rh3-showall" id="cr-rh3-showall" hidden>Show All Three Again</button>
+      </div>
+      <div class="cr-rh3-detail" id="cr-rh3-detail">Press Play, then tap a line below to isolate it and see what actually happened.</div>
+      <p class="cr-count" id="cr-rh3-count">Reviewed 0 Of 3</p>
+      <p class="cr-note" id="cr-rh3-note">All three reacted to the exact same <b>systematic risk</b> — one global event — but not in the same direction, or by the same amount. That's the nuance a single <b>correlation</b> number can hide.</p>
+      <p class="cr-disclaimer-inline">AAPL and TLT, price/NAV only; JETS described qualitatively ("roughly cut in half") rather than with a precise peak-to-trough figure. The connecting shapes are stylized for legibility — see the lesson footer for full sourcing. Named because their real, dated history teaches this clearly, not as a recommendation.</p>
+    </section>
+
+    <!-- ========== 3 · TWO LINES, FIVE SETTINGS ========== -->
+    <section class="cr-sec cr-reveal" data-step="3">
+      <p class="cr-kicker">The Correlation Scale, Visually · 3 / 8</p>
+      <h2 class="cr-h2">Two Lines, Five Settings</h2>
+      <p class="cr-p">A correlation coefficient is just a number from -1 to +1. Tap each setting to watch two illustrative lines move at that exact number.</p>
+      <div class="cr-scale">
+        <div class="cr-scale-steps" id="cr-scale-steps">
+          <button type="button" class="cr-scale-btn" data-v="-1">−1</button>
+          <button type="button" class="cr-scale-btn" data-v="-0.5">−0.5</button>
+          <button type="button" class="cr-scale-btn" data-v="0">0</button>
+          <button type="button" class="cr-scale-btn" data-v="0.5">+0.5</button>
+          <button type="button" class="cr-scale-btn" data-v="1">+1</button>
+        </div>
+        <div class="cr-scale-chart">
+          <p class="cr-scale-tag">Illustrative Lines — Not Real Market Data</p>
+          <div class="cr-scale-legend"><span><i class="cr-scale-sw a"></i>Asset A</span><span><i class="cr-scale-sw b"></i>Asset B</span></div>
+          <svg viewBox="0 0 320 90" class="cr-scale-svg" preserveAspectRatio="none">
+            <polyline class="cr-scale-line a" points="10,45 85,20 160,60 235,25 310,50"/>
+            <polyline class="cr-scale-line b" id="cr-scale-b" points="10,45 85,20 160,60 235,25 310,50"/>
+          </svg>
+        </div>
+      </div>
+      <div class="cr-scale-detail" id="cr-scale-detail">Tap a setting above to see what that correlation actually looks like.</div>
+      <p class="cr-count" id="cr-scale-count">Tried 0 Of 5</p>
+    </section>
+
+    <!-- ========== 4 · ONE BET OR EIGHT? ========== -->
+    <section class="cr-sec cr-reveal" data-step="4">
+      <p class="cr-kicker">Eight Holdings, Two Very Different Portfolios · 4 / 8</p>
+      <h2 class="cr-h2">One Bet, Or Eight?</h2>
+      <p class="cr-p">Both portfolios below hold exactly eight things, but only one of them actually gets a diversification benefit from that count — idiosyncratic risk shrinks a lot faster in one than the other. Tap each to see what tends to happen in a downturn.</p>
+      <div class="cr-port">
+        <div class="cr-port-col" id="cr-port-a">
+          <p class="cr-port-head">Portfolio A — 8 Holdings</p>
+          <div class="cr-port-chips">
+            <span>Cloud Software Co.</span><span>Chipmaker Co.</span><span>Social Media Co.</span><span>E-Commerce Co.</span>
+            <span>Streaming Co.</span><span>Search Engine Co.</span><span>Smartphone Maker Co.</span><span>Cybersecurity Co.</span>
+          </div>
+          <button type="button" class="cr-port-btn" data-k="a">See What Happens In A Downturn</button>
+          <div class="cr-port-box" id="cr-port-box-a"></div>
+        </div>
+        <div class="cr-port-col" id="cr-port-b">
+          <p class="cr-port-head">Portfolio B — 8 Holdings</p>
+          <div class="cr-port-chips">
+            <span>U.S. Tech Fund</span><span>U.S. Healthcare Fund</span><span>U.S. Energy Fund</span><span>U.S. Consumer Staples Fund</span>
+            <span>U.S. Financials Fund</span><span>International Stock Fund</span><span>U.S. Small-Company Fund</span><span>U.S. Long-Term Bond Fund</span>
+          </div>
+          <button type="button" class="cr-port-btn" data-k="b">See What Happens In A Downturn</button>
+          <div class="cr-port-box" id="cr-port-box-b"></div>
+        </div>
+      </div>
+      <p class="cr-count" id="cr-port-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="cr-sec cr-reveal" data-step="5">
+      <p class="cr-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="cr-h2">Myth Or Fact?</h2>
+      <p class="cr-p">Five claims you'll hear about diversification and correlation. Tap your answer.</p>
+      <div class="cr-sort" id="cr-myth">
+        <div class="cr-sort-row" data-answer="myth"><span>If you own 50 different stocks, you're automatically diversified.</span><div class="cr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cr-why"><b>Myth.</b> If all 50 are in the same industry, they likely share the same exposure and move together anyway — that's sector concentration, not diversification, no matter how many tickers it is.</p></div>
+        <div class="cr-sort-row" data-answer="myth"><span>A correlation of 0 between two investments means they always move in opposite directions.</span><div class="cr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cr-why"><b>Myth.</b> 0 means no relationship at all — knowing what one did tells you nothing about the other. Opposite movement is closer to -1, a very different number.</p></div>
+        <div class="cr-sort-row" data-answer="fact"><span>Correlation between two investments can change over time, including rising sharply during a crisis.</span><div class="cr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cr-why"><b>Fact.</b> Plenty of investments that normally move somewhat independently have historically moved more closely together during sharp, broad sell-offs — it isn't a number stamped on an asset forever.</p></div>
+        <div class="cr-sort-row" data-answer="fact"><span>Idiosyncratic risk — the risk specific to one company — can be reduced by adding more, different holdings.</span><div class="cr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cr-why"><b>Fact.</b> A bad earnings report at one company matters less to your overall portfolio the more other, genuinely different things you hold alongside it.</p></div>
+        <div class="cr-sort-row" data-answer="myth"><span>Systematic risk can be eliminated completely by owning enough different stocks.</span><div class="cr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="cr-why"><b>Myth.</b> Stocks alone, however many and however different, are all still exposed to the same stock-market-wide risk. Reducing it meaningfully takes genuinely different kinds of assets, not just more tickers of the same kind.</p></div>
+      </div>
+      <p class="cr-count" id="cr-myth-count">Answered 0 Of 5</p>
+      <div class="cr-reset-row"><button type="button" class="cr-reset-btn" id="cr-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · SAME DIRECTION OR NOT? ========== -->
+    <section class="cr-sec cr-reveal" data-step="6">
+      <p class="cr-kicker">Four Pairs · 6 / 8</p>
+      <h2 class="cr-h2">Same Direction, Or Not?</h2>
+      <p class="cr-p">For each pair, how correlated are they likely to be? Tap your answer.</p>
+      <div class="cr-cases" id="cr-cases">
+        <div class="cr-case" data-ans="1">
+          <p class="cr-case-q">Two large U.S. technology companies, in an ordinary year.</p>
+          <div class="cr-copts3"><button type="button" data-i="0">Moderate</button><button type="button" data-i="1">High</button><button type="button" data-i="2">Low</button></div>
+          <p class="cr-why"></p>
+        </div>
+        <div class="cr-case" data-ans="0">
+          <p class="cr-case-q">A U.S. stock index fund and a long-term U.S. Treasury bond fund, in a typical year.</p>
+          <div class="cr-copts3"><button type="button" data-i="0">Low</button><button type="button" data-i="1">Moderate</button><button type="button" data-i="2">High</button></div>
+          <p class="cr-why"></p>
+        </div>
+        <div class="cr-case" data-ans="2">
+          <p class="cr-case-q">A U.S. large-company stock fund and a U.S. small-company stock fund, in an ordinary year.</p>
+          <div class="cr-copts3"><button type="button" data-i="0">High</button><button type="button" data-i="1">Low</button><button type="button" data-i="2">Moderate</button></div>
+          <p class="cr-why"></p>
+        </div>
+        <div class="cr-case" data-ans="1">
+          <p class="cr-case-q">A U.S. stock index fund and a long-term U.S. Treasury bond fund, in 2022 — a year both fell at the same time.</p>
+          <div class="cr-copts3"><button type="button" data-i="0">Low</button><button type="button" data-i="1">High</button><button type="button" data-i="2">Moderate</button></div>
+          <p class="cr-why"></p>
+        </div>
+      </div>
+      <p class="cr-count" id="cr-case-count">Answered 0 Of 4</p>
+      <div class="cr-reset-row"><button type="button" class="cr-reset-btn" id="cr-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="cr-sec cr-reveal" data-step="7">
+      <p class="cr-kicker">Recap · 7 / 8</p>
+      <h2 class="cr-h2">Here's What You Now Know</h2>
+      <p class="cr-p">The whole lesson, in six lines.</p>
+      <div class="cr-recap">
+        <div class="cr-recap-item"><span class="cr-recap-check">✓</span><span>Correlation measures how closely two investments move together, on a scale from -1 (opposite) to +1 (lockstep).</span></div>
+        <div class="cr-recap-item"><span class="cr-recap-check">✓</span><span>Owning many holdings isn't the same as diversifying — if they're all highly correlated, it's closer to one bet than many.</span></div>
+        <div class="cr-recap-item"><span class="cr-recap-check">✓</span><span>Systematic risk hits the whole market at once and isn't removed by holding more of the same asset class; idiosyncratic risk is specific to one holding and shrinks as you add genuinely different ones.</span></div>
+        <div class="cr-recap-item"><span class="cr-recap-check">✓</span><span>Correlation isn't fixed — it can shift, and has historically tended to rise during sharp, broad sell-offs.</span></div>
+        <div class="cr-recap-item"><span class="cr-recap-check">✓</span><span>In 2022, U.S. stocks and long-term Treasury bonds fell together — a reminder that even a usual relationship isn't guaranteed every year.</span></div>
+        <div class="cr-recap-item"><span class="cr-recap-check">✓</span><span>A real diversifier is something that doesn't move in lockstep with what you already own — not just another ticker.</span></div>
+      </div>
+      <div class="cr-next-move">Your next move: <b>pick your two largest holdings and ask whether they'd fall for the same reason.</b> If the honest answer is yes, that's sector concentration wearing a diversified costume.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="cr-sec cr-center cr-reveal" data-step="8">
+      <p class="cr-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="cr-hero-ico">🚀</span>
+      <h2 class="cr-h2 center">You've Finished The Lesson</h2>
+      <p class="cr-sub center">Module 4 continues. Next: what happens when steady, predictable withdrawals meet an unpredictable market.</p>
+      <div class="cr-finish">
+        <span class="cr-finish-arrow" id="cr-fin-arrow" aria-hidden="true">↓</span>
+        <p class="cr-finish-lead" id="cr-fin-lead">Scroll Down To Continue</p>
+        <p class="cr-finish-sub" id="cr-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="cr-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="cr-pullquote">"<span class="cr-green">DIVERSIFICATION IS BOTH OBSERVED AND SENSIBLE.</span>"<br><span class="cr-pullquote-by">— HARRY MARKOWITZ, "PORTFOLIO SELECTION," THE JOURNAL OF FINANCE (1952)</span></p>
+    </section>
+
+    <p class="cr-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, and past performance never guarantees future results. Historical figures were published at the time of writing and are price-only (excluding dividends/interest) unless noted; the S&amp;P 500's and TLT's 2022 full-year figures are total return (dividends/interest reinvested), not price-only. Apple, the U.S. Global Jets ETF, and TLT are named because their real, dated history teaches this lesson clearly — none of these mentions is a recommendation or a criticism of any specific investment. The two-line visuals in "Two Lines, Five Settings" are explicitly illustrative and do not represent any real investment's actual price history. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="cr-nav" id="cr-nav">
+      <button type="button" class="cr-nav-btn prev" id="cr-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="cr-nav-hint" id="cr-nav-hint"></span>
+      <button type="button" class="cr-nav-btn next" id="cr-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-cr{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --amber:#C9791E; --amberbg:#FBF0E1; --amberbd:#F0D4A8;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-cr *,#tn-cr *::before,#tn-cr *::after{box-sizing:border-box;}
+  #tn-cr .cr-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-cr .cr-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-cr .cr-reveal.in{opacity:1; transform:none;}
+  #tn-cr .cr-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-cr .cr-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-cr .cr-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-cr .cr-bico{display:flex;}
+  #tn-cr .cr-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-cr .cr-bsub{color:var(--ink2); font-weight:500;}
+  #tn-cr .cr-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-cr #cr-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-cr .cr-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-cr .cr-meta #cr-slide-label{color:var(--ink2);}
+  #tn-cr .cr-meta #cr-slide-count{color:var(--mut);}
+  #tn-cr .cr-sec{padding:16px 0 8px;}
+  #tn-cr .cr-sec.cr-hide{display:none;}
+  #tn-cr .cr-center{text-align:center;}
+  #tn-cr .cr-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-cr .cr-kicker.center{text-align:center;}
+  #tn-cr .cr-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-cr .cr-h2.center{text-align:center;}
+  #tn-cr .cr-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-cr .cr-p b{color:var(--ink); font-weight:700;}
+  #tn-cr .cr-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-cr .cr-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-cr .cr-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-cr .cr-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-cr .cr-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-cr .cr-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-cr .cr-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,5.4vw,38px); line-height:1.16; text-align:center; margin:8px 0 14px;}
+  #tn-cr .cr-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-cr .cr-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-cr .cr-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-cr .cr-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-cr .cr-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-cr .cr-vocab-chip:hover{filter:brightness(.97);}
+  #tn-cr .cr-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-cr .cr-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-cr .cr-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-cr .cr-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-cr .cr-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-cr .cr-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · three-line animated chart (creative 1 of 2) */
+  #tn-cr .cr-rh3{max-width:480px; margin:0 auto; background:#0B1016; border-radius:18px; padding:16px 16px 14px; box-shadow:0 20px 44px -26px rgba(11,16,22,.6);}
+  #tn-cr .cr-rh3-cap{font-size:11px; color:#7C8A9A; text-align:center; margin:0 0 10px;}
+  #tn-cr .cr-rh3-svg{width:100%; height:auto; display:block; overflow:visible;}
+  #tn-cr .cr-rh3-axis{stroke:#1C2530; stroke-width:1;}
+  #tn-cr .cr-rh3-line{fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; transition:opacity .25s, stroke-width .25s;}
+  #tn-cr .cr-rh3-line.aapl{stroke:var(--b);}
+  #tn-cr .cr-rh3-line.air{stroke:var(--amber);}
+  #tn-cr .cr-rh3-line.bond{stroke:var(--g);}
+  #tn-cr .cr-rh3-dot{transition:opacity .25s;}
+  #tn-cr .cr-rh3-dot.aapl{fill:var(--b);}
+  #tn-cr .cr-rh3-dot.air{fill:var(--amber);}
+  #tn-cr .cr-rh3-dot.bond{fill:var(--g);}
+  #tn-cr .cr-rh3.iso-aapl .cr-rh3-line:not(.aapl),#tn-cr .cr-rh3.iso-aapl .cr-rh3-dot:not(.aapl){opacity:.18;}
+  #tn-cr .cr-rh3.iso-air .cr-rh3-line:not(.air),#tn-cr .cr-rh3.iso-air .cr-rh3-dot:not(.air){opacity:.18;}
+  #tn-cr .cr-rh3.iso-bond .cr-rh3-line:not(.bond),#tn-cr .cr-rh3.iso-bond .cr-rh3-dot:not(.bond){opacity:.18;}
+  #tn-cr .cr-rh3.iso-aapl .cr-rh3-line.aapl,#tn-cr .cr-rh3.iso-air .cr-rh3-line.air,#tn-cr .cr-rh3.iso-bond .cr-rh3-line.bond{stroke-width:3.5;}
+  #tn-cr .cr-rh3-controls{display:flex; justify-content:center; margin-top:10px;}
+  #tn-cr .cr-rh3-play{font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:13px; padding:13px 26px; cursor:pointer; transition:all .18s; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-cr .cr-rh3-play:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-cr .cr-rh3-play:disabled{background:#3A4450; color:#7C8A9A; box-shadow:none; cursor:not-allowed;}
+  #tn-cr .cr-rh3-legend{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px;}
+  #tn-cr .cr-rh3-leg{display:flex; align-items:center; justify-content:center; gap:6px; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:#8A97A6; background:#141B23; border:1.5px solid #222D38; border-radius:11px; padding:10px 6px; cursor:pointer; transition:all .15s;}
+  #tn-cr .cr-rh3-leg:disabled{opacity:.45; cursor:not-allowed;}
+  #tn-cr .cr-rh3-dotsw{width:8px; height:8px; border-radius:50%; flex:none;}
+  #tn-cr .cr-rh3-dotsw.aapl{background:var(--b);}
+  #tn-cr .cr-rh3-dotsw.air{background:var(--amber);}
+  #tn-cr .cr-rh3-dotsw.bond{background:var(--g);}
+  #tn-cr .cr-rh3-leg.unlocked{color:#fff; border-color:#3A4450; animation:cr-pulse 1.4s ease-in-out 2;}
+  #tn-cr .cr-rh3-leg.reviewed{color:#fff; border-color:#3A4450; background:#1B2A24; animation:none;}
+  @keyframes cr-pulse{0%,100%{box-shadow:0 0 0 0 rgba(32,155,115,0);} 50%{box-shadow:0 0 0 5px rgba(32,155,115,.2);}}
+  #tn-cr .cr-rh3-showall{display:block; margin:10px auto 0; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:#8A97A6; background:transparent; border:1.5px solid #222D38; border-radius:99px; padding:7px 14px; cursor:pointer;}
+  #tn-cr .cr-rh3-detail{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:12px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-cr .cr-rh3-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  #tn-cr .cr-note{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13px; color:var(--ink2); line-height:1.55;}
+  /* 3 · correlation scale (creative 2 of 2) */
+  #tn-cr .cr-scale{max-width:480px; margin:0 auto;}
+  #tn-cr .cr-scale-steps{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-bottom:12px;}
+  #tn-cr .cr-scale-btn{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 4px; cursor:pointer; transition:all .15s;}
+  #tn-cr .cr-scale-btn:hover{border-color:var(--selbd);}
+  #tn-cr .cr-scale-btn.done{color:var(--g); border-color:var(--selbd); background:var(--tint);}
+  #tn-cr .cr-scale-btn.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-cr .cr-scale-chart{background:#0B1016; border-radius:16px; padding:12px 14px 10px;}
+  #tn-cr .cr-scale-tag{font-size:10.5px; color:#7C8A9A; text-align:center; margin:0 0 8px;}
+  #tn-cr .cr-scale-legend{display:flex; justify-content:center; gap:16px; margin:0 0 8px;}
+  #tn-cr .cr-scale-legend span{display:flex; align-items:center; gap:5px; font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; color:#8A97A6;}
+  #tn-cr .cr-scale-sw{display:inline-block; width:14px; height:2.5px; border-radius:2px;}
+  #tn-cr .cr-scale-sw.a{background:var(--b);}
+  #tn-cr .cr-scale-sw.b{background:repeating-linear-gradient(90deg,var(--amber) 0 4px,transparent 4px 7px);}
+  #tn-cr .cr-scale-svg{width:100%; height:auto; display:block;}
+  #tn-cr .cr-scale-line{fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round;}
+  #tn-cr .cr-scale-line.a{stroke:var(--b);}
+  #tn-cr .cr-scale-line.b{stroke:var(--amber); stroke-dasharray:6,5; transition:none;}
+  #tn-cr .cr-scale-detail{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:12px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-cr .cr-scale-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · one bet or eight (portfolio comparison) */
+  #tn-cr .cr-port{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  #tn-cr .cr-port-col{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:14px;}
+  #tn-cr .cr-port-head{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); margin:0 0 10px;}
+  #tn-cr .cr-port-chips{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px;}
+  #tn-cr .cr-port-chips span{font-size:10.5px; font-weight:600; color:var(--ink2); background:#fff; border:1px solid var(--cardbd); border-radius:99px; padding:4px 9px;}
+  #tn-cr .cr-port-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:10px; padding:10px 6px; cursor:pointer; transition:all .15s;}
+  #tn-cr .cr-port-btn:hover:not(:disabled){transform:translateY(-1px);}
+  #tn-cr .cr-port-btn:disabled{opacity:.5; cursor:default;}
+  #tn-cr .cr-port-box{font-size:12.5px; color:var(--ink2); line-height:1.5; margin-top:10px; display:none;}
+  #tn-cr .cr-port-box.show{display:block;}
+  /* 5 · myth sorter */
+  #tn-cr .cr-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-cr .cr-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-cr .cr-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-cr .cr-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-cr .cr-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cr .cr-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-cr .cr-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-cr .cr-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-cr .cr-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-cr .cr-sort-row.done .cr-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-cr .cr-sort-row.done .cr-sort-btns button.picked{opacity:1;}
+  #tn-cr .cr-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-cr .cr-why b{font-family:'Poppins',sans-serif;}
+  #tn-cr .cr-sort-row .cr-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-cr .cr-sort-row.done .cr-why{display:block;}
+  /* 6 · scenarios */
+  #tn-cr .cr-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-cr .cr-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-cr .cr-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-cr .cr-copts3{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-cr .cr-copts3 button{flex:1; min-width:100px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-cr .cr-copts3 button:hover{border-color:var(--selbd);}
+  #tn-cr .cr-case.done .cr-copts3 button{opacity:.35; pointer-events:none;}
+  #tn-cr .cr-case.done .cr-copts3 button.picked{opacity:1;}
+  #tn-cr .cr-case.done .cr-copts3 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-cr .cr-case.done .cr-copts3 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-cr .cr-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-cr .cr-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-cr .cr-case.done .cr-why{display:block;}
+  /* recap + complete */
+  #tn-cr .cr-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-cr .cr-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-cr .cr-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-cr .cr-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-cr .cr-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-cr .cr-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-cr .cr-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-cr .cr-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:cr-bob 1.6s ease-in-out infinite;}
+  #tn-cr .cr-finish-arrow.up{animation-name:cr-bob-up;}
+  @keyframes cr-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes cr-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-cr .cr-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-cr .cr-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-cr .cr-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-cr .cr-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-cr .cr-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-cr .cr-green{color:var(--g);}
+  #tn-cr .cr-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-cr .cr-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-cr .cr-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-cr .cr-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-cr .cr-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-cr .cr-nav-btn.prev{color:var(--ink2);}
+  #tn-cr .cr-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-cr .cr-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-cr .cr-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-cr .cr-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-cr .cr-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-cr .cr-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-cr .cr-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-cr .cr-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .cr-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .cr-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-cr .cr-wrap{padding:12px 14px 30px;}
+    #tn-cr .cr-port{grid-template-columns:1fr;}
+    #tn-cr .cr-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-cr .cr-copts3 button{min-width:0; flex:1 1 100%;}
+    #tn-cr .cr-rh3-legend{grid-template-columns:1fr;}
+    #tn-cr .cr-bsub{display:none;}
+    #tn-cr .cr-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-cr .cr-nav{padding-top:10px; row-gap:0;}
+    #tn-cr .cr-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-cr .cr-reveal{opacity:1 !important; transform:none !important;}
+    #tn-cr #cr-bar{transition:none;}
+    #tn-cr .cr-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-cr'); if(!root) return;
+  root.querySelectorAll('.cr-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('cr-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#cr-vocab-def');
+  root.querySelectorAll('#cr-vocab-chips .cr-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#cr-vocab-chips .cr-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · same crash, three lines (creative 1 of 2) */
+  (function(){
+    var card=root.querySelector('.cr-rh3'), playBtn=root.querySelector('#cr-rh3-play'),
+        detail=root.querySelector('#cr-rh3-detail'), countEl=root.querySelector('#cr-rh3-count'),
+        showAll=root.querySelector('#cr-rh3-showall');
+    if(!card) return;
+    var LINES={
+      aapl:{line:root.querySelector('#cr-l-aapl'), dot:root.querySelector('#cr-d-aapl'),
+            lab:'<b>AAPL fell about 35%</b> from its February 2020 peak to its March 2020 trough — painful, but it had fully recovered to new highs within months.'},
+      air: {line:root.querySelector('#cr-l-air'),  dot:root.querySelector('#cr-d-air'),
+            lab:'The <b>U.S. Global Jets ETF (JETS)</b>, which tracks U.S. airline stocks, was roughly <b>cut in half</b> over the same stretch — airlines were hit harder because the pandemic directly grounded their business, not just their stock price.'},
+      bond:{line:root.querySelector('#cr-l-bond'), dot:root.querySelector('#cr-d-bond'),
+            lab:'Long-term Treasury bonds did the opposite: <b>TLT jumped as much as 6.4% in a single day</b> in early March 2020 — its biggest one-day gain since the 2010 flash crash — and touched new highs, before giving back part of that spike later in the month.'}
+    };
+    var reduceMotion=false;
+    try{ reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+    var lens={}; Object.keys(LINES).forEach(function(k){ lens[k]=LINES[k].line.getTotalLength(); LINES[k].line.style.strokeDasharray=lens[k]; LINES[k].line.style.strokeDashoffset=lens[k]; });
+    var DURATION=1800, raf=null, startTs=null, reviewed={}, unlocked=false;
+
+    function renderFrame(f){
+      Object.keys(LINES).forEach(function(k){
+        var L=LINES[k];
+        L.line.style.strokeDashoffset=lens[k]*(1-f);
+        var pt=L.line.getPointAtLength(lens[k]*f);
+        L.dot.setAttribute('cx',pt.x); L.dot.setAttribute('cy',pt.y); L.dot.setAttribute('opacity',1);
+      });
+    }
+    function unlockAll(){
+      if(unlocked) return; unlocked=true;
+      root.querySelectorAll('.cr-rh3-leg').forEach(function(btn){ btn.disabled=false; btn.classList.add('unlocked'); });
+    }
+    function finishAnimation(){
+      raf=null; playBtn.disabled=false; playBtn.textContent='↺ Replay It';
+      unlockAll(); postHeight();
+    }
+    function step(ts){
+      if(!startTs) startTs=ts;
+      var f=Math.min(1,(ts-startTs)/DURATION);
+      renderFrame(f);
+      if(f<1){ raf=requestAnimationFrame(step); } else { finishAnimation(); }
+    }
+    function play(){
+      if(raf) return;
+      playBtn.disabled=true; playBtn.textContent='Playing…';
+      if(reduceMotion){ renderFrame(1); finishAnimation(); return; }
+      startTs=null; raf=requestAnimationFrame(step);
+    }
+    playBtn.addEventListener('click',play);
+    root.querySelectorAll('.cr-rh3-leg').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(btn.disabled) return;
+        var k=btn.getAttribute('data-k');
+        card.classList.remove('iso-aapl','iso-air','iso-bond');
+        card.classList.add('iso-'+k);
+        showAll.hidden=false;
+        btn.classList.add('reviewed'); btn.classList.remove('unlocked');
+        detail.innerHTML=LINES[k].lab;
+        if(!reviewed[k]){ reviewed[k]=1; countEl.textContent='Reviewed '+keys(reviewed)+' Of 3'; state('lines', keys(reviewed)); }
+        postHeight();
+      });
+    });
+    showAll.addEventListener('click',function(){
+      card.classList.remove('iso-aapl','iso-air','iso-bond');
+      showAll.hidden=true;
+      detail.textContent='Press Play, then tap a line below to isolate it and see what actually happened.';
+      postHeight();
+    });
+  })();
+
+  /* 3 · two lines, five settings (creative 2 of 2) */
+  (function(){
+    var B={
+      '-1':{pts:'10,45 85,70 160,30 235,65 310,40', t:'A <b>-1</b> would mean these two always move exactly opposite each other. True -1 is almost never seen between real investments — it’s a textbook extreme, not something you’ll find in your own portfolio.'},
+      '-0.5':{pts:'10,45 85,58 160,40 235,55 310,42', t:'At <b>-0.5</b>, the two tend to move in opposite directions, but imperfectly — a real diversifier might look roughly like this relative to the rest of your portfolio.'},
+      '0':{pts:'10,45 85,55 160,22 235,48 310,30', t:'At <b>0</b>, knowing what one did tells you nothing about the other. They’re not opposites — they’re just unrelated.'},
+      '0.5':{pts:'10,45 85,28 160,52 235,32 310,48', t:'At <b>+0.5</b>, the two tend to move the same direction most of the time, with some independence left over — roughly what two different large companies, in different industries, often look like.'},
+      '1':{pts:'10,45 85,20 160,60 235,25 310,50', t:'A <b>+1</b> means total lockstep — identical movement. In practice this shows up only for things like two share classes of the same company, or an asset compared with itself.'}
+    };
+    var lineB=root.querySelector('#cr-scale-b'), detail=root.querySelector('#cr-scale-detail'),
+        countEl=root.querySelector('#cr-scale-count'), tried={};
+    root.querySelectorAll('.cr-scale-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var v=btn.getAttribute('data-v');
+        root.querySelectorAll('.cr-scale-btn').forEach(function(b){ b.classList.remove('on'); });
+        btn.classList.add('on','done');
+        lineB.setAttribute('points', B[v].pts);
+        detail.innerHTML=B[v].t;
+        if(!tried[v]){ tried[v]=1; countEl.textContent='Tried '+keys(tried)+' Of 5'; state('scale', keys(tried)); }
+        postHeight();
+      });
+    });
+  })();
+
+  /* 4 · one bet or eight */
+  var PORTW={
+    a:'All eight of these are large U.S. technology companies. In a broad tech sell-off, most or all of them tend to fall together — eight holdings, but close to <b>one real bet</b> on a single sector.',
+    b:'These eight span different industries, sizes, and even countries. A problem in one sector — energy, say — doesn’t necessarily touch healthcare or international stocks the same way. Eight holdings here behave much more like <b>eight separate bets</b>.'
+  };
+  var portSeen={}, portCount=root.querySelector('#cr-port-count');
+  root.querySelectorAll('.cr-port-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var k=btn.getAttribute('data-k'), box=root.querySelector('#cr-port-box-'+k);
+      btn.disabled=true; btn.textContent='Revealed';
+      box.innerHTML=PORTW[k]; box.classList.add('show');
+      portSeen[k]=1;
+      portCount.textContent='Revealed '+keys(portSeen)+' Of 2';
+      state('port', keys(portSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#cr-myth-count');
+  root.querySelectorAll('#cr-myth .cr-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.cr-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#cr-myth .cr-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#cr-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#cr-myth .cr-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · same direction or not */
+  var CWHY=[
+    'Two companies in the same industry tend to react to the same news, the same economic cycle, the same investor sentiment — that’s high correlation.',
+    'In a typical year, U.S. stocks and long-term Treasury bonds have historically had a low, sometimes even negative, correlation — stocks and bonds often don’t need the same economic conditions to do well.',
+    'Both are U.S. stocks, so they share plenty in common, but company size brings real differences in how they behave — moderate, not high or low.',
+    'In 2022, the S&amp;P 500 fell about 18% and long-term Treasury bonds (TLT) fell roughly 31% — both down together, the opposite of their usual relationship. Rising interest rates hurt stock valuations and bond prices at the same time.'
+  ];
+  var caseCount=root.querySelector('#cr-case-count');
+  root.querySelectorAll('#cr-cases .cr-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.cr-why');
+    c.querySelectorAll('.cr-copts3 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.cr-copts3 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#cr-cases .cr-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#cr-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#cr-cases .cr-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.cr-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('cr-fin-arrow'), lead=document.getElementById('cr-fin-lead'), sub=document.getElementById('cr-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-cr'); if(!root) return;
+  var ALT={
+    'correlation':'correlations?|correlated'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#cr-vocab-chips .cr-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.cr-p, .cr-sub, .cr-note, .cr-why, .cr-recap-item span, .cr-h2, .cr-next-move, .cr-sort-row > span, .cr-case-q, .cr-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.cr-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='cr-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='cr-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.cr-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.cr-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-cr'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#cr-bar'), labelEl=root.querySelector('#cr-slide-label'),
+      countEl=root.querySelector('#cr-slide-count'), prevBtn=root.querySelector('#cr-prev'),
+      nextBtn=root.querySelector('#cr-next'), hintEl=root.querySelector('#cr-nav-hint'),
+      disclaimer=root.querySelector('.cr-disclaimer');
+  var labels={1:'Start Here',2:'Same Crash, Three Lines',3:'Two Lines, Five Settings',4:'One Bet, Or Eight?',5:'Myth Or Fact',6:'Same Direction Or Not?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Play it, then review all 3 lines to continue',3:'Try all 5 settings to continue',4:'Reveal both portfolios to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.cr-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('cr-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('cr-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'lines', need:3, hint:function(n){ return 'Reviewed '+n+' of 3 — play it and tap every line to continue'; }},
+    {step:3, key:'scale', need:5, hint:function(n){ return 'Tried '+n+' of 5 — tap every setting to continue'; }},
+    {step:4, key:'port',  need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both portfolios to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('cr-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

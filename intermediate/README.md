@@ -1,13 +1,13 @@
 # TURNIT — Intermediate Investing
 
-Everything needed to keep building this course: the 10 lessons that exist, the full
+Everything needed to keep building this course: the 17 lessons that exist, the full
 build standard, and the verification tooling.
 
 ```
 README.md          you are here
 BUILD-GUIDE.md     the complete standard — hand this to Claude Code
 LESSON-LIST.md     all 35 lessons, what's built, what's outlined, open decisions
-lessons/           11 files (lesson 5 ships in two versions — pick one)
+lessons/           17 files
 verify/            static + behavioural checks
 ```
 
@@ -84,9 +84,9 @@ Two things the tools can't judge — check them by eye on a 390px screenshot:
 
 | | |
 |---|---|
-| Built | 16 lessons — Modules 1, 2, and 3 complete, Module 4 underway (1 of 5) |
-| Outlined | 19 lessons — Modules 4 (remainder)–7 |
-| Passing every check | all 16 (01–16), at desktop and phone widths |
+| Built | 17 lessons — Modules 1, 2, and 3 complete, Module 4 underway (2 of 5) |
+| Outlined | 18 lessons — Modules 4 (remainder)–7 |
+| Passing every check | all 17 (01–17), at desktop and phone widths |
 | Intermediate quizzes | not built yet |
 
 The lesson-5 duplicate, the missing sticky nav on 01–05, the 5-line recaps, lesson 01's

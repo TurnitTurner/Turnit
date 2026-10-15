@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **16 built** (Modules 1, 2, and 3 complete, Module 4 underway)
+7 modules · 35 lessons · **17 built** (Modules 1, 2, and 3 complete, Module 4 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -46,12 +46,12 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 14 | Tax-Loss Harvesting, And The Wash-Sale Rule | `14-tax-loss-harvesting-and-wash-sale-rule.html` | 8 |
 | 15 | What A 1099 Actually Tells You | `15-what-a-1099-actually-tells-you.html` | 8 |
 
-## Module 4 — Risk You Cannot See In A Chart 🔶 underway (1 of 5)
+## Module 4 — Risk You Cannot See In A Chart 🔶 underway (2 of 5)
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 16 | Volatility vs. Drawdown vs. Permanent Loss | `16-volatility-drawdown-and-permanent-loss.html` | 9 |
-| 17 | Correlation: Why "Diversified" Can Still Move Together | — | — |
+| 17 | Correlation: Why "Diversified" Can Still Move Together | `17-correlation-why-diversified-can-still-move-together.html` | 8 |
 | 18 | Sequence-Of-Returns Risk | — | — |
 | 19 | Concentration Risk: Company Stock And RSUs | — | — |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
@@ -247,6 +247,58 @@ The animation duration was deliberately kept to 1.8s (matching Lesson
 seconds, after tracing through the verification harness's timed-widget
 fallback strategy and finding the longer duration left too little margin
 to resolve reliably.
+
+**Lesson 17 ("Correlation: Why 'Diversified' Can Still Move Together"),
+prefix `cr`:** both creative widgets were deliberately built as new
+mechanics rather than reusing Lesson 14's or Lesson 16's flat-vs-reacted
+mini-chart toggle, per explicit user feedback that activities should
+"vary and are different than the previous ones." Slide 2 ("Same Crash,
+Three Lines") reuses Lesson 16's dark, trading-app chart styling (which
+the user liked) but draws three real assets simultaneously — AAPL, the
+U.S. Global Jets airline ETF, and the long-term Treasury bond ETF TLT —
+through the same six real weeks of the Feb–Mar 2020 crash, animated via
+three parallel `requestAnimationFrame` stroke-dash reveals (shared
+1.8s duration, same safety margin established on Lesson 16), then
+unlocks three legend buttons that each isolate their own line (dimming
+the other two) and reveal that asset's real, independently-sourced move.
+No numeric price values are displayed on this chart — only the three
+lines' real directional shapes — specifically so nothing is asserted
+that isn't separately stated as sourced text underneath. Slide 3 ("Two
+Lines, Five Settings") is a new mechanic: five stepped buttons (−1,
+−0.5, 0, +0.5, +1) redraw a second line against a fixed first line, so
+the learner watches co-movement itself change shape at each setting. The
+chart is explicitly labeled "Illustrative Lines — Not Real Market Data"
+and no real correlation figure is attached to any step, since a search
+for real correlation coefficients (stock-bond, two large tech stocks)
+turned up only soft, single-source figures not solid enough to cite with
+decimal precision. At the +1 setting the two lines are identical and
+would otherwise fully overlap (one invisible underneath the other); a
+dashed stroke was added to the second line plus a small color-coded
+legend so both lines stay visibly distinct — and the second line stays
+visible — at every setting, including the perfect-overlap case.
+Deliberately avoided repeating the back-calculated "Delta fell ~64%"
+figure style from research: the airline move is stated qualitatively
+("roughly cut in half," sourced to a CNBC analyst comment) at the
+sector/ETF level rather than naming one airline with false precision,
+and TLT's number is not stated at all — the chart shows its real
+direction (sharp rise, partial pullback) while the text states only
+independently-sourced facts (a 6.4% single-day jump, a new 52-week high).
+Slide 6's scenario-decision deliberately uses the real, verified 2022
+numbers (S&P 500 about −18%, TLT about −31%, both down together) as one
+of its four cases, directly reinforcing the recap point that correlation
+isn't fixed — chosen over the originally-planned COVID-era stock/bond
+"~0" anchor specifically because that figure would have contradicted the
+lesson's own sourced research showing crisis-period correlation spikes.
+Closing quote required the same re-verification discipline as Lesson
+16's: the popular "diversification is the only free lunch in investing"
+line attributed to Harry Markowitz was searched and found unverified
+against any primary source (one paper reportedly found no evidence he
+said it), so it was not used; instead, "Diversification is both observed
+and sensible" — a short phrase reproduced consistently across multiple
+independent secondary sources quoting Markowitz's actual 1952 *Journal
+of Finance* paper — was used, while a longer surrounding sentence whose
+exact wording varies slightly between secondary quotations was
+deliberately left out rather than guessed at.
 
 What was fixed in the Module 1–2 backlog pass:
 
