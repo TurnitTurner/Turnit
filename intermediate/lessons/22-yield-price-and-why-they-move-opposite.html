@@ -1,0 +1,750 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — YIELD, PRICE, AND WHY THEY MOVE OPPOSITE
+     (Intermediate · Module 5 · Lesson 22)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-yp. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  Watch The Price Move (creative)
+       3  Two Ways To Read The Same Bond     4  Above, At, Or Below Face Value
+       5  Myth Or Fact (5)                  6  Price Up, Or Price Down? (4)
+       7  Recap (6)                         8  Complete
+     Scope, deliberately: Lesson 21 owns face value, coupon rate, and maturity as
+     fixed, already-known terms — this lesson treats them as given and focuses on
+     what moves: a bond's market price and the yield figures calculated from it.
+     Does not quantify HOW MUCH a given rate change moves a price, or compare bonds
+     of different maturities — that's duration, and Lesson 23 owns it entirely
+     (including this lesson's own closing recap line, which explicitly hands off to
+     it). Slide 6's four scenarios are deliberately direction-only (does the price go
+     up or down), never "by how much" or "which moves more." Does not re-chip
+     "Premium Or Discount" — Lesson 08 already uses that exact term for the gap
+     between an ETF's market price and its underlying NAV, a related but different
+     mechanism (a trading inefficiency, not a response to interest rates); this
+     lesson's own chip is deliberately named "Par, Premium, Or Discount" and its
+     definition explicitly contrasts the two, so a learner who's seen both doesn't
+     conflate them.
+     Creative widget, 1 of 2 allowed (the second would have meant two calculators in
+     a row — Lesson 23 needs its own, so this lesson uses just one, per this guide's
+     own §9 caution against two similar-feeling activities back to back): slide 2 is
+     a live bond-price calculator styled like a bond quote screen — tapping one of
+     five real price points recomputes and displays that bond's actual current yield
+     and yield to maturity, using the same present-value bond-pricing math used to
+     generate every number shown (ported from a Python implementation verified
+     against a standard textbook test case: a 10-year, 5% semiannual-coupon, $1,000
+     face bond priced at $925.61 must yield to maturity exactly 6.00% — confirmed to
+     four decimal places before this code was written). Slides 3 and 4 are standard
+     comparison / three-card formats.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     Real figures: the bond used throughout (10-year maturity, 5% annual coupon paid
+     semiannually, $1,000 face value) is a deliberately round, illustrative example,
+     not a real issuer's bond — explicitly labeled as such, since the teaching point
+     here is the mechanism itself, which holds for any bond with these terms, not a
+     specific real one (Lesson 21 already used a real bond for the "what does a bond
+     actually look like" point; this lesson needs one whose price can be freely
+     moved across a wide range for teaching, which a real single historical bond's
+     real, fixed price history can't offer). Closing quote: Warren Buffett, "Interest
+     rates are to asset prices, you know, sort of like gravity is to the apple," from
+     the 2013 Berkshire Hathaway annual shareholders meeting — the actual transcript
+     wording is used here rather than the more widely circulated, tidied-up
+     paraphrase ("Interest rates are to asset prices what gravity is to the apple"),
+     the same preference for original wording over a popular cleaned-up version
+     already applied to this course's Graham and Tyson quotes. Buffett is quoted
+     twice elsewhere in this course (Lessons 09 and 18) on different subjects;
+     reusing an author for a third independently-verified quote follows the same
+     precedent already set by this course's two Benjamin Graham quotes. Checked for
+     duplication against every other quote already in this repo
+     (`grep -ril "gravity is to the apple"` across `intermediate/` and the
+     Foundations-level lesson files at the repo root) before shipping — confirmed
+     unique.
+     ============================================================ -->
+<div id="tn-yp">
+  <div class="yp-wrap">
+    <div class="yp-top">
+      <div class="yp-topbar">
+        <div class="yp-brand"><span class="yp-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="yp-word">TURNIT</span><span class="yp-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="yp-progress"><span id="yp-bar"></span></div>
+      <div class="yp-meta"><span id="yp-slide-label">Start Here</span><span id="yp-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="yp-sec yp-center yp-reveal" data-step="1">
+      <p class="yp-kicker center">The Seesaw Every Bond Sits On · 1 / 8</p>
+      <h1 class="yp-hero-title">YIELD, PRICE, AND <span class="yp-hero-grad">WHY THEY MOVE OPPOSITE</span></h1>
+      <p class="yp-sub center">A bond's face value and coupon never change. Its price does — and that one fact explains almost everything else about how bonds actually behave.</p>
+      <div class="yp-vocab">
+        <span class="yp-vocab-label">Key Terms In This Lesson</span>
+        <div class="yp-vocab-chips" id="yp-vocab-chips">
+          <button type="button" class="yp-vocab-chip" data-t="Current Yield" data-def="A bond's annual coupon payment divided by its current price — not its face value. It moves as the price moves, even though the coupon payment itself never changes.">Current Yield</button>
+          <button type="button" class="yp-vocab-chip" data-t="Yield To Maturity" data-def="The total annual return a bond would earn if bought at its current price and held to maturity — accounting for the coupon payments and the gap between the purchase price and face value.">Yield To Maturity</button>
+          <button type="button" class="yp-vocab-chip" data-t="Par, Premium, Or Discount" data-def="Whether a bond trades at exactly its face value (par), above it (premium), or below it (discount) — driven by how its fixed coupon compares to what new bonds are paying today, not by the issuer's health.">Par, Premium, Or Discount</button>
+          <button type="button" class="yp-vocab-chip" data-t="Interest Rate Risk" data-def="The risk that a bond's market price falls when prevailing interest rates rise — separate from credit risk, and the reason even a bond that pays exactly as promised can lose value before maturity.">Interest Rate Risk</button>
+          <button type="button" class="yp-vocab-chip" data-t="Basis Point" data-def="One-hundredth of one percent (0.01%) — the standard unit for describing small changes in interest rates or yields. A move from 4.00% to 4.25% is 25 basis points.">Basis Point</button>
+        </div>
+        <div class="yp-vocab-def" id="yp-vocab-def">Tap a term to see what it means.</div>
+        <span class="yp-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="yp-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · WATCH THE PRICE MOVE ========== -->
+    <section class="yp-sec yp-reveal" data-step="2">
+      <p class="yp-kicker">A Bond, Five Prices · 2 / 8</p>
+      <h2 class="yp-h2">Watch The Price Move</h2>
+      <p class="yp-p">Same bond — $1,000 face value, a fixed 5% annual coupon, 10 years left. Only the price changes. Tap each price and watch current yield and yield to maturity recompute, live.</p>
+      <div class="yp-quote">
+        <div class="yp-quote-fixed">
+          <span>Face Value <b>$1,000</b></span><span>Coupon Rate <b>5.00%</b></span><span>Years Left <b>10</b></span>
+        </div>
+        <div class="yp-quote-prices" id="yp-quote-prices">
+          <button type="button" class="yp-price-btn" data-price="850">$850</button>
+          <button type="button" class="yp-price-btn" data-price="925">$925</button>
+          <button type="button" class="yp-price-btn" data-price="1000">$1,000</button>
+          <button type="button" class="yp-price-btn" data-price="1075">$1,075</button>
+          <button type="button" class="yp-price-btn" data-price="1150">$1,150</button>
+        </div>
+        <div class="yp-quote-out" id="yp-quote-out">
+          <div class="yp-quote-stat"><span class="yp-quote-lab">Status</span><span class="yp-quote-val" id="yp-out-status">—</span></div>
+          <div class="yp-quote-stat"><span class="yp-quote-lab">Current Yield</span><span class="yp-quote-val" id="yp-out-cy">—</span></div>
+          <div class="yp-quote-stat"><span class="yp-quote-lab">Yield To Maturity</span><span class="yp-quote-val" id="yp-out-ytm">—</span></div>
+        </div>
+      </div>
+      <p class="yp-count" id="yp-quote-count">Tried 0 Of 5</p>
+      <p class="yp-disclaimer-inline">An illustrative bond with deliberately round numbers, not a real issuer's bond — chosen so its price could move across a wide range for teaching. Every number above is computed live, not hand-typed.</p>
+    </section>
+
+    <!-- ========== 3 · CURRENT YIELD VS. YIELD TO MATURITY ========== -->
+    <section class="yp-sec yp-reveal" data-step="3">
+      <p class="yp-kicker">Same Bond, Two Different Numbers · 3 / 8</p>
+      <h2 class="yp-h2">Two Ways To Read The Same Bond</h2>
+      <p class="yp-p">Take that same bond at $925 and look at it two ways: its current yield and its yield to maturity. Tap each to see why these two numbers don't agree.</p>
+      <div class="yp-compare" id="yp-compare">
+        <button type="button" class="yp-cbtn a" data-k="cy">
+          <span class="yp-cbtn-t">Current Yield</span>
+          <span class="yp-cbtn-sub">Just the coupon</span>
+        </button>
+        <button type="button" class="yp-cbtn b" data-k="ytm">
+          <span class="yp-cbtn-t">Yield To Maturity</span>
+          <span class="yp-cbtn-sub">Everything, over time</span>
+        </button>
+      </div>
+      <div class="yp-cbox" id="yp-cbox">Tap a card above to see the difference.</div>
+      <p class="yp-count" id="yp-compare-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 4 · PAR, PREMIUM, OR DISCOUNT ========== -->
+    <section class="yp-sec yp-reveal" data-step="4">
+      <p class="yp-kicker">Three States, One Cause · 4 / 8</p>
+      <h2 class="yp-h2">Above, At, Or Below Face Value</h2>
+      <p class="yp-p">Whether a bond trades at par, premium, or discount comes from the same comparison: its fixed coupon versus what new bonds are paying today. Tap each to see how.</p>
+      <div class="yp-threecol" id="yp-threecol">
+        <button type="button" class="yp-tcard d" data-k="discount">
+          <span class="yp-tcard-t">Discount</span>
+          <span class="yp-tcard-sub">Below face value</span>
+        </button>
+        <button type="button" class="yp-tcard p" data-k="par">
+          <span class="yp-tcard-t">Par</span>
+          <span class="yp-tcard-sub">Exactly face value</span>
+        </button>
+        <button type="button" class="yp-tcard m" data-k="premium">
+          <span class="yp-tcard-t">Premium</span>
+          <span class="yp-tcard-sub">Above face value</span>
+        </button>
+      </div>
+      <div class="yp-tcbox" id="yp-tcbox">Tap a card above to see what drives it.</div>
+      <p class="yp-count" id="yp-tc-count">Revealed 0 Of 3</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="yp-sec yp-reveal" data-step="5">
+      <p class="yp-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="yp-h2">Myth Or Fact?</h2>
+      <p class="yp-p">Five claims you'll hear about bond pricing. Tap your answer.</p>
+      <div class="yp-sort" id="yp-myth">
+        <div class="yp-sort-row" data-answer="myth"><span>A bond's coupon rate changes as interest rates change, so its payment always stays competitive.</span><div class="yp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="yp-why"><b>Myth.</b> The coupon rate is fixed for the bond's entire life. It's the price that adjusts to keep the bond competitive, not the coupon.</p></div>
+        <div class="yp-sort-row" data-answer="myth"><span>Current yield and yield to maturity are usually the exact same number.</span><div class="yp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="yp-why"><b>Myth.</b> They're only equal when a bond trades at exactly par. Anywhere else, they diverge — and yield to maturity is the more complete number.</p></div>
+        <div class="yp-sort-row" data-answer="fact"><span>When interest rates rise, prices on existing, fixed-coupon bonds tend to fall.</span><div class="yp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="yp-why"><b>Fact.</b> That's interest rate risk — new bonds pay more, so an older, lower-coupon bond's price has to drop to stay competitive.</p></div>
+        <div class="yp-sort-row" data-answer="myth"><span>A bond trading at a premium means something is wrong with the issuer.</span><div class="yp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="yp-why"><b>Myth.</b> A premium is usually just about timing — the bond's fixed coupon happens to beat what new bonds are paying today. It says nothing about credit risk on its own.</p></div>
+        <div class="yp-sort-row" data-answer="fact"><span>Yield to maturity accounts for the gap between a bond's purchase price and its face value, not just its coupon payments.</span><div class="yp-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="yp-why"><b>Fact.</b> That gap — a built-in gain or loss by maturity — is exactly what current yield leaves out and yield to maturity captures.</p></div>
+      </div>
+      <p class="yp-count" id="yp-myth-count">Answered 0 Of 5</p>
+      <div class="yp-reset-row"><button type="button" class="yp-reset-btn" id="yp-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · PRICE UP, OR PRICE DOWN? ========== -->
+    <section class="yp-sec yp-reveal" data-step="6">
+      <p class="yp-kicker">Four Scenarios · 6 / 8</p>
+      <h2 class="yp-h2">Price Up, Or Price Down?</h2>
+      <p class="yp-p">For each scenario — a small test of interest rate risk — what happens to the price of an existing, fixed-coupon bond? Tap your answer.</p>
+      <div class="yp-cases" id="yp-cases">
+        <div class="yp-case" data-ans="1">
+          <p class="yp-case-q">The Federal Reserve raises interest rates sharply across the economy.</p>
+          <div class="yp-copts2"><button type="button" data-i="0">Price Up</button><button type="button" data-i="1">Price Down</button></div>
+          <p class="yp-why"></p>
+        </div>
+        <div class="yp-case" data-ans="0">
+          <p class="yp-case-q">Interest rates fall broadly across the economy.</p>
+          <div class="yp-copts2"><button type="button" data-i="0">Price Up</button><button type="button" data-i="1">Price Down</button></div>
+          <p class="yp-why"></p>
+        </div>
+        <div class="yp-case" data-ans="0">
+          <p class="yp-case-q">A bond is trading at a premium today. Interest rates then fall further.</p>
+          <div class="yp-copts2"><button type="button" data-i="0">Price Up</button><button type="button" data-i="1">Price Down</button></div>
+          <p class="yp-why"></p>
+        </div>
+        <div class="yp-case" data-ans="1">
+          <p class="yp-case-q">A newly issued bond offers a 6% coupon. An older, otherwise identical bond still pays only 4%.</p>
+          <div class="yp-copts2"><button type="button" data-i="0">Price Up</button><button type="button" data-i="1">Price Down</button></div>
+          <p class="yp-why"></p>
+        </div>
+      </div>
+      <p class="yp-count" id="yp-case-count">Answered 0 Of 4</p>
+      <div class="yp-reset-row"><button type="button" class="yp-reset-btn" id="yp-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="yp-sec yp-reveal" data-step="7">
+      <p class="yp-kicker">Recap · 7 / 8</p>
+      <h2 class="yp-h2">Here's What You Now Know</h2>
+      <p class="yp-p">The whole lesson, in six lines.</p>
+      <div class="yp-recap">
+        <div class="yp-recap-item"><span class="yp-recap-check">✓</span><span>A bond's coupon rate and face value never change after it's issued — its market price is what moves.</span></div>
+        <div class="yp-recap-item"><span class="yp-recap-check">✓</span><span>When interest rates rise, existing fixed-coupon bond prices fall. When rates fall, those prices rise. That's interest rate risk.</span></div>
+        <div class="yp-recap-item"><span class="yp-recap-check">✓</span><span>Current yield is just the coupon divided by price. Yield to maturity is the more complete number — it also accounts for any gap between price and face value.</span></div>
+        <div class="yp-recap-item"><span class="yp-recap-check">✓</span><span>A bond trades at par, a premium, or a discount depending only on how its fixed coupon compares to what new bonds are paying today.</span></div>
+        <div class="yp-recap-item"><span class="yp-recap-check">✓</span><span>A premium or a discount, by itself, says nothing about an issuer's health — that's credit risk, a separate question entirely.</span></div>
+        <div class="yp-recap-item"><span class="yp-recap-check">✓</span><span>This lesson covered direction only. How much a given rate move actually moves a price — and why that differs bond to bond — is next.</span></div>
+      </div>
+      <div class="yp-next-move">Your next move: <b>next time you hear a rate decision in the news, ask what it would do to a bond you already own.</b> Up or down is the whole mechanism in one question.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="yp-sec yp-center yp-reveal" data-step="8">
+      <p class="yp-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="yp-hero-ico">🚀</span>
+      <h2 class="yp-h2 center">You've Finished The Lesson</h2>
+      <p class="yp-sub center">Module 5 continues. Next: why the same rate move hits a 2-year bond and a 20-year bond very differently.</p>
+      <div class="yp-finish">
+        <span class="yp-finish-arrow" id="yp-fin-arrow" aria-hidden="true">↓</span>
+        <p class="yp-finish-lead" id="yp-fin-lead">Scroll Down To Continue</p>
+        <p class="yp-finish-sub" id="yp-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="yp-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="yp-pullquote">"<span class="yp-green">INTEREST RATES ARE TO ASSET PRICES, YOU KNOW, SORT OF LIKE GRAVITY IS TO THE APPLE.</span>"<br><span class="yp-pullquote-by">— WARREN BUFFETT, 2013 BERKSHIRE HATHAWAY ANNUAL MEETING</span></p>
+    </section>
+
+    <p class="yp-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including interest rate risk, and past performance never guarantees future results. The bond used throughout this lesson (10-year, 5% semiannual coupon, $1,000 face value) is a deliberately round, illustrative example, not a real issuer's bond. All yield figures shown are computed live from standard bond-pricing math, verified against a known textbook test case before this lesson shipped. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="yp-nav" id="yp-nav">
+      <button type="button" class="yp-nav-btn prev" id="yp-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="yp-nav-hint" id="yp-nav-hint"></span>
+      <button type="button" class="yp-nav-btn next" id="yp-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-yp{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-yp *,#tn-yp *::before,#tn-yp *::after{box-sizing:border-box;}
+  #tn-yp .yp-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-yp .yp-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-yp .yp-reveal.in{opacity:1; transform:none;}
+  #tn-yp .yp-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-yp .yp-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-yp .yp-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-yp .yp-bico{display:flex;}
+  #tn-yp .yp-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-yp .yp-bsub{color:var(--ink2); font-weight:500;}
+  #tn-yp .yp-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-yp #yp-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-yp .yp-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-yp .yp-meta #yp-slide-label{color:var(--ink2);}
+  #tn-yp .yp-meta #yp-slide-count{color:var(--mut);}
+  #tn-yp .yp-sec{padding:16px 0 8px;}
+  #tn-yp .yp-sec.yp-hide{display:none;}
+  #tn-yp .yp-center{text-align:center;}
+  #tn-yp .yp-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-yp .yp-kicker.center{text-align:center;}
+  #tn-yp .yp-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-yp .yp-h2.center{text-align:center;}
+  #tn-yp .yp-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-yp .yp-p b{color:var(--ink); font-weight:700;}
+  #tn-yp .yp-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-yp .yp-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-yp .yp-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-yp .yp-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-yp .yp-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-yp .yp-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-yp .yp-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,4.6vw,32px); line-height:1.2; text-align:center; margin:8px 0 14px;}
+  #tn-yp .yp-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-yp .yp-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-yp .yp-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-yp .yp-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-yp .yp-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-yp .yp-vocab-chip:hover{filter:brightness(.97);}
+  #tn-yp .yp-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-yp .yp-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-yp .yp-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-yp .yp-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-yp .yp-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-yp .yp-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · live bond-price calculator (creative 1 of 1) */
+  #tn-yp .yp-quote{max-width:480px; margin:0 auto; background:#0B1016; border-radius:18px; padding:18px;}
+  #tn-yp .yp-quote-fixed{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid #1C2530;}
+  #tn-yp .yp-quote-fixed span{font-size:10.5px; color:#7C8A9A; display:flex; flex-direction:column; gap:3px;}
+  #tn-yp .yp-quote-fixed b{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:#fff;}
+  #tn-yp .yp-quote-prices{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-bottom:14px;}
+  #tn-yp .yp-price-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:#fff; background:#141B23; border:1.5px solid #222D38; border-radius:10px; padding:10px 4px; cursor:pointer; transition:all .15s;}
+  #tn-yp .yp-price-btn:hover{border-color:#3A4450;}
+  #tn-yp .yp-price-btn.on{background:var(--g); border-color:var(--g);}
+  #tn-yp .yp-quote-out{display:grid; grid-template-columns:repeat(3,1fr); gap:8px;}
+  #tn-yp .yp-quote-stat{background:#141B23; border-radius:11px; padding:10px 6px; text-align:center;}
+  #tn-yp .yp-quote-lab{display:block; font-size:9.5px; color:#7C8A9A; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:4px;}
+  #tn-yp .yp-quote-val{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:#fff; font-variant-numeric:tabular-nums;}
+  #tn-yp .yp-quote-val.discount{color:#FF6B57;}
+  #tn-yp .yp-quote-val.premium{color:var(--g);}
+  #tn-yp .yp-quote-val.par{color:#8FE3C2;}
+  /* 3 · comparison cards */
+  #tn-yp .yp-compare{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-yp .yp-cbtn{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:16px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-yp .yp-cbtn.a{border:1.5px solid var(--cardbd);}
+  #tn-yp .yp-cbtn.b{border:1.5px solid var(--selbd);}
+  #tn-yp .yp-cbtn:hover{filter:brightness(.97);}
+  #tn-yp .yp-cbtn.done.a{background:var(--mist);}
+  #tn-yp .yp-cbtn.done.b{background:var(--tint);}
+  #tn-yp .yp-cbtn-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); text-align:center;}
+  #tn-yp .yp-cbtn-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-yp .yp-cbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-yp .yp-cbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · three-card comparison */
+  #tn-yp .yp-threecol{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-yp .yp-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-yp .yp-tcard.d{border:1.5px solid var(--nobd);}
+  #tn-yp .yp-tcard.p{border:1.5px solid var(--cardbd);}
+  #tn-yp .yp-tcard.m{border:1.5px solid var(--selbd);}
+  #tn-yp .yp-tcard:hover{filter:brightness(.97);}
+  #tn-yp .yp-tcard.done.d{background:var(--nobg);}
+  #tn-yp .yp-tcard.done.p{background:var(--mist);}
+  #tn-yp .yp-tcard.done.m{background:var(--tint);}
+  #tn-yp .yp-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:center;}
+  #tn-yp .yp-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-yp .yp-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-yp .yp-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-yp .yp-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-yp .yp-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-yp .yp-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-yp .yp-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-yp .yp-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-yp .yp-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-yp .yp-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-yp .yp-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-yp .yp-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-yp .yp-sort-row.done .yp-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-yp .yp-sort-row.done .yp-sort-btns button.picked{opacity:1;}
+  #tn-yp .yp-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-yp .yp-why b{font-family:'Poppins',sans-serif;}
+  #tn-yp .yp-sort-row .yp-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-yp .yp-sort-row.done .yp-why{display:block;}
+  /* 6 · scenarios */
+  #tn-yp .yp-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-yp .yp-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-yp .yp-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-yp .yp-copts2{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-yp .yp-copts2 button{flex:1; min-width:120px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-yp .yp-copts2 button:hover{border-color:var(--selbd);}
+  #tn-yp .yp-case.done .yp-copts2 button{opacity:.35; pointer-events:none;}
+  #tn-yp .yp-case.done .yp-copts2 button.picked{opacity:1;}
+  #tn-yp .yp-case.done .yp-copts2 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-yp .yp-case.done .yp-copts2 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-yp .yp-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-yp .yp-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-yp .yp-case.done .yp-why{display:block;}
+  /* recap + complete */
+  #tn-yp .yp-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-yp .yp-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-yp .yp-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-yp .yp-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-yp .yp-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-yp .yp-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-yp .yp-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-yp .yp-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:yp-bob 1.6s ease-in-out infinite;}
+  #tn-yp .yp-finish-arrow.up{animation-name:yp-bob-up;}
+  @keyframes yp-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes yp-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-yp .yp-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-yp .yp-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-yp .yp-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-yp .yp-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-yp .yp-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-yp .yp-green{color:var(--g);}
+  #tn-yp .yp-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-yp .yp-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-yp .yp-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-yp .yp-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-yp .yp-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-yp .yp-nav-btn.prev{color:var(--ink2);}
+  #tn-yp .yp-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-yp .yp-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-yp .yp-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-yp .yp-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-yp .yp-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-yp .yp-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-yp .yp-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-yp .yp-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .yp-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .yp-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-yp .yp-wrap{padding:12px 14px 30px;}
+    #tn-yp .yp-quote-prices{grid-template-columns:repeat(3,1fr);}
+    #tn-yp .yp-quote-out{grid-template-columns:1fr;}
+    #tn-yp .yp-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-yp .yp-tcard{flex-direction:row; justify-content:space-between; padding:12px 14px;}
+    #tn-yp .yp-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-yp .yp-copts2 button{min-width:0; flex:1 1 100%;}
+    #tn-yp .yp-bsub{display:none;}
+    #tn-yp .yp-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-yp .yp-nav{padding-top:10px; row-gap:0;}
+    #tn-yp .yp-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-yp .yp-reveal{opacity:1 !important; transform:none !important;}
+    #tn-yp #yp-bar{transition:none;}
+    #tn-yp .yp-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-yp'); if(!root) return;
+  root.querySelectorAll('.yp-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('yp-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#yp-vocab-def');
+  root.querySelectorAll('#yp-vocab-chips .yp-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#yp-vocab-chips .yp-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* shared bond-pricing math, verified against a 10yr/5%/$1000/$925.61->6.00% YTM test case */
+  function priceFromYTM(face, couponRate, years, ytm, freq){
+    var n=Math.round(years*freq), c=face*couponRate/freq, r=ytm/freq, pv=0;
+    for(var t=1;t<=n;t++) pv+=c/Math.pow(1+r,t);
+    pv+=face/Math.pow(1+r,n);
+    return pv;
+  }
+  function ytmFromPrice(face, couponRate, years, price, freq){
+    var lo=0.0001, hi=1.0, mid=0;
+    for(var i=0;i<100;i++){
+      mid=(lo+hi)/2;
+      var p=priceFromYTM(face,couponRate,years,mid,freq);
+      if(Math.abs(p-price)<0.0001) break;
+      if(p>price) lo=mid; else hi=mid;
+    }
+    return mid;
+  }
+
+  /* 2 · watch the price move (creative 1 of 1) */
+  (function(){
+    var btns=root.querySelectorAll('.yp-price-btn'), statusEl=root.querySelector('#yp-out-status'),
+        cyEl=root.querySelector('#yp-out-cy'), ytmEl=root.querySelector('#yp-out-ytm'),
+        countEl=root.querySelector('#yp-quote-count');
+    if(!btns.length) return;
+    var FACE=1000, COUPON=0.05, YEARS=10, FREQ=2;
+    var tried={};
+    btns.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        btns.forEach(function(b){ b.classList.remove('on'); });
+        btn.classList.add('on');
+        var price=+btn.getAttribute('data-price');
+        var cy=(FACE*COUPON)/price;
+        var ytm=ytmFromPrice(FACE,COUPON,YEARS,price,FREQ);
+        var state_= price<FACE ? 'discount' : (price>FACE ? 'premium' : 'par');
+        statusEl.textContent = price<FACE ? 'Discount' : (price>FACE ? 'Premium' : 'Par');
+        statusEl.className='yp-quote-val '+state_;
+        cyEl.textContent=(cy*100).toFixed(2)+'%';
+        ytmEl.textContent=(ytm*100).toFixed(2)+'%';
+        var k=btn.getAttribute('data-price');
+        if(!tried[k]){ tried[k]=1; countEl.textContent='Tried '+keys(tried)+' Of 5'; state('quote', keys(tried)); }
+        postHeight();
+      });
+    });
+  })();
+
+  /* 3 · current yield vs. yield to maturity */
+  var CYW={
+    cy:'$50 a year (the fixed coupon) ÷ $925 (the price today) ≈ 5.41%. Simple — but it ignores that you’d also get the full $1,000 face value back at maturity, a $75 gain over today’s price.',
+    ytm:'Accounts for everything: the coupon payments and that $75 gain, spread over the years remaining. For this bond: about 6.01% — lower than current yield alone would suggest, once that future gain is counted properly.'
+  };
+  var compSeen={}, cbox=root.querySelector('#yp-cbox'), compCount=root.querySelector('#yp-compare-count');
+  root.querySelectorAll('#yp-compare .yp-cbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      cbox.innerHTML='<b>'+btn.querySelector('.yp-cbtn-t').textContent+':</b> '+CYW[k];
+      compSeen[k]=1;
+      compCount.textContent='Revealed '+keys(compSeen)+' Of 2';
+      state('compare', keys(compSeen)); postHeight();
+    });
+  });
+
+  /* 4 · par, premium, or discount */
+  var TCW={
+    discount:'This bond’s fixed coupon pays less than what new, similar bonds pay today. Its price falls below face value until the combination of coupon and built-in gain catches up to current rates.',
+    par:'This bond’s fixed coupon happens to match exactly what new, similar bonds are paying today — so there’s no reason for its price to sit above or below face value.',
+    premium:'This bond’s fixed coupon pays more than what new, similar bonds pay today. Buyers are willing to pay extra for those bigger payments, pushing the price above face value.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#yp-tcbox'), tcCount=root.querySelector('#yp-tc-count');
+  root.querySelectorAll('#yp-threecol .yp-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.yp-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 3';
+      state('tc', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#yp-myth-count');
+  root.querySelectorAll('#yp-myth .yp-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.yp-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#yp-myth .yp-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#yp-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#yp-myth .yp-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · price up, or price down */
+  var CWHY=[
+    'Rates rise, so new bonds pay more. An older, lower-coupon bond has to get cheaper to offer a competitive return — price down.',
+    'Rates fall, so new bonds pay less. An older, now relatively generous coupon becomes more attractive — price up.',
+    'Falling rates push fixed-coupon bond prices up, regardless of whether that bond already sits at a premium or a discount — price up.',
+    'The older bond’s fixed 4% coupon is now less attractive than a new 6% bond. Its price has to fall below face value to stay competitive — price down.'
+  ];
+  var caseCount=root.querySelector('#yp-case-count');
+  root.querySelectorAll('#yp-cases .yp-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.yp-why');
+    c.querySelectorAll('.yp-copts2 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.yp-copts2 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#yp-cases .yp-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#yp-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#yp-cases .yp-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.yp-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('yp-fin-arrow'), lead=document.getElementById('yp-fin-lead'), sub=document.getElementById('yp-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-yp'); if(!root) return;
+  var ALT={};
+  var TERMS=[];
+  root.querySelectorAll('#yp-vocab-chips .yp-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.yp-p, .yp-sub, .yp-note, .yp-why, .yp-recap-item span, .yp-h2, .yp-next-move, .yp-sort-row > span, .yp-case-q, .yp-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.yp-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='yp-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='yp-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.yp-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.yp-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-yp'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#yp-bar'), labelEl=root.querySelector('#yp-slide-label'),
+      countEl=root.querySelector('#yp-slide-count'), prevBtn=root.querySelector('#yp-prev'),
+      nextBtn=root.querySelector('#yp-next'), hintEl=root.querySelector('#yp-nav-hint'),
+      disclaimer=root.querySelector('.yp-disclaimer');
+  var labels={1:'Start Here',2:'Watch The Price Move',3:'Two Ways To Read It',4:'Above, At, Or Below Par',5:'Myth Or Fact',6:'Price Up, Or Down?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Try all 5 prices to continue',3:'Reveal both to continue',4:'Reveal all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.yp-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('yp-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('yp-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'quote',   need:5, hint:function(n){ return 'Tried '+n+' of 5 — try every price to continue'; }},
+    {step:3, key:'compare', need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both cards to continue'; }},
+    {step:4, key:'tc',      need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',   need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('yp-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

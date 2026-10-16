@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **21 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
+7 modules · 35 lessons · **22 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -57,12 +57,12 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 20 | Your Real Risk Tolerance vs. Your Stated One | `20-your-real-risk-tolerance-vs-your-stated-one.html` | 8 |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
 
-## Module 5 — Bonds And Cash, Properly 🔶 underway (1 of 5)
+## Module 5 — Bonds And Cash, Properly 🔶 underway (2 of 5)
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 21 | What You Actually Own When You Buy A Bond | `21-what-you-actually-own-when-you-buy-a-bond.html` | 8 |
-| 22 | Yield, Price, And Why They Move Opposite | — | — |
+| 22 | Yield, Price, And Why They Move Opposite | `22-yield-price-and-why-they-move-opposite.html` | 8 |
 | 23 | Duration: How Much Rates Will Hurt | — | — |
 | 24 | Bond Funds vs. Individual Bonds | — | — |
 | 25 | T-Bills, Money Market Funds, And HYSAs Compared | — | — |
@@ -596,6 +596,39 @@ directly in this environment, but the wording is consistent across
 multiple independent secondary sources citing that specific article
 and date. Checked for duplication against every other quote in the
 repo before shipping.
+
+**Lesson 22 ("Yield, Price, And Why They Move Opposite"), prefix
+`yp`:** scoped tightly against Lesson 21 (treats face value, coupon,
+and maturity as already known) and Lesson 23 (owns duration and "how
+much" a rate move actually moves a price) — this lesson covers
+direction only, never magnitude, including in its own recap line,
+which explicitly hands the "how much" question to the next lesson.
+One creative widget rather than two: a live bond-price calculator,
+since a second calculator-style widget would have meant back-to-back
+near-duplicate activities with Lesson 23's own. All numbers it shows
+are computed live in JavaScript from standard present-value bond
+-pricing math, ported from a Python implementation verified first
+against a standard textbook test case (a 10-year, 5% semiannual
+-coupon, $1,000 face bond priced at $925.61 must yield exactly 6.00%
+to maturity — confirmed to four decimal places before any JS was
+written). Deliberately did not re-chip "Premium Or Discount" (Lesson
+08 already uses that exact term for an ETF's market-price-to-NAV gap,
+a different mechanism); this lesson's own chip is named "Par, Premium,
+Or Discount" instead, with a definition that explicitly contrasts the
+two so a learner who's seen both doesn't conflate them. Two headings
+originally repeated their own chip terms verbatim ("Current Yield Vs.
+Yield To Maturity" and "Par, Premium, Or Discount" as literal h2
+text) — the same "Bear Market" class of bug from Lesson 16 — caught
+by the harness and reworded to "Two Ways To Read The Same Bond" and
+"Above, At, Or Below Face Value." Closing quote: Warren Buffett's
+2013 Berkshire Hathaway annual-meeting remark on interest rates and
+asset prices, using the actual transcript wording rather than the
+more widely circulated tidied-up paraphrase, after two search attempts
+for a quote specific to bond pricing came back without anything
+confirmable — the same preference for original wording over a popular
+cleaned-up version already applied to this course's Graham and Tyson
+quotes, and the same two-attempt-then-fall-back discipline applied
+going forward for the rest of this module.
 
 What was fixed in the Module 1–2 backlog pass:
 

@@ -56,6 +56,7 @@ Every lesson gets a unique two-letter prefix. Used so far:
 | `cc` | Concentration Risk: Company Stock And RSUs |
 | `rt` | Your Real Risk Tolerance vs. Your Stated One |
 | `bd` | What You Actually Own When You Buy A Bond |
+| `yp` | Yield, Price, And Why They Move Opposite |
 
 Pick a new unused prefix for each new lesson. Then:
 
@@ -332,6 +333,7 @@ mutually-exclusive, permanently-locking questionnaire answer -> real $ outcome r
 predict-then-reveal (guess a real published figure, then see it and the mechanism)
 annotated real-document reconstruction, tap-reveal fields (bond confirmation)
 tap-to-build an ordered list (unordered pool -> sequential slots, not drag-and-drop)
+live bond-quote calculator (verified present-value math, five price presets)
 ```
 
 **Limit: 1–2 creative widgets per lesson.** The rest are standard formats, which are
