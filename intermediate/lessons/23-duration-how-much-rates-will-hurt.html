@@ -1,0 +1,750 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — DURATION: HOW MUCH RATES WILL HURT
+     (Intermediate · Module 5 · Lesson 23)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-du. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  One Rate Move, Four Bonds (creative)
+       3  2022, In Real Numbers             4  Close, But Not Exact
+       5  Myth Or Fact (5)                  6  Which Bond's Price Moves More? (4)
+       7  Recap (6)                         8  Complete
+     Scope, deliberately: Lesson 22 owns the DIRECTION of a price move (up when
+     rates fall, down when rates rise) and treats every bond as reacting the same
+     way. This lesson owns the MAGNITUDE question Lesson 22's own recap explicitly
+     handed off: how much a given rate move actually moves a price, and why that
+     differs bond to bond. Does not re-chip Interest Rate Risk or Basis Point
+     (Lesson 22) or Credit Risk / Credit Rating (Lesson 21) — all three are used by
+     name only, to show duration is a separate, independent measurement. Does not
+     cover bond funds' own duration mechanics (share turnover, laddering) — Lesson
+     24 owns bond funds vs. individual bonds entirely.
+     Chip-collision grep run before writing (repo root + intermediate/lessons/) for
+     Duration, Modified Duration, Convexity, Parallel Shift, Rate Shock — none
+     found; prefix `du` confirmed unused repo-wide. The hover-term scanner's TERMS
+     array sorts longest-phrase-first before scanning, so "Modified Duration"
+     always wraps before the shorter "Duration" can eat into it — verified in this
+     lesson's own copy of that script, inherited unchanged from Lessons 21/22.
+     Heading collisions caught and avoided before shipping: slide 2's h2 was
+     originally "Same Rate Shock, Four Bonds" (contains the "Rate Shock" chip
+     verbatim) and slide 4's was "Duration Isn't Exact" (contains "Duration") —
+     both reworded ("One Rate Move, Four Bonds" / "Close, But Not Exact") so the
+     harness's inHeadings check has nothing to flag, the same bug pattern fixed in
+     Lessons 21 and 22's headings.
+     Math, verified in Python against two known test vectors before any JS or copy
+     was written: (1) a 10-year, 5% semiannual-coupon, $1,000-face bond priced at
+     $925.61 yields to maturity exactly 6.00% (same vector used in Lesson 22); (2)
+     that same bond, priced at par (ytm = 5%), has a Macaulay duration of 7.99
+     years and a modified duration of 7.79 years — matching the standard textbook
+     answer for this exact bond. All numbers below are hardcoded from that verified
+     run, not recomputed live in the browser, since every bond shown here is a
+     fixed, illustrative case rather than a user-adjustable one:
+       Slide 2 — four bonds, all 5% coupon, all priced at par, same +1% parallel
+       shift: 2yr mod. duration 1.88 (est. -1.88%, actual -1.86%); 5yr 4.38
+       (est. -4.38%, actual -4.27%); 10yr 7.79 (est. -7.79%, actual -7.44%); 20yr
+       12.55 (est. -12.55%, actual -11.56%).
+       Slide 4 — the same 10-year 5% bond at two shock sizes: +1% (estimate -7.79%,
+       actual -7.44%, a 0.35-point gap) and +3% (estimate -23.38%, actual -20.39%,
+       a 2.99-point gap) — the gap nearly nine times wider for a shock three times
+       the size, which is the convexity point made concrete.
+     Real-world figures (slide 3): iShares' own published effective duration for
+     SHY (1–3 Year Treasury Bond ETF) is roughly 1.8–1.9 years; TLT (20+ Year
+     Treasury Bond ETF) is hedged here as "roughly 17–18 years" since two
+     reasonably current sources disagreed by about a year. 2022 total returns:
+     SHY approximately -3.9%, TLT -31.4% — the TLT figure is the same one already
+     verified in Lesson 17's header and reused here with an explicit callback to
+     it, rather than re-derived.
+     Creative widget, 1 of 2 allowed (deliberately just one — Lesson 22 already
+     used its own "two calculators in a row" caution; this lesson's one creative
+     slide is enough on its own): slide 2's four-bond dashboard, where tapping
+     each bond opens it in place and keeps every opened bond visible at once, so
+     the learner can compare all four side by side rather than losing the
+     previous one — the comparison IS the teaching point.
+     Quote search: one search run at the end of the build (per this course's
+     "two attempts max, then fall back to a verifiable primary-source line" rule,
+     already well exceeded earlier in this session on a near-duplicate — see
+     Lesson 24's reservation of the Bogle "time is your friend" line below) turned
+     up no safely-attributable quote specifically about duration. Falling back to
+     Alan Greenspan's February 2005 testimony to the Senate Banking Committee
+     describing long-term bond yields as a "conundrum" — a famous, well-documented
+     remark squarely about interest rates and bond market behavior from the most
+     quotable rate-setting voice there is, rather than a forced, unverifiable
+     attribution to a book or memo passage. Checked for duplication
+     (`grep -ril "conundrum"` across this repo) before shipping — unique.
+     Note for Lesson 24: John Bogle's "Time is your friend; impulse is your enemy"
+     was considered for this lesson and deliberately held back — ending a
+     magnitude-of-loss lesson on "time is your friend" would undercut the point
+     just taught. It fits Lesson 24 (holding a bond fund through a rate shock vs.
+     panic-selling it) and should be attributed only as "— John C. Bogle" there
+     unless a specific book or essay is independently confirmed.
+     ============================================================ -->
+<div id="tn-du">
+  <div class="du-wrap">
+    <div class="du-top">
+      <div class="du-topbar">
+        <div class="du-brand"><span class="du-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="du-word">TURNIT</span><span class="du-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="du-progress"><span id="du-bar"></span></div>
+      <div class="du-meta"><span id="du-slide-label">Start Here</span><span id="du-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="du-sec du-center du-reveal" data-step="1">
+      <p class="du-kicker center">The Number That Measures The Pain · 1 / 8</p>
+      <h1 class="du-hero-title">DURATION: <span class="du-hero-grad">HOW MUCH RATES WILL HURT</span></h1>
+      <p class="du-sub center">Lesson 22 showed that bond prices move opposite to interest rates. This lesson puts a number on it — and that number isn't the same for every bond.</p>
+      <div class="du-vocab">
+        <span class="du-vocab-label">Key Terms In This Lesson</span>
+        <div class="du-vocab-chips" id="du-vocab-chips">
+          <button type="button" class="du-vocab-chip" data-t="Duration" data-def="A single number, in years, that estimates how sensitive a bond's price is to a change in interest rates. The longer a bond's duration, the more its price moves for the same change in rates.">Duration</button>
+          <button type="button" class="du-vocab-chip" data-t="Modified Duration" data-def="The specific version of duration used to estimate a percentage price change: for roughly every 1% move in interest rates, a bond's price moves by about that many percent, in the opposite direction.">Modified Duration</button>
+          <button type="button" class="du-vocab-chip" data-t="Convexity" data-def="The reason duration's estimate is only approximate — a bond's actual price doesn't move in a perfectly straight line as rates change, so duration gets less accurate the bigger the rate move.">Convexity</button>
+          <button type="button" class="du-vocab-chip" data-t="Parallel Shift" data-def="The assumption, built into any single duration number, that every interest rate across every maturity moves by the same amount at the same time. Real rate moves aren't always this clean.">Parallel Shift</button>
+          <button type="button" class="du-vocab-chip" data-t="Rate Shock" data-def="A sudden, broad move in prevailing interest rates, often used to stress-test how much a bond or bond portfolio's price could move.">Rate Shock</button>
+        </div>
+        <div class="du-vocab-def" id="du-vocab-def">Tap a term to see what it means.</div>
+        <span class="du-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="du-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · ONE RATE MOVE, FOUR BONDS ========== -->
+    <section class="du-sec du-reveal" data-step="2">
+      <p class="du-kicker">Four Bonds, One Rate Shock · 2 / 8</p>
+      <h2 class="du-h2">One Rate Move, Four Bonds</h2>
+      <p class="du-p">Four bonds, each a 5% coupon priced exactly at par. Apply the exact same rate shock — a parallel shift of +1% — to all four at once. Tap each to reveal its duration and what that one move actually does to its price.</p>
+      <div class="du-dash" id="du-dash">
+        <button type="button" class="du-dcard" data-k="2">
+          <span class="du-dcard-t">2-Year Bond</span><span class="du-dcard-sub">5% Coupon, At Par</span>
+          <span class="du-dcard-cta">Tap To Reveal</span>
+          <div class="du-dcard-out">
+            <span><b>Modified Duration</b> 1.88 Years</span>
+            <span><b>Estimated Change</b> −1.88%</span>
+            <span><b>Actual Change</b> −1.86%</span>
+          </div>
+        </button>
+        <button type="button" class="du-dcard" data-k="5">
+          <span class="du-dcard-t">5-Year Bond</span><span class="du-dcard-sub">5% Coupon, At Par</span>
+          <span class="du-dcard-cta">Tap To Reveal</span>
+          <div class="du-dcard-out">
+            <span><b>Modified Duration</b> 4.38 Years</span>
+            <span><b>Estimated Change</b> −4.38%</span>
+            <span><b>Actual Change</b> −4.27%</span>
+          </div>
+        </button>
+        <button type="button" class="du-dcard" data-k="10">
+          <span class="du-dcard-t">10-Year Bond</span><span class="du-dcard-sub">5% Coupon, At Par</span>
+          <span class="du-dcard-cta">Tap To Reveal</span>
+          <div class="du-dcard-out">
+            <span><b>Modified Duration</b> 7.79 Years</span>
+            <span><b>Estimated Change</b> −7.79%</span>
+            <span><b>Actual Change</b> −7.44%</span>
+          </div>
+        </button>
+        <button type="button" class="du-dcard" data-k="20">
+          <span class="du-dcard-t">20-Year Bond</span><span class="du-dcard-sub">5% Coupon, At Par</span>
+          <span class="du-dcard-cta">Tap To Reveal</span>
+          <div class="du-dcard-out">
+            <span><b>Modified Duration</b> 12.55 Years</span>
+            <span><b>Estimated Change</b> −12.55%</span>
+            <span><b>Actual Change</b> −11.56%</span>
+          </div>
+        </button>
+      </div>
+      <p class="du-count" id="du-dash-count">Revealed 0 Of 4</p>
+      <p class="du-disclaimer-inline">Same coupon, same starting price, same rate shock on all four — the only thing that differs is how far out each bond's cash flows sit. Figures computed in Python and verified against a standard textbook test case before this lesson shipped.</p>
+    </section>
+
+    <!-- ========== 3 · 2022, IN REAL NUMBERS ========== -->
+    <section class="du-sec du-reveal" data-step="3">
+      <p class="du-kicker">A Real Rate Shock, Not A Hypothetical One · 3 / 8</p>
+      <h2 class="du-h2">2022, In Real Numbers</h2>
+      <p class="du-p">2022 delivered one of the fastest rate shocks in decades. Two real Treasury ETFs, same issuer, wildly different duration. Tap each to see what that one year actually did to its price.</p>
+      <div class="du-compare" id="du-compare">
+        <button type="button" class="du-cbtn a" data-k="shy">
+          <span class="du-cbtn-t">Short-Term Treasuries</span>
+          <span class="du-cbtn-sub">~1.8–1.9 Years Duration</span>
+        </button>
+        <button type="button" class="du-cbtn b" data-k="tlt">
+          <span class="du-cbtn-t">Long-Term Treasuries</span>
+          <span class="du-cbtn-sub">~17–18 Years Duration</span>
+        </button>
+      </div>
+      <div class="du-cbox" id="du-cbox">Tap a card above to see 2022's actual result.</div>
+      <p class="du-count" id="du-compare-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 4 · CLOSE, BUT NOT EXACT ========== -->
+    <section class="du-sec du-reveal" data-step="4">
+      <p class="du-kicker">Why The Estimate And The Actual Never Quite Match · 4 / 8</p>
+      <h2 class="du-h2">Close, But Not Exact</h2>
+      <p class="du-p">The same 10-year, 5% bond from slide 2, now pushed by two different rate moves. Duration's straight-line estimate holds up fine for a small move — and drifts further off for a bigger one. Tap each to compare.</p>
+      <div class="du-threecol" id="du-twocol">
+        <button type="button" class="du-tcard d" data-k="small">
+          <span class="du-tcard-t">Small Move</span>
+          <span class="du-tcard-sub">Rates +1%</span>
+        </button>
+        <button type="button" class="du-tcard m" data-k="large">
+          <span class="du-tcard-t">Large Move</span>
+          <span class="du-tcard-sub">Rates +3%</span>
+        </button>
+      </div>
+      <div class="du-tcbox" id="du-tcbox">Tap a card above to compare the estimate against the actual result.</div>
+      <p class="du-count" id="du-tc-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="du-sec du-reveal" data-step="5">
+      <p class="du-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="du-h2">Myth Or Fact?</h2>
+      <p class="du-p">Five claims you'll hear about duration. Tap your answer.</p>
+      <div class="du-sort" id="du-myth">
+        <div class="du-sort-row" data-answer="myth"><span>Duration just tells you how many years until a bond matures.</span><div class="du-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="du-why"><b>Myth.</b> Maturity is one input, but duration also weighs every coupon payment received along the way — which is why a coupon-paying bond's duration is almost always shorter than its maturity.</p></div>
+        <div class="du-sort-row" data-answer="fact"><span>A bond with a longer duration is more sensitive to interest rate changes than one with a shorter duration.</span><div class="du-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="du-why"><b>Fact.</b> That's the entire point of the number — it ranks bonds by how hard a given rate move will hit their price.</p></div>
+        <div class="du-sort-row" data-answer="myth"><span>Duration gives you an exact price change, down to the penny.</span><div class="du-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="du-why"><b>Myth.</b> It's a straight-line approximation. The bigger the rate move, the further the estimate drifts from the actual result — that's convexity.</p></div>
+        <div class="du-sort-row" data-answer="fact"><span>Two bonds can have very different credit ratings but the exact same duration.</span><div class="du-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="du-why"><b>Fact.</b> Duration measures rate sensitivity. Credit rating measures default risk. They're entirely separate questions about the same bond.</p></div>
+        <div class="du-sort-row" data-answer="fact"><span>A zero-coupon bond's duration equals its time to maturity exactly.</span><div class="du-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="du-why"><b>Fact.</b> With no coupon payments along the way, every dollar of cash flow arrives in one lump at maturity — so there's nothing earlier to pull the duration shorter.</p></div>
+      </div>
+      <p class="du-count" id="du-myth-count">Answered 0 Of 5</p>
+      <div class="du-reset-row"><button type="button" class="du-reset-btn" id="du-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH BOND'S PRICE MOVES MORE? ========== -->
+    <section class="du-sec du-reveal" data-step="6">
+      <p class="du-kicker">Four Scenarios · 6 / 8</p>
+      <h2 class="du-h2">Which Bond's Price Moves More?</h2>
+      <p class="du-p">A small test of how duration actually behaves. Tap your answer for each.</p>
+      <div class="du-cases" id="du-cases">
+        <div class="du-case" data-ans="1">
+          <p class="du-case-q">Two bonds, same credit rating, same coupon. Bond A matures in 3 years. Bond B matures in 25 years. Rates rise by 1%. Which one's price falls more?</p>
+          <div class="du-copts"><button type="button" data-i="0">Bond A Falls More</button><button type="button" data-i="1">Bond B Falls More</button></div>
+          <p class="du-why"></p>
+        </div>
+        <div class="du-case" data-ans="2">
+          <p class="du-case-q">A Treasury bond and a corporate bond happen to share the exact same duration. Rates rise by 1%. Which one's price is more exposed to that specific move?</p>
+          <div class="du-copts"><button type="button" data-i="0">The Treasury</button><button type="button" data-i="1">The Corporate</button><button type="button" data-i="2">Equally Exposed</button></div>
+          <p class="du-why"></p>
+        </div>
+        <div class="du-case" data-ans="0">
+          <p class="du-case-q">Two 10-year bonds, same credit rating. Bond A pays a 2% coupon. Bond B pays a 7% coupon. Rates rise by 1%. Which one's price falls more, in percentage terms?</p>
+          <div class="du-copts"><button type="button" data-i="0">Bond A Falls More</button><button type="button" data-i="1">Bond B Falls More</button></div>
+          <p class="du-why"></p>
+        </div>
+        <div class="du-case" data-ans="1">
+          <p class="du-case-q">A 10-year bond and a 20-year bond, same coupon, same credit quality. This time rates FALL by 1%. Which one's price rises more?</p>
+          <div class="du-copts"><button type="button" data-i="0">The 10-Year Rises More</button><button type="button" data-i="1">The 20-Year Rises More</button></div>
+          <p class="du-why"></p>
+        </div>
+      </div>
+      <p class="du-count" id="du-case-count">Answered 0 Of 4</p>
+      <div class="du-reset-row"><button type="button" class="du-reset-btn" id="du-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="du-sec du-reveal" data-step="7">
+      <p class="du-kicker">Recap · 7 / 8</p>
+      <h2 class="du-h2">Here's What You Now Know</h2>
+      <p class="du-p">The whole lesson, in six lines.</p>
+      <div class="du-recap">
+        <div class="du-recap-item"><span class="du-recap-check">✓</span><span>Duration is a single number, in years, that estimates how sensitive a bond's price is to a change in rates — the longer the duration, the bigger the swing.</span></div>
+        <div class="du-recap-item"><span class="du-recap-check">✓</span><span>The same 1% rate move hits a 2-year bond and a 20-year bond very differently: the longer bond's price moved roughly six times as much.</span></div>
+        <div class="du-recap-item"><span class="du-recap-check">✓</span><span>Duration's estimate assumes a clean parallel shift and gets less accurate the bigger the move — that gap is convexity.</span></div>
+        <div class="du-recap-item"><span class="du-recap-check">✓</span><span>A lower coupon can stretch a bond's duration even at the exact same maturity, because more of its value sits further out in time.</span></div>
+        <div class="du-recap-item"><span class="du-recap-check">✓</span><span>Duration measures interest rate risk, not credit risk — two bonds with very different credit ratings can share the exact same duration.</span></div>
+        <div class="du-recap-item"><span class="du-recap-check">✓</span><span>Next: what it actually feels like to hold a bond fund through a rate shock, versus holding one bond yourself.</span></div>
+      </div>
+      <div class="du-next-move">Your next move: <b>before buying any bond or bond fund, find its duration first.</b> It tells you more about what a rate move will do to you than the maturity date ever will.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="du-sec du-center du-reveal" data-step="8">
+      <p class="du-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="du-hero-ico">🚀</span>
+      <h2 class="du-h2 center">You've Finished The Lesson</h2>
+      <p class="du-sub center">Module 5 continues. Next: bond funds vs. individual bonds — and the "hold to maturity means no loss" myth, finally put to rest.</p>
+      <div class="du-finish">
+        <span class="du-finish-arrow" id="du-fin-arrow" aria-hidden="true">↓</span>
+        <p class="du-finish-lead" id="du-fin-lead">Scroll Down To Continue</p>
+        <p class="du-finish-sub" id="du-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="du-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="du-pullquote">"<span class="du-green">THE BROADLY UNANTICIPATED BEHAVIOR OF WORLD BOND MARKETS REMAINS A CONUNDRUM.</span>"<br><span class="du-pullquote-by">— ALAN GREENSPAN, TESTIMONY TO THE SENATE BANKING COMMITTEE, FEBRUARY 2005</span></p>
+    </section>
+
+    <p class="du-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including interest rate risk, and past performance never guarantees future results. Duration estimates shown are approximate — a bond's actual price change for a given rate move can differ from the estimate, especially for larger moves (convexity). SHY and TLT are named only to illustrate a real, historical rate shock; this is not a recommendation to buy, sell, or hold either one. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="du-nav" id="du-nav">
+      <button type="button" class="du-nav-btn prev" id="du-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="du-nav-hint" id="du-nav-hint"></span>
+      <button type="button" class="du-nav-btn next" id="du-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-du{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-du *,#tn-du *::before,#tn-du *::after{box-sizing:border-box;}
+  #tn-du .du-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-du .du-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-du .du-reveal.in{opacity:1; transform:none;}
+  #tn-du .du-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-du .du-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-du .du-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-du .du-bico{display:flex;}
+  #tn-du .du-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-du .du-bsub{color:var(--ink2); font-weight:500;}
+  #tn-du .du-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-du #du-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-du .du-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-du .du-meta #du-slide-label{color:var(--ink2);}
+  #tn-du .du-meta #du-slide-count{color:var(--mut);}
+  #tn-du .du-sec{padding:16px 0 8px;}
+  #tn-du .du-sec.du-hide{display:none;}
+  #tn-du .du-center{text-align:center;}
+  #tn-du .du-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-du .du-kicker.center{text-align:center;}
+  #tn-du .du-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-du .du-h2.center{text-align:center;}
+  #tn-du .du-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-du .du-p b{color:var(--ink); font-weight:700;}
+  #tn-du .du-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-du .du-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-du .du-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-du .du-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-du .du-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-du .du-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-du .du-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,4.6vw,32px); line-height:1.2; text-align:center; margin:8px 0 14px;}
+  #tn-du .du-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-du .du-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-du .du-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-du .du-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-du .du-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-du .du-vocab-chip:hover{filter:brightness(.97);}
+  #tn-du .du-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-du .du-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-du .du-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-du .du-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-du .du-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-du .du-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · four-bond dashboard (creative 1 of 1) */
+  #tn-du .du-dash{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+  #tn-du .du-dcard{display:flex; flex-direction:column; align-items:center; gap:3px; border-radius:14px; padding:14px 12px; cursor:pointer; background:#fff; border:1.5px solid var(--cardbd); transition:all .15s; text-align:center;}
+  #tn-du .du-dcard:hover{border-color:var(--selbd);}
+  #tn-du .du-dcard.open{background:var(--tint); border-color:var(--selbd); cursor:default;}
+  #tn-du .du-dcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; color:var(--ink);}
+  #tn-du .du-dcard-sub{font-size:11px; color:var(--mut);}
+  #tn-du .du-dcard-cta{font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; color:var(--g); margin-top:6px;}
+  #tn-du .du-dcard.open .du-dcard-cta{display:none;}
+  #tn-du .du-dcard-out{display:none; flex-direction:column; gap:4px; margin-top:8px; width:100%; border-top:1px solid var(--selbd); padding-top:8px;}
+  #tn-du .du-dcard.open .du-dcard-out{display:flex;}
+  #tn-du .du-dcard-out span{font-size:11.5px; color:var(--ink2); display:flex; justify-content:space-between; gap:6px;}
+  #tn-du .du-dcard-out b{font-family:'Poppins',sans-serif; font-weight:700; color:var(--ink); font-size:10.5px;}
+  /* 3 · comparison cards */
+  #tn-du .du-compare{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-du .du-cbtn{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:16px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-du .du-cbtn.a{border:1.5px solid var(--cardbd);}
+  #tn-du .du-cbtn.b{border:1.5px solid var(--selbd);}
+  #tn-du .du-cbtn:hover{filter:brightness(.97);}
+  #tn-du .du-cbtn.done.a{background:var(--mist);}
+  #tn-du .du-cbtn.done.b{background:var(--tint);}
+  #tn-du .du-cbtn-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); text-align:center;}
+  #tn-du .du-cbtn-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-du .du-cbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-du .du-cbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · two-card comparison */
+  #tn-du .du-threecol{display:grid; grid-template-columns:repeat(2,1fr); gap:9px;}
+  #tn-du .du-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-du .du-tcard.d{border:1.5px solid var(--cardbd);}
+  #tn-du .du-tcard.m{border:1.5px solid var(--selbd);}
+  #tn-du .du-tcard:hover{filter:brightness(.97);}
+  #tn-du .du-tcard.done.d{background:var(--mist);}
+  #tn-du .du-tcard.done.m{background:var(--tint);}
+  #tn-du .du-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:center;}
+  #tn-du .du-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-du .du-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-du .du-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-du .du-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-du .du-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-du .du-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-du .du-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-du .du-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-du .du-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-du .du-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-du .du-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-du .du-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-du .du-sort-row.done .du-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-du .du-sort-row.done .du-sort-btns button.picked{opacity:1;}
+  #tn-du .du-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-du .du-why b{font-family:'Poppins',sans-serif;}
+  #tn-du .du-sort-row .du-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-du .du-sort-row.done .du-why{display:block;}
+  /* 6 · scenarios */
+  #tn-du .du-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-du .du-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-du .du-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-du .du-copts{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-du .du-copts button{flex:1; min-width:120px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-du .du-copts button:hover{border-color:var(--selbd);}
+  #tn-du .du-case.done .du-copts button{opacity:.35; pointer-events:none;}
+  #tn-du .du-case.done .du-copts button.picked{opacity:1;}
+  #tn-du .du-case.done .du-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-du .du-case.done .du-copts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-du .du-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-du .du-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-du .du-case.done .du-why{display:block;}
+  /* recap + complete */
+  #tn-du .du-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-du .du-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-du .du-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-du .du-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-du .du-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-du .du-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-du .du-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-du .du-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:du-bob 1.6s ease-in-out infinite;}
+  #tn-du .du-finish-arrow.up{animation-name:du-bob-up;}
+  @keyframes du-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes du-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-du .du-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-du .du-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-du .du-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-du .du-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-du .du-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-du .du-green{color:var(--g);}
+  #tn-du .du-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-du .du-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-du .du-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-du .du-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-du .du-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-du .du-nav-btn.prev{color:var(--ink2);}
+  #tn-du .du-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-du .du-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-du .du-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-du .du-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-du .du-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-du .du-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-du .du-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-du .du-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .du-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .du-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-du .du-wrap{padding:12px 14px 30px;}
+    #tn-du .du-dash{grid-template-columns:1fr;}
+    #tn-du .du-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-du .du-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-du .du-copts button{min-width:0; flex:1 1 100%;}
+    #tn-du .du-bsub{display:none;}
+    #tn-du .du-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-du .du-nav{padding-top:10px; row-gap:0;}
+    #tn-du .du-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-du .du-reveal{opacity:1 !important; transform:none !important;}
+    #tn-du #du-bar{transition:none;}
+    #tn-du .du-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-du'); if(!root) return;
+  root.querySelectorAll('.du-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('du-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#du-vocab-def');
+  root.querySelectorAll('#du-vocab-chips .du-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#du-vocab-chips .du-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · one rate move, four bonds (creative 1 of 1) — figures hardcoded, verified in Python */
+  (function(){
+    var cards=root.querySelectorAll('.du-dcard'), countEl=root.querySelector('#du-dash-count');
+    if(!cards.length) return;
+    var opened={};
+    cards.forEach(function(card){
+      card.addEventListener('click',function(){
+        if(card.classList.contains('open')) return;
+        card.classList.add('open');
+        var k=card.getAttribute('data-k');
+        opened[k]=1;
+        countEl.textContent='Revealed '+keys(opened)+' Of 4';
+        state('dash', keys(opened)); postHeight();
+      });
+    });
+  })();
+
+  /* 3 · 2022, in real numbers */
+  var CMPW={
+    shy:'A fund of Treasuries maturing in roughly 1–3 years, duration about 1.8–1.9 years. 2022 total return: approximately <b>-3.9%</b>. The fast rate shock barely touched it.',
+    tlt:'A fund of Treasuries maturing in 20+ years, duration roughly 17–18 years. 2022 total return: <b>-31.4%</b> — the same figure from Lesson 17’s look at volatility. Same issuer, same credit quality, almost entirely different outcome. That gap is duration.'
+  };
+  var compSeen={}, cbox=root.querySelector('#du-cbox'), compCount=root.querySelector('#du-compare-count');
+  root.querySelectorAll('#du-compare .du-cbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      cbox.innerHTML='<b>'+btn.querySelector('.du-cbtn-t').textContent+':</b> '+CMPW[k];
+      compSeen[k]=1;
+      compCount.textContent='Revealed '+keys(compSeen)+' Of 2';
+      state('compare', keys(compSeen)); postHeight();
+    });
+  });
+
+  /* 4 · close, but not exact (convexity) */
+  var TCW={
+    small:'Estimate: duration says <b>-7.79%</b>. Actual: the bond’s real price fell <b>-7.44%</b> — a gap of just 0.35 points. For a small move, the straight-line estimate is a solid approximation.',
+    large:'Estimate: duration says <b>-23.38%</b>. Actual: the bond’s real price fell <b>-20.39%</b> — a gap of almost 3 full points, nearly nine times wider than the small-move gap for a shock only three times the size. That widening gap is convexity.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#du-tcbox'), tcCount=root.querySelector('#du-tc-count');
+  root.querySelectorAll('#du-twocol .du-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.du-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 2';
+      state('tc', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#du-myth-count');
+  root.querySelectorAll('#du-myth .du-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.du-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#du-myth .du-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#du-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#du-myth .du-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · which bond's price moves more */
+  var CWHY=[
+    'The 25-year bond’s cash flows sit much further out in time, giving it a longer duration — so the same 1% rate move hits its price harder.',
+    'Same duration means the same rate sensitivity, full stop. Credit rating is a completely separate measurement (default risk), so this specific rate move affects both bonds equally.',
+    'A lower coupon means more of the bond’s total value is tied up in that final face-value payment at year 10, stretching its duration even though both bonds mature on the same date.',
+    'Duration works in both directions. The same longer-duration bond that falls more when rates rise also rises more when rates fall.'
+  ];
+  var caseCount=root.querySelector('#du-case-count');
+  root.querySelectorAll('#du-cases .du-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.du-why');
+    c.querySelectorAll('.du-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.du-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#du-cases .du-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#du-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#du-cases .du-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.du-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('du-fin-arrow'), lead=document.getElementById('du-fin-lead'), sub=document.getElementById('du-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-du'); if(!root) return;
+  var ALT={};
+  var TERMS=[];
+  root.querySelectorAll('#du-vocab-chips .du-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.du-p, .du-sub, .du-note, .du-why, .du-recap-item span, .du-h2, .du-next-move, .du-sort-row > span, .du-case-q, .du-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.du-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='du-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='du-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.du-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.du-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-du'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#du-bar'), labelEl=root.querySelector('#du-slide-label'),
+      countEl=root.querySelector('#du-slide-count'), prevBtn=root.querySelector('#du-prev'),
+      nextBtn=root.querySelector('#du-next'), hintEl=root.querySelector('#du-nav-hint'),
+      disclaimer=root.querySelector('.du-disclaimer');
+  var labels={1:'Start Here',2:'Four Bonds, One Shock',3:'2022, In Real Numbers',4:'Close, But Not Exact',5:'Myth Or Fact',6:'Which Moves More?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Reveal all 4 to continue',3:'Reveal both to continue',4:'Reveal both to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.du-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('du-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('du-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'dash',    need:4, hint:function(n){ return 'Revealed '+n+' of 4 — tap every bond to continue'; }},
+    {step:3, key:'compare', need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both cards to continue'; }},
+    {step:4, key:'tc',      need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both cards to continue'; }},
+    {step:5, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',   need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('du-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

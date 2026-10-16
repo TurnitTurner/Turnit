@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **22 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
+7 modules · 35 lessons · **23 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -55,15 +55,14 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 18 | Sequence-Of-Returns Risk | `18-sequence-of-returns-risk.html` | 8 |
 | 19 | Concentration Risk: Company Stock And RSUs | `19-concentration-risk-company-stock-and-rsus.html` | 8 |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | `20-your-real-risk-tolerance-vs-your-stated-one.html` | 8 |
-| 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
 
-## Module 5 — Bonds And Cash, Properly 🔶 underway (2 of 5)
+## Module 5 — Bonds And Cash, Properly 🔶 underway (3 of 5)
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 21 | What You Actually Own When You Buy A Bond | `21-what-you-actually-own-when-you-buy-a-bond.html` | 8 |
 | 22 | Yield, Price, And Why They Move Opposite | `22-yield-price-and-why-they-move-opposite.html` | 8 |
-| 23 | Duration: How Much Rates Will Hurt | — | — |
+| 23 | Duration: How Much Rates Will Hurt | `23-duration-how-much-rates-will-hurt.html` | 8 |
 | 24 | Bond Funds vs. Individual Bonds | — | — |
 | 25 | T-Bills, Money Market Funds, And HYSAs Compared | — | — |
 
@@ -629,6 +628,68 @@ confirmable — the same preference for original wording over a popular
 cleaned-up version already applied to this course's Graham and Tyson
 quotes, and the same two-attempt-then-fall-back discipline applied
 going forward for the rest of this module.
+
+**Lesson 23 ("Duration: How Much Rates Will Hurt"), prefix `du`:**
+picks up exactly where Lesson 22's recap handed off — that lesson
+covers direction only, this one covers magnitude and why it differs
+bond to bond. Chip-collision grep (root Foundations files plus every
+intermediate lesson) and repo-wide prefix check both run clean before
+writing; five chips (Duration, Modified Duration, Convexity, Parallel
+Shift, Rate Shock), with Interest Rate Risk, Basis Point (Lesson 22)
+and Credit Risk, Credit Rating (Lesson 21) used by name only, never
+re-chipped. The hover-term scanner's `TERMS` array already sorts
+longest-phrase-first, so "Modified Duration" wraps before the shorter
+"Duration" can eat into it — verified rather than assumed. One
+creative widget: slide 2's four-bond dashboard (2/5/10/20-year, all 5%
+coupon, all at par), where tapping a bond opens it in place and keeps
+every previously opened bond visible, so all four stay on screen for
+direct comparison rather than replacing each other — the comparison is
+the point. All figures (modified duration, estimated price change,
+actual price change) were computed in Python first and verified
+against a standard textbook test vector (the same 10-year/5%/$1,000
+-face bond from Lesson 22, priced at $925.61, yields exactly 6.00% to
+maturity; at par, that bond's Macaulay duration is 7.99 years and its
+modified duration is 7.79 years — both match the standard textbook
+answer) before being hardcoded into the lesson, since every bond shown
+is a fixed illustrative case rather than one a learner can move
+arbitrarily. Slide 4's convexity comparison uses the same verified
+bond at two shock sizes (+1%: estimate -7.79% vs. actual -7.44%; +3%:
+estimate -23.38% vs. actual -20.39%) to make the "duration's estimate
+gets less accurate for bigger moves" point concrete rather than
+hand-waved. Slide 3 reuses a real 2022 rate-shock story — SHY
+(short-term Treasuries, ~1.8-1.9yr duration, 2022 return ≈ -3.9%)
+against TLT (long-term Treasuries, hedged as "roughly 17-18yr"
+duration since two reasonably current sources disagreed by about a
+year, 2022 return -31.4%) — reusing, not re-deriving, the TLT figure
+already verified in Lesson 17's header, with an explicit callback to
+it. Two headings were caught and reworded before they could repeat the
+"Bear Market"-class bug: slide 2's planned "Same Rate Shock, Four
+Bonds" contained the "Rate Shock" chip verbatim (reworded to "One Rate
+Move, Four Bonds") and slide 4's planned "Duration Isn't Exact"
+contained "Duration" (reworded to "Close, But Not Exact"). Quote
+search: one search at the end of the build (this module's established
+two-attempts-then-fall-back discipline, already exceeded once earlier
+in the session on a near-duplicate caught just before it shipped — see
+below) found nothing safely attributable specifically to duration, so
+the lesson falls back to Alan Greenspan's February 2005 testimony
+calling long-term bond yields a "conundrum" — a famous, well
+-documented remark squarely about interest rates and bond market
+behavior, chosen over forcing an attribution to a book or memo passage
+that couldn't be independently confirmed. Checked for duplication
+across the repo before shipping. John Bogle's "Time is your friend;
+impulse is your enemy" was considered and deliberately held back for
+Lesson 24 instead — ending a lesson about how much a rate move can
+hurt on "time is your friend" would undercut the point just taught;
+it fits Lesson 24's "hold the fund through the move vs. panic-sell"
+framing far better.
+
+> **Near-duplicate caught before shipping:** earlier in this session, a
+> Peter Bernstein variant ("more things can happen than will happen")
+> was close to being selected as Lesson 23's quote until the mandatory
+> duplication grep turned up the same sentiment already in this
+> course's Foundations lesson `3-6-understanding-risk-and-volatility.html`,
+> attributed there to Howard Marks. Caught before any Lesson 23 file
+> existed — the duplication check is what caught it, not memory.
 
 What was fixed in the Module 1–2 backlog pass:
 
