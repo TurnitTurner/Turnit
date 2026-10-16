@@ -1,0 +1,784 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — BOND FUNDS VS. INDIVIDUAL BONDS
+     (Intermediate · Module 5 · Lesson 24)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-bf. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  What A Rate Shock Actually Costs (creative)
+       3  Individual Bond Vs. Bond Fund     4  Two More Risks To Know By Name
+       5  Myth Or Fact (5)                  6  Individual Bond Or Bond Fund? (4)
+       7  Recap (6)                         8  Complete
+     Scope: references NAV and Expense Ratio (Lesson 06) and Duration (Lesson 23)
+     by name only, never re-chipped. Five new chips: Bond Ladder, Call Risk,
+     Reinvestment Risk, Pull To Par, Defined-Maturity Fund. Chip-collision grep run
+     across the repo root (Foundations) and every intermediate lesson before
+     writing — none found. Prefix `bf` confirmed unused repo-wide.
+     Heading collisions avoided deliberately: no h2 in this lesson contains any of
+     its own five chip terms verbatim (the "Bear Market" class of bug fixed
+     repeatedly in Lessons 16, 21, and 22) — card BUTTON labels inside slide 4 do
+     say "Call Risk" and "Reinvestment Risk" outright, which is safe, since the
+     green-term scanner's PROSE selector list never includes button text (the same
+     pattern already relied on in Lesson 22's slide 3 button labels).
+     Central correction this lesson exists to make: the myth isn't "individual
+     bonds recover and bond funds don't" — that's a DIFFERENT myth this lesson
+     was nearly built around before catching the error. The real distinction is
+     narrower. Slide 2's widget and its Python-verified numbers establish this
+     directly: take the exact same 10-year, 5% coupon, $1,000-face bond already
+     used in Lessons 22 and 23, bought at par (5% YTM), hit once by a permanent
+     +1% rate shock to 6% immediately after purchase. Two paths compared, both
+     computed in Python before any copy was written:
+       "baseline" = $1,000 compounding at the original 5% yield, never shocked.
+       "shocked & reinvested" = the bond re-priced at the new 6% yield, with every
+       coupon payment reinvested at that new 6% rate going forward, plus the
+       bond's own remaining market value (still priced off the new 6% yield) at
+       each checkpoint.
+     Results: year 4, shocked trails baseline by -3.76% ($1,172.54 vs $1,218.40);
+     year 6, -1.87% ($1,319.70 vs $1,344.89); year 8 — close to this bond's own
+     Macaulay duration of 7.99 years, computed the same way as Lesson 23 — the two
+     paths are within +0.06% of each other ($1,485.34 vs $1,484.51), effectively
+     a wash; year 10 (maturity), the shocked-and-reinvested path is AHEAD of the
+     never-shocked baseline by +2.02% ($1,671.76 vs $1,638.62). Also verified
+     generically, independent of this bond's specific cash flows: a price shocked
+     from $1,000 to $925.61 and compounded at the new 6% yield crosses a $1,000
+     principal compounded at the original 5% yield at period 15.89 (year 7.94) —
+     confirming the ~8-year convergence isn't an artifact of this one bond's coupon
+     schedule. IMPORTANT caveat the widget's own copy is careful about: the
+     "ahead by year 10" result holds only against a world where rates never moved,
+     and only because every coupon was reinvested at the new 6% rate rather than
+     spent — a holder who spent the coupons instead gets identical cash flows
+     whether or not the shock happened, since the bond still just pays its fixed
+     5% coupon and returns face value either way. This is the textbook
+     Redington/Macaulay immunization property — a bond's own (Macaulay) duration
+     is approximately the horizon at which a one-time parallel rate shock's price
+     effect and reinvestment effect offset — and it applies the same way to a bond
+     fund that maintains a similar duration by continuously rolling into new bonds
+     at prevailing yields. Note this lesson's widget copy deliberately avoids
+     citing a precise duration figure (saying only "about 8 years, right around
+     its duration from Lesson 23") rather than naming 7.99 specifically: Lesson
+     23's own on-screen dashboard displayed this exact bond's MODIFIED duration
+     (7.79 years), not its Macaulay duration (7.99 years) — the correct
+     immunization horizon is Macaulay, but citing 7.99 here next to the 7.79 a
+     learner may remember from Lesson 23 would look like a mismatch rather than
+     two different, correctly-distinguished numbers. The real difference between
+     an individual bond and a (typical) bond fund is NOT that one recovers and the
+     other doesn't; it's that the individual bond gives you one fixed date with a
+     guaranteed number (face value, absent default), while a typical bond fund has
+     no fixed date of its own and instead converges through rising reinvestment
+     income over roughly its ongoing duration. A small category of real funds —
+     "defined-maturity" bond ETFs — IS built with a fixed end date and does pull
+     to par the way a single bond does; that's this lesson's fifth chip, and the
+     myth/fact section explicitly flags it as the exception to "most bond funds
+     never mature."
+     Also corrects, directly, the narrower and more commonly believed myth this
+     lesson is actually titled around: "if you hold an individual bond to
+     maturity, rising rates never cost you anything." You do get face value back
+     on the maturity date (assuming no default), and pull to par genuinely erases
+     the PRICE drop itself by then. What it doesn't erase: the below-market income
+     earned while holding a bond paying the old, lower rate while new bonds paid
+     more, and the real, locked-in loss you'd have taken by selling before
+     maturity while the price was down. These two framings (slide 2's "ahead by
+     maturity if every coupon is reinvested" and the myth/fact section's "the
+     price hit is erased, the opportunity cost isn't") are both true and were
+     deliberately reconciled to say the same thing rather than left to quietly
+     contradict each other — see the matching language in slide 2's year-10
+     takeaway, the myth/fact row, and recap line 1.
+     Two content fixes made before shipping, both caught before being written
+     into the lesson rather than after: (1) the originally planned fifth chip,
+     "Rolling Maturity," was dropped — it isn't a standard industry term, and the
+     "funds never mature" claim behind it has a real, named exception
+     (defined-maturity funds), so using an invented term to describe something
+     with a documented exception would have taught a false absolute. Replaced
+     with "Defined-Maturity Fund," naming the real exception directly. (2) The
+     scenario slide's "$1,000 to invest" case was narrowed to corporate bonds
+     specifically — Treasuries carry no issuer-concentration risk and can be
+     bought in much smaller increments, so a generic "$1,000 in bonds" framing
+     would have made "bond fund" an arguable answer rather than the clear one.
+     One myth/fact claim was also rewritten before shipping after review caught
+     it as a strawman nobody actually believes ("issuers are forced to keep
+     paying the original coupon") — replaced with a belief people genuinely hold
+     ("a bond fund's yield is locked in when you buy it, like an individual
+     bond's purchase yield is"), which is false for the reason the fund-yield
+     comparison in slide 3 already sets up.
+     Two more accuracy fixes caught on review, both about overclaiming
+     universality: slide 4's heading was originally "Two Risks Every Bond
+     Carries" — false, since most Treasuries aren't callable and a zero-coupon
+     bond (just taught in Lesson 23) held to maturity has no reinvestment risk at
+     all. Reworded to "Two More Risks To Know By Name," which claims nothing
+     about every bond; slide 3's "both carry call risk and reinvestment risk"
+     softened to "can both carry," and the call-risk card explanation now says
+     "only callable bonds" explicitly. Slide 6's intro originally claimed one of
+     its four scenarios was "built around a bond ladder," which wasn't literally
+     true of any single case (a ladder only appears inside case 1's explanation
+     as one way to execute the right answer) — reworded to name the real menu of
+     strategies without asserting a specific case is about one of them.
+     Creative widget, 1 of 2 allowed (deliberately just one): slide 2's year-by
+     -year stepper, comparing the same bond's "never shocked" and "shocked, then
+     reinvested at the new yield" accumulated values side by side at four
+     checkpoints, with a one-line takeaway that changes at each step as the gap
+     closes and then reverses.
+     Closing quote: John Bogle, "Time is your friend; impulse is your enemy" —
+     reserved for this lesson rather than Lesson 23 specifically because it fits
+     the "hold the fund through the rate move instead of panic-selling it" point
+     this lesson makes, where ending Lesson 23 (about how much a rate move can
+     hurt) on "time is your friend" would have undercut the point just taught
+     there. Attributed only as "— John C. Bogle," without a specific book or
+     essay, since the exact original source wasn't independently confirmed.
+     Checked for duplication (`grep -ril "time is your friend"` and
+     `grep -ril "impulse is your enemy"` across the full repo) before shipping —
+     unique.
+     ============================================================ -->
+<div id="tn-bf">
+  <div class="bf-wrap">
+    <div class="bf-top">
+      <div class="bf-topbar">
+        <div class="bf-brand"><span class="bf-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="bf-word">TURNIT</span><span class="bf-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="bf-progress"><span id="bf-bar"></span></div>
+      <div class="bf-meta"><span id="bf-slide-label">Start Here</span><span id="bf-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="bf-sec bf-center bf-reveal" data-step="1">
+      <p class="bf-kicker center">Two Ways To Own The Same Asset Class · 1 / 8</p>
+      <h1 class="bf-hero-title">BOND FUNDS <span class="bf-hero-grad">VS. INDIVIDUAL BONDS</span></h1>
+      <p class="bf-sub center">Both let you own bonds. What differs is how the risk shows up — and whether "hold it to maturity" actually means what it sounds like.</p>
+      <div class="bf-vocab">
+        <span class="bf-vocab-label">Key Terms In This Lesson</span>
+        <div class="bf-vocab-chips" id="bf-vocab-chips">
+          <button type="button" class="bf-vocab-chip" data-t="Bond Ladder" data-def="A portfolio of individual bonds with staggered maturity dates, so a predictable portion comes due — and can be reinvested or spent — on a known, recurring schedule.">Bond Ladder</button>
+          <button type="button" class="bf-vocab-chip" data-t="Call Risk" data-def="The risk that an issuer repays a bond early, before its maturity date — typically when rates have fallen enough that the issuer can borrow more cheaply elsewhere, cutting short the bondholder's higher-coupon income.">Call Risk</button>
+          <button type="button" class="bf-vocab-chip" data-t="Reinvestment Risk" data-def="The risk that cash coming back to you — a coupon payment, a matured or called bond — has to be reinvested at whatever rate is available right then, which may be lower than what you were earning before.">Reinvestment Risk</button>
+          <button type="button" class="bf-vocab-chip" data-t="Pull To Par" data-def="The tendency of a bond's market price to converge toward its face value as its maturity date approaches, regardless of where rates moved in between.">Pull To Par</button>
+          <button type="button" class="bf-vocab-chip" data-t="Defined-Maturity Fund" data-def="An uncommon type of bond fund built with a fixed end date, designed to wind down and pull to par like a single bond — unlike most bond funds, which have no maturity date of their own.">Defined-Maturity Fund</button>
+        </div>
+        <div class="bf-vocab-def" id="bf-vocab-def">Tap a term to see what it means.</div>
+        <span class="bf-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="bf-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · WHAT A RATE SHOCK ACTUALLY COSTS ========== -->
+    <section class="bf-sec bf-reveal" data-step="2">
+      <p class="bf-kicker">Same Bond, Four Checkpoints · 2 / 8</p>
+      <h2 class="bf-h2">What A Rate Shock Actually Costs You Over Time</h2>
+      <p class="bf-p">The same 10-year, 5% bond from Lessons 22 and 23, bought at $1,000, hit once by a permanent 1% rate jump right after purchase. Tap each year to compare what you'd have if rates had never moved against what you actually end up with, as the bond's price does its pull to par and every coupon gets reinvested at the new, higher rate.</p>
+      <div class="bf-time" id="bf-time">
+        <div class="bf-time-steps" id="bf-time-steps">
+          <button type="button" class="bf-step-btn" data-y="4">Year 4</button>
+          <button type="button" class="bf-step-btn" data-y="6">Year 6</button>
+          <button type="button" class="bf-step-btn" data-y="8">Year 8 (≈ Duration)</button>
+          <button type="button" class="bf-step-btn" data-y="10">Year 10 (Matures)</button>
+        </div>
+        <div class="bf-time-out" id="bf-time-out">
+          <div class="bf-time-stat"><span class="bf-time-lab">If Rates Had Never Moved</span><span class="bf-time-val" id="bf-time-base">—</span></div>
+          <div class="bf-time-stat"><span class="bf-time-lab">What You Actually End Up With</span><span class="bf-time-val" id="bf-time-actual">—</span></div>
+        </div>
+        <p class="bf-time-take" id="bf-time-take">Tap a year above to compare.</p>
+      </div>
+      <p class="bf-count" id="bf-time-count">Checked 0 Of 4</p>
+      <p class="bf-disclaimer-inline">A bond fund holding many similar bonds, with a similar duration, goes through this same catch-up — not because any single bond in it "matures" on cue, but because the fund keeps buying new bonds at today's higher yield as old ones roll off. Figures computed in Python before this lesson shipped.</p>
+    </section>
+
+    <!-- ========== 3 · INDIVIDUAL BOND VS. BOND FUND ========== -->
+    <section class="bf-sec bf-reveal" data-step="3">
+      <p class="bf-kicker">Same Asset Class, Different Shape · 3 / 8</p>
+      <h2 class="bf-h2">Two Ways To Hold The Same Bonds</h2>
+      <p class="bf-p">An individual bond and a bond fund can both carry call risk and reinvestment risk, but they're structured very differently otherwise — one has a fixed maturity date, the other keeps rolling (unless it's the rare defined-maturity fund). Tap each to see how.</p>
+      <div class="bf-compare" id="bf-compare">
+        <button type="button" class="bf-cbtn a" data-k="bond">
+          <span class="bf-cbtn-t">Individual Bond</span>
+          <span class="bf-cbtn-sub">Fixed Maturity Date</span>
+        </button>
+        <button type="button" class="bf-cbtn b" data-k="fund">
+          <span class="bf-cbtn-t">Bond Fund</span>
+          <span class="bf-cbtn-sub">Continuously Rolling</span>
+        </button>
+      </div>
+      <div class="bf-cbox" id="bf-cbox">Tap a card above to see how each is structured.</div>
+      <p class="bf-count" id="bf-compare-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 4 · TWO RISKS EVERY BOND CARRIES ========== -->
+    <section class="bf-sec bf-reveal" data-step="4">
+      <p class="bf-kicker">Beyond Rate Risk · 4 / 8</p>
+      <h2 class="bf-h2">Two More Risks To Know By Name</h2>
+      <p class="bf-p">Interest rate risk isn't the only thing that can disrupt a bond's cash flows — call risk and reinvestment risk are two more. Tap each to see how they show up differently for one bond versus a fund holding many.</p>
+      <div class="bf-threecol" id="bf-twocol">
+        <button type="button" class="bf-tcard d" data-k="call">
+          <span class="bf-tcard-t">Call Risk</span>
+          <span class="bf-tcard-sub">The issuer repays early</span>
+        </button>
+        <button type="button" class="bf-tcard m" data-k="reinvest">
+          <span class="bf-tcard-t">Reinvestment Risk</span>
+          <span class="bf-tcard-sub">Your cash comes back</span>
+        </button>
+      </div>
+      <div class="bf-tcbox" id="bf-tcbox">Tap a card above to see how it shows up.</div>
+      <p class="bf-count" id="bf-tc-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="bf-sec bf-reveal" data-step="5">
+      <p class="bf-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="bf-h2">Myth Or Fact?</h2>
+      <p class="bf-p">Five claims you'll hear about bonds and bond funds. Tap your answer.</p>
+      <div class="bf-sort" id="bf-myth">
+        <div class="bf-sort-row" data-answer="myth"><span>If you hold an individual bond to maturity, rising interest rates never cost you anything.</span><div class="bf-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bf-why"><b>Myth.</b> You do get face value back at maturity, assuming no default — pull to par genuinely erases the price drop itself by then. What it doesn't erase: the below-market income you earned holding an older, lower-paying bond while new ones paid more, and the real, locked-in loss you'd have taken by selling before maturity.</p></div>
+        <div class="bf-sort-row" data-answer="fact"><span>A bond fund with a similar duration to an individual bond goes through a similar total-return recovery after a single rate shock — it just doesn't arrive via one fixed maturity date.</span><div class="bf-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bf-why"><b>Fact.</b> Reinvesting at the new, higher yield does the same work for a fund that pulling to par does for a single bond — it's duration, not a maturity date, that drives the timing.</p></div>
+        <div class="bf-sort-row" data-answer="myth"><span>A bond fund's yield is locked in when you buy it, the same way an individual bond's purchase yield is.</span><div class="bf-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bf-why"><b>Myth.</b> A fund's yield reflects whatever bonds it currently holds, which keeps changing as old bonds roll off and new ones are bought — there's no single number locked in at your purchase the way there is with one bond.</p></div>
+        <div class="bf-sort-row" data-answer="fact"><span>A bond ladder's staggered maturities give you a predictable, recurring reinvestment schedule without needing a fund at all.</span><div class="bf-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bf-why"><b>Fact.</b> Each rung matures on its own date, handing you cash to spend or reinvest at whatever rates exist then — spread out instead of concentrated on one day.</p></div>
+        <div class="bf-sort-row" data-answer="fact"><span>A defined-maturity fund is a real type of bond fund built with a fixed end date, and it does pull to par like a single bond.</span><div class="bf-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bf-why"><b>Fact.</b> These are the exception — most bond funds have no maturity date of their own, but this category is specifically built to wind down like one bond would.</p></div>
+      </div>
+      <p class="bf-count" id="bf-myth-count">Answered 0 Of 5</p>
+      <div class="bf-reset-row"><button type="button" class="bf-reset-btn" id="bf-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · INDIVIDUAL BOND OR BOND FUND? ========== -->
+    <section class="bf-sec bf-reveal" data-step="6">
+      <p class="bf-kicker">Four Scenarios · 6 / 8</p>
+      <h2 class="bf-h2">Individual Bond Or Bond Fund?</h2>
+      <p class="bf-p">For each situation below, which one actually fits better — a single bond, a bond ladder, or a fund? Tap your answer.</p>
+      <div class="bf-cases" id="bf-cases">
+        <div class="bf-case" data-ans="0">
+          <p class="bf-case-q">You want to guarantee a specific amount of cash is available on a specific date 7 years from now, and you're willing to hold without touching it.</p>
+          <div class="bf-copts2"><button type="button" data-i="0">Individual Bond</button><button type="button" data-i="1">Bond Fund</button></div>
+          <p class="bf-why"></p>
+        </div>
+        <div class="bf-case" data-ans="1">
+          <p class="bf-case-q">You want broad exposure to hundreds of issuers without picking any yourself, and might need to sell some on short notice.</p>
+          <div class="bf-copts2"><button type="button" data-i="0">Individual Bond</button><button type="button" data-i="1">Bond Fund</button></div>
+          <p class="bf-why"></p>
+        </div>
+        <div class="bf-case" data-ans="1">
+          <p class="bf-case-q">You have $1,000 to invest specifically in corporate bonds, and want to avoid being fully exposed to one company's credit risk.</p>
+          <div class="bf-copts2"><button type="button" data-i="0">Individual Bond</button><button type="button" data-i="1">Bond Fund</button></div>
+          <p class="bf-why"></p>
+        </div>
+        <div class="bf-case" data-ans="1">
+          <p class="bf-case-q">You want your bond holdings to automatically keep rolling into new bonds at prevailing rates, without tracking and reinvesting each maturity yourself.</p>
+          <div class="bf-copts2"><button type="button" data-i="0">Individual Bond</button><button type="button" data-i="1">Bond Fund</button></div>
+          <p class="bf-why"></p>
+        </div>
+      </div>
+      <p class="bf-count" id="bf-case-count">Answered 0 Of 4</p>
+      <div class="bf-reset-row"><button type="button" class="bf-reset-btn" id="bf-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="bf-sec bf-reveal" data-step="7">
+      <p class="bf-kicker">Recap · 7 / 8</p>
+      <h2 class="bf-h2">Here's What You Now Know</h2>
+      <p class="bf-p">The whole lesson, in six lines.</p>
+      <div class="bf-recap">
+        <div class="bf-recap-item"><span class="bf-recap-check">✓</span><span>An individual bond held to maturity returns exactly its face value on a known date, assuming no default — pull to par genuinely erases the price drop by then. It doesn't erase the below-market income earned along the way, or the real loss you'd have locked in by selling early.</span></div>
+        <div class="bf-recap-item"><span class="bf-recap-check">✓</span><span>A bond fund with a similar duration goes through a similar total-return recovery after a single rate shock — it just arrives through rising reinvestment income rather than one fixed maturity date.</span></div>
+        <div class="bf-recap-item"><span class="bf-recap-check">✓</span><span>Most bond funds never "mature" the way a single bond does. Defined-maturity funds are the real, named exception, built to wind down and pull to par on a set date.</span></div>
+        <div class="bf-recap-item"><span class="bf-recap-check">✓</span><span>An individual bond concentrates you in one issuer's credit risk; a bond fund spreads that risk across many issuers, usually with far less capital than buying several bonds yourself.</span></div>
+        <div class="bf-recap-item"><span class="bf-recap-check">✓</span><span>A bond ladder — several individual bonds with staggered maturities — gives you a predictable reinvestment schedule without needing a fund at all.</span></div>
+        <div class="bf-recap-item"><span class="bf-recap-check">✓</span><span>Next: unpacking "cash" itself — T-bills, money market funds, and high-yield savings accounts, and what actually backs each one.</span></div>
+      </div>
+      <div class="bf-next-move">Your next move: <b>before choosing between a bond and a bond fund, ask what date you actually need the money.</b> A fixed date points toward a bond, a ladder, or a defined-maturity fund; no fixed date points toward an ordinary fund.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="bf-sec bf-center bf-reveal" data-step="8">
+      <p class="bf-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="bf-hero-ico">🚀</span>
+      <h2 class="bf-h2 center">You've Finished The Lesson</h2>
+      <p class="bf-sub center">Module 5 continues. Next: what "cash" actually means — T-bills, money market funds, and high-yield savings, compared.</p>
+      <div class="bf-finish">
+        <span class="bf-finish-arrow" id="bf-fin-arrow" aria-hidden="true">↓</span>
+        <p class="bf-finish-lead" id="bf-fin-lead">Scroll Down To Continue</p>
+        <p class="bf-finish-sub" id="bf-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="bf-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="bf-pullquote">"<span class="bf-green">TIME IS YOUR FRIEND; IMPULSE IS YOUR ENEMY.</span>"<br><span class="bf-pullquote-by">— JOHN C. BOGLE</span></p>
+    </section>
+
+    <p class="bf-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including interest rate, credit, call, and reinvestment risk, and past performance never guarantees future results. The bond used in slide 2 (10-year, 5% semiannual coupon, $1,000 face value) is the same deliberately round, illustrative example used in Lessons 22 and 23, not a real issuer's bond. Figures shown are computed from standard bond-pricing math, verified before this lesson shipped. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="bf-nav" id="bf-nav">
+      <button type="button" class="bf-nav-btn prev" id="bf-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="bf-nav-hint" id="bf-nav-hint"></span>
+      <button type="button" class="bf-nav-btn next" id="bf-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-bf{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-bf *,#tn-bf *::before,#tn-bf *::after{box-sizing:border-box;}
+  #tn-bf .bf-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-bf .bf-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-bf .bf-reveal.in{opacity:1; transform:none;}
+  #tn-bf .bf-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-bf .bf-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-bf .bf-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-bf .bf-bico{display:flex;}
+  #tn-bf .bf-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-bf .bf-bsub{color:var(--ink2); font-weight:500;}
+  #tn-bf .bf-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-bf #bf-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-bf .bf-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-bf .bf-meta #bf-slide-label{color:var(--ink2);}
+  #tn-bf .bf-meta #bf-slide-count{color:var(--mut);}
+  #tn-bf .bf-sec{padding:16px 0 8px;}
+  #tn-bf .bf-sec.bf-hide{display:none;}
+  #tn-bf .bf-center{text-align:center;}
+  #tn-bf .bf-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-bf .bf-kicker.center{text-align:center;}
+  #tn-bf .bf-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-bf .bf-h2.center{text-align:center;}
+  #tn-bf .bf-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-bf .bf-p b{color:var(--ink); font-weight:700;}
+  #tn-bf .bf-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-bf .bf-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-bf .bf-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-bf .bf-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-bf .bf-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-bf .bf-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-bf .bf-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,4.6vw,32px); line-height:1.2; text-align:center; margin:8px 0 14px;}
+  #tn-bf .bf-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-bf .bf-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-bf .bf-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-bf .bf-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-bf .bf-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-bf .bf-vocab-chip:hover{filter:brightness(.97);}
+  #tn-bf .bf-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-bf .bf-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-bf .bf-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-bf .bf-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-bf .bf-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-bf .bf-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · time stepper (creative 1 of 1) */
+  #tn-bf .bf-time{max-width:520px; margin:0 auto; background:#0B1016; border-radius:18px; padding:18px;}
+  #tn-bf .bf-time-steps{display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:14px;}
+  #tn-bf .bf-step-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; color:#fff; background:#141B23; border:1.5px solid #222D38; border-radius:10px; padding:10px 3px; cursor:pointer; transition:all .15s; line-height:1.3;}
+  #tn-bf .bf-step-btn:hover{border-color:#3A4450;}
+  #tn-bf .bf-step-btn.on{background:var(--g); border-color:var(--g);}
+  #tn-bf .bf-time-out{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;}
+  #tn-bf .bf-time-stat{background:#141B23; border-radius:11px; padding:10px 8px; text-align:center;}
+  #tn-bf .bf-time-lab{display:block; font-size:9.5px; color:#7C8A9A; font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-bottom:4px; line-height:1.3;}
+  #tn-bf .bf-time-val{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:#fff; font-variant-numeric:tabular-nums;}
+  #tn-bf .bf-time-take{margin:0; font-size:12px; color:#C9D4DF; text-align:center; line-height:1.5; min-height:18px;}
+  /* 3 · comparison cards */
+  #tn-bf .bf-compare{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-bf .bf-cbtn{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:16px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bf .bf-cbtn.a{border:1.5px solid var(--cardbd);}
+  #tn-bf .bf-cbtn.b{border:1.5px solid var(--selbd);}
+  #tn-bf .bf-cbtn:hover{filter:brightness(.97);}
+  #tn-bf .bf-cbtn.done.a{background:var(--mist);}
+  #tn-bf .bf-cbtn.done.b{background:var(--tint);}
+  #tn-bf .bf-cbtn-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); text-align:center;}
+  #tn-bf .bf-cbtn-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-bf .bf-cbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-bf .bf-cbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · two-card risk comparison */
+  #tn-bf .bf-threecol{display:grid; grid-template-columns:repeat(2,1fr); gap:9px;}
+  #tn-bf .bf-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bf .bf-tcard.d{border:1.5px solid var(--cardbd);}
+  #tn-bf .bf-tcard.m{border:1.5px solid var(--selbd);}
+  #tn-bf .bf-tcard:hover{filter:brightness(.97);}
+  #tn-bf .bf-tcard.done.d{background:var(--mist);}
+  #tn-bf .bf-tcard.done.m{background:var(--tint);}
+  #tn-bf .bf-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:center;}
+  #tn-bf .bf-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-bf .bf-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-bf .bf-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-bf .bf-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-bf .bf-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-bf .bf-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-bf .bf-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-bf .bf-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bf .bf-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-bf .bf-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-bf .bf-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-bf .bf-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bf .bf-sort-row.done .bf-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-bf .bf-sort-row.done .bf-sort-btns button.picked{opacity:1;}
+  #tn-bf .bf-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-bf .bf-why b{font-family:'Poppins',sans-serif;}
+  #tn-bf .bf-sort-row .bf-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-bf .bf-sort-row.done .bf-why{display:block;}
+  /* 6 · scenarios */
+  #tn-bf .bf-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-bf .bf-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-bf .bf-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-bf .bf-copts2{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-bf .bf-copts2 button{flex:1; min-width:120px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bf .bf-copts2 button:hover{border-color:var(--selbd);}
+  #tn-bf .bf-case.done .bf-copts2 button{opacity:.35; pointer-events:none;}
+  #tn-bf .bf-case.done .bf-copts2 button.picked{opacity:1;}
+  #tn-bf .bf-case.done .bf-copts2 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-bf .bf-case.done .bf-copts2 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-bf .bf-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-bf .bf-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bf .bf-case.done .bf-why{display:block;}
+  /* recap + complete */
+  #tn-bf .bf-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-bf .bf-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-bf .bf-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-bf .bf-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-bf .bf-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-bf .bf-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-bf .bf-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-bf .bf-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:bf-bob 1.6s ease-in-out infinite;}
+  #tn-bf .bf-finish-arrow.up{animation-name:bf-bob-up;}
+  @keyframes bf-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes bf-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-bf .bf-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-bf .bf-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-bf .bf-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-bf .bf-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-bf .bf-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-bf .bf-green{color:var(--g);}
+  #tn-bf .bf-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-bf .bf-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-bf .bf-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-bf .bf-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-bf .bf-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-bf .bf-nav-btn.prev{color:var(--ink2);}
+  #tn-bf .bf-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-bf .bf-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-bf .bf-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-bf .bf-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-bf .bf-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-bf .bf-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-bf .bf-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-bf .bf-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .bf-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .bf-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-bf .bf-wrap{padding:12px 14px 30px;}
+    #tn-bf .bf-time-steps{grid-template-columns:repeat(2,1fr);}
+    #tn-bf .bf-time-out{grid-template-columns:1fr;}
+    #tn-bf .bf-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-bf .bf-tcard{flex-direction:row; justify-content:space-between; padding:12px 14px;}
+    #tn-bf .bf-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-bf .bf-copts2 button{min-width:0; flex:1 1 100%;}
+    #tn-bf .bf-bsub{display:none;}
+    #tn-bf .bf-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-bf .bf-nav{padding-top:10px; row-gap:0;}
+    #tn-bf .bf-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-bf .bf-reveal{opacity:1 !important; transform:none !important;}
+    #tn-bf #bf-bar{transition:none;}
+    #tn-bf .bf-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-bf'); if(!root) return;
+  root.querySelectorAll('.bf-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('bf-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#bf-vocab-def');
+  root.querySelectorAll('#bf-vocab-chips .bf-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#bf-vocab-chips .bf-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · what a rate shock actually costs (creative 1 of 1) — figures hardcoded, verified in Python */
+  (function(){
+    var DATA={
+      4:{base:'$1,218.40', actual:'$1,172.54', take:'Still behind. The initial price drop from the rate jump hasn’t been made up yet.'},
+      6:{base:'$1,344.89', actual:'$1,319.70', take:'Catching up — reinvesting every coupon at the new, higher rate is closing the gap.'},
+      8:{base:'$1,484.51', actual:'$1,485.34', take:'Roughly even. Eight years is right around this bond’s own duration from Lesson 23 — about where the math says the price hit and the extra reinvestment income should offset almost exactly.'},
+      10:{base:'$1,638.62', actual:'$1,671.76', take:'Ahead of the no-shock baseline — but only because every coupon was reinvested at the new, higher rate. Spend the coupons instead, or sell before maturity, and the picture looks very different.'}
+    };
+    var btns=root.querySelectorAll('.bf-step-btn'), baseEl=root.querySelector('#bf-time-base'),
+        actualEl=root.querySelector('#bf-time-actual'), takeEl=root.querySelector('#bf-time-take'),
+        countEl=root.querySelector('#bf-time-count');
+    if(!btns.length) return;
+    var tried={};
+    btns.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        btns.forEach(function(b){ b.classList.remove('on'); });
+        btn.classList.add('on');
+        var y=btn.getAttribute('data-y'), d=DATA[y];
+        baseEl.textContent=d.base; actualEl.textContent=d.actual; takeEl.textContent=d.take;
+        if(!tried[y]){ tried[y]=1; countEl.textContent='Checked '+keys(tried)+' Of 4'; state('time', keys(tried)); }
+        postHeight();
+      });
+    });
+  })();
+
+  /* 3 · individual bond vs. bond fund */
+  var CMPW={
+    bond:'Matures on one fixed date, and — barring default — you get back exactly face value then: a single, known number on a known day. Until that date, its market value moves with rates like any other bond, and you manage reinvesting every coupon yourself.',
+    fund:'Holds many bonds across many issuers, bought and sold continuously — a changing pool rather than one maturing instrument. Its share price (NAV) moves with rates daily, and it carries an ongoing expense ratio for as long as you hold it. Most bond funds have no fixed end date of their own.'
+  };
+  var compSeen={}, cbox=root.querySelector('#bf-cbox'), compCount=root.querySelector('#bf-compare-count');
+  root.querySelectorAll('#bf-compare .bf-cbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      cbox.innerHTML='<b>'+btn.querySelector('.bf-cbtn-t').textContent+':</b> '+CMPW[k];
+      compSeen[k]=1;
+      compCount.textContent='Revealed '+keys(compSeen)+' Of 2';
+      state('compare', keys(compSeen)); postHeight();
+    });
+  });
+
+  /* 4 · two risks every bond carries */
+  var TCW={
+    call:'The issuer’s right to repay a bond early, usually once rates have fallen enough that they can borrow more cheaply elsewhere. Only callable bonds carry this risk — most Treasuries, for instance, can’t be called. For a single bondholder, this cuts short a higher-coupon bond right when reinvesting that cash is least attractive. A fund holding many callable bonds spreads out the impact of any one call, but the underlying risk is still there in every callable bond it holds.',
+    reinvest:'The risk that cash coming back to you — a coupon, a bond that matures, a bond that gets called — has to go back to work at whatever rate is available right then, which might be lower than before. A bond ladder spreads this risk across many dates instead of concentrating it on one.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#bf-tcbox'), tcCount=root.querySelector('#bf-tc-count');
+  root.querySelectorAll('#bf-twocol .bf-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.bf-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 2';
+      state('tc', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#bf-myth-count');
+  root.querySelectorAll('#bf-myth .bf-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.bf-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#bf-myth .bf-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#bf-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#bf-myth .bf-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · individual bond or bond fund */
+  var CWHY=[
+    'A single bond — or a bond ladder built to match the date — gives you one guaranteed number on one known day, which is exactly what a fixed future expense calls for.',
+    'A fund gives instant diversification across hundreds of issuers in one purchase, plus the ability to sell shares whenever you need to.',
+    'One corporate bond can itself cost more than $1,000 and leaves you fully exposed to a single company. A fund spreads that same $1,000 across many issuers at once.',
+    'A fund automatically reinvests as its bonds mature or get called — an individual bond holder has to track and reinvest every maturity by hand.'
+  ];
+  var caseCount=root.querySelector('#bf-case-count');
+  root.querySelectorAll('#bf-cases .bf-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.bf-why');
+    c.querySelectorAll('.bf-copts2 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.bf-copts2 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#bf-cases .bf-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#bf-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#bf-cases .bf-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.bf-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('bf-fin-arrow'), lead=document.getElementById('bf-fin-lead'), sub=document.getElementById('bf-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-bf'); if(!root) return;
+  var ALT={};
+  var TERMS=[];
+  root.querySelectorAll('#bf-vocab-chips .bf-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.bf-p, .bf-sub, .bf-note, .bf-why, .bf-recap-item span, .bf-h2, .bf-next-move, .bf-sort-row > span, .bf-case-q, .bf-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.bf-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='bf-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='bf-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.bf-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.bf-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-bf'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#bf-bar'), labelEl=root.querySelector('#bf-slide-label'),
+      countEl=root.querySelector('#bf-slide-count'), prevBtn=root.querySelector('#bf-prev'),
+      nextBtn=root.querySelector('#bf-next'), hintEl=root.querySelector('#bf-nav-hint'),
+      disclaimer=root.querySelector('.bf-disclaimer');
+  var labels={1:'Start Here',2:'What A Shock Costs',3:'Bond Vs. Fund',4:'Two More Risks',5:'Myth Or Fact',6:'Bond Or Fund?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Check all 4 to continue',3:'Reveal both to continue',4:'Reveal both to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.bf-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('bf-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('bf-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'time',    need:4, hint:function(n){ return 'Checked '+n+' of 4 — tap every year to continue'; }},
+    {step:3, key:'compare', need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both cards to continue'; }},
+    {step:4, key:'tc',      need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both cards to continue'; }},
+    {step:5, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',   need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('bf-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **23 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
+7 modules · 35 lessons · **24 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -56,14 +56,14 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 19 | Concentration Risk: Company Stock And RSUs | `19-concentration-risk-company-stock-and-rsus.html` | 8 |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | `20-your-real-risk-tolerance-vs-your-stated-one.html` | 8 |
 
-## Module 5 — Bonds And Cash, Properly 🔶 underway (3 of 5)
+## Module 5 — Bonds And Cash, Properly 🔶 underway (4 of 5)
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
 | 21 | What You Actually Own When You Buy A Bond | `21-what-you-actually-own-when-you-buy-a-bond.html` | 8 |
 | 22 | Yield, Price, And Why They Move Opposite | `22-yield-price-and-why-they-move-opposite.html` | 8 |
 | 23 | Duration: How Much Rates Will Hurt | `23-duration-how-much-rates-will-hurt.html` | 8 |
-| 24 | Bond Funds vs. Individual Bonds | — | — |
+| 24 | Bond Funds vs. Individual Bonds | `24-bond-funds-vs-individual-bonds.html` | 8 |
 | 25 | T-Bills, Money Market Funds, And HYSAs Compared | — | — |
 
 ## Module 6 — Looking At Individual Companies ⬜ not built
@@ -696,6 +696,103 @@ framing far better.
 > course's Foundations lesson `3-6-understanding-risk-and-volatility.html`,
 > attributed there to Howard Marks. Caught before any Lesson 23 file
 > existed — the duplication check is what caught it, not memory.
+
+**Lesson 24 ("Bond Funds vs. Individual Bonds"), prefix `bf`:**
+references NAV and Expense Ratio (Lesson 06) and Duration (Lesson 23)
+by name only, never re-chipped; five new chips (Bond Ladder, Call
+Risk, Reinvestment Risk, Pull To Par, Defined-Maturity Fund), all
+clean on a repo-wide collision grep before writing, prefix `bf`
+confirmed unused. The lesson almost shipped around the wrong myth.
+The obvious framing — "individual bonds recover from a rate shock,
+bond funds just keep falling" — is itself false, and an early plan for
+slide 2's widget would have taught exactly that. Caught before
+writing any copy: the real, textbook result (Redington/Macaulay
+immunization) is that a bond's own duration is approximately the
+investment horizon at which a one-time rate shock's price hit and its
+higher reinvestment income offset each other — and that applies the
+same way to a fund that maintains a similar duration by continuously
+rolling into new bonds at prevailing yields. Verified numerically in
+Python before any widget copy was written, using the same 10-year, 5%
+coupon, $1,000-face bond from Lessons 22–23, bought at par and hit
+once by a permanent +1% shock immediately after purchase: at year 4
+the shocked, reinvested path trails a never-shocked baseline by
+-3.76% ($1,172.54 vs. $1,218.40); at year 6, -1.87%; at year 8 (close
+to this bond's own Macaulay duration of 7.99 years, already computed
+in Lesson 23) the two paths are within +0.06% of each other —
+effectively a wash; by year 10 (maturity) the shocked-and-reinvested
+path is AHEAD of the never-shocked baseline by +2.02%. That "ahead"
+result holds only against a world where rates never moved, and only
+because every coupon was reinvested at the new, higher rate — a holder
+who spent the coupons instead gets identical cash flows either way,
+since the bond still just pays its fixed coupon and returns face value
+on schedule. Widget copy deliberately says "about 8 years, right
+around its duration from Lesson 23" rather than citing 7.99 directly,
+since Lesson 23's own dashboard displayed this bond's MODIFIED
+duration (7.79 years) on screen, not its Macaulay duration — citing
+7.99 here would look like a mismatch against the 7.79 a learner might
+remember, rather than two correctly-distinguished numbers. Slide 2's
+widget steps through exactly these four checkpoints; a generic,
+bond-agnostic version of the same math (a price shocked from $1,000 to
+$925.61, compounded at the new 6% yield, crossing a $1,000 principal
+compounded at the original 5% yield) was also verified in Python and
+crosses at period 15.89 — year 7.94, confirming the ~8-year
+convergence isn't an artifact of this one bond's own coupon schedule.
+The real, narrower distinction between an individual bond and a
+typical fund isn't "one recovers and the other doesn't" — it's that
+the bond gives you one fixed date with a
+guaranteed number (face value, absent default), while a fund has no
+fixed date of its own and converges through rising reinvestment income
+over roughly its ongoing duration instead. A real, named exception —
+defined-maturity bond funds, which genuinely are built with a fixed
+end date and do pull to par like a single bond — is this lesson's
+fifth chip, explicitly flagged in myth/fact as the exception to "most
+bond funds never mature," rather than inventing a non-standard term
+("rolling maturity" was considered and dropped) to describe a claim
+that has a real, documented exception. Two more fixes made before
+shipping: the scenario slide's "$1,000 to invest" case was narrowed to
+corporate bonds specifically, since Treasuries carry no
+issuer-concentration risk and can be bought in much smaller
+increments, which would have made "bond fund" an arguable answer
+rather than the clear one; and a planned myth/fact claim ("issuers are
+forced to keep paying the original coupon") was replaced before
+shipping for being a strawman nobody actually believes, swapped for
+one people genuinely do ("a bond fund's yield is locked in when you
+buy it, like an individual bond's purchase yield is") — false for the
+reason slide 3's fund-yield comparison already sets up. Also corrects
+the lesson's own title-level myth directly: holding an individual bond
+to maturity does return face value on a known date (absent default),
+and pull to par genuinely erases the PRICE drop itself by then. What
+it doesn't erase is the below-market income earned while holding a
+bond paying the old, lower rate, and the real, locked-in loss a sale
+before maturity would have realized. This is a precise reconciliation,
+not a hedge: an early draft had slide 2's widget declare the bond
+"ahead" by maturity while the myth/fact section separately said the
+price hit "doesn't erase" — both true, but stated against different
+baselines, and left as drafted they'd have read as the lesson
+contradicting itself three slides apart. Fixed by making both say the
+same thing: slide 2's year-10 takeaway now names its own baseline
+("ahead of the no-shock baseline — but only because every coupon was
+reinvested") and the myth/fact explanation and recap line 1 now both
+distinguish "price drop, erased by maturity" from "opportunity cost
+and early-sale risk, not erased." Two more overclaiming fixes caught on
+review: slide 4's heading, originally "Two Risks Every Bond Carries,"
+asserted something false (most Treasuries aren't callable; a
+zero-coupon bond held to maturity — just taught in Lesson 23 — has no
+reinvestment risk at all), reworded to "Two More Risks To Know By
+Name"; and slide 6's intro originally claimed one of its four
+scenarios was "built around a bond ladder," which wasn't literally
+true of any single case, reworded to name the real strategy menu
+without asserting a specific case is about one of them. One creative
+widget (deliberately just one): slide 2's year-by-year stepper,
+comparing the same bond's never-shocked and shocked-then-reinvested
+accumulated values side by side at four checkpoints, with a one-line
+takeaway that changes at each step as the gap closes and then
+reverses. Closing quote: John Bogle's "Time is your friend; impulse is
+your enemy," reserved here rather than Lesson 23 for exactly the
+reason noted above — attributed only as "— John C. Bogle," without a
+specific book, since the exact original source wasn't independently
+confirmed; checked for duplication across the full repo before
+shipping (unique).
 
 What was fixed in the Module 1–2 backlog pass:
 
