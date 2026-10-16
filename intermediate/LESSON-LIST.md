@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **24 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
+7 modules · 35 lessons · **25 built** (Modules 1, 2, 3, 4, and 5 complete)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -56,7 +56,7 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 19 | Concentration Risk: Company Stock And RSUs | `19-concentration-risk-company-stock-and-rsus.html` | 8 |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | `20-your-real-risk-tolerance-vs-your-stated-one.html` | 8 |
 
-## Module 5 — Bonds And Cash, Properly 🔶 underway (4 of 5)
+## Module 5 — Bonds And Cash, Properly ✅ complete
 
 | # | Lesson | File | Slides |
 |---|---|---|---|
@@ -64,7 +64,7 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 22 | Yield, Price, And Why They Move Opposite | `22-yield-price-and-why-they-move-opposite.html` | 8 |
 | 23 | Duration: How Much Rates Will Hurt | `23-duration-how-much-rates-will-hurt.html` | 8 |
 | 24 | Bond Funds vs. Individual Bonds | `24-bond-funds-vs-individual-bonds.html` | 8 |
-| 25 | T-Bills, Money Market Funds, And HYSAs Compared | — | — |
+| 25 | T-Bills, Money Market Funds, And HYSAs Compared | `25-t-bills-money-market-funds-and-hysas-compared.html` | 8 |
 
 ## Module 6 — Looking At Individual Companies ⬜ not built
 
@@ -793,6 +793,100 @@ reason noted above — attributed only as "— John C. Bogle," without a
 specific book, since the exact original source wasn't independently
 confirmed; checked for duplication across the full repo before
 shipping (unique).
+
+**Lesson 25 ("T-Bills, Money Market Funds, And HYSAs Compared"),
+prefix `tm` — closes Module 5:** unpacks Lesson 01's "Cash" chip
+(defined there as "Money market funds, Treasury bills, and savings")
+into its three real parts. Does not re-chip Cash or Money Market Fund
+(Lesson 01) — used by name only. Five new chips: Treasury Bill
+(T-Bill), High-Yield Savings Account (HYSA), FDIC Insurance, SIPC
+Protection, Breaking The Buck — all clean on a repo-wide collision
+grep, prefix `tm` confirmed unused. Callback to Lesson 22: a T-bill's
+"interest" is the same discount-to-face-value mechanic already taught
+there for bonds generally, just with no coupon in between — named
+explicitly rather than re-taught. The tax line (T-bill interest is
+state-tax-exempt, still federally taxed) is deliberately ONE line,
+with a Module 3 pointer rather than any depth, and a check of Lesson
+15 confirmed it doesn't already cover this specific point, avoiding
+the wrong-lesson-callback mistake Lesson 23 made with its TLT figure.
+The central, explicitly-flagged risk in this lesson's build: the
+assistant's training cutoff (January 2026) sits well before this
+lesson's actual build date (October 2026), so every rate figure had to
+come from a fresh, dated search rather than memory — the single
+biggest way this lesson could have shipped wrong. Multiple searches
+were spent here specifically (not on the quote, per explicit guidance
+this session), and the first-draft figures were themselves caught and
+corrected on review: a money market fund yield sourced from
+April-July-2026 pages was replaced with a fresher October 9, 2026
+figure once found (and the dev header now says "one fund's page
+showed X" rather than overclaiming "corroborated across multiple
+trackers," a phrasing problem repeated from Lessons 19 and 23's own
+review notes); and a high-yield savings figure sourced from a single
+late-May-2026 roundup (five months stale against this lesson's own
+build date) was replaced with a September 2026 Fortune/Curinos figure
+that also happened to independently corroborate the FDIC national
+-average figure in the same source. Final figures, each dated and
+sourced in the header: 13-week T-bill ≈ 4.2% (late-September 2026
+auctions); Treasury money market fund ≈ 3.9% (October 9, 2026, one
+fund's figure, used as a fund-agnostic illustration rather than a
+named product's number); top online HYSA ≈ 4.5% and national average
+≈ 0.38% (both from the same September 2026 Fortune/Curinos report).
+With these corrected figures, three of the four options cluster within
+about a point of each other and only the average bank savings account
+is the real outlier — the actual point myth/fact row 1 and recap line
+5 make. No specific bank or fund is named anywhere, deliberately — the
+lesson teaches the category-level gap, not a product recommendation.
+FDIC ($250,000 per depositor/bank/ownership category) and SIPC
+($500,000 total, $250,000 of that for cash) limits confirmed via
+search against multiple 2026 sources, unchanged from their long
+-standing figures. Several sentences added purely to raise green-term
+density introduced real inaccuracies on review and were rewritten
+before shipping — the same failure mode as Lesson 24's slide 6: slide
+2 originally said the $10,000 was "split across" the four options
+(false — the full amount goes into each one separately) and that none
+of the four earn "anywhere close to" the same amount (false once the
+rate figures were corrected — three of four cluster closely); slide
+3 originally claimed its two cards covered "what breaking the buck
+would mean for each," though a T-bill can't break the buck at all;
+and slide 4 originally said "a Treasury Bill relies on neither" FDIC
+nor SIPC, directly contradicting its own SIPC card, which correctly
+says SIPC covers a T-bill if held at a brokerage. One scenario case
+had a similar problem: the original "pull cash out at an ATM or
+debit card" discriminator assumed HYSAs commonly offer debit/ATM
+access and brokerage cash doesn't, which isn't reliably true either
+way — replaced with a discriminator that actually holds (wanting
+FDIC-insured cash without opening a brokerage account at all).
+Myth/fact row 4's explanation originally had its causation backwards
+and missed a real naming collision: a money market FUND isn't FDIC
+-insured because it's a security whose value can fall, not the other
+way around — and a bank's money market ACCOUNT, a different product
+with a confusingly similar name, genuinely IS FDIC-insured like any
+ordinary savings account, added explicitly so a learner who owns one
+doesn't walk away thinking it's uninsured. Myth/fact row 2 and the
+Breaking The Buck chip definition were both hedged to "most funds sold
+to individual investors," since institutional prime money market
+funds have used a floating share price since a 2016 regulatory reform.
+One creative widget (deliberately just one): slide 2's live comparison
+panel, tapping each of four "safe, cash-like" options to reveal its
+approximate rate and approximate one-year interest on the same
+$10,000. Closing quote: Alexander Hamilton's "A national debt, if it
+is not excessive, will be to us a national blessing," from his April
+30, 1781 letter to Robert Morris — corroborated across Wikiquote,
+multiple quotation sites, and historian John Steele Gordon's use of
+the line as his 1997 book's title source, chosen as a genuinely
+documented historical line rather than reaching for a finance
+-celebrity quote a fourth or fifth time, and specifically because
+Hamilton, as the first Treasury Secretary, established the
+public-credit system a T-bill is literally a piece of. A more
+thematically perfect line — "I'm more concerned with the return OF my
+money than the return ON my money," often attributed to Will Rogers or
+Mark Twain — was searched and deliberately dropped: Quote Investigator
+traces its true origin to comedian Eddie Cantor (1933-34) and rates
+the Rogers/Twain attributions as weak to implausible. Checked for
+duplication across the full repo before shipping (unique).
+
+**Module 5 is now complete — all five lessons (21-25) built, verified,
+and shipped.**
 
 What was fixed in the Module 1–2 backlog pass:
 

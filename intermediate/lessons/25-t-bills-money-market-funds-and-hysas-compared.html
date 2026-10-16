@@ -1,0 +1,775 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — T-BILLS, MONEY MARKET FUNDS, AND HYSAS COMPARED
+     (Intermediate · Module 5 · Lesson 25 — closes Module 5)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-tm. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  Same $10,000, Four Places (creative)
+       3  T-Bill Vs. Treasury Money Market Fund   4  What Actually Protects Your Money
+       5  Myth Or Fact (5)                  6  T-Bill, Fund, Or HYSA? (4)
+       7  Recap (6)                         8  Complete
+     Scope: unpacks Lesson 01's "Cash" chip bucket (defined there as "Money market
+     funds, Treasury bills, and savings") into its three real parts. Does not
+     re-chip Cash or Money Market Fund (both owned by Lesson 01, prefix `al`) —
+     used by name only throughout. Five new chips: Treasury Bill (T-Bill),
+     High-Yield Savings Account (HYSA), FDIC Insurance, SIPC Protection, Breaking
+     The Buck. Chip-collision grep run across the repo root and every
+     intermediate lesson before writing — none found. Prefix `tm` confirmed
+     unused repo-wide. Callback to Lesson 22: a T-bill's "interest" is the same
+     discount-to-face-value mechanic already taught there for bonds generally,
+     just without a coupon in between — named explicitly in slide 3 and myth/fact
+     row 3, not re-explained from scratch.
+     Tax note handled deliberately as ONE line only (myth/fact row 5: T-bill
+     interest is exempt from state and local tax, still taxed federally) — Module
+     3 owns tax in depth, this lesson doesn't reach into bracket mechanics or
+     1099 reporting.
+     Rate figures (slide 2's widget) are explicit, dated snapshots, not live
+     numbers, each with its own "as of" sourcing researched via web search before
+     writing since the assistant's training cutoff (January 2026) is well before
+     this lesson's build date (October 2026) — the single biggest risk in this
+     lesson's build was citing stale, remembered 2023-24-era rates as if current.
+     What was actually found, stated precisely rather than oversold:
+       13-week T-bill ≈ 4.2%, 4-week T-bill ≈ 3.9% — from a single tracker citing
+       late-September 2026 Treasury auction results (investment-rate basis);
+       several other pages claiming August 2026 rates around 5.1-5.4% looked like
+       low-quality or templated content and were discarded rather than averaged in.
+       Treasury money market fund yield: one fund's own page showed a 7-day yield
+       of 3.94% at its October 9, 2026 close — the freshest single data point
+       found, and consistent with a fund holding T-bills yielding ~3.9-4.2% minus
+       a small fee, so used instead of an earlier (and, on reflection, stale)
+       April-July-2026-sourced ~3.5% draft figure. No fund is named; ~3.9% is used
+       as a rounded, fund-agnostic illustration of that same math, not a specific
+       fund's published number.
+       Top online HYSAs ≈ 4.50% APY and the national average ≈ 0.38% APY both come
+       from the same source — Fortune's daily savings-rate report (sourced from
+       Curinos data), in near-identical write-ups dated September 1, 4, and 9,
+       2026 — which states both figures together and does the "10x the average"
+       comparison directly, which is why myth/fact row 1 and recap line 5 can cite
+       it with real confidence. An earlier draft used a lower ~4.0% HYSA figure
+       sourced from a single publisher's late-May-2026 roundup — five months
+       stale against this lesson's own build date — and was replaced once the
+       fresher September figure turned up.
+     No specific bank or fund is named anywhere in this lesson (deliberately —
+     the teaching point is the category-level gap, not a product recommendation,
+     and naming one locks the lesson to a number that will visibly age). All four
+     figures are explicitly labeled as rough, dated snapshots in the widget's own
+     disclaimer, with an explicit instruction to check current numbers. With these
+     corrected figures, three of the four options cluster within about a point of
+     each other (T-bill ~4.2%, money market fund ~3.9%, top HYSA ~4.5%) and only
+     the average bank savings account (~0.4%) is the real outlier — which is the
+     actual teaching point myth/fact row 1 and recap line 5 make, not "all four
+     are wildly different from each other."
+     FDIC ($250,000 per depositor, per bank, per ownership category) and SIPC
+     ($500,000 total, up to $250,000 of that for cash) limits confirmed via
+     search against multiple 2026 sources before writing — both unchanged from
+     their long-standing figures, no 2026 rule change found.
+     Creative widget, 1 of 2 allowed (deliberately just one): slide 2's live
+     comparison panel — tap each of four "safe, cash-like" options to reveal its
+     approximate rate and approximate one-year interest on the same $10,000,
+     making the size of the gap between them concrete rather than asserted.
+     Accuracy fixes caught on review, all before shipping: (1) slide 6's original
+     case 4 ("pull cash out at an ATM or debit card") assumed HYSAs commonly
+     offer debit/ATM access and money market funds don't — false in general
+     (that's a checking-account feature, not guaranteed by either product, and
+     plenty of brokerage cash/MMF setups do offer it). Replaced with a
+     discriminator that's actually reliable: wanting FDIC-insured cash without
+     opening a brokerage account at all, which does cleanly point to an HYSA. (2)
+     Myth/fact row 4's original explanation got the causation backwards and
+     missed a real naming collision: a money market FUND isn't FDIC-insured
+     because it's a security whose value can fall (not the other way around), and
+     a bank's money market ACCOUNT — a different, confusingly similar-sounding
+     product — genuinely IS FDIC-insured like any ordinary savings account; a
+     learner with one of those could otherwise walk away thinking their own
+     account isn't covered. (3) Myth/fact row 2 and the Breaking The Buck chip
+     definition both hedged to "most funds sold to individual investors," since
+     institutional prime money market funds have used a floating share price
+     since a 2016 regulatory reform and don't target a fixed $1.00 at all. (4)
+     Several padded sentences added purely to raise green-term density
+     introduced inaccuracies on review and were rewritten for correctness first,
+     density second — "split across" on slide 2 (the full $10,000 goes into each
+     option, not divided across all four), "what breaking the buck would mean
+     for each" on slide 3 (a T-bill can't break the buck; the phrase was wrong on
+     the cards it was supposedly describing), and "a Treasury Bill relies on
+     neither" on slide 4 (false — SIPC Protection's own card correctly says SIPC
+     covers a T-bill if held at a brokerage; the intro was contradicting the
+     content right below it).
+     Closing quote: Alexander Hamilton, "A national debt, if it is not
+     excessive, will be to us a national blessing" — from his April 30, 1781
+     letter to Robert Morris, a genuinely documented line (corroborated across
+     Wikiquote, multiple quotation sites, and historian John Steele Gordon's use
+     of it as the title source for his 1997 book "Hamilton's Blessing") rather
+     than a finance-celebrity quote, chosen specifically because Hamilton, as the
+     first Treasury Secretary, established the public-credit system a T-bill is
+     literally a piece of. A different voice from every other quote in this
+     course rather than reusing an already-quoted author a fourth or fifth time.
+     Checked for duplication (`grep -ril "national blessing"` and
+     `grep -ril "Alexander Hamilton"` across the full repo) before shipping —
+     unique. A commonly-circulated line that would have fit this lesson's theme
+     even better — "I'm more concerned with the return OF my money than the
+     return ON my money," often attributed to Will Rogers or Mark Twain — was
+     searched and deliberately NOT used: its true origin traces to comedian
+     Eddie Cantor (1933-34), and Quote Investigator rates the Rogers and Twain
+     attributions as weak-to-implausible. Dropped rather than shipped under an
+     unverifiable name.
+     This is the fifth and final lesson of Module 5.
+     ============================================================ -->
+<div id="tn-tm">
+  <div class="tm-wrap">
+    <div class="tm-top">
+      <div class="tm-topbar">
+        <div class="tm-brand"><span class="tm-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="tm-word">TURNIT</span><span class="tm-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="tm-progress"><span id="tm-bar"></span></div>
+      <div class="tm-meta"><span id="tm-slide-label">Start Here</span><span id="tm-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="tm-sec tm-center tm-reveal" data-step="1">
+      <p class="tm-kicker center">Unpacking Lesson 01's "Cash" · 1 / 8</p>
+      <h1 class="tm-hero-title">T-BILLS, MONEY MARKET FUNDS, <span class="tm-hero-grad">AND HYSAS COMPARED</span></h1>
+      <p class="tm-sub center">Lesson 01 called all of this "cash." It's actually three different things — with three different rates, three different protections, and three different catches.</p>
+      <div class="tm-vocab">
+        <span class="tm-vocab-label">Key Terms In This Lesson</span>
+        <div class="tm-vocab-chips" id="tm-vocab-chips">
+          <button type="button" class="tm-vocab-chip" data-t="Treasury Bill" data-def="A short-term U.S. government debt instrument, maturing in a year or less, sold at a discount to its face value instead of paying a separate coupon — the gap between what you pay and what you get back at maturity is the return.">Treasury Bill</button>
+          <button type="button" class="tm-vocab-chip" data-t="High-Yield Savings Account" data-def="A savings account, usually from an online-only bank, that pays a meaningfully higher rate than a typical savings account — the same FDIC protection, just a more competitive rate.">High-Yield Savings Account</button>
+          <button type="button" class="tm-vocab-chip" data-t="FDIC Insurance" data-def="Federal insurance covering bank deposits — savings, checking, CDs — up to $250,000 per depositor, per bank, per ownership category, if the bank itself fails.">FDIC Insurance</button>
+          <button type="button" class="tm-vocab-chip" data-t="SIPC Protection" data-def="Coverage for brokerage accounts if the brokerage firm itself fails — up to $500,000 total, including up to $250,000 in cash. It protects against a missing firm, not against an investment losing value.">SIPC Protection</button>
+          <button type="button" class="tm-vocab-chip" data-t="Breaking The Buck" data-def="When a money market fund's share price, normally held steady at $1.00 for most funds sold to individuals, actually falls below that mark — a rare sign the fund itself has lost money.">Breaking The Buck</button>
+        </div>
+        <div class="tm-vocab-def" id="tm-vocab-def">Tap a term to see what it means.</div>
+        <span class="tm-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="tm-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · SAME $10,000, FOUR PLACES ========== -->
+    <section class="tm-sec tm-reveal" data-step="2">
+      <p class="tm-kicker">The Same $10,000, Four Ways · 2 / 8</p>
+      <h2 class="tm-h2">Same $10,000, Four Places</h2>
+      <p class="tm-p">The same $10,000 looks different depending on where it sits: in a Treasury Bill, a money market fund, or a high-yield savings account. Tap each option to see roughly what a year looks like, and how they compare.</p>
+      <div class="tm-quote">
+        <div class="tm-quote-prices" id="tm-quote-prices">
+          <button type="button" class="tm-price-btn" data-k="tbill">13-Week T-Bill</button>
+          <button type="button" class="tm-price-btn" data-k="mmf">Treasury Money Market Fund</button>
+          <button type="button" class="tm-price-btn" data-k="hysa_top">Top Online HYSA</button>
+          <button type="button" class="tm-price-btn" data-k="hysa_avg">Average Bank Savings</button>
+        </div>
+        <div class="tm-quote-out" id="tm-quote-out">
+          <div class="tm-quote-stat"><span class="tm-quote-lab">Approx. Rate</span><span class="tm-quote-val" id="tm-out-rate">—</span></div>
+          <div class="tm-quote-stat"><span class="tm-quote-lab">Approx. 1-Yr Interest</span><span class="tm-quote-val" id="tm-out-interest">—</span></div>
+        </div>
+        <p class="tm-quote-note" id="tm-quote-note">Tap an option above.</p>
+      </div>
+      <p class="tm-count" id="tm-quote-count">Tried 0 Of 4</p>
+      <p class="tm-disclaimer-inline">All figures here are rough, dated snapshots meant to illustrate the gap between options, researched before this lesson shipped — not live numbers to act on. Every one of these rates moves constantly; check current figures before deciding anything.</p>
+    </section>
+
+    <!-- ========== 3 · T-BILL VS. TREASURY MONEY MARKET FUND ========== -->
+    <section class="tm-sec tm-reveal" data-step="3">
+      <p class="tm-kicker">Same Government Debt, Two Shapes · 3 / 8</p>
+      <h2 class="tm-h2">Two Ways To Hold The Same Debt</h2>
+      <p class="tm-p">A Treasury Bill is often one of the things a money market fund holds itself — the difference is how directly you own it. Tap each to see how they differ in shape and liquidity.</p>
+      <div class="tm-compare" id="tm-compare">
+        <button type="button" class="tm-cbtn a" data-k="tbill">
+          <span class="tm-cbtn-t">Treasury Bill</span>
+          <span class="tm-cbtn-sub">Direct, Fixed Term</span>
+        </button>
+        <button type="button" class="tm-cbtn b" data-k="fund">
+          <span class="tm-cbtn-t">Money Market Fund</span>
+          <span class="tm-cbtn-sub">Pooled, Always Rolling</span>
+        </button>
+      </div>
+      <div class="tm-cbox" id="tm-cbox">Tap a card above to see how each is structured.</div>
+      <p class="tm-count" id="tm-compare-count">Revealed 0 Of 2</p>
+    </section>
+
+    <!-- ========== 4 · WHAT ACTUALLY PROTECTS YOUR MONEY ========== -->
+    <section class="tm-sec tm-reveal" data-step="4">
+      <p class="tm-kicker">Three Kinds Of "Safe" · 4 / 8</p>
+      <h2 class="tm-h2">What Actually Protects Your Money</h2>
+      <p class="tm-p">FDIC Insurance stands behind a bank deposit, SIPC Protection stands behind a brokerage account, and a Treasury Bill is backed directly by the government itself, no matter where you hold it. Tap each to see what that actually means.</p>
+      <div class="tm-threecol" id="tm-threecol">
+        <button type="button" class="tm-tcard d" data-k="fdic">
+          <span class="tm-tcard-t">FDIC Insurance</span>
+          <span class="tm-tcard-sub">Bank deposits</span>
+        </button>
+        <button type="button" class="tm-tcard p" data-k="sipc">
+          <span class="tm-tcard-t">SIPC Protection</span>
+          <span class="tm-tcard-sub">Brokerage accounts</span>
+        </button>
+        <button type="button" class="tm-tcard m" data-k="gov">
+          <span class="tm-tcard-t">Government-Backed</span>
+          <span class="tm-tcard-sub">T-bills themselves</span>
+        </button>
+      </div>
+      <div class="tm-tcbox" id="tm-tcbox">Tap a card above to see what stands behind it.</div>
+      <p class="tm-count" id="tm-tc-count">Revealed 0 Of 3</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="tm-sec tm-reveal" data-step="5">
+      <p class="tm-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="tm-h2">Myth Or Fact?</h2>
+      <p class="tm-p">Five claims you'll hear about cash and cash-like accounts. Tap your answer.</p>
+      <div class="tm-sort" id="tm-myth">
+        <div class="tm-sort-row" data-answer="myth"><span>All savings accounts pay roughly the same interest rate.</span><div class="tm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="tm-why"><b>Myth.</b> The gap between the national average savings rate and a top high-yield savings account can be ten times over — even though both are ordinary, FDIC-insured bank accounts.</p></div>
+        <div class="tm-sort-row" data-answer="fact"><span>A money market fund's share price is designed to stay at exactly $1.00, but that isn't guaranteed.</span><div class="tm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="tm-why"><b>Fact.</b> True for most funds sold to individual investors, which aim to hold a stable $1.00 share price — though it isn't guaranteed. Breaking the buck is rare, but it has happened: most famously the Reserve Primary Fund in September 2008, whose share price fell to $0.97 during the financial crisis.</p></div>
+        <div class="tm-sort-row" data-answer="fact"><span>A T-bill's "interest" is really just the gap between the discounted price you pay and the full face value you receive at maturity.</span><div class="tm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="tm-why"><b>Fact.</b> Same discount-pricing mechanic Lesson 22 covered for bonds generally — a T-bill just has no coupon payments in between, so the entire return is that one gap.</p></div>
+        <div class="tm-sort-row" data-answer="myth"><span>A money market fund is covered by FDIC insurance, just like a bank savings account.</span><div class="tm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="tm-why"><b>Myth.</b> A money market FUND is a security, not a bank deposit — nothing like FDIC insurance stands behind it if its holdings lose value, which is exactly why breaking the buck is a real, if rare, possibility. (A bank's money market ACCOUNT — a different product with a confusingly similar name — is FDIC-insured just like any other savings account.)</p></div>
+        <div class="tm-sort-row" data-answer="fact"><span>Interest earned on T-bills is generally exempt from state and local income tax, though it's still taxed federally.</span><div class="tm-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="tm-why"><b>Fact.</b> One line worth knowing — the full mechanics of how that's reported belong to Module 3's lessons on tax, not here.</p></div>
+      </div>
+      <p class="tm-count" id="tm-myth-count">Answered 0 Of 5</p>
+      <div class="tm-reset-row"><button type="button" class="tm-reset-btn" id="tm-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · T-BILL, FUND, OR HYSA? ========== -->
+    <section class="tm-sec tm-reveal" data-step="6">
+      <p class="tm-kicker">Four Scenarios · 6 / 8</p>
+      <h2 class="tm-h2">T-Bill, Fund, Or HYSA?</h2>
+      <p class="tm-p">For each situation, does a Treasury Bill, a money market fund, or a high-yield savings account actually fit best? Tap your answer.</p>
+      <div class="tm-cases" id="tm-cases">
+        <div class="tm-case" data-ans="2">
+          <p class="tm-case-q">You want FDIC-insured protection on every dollar, and don't mind giving up a little yield for it.</p>
+          <div class="tm-copts3"><button type="button" data-i="0">T-Bill</button><button type="button" data-i="1">Money Market Fund</button><button type="button" data-i="2">HYSA</button></div>
+          <p class="tm-why"></p>
+        </div>
+        <div class="tm-case" data-ans="1">
+          <p class="tm-case-q">You already keep a brokerage account and want uninvested cash parked there to earn a competitive yield automatically, without opening anything else.</p>
+          <div class="tm-copts3"><button type="button" data-i="0">T-Bill</button><button type="button" data-i="1">Money Market Fund</button><button type="button" data-i="2">HYSA</button></div>
+          <p class="tm-why"></p>
+        </div>
+        <div class="tm-case" data-ans="0">
+          <p class="tm-case-q">You want to lock in today's rate for a known, fixed 13 weeks, no matter what happens to rates after you buy.</p>
+          <div class="tm-copts3"><button type="button" data-i="0">T-Bill</button><button type="button" data-i="1">Money Market Fund</button><button type="button" data-i="2">HYSA</button></div>
+          <p class="tm-why"></p>
+        </div>
+        <div class="tm-case" data-ans="2">
+          <p class="tm-case-q">You don't have a brokerage account and don't want to open one, but still want your cash FDIC-insured and easy to reach.</p>
+          <div class="tm-copts3"><button type="button" data-i="0">T-Bill</button><button type="button" data-i="1">Money Market Fund</button><button type="button" data-i="2">HYSA</button></div>
+          <p class="tm-why"></p>
+        </div>
+      </div>
+      <p class="tm-count" id="tm-case-count">Answered 0 Of 4</p>
+      <div class="tm-reset-row"><button type="button" class="tm-reset-btn" id="tm-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="tm-sec tm-reveal" data-step="7">
+      <p class="tm-kicker">Recap · 7 / 8</p>
+      <h2 class="tm-h2">Here's What You Now Know</h2>
+      <p class="tm-p">The whole lesson, in six lines.</p>
+      <div class="tm-recap">
+        <div class="tm-recap-item"><span class="tm-recap-check">✓</span><span>Lesson 01's "cash" bucket is really three different things — Treasury bills, money market funds, and savings accounts — each with its own rate, protection, and catch.</span></div>
+        <div class="tm-recap-item"><span class="tm-recap-check">✓</span><span>A Treasury bill is a direct, fixed-term loan to the U.S. government, sold at a discount instead of paying a coupon; a money market fund is a pooled, continuously-rolling basket that often holds T-bills among other things.</span></div>
+        <div class="tm-recap-item"><span class="tm-recap-check">✓</span><span>FDIC insurance protects bank deposits (up to $250,000) if the bank fails; SIPC protects brokerage accounts (up to $500,000, $250,000 of that for cash) if the brokerage fails — neither protects an investment from simply losing value.</span></div>
+        <div class="tm-recap-item"><span class="tm-recap-check">✓</span><span>A money market fund's $1.00 share price is a design goal, not a guarantee — breaking the buck is rare, but real.</span></div>
+        <div class="tm-recap-item"><span class="tm-recap-check">✓</span><span>The gap between a top high-yield savings account and the national average can be enormous, even though both carry the exact same FDIC protection.</span></div>
+        <div class="tm-recap-item"><span class="tm-recap-check">✓</span><span>Next: Module 6 begins — stepping away from funds entirely to look at individual companies, starting with whether you should pick stocks at all.</span></div>
+      </div>
+      <div class="tm-next-move">Your next move: <b>before parking cash anywhere, check which of these three it actually is.</b> The label on the account tells you less than the rate, the protection, and the term do.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="tm-sec tm-center tm-reveal" data-step="8">
+      <p class="tm-kicker center">Module 5 Complete · 8 / 8</p>
+      <span class="tm-hero-ico">🚀</span>
+      <h2 class="tm-h2 center">You've Finished The Lesson</h2>
+      <p class="tm-sub center">Module 5 is complete. Module 6 begins next: stepping away from funds entirely to look at individual companies.</p>
+      <div class="tm-finish">
+        <span class="tm-finish-arrow" id="tm-fin-arrow" aria-hidden="true">↓</span>
+        <p class="tm-finish-lead" id="tm-fin-lead">Scroll Down To Continue</p>
+        <p class="tm-finish-sub" id="tm-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="tm-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="tm-pullquote">"<span class="tm-green">A NATIONAL DEBT, IF IT IS NOT EXCESSIVE, WILL BE TO US A NATIONAL BLESSING.</span>"<br><span class="tm-pullquote-by">— ALEXANDER HAMILTON, LETTER TO ROBERT MORRIS, APRIL 30, 1781</span></p>
+    </section>
+
+    <p class="tm-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, and past performance never guarantees future results. Every rate figure in this lesson is a rough, dated snapshot researched before publication (see slide 2) — not a live quote, and not a recommendation of any specific bank, broker, or fund. FDIC and SIPC coverage limits shown reflect the standard figures confirmed before this lesson shipped; verify current limits and your own account's coverage directly with FDIC.gov or SIPC.org. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="tm-nav" id="tm-nav">
+      <button type="button" class="tm-nav-btn prev" id="tm-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="tm-nav-hint" id="tm-nav-hint"></span>
+      <button type="button" class="tm-nav-btn next" id="tm-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-tm{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-tm *,#tn-tm *::before,#tn-tm *::after{box-sizing:border-box;}
+  #tn-tm .tm-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-tm .tm-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-tm .tm-reveal.in{opacity:1; transform:none;}
+  #tn-tm .tm-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-tm .tm-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-tm .tm-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-tm .tm-bico{display:flex;}
+  #tn-tm .tm-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-tm .tm-bsub{color:var(--ink2); font-weight:500;}
+  #tn-tm .tm-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-tm #tm-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-tm .tm-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-tm .tm-meta #tm-slide-label{color:var(--ink2);}
+  #tn-tm .tm-meta #tm-slide-count{color:var(--mut);}
+  #tn-tm .tm-sec{padding:16px 0 8px;}
+  #tn-tm .tm-sec.tm-hide{display:none;}
+  #tn-tm .tm-center{text-align:center;}
+  #tn-tm .tm-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-tm .tm-kicker.center{text-align:center;}
+  #tn-tm .tm-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-tm .tm-h2.center{text-align:center;}
+  #tn-tm .tm-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-tm .tm-p b{color:var(--ink); font-weight:700;}
+  #tn-tm .tm-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-tm .tm-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-tm .tm-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-tm .tm-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-tm .tm-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-tm .tm-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-tm .tm-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(21px,4.4vw,30px); line-height:1.22; text-align:center; margin:8px 0 14px;}
+  #tn-tm .tm-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-tm .tm-vocab{max-width:520px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-tm .tm-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-tm .tm-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-tm .tm-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-tm .tm-vocab-chip:hover{filter:brightness(.97);}
+  #tn-tm .tm-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-tm .tm-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-tm .tm-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-tm .tm-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-tm .tm-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-tm .tm-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · live comparison panel (creative 1 of 1) */
+  #tn-tm .tm-quote{max-width:500px; margin:0 auto; background:#0B1016; border-radius:18px; padding:18px;}
+  #tn-tm .tm-quote-prices{display:grid; grid-template-columns:repeat(2,1fr); gap:6px; margin-bottom:14px;}
+  #tn-tm .tm-price-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#fff; background:#141B23; border:1.5px solid #222D38; border-radius:10px; padding:11px 6px; cursor:pointer; transition:all .15s; line-height:1.3;}
+  #tn-tm .tm-price-btn:hover{border-color:#3A4450;}
+  #tn-tm .tm-price-btn.on{background:var(--g); border-color:var(--g);}
+  #tn-tm .tm-quote-out{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;}
+  #tn-tm .tm-quote-stat{background:#141B23; border-radius:11px; padding:10px 6px; text-align:center;}
+  #tn-tm .tm-quote-lab{display:block; font-size:9.5px; color:#7C8A9A; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:4px;}
+  #tn-tm .tm-quote-val{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; color:#fff; font-variant-numeric:tabular-nums;}
+  #tn-tm .tm-quote-note{margin:0; font-size:11.5px; color:#9AA8B6; text-align:center; line-height:1.5; min-height:17px;}
+  /* 3 · comparison cards */
+  #tn-tm .tm-compare{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-tm .tm-cbtn{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:16px 10px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-tm .tm-cbtn.a{border:1.5px solid var(--cardbd);}
+  #tn-tm .tm-cbtn.b{border:1.5px solid var(--selbd);}
+  #tn-tm .tm-cbtn:hover{filter:brightness(.97);}
+  #tn-tm .tm-cbtn.done.a{background:var(--mist);}
+  #tn-tm .tm-cbtn.done.b{background:var(--tint);}
+  #tn-tm .tm-cbtn-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); text-align:center;}
+  #tn-tm .tm-cbtn-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-tm .tm-cbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-tm .tm-cbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 4 · three-card protection comparison */
+  #tn-tm .tm-threecol{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-tm .tm-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-tm .tm-tcard.d{border:1.5px solid var(--cardbd);}
+  #tn-tm .tm-tcard.p{border:1.5px solid var(--selbd);}
+  #tn-tm .tm-tcard.m{border:1.5px solid var(--nobd);}
+  #tn-tm .tm-tcard:hover{filter:brightness(.97);}
+  #tn-tm .tm-tcard.done.d{background:var(--mist);}
+  #tn-tm .tm-tcard.done.p{background:var(--tint);}
+  #tn-tm .tm-tcard.done.m{background:var(--nobg);}
+  #tn-tm .tm-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; color:var(--ink); text-align:center;}
+  #tn-tm .tm-tcard-sub{font-size:10px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-tm .tm-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-tm .tm-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-tm .tm-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-tm .tm-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-tm .tm-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-tm .tm-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-tm .tm-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-tm .tm-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-tm .tm-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-tm .tm-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-tm .tm-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-tm .tm-sort-row.done .tm-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-tm .tm-sort-row.done .tm-sort-btns button.picked{opacity:1;}
+  #tn-tm .tm-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-tm .tm-why b{font-family:'Poppins',sans-serif;}
+  #tn-tm .tm-sort-row .tm-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-tm .tm-sort-row.done .tm-why{display:block;}
+  /* 6 · scenarios, 3-option */
+  #tn-tm .tm-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-tm .tm-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-tm .tm-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-tm .tm-copts3{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-tm .tm-copts3 button{flex:1; min-width:110px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 6px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-tm .tm-copts3 button:hover{border-color:var(--selbd);}
+  #tn-tm .tm-case.done .tm-copts3 button{opacity:.35; pointer-events:none;}
+  #tn-tm .tm-case.done .tm-copts3 button.picked{opacity:1;}
+  #tn-tm .tm-case.done .tm-copts3 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-tm .tm-case.done .tm-copts3 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-tm .tm-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-tm .tm-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-tm .tm-case.done .tm-why{display:block;}
+  /* recap + complete */
+  #tn-tm .tm-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-tm .tm-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-tm .tm-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-tm .tm-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-tm .tm-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-tm .tm-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-tm .tm-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-tm .tm-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:tm-bob 1.6s ease-in-out infinite;}
+  #tn-tm .tm-finish-arrow.up{animation-name:tm-bob-up;}
+  @keyframes tm-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes tm-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-tm .tm-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-tm .tm-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-tm .tm-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-tm .tm-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-tm .tm-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-tm .tm-green{color:var(--g);}
+  #tn-tm .tm-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-tm .tm-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-tm .tm-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-tm .tm-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-tm .tm-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-tm .tm-nav-btn.prev{color:var(--ink2);}
+  #tn-tm .tm-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-tm .tm-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-tm .tm-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-tm .tm-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-tm .tm-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-tm .tm-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-tm .tm-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-tm .tm-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .tm-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .tm-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-tm .tm-wrap{padding:12px 14px 30px;}
+    #tn-tm .tm-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-tm .tm-tcard{flex-direction:row; justify-content:space-between; padding:12px 14px;}
+    #tn-tm .tm-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-tm .tm-copts3 button{min-width:0; flex:1 1 100%;}
+    #tn-tm .tm-bsub{display:none;}
+    #tn-tm .tm-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-tm .tm-nav{padding-top:10px; row-gap:0;}
+    #tn-tm .tm-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-tm .tm-reveal{opacity:1 !important; transform:none !important;}
+    #tn-tm #tm-bar{transition:none;}
+    #tn-tm .tm-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-tm'); if(!root) return;
+  root.querySelectorAll('.tm-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('tm-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#tm-vocab-def');
+  root.querySelectorAll('#tm-vocab-chips .tm-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#tm-vocab-chips .tm-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · same $10,000, four places (creative 1 of 1) — dated snapshots, researched before shipping */
+  (function(){
+    var DATA={
+      tbill:{rate:'~4.2%', interest:'~$420', note:'13-week T-bill, per late-September 2026 Treasury auctions. Assumes rolling it over 4 times a year at this same rate, which real rates won’t hold exactly.'},
+      mmf:{rate:'~3.9%', interest:'~$390', note:'A typical Treasury money market fund, early October 2026 — consistent with holding T-bills yielding ~3.9–4.2% minus a small fee. Resets daily and varies fund to fund.'},
+      hysa_top:{rate:'~4.5%', interest:'~$450', note:'Top online HYSAs, per Fortune’s daily savings-rate report (Curinos data), early September 2026.'},
+      hysa_avg:{rate:'~0.4%', interest:'~$40', note:'National average savings account rate (~0.38%), per FDIC data cited in the same September 2026 report.'}
+    };
+    var btns=root.querySelectorAll('.tm-price-btn'), rateEl=root.querySelector('#tm-out-rate'),
+        interestEl=root.querySelector('#tm-out-interest'), noteEl=root.querySelector('#tm-quote-note'),
+        countEl=root.querySelector('#tm-quote-count');
+    if(!btns.length) return;
+    var tried={};
+    btns.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        btns.forEach(function(b){ b.classList.remove('on'); });
+        btn.classList.add('on');
+        var k=btn.getAttribute('data-k'), d=DATA[k];
+        rateEl.textContent=d.rate; interestEl.textContent=d.interest; noteEl.textContent=d.note;
+        if(!tried[k]){ tried[k]=1; countEl.textContent='Tried '+keys(tried)+' Of 4'; state('quote', keys(tried)); }
+        postHeight();
+      });
+    });
+  })();
+
+  /* 3 · t-bill vs. treasury money market fund */
+  var CMPW={
+    tbill:'A single, direct purchase with a fixed term (commonly 4, 8, 13, 17, 26, or 52 weeks) and a fixed rate locked in the moment you buy it — sold at a discount to face value, so the "interest" is just the gap between your purchase price and the face value you get back (the same discount-pricing idea from Lesson 22, just with no coupon in between). You can sell one early, but its price will have moved with rates by then.',
+    fund:'A pooled fund holding many short-term instruments — often including T-bills — bought and sold continuously. Its yield floats with whatever it currently holds, there’s no fixed term, and shares are typically priced to stay at $1.00, making it about as liquid as cash itself.'
+  };
+  var compSeen={}, cbox=root.querySelector('#tm-cbox'), compCount=root.querySelector('#tm-compare-count');
+  root.querySelectorAll('#tm-compare .tm-cbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      cbox.innerHTML='<b>'+btn.querySelector('.tm-cbtn-t').textContent+':</b> '+CMPW[k];
+      compSeen[k]=1;
+      compCount.textContent='Revealed '+keys(compSeen)+' Of 2';
+      state('compare', keys(compSeen)); postHeight();
+    });
+  });
+
+  /* 4 · what actually protects your money */
+  var TCW={
+    fdic:'Covers bank deposits — HYSAs, checking, CDs — up to $250,000 per depositor, per bank, per ownership category, if the bank itself fails. It does not apply to money market funds or T-bills, since neither one is a bank deposit.',
+    sipc:'Covers brokerage accounts — including T-bills and money market funds held there — up to $500,000 total (with up to $250,000 of that for cash), if the brokerage firm itself fails. It does not protect against an investment simply losing value.',
+    gov:'A T-bill itself isn’t "insured" the way a bank deposit is — it’s backed directly by the full faith and credit of the U.S. government, which is why it’s treated as about as safe as cash gets, insurance or not.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#tm-tcbox'), tcCount=root.querySelector('#tm-tc-count');
+  root.querySelectorAll('#tm-threecol .tm-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.tm-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 3';
+      state('tc', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#tm-myth-count');
+  root.querySelectorAll('#tm-myth .tm-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.tm-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#tm-myth .tm-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#tm-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#tm-myth .tm-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · t-bill, fund, or hysa */
+  var CWHY=[
+    'An HYSA gives you full, straightforward FDIC coverage up to $250,000 — the clearest trade of a little yield for the simplest protection.',
+    'Many brokerages default uninvested cash into a money market fund automatically — no new account, no new institution, and a yield that floats with the market.',
+    'Only a T-bill locks in both the rate and the term the moment you buy — a fund’s yield and a savings account’s rate can both change at any time.',
+    'An HYSA is the one of these three you can open directly at an ordinary bank, with full FDIC coverage — no brokerage account required, unlike a T-bill or a money market fund, which you’d typically buy through one.'
+  ];
+  var caseCount=root.querySelector('#tm-case-count');
+  root.querySelectorAll('#tm-cases .tm-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.tm-why');
+    c.querySelectorAll('.tm-copts3 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.tm-copts3 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#tm-cases .tm-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#tm-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#tm-cases .tm-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.tm-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('tm-fin-arrow'), lead=document.getElementById('tm-fin-lead'), sub=document.getElementById('tm-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-tm'); if(!root) return;
+  var ALT={};
+  var TERMS=[];
+  root.querySelectorAll('#tm-vocab-chips .tm-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.tm-p, .tm-sub, .tm-note, .tm-why, .tm-recap-item span, .tm-h2, .tm-next-move, .tm-sort-row > span, .tm-case-q, .tm-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.tm-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='tm-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='tm-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.tm-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.tm-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-tm'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#tm-bar'), labelEl=root.querySelector('#tm-slide-label'),
+      countEl=root.querySelector('#tm-slide-count'), prevBtn=root.querySelector('#tm-prev'),
+      nextBtn=root.querySelector('#tm-next'), hintEl=root.querySelector('#tm-nav-hint'),
+      disclaimer=root.querySelector('.tm-disclaimer');
+  var labels={1:'Start Here',2:'Four Places',3:'Bill Vs. Fund',4:'What Protects You',5:'Myth Or Fact',6:'Which Fits Best?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Try all 4 to continue',3:'Reveal both to continue',4:'Reveal all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.tm-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('tm-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('tm-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'quote',   need:4, hint:function(n){ return 'Tried '+n+' of 4 — try every option to continue'; }},
+    {step:3, key:'compare', need:2, hint:function(n){ return 'Revealed '+n+' of 2 — tap both cards to continue'; }},
+    {step:4, key:'tc',      need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',   need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('tm-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

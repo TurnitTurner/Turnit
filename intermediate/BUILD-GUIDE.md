@@ -336,6 +336,7 @@ tap-to-build an ordered list (unordered pool -> sequential slots, not drag-and-d
 live bond-quote calculator (verified present-value math, five price presets)
 multi-card dashboard where each tap opens in place and stays open (compare-all, not replace)
 dark-panel year-stepper: tap a checkpoint, two shared stats and a takeaway line update
+dark-panel live comparison: tap one of several options, two shared stats and a sourcing note update
 ```
 
 **Limit: 1–2 creative widgets per lesson.** The rest are standard formats, which are
