@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **20 built** (Modules 1, 2, 3, and 4 complete)
+7 modules · 35 lessons · **21 built** (Modules 1, 2, 3, and 4 complete, Module 5 underway)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -57,15 +57,15 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 20 | Your Real Risk Tolerance vs. Your Stated One | `20-your-real-risk-tolerance-vs-your-stated-one.html` | 8 |
 | 20 | Your Real Risk Tolerance vs. Your Stated One | — | — |
 
-## Module 5 — Bonds And Cash, Properly ⬜ not built
+## Module 5 — Bonds And Cash, Properly 🔶 underway (1 of 5)
 
-| # | Lesson |
-|---|---|
-| 21 | What You Actually Own When You Buy A Bond |
-| 22 | Yield, Price, And Why They Move Opposite |
-| 23 | Duration: How Much Rates Will Hurt |
-| 24 | Bond Funds vs. Individual Bonds |
-| 25 | T-Bills, Money Market Funds, And HYSAs Compared |
+| # | Lesson | File | Slides |
+|---|---|---|---|
+| 21 | What You Actually Own When You Buy A Bond | `21-what-you-actually-own-when-you-buy-a-bond.html` | 8 |
+| 22 | Yield, Price, And Why They Move Opposite | — | — |
+| 23 | Duration: How Much Rates Will Hurt | — | — |
+| 24 | Bond Funds vs. Individual Bonds | — | — |
+| 25 | T-Bills, Money Market Funds, And HYSAs Compared | — | — |
 
 ## Module 6 — Looking At Individual Companies ⬜ not built
 
@@ -548,6 +548,54 @@ ICI release itself wasn't located and read directly. Closing quote —
 Mike Tyson's original 1987 Associated Press wording (per Quote
 Investigator's sourcing) rather than the far more common but later
 -drifted "punched in the face/mouth" variants.
+
+## Module 5 — Bonds And Cash, Properly
+
+**Lesson 21 ("What You Actually Own When You Buy A Bond"), prefix
+`bd`, opens Module 5:** scoped against the Foundations course before
+writing a word — `3-4-stocks-vs-bonds-vs-funds.html` already chips
+"Bonds," "Interest Rate (Coupon)," and "Maturity Date," and this
+course's own Lesson 01 already chips "Fixed Income," so none of those
+four are re-chipped here; this lesson goes one level deeper instead
+(face value specifically, credit risk and rating, payment seniority,
+issuer types, one line on municipal-bond tax treatment). Confirmed via
+a full chip inventory across all 20 intermediate lessons
+(`grep -ho 'data-t="[^"]*"' lessons/*.html | sort -u`) and a
+repo-wide prefix check (`grep -rho 'id="tn-[a-z]*"' .`) before picking
+`bd` and this lesson's own six terms. Both creative widgets are new
+mechanics: slide 2 reconstructs a real bond's actual terms as a
+tappable annotated document (the same general pattern Lesson 08's fund
+-page slide uses, applied to a different real artifact with different
+fields) using one real tranche from Apple's April-May 2013 bond
+offering — its first since 1996 — per Apple's own SEC Form 424B2 as
+reported contemporaneously: a 10-year, $5.5 billion tranche at a 2.4%
+coupon, maturing May 2023 (since matured and fully repaid, used as
+settled history). Slide 3 is a tap-to-build ordered list — four
+claimants start in an unordered pool, and tapping one moves it into
+the next open slot of a payout-order list the learner builds
+themselves — deliberately not the drag-and-drop sort already used
+elsewhere. A post-drive-but-pre-reset tooltip check caught a real
+fragility worth noting for future lessons: slides 2-4's intro
+paragraphs originally contained zero chip-term mentions, so the first
+green term in document order landed inside slide 5's myth/fact
+explanation text (`.bd-why`), which is hidden by CSS until its row is
+answered — and the harness's own post-step "click every Start Over
+button" pass resets that row before the final check runs, making the
+term invisible at exactly the moment the tooltip check looks for it.
+Fixing the term-density warning (weaving terms into slides 2-4's
+intros) fixed this as a side effect, since an earlier-in-the-document,
+always-visible term became the first one found. Also caught: a slide
+6 heading ("Which Carries More Credit Risk?") contained its own chip
+term verbatim, triggering the same "term inside an `<h2>`" failure
+Lesson 16's "Bear Market" headline hit — reworded to "Which One's
+Riskier To Lend To?" Closing quote — James Carville's "I used to think
+that if there was reincarnation... now I want to come back as the bond
+market. You can intimidate everybody" — reported in The Wall Street
+Journal, Feb. 25, 1993; the original article couldn't be fetched
+directly in this environment, but the wording is consistent across
+multiple independent secondary sources citing that specific article
+and date. Checked for duplication against every other quote in the
+repo before shipping.
 
 What was fixed in the Module 1–2 backlog pass:
 

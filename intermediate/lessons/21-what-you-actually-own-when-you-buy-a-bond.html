@@ -1,0 +1,801 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — WHAT YOU ACTUALLY OWN WHEN YOU BUY A BOND
+     (Intermediate · Module 5 · Lesson 21, opens Module 5)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-bd. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+       1  Title & Key Terms (never gated)   2  A Real Bond, Annotated (creative)
+       3  Who Gets Paid First? (creative)   4  Three Kinds Of Issuer
+       5  Myth Or Fact (5)                  6  Which One's Riskier To Lend To? (4)
+       7  Recap (6)                         8  Complete
+     Scope, deliberately: the Foundations course (3-4-stocks-vs-bonds-vs-funds.html,
+     prefix sb) already defines "Bonds," "Interest Rate (Coupon)," and "Maturity
+     Date" as basic vocabulary, and Lesson 01 of this course already chips "Fixed
+     Income." None of those four terms are re-chipped here — they're used in prose,
+     assumed known, and this lesson goes one level deeper: face value specifically
+     (not just "a bond pays interest"), credit risk and rating, payment seniority in
+     a bankruptcy, issuer types, and a municipal bond's basic tax angle (one line —
+     Module 3 owns tax mechanics in depth). Does not re-teach what a bond fund is
+     (Lesson 24 owns the individual-bond-vs-fund tradeoff) or how bond price and
+     yield move (Lesson 22 owns that) — slide 5's myth/fact claim about face value
+     vs. price only foreshadows it.
+     Creative widgets, 2 of 2 allowed: slide 2 is a reconstruction of a real bond's
+     actual terms as a tappable annotated document — the same general pattern
+     Lesson 08's fund-page slide uses (an explicitly endorsed model in this guide's
+     own working-examples list), applied to a different real artifact entirely (a
+     bond confirmation, not a fund page), with different fields (face value, coupon
+     rate, payment schedule, maturity, credit rating at issuance). Slide 3 is a new
+     mechanic — tap-to-build an ordered list: four claimants (secured bondholders,
+     unsecured bondholders, preferred stockholders, common stockholders) start in an
+     unordered pool: tapping one moves it into the next open slot of a four-slot
+     payout-order list the learner is building themselves, not a drag-and-drop sort
+     (already used elsewhere) and not a simple tap-reveal grid. A Start Over button
+     lets the learner retry the ordering, consistent with this being a quiz-shaped
+     activity. Slide 4 is a standard three-card reveal; slides 6 is a standard
+     scenario-decision pair format.
+     Gating reads state published on the container, so spamming one control can
+     never unlock a slide; once unlocked, a slide stays unlocked after Start Over.
+     Real figures (sourced, as of writing): Apple Inc.'s April 30 - May 1, 2013 bond
+     offering (its first since 1996), per its own SEC Form 424B2 prospectus
+     supplement as reported contemporaneously (Reuters/Treasury & Risk and a
+     Motley-Fool-style breakdown citing the same filing): six tranches totaling
+     about $17 billion, including a 10-year, $5.5 billion tranche priced at a 2.4%
+     annual coupon, maturing May 2023 — this is the tranche reconstructed on slide 2.
+     A standard $1,000 face value per bond is used (the conventional U.S. corporate
+     bond denomination; the $5.5 billion figure is the tranche's total issue size
+     across many individual bonds, not one bond's face value). Apple's own credit
+     ratings at the time of this offering were reported as AA+ (S&P) and Aa1
+     (Moody's). This bond has since matured (May 2023, before this lesson's writing)
+     and is used here as settled history, not a current offering or a recommendation
+     of any kind. Credit-rating scale: S&P and Fitch's investment-grade cutoff is
+     BBB-; Moody's equivalent cutoff is Baa3 — anything rated below either is
+     speculative-grade, commonly called "high-yield" or "junk" (consistent across
+     S&P's, Moody's, and secondary finance-education sources). Bankruptcy payment
+     priority: the "absolute priority rule" orders secured debt, then unsecured
+     debt, then preferred stock, then common equity (consistent across a CFA-level
+     study source and general bankruptcy-law explainers); this is the simplified
+     ranking taught here — real Chapter 11 reorganizations can deviate from strict
+     ordering through negotiated plans, noted in-lesson as a simplification, not the
+     full statutory detail of 11 U.S.C. SS 1129(b). Closing quote: James Carville,
+     "I used to think that if there was reincarnation, I wanted to come back as the
+     president or the pope or a .400 baseball hitter. But now I want to come back
+     as the bond market. You can intimidate everybody" — reported in The Wall
+     Street Journal, Feb. 25, 1993 (Wessel and Vogel, "Arcane World of Bonds Is
+     Guide and Beacon to a Populist President"); the original WSJ article itself
+     could not be fetched directly in this environment, but the quote's wording is
+     consistent across multiple independent secondary sources that cite that
+     specific article and date, including its core line verbatim. Checked for
+     duplication against every other quote already in this repo
+     (`grep -ril "intimidate everybody"` across `intermediate/` and the
+     Foundations-level lesson files at the repo root) before shipping — confirmed
+     unique.
+     ============================================================ -->
+<div id="tn-bd">
+  <div class="bd-wrap">
+    <div class="bd-top">
+      <div class="bd-topbar">
+        <div class="bd-brand"><span class="bd-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><span class="bd-word">TURNIT</span><span class="bd-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="bd-progress"><span id="bd-bar"></span></div>
+      <div class="bd-meta"><span id="bd-slide-label">Start Here</span><span id="bd-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="bd-sec bd-center bd-reveal" data-step="1">
+      <p class="bd-kicker center">A Loan, With Real Fine Print · 1 / 8</p>
+      <h1 class="bd-hero-title">WHAT YOU ACTUALLY OWN <span class="bd-hero-grad">WHEN YOU BUY A BOND</span></h1>
+      <p class="bd-sub center">You already know a bond is a loan. Here's what that loan actually promises — and what happens if the borrower can't pay.</p>
+      <div class="bd-vocab">
+        <span class="bd-vocab-label">Key Terms In This Lesson</span>
+        <div class="bd-vocab-chips" id="bd-vocab-chips">
+          <button type="button" class="bd-vocab-chip" data-t="Face Value" data-def="The amount a bond promises to repay at maturity — usually $1,000 per bond — and the amount its coupon rate is calculated against. Not necessarily what you'd pay to buy it.">Face Value</button>
+          <button type="button" class="bd-vocab-chip" data-t="Credit Risk" data-def="The risk that a bond's issuer won't be able to make its promised payments — distinct from interest-rate risk, which affects a bond's market price even when the issuer pays exactly as promised.">Credit Risk</button>
+          <button type="button" class="bd-vocab-chip" data-t="Credit Rating" data-def="A letter grade from agencies like S&amp;P and Moody's estimating how likely an issuer is to repay — from the highest grades down through speculative, or 'junk,' territory.">Credit Rating</button>
+          <button type="button" class="bd-vocab-chip" data-t="Seniority" data-def="The order in which a company's creditors and owners get paid if it runs out of money. Some bondholders are paid before others, and bondholders are generally paid before stockholders.">Seniority</button>
+          <button type="button" class="bd-vocab-chip" data-t="Default" data-def="A failure by a bond's issuer to make a scheduled interest or principal payment on time.">Default</button>
+          <button type="button" class="bd-vocab-chip" data-t="Municipal Bond" data-def="A bond issued by a state or local government, often with interest exempt from federal — and sometimes state — income tax.">Municipal Bond</button>
+        </div>
+        <div class="bd-vocab-def" id="bd-vocab-def">Tap a term to see what it means.</div>
+        <span class="bd-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="bd-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · A REAL BOND, ANNOTATED ========== -->
+    <section class="bd-sec bd-reveal" data-step="2">
+      <p class="bd-kicker">A Real Bond, Issued In 2013 · 2 / 8</p>
+      <h2 class="bd-h2">A Real Bond, Annotated</h2>
+      <p class="bd-p">In 2013, Apple borrowed money by selling bonds for the first time since 1996. This is one real tranche from that sale — including its face value and the credit rating it carried — now fully paid off. Tap each field to see what it actually means.</p>
+      <div class="bd-doc">
+        <p class="bd-doc-head">Apple Inc. — 10-Year Note (One Tranche Of A 2013 Offering)</p>
+        <div class="bd-doc-grid" id="bd-doc-grid">
+          <button type="button" class="bd-doc-field" data-k="issuer">
+            <span class="bd-doc-lab">Issuer</span>
+            <span class="bd-doc-val">Apple Inc.</span>
+          </button>
+          <button type="button" class="bd-doc-field" data-k="face">
+            <span class="bd-doc-lab">Face Value</span>
+            <span class="bd-doc-val">$1,000 Per Bond</span>
+          </button>
+          <button type="button" class="bd-doc-field" data-k="coupon">
+            <span class="bd-doc-lab">Coupon Rate</span>
+            <span class="bd-doc-val">2.4% Per Year</span>
+          </button>
+          <button type="button" class="bd-doc-field" data-k="pay">
+            <span class="bd-doc-lab">Payment Schedule</span>
+            <span class="bd-doc-val">$12 Every 6 Months</span>
+          </button>
+          <button type="button" class="bd-doc-field" data-k="issued">
+            <span class="bd-doc-lab">Issued</span>
+            <span class="bd-doc-val">May 2013</span>
+          </button>
+          <button type="button" class="bd-doc-field" data-k="maturity">
+            <span class="bd-doc-lab">Maturity Date</span>
+            <span class="bd-doc-val">May 2023</span>
+          </button>
+          <button type="button" class="bd-doc-field" data-k="size">
+            <span class="bd-doc-lab">Tranche Size</span>
+            <span class="bd-doc-val">$5.5 Billion</span>
+          </button>
+          <button type="button" class="bd-doc-field" data-k="rating">
+            <span class="bd-doc-lab">Credit Rating At Issuance</span>
+            <span class="bd-doc-val">AA+ / Aa1</span>
+          </button>
+        </div>
+        <div class="bd-doc-detail" id="bd-doc-detail">Tap any field above to see what it means.</div>
+      </div>
+      <p class="bd-count" id="bd-doc-count">Revealed 0 Of 8</p>
+      <p class="bd-disclaimer-inline">This bond's own 10-year life is complete and fully repaid — shown as settled history, not a current offering or a recommendation of any kind.</p>
+    </section>
+
+    <!-- ========== 3 · WHO GETS PAID FIRST? ========== -->
+    <section class="bd-sec bd-reveal" data-step="3">
+      <p class="bd-kicker">If The Money Runs Out · 3 / 8</p>
+      <h2 class="bd-h2">Who Gets Paid First?</h2>
+      <p class="bd-p">If a company defaults and runs out of money, its creditors and owners don't all get paid at once, or in the same order — that order is called seniority. Tap these four, in the order you think they'd actually get paid.</p>
+      <div class="bd-rank" id="bd-rank">
+        <div class="bd-rank-pool" id="bd-rank-pool">
+          <button type="button" class="bd-rank-item" data-k="secured">Secured Bondholders</button>
+          <button type="button" class="bd-rank-item" data-k="unsecured">Unsecured Bondholders</button>
+          <button type="button" class="bd-rank-item" data-k="preferred">Preferred Stockholders</button>
+          <button type="button" class="bd-rank-item" data-k="common">Common Stockholders</button>
+        </div>
+        <div class="bd-rank-slots" id="bd-rank-slots">
+          <div class="bd-rank-slot" data-pos="0"><span class="bd-rank-slot-n">1st Paid</span><span class="bd-rank-slot-fill"></span></div>
+          <div class="bd-rank-slot" data-pos="1"><span class="bd-rank-slot-n">2nd Paid</span><span class="bd-rank-slot-fill"></span></div>
+          <div class="bd-rank-slot" data-pos="2"><span class="bd-rank-slot-n">3rd Paid</span><span class="bd-rank-slot-fill"></span></div>
+          <div class="bd-rank-slot" data-pos="3"><span class="bd-rank-slot-n">Last Paid</span><span class="bd-rank-slot-fill"></span></div>
+        </div>
+      </div>
+      <div class="bd-rank-result" id="bd-rank-result" hidden></div>
+      <p class="bd-count" id="bd-rank-count">Placed 0 Of 4</p>
+      <div class="bd-reset-row"><button type="button" class="bd-reset-btn" id="bd-rank-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 4 · THREE KINDS OF ISSUER ========== -->
+    <section class="bd-sec bd-reveal" data-step="4">
+      <p class="bd-kicker">Who's Actually Borrowing · 4 / 8</p>
+      <h2 class="bd-h2">Three Kinds Of Issuer</h2>
+      <p class="bd-p">A bond is only as good as whoever promised to repay it — the whole story behind credit risk. One of these three, the municipal bond, even comes with its own tax angle. Tap each to see how the issuer changes the risk.</p>
+      <div class="bd-threecol" id="bd-threecol">
+        <button type="button" class="bd-tcard t" data-k="treasury">
+          <span class="bd-tcard-t">U.S. Treasury</span>
+          <span class="bd-tcard-sub">The federal government</span>
+        </button>
+        <button type="button" class="bd-tcard m" data-k="muni">
+          <span class="bd-tcard-t">Municipal</span>
+          <span class="bd-tcard-sub">A state or city</span>
+        </button>
+        <button type="button" class="bd-tcard c" data-k="corp">
+          <span class="bd-tcard-t">Corporate</span>
+          <span class="bd-tcard-sub">A company</span>
+        </button>
+      </div>
+      <div class="bd-tcbox" id="bd-tcbox">Tap a card above to see how the issuer changes the risk.</div>
+      <p class="bd-count" id="bd-tc-count">Revealed 0 Of 3</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="bd-sec bd-reveal" data-step="5">
+      <p class="bd-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="bd-h2">Myth Or Fact?</h2>
+      <p class="bd-p">Five claims you'll hear about bonds. Tap your answer.</p>
+      <div class="bd-sort" id="bd-myth">
+        <div class="bd-sort-row" data-answer="myth"><span>A bondholder is a part-owner of the company, just like a stockholder.</span><div class="bd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bd-why"><b>Myth.</b> A bondholder is a creditor — someone the company owes money to — not an owner. That's exactly why bondholders get paid before stockholders if the company runs out of money.</p></div>
+        <div class="bd-sort-row" data-answer="fact"><span>If a company goes bankrupt, bondholders are generally paid before stockholders.</span><div class="bd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bd-why"><b>Fact.</b> That's seniority — creditors, including bondholders, rank ahead of owners under the standard payment-priority order.</p></div>
+        <div class="bd-sort-row" data-answer="myth"><span>A bond's face value is always the same as what you'd pay to buy it.</span><div class="bd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bd-why"><b>Myth.</b> Face value is fixed — what you'd actually pay to buy the bond can be higher or lower, and moves with interest rates. More on exactly why next lesson.</p></div>
+        <div class="bd-sort-row" data-answer="fact"><span>A credit rating below BBB- (S&amp;P) or Baa3 (Moody's) is considered speculative, or "junk."</span><div class="bd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bd-why"><b>Fact.</b> That's the standard investment-grade cutoff both major rating agencies use — anything below it is speculative-grade.</p></div>
+        <div class="bd-sort-row" data-answer="fact"><span>U.S. Treasury bonds are generally considered to carry less credit risk than municipal or corporate bonds.</span><div class="bd-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bd-why"><b>Fact.</b> The federal government can tax and create currency to meet its obligations — a capability no state, city, or company has.</p></div>
+      </div>
+      <p class="bd-count" id="bd-myth-count">Answered 0 Of 5</p>
+      <div class="bd-reset-row"><button type="button" class="bd-reset-btn" id="bd-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH CARRIES MORE CREDIT RISK? ========== -->
+    <section class="bd-sec bd-reveal" data-step="6">
+      <p class="bd-kicker">Four Pairs · 6 / 8</p>
+      <h2 class="bd-h2">Which One's Riskier To Lend To?</h2>
+      <p class="bd-p">For each pair, which bond carries more credit risk — more likely to run into trouble repaying? Tap your answer.</p>
+      <div class="bd-cases" id="bd-cases">
+        <div class="bd-case" data-ans="1">
+          <p class="bd-case-q">A bond rated AAA. A bond rated BB+.</p>
+          <div class="bd-copts2"><button type="button" data-i="0">The AAA Bond</button><button type="button" data-i="1">The BB+ Bond</button></div>
+          <p class="bd-why"></p>
+        </div>
+        <div class="bd-case" data-ans="1">
+          <p class="bd-case-q">A U.S. Treasury bond. A bond from a small, newly public company.</p>
+          <div class="bd-copts2"><button type="button" data-i="0">The Treasury Bond</button><button type="button" data-i="1">The Small Company's Bond</button></div>
+          <p class="bd-why"></p>
+        </div>
+        <div class="bd-case" data-ans="1">
+          <p class="bd-case-q">A municipal bond from a large state government. A corporate bond from a company that just lost its biggest customer.</p>
+          <div class="bd-copts2"><button type="button" data-i="0">The Municipal Bond</button><button type="button" data-i="1">The Corporate Bond</button></div>
+          <p class="bd-why"></p>
+        </div>
+        <div class="bd-case" data-ans="0">
+          <p class="bd-case-q">An unsecured bond from a company. A secured bond from the exact same company.</p>
+          <div class="bd-copts2"><button type="button" data-i="0">The Unsecured Bond</button><button type="button" data-i="1">The Secured Bond</button></div>
+          <p class="bd-why"></p>
+        </div>
+      </div>
+      <p class="bd-count" id="bd-case-count">Answered 0 Of 4</p>
+      <div class="bd-reset-row"><button type="button" class="bd-reset-btn" id="bd-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="bd-sec bd-reveal" data-step="7">
+      <p class="bd-kicker">Recap · 7 / 8</p>
+      <h2 class="bd-h2">Here's What You Now Know</h2>
+      <p class="bd-p">The whole lesson, in six lines.</p>
+      <div class="bd-recap">
+        <div class="bd-recap-item"><span class="bd-recap-check">✓</span><span>A bond's face value is the amount it promises to repay at maturity — usually $1,000 — and isn't necessarily what you'd pay to buy it.</span></div>
+        <div class="bd-recap-item"><span class="bd-recap-check">✓</span><span>A bondholder is a creditor, not an owner — which is exactly why bondholders are generally paid before stockholders if a company runs out of money.</span></div>
+        <div class="bd-recap-item"><span class="bd-recap-check">✓</span><span>Credit risk is the risk the issuer can't pay — separate from the interest-rate risk that affects a bond's market price regardless of the issuer's health.</span></div>
+        <div class="bd-recap-item"><span class="bd-recap-check">✓</span><span>A credit rating below BBB-/Baa3 is speculative-grade, commonly called "junk" — everything above it is investment-grade.</span></div>
+        <div class="bd-recap-item"><span class="bd-recap-check">✓</span><span>Payment priority in a bankruptcy generally runs secured debt, then unsecured debt, then preferred stock, then common stock.</span></div>
+        <div class="bd-recap-item"><span class="bd-recap-check">✓</span><span>Who's actually borrowing — the federal government, a state or city, or a company — is the single biggest driver of a bond's credit risk.</span></div>
+      </div>
+      <div class="bd-next-move">Your next move: <b>before buying any bond or bond fund, check who's actually borrowing and what they're rated.</b> The coupon rate alone never tells you that.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="bd-sec bd-center bd-reveal" data-step="8">
+      <p class="bd-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="bd-hero-ico">🚀</span>
+      <h2 class="bd-h2 center">You've Finished The Lesson</h2>
+      <p class="bd-sub center">Module 5 is underway. Next: why a bond's price and its yield always move in opposite directions.</p>
+      <div class="bd-finish">
+        <span class="bd-finish-arrow" id="bd-fin-arrow" aria-hidden="true">↓</span>
+        <p class="bd-finish-lead" id="bd-fin-lead">Scroll Down To Continue</p>
+        <p class="bd-finish-sub" id="bd-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="bd-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="bd-pullquote">"I USED TO THINK THAT IF THERE WAS REINCARNATION, I WANTED TO COME BACK AS THE PRESIDENT OR THE POPE OR A .400 BASEBALL HITTER. BUT NOW I WANT TO COME BACK AS THE BOND MARKET. <span class="bd-green">YOU CAN INTIMIDATE EVERYBODY.</span>"<br><span class="bd-pullquote-by">— JAMES CARVILLE, THE WALL STREET JOURNAL (FEB. 25, 1993)</span></p>
+    </section>
+
+    <p class="bd-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including credit and default risk, and past performance never guarantees future results. The Apple bond shown in slide 2 is real, historical, and fully repaid — named because its real, dated terms teach this lesson clearly, not as a recommendation. The bankruptcy payment-priority order in slide 3 is simplified; actual Chapter 11 outcomes can differ through negotiated reorganization plans. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="bd-nav" id="bd-nav">
+      <button type="button" class="bd-nav-btn prev" id="bd-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="bd-nav-hint" id="bd-nav-hint"></span>
+      <button type="button" class="bd-nav-btn next" id="bd-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-bd{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-bd *,#tn-bd *::before,#tn-bd *::after{box-sizing:border-box;}
+  #tn-bd .bd-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-bd .bd-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-bd .bd-reveal.in{opacity:1; transform:none;}
+  #tn-bd .bd-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-bd .bd-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-bd .bd-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-bd .bd-bico{display:flex;}
+  #tn-bd .bd-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-bd .bd-bsub{color:var(--ink2); font-weight:500;}
+  #tn-bd .bd-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-bd #bd-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-bd .bd-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-bd .bd-meta #bd-slide-label{color:var(--ink2);}
+  #tn-bd .bd-meta #bd-slide-count{color:var(--mut);}
+  #tn-bd .bd-sec{padding:16px 0 8px;}
+  #tn-bd .bd-sec.bd-hide{display:none;}
+  #tn-bd .bd-center{text-align:center;}
+  #tn-bd .bd-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-bd .bd-kicker.center{text-align:center;}
+  #tn-bd .bd-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-bd .bd-h2.center{text-align:center;}
+  #tn-bd .bd-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-bd .bd-p b{color:var(--ink); font-weight:700;}
+  #tn-bd .bd-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-bd .bd-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-bd .bd-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-bd .bd-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-bd .bd-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s; scroll-margin-bottom:100px;}
+  #tn-bd .bd-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* title */
+  #tn-bd .bd-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,4.6vw,32px); line-height:1.2; text-align:center; margin:8px 0 14px;}
+  #tn-bd .bd-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-bd .bd-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-bd .bd-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-bd .bd-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-bd .bd-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-bd .bd-vocab-chip:hover{filter:brightness(.97);}
+  #tn-bd .bd-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-bd .bd-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-bd .bd-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-bd .bd-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-bd .bd-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-bd .bd-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · annotated bond document (creative 1 of 2) */
+  #tn-bd .bd-doc{max-width:520px; margin:0 auto; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:18px; padding:18px;}
+  #tn-bd .bd-doc-head{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:center; margin:0 0 14px; padding-bottom:12px; border-bottom:1px solid var(--cardbd);}
+  #tn-bd .bd-doc-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  #tn-bd .bd-doc-field{display:flex; flex-direction:column; gap:3px; background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:10px 12px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-bd .bd-doc-field:hover{border-color:var(--selbd);}
+  #tn-bd .bd-doc-field.done{background:var(--tint); border-color:var(--selbd);}
+  #tn-bd .bd-doc-lab{font-size:10px; font-weight:700; color:var(--mut); text-transform:uppercase; letter-spacing:.04em;}
+  #tn-bd .bd-doc-val{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink);}
+  #tn-bd .bd-doc-detail{margin-top:12px; background:#fff; border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; text-align:center; font-size:13px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-bd .bd-doc-detail b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 3 · tap-to-build payment order (creative 2 of 2) */
+  #tn-bd .bd-rank-pool{display:flex; flex-direction:column; gap:8px; margin-bottom:16px;}
+  #tn-bd .bd-rank-item{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:12px 14px; cursor:pointer; text-align:left; transition:all .15s;}
+  #tn-bd .bd-rank-item:hover:not(:disabled){border-color:var(--selbd);}
+  #tn-bd .bd-rank-item:disabled{opacity:.3; cursor:not-allowed;}
+  #tn-bd .bd-rank-slots{display:flex; flex-direction:column; gap:7px;}
+  #tn-bd .bd-rank-slot{display:flex; align-items:center; gap:10px; background:var(--cardbg); border:1.5px dashed var(--cardbd); border-radius:11px; padding:10px 14px; min-height:20px;}
+  #tn-bd .bd-rank-slot-n{font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; flex:none; width:68px;}
+  #tn-bd .bd-rank-slot-fill{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); flex:1;}
+  #tn-bd .bd-rank-slot.filled{border-style:solid; background:#fff;}
+  #tn-bd .bd-rank-slot.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-bd .bd-rank-slot.right .bd-rank-slot-fill::after{content:" ✓"; color:var(--g); font-weight:800;}
+  #tn-bd .bd-rank-slot.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bd .bd-rank-slot.wrong .bd-rank-slot-fill::after{content:" ✕"; color:var(--no); font-weight:800;}
+  #tn-bd .bd-rank-result{margin-top:14px; background:var(--tint); border:1px solid var(--selbd); border-radius:13px; padding:14px 16px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55;}
+  #tn-bd .bd-rank-result[hidden]{display:none;}
+  #tn-bd .bd-rank-result b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 4 · three-card comparison */
+  #tn-bd .bd-threecol{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-bd .bd-tcard{display:flex; flex-direction:column; align-items:center; gap:4px; border-radius:14px; padding:14px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bd .bd-tcard.t{border:1.5px solid var(--selbd);}
+  #tn-bd .bd-tcard.m{border:1.5px solid #CFE0EE;}
+  #tn-bd .bd-tcard.c{border:1.5px solid #F0DCA9;}
+  #tn-bd .bd-tcard:hover{filter:brightness(.97);}
+  #tn-bd .bd-tcard.done.t{background:var(--tint);}
+  #tn-bd .bd-tcard.done.m{background:#EAF2F9;}
+  #tn-bd .bd-tcard.done.c{background:#FBF2DF;}
+  #tn-bd .bd-tcard-t{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--ink); text-align:center;}
+  #tn-bd .bd-tcard-sub{font-size:10.5px; color:var(--mut); text-align:center; line-height:1.3;}
+  #tn-bd .bd-tcbox{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:13px; padding:14px 16px; margin-top:14px; text-align:center; font-size:13.5px; color:var(--ink2); line-height:1.55; min-height:22px;}
+  #tn-bd .bd-tcbox b{font-family:'Poppins',sans-serif; color:var(--ink);}
+  /* 5 · myth sorter */
+  #tn-bd .bd-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-bd .bd-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-bd .bd-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-bd .bd-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-bd .bd-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bd .bd-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-bd .bd-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-bd .bd-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-bd .bd-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bd .bd-sort-row.done .bd-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-bd .bd-sort-row.done .bd-sort-btns button.picked{opacity:1;}
+  #tn-bd .bd-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-bd .bd-why b{font-family:'Poppins',sans-serif;}
+  #tn-bd .bd-sort-row .bd-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-bd .bd-sort-row.done .bd-why{display:block;}
+  /* 6 · scenarios */
+  #tn-bd .bd-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-bd .bd-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-bd .bd-case-q{font-size:14px; font-weight:500; margin:0 0 10px;}
+  #tn-bd .bd-copts2{display:flex; gap:8px; flex-wrap:wrap;}
+  #tn-bd .bd-copts2 button{flex:1; min-width:140px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 8px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bd .bd-copts2 button:hover{border-color:var(--selbd);}
+  #tn-bd .bd-case.done .bd-copts2 button{opacity:.35; pointer-events:none;}
+  #tn-bd .bd-case.done .bd-copts2 button.picked{opacity:1;}
+  #tn-bd .bd-case.done .bd-copts2 button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-bd .bd-case.done .bd-copts2 button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-bd .bd-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-bd .bd-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bd .bd-case.done .bd-why{display:block;}
+  /* recap + complete */
+  #tn-bd .bd-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-bd .bd-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-bd .bd-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--g); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-bd .bd-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-bd .bd-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-bd .bd-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-bd .bd-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-bd .bd-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:bd-bob 1.6s ease-in-out infinite;}
+  #tn-bd .bd-finish-arrow.up{animation-name:bd-bob-up;}
+  @keyframes bd-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes bd-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-bd .bd-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-bd .bd-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-bd .bd-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-bd .bd-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-bd .bd-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-bd .bd-green{color:var(--g);}
+  #tn-bd .bd-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav — sticky so Next is always reachable */
+  #tn-bd .bd-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-bd .bd-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-bd .bd-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-bd .bd-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-bd .bd-nav-btn.prev{color:var(--ink2);}
+  #tn-bd .bd-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-bd .bd-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-bd .bd-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-bd .bd-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-bd .bd-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-bd .bd-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-bd .bd-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-bd .bd-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .bd-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .bd-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-bd .bd-wrap{padding:12px 14px 30px;}
+    #tn-bd .bd-doc-grid{grid-template-columns:1fr;}
+    #tn-bd .bd-threecol{grid-template-columns:1fr; gap:8px;}
+    #tn-bd .bd-tcard{flex-direction:row; justify-content:space-between; padding:12px 14px;}
+    #tn-bd .bd-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-bd .bd-copts2 button{min-width:0; flex:1 1 100%;}
+    #tn-bd .bd-bsub{display:none;}
+    #tn-bd .bd-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-bd .bd-nav{padding-top:10px; row-gap:0;}
+    #tn-bd .bd-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-bd .bd-reveal{opacity:1 !important; transform:none !important;}
+    #tn-bd #bd-bar{transition:none;}
+    #tn-bd .bd-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-bd'); if(!root) return;
+  root.querySelectorAll('.bd-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('bd-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#bd-vocab-def');
+  root.querySelectorAll('#bd-vocab-chips .bd-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#bd-vocab-chips .bd-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · a real bond, annotated (creative 1 of 2) */
+  var DOCW={
+    issuer:'Apple raised about $17 billion across six tranches in this 2013 offering — its first bond sale since 1996 — to fund shareholder returns without repatriating overseas cash.',
+    face:'Each bond in this tranche promises to repay $1,000 at maturity. That $1,000 is the base every other number on this bond is calculated from.',
+    coupon:'2.4% of the $1,000 face value — $24 a year — is what this bond pays, fixed for its entire 10-year life, regardless of what happens to interest rates afterward.',
+    pay:'U.S. corporate bonds typically pay their coupon in two equal installments a year: $12 every six months here, adding up to the full $24 annual coupon.',
+    issued:'This tranche priced in early May 2013, as part of the larger six-tranche offering that launched April 30.',
+    maturity:'A 10-year bond issued in May 2013 promises its final interest payment and the full $1,000 face value back in May 2023 — which is exactly what happened.',
+    size:'$5.5 billion was the total size of just this one tranche — spread across millions of individual $1,000 bonds, not one giant bond.',
+    rating:'AA+ from S&amp;P and Aa1 from Moody’s at the time of issuance — both deep in investment-grade territory, reflecting very low credit risk for this specific debt.'
+  };
+  var docSeen={}, docDetail=root.querySelector('#bd-doc-detail'), docCount=root.querySelector('#bd-doc-count');
+  root.querySelectorAll('#bd-doc-grid .bd-doc-field').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      docDetail.innerHTML='<b>'+btn.querySelector('.bd-doc-lab').textContent+':</b> '+DOCW[k];
+      docSeen[k]=1;
+      docCount.textContent='Revealed '+keys(docSeen)+' Of 8';
+      state('doc', keys(docSeen)); postHeight();
+    });
+  });
+
+  /* 3 · who gets paid first (creative 2 of 2) */
+  (function(){
+    var ORDER=['secured','unsecured','preferred','common'];
+    var LABEL={secured:'Secured Bondholders', unsecured:'Unsecured Bondholders', preferred:'Preferred Stockholders', common:'Common Stockholders'};
+    var pool=root.querySelector('#bd-rank-pool'), slots=root.querySelectorAll('#bd-rank-slots .bd-rank-slot'),
+        result=root.querySelector('#bd-rank-result'), countEl=root.querySelector('#bd-rank-count'),
+        resetBtn=root.querySelector('#bd-rank-reset');
+    if(!pool) return;
+    var placed=[];
+    function place(k){
+      if(placed.length>=4) return;
+      var pos=placed.length, slot=slots[pos];
+      slot.classList.add('filled');
+      slot.querySelector('.bd-rank-slot-fill').textContent=LABEL[k];
+      slot.setAttribute('data-k',k);
+      placed.push(k);
+      countEl.textContent='Placed '+placed.length+' Of 4';
+      if(placed.length>=4){
+        var correct=0;
+        slots.forEach(function(slot,i){
+          var ok=(placed[i]===ORDER[i]);
+          slot.classList.add(ok?'right':'wrong');
+          if(ok) correct++;
+        });
+        result.innerHTML='You got <b>'+correct+' of 4</b> in the real order. The actual sequence: '+ORDER.map(function(o){return LABEL[o];}).join(' → ')+' — secured debt first, then unsecured debt, then preferred stock, then common stock last.';
+        result.hidden=false;
+        state('rank', 4);
+      }
+      postHeight();
+    }
+    pool.querySelectorAll('.bd-rank-item').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(btn.disabled) return;
+        btn.disabled=true;
+        place(btn.getAttribute('data-k'));
+      });
+    });
+    resetBtn.addEventListener('click',function(){
+      placed=[];
+      pool.querySelectorAll('.bd-rank-item').forEach(function(b){ b.disabled=false; });
+      slots.forEach(function(slot){
+        slot.classList.remove('filled','right','wrong');
+        slot.removeAttribute('data-k');
+        slot.querySelector('.bd-rank-slot-fill').textContent='';
+      });
+      result.hidden=true;
+      countEl.textContent='Placed 0 Of 4';
+      postHeight();
+    });
+  })();
+
+  /* 4 · three kinds of issuer */
+  var TCW={
+    treasury:'Backed by the federal government’s power to tax and create currency — widely treated as carrying essentially no credit risk, the benchmark everything else is measured against.',
+    muni:'A state or city can’t print money, but it can tax and has historically defaulted far less often than corporations. Interest is often exempt from federal — and sometimes state — income tax.',
+    corp:'Credit risk varies enormously by company, from AAA-rated giants to speculative-grade startups — the issuer’s own financial health is the whole story here.'
+  };
+  var tcSeen={}, tcBox=root.querySelector('#bd-tcbox'), tcCount=root.querySelector('#bd-tc-count');
+  root.querySelectorAll('#bd-threecol .bd-tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.add('done');
+      var k=btn.getAttribute('data-k');
+      tcBox.innerHTML='<b>'+btn.querySelector('.bd-tcard-t').textContent+':</b> '+TCW[k];
+      tcSeen[k]=1;
+      tcCount.textContent='Revealed '+keys(tcSeen)+' Of 3';
+      state('tc', keys(tcSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#bd-myth-count');
+  root.querySelectorAll('#bd-myth .bd-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.bd-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#bd-myth .bd-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#bd-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#bd-myth .bd-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · which carries more credit risk */
+  var CWHY=[
+    'A higher letter grade means a lower estimated chance of default. BB+ sits below the investment-grade cutoff — speculative-grade, by definition more credit risk.',
+    'The federal government can tax and create currency to meet its obligations. A small, newly public company has no such backstop.',
+    'A losing-a-customer event hits the corporate issuer’s own ability to pay directly. A large state government’s taxing power doesn’t depend on any one company.',
+    'Secured debt is backed by specific collateral the lender can claim first. Unsecured debt from the same company has no such claim if things go wrong.'
+  ];
+  var caseCount=root.querySelector('#bd-case-count');
+  root.querySelectorAll('#bd-cases .bd-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.bd-why');
+    c.querySelectorAll('.bd-copts2 button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.bd-copts2 button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#bd-cases .bd-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#bd-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#bd-cases .bd-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.bd-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('bd-fin-arrow'), lead=document.getElementById('bd-fin-lead'), sub=document.getElementById('bd-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS
+   Shared glossary harvested from the slide 1 chips. First mention
+   per slide only. Hover on desktop, tap on touch. Only
+   non-interactive text is scanned: a term inside a tappable card
+   would swallow the tap that card needs.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-bd'); if(!root) return;
+  var ALT={};
+  var TERMS=[];
+  root.querySelectorAll('#bd-vocab-chips .bd-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    var alt=ALT[t.toLowerCase()]||t.toLowerCase();
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+alt+')\\b','i')});
+  });
+  /* longest phrase first, so a shorter term is never eaten by a longer overlap */
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.bd-p, .bd-sub, .bd-note, .bd-why, .bd-recap-item span, .bd-h2, .bd-next-move, .bd-sort-row > span, .bd-case-q, .bd-disclaimer-inline';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.bd-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='bd-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='bd-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.bd-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.bd-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return; /* the chips already define them here */
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-bd'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#bd-bar'), labelEl=root.querySelector('#bd-slide-label'),
+      countEl=root.querySelector('#bd-slide-count'), prevBtn=root.querySelector('#bd-prev'),
+      nextBtn=root.querySelector('#bd-next'), hintEl=root.querySelector('#bd-nav-hint'),
+      disclaimer=root.querySelector('.bd-disclaimer');
+  var labels={1:'Start Here',2:'A Real Bond',3:'Who Gets Paid First?',4:'Three Kinds Of Issuer',5:'Myth Or Fact',6:'Which Is Riskier?',7:'Recap',8:'Complete'};
+  var reqHints={2:'Reveal all 8 fields to continue',3:'Place all 4 to continue',4:'Reveal all 3 to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.bd-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('bd-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('bd-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  /* Sticky: once unlocked, a slide stays unlocked even after Start Over. */
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'doc',   need:8, hint:function(n){ return 'Revealed '+n+' of 8 — tap every field to continue'; }},
+    {step:3, key:'rank',  need:4, hint:function(n){ return 'Placed '+n+' of 4 — place them all to continue'; }},
+    {step:4, key:'tc',    need:3, hint:function(n){ return 'Revealed '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('bd-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>
