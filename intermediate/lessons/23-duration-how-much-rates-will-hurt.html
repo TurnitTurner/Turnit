@@ -67,8 +67,12 @@
      describing long-term bond yields as a "conundrum" — a famous, well-documented
      remark squarely about interest rates and bond market behavior from the most
      quotable rate-setting voice there is, rather than a forced, unverifiable
-     attribution to a book or memo passage. Checked for duplication
-     (`grep -ril "conundrum"` across this repo) before shipping — unique.
+     attribution to a book or memo passage. Used at full, original length ("For
+     the moment, the broadly unanticipated behavior of world bond markets remains
+     a conundrum") rather than trimmed, since cutting the opening words changes a
+     hedged, in-the-moment remark into one that reads as permanent. Checked for
+     duplication (`grep -ril "conundrum"` across this repo, confirmed run, not
+     just claimed) before shipping — unique.
      Note for Lesson 24: John Bogle's "Time is your friend; impulse is your enemy"
      was considered for this lesson and deliberately held back — ending a
      magnitude-of-loss lesson on "time is your friend" would undercut the point
@@ -110,7 +114,7 @@
     <section class="du-sec du-reveal" data-step="2">
       <p class="du-kicker">Four Bonds, One Rate Shock · 2 / 8</p>
       <h2 class="du-h2">One Rate Move, Four Bonds</h2>
-      <p class="du-p">Four bonds, each a 5% coupon priced exactly at par. Apply the exact same rate shock — a parallel shift of +1% — to all four at once. Tap each to reveal its duration and what that one move actually does to its price.</p>
+      <p class="du-p">Four bonds, each a 5% coupon priced exactly at par. Apply the exact same rate shock — a parallel shift of +1% — to all four at once. Tap each to reveal its modified duration and what that one move actually does to its price.</p>
       <div class="du-dash" id="du-dash">
         <button type="button" class="du-dcard" data-k="2">
           <span class="du-dcard-t">2-Year Bond</span><span class="du-dcard-sub">5% Coupon, At Par</span>
@@ -266,7 +270,7 @@
         <p class="du-finish-sub" id="du-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
       </div>
       <p class="du-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
-      <p class="du-pullquote">"<span class="du-green">THE BROADLY UNANTICIPATED BEHAVIOR OF WORLD BOND MARKETS REMAINS A CONUNDRUM.</span>"<br><span class="du-pullquote-by">— ALAN GREENSPAN, TESTIMONY TO THE SENATE BANKING COMMITTEE, FEBRUARY 2005</span></p>
+      <p class="du-pullquote">"<span class="du-green">FOR THE MOMENT, THE BROADLY UNANTICIPATED BEHAVIOR OF WORLD BOND MARKETS REMAINS A CONUNDRUM.</span>"<br><span class="du-pullquote-by">— ALAN GREENSPAN, TESTIMONY TO THE SENATE BANKING COMMITTEE, FEBRUARY 2005</span></p>
     </section>
 
     <p class="du-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including interest rate risk, and past performance never guarantees future results. Duration estimates shown are approximate — a bond's actual price change for a given rate move can differ from the estimate, especially for larger moves (convexity). SHY and TLT are named only to illustrate a real, historical rate shock; this is not a recommendation to buy, sell, or hold either one. Consider speaking with a qualified professional about your own situation.</p>
@@ -498,7 +502,7 @@
   /* 3 · 2022, in real numbers */
   var CMPW={
     shy:'A fund of Treasuries maturing in roughly 1–3 years, duration about 1.8–1.9 years. 2022 total return: approximately <b>-3.9%</b>. The fast rate shock barely touched it.',
-    tlt:'A fund of Treasuries maturing in 20+ years, duration roughly 17–18 years. 2022 total return: <b>-31.4%</b> — the same figure from Lesson 17’s look at volatility. Same issuer, same credit quality, almost entirely different outcome. That gap is duration.'
+    tlt:'A fund of Treasuries maturing in 20+ years, duration roughly 17–18 years. 2022 total return: <b>-31.4%</b> — the same figure from Lesson 16’s look at volatility. Same issuer, same credit quality, almost entirely different outcome. That gap is duration.'
   };
   var compSeen={}, cbox=root.querySelector('#du-cbox'), compCount=root.querySelector('#du-compare-count');
   root.querySelectorAll('#du-compare .du-cbtn').forEach(function(btn){
@@ -515,7 +519,7 @@
   /* 4 · close, but not exact (convexity) */
   var TCW={
     small:'Estimate: duration says <b>-7.79%</b>. Actual: the bond’s real price fell <b>-7.44%</b> — a gap of just 0.35 points. For a small move, the straight-line estimate is a solid approximation.',
-    large:'Estimate: duration says <b>-23.38%</b>. Actual: the bond’s real price fell <b>-20.39%</b> — a gap of almost 3 full points, nearly nine times wider than the small-move gap for a shock only three times the size. That widening gap is convexity.'
+    large:'Estimate: duration says <b>-23.38%</b>. Actual: the bond’s real price fell <b>-20.39%</b> — a gap of almost 3 full points, more than eight times wider than the small-move gap for a shock only three times the size. That widening gap is convexity.'
   };
   var tcSeen={}, tcBox=root.querySelector('#du-tcbox'), tcCount=root.querySelector('#du-tc-count');
   root.querySelectorAll('#du-twocol .du-tcard').forEach(function(btn){

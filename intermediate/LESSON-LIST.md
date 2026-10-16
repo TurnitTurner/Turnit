@@ -661,7 +661,7 @@ hand-waved. Slide 3 reuses a real 2022 rate-shock story — SHY
 against TLT (long-term Treasuries, hedged as "roughly 17-18yr"
 duration since two reasonably current sources disagreed by about a
 year, 2022 return -31.4%) — reusing, not re-deriving, the TLT figure
-already verified in Lesson 17's header, with an explicit callback to
+already verified in Lesson 16's header, with an explicit callback to
 it. Two headings were caught and reworded before they could repeat the
 "Bear Market"-class bug: slide 2's planned "Same Rate Shock, Four
 Bonds" contained the "Rate Shock" chip verbatim (reworded to "One Rate
@@ -675,8 +675,14 @@ the lesson falls back to Alan Greenspan's February 2005 testimony
 calling long-term bond yields a "conundrum" — a famous, well
 -documented remark squarely about interest rates and bond market
 behavior, chosen over forcing an attribution to a book or memo passage
-that couldn't be independently confirmed. Checked for duplication
-across the repo before shipping. John Bogle's "Time is your friend;
+that couldn't be independently confirmed. Used at full length ("For
+the moment, the broadly unanticipated behavior of world bond markets
+remains a conundrum"), confirmed via search against the testimony's
+own commonly-quoted text, rather than trimmed to just the final clause
+(which would read as a permanent claim instead of Greenspan's own
+hedged, in-the-moment one). Checked for duplication
+(`grep -ril "conundrum"` across the repo, actually run) before
+shipping. John Bogle's "Time is your friend;
 impulse is your enemy" was considered and deliberately held back for
 Lesson 24 instead — ending a lesson about how much a rate move can
 hurt on "time is your friend" would undercut the point just taught;
