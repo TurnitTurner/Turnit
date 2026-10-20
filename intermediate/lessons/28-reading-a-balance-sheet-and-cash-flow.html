@@ -1,0 +1,747 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — READING A BALANCE SHEET AND CASH FLOW
+     (Intermediate · Module 6 · Lesson 28)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-bs. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     VISUAL WORLD: physical weight and physical flow — deliberately NOT the
+     document-and-bars world of lesson 27, which covers the income statement.
+       1  Title & Key Terms (never gated)  2  The Balance (two stacks, creative)
+       3  Three Valves (cash tank, creative)
+       4  The Liquidity Test             5  Myth Or Fact (5)
+       6  Which Statement Answers It? (4) 7  Recap (6)   8  Complete
+     Creative widgets, 2 of 2: the balancing stacks and the valve tank.
+     REAL DATA — Apple Inc. fiscal 2025 (year ended 27 September 2025), from the
+     Q4 FY2025 condensed consolidated statements on apple.com/newsroom.
+     All figures $ millions.
+     BALANCE SHEET, as filed:
+       Cash and cash equivalents            35,934
+       Current marketable securities        18,763
+       Total current assets                147,957
+       Total assets                        359,241
+       Total current liabilities           165,631
+       Total liabilities                   285,508
+       Total shareholders' equity           73,733
+       TIE CHECK: 285,508 + 73,733 = 359,241  exact.
+     The six blocks on slide 2 are derived from those filed totals by
+     subtraction, and each derivation is exact:
+       Cash and marketable securities   35,934 + 18,763 =  54,697
+       Other current assets    147,957 - 54,697         =  93,260
+       Non-current assets      359,241 - 147,957        = 211,284
+       Non-current liabilities 285,508 - 165,631        = 119,877
+       LEFT  54,697 + 93,260 + 211,284             = 359,241
+       RIGHT 165,631 + 119,877 + 73,733            = 359,241
+     CASH FLOW, as filed:
+       Operating  +111,482   Investing  +15,195   Financing  -120,686
+       TIE CHECK: 111,482 + 15,195 - 120,686 = 5,991  net change.
+     No beginning or ending cash balance is asserted anywhere in this lesson.
+     The filed cash flow statement reconciles "cash, cash equivalents and
+     restricted cash", which is not the same line as the balance sheet's
+     "cash and cash equivalents", so the tank shows the CHANGE only.
+     Current ratio 147,957 / 165,631 = 0.89. Below 1, and deliberately taught
+     as a number that needs context rather than a red flag.
+     Valuation ratios (P/E and friends) are Lesson 29 and are not taught here.
+     ============================================================ -->
+<div id="tn-bs">
+  <div class="bs-wrap">
+    <div class="bs-top">
+      <div class="bs-topbar">
+        <div class="bs-brand"><span class="bs-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="bs-word">TURNIT</span><span class="bs-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="bs-progress"><span id="bs-bar"></span></div>
+      <div class="bs-meta"><span id="bs-slide-label">Start Here</span><span id="bs-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="bs-sec bs-center bs-reveal" data-step="1">
+      <p class="bs-kicker center">Looking At Individual Companies · 1 / 8</p>
+      <h1 class="bs-hero-title">THE BALANCE SHEET <span class="bs-hero-grad">AND CASH FLOW</span></h1>
+      <p class="bs-sub center">The income statement told you how the year went. These two tell you what the company owns, what it owes, and whether any of that profit was real money.</p>
+      <div class="bs-vocab">
+        <span class="bs-vocab-label">Key Terms In This Lesson</span>
+        <div class="bs-vocab-chips" id="bs-vocab-chips">
+          <button type="button" class="bs-vocab-chip" data-t="Assets" data-def="Everything the company owns that has value — cash, inventory, buildings, patents. One half of the balance sheet, and always equal to the other half.">Assets</button>
+          <button type="button" class="bs-vocab-chip" data-t="Liabilities" data-def="Everything the company owes to someone who is not a shareholder — suppliers, lenders, tax authorities, customers who have paid in advance.">Liabilities</button>
+          <button type="button" class="bs-vocab-chip" data-t="Equity" data-def="What would be left for shareholders if every asset were sold at its stated value and every debt repaid. Assets minus liabilities, by definition.">Equity</button>
+          <button type="button" class="bs-vocab-chip" data-t="Current Ratio" data-def="Current assets divided by current liabilities. A rough read on whether a company can cover what falls due within the year without selling anything long-term.">Current Ratio</button>
+          <button type="button" class="bs-vocab-chip" data-t="Operating Cash Flow" data-def="Actual cash generated by running the business over the period. Unlike profit, it cannot be created by an accounting judgement — the money either arrived or it did not.">Operating Cash Flow</button>
+        </div>
+        <div class="bs-vocab-def" id="bs-vocab-def">Tap a term to see what it means.</div>
+        <span class="bs-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="bs-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE BALANCE ========== -->
+    <section class="bs-sec bs-reveal" data-step="2">
+      <p class="bs-kicker">The Balance · 2 / 8</p>
+      <h2 class="bs-h2">Two Stacks, Same Height</h2>
+      <p class="bs-p">A balance sheet is not a list — it is a weighing. Assets sit on the left. Liabilities and equity — everyone with a claim on those assets — sit on the right. Tap any block.</p>
+      <div class="bs-scale">
+        <div class="bs-col">
+          <div class="bs-col-head bs-left"><b>Assets</b><span>what it owns</span></div>
+          <div class="bs-stack" id="bs-stack-a">
+            <button type="button" class="bs-blk bs-a1" data-k="cash" style="flex:54697"><span>Cash &amp; securities</span><b>54,697</b></button>
+            <button type="button" class="bs-blk bs-a2" data-k="oca" style="flex:93260"><span>Other current assets</span><b>93,260</b></button>
+            <button type="button" class="bs-blk bs-a3" data-k="nca" style="flex:211284"><span>Non-current assets</span><b>211,284</b></button>
+          </div>
+          <div class="bs-col-foot bs-left">359,241</div>
+        </div>
+        <div class="bs-eq" aria-hidden="true">=</div>
+        <div class="bs-col">
+          <div class="bs-col-head bs-right"><b>Claims</b><span>who it belongs to</span></div>
+          <div class="bs-stack" id="bs-stack-b">
+            <button type="button" class="bs-blk bs-b1" data-k="cl" style="flex:165631"><span>Current liabilities</span><b>165,631</b></button>
+            <button type="button" class="bs-blk bs-b2" data-k="ncl" style="flex:119877"><span>Long-term liabilities</span><b>119,877</b></button>
+            <button type="button" class="bs-blk bs-b3" data-k="eq" style="flex:73733"><span>Shareholders' equity</span><b>73,733</b></button>
+          </div>
+          <div class="bs-col-foot bs-right">359,241</div>
+        </div>
+      </div>
+      <div class="bs-reveal-box" id="bs-blk-box"><b id="bs-blk-t">Tap A Block</b><span id="bs-blk-d">The two columns are the same height because they are the same number. That is not a coincidence — it is the definition.</span></div>
+      <p class="bs-count" id="bs-blk-count">Read 0 Of 6</p>
+      <p class="bs-disclaimer-inline">Apple's balance sheet at 27 September 2025, $ millions. Block sizes are exactly proportional to the filed figures. The three blocks in each column are derived from Apple's published totals by subtraction, and both columns sum to 359,241.</p>
+    </section>
+
+    <!-- ========== 3 · THREE VALVES ========== -->
+    <section class="bs-sec bs-reveal" data-step="3">
+      <p class="bs-kicker">The Cash · 3 / 8</p>
+      <h2 class="bs-h2">Open The Valves</h2>
+      <p class="bs-p">Profit is an opinion. Cash is a fact. Three valves moved Apple's cash last year, and operating cash flow is the first of them. Open each one and watch the tank.</p>
+      <div class="bs-plant">
+        <div class="bs-valves" id="bs-valves">
+          <button type="button" class="bs-valve bs-in" data-k="op"><i>▶</i><span>Operating</span><b>+111,482</b></button>
+          <button type="button" class="bs-valve bs-in" data-k="inv"><i>▶</i><span>Investing</span><b>+15,195</b></button>
+          <button type="button" class="bs-valve bs-out" data-k="fin"><i>▶</i><span>Financing</span><b>−120,686</b></button>
+        </div>
+        <div class="bs-tank">
+          <div class="bs-tank-body">
+            <span class="bs-zero"></span>
+            <i class="bs-ghost" id="bs-ghost"></i>
+            <i class="bs-fill" id="bs-fill"></i>
+          </div>
+          <div class="bs-tank-read"><span>Cash moved</span><b id="bs-tank-val">0</b></div>
+        </div>
+      </div>
+      <div class="bs-note" id="bs-valve-note">Each valve is one section of the cash flow statement. Together they explain every dollar that entered or left.</div>
+      <p class="bs-count" id="bs-valve-count">Opened 0 Of 3</p>
+      <div class="bs-reset-row"><button type="button" class="bs-reset-btn" id="bs-valve-reset">↺ Start Over</button></div>
+      <p class="bs-disclaimer-inline">Apple's fiscal 2025 cash flow statement, $ millions. The tank shows the change in cash over the year, not a balance.</p>
+    </section>
+
+    <!-- ========== 4 · THE LIQUIDITY TEST ========== -->
+    <section class="bs-sec bs-reveal" data-step="4">
+      <p class="bs-kicker">The Test · 4 / 8</p>
+      <h2 class="bs-h2">Can It Pay What's Due?</h2>
+      <p class="bs-p">The current ratio is the most common balance sheet check. It weighs the assets that turn into cash within a year against the liabilities that fall due in the same window.</p>
+      <div class="bs-versus">
+        <div class="bs-vs-side">
+          <span class="bs-vs-lab">In within a year</span>
+          <b class="bs-vs-num bs-blue">147,957</b>
+          <span class="bs-vs-sub">current assets</span>
+        </div>
+        <div class="bs-vs-mid">÷</div>
+        <div class="bs-vs-side">
+          <span class="bs-vs-lab">Out within a year</span>
+          <b class="bs-vs-num bs-amber">165,631</b>
+          <span class="bs-vs-sub">current liabilities</span>
+        </div>
+      </div>
+      <div class="bs-verdict"><span>Current ratio</span><b>0.89</b></div>
+      <div class="bs-takes" id="bs-takes">
+        <button type="button" class="bs-take" data-k="t1">Below 1 — isn't that bad?</button>
+        <button type="button" class="bs-take" data-k="t2">So why isn't Apple in trouble?</button>
+        <button type="button" class="bs-take" data-k="t3">When would it actually matter?</button>
+      </div>
+      <div class="bs-reveal-box" id="bs-take-box"><b id="bs-take-t">Three Questions</b><span id="bs-take-d">Tap each one. The answers are the reason a single ratio is never a verdict.</span></div>
+      <p class="bs-count" id="bs-take-count">Read 0 Of 3</p>
+      <p class="bs-disclaimer-inline">Calculated from Apple's filed fiscal 2025 figures: 147,957 ÷ 165,631 = 0.89.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="bs-sec bs-reveal" data-step="5">
+      <p class="bs-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="bs-h2">Myth Or Fact?</h2>
+      <p class="bs-p">Five claims. Tap your answer.</p>
+      <div class="bs-sort" id="bs-myth">
+        <div class="bs-sort-row" data-answer="fact"><span>A profitable company can run out of cash.</span><div class="bs-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bs-why"><b>Fact.</b> Profit counts a sale when it is made; cash arrives when the customer pays. A company growing fast enough can book record profits and still be unable to make payroll. It is one of the most common ways a good business dies.</p></div>
+        <div class="bs-sort-row" data-answer="myth"><span>High equity means the company is worth that much.</span><div class="bs-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bs-why"><b>Myth.</b> Equity is an accounting leftover built from what assets cost, not what they are worth now. A brand built over decades may be worth a fortune and appear nowhere on the balance sheet.</p></div>
+        <div class="bs-sort-row" data-answer="fact"><span>Cash leaving under financing can be a good sign.</span><div class="bs-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bs-why"><b>Fact.</b> Money going out under financing is often dividends paid and debt repaid — a mature company handing cash back because it has more than it can usefully invest. Money coming in there can mean the opposite.</p></div>
+        <div class="bs-sort-row" data-answer="myth"><span>Debt on the balance sheet is a warning sign.</span><div class="bs-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bs-why"><b>Myth.</b> Borrowing cheaply to build something that earns more than it costs is ordinary business. What matters is whether operating cash flow comfortably covers the interest, not the size of the number.</p></div>
+        <div class="bs-sort-row" data-answer="fact"><span>The balance sheet is a snapshot, not a period.</span><div class="bs-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bs-why"><b>Fact.</b> It describes one single day. The income statement and cash flow statement both cover a stretch of time. That is why a balance sheet can be tidied up shortly before the date it is struck.</p></div>
+      </div>
+      <p class="bs-count" id="bs-myth-count">Answered 0 Of 5</p>
+      <div class="bs-reset-row"><button type="button" class="bs-reset-btn" id="bs-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHICH STATEMENT ANSWERS IT? ========== -->
+    <section class="bs-sec bs-reveal" data-step="6">
+      <p class="bs-kicker">Which One · 6 / 8</p>
+      <h2 class="bs-h2">Where Would You Look?</h2>
+      <p class="bs-p">Four questions. Which statement answers each one?</p>
+      <div class="bs-pick" id="bs-pick">
+        <div class="bs-pick-row" data-answer="bal"><span>How much does it owe, and how soon?</span><div class="bs-pick-btns"><button type="button" data-p="bal">Balance Sheet</button><button type="button" data-p="cf">Cash Flow</button></div><p class="bs-why"><b>Balance sheet.</b> It lists every claim against the company and splits them into what falls due within a year and what falls due later.</p></div>
+        <div class="bs-pick-row" data-answer="cf"><span>Did last year's profit turn into real money?</span><div class="bs-pick-btns"><button type="button" data-p="bal">Balance Sheet</button><button type="button" data-p="cf">Cash Flow</button></div><p class="bs-why"><b>Cash flow.</b> Compare operating cash flow with net income. If profit keeps climbing while cash does not follow it, that gap is the first thing to ask about.</p></div>
+        <div class="bs-pick-row" data-answer="bal"><span>What would be left for shareholders if it wound up?</span><div class="bs-pick-btns"><button type="button" data-p="bal">Balance Sheet</button><button type="button" data-p="cf">Cash Flow</button></div><p class="bs-why"><b>Balance sheet.</b> That is equity, in theory. In practice the assets would rarely fetch their stated value, so treat the figure as a starting point rather than a payout.</p></div>
+        <div class="bs-pick-row" data-answer="cf"><span>Is it funding itself, or raising money to survive?</span><div class="bs-pick-btns"><button type="button" data-p="bal">Balance Sheet</button><button type="button" data-p="cf">Cash Flow</button></div><p class="bs-why"><b>Cash flow.</b> A company whose operations throw off cash is funding itself. One whose cash keeps arriving through financing is being funded by someone else, and that can stop.</p></div>
+      </div>
+      <p class="bs-count" id="bs-pick-count">Answered 0 Of 4</p>
+      <div class="bs-reset-row"><button type="button" class="bs-reset-btn" id="bs-pick-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="bs-sec bs-reveal" data-step="7">
+      <p class="bs-kicker">Recap · 7 / 8</p>
+      <h2 class="bs-h2">Here's What You Now Know</h2>
+      <p class="bs-p">The whole lesson, in six lines.</p>
+      <div class="bs-recap">
+        <div class="bs-recap-item"><span class="bs-recap-check bs-c1">✓</span><span>The balance sheet always balances: assets on one side, liabilities and equity on the other, equal by definition.</span></div>
+        <div class="bs-recap-item"><span class="bs-recap-check bs-c2">✓</span><span>It is a snapshot of one single day, while the other two statements cover a stretch of time.</span></div>
+        <div class="bs-recap-item"><span class="bs-recap-check bs-c3">✓</span><span>Equity is an accounting leftover, not a valuation — it is built from what assets cost, not what they are worth.</span></div>
+        <div class="bs-recap-item"><span class="bs-recap-check bs-c1">✓</span><span>The cash flow statement splits into operating, investing and financing, and the three explain every dollar that moved.</span></div>
+        <div class="bs-recap-item"><span class="bs-recap-check bs-c2">✓</span><span>Operating cash flow is the honest one: profit is a judgement, cash either arrived or it did not.</span></div>
+        <div class="bs-recap-item"><span class="bs-recap-check bs-c3">✓</span><span>A ratio like the current ratio raises a question. It never answers one on its own.</span></div>
+      </div>
+      <div class="bs-next-move">Your next move: <b>find one company's operating cash flow and net income side by side</b>. If the two have drifted apart over a few years, you've found something worth understanding.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="bs-sec bs-center bs-reveal" data-step="8">
+      <p class="bs-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="bs-hero-ico">🚀</span>
+      <h2 class="bs-h2 center">You've Finished The Lesson</h2>
+      <p class="bs-sub center">You can now read all three statements and say what a company owns, what it owes, and whether its profit turned into real money.</p>
+      <div class="bs-finish">
+        <span class="bs-finish-arrow" id="bs-fin-arrow" aria-hidden="true">↓</span>
+        <p class="bs-finish-lead" id="bs-fin-lead">Scroll Down To Continue</p>
+        <p class="bs-finish-sub" id="bs-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="bs-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="bs-pullquote">"REVENUE IS VANITY, PROFIT IS SANITY, <span class="bs-green">BUT CASH IS REALITY.</span>"<br><span class="bs-pullquote-by">— AN OLD ACCOUNTING MAXIM</span></p>
+    </section>
+
+    <p class="bs-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Apple's figures are reproduced from its published fiscal 2025 filings as of the time of writing and are used to teach the format, not to suggest any view on the company. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="bs-nav" id="bs-nav">
+      <button type="button" class="bs-nav-btn prev" id="bs-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="bs-nav-hint" id="bs-nav-hint"></span>
+      <button type="button" class="bs-nav-btn next" id="bs-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-bs{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --blue:#1568AE; --amber:#C8821B; --grn:#209B73;
+    --c1:#1568AE; --c2:#C8821B; --c3:#209B73;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-bs *,#tn-bs *::before,#tn-bs *::after{box-sizing:border-box;}
+  #tn-bs .bs-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-bs .bs-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-bs .bs-reveal.in{opacity:1; transform:none;}
+  #tn-bs .bs-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-bs .bs-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-bs .bs-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-bs .bs-bico{display:flex;}
+  #tn-bs .bs-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-bs .bs-bsub{color:var(--ink2); font-weight:500;}
+  #tn-bs .bs-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-bs #bs-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-bs .bs-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-bs .bs-meta #bs-slide-label{color:var(--ink2);}
+  #tn-bs .bs-meta #bs-slide-count{color:var(--mut);}
+  #tn-bs .bs-sec{padding:16px 0 8px;}
+  #tn-bs .bs-sec.bs-hide{display:none;}
+  #tn-bs .bs-center{text-align:center;}
+  #tn-bs .bs-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-bs .bs-kicker.center{text-align:center;}
+  #tn-bs .bs-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-bs .bs-h2.center{text-align:center;}
+  #tn-bs .bs-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-bs .bs-p b{color:var(--ink); font-weight:700;}
+  #tn-bs .bs-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-bs .bs-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-bs .bs-note b{color:var(--ink); font-weight:700;}
+  #tn-bs .bs-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-bs .bs-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-bs .bs-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-bs .bs-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-bs .bs-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  #tn-bs .bs-c1{background:var(--c1);} #tn-bs .bs-c2{background:var(--c2);} #tn-bs .bs-c3{background:var(--c3);}
+  #tn-bs .bs-blue{color:var(--blue);} #tn-bs .bs-amber{color:var(--amber);}
+  /* title */
+  #tn-bs .bs-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,5.7vw,39px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-bs .bs-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-bs .bs-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-bs .bs-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-bs .bs-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-bs .bs-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-bs .bs-vocab-chip:hover{filter:brightness(.97);}
+  #tn-bs .bs-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-bs .bs-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-bs .bs-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-bs .bs-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-bs .bs-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-bs .bs-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-bs .bs-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-bs .bs-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-bs .bs-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · the balancing stacks */
+  #tn-bs .bs-scale{display:flex; align-items:stretch; gap:8px;}
+  #tn-bs .bs-col{flex:1; display:flex; flex-direction:column; min-width:0;}
+  #tn-bs .bs-col-head{text-align:center; padding:7px 4px 8px; border-radius:11px 11px 0 0;}
+  #tn-bs .bs-col-head b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:13.5px; line-height:1.2;}
+  #tn-bs .bs-col-head span{display:block; font-size:10.5px; color:var(--ink2); line-height:1.3;}
+  #tn-bs .bs-col-head.bs-left{background:#E7F0F9;}
+  #tn-bs .bs-col-head.bs-right{background:#F6EEDD;}
+  #tn-bs .bs-stack{display:flex; flex-direction:column; gap:3px; height:316px; padding:3px 0;}
+  #tn-bs .bs-blk{flex:1; min-height:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;
+    font-family:inherit; text-align:center; border:1.5px solid transparent; border-radius:8px; cursor:pointer; padding:3px 5px; overflow:hidden;
+    transition:box-shadow .16s, border-color .16s;}
+  #tn-bs .bs-blk span{font-size:10px; font-weight:600; line-height:1.15; opacity:.85;}
+  #tn-bs .bs-blk b{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; font-variant-numeric:tabular-nums; line-height:1.1;}
+  #tn-bs .bs-blk.on{box-shadow:inset 0 0 0 1.5px currentColor, 0 8px 20px -10px rgba(22,32,43,.45);}
+  #tn-bs .bs-a1{background:#CFE2F3; color:#0F4C7E; border-color:#B4D2EC;}
+  #tn-bs .bs-a2{background:#DCEAF7; color:#14558A; border-color:#C4DCF0;}
+  #tn-bs .bs-a3{background:#E9F2FA; color:#1A5F96; border-color:#D2E5F4;}
+  #tn-bs .bs-b1{background:#F6E2BD; color:#8A5B07; border-color:#EFD3A2;}
+  #tn-bs .bs-b2{background:#FAEDD4; color:#956509; border-color:#F3E0B9;}
+  #tn-bs .bs-b3{background:#D6F0E5; color:#13674C; border-color:#B9E4D2;}
+  #tn-bs .bs-blk.on.bs-a1,#tn-bs .bs-blk.on.bs-a2,#tn-bs .bs-blk.on.bs-a3{border-color:var(--blue);}
+  #tn-bs .bs-blk.on.bs-b1,#tn-bs .bs-blk.on.bs-b2{border-color:var(--amber);}
+  #tn-bs .bs-blk.on.bs-b3{border-color:var(--grn);}
+  #tn-bs .bs-col-foot{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; padding:7px 4px; border-radius:0 0 11px 11px; font-variant-numeric:tabular-nums;}
+  #tn-bs .bs-col-foot.bs-left{background:#E7F0F9; color:#0F4C7E;}
+  #tn-bs .bs-col-foot.bs-right{background:#F6EEDD; color:#8A5B07;}
+  #tn-bs .bs-eq{align-self:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:22px; color:var(--mut); flex:none; padding:0 1px;}
+  /* 3 · valves and tank */
+  #tn-bs .bs-plant{display:flex; gap:12px; align-items:stretch; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:14px;}
+  #tn-bs .bs-valves{flex:1; display:flex; flex-direction:column; gap:9px; min-width:0;}
+  #tn-bs .bs-valve{flex:1; display:flex; align-items:center; gap:9px; font-family:inherit; text-align:left;
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:10px 12px; cursor:pointer; transition:all .18s;}
+  #tn-bs .bs-valve i{font-style:normal; font-size:11px; line-height:1; flex:none; width:21px; height:21px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; background:#E4EAF0; color:var(--mut); transition:all .2s;}
+  #tn-bs .bs-valve span{flex:1; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; min-width:0;}
+  #tn-bs .bs-valve b{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; font-variant-numeric:tabular-nums; color:var(--mut); transition:color .2s;}
+  #tn-bs .bs-valve.on{border-color:var(--selbd);}
+  #tn-bs .bs-valve.bs-in.on{background:var(--tint);}
+  #tn-bs .bs-valve.bs-in.on i{background:var(--grn); color:#fff; transform:rotate(90deg);}
+  #tn-bs .bs-valve.bs-in.on b{color:var(--grn);}
+  #tn-bs .bs-valve.bs-out.on{background:var(--nobg); border-color:var(--nobd);}
+  #tn-bs .bs-valve.bs-out.on i{background:var(--no); color:#fff; transform:rotate(90deg);}
+  #tn-bs .bs-valve.bs-out.on b{color:var(--no);}
+  #tn-bs .bs-tank{flex:0 0 112px; display:flex; flex-direction:column; gap:7px;}
+  #tn-bs .bs-tank-body{position:relative; flex:1; min-height:190px; background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; overflow:hidden;}
+  #tn-bs .bs-zero{position:absolute; left:0; right:0; top:50%; height:0; border-top:1.5px dashed #C3CEDA;}
+  #tn-bs .bs-fill{position:absolute; left:6px; right:6px; bottom:50%; height:0; border-radius:4px 4px 0 0;
+    background:linear-gradient(180deg,#45C79B,#209B73); transition:height .6s cubic-bezier(.2,.7,.2,1);}
+  /* high-water mark: how far the tank got before financing drained it */
+  #tn-bs .bs-ghost{position:absolute; left:6px; right:6px; bottom:50%; height:0; border-radius:4px 4px 0 0;
+    background:rgba(32,155,115,.16); border-top:1.5px dashed rgba(32,155,115,.55);
+    transition:height .6s cubic-bezier(.2,.7,.2,1);}
+  #tn-bs .bs-tank-read{text-align:center; background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:7px 4px;}
+  #tn-bs .bs-tank-read span{display:block; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut); font-weight:700;}
+  #tn-bs .bs-tank-read b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; font-variant-numeric:tabular-nums; margin-top:1px;}
+  /* 4 · liquidity */
+  #tn-bs .bs-versus{display:flex; align-items:center; gap:8px;}
+  #tn-bs .bs-vs-side{flex:1; text-align:center; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:13px 8px;}
+  #tn-bs .bs-vs-lab{display:block; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; line-height:1.3;}
+  #tn-bs .bs-vs-num{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(19px,5vw,26px); margin:3px 0 1px; font-variant-numeric:tabular-nums;}
+  #tn-bs .bs-vs-sub{display:block; font-size:11px; color:var(--ink2);}
+  #tn-bs .bs-vs-mid{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--mut); flex:none;}
+  #tn-bs .bs-verdict{display:flex; align-items:center; justify-content:center; gap:11px; margin-top:10px;
+    background:#16202B; color:#E6EDF3; border-radius:13px; padding:11px 16px;}
+  #tn-bs .bs-verdict span{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:#8FA6BA;}
+  #tn-bs .bs-verdict b{font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:#F2C566; font-variant-numeric:tabular-nums; line-height:1;}
+  #tn-bs .bs-takes{display:flex; flex-direction:column; gap:7px; margin-top:12px;}
+  #tn-bs .bs-take{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; text-align:left; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 14px; cursor:pointer; transition:all .16s;}
+  #tn-bs .bs-take:hover{border-color:var(--selbd);}
+  #tn-bs .bs-take.on{background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  /* 5 · myth sorter + 6 · pick */
+  #tn-bs .bs-sort,#tn-bs .bs-pick{display:flex; flex-direction:column; gap:10px;}
+  #tn-bs .bs-sort-row,#tn-bs .bs-pick-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-bs .bs-sort-row > span,#tn-bs .bs-pick-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-bs .bs-sort-btns,#tn-bs .bs-pick-btns{display:flex; gap:7px; flex:none;}
+  #tn-bs .bs-sort-btns button,#tn-bs .bs-pick-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bs .bs-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-bs .bs-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-bs .bs-pick-btns button[data-p="bal"]{border:1.5px solid #C5DBEF; color:var(--blue);}
+  #tn-bs .bs-pick-btns button[data-p="cf"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-bs .bs-sort-row.correct,#tn-bs .bs-pick-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-bs .bs-sort-row.wrong,#tn-bs .bs-pick-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bs .bs-sort-row.done .bs-sort-btns button,#tn-bs .bs-pick-row.done .bs-pick-btns button{opacity:.4; pointer-events:none;}
+  #tn-bs .bs-sort-row.done .bs-sort-btns button.picked,#tn-bs .bs-pick-row.done .bs-pick-btns button.picked{opacity:1;}
+  #tn-bs .bs-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-bs .bs-why b{font-family:'Poppins',sans-serif;}
+  #tn-bs .bs-sort-row .bs-why,#tn-bs .bs-pick-row .bs-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-bs .bs-sort-row.done .bs-why,#tn-bs .bs-pick-row.done .bs-why{display:block;}
+  /* recap + complete */
+  #tn-bs .bs-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-bs .bs-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-bs .bs-recap-check{flex:none; width:22px; height:22px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-bs .bs-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-bs .bs-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-bs .bs-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-bs .bs-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-bs .bs-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:bs-bob 1.6s ease-in-out infinite;}
+  #tn-bs .bs-finish-arrow.up{animation-name:bs-bob-up;}
+  @keyframes bs-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes bs-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-bs .bs-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-bs .bs-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-bs .bs-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-bs .bs-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-bs .bs-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-bs .bs-green{color:var(--g);}
+  #tn-bs .bs-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-bs .bs-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-bs .bs-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-bs .bs-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-bs .bs-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-bs .bs-nav-btn.prev{color:var(--ink2);}
+  #tn-bs .bs-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-bs .bs-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-bs .bs-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-bs .bs-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-bs .bs-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-bs .bs-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-bs .bs-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-bs .bs-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .bs-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .bs-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-bs .bs-wrap{padding:12px 14px 30px;}
+    #tn-bs .bs-scale{gap:5px;}
+    #tn-bs .bs-eq{font-size:17px;}
+    #tn-bs .bs-stack{height:290px;}
+    #tn-bs .bs-blk span{font-size:9px;}
+    #tn-bs .bs-blk b{font-size:11.5px;}
+    #tn-bs .bs-col-head b{font-size:12.5px;}
+    #tn-bs .bs-plant{flex-direction:column; gap:10px;}
+    #tn-bs .bs-tank{flex:none;}
+    #tn-bs .bs-tank-body{min-height:168px;}
+    #tn-bs .bs-versus{gap:5px;}
+    #tn-bs .bs-sort-row,#tn-bs .bs-pick-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-bs .bs-bsub{display:none;}
+    #tn-bs .bs-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-bs .bs-nav{padding-top:10px; row-gap:0;}
+    #tn-bs .bs-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-bs .bs-reveal{opacity:1 !important; transform:none !important;}
+    #tn-bs #bs-bar,#tn-bs .bs-fill,#tn-bs .bs-ghost,#tn-bs .bs-blk{transition:none;}
+    #tn-bs .bs-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-bs'); if(!root) return;
+  root.querySelectorAll('.bs-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('bs-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#bs-vocab-def');
+  root.querySelectorAll('#bs-vocab-chips .bs-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#bs-vocab-chips .bs-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the balancing stacks (creative 1 of 2) */
+  var BLK={
+    cash:['Cash And Securities — 54,697','Money sitting ready, plus short-term investments that can be sold quickly. It is the most flexible thing a company owns and the first thing you look for.'],
+    oca:['Other Current Assets — 93,260','Things expected to turn into cash within a year: inventory waiting to be sold, and money owed by customers who have taken delivery but not yet paid.'],
+    nca:['Non-Current Assets — 211,284','The long-lived half — factories, equipment, long-dated investments. Useful, but you cannot pay a supplier with a building this month.'],
+    cl:['Current Liabilities — 165,631','Everything falling due within a year: suppliers, wages, tax, short-term borrowing. Compare it with current assets and you get the test on the next slide.'],
+    ncl:['Long-Term Liabilities — 119,877','Debts due further out. Borrowing cheaply over a long horizon is a normal tool, not a distress signal — what matters is whether cash covers the interest.'],
+    eq:['Shareholders’ Equity — 73,733','Assets minus liabilities, and nothing more. It is a leftover, built from what things cost rather than what they are worth, which is why it is a poor measure of value.']
+  };
+  var bSeen={}, bT=root.querySelector('#bs-blk-t'), bD=root.querySelector('#bs-blk-d'),
+      bCount=root.querySelector('#bs-blk-count');
+  root.querySelectorAll('.bs-scale .bs-blk').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('.bs-scale .bs-blk').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      bT.textContent=BLK[k][0]; bD.textContent=BLK[k][1];
+      bSeen[k]=1; bCount.textContent='Read '+keys(bSeen)+' Of 6';
+      state('blocks', keys(bSeen)); postHeight();
+    });
+  });
+
+  /* 3 · valves and tank (creative 2 of 2) */
+  var FLOW={ op:111482, inv:15195, fin:-120686 };
+  var NOTE={
+    op:'Operating brought in 111,482 — cash generated by selling things. For most healthy companies this is the big one, and it should broadly track profit.',
+    inv:'Investing brought in 15,195. It is usually an outflow, but Apple let more short-term investments mature than it bought, so for this year it was a source.',
+    fin:'Financing sent out 120,686 — dividends, debt repayments and share buybacks. Almost everything the business earned went straight back out to shareholders and lenders.'
+  };
+  var vOpen={}, vPeak=0, vFill=root.querySelector('#bs-fill'), vGhost=root.querySelector('#bs-ghost'),
+      vVal=root.querySelector('#bs-tank-val'),
+      vNote=root.querySelector('#bs-valve-note'), vCount=root.querySelector('#bs-valve-count'), SCALE=130000;
+  function fmt(n){ return (n>0?'+':n<0?'−':'')+Math.abs(n).toLocaleString('en-US'); }
+  function draw(){
+    var t=0,k; for(k in vOpen) if(vOpen[k]) t+=FLOW[k];
+    var pct=Math.max(-50,Math.min(50, t/SCALE*50));
+    if(pct>=0){ vFill.style.bottom='50%'; vFill.style.top='auto'; }
+    else { vFill.style.top='50%'; vFill.style.bottom='auto'; }
+    vFill.style.height=Math.abs(pct)+'%';
+    vFill.style.background = pct>=0 ? 'linear-gradient(180deg,#45C79B,#209B73)' : 'linear-gradient(0deg,#D9655A,#C0392B)';
+    if(t>vPeak) vPeak=t;
+    vGhost.style.height=Math.max(0,Math.min(50, vPeak/SCALE*50))+'%';
+    vVal.textContent=t===0?'0':fmt(t);
+    vVal.style.color = t>0 ? '#209B73' : t<0 ? '#C0392B' : '#16202B';
+    var n=0; for(k in vOpen) if(vOpen[k]) n++;
+    vCount.textContent='Opened '+n+' Of 3';
+    if(n>=3) vNote.textContent='All three together: cash rose by just 5,991. The business generated an enormous amount and handed nearly all of it straight back out.';
+    state('valves', n); postHeight();
+  }
+  root.querySelectorAll('#bs-valves .bs-valve').forEach(function(v){
+    v.addEventListener('click',function(){
+      var k=v.getAttribute('data-k');
+      if(vOpen[k]) return;          /* sticky: a valve only opens */
+      vOpen[k]=1; v.classList.add('on');
+      vNote.textContent=NOTE[k];
+      draw();
+    });
+  });
+  var vR=root.querySelector('#bs-valve-reset');
+  if(vR) vR.addEventListener('click',function(){
+    vOpen={}; vPeak=0; root.querySelectorAll('#bs-valves .bs-valve').forEach(function(v){ v.classList.remove('on'); });
+    vNote.textContent='Each valve is one section of the cash flow statement. Together they explain every dollar that entered or left.';
+    draw();
+  });
+
+  /* 4 · the liquidity test */
+  var TAKE={
+    t1:['Below 1 — Isn’t That Bad?','On a weak company it would be a real warning: more falling due this year than is expected to turn into cash. Taken alone, the number says exactly that and nothing more.'],
+    t2:['So Why Isn’t Apple In Trouble?','Because it collects from customers almost immediately and pays its suppliers slowly, and because operating cash flow brought in 111,482 over the year. A company generating that much can cover a short-term gap easily.'],
+    t3:['When Would It Actually Matter?','When the cash is not arriving. The same 0.89 on a company whose operating cash flow is shrinking is a genuinely different signal. The ratio raises the question; the cash flow statement answers it.']
+  };
+  var tSeen={}, tT=root.querySelector('#bs-take-t'), tD=root.querySelector('#bs-take-d'),
+      tCount=root.querySelector('#bs-take-count');
+  root.querySelectorAll('#bs-takes .bs-take').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#bs-takes .bs-take').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      tT.textContent=TAKE[k][0]; tD.textContent=TAKE[k][1];
+      tSeen[k]=1; tCount.textContent='Read '+keys(tSeen)+' Of 3';
+      state('takes', keys(tSeen)); postHeight();
+    });
+  });
+
+  /* 5 + 6 · two answer-and-explain sets, same mechanic, different buckets */
+  function wireSort(wrapSel, rowSel, btnSel, total, countEl, key){
+    var cEl=root.querySelector(countEl);
+    root.querySelectorAll(wrapSel+' '+rowSel).forEach(function(row){
+      var ans=row.getAttribute('data-answer');
+      row.querySelectorAll(btnSel+' button').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          if(row.classList.contains('done')) return;
+          btn.classList.add('picked');
+          row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+          var n=root.querySelectorAll(wrapSel+' '+rowSel+'.done').length;
+          cEl.textContent='Answered '+n+' Of '+total;
+          state(key, n); postHeight();
+        });
+      });
+    });
+  }
+  function wireReset(btnId, wrapSel, rowSel, total, countEl){
+    var r=root.querySelector(btnId); if(!r) return;
+    r.addEventListener('click',function(){
+      root.querySelectorAll(wrapSel+' '+rowSel).forEach(function(x){
+        x.classList.remove('done','correct','wrong');
+        x.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+      });
+      root.querySelector(countEl).textContent='Answered 0 Of '+total; postHeight();
+    });
+  }
+  wireSort('#bs-myth','.bs-sort-row','.bs-sort-btns',5,'#bs-myth-count','myth');
+  wireReset('#bs-myth-reset','#bs-myth','.bs-sort-row',5,'#bs-myth-count');
+  wireSort('#bs-pick','.bs-pick-row','.bs-pick-btns',4,'#bs-pick-count','pick');
+  wireReset('#bs-pick-reset','#bs-pick','.bs-pick-row',4,'#bs-pick-count');
+
+  draw();
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('bs-fin-arrow'), lead=document.getElementById('bs-fin-lead'), sub=document.getElementById('bs-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — first mention per slide, static prose only.
+   Headings and disclaimers are excluded: a green term in an <h2> is a
+   recurring bug, and a green underline in small grey legal copy pulls
+   the eye to the one line that should stay quiet.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-bs'); if(!root) return;
+  var ALT={
+    'assets':'assets',
+    'liabilities':'liabilit(?:y|ies)',
+    'equity':'equity',
+    'current ratio':'current ratio',
+    'operating cash flow':'operating cash flow'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#bs-vocab-chips .bs-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.bs-p, .bs-sub, .bs-note, .bs-why, .bs-recap-item span, .bs-next-move, .bs-sort-row > span, .bs-pick-row > span';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.bs-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='bs-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='bs-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.bs-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.bs-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return;
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-bs'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#bs-bar'), labelEl=root.querySelector('#bs-slide-label'),
+      countEl=root.querySelector('#bs-slide-count'), prevBtn=root.querySelector('#bs-prev'),
+      nextBtn=root.querySelector('#bs-next'), hintEl=root.querySelector('#bs-nav-hint'),
+      disclaimer=root.querySelector('.bs-disclaimer');
+  var labels={1:'Start Here',2:'The Balance',3:'The Cash',4:'The Test',5:'Myth Or Fact',6:'Which One',7:'Recap',8:'Complete'};
+  var reqHints={2:'Read all 6 blocks to continue',3:'Open all 3 valves to continue',4:'Read all 3 answers to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.bs-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('bs-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('bs-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'blocks', need:6, hint:function(n){ return 'Read '+n+' of 6 — tap every block to continue'; }},
+    {step:3, key:'valves', need:3, hint:function(n){ return 'Opened '+n+' of 3 — open them all to continue'; }},
+    {step:4, key:'takes',  need:3, hint:function(n){ return 'Read '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',   need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'pick',   need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('bs-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

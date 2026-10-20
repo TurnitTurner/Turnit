@@ -1,0 +1,720 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — VALUATION RATIOS AND THEIR LIMITS
+     (Intermediate · Module 6 · Lesson 29)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-vr. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     VISUAL WORLD: type as the graphic. Slide 2 is a grid of year tiles; slide 3
+     is one enormous live fraction. Mostly white space and very large numerals —
+     deliberately unlike 27 (a filed document) and 28 (stacks and a tank).
+
+       1  Title & Key Terms (never gated)  2  Years Of Earnings (tiles, creative)
+       3  The Fraction Breaks (live fraction, creative)
+       4  Three Ratios, Three Blind Spots  5  Myth Or Fact (5)
+       6  Cheap, Expensive Or Can't Tell (4)  7  Recap (6)   8  Complete
+     Creative widgets, 2 of 2: the payback tiles and the live fraction.
+
+     WHY NO SHARE PRICE IS HARD-CODED ANYWHERE
+     A P/E needs a price, and any price written into this file is wrong within a
+     day and embarrassing within a year. So the lesson never states a real
+     company's current price or current P/E. Slide 2 works from P/E LEVELS, and
+     slide 3 holds its hypothetical price fixed so only the denominator moves —
+     which is the actual teaching point.
+
+     REAL DATA, verified at the time of writing:
+     · Long-run average S&P 500 trailing P/E = 16.24 across 1,870 monthly
+       observations, 1871-2026, from the Shiller dataset. Stated in the lesson
+       as "about 16" — the precision is spurious, since data vendors differ.
+       https://eco3min.fr/en/sp500-pe-ratio-dataset/
+     · 40% of Russell 2000 companies have no earnings, so no P/E exists for
+       them at all. Apollo Global Management (Torsten Slok, chief economist),
+       Bloomberg data, published 17 November 2023.
+       https://apolloacademy.com/40-of-companies-in-russell-2000-have-negative-earnings-2/
+     · Oscar Wilde, Lady Windermere's Fan (1892), Act III — public domain.
+
+     NORTHGATE TOOLS ON SLIDE 3 IS INVENTED, and the slide says so inline.
+     That is deliberate: the scenarios involve write-offs and one-off gains, and
+     attaching invented events to a real company would be fabricating a record.
+     Its arithmetic is exact at a fixed price of $60.00:
+       base      EPS 3.00  -> 20.0      one-off gain  EPS 5.00  -> 12.0
+       write-off EPS 0.40  -> 150.0     loss          EPS -1.00 -> undefined
+       buyback   EPS 3.00/0.9 = 3.33    -> 18.0
+     Income statement, balance sheet and cash flow are Lessons 27-28 and are
+     not re-taught. Earnings day is Lesson 30 and is not taught early.
+
+     INTEGRATION FIX — this lesson was authored outside this session and
+     imported into the repo. Its closing quote, Oscar Wilde's "a cynic is a
+     man who knows the price of everything and the value of nothing," is the
+     exact quote already used in the Foundations course
+     (`3-1-what-is-the-stock-market.html`) — replaced with Charlie Munger's
+     "We think all intelligent investing is value investing," from a July
+     2009 Financial Times interview; used at this shorter, more precisely
+     sourced length rather than the longer, more popular paraphrase ("...
+     acquiring more than you are paying for...") whose exact wording and
+     original venue couldn't be confirmed. Checked for duplication across the
+     full repo before shipping — unique.
+     ============================================================ -->
+<div id="tn-vr">
+  <div class="vr-wrap">
+    <div class="vr-top">
+      <div class="vr-topbar">
+        <div class="vr-brand"><span class="vr-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="vr-word">TURNIT</span><span class="vr-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="vr-progress"><span id="vr-bar"></span></div>
+      <div class="vr-meta"><span id="vr-slide-label">Start Here</span><span id="vr-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="vr-sec vr-center vr-reveal" data-step="1">
+      <p class="vr-kicker center">Looking At Individual Companies · 1 / 8</p>
+      <h1 class="vr-hero-title">VALUATION RATIOS <span class="vr-hero-grad">AND THEIR LIMITS</span></h1>
+      <p class="vr-sub center">A ratio takes a whole company and squeezes it into one number. That is exactly what makes it useful, and exactly what makes it dangerous.</p>
+      <div class="vr-vocab">
+        <span class="vr-vocab-label">Key Terms In This Lesson</span>
+        <div class="vr-vocab-chips" id="vr-vocab-chips">
+          <button type="button" class="vr-vocab-chip" data-t="P/E Ratio" data-def="Share price divided by earnings per share. Read it as the number of years of today's profit you are paying for, assuming profit never changes — which it always does.">P/E Ratio</button>
+          <button type="button" class="vr-vocab-chip" data-t="Earnings Yield" data-def="The P/E turned upside down: earnings per share divided by price, shown as a percentage. It lets you compare a company against a bond or a savings rate.">Earnings Yield</button>
+          <button type="button" class="vr-vocab-chip" data-t="Price-To-Book" data-def="Price compared with the accounting value of what the company owns minus what it owes. Useful for banks, close to meaningless for a business whose value is its people and brand.">Price-To-Book</button>
+          <button type="button" class="vr-vocab-chip" data-t="Value Trap" data-def="A company that looks cheap on every ratio and stays cheap, because the business is shrinking. The ratio was right about the price and wrong about the bargain.">Value Trap</button>
+          <button type="button" class="vr-vocab-chip" data-t="Forward P/E" data-def="The same ratio built on next year's estimated earnings instead of last year's actual ones. More relevant, and entirely dependent on an estimate being right.">Forward P/E</button>
+        </div>
+        <div class="vr-vocab-def" id="vr-vocab-def">Tap a term to see what it means.</div>
+        <span class="vr-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="vr-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · YEARS OF EARNINGS ========== -->
+    <section class="vr-sec vr-reveal" data-step="2">
+      <p class="vr-kicker">What It Means · 2 / 8</p>
+      <h2 class="vr-h2">You're Buying Years</h2>
+      <p class="vr-p">A P/E ratio of 20 means the price equals twenty years of the company's current profit. Flip the same number over and you get an earnings yield of 5%. Tap a level and count the years.</p>
+      <div class="vr-levels" id="vr-levels">
+        <button type="button" class="vr-level" data-k="10">10</button>
+        <button type="button" class="vr-level" data-k="16">16</button>
+        <button type="button" class="vr-level" data-k="25">25</button>
+        <button type="button" class="vr-level" data-k="40">40</button>
+      </div>
+      <div class="vr-grid" id="vr-grid"></div>
+      <div class="vr-reveal-box" id="vr-lv-box"><b id="vr-lv-t">Tap A Level</b><span id="vr-lv-d">Forty squares, one per year of today's profit. The ratio decides how many of them you are handing over.</span></div>
+      <p class="vr-count" id="vr-lv-count">Counted 0 Of 4</p>
+      <p class="vr-disclaimer-inline">The long-run average for the S&amp;P 500 is about 16, measured across monthly observations back to 1871 in the Shiller dataset. It is an anchor, not a target — the market has spent decades on either side of it.</p>
+    </section>
+
+    <!-- ========== 3 · THE FRACTION BREAKS ========== -->
+    <section class="vr-sec vr-reveal" data-step="3">
+      <p class="vr-kicker">The Limits · 3 / 8</p>
+      <h2 class="vr-h2">The Price Never Moves</h2>
+      <p class="vr-p">One company, one unchanged share price of $60. Four things happen to the bottom half of the P/E ratio, and not one of them touches the business. Watch what the number does.</p>
+      <div class="vr-fracbox">
+        <div class="vr-frac">
+          <div class="vr-frac-top"><b>$60.00</b><span>share price — fixed</span></div>
+          <div class="vr-frac-rule"></div>
+          <div class="vr-frac-bot"><b id="vr-eps">$3.00</b><span id="vr-eps-lab">earnings per share</span></div>
+        </div>
+        <div class="vr-frac-eq" aria-hidden="true">=</div>
+        <div class="vr-frac-out">
+          <b id="vr-pe">20.0</b><span>P/E</span>
+        </div>
+      </div>
+      <div class="vr-events" id="vr-events">
+        <button type="button" class="vr-event" data-k="sale">It sells a factory</button>
+        <button type="button" class="vr-event" data-k="writeoff">It writes off a bad bet</button>
+        <button type="button" class="vr-event" data-k="loss">It has a loss-making year</button>
+        <button type="button" class="vr-event" data-k="buyback">It buys back 10% of its shares</button>
+      </div>
+      <div class="vr-reveal-box" id="vr-ev-box"><b id="vr-ev-t">Four Events</b><span id="vr-ev-d">Not one of them changes what the business is worth. Every one of them changes the ratio.</span></div>
+      <p class="vr-count" id="vr-ev-count">Tried 0 Of 4</p>
+      <div class="vr-reset-row"><button type="button" class="vr-reset-btn" id="vr-ev-reset">↺ Start Over</button></div>
+      <p class="vr-disclaimer-inline">Northgate Tools is invented, and the figures are chosen to be easy to follow. Real write-offs and asset sales are attached to real companies every quarter; this lesson does not put made-up events on a real name.</p>
+    </section>
+
+    <!-- ========== 4 · THREE RATIOS, THREE BLIND SPOTS ========== -->
+    <section class="vr-sec vr-reveal" data-step="4">
+      <p class="vr-kicker">Three Tools · 4 / 8</p>
+      <h2 class="vr-h2">Each One Is Blind To Something</h2>
+      <p class="vr-p">The P/E ratio, earnings yield and price-to-book price the same company three different ways. Tap each to see what it is good at, and what it cannot see.</p>
+      <div class="vr-tools" id="vr-tools">
+        <button type="button" class="vr-tool vr-k1" data-k="pe"><span>P/E Ratio</span><i>price ÷ earnings</i></button>
+        <button type="button" class="vr-tool vr-k2" data-k="ey"><span>Earnings Yield</span><i>earnings ÷ price</i></button>
+        <button type="button" class="vr-tool vr-k3" data-k="pb"><span>Price-To-Book</span><i>price ÷ net assets</i></button>
+      </div>
+      <div class="vr-reveal-box" id="vr-tl-box"><b id="vr-tl-t">Tap A Ratio</b><span id="vr-tl-d">None of the three is better than the others. They are blind in different directions, which is why people use more than one.</span></div>
+      <p class="vr-count" id="vr-tl-count">Read 0 Of 3</p>
+      <div class="vr-note">A fourth, the forward P/E, swaps last year's actual earnings for next year's estimate — the most quoted version, and the most often revised. None of them will warn you about a value trap on its own.</div>
+      <p class="vr-disclaimer-inline">Ratios shown as they are commonly defined. Data providers calculate them in slightly different ways, so two screeners can disagree about the same company.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="vr-sec vr-reveal" data-step="5">
+      <p class="vr-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="vr-h2">Myth Or Fact?</h2>
+      <p class="vr-p">Five claims. Tap your answer.</p>
+      <div class="vr-sort" id="vr-myth">
+        <div class="vr-sort-row" data-answer="myth"><span>A low P/E means a stock is cheap.</span><div class="vr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vr-why"><b>Myth.</b> It means the price is low relative to last year's profit. If that profit is about to halve, the ratio was describing a past that is not coming back. This is how a value trap looks on the day you buy it.</p></div>
+        <div class="vr-sort-row" data-answer="fact"><span>Two companies with the same P/E can deserve very different prices.</span><div class="vr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vr-why"><b>Fact.</b> Growth, debt, how reliable the earnings are and how much cash they turn into all belong in the judgement, and none of them appear in the ratio. The number is a starting question.</p></div>
+        <div class="vr-sort-row" data-answer="myth"><span>Comparing P/E ratios across industries tells you which is better value.</span><div class="vr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vr-why"><b>Myth.</b> Software and supermarkets have traded at persistently different multiples for decades, for structural reasons. Comparing a company with its own history and its direct competitors is the only comparison that holds.</p></div>
+        <div class="vr-sort-row" data-answer="fact"><span>Plenty of companies have no P/E at all.</span><div class="vr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vr-why"><b>Fact.</b> A company that loses money has no meaningful ratio — you cannot divide by a negative and get something you can rank. Apollo's chief economist has put the share of Russell 2000 companies with no earnings at around 40%.</p></div>
+        <div class="vr-sort-row" data-answer="myth"><span>Forward P/E is more reliable because it looks ahead.</span><div class="vr-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="vr-why"><b>Myth.</b> It is more <i>relevant</i>, which is not the same thing. It is built on analysts' estimates, and estimates for the year ahead are revised constantly. Trailing figures are stale but real; forward ones are current but guessed.</p></div>
+      </div>
+      <p class="vr-count" id="vr-myth-count">Answered 0 Of 5</p>
+      <div class="vr-reset-row"><button type="button" class="vr-reset-btn" id="vr-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · CHEAP, EXPENSIVE OR CAN'T TELL ========== -->
+    <section class="vr-sec vr-reveal" data-step="6">
+      <p class="vr-kicker">Your Call · 6 / 8</p>
+      <h2 class="vr-h2">Cheap, Expensive, Or Not Enough To Say?</h2>
+      <p class="vr-p">Four companies. One of the three answers is used more than once.</p>
+      <div class="vr-cases" id="vr-cases">
+        <div class="vr-case" data-answer="cant"><span>P/E of 7. Most of last year's profit came from selling a warehouse.</span><div class="vr-case-btns"><button type="button" data-p="cheap">Cheap</button><button type="button" data-p="exp">Expensive</button><button type="button" data-p="cant">Can't Tell</button></div><p class="vr-why"><b>Can't tell.</b> Strip out the warehouse and you do not know what the real earnings are yet. The ratio is built on a number that will not repeat, so it is not describing the business at all.</p></div>
+        <div class="vr-case" data-answer="exp"><span>P/E of 45. Profits have fallen three years running, with no turnaround in sight.</span><div class="vr-case-btns"><button type="button" data-p="cheap">Cheap</button><button type="button" data-p="exp">Expensive</button><button type="button" data-p="cant">Can't Tell</button></div><p class="vr-why"><b>Expensive.</b> A high multiple is a bet on growth. Here the earnings are going the other way, so you are paying a growth price for a shrinking business.</p></div>
+        <div class="vr-case" data-answer="cheap"><span>P/E of 12 for a regulated utility, earnings flat and dependable for a decade.</span><div class="vr-case-btns"><button type="button" data-p="cheap">Cheap</button><button type="button" data-p="exp">Expensive</button><button type="button" data-p="cant">Can't Tell</button></div><p class="vr-why"><b>Cheap, relatively.</b> Dependable earnings are exactly the case where the ratio means what it says, and 12 sits below the long-run market average of about 16. Still worth checking the debt before you agree with yourself.</p></div>
+        <div class="vr-case" data-answer="cant"><span>No P/E shown at all. The company lost money last year.</span><div class="vr-case-btns"><button type="button" data-p="cheap">Cheap</button><button type="button" data-p="exp">Expensive</button><button type="button" data-p="cant">Can't Tell</button></div><p class="vr-why"><b>Can't tell.</b> Not from this. A loss-making young company and a loss-making dying one look identical here, and the ratio has nothing to say about either. You need the cash flow statement and the reason for the loss.</p></div>
+      </div>
+      <p class="vr-count" id="vr-case-count">Answered 0 Of 4</p>
+      <div class="vr-reset-row"><button type="button" class="vr-reset-btn" id="vr-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="vr-sec vr-reveal" data-step="7">
+      <p class="vr-kicker">Recap · 7 / 8</p>
+      <h2 class="vr-h2">Here's What You Now Know</h2>
+      <p class="vr-p">The whole lesson, in six lines.</p>
+      <div class="vr-recap">
+        <div class="vr-recap-item"><span class="vr-recap-check vr-k1">✓</span><span>A P/E ratio is years of today's profit — a price tag expressed in time.</span></div>
+        <div class="vr-recap-item"><span class="vr-recap-check vr-k2">✓</span><span>The long-run market average is about 16, which is an anchor to think against, not a fair value.</span></div>
+        <div class="vr-recap-item"><span class="vr-recap-check vr-k3">✓</span><span>The bottom of the fraction is fragile: one-off gains, write-offs and buybacks all move it without the business changing.</span></div>
+        <div class="vr-recap-item"><span class="vr-recap-check vr-k1">✓</span><span>Earnings yield and price-to-book are blind in different directions, which is why nobody sensible uses one ratio alone.</span></div>
+        <div class="vr-recap-item"><span class="vr-recap-check vr-k2">✓</span><span>Ratios only compare honestly within an industry, and against a company's own history.</span></div>
+        <div class="vr-recap-item"><span class="vr-recap-check vr-k3">✓</span><span>"Can't tell yet" is a real answer, and usually the correct one.</span></div>
+      </div>
+      <div class="vr-next-move">Your next move: <b>find a company with a surprisingly low P/E and work out why</b>. Either you'll find the catch, or you'll have learned how to check for one.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="vr-sec vr-center vr-reveal" data-step="8">
+      <p class="vr-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="vr-hero-ico">🚀</span>
+      <h2 class="vr-h2 center">You've Finished The Lesson</h2>
+      <p class="vr-sub center">You can now read a valuation ratio for what it is: a question worth asking, not an answer worth trusting.</p>
+      <div class="vr-finish">
+        <span class="vr-finish-arrow" id="vr-fin-arrow" aria-hidden="true">↓</span>
+        <p class="vr-finish-lead" id="vr-fin-lead">Scroll Down To Continue</p>
+        <p class="vr-finish-sub" id="vr-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="vr-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="vr-pullquote">"WE THINK ALL INTELLIGENT INVESTING <span class="vr-green">IS VALUE INVESTING.</span>"<br><span class="vr-pullquote-by">— CHARLIE MUNGER, FINANCIAL TIMES INTERVIEW, JULY 2009</span></p>
+    </section>
+
+    <p class="vr-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Market averages and company examples are illustrative and were accurate at the time of writing; check a current source before acting on any figure. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="vr-nav" id="vr-nav">
+      <button type="button" class="vr-nav-btn prev" id="vr-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="vr-nav-hint" id="vr-nav-hint"></span>
+      <button type="button" class="vr-nav-btn next" id="vr-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-vr{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --gold:#C8821B; --goldbg:#FBF2DF;
+    --k1:#1568AE; --k2:#209B73; --k3:#C8821B;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-vr *,#tn-vr *::before,#tn-vr *::after{box-sizing:border-box;}
+  #tn-vr .vr-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-vr .vr-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-vr .vr-reveal.in{opacity:1; transform:none;}
+  #tn-vr .vr-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-vr .vr-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-vr .vr-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-vr .vr-bico{display:flex;}
+  #tn-vr .vr-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-vr .vr-bsub{color:var(--ink2); font-weight:500;}
+  #tn-vr .vr-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-vr #vr-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-vr .vr-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-vr .vr-meta #vr-slide-label{color:var(--ink2);}
+  #tn-vr .vr-meta #vr-slide-count{color:var(--mut);}
+  #tn-vr .vr-sec{padding:16px 0 8px;}
+  #tn-vr .vr-sec.vr-hide{display:none;}
+  #tn-vr .vr-center{text-align:center;}
+  #tn-vr .vr-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-vr .vr-kicker.center{text-align:center;}
+  #tn-vr .vr-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-vr .vr-h2.center{text-align:center;}
+  #tn-vr .vr-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-vr .vr-p b{color:var(--ink); font-weight:700;}
+  #tn-vr .vr-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-vr .vr-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-vr .vr-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-vr .vr-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-vr .vr-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-vr .vr-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-vr .vr-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  #tn-vr .vr-k1{--k:var(--k1);} #tn-vr .vr-k2{--k:var(--k2);} #tn-vr .vr-k3{--k:var(--k3);}
+  /* title */
+  #tn-vr .vr-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,5.6vw,39px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-vr .vr-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-vr .vr-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-vr .vr-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-vr .vr-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-vr .vr-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-vr .vr-vocab-chip:hover{filter:brightness(.97);}
+  #tn-vr .vr-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-vr .vr-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-vr .vr-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-vr .vr-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-vr .vr-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-vr .vr-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-vr .vr-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-vr .vr-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-vr .vr-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · payback tiles */
+  #tn-vr .vr-levels{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:14px;}
+  #tn-vr .vr-level{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(17px,4.4vw,22px); color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:11px 4px; cursor:pointer; transition:all .16s;}
+  #tn-vr .vr-level:hover{border-color:var(--selbd);}
+  #tn-vr .vr-level.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  #tn-vr .vr-grid{display:grid; grid-template-columns:repeat(8,1fr); gap:5px;}
+  #tn-vr .vr-tile{aspect-ratio:1/1; border-radius:5px; background:#EDF2F7; transition:background .22s, transform .22s;}
+  #tn-vr .vr-tile.on{background:linear-gradient(145deg,#2E86C8,#209B73); transform:scale(1.04);}
+  /* 3 · the live fraction */
+  #tn-vr .vr-fracbox{display:flex; align-items:center; justify-content:center; gap:clamp(10px,3vw,22px);
+    background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:18px 14px;}
+  #tn-vr .vr-frac{text-align:center; min-width:0;}
+  #tn-vr .vr-frac-top,#tn-vr .vr-frac-bot{padding:3px 0;}
+  #tn-vr .vr-frac-top b,#tn-vr .vr-frac-bot b{display:block; font-family:'Poppins',sans-serif; font-weight:800;
+    font-size:clamp(22px,6.2vw,34px); line-height:1.1; font-variant-numeric:tabular-nums; transition:color .25s;}
+  #tn-vr .vr-frac-top span,#tn-vr .vr-frac-bot span{display:block; font-size:10px; color:var(--mut); line-height:1.3; margin-top:1px;}
+  #tn-vr .vr-frac-bot b{color:var(--ink);}
+  #tn-vr .vr-frac-bot.vr-shift b{color:var(--gold);}
+  #tn-vr .vr-frac-bot.vr-bad b{color:var(--no);}
+  #tn-vr .vr-frac-rule{height:3px; background:var(--ink); border-radius:2px; margin:3px 0;}
+  #tn-vr .vr-frac-eq{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(20px,5vw,28px); color:var(--mut); flex:none;}
+  #tn-vr .vr-frac-out{text-align:center; flex:none;}
+  #tn-vr .vr-frac-out b{display:block; font-family:'Poppins',sans-serif; font-weight:800;
+    font-size:clamp(30px,9vw,52px); line-height:1; font-variant-numeric:tabular-nums; transition:color .25s;}
+  #tn-vr .vr-frac-out span{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); font-weight:700; margin-top:4px;}
+  #tn-vr .vr-frac-out.vr-shift b{color:var(--gold);}
+  #tn-vr .vr-frac-out.vr-bad b{color:var(--no);}
+  #tn-vr .vr-events{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px;}
+  #tn-vr .vr-event{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 13px; cursor:pointer; transition:all .16s;}
+  #tn-vr .vr-event:hover{border-color:var(--selbd);}
+  #tn-vr .vr-event.on{background:var(--goldbg); border-color:#F0DCA9; color:var(--gold);}
+  /* 4 · three ratios */
+  #tn-vr .vr-tools{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+  #tn-vr .vr-tool{font-family:inherit; text-align:center; background:#fff; border:1.5px solid var(--cardbd);
+    border-radius:14px; padding:13px 7px; cursor:pointer; transition:all .18s;}
+  #tn-vr .vr-tool span{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--k); line-height:1.2;}
+  #tn-vr .vr-tool i{display:block; font-style:normal; font-size:10.5px; color:var(--ink2); margin-top:3px;}
+  #tn-vr .vr-tool.on{background:var(--mist); border-color:var(--k); box-shadow:0 8px 20px -12px rgba(22,32,43,.45);}
+  /* 5 · myth sorter + 6 · three-way cases */
+  #tn-vr .vr-sort,#tn-vr .vr-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-vr .vr-sort-row,#tn-vr .vr-case{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-vr .vr-sort-row > span,#tn-vr .vr-case > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-vr .vr-sort-btns,#tn-vr .vr-case-btns{display:flex; gap:7px; flex:none; flex-wrap:wrap;}
+  #tn-vr .vr-sort-btns button,#tn-vr .vr-case-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 13px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-vr .vr-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-vr .vr-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-vr .vr-case-btns button[data-p="cheap"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-vr .vr-case-btns button[data-p="exp"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-vr .vr-case-btns button[data-p="cant"]{border:1.5px solid #D9DFE6; color:var(--ink2);}
+  #tn-vr .vr-sort-row.correct,#tn-vr .vr-case.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-vr .vr-sort-row.wrong,#tn-vr .vr-case.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-vr .vr-sort-row.done .vr-sort-btns button,#tn-vr .vr-case.done .vr-case-btns button{opacity:.4; pointer-events:none;}
+  #tn-vr .vr-sort-row.done .vr-sort-btns button.picked,#tn-vr .vr-case.done .vr-case-btns button.picked{opacity:1;}
+  #tn-vr .vr-case.done .vr-case-btns button.answer{opacity:1; border-color:var(--g); color:var(--g); background:var(--tint);}
+  #tn-vr .vr-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-vr .vr-why b{font-family:'Poppins',sans-serif;}
+  #tn-vr .vr-sort-row .vr-why,#tn-vr .vr-case .vr-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-vr .vr-sort-row.done .vr-why,#tn-vr .vr-case.done .vr-why{display:block;}
+  /* recap + complete */
+  #tn-vr .vr-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-vr .vr-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-vr .vr-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--k); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-vr .vr-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-vr .vr-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-vr .vr-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-vr .vr-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:vr-bob 1.6s ease-in-out infinite;}
+  #tn-vr .vr-finish-arrow.up{animation-name:vr-bob-up;}
+  @keyframes vr-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes vr-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-vr .vr-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-vr .vr-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-vr .vr-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-vr .vr-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-vr .vr-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-vr .vr-green{color:var(--g);}
+  #tn-vr .vr-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-vr .vr-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-vr .vr-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-vr .vr-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-vr .vr-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-vr .vr-nav-btn.prev{color:var(--ink2);}
+  #tn-vr .vr-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-vr .vr-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-vr .vr-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-vr .vr-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-vr .vr-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-vr .vr-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-vr .vr-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-vr .vr-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .vr-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .vr-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-vr .vr-wrap{padding:12px 14px 30px;}
+    #tn-vr .vr-tools{grid-template-columns:1fr;}
+    #tn-vr .vr-tool{display:flex; align-items:baseline; justify-content:space-between; gap:9px; text-align:left; padding:11px 15px;}
+    #tn-vr .vr-tool i{margin-top:0;}
+    #tn-vr .vr-events{grid-template-columns:1fr;}
+    #tn-vr .vr-fracbox{gap:9px; padding:15px 10px;}
+    #tn-vr .vr-grid{gap:4px;}
+    #tn-vr .vr-sort-row,#tn-vr .vr-case{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-vr .vr-bsub{display:none;}
+    #tn-vr .vr-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-vr .vr-nav{padding-top:10px; row-gap:0;}
+    #tn-vr .vr-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-vr .vr-reveal{opacity:1 !important; transform:none !important;}
+    #tn-vr #vr-bar,#tn-vr .vr-tile{transition:none;}
+    #tn-vr .vr-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-vr'); if(!root) return;
+  root.querySelectorAll('.vr-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('vr-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#vr-vocab-def');
+  root.querySelectorAll('#vr-vocab-chips .vr-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#vr-vocab-chips .vr-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · payback tiles (creative 1 of 2) */
+  var grid=root.querySelector('#vr-grid'), TILES=40;
+  for(var i=0;i<TILES;i++){ var d=document.createElement('span'); d.className='vr-tile'; grid.appendChild(d); }
+  var tiles=grid.querySelectorAll('.vr-tile');
+  var LEVEL={
+    '10':['Ten Years','A P/E of 10 buys the whole of this year’s profit ten times over. Historically that is a low multiple, and the market is usually saying it does not expect the profit to last.'],
+    '16':['Sixteen Years — The Long Average','About where the S&P 500 has averaged across more than a century. Not a fair price, just the middle of a very wide range the market has lived in.'],
+    '25':['Twenty-Five Years','You are paying for profit that has not happened yet. That can be entirely reasonable for a company growing fast, and ruinous for one that is not.'],
+    '40':['Forty Years','At this level almost the whole price is a forecast. The current profit barely matters; what matters is whether the growth story holds for a very long time.']
+  };
+  var lvSeen={}, lvT=root.querySelector('#vr-lv-t'), lvD=root.querySelector('#vr-lv-d'),
+      lvCount=root.querySelector('#vr-lv-count');
+  root.querySelectorAll('#vr-levels .vr-level').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#vr-levels .vr-level').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k'), n=+k;
+      for(var j=0;j<TILES;j++) tiles[j].classList.toggle('on', j<n);
+      lvT.textContent=LEVEL[k][0]; lvD.textContent=LEVEL[k][1];
+      lvSeen[k]=1; lvCount.textContent='Counted '+keys(lvSeen)+' Of 4';
+      state('levels', keys(lvSeen)); postHeight();
+    });
+  });
+
+  /* 3 · the live fraction (creative 2 of 2) */
+  var EV={
+    sale:{eps:'$5.00', lab:'earnings per share — inflated by a one-off', pe:'12.0', tone:'vr-shift',
+      t:'It Sells A Factory — P/E Falls To 12.0',
+      d:'The gain lands in earnings, so the bottom of the fraction jumps and the ratio drops. The company now screens as cheap. It sold a building; it did not get better at its actual business, and next year the gain is gone.'},
+    writeoff:{eps:'$0.40', lab:'earnings per share — crushed by a write-off', pe:'150.0', tone:'vr-shift',
+      t:'It Writes Off A Bad Bet — P/E Jumps To 150.0',
+      d:'A single accounting charge nearly wipes out reported profit, and the ratio becomes absurd. Screened on P/E, this company now looks wildly overpriced on the day it admitted to an old mistake.'},
+    loss:{eps:'−$1.00', lab:'earnings per share — a loss', pe:'n/a', tone:'vr-bad',
+      t:'A Loss-Making Year — There Is No P/E',
+      d:'Divide by a negative and the ratio stops meaning anything, so screeners simply leave it blank. That is not a rare edge case: Apollo’s chief economist has put the share of Russell 2000 companies with no earnings at around 40%.'},
+    buyback:{eps:'$3.33', lab:'earnings per share — same profit, fewer shares', pe:'18.0', tone:'vr-shift',
+      t:'It Buys Back 10% Of Its Shares — P/E Falls To 18.0',
+      d:'Total profit is identical. Spread across fewer shares, earnings per share rises and the ratio falls. The company looks cheaper without having earned an extra cent.'}
+  };
+  var BASE={eps:'$3.00', lab:'earnings per share', pe:'20.0'};
+  var evSeen={}, epsEl=root.querySelector('#vr-eps'), epsLab=root.querySelector('#vr-eps-lab'),
+      peEl=root.querySelector('#vr-pe'), botEl=root.querySelector('.vr-frac-bot'),
+      outEl=root.querySelector('.vr-frac-out'), evT=root.querySelector('#vr-ev-t'),
+      evD=root.querySelector('#vr-ev-d'), evCount=root.querySelector('#vr-ev-count');
+  function tone(cls){
+    botEl.classList.remove('vr-shift','vr-bad'); outEl.classList.remove('vr-shift','vr-bad');
+    if(cls){ botEl.classList.add(cls); outEl.classList.add(cls); }
+  }
+  root.querySelectorAll('#vr-events .vr-event').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#vr-events .vr-event').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var e=EV[b.getAttribute('data-k')];
+      epsEl.textContent=e.eps; epsLab.textContent=e.lab; peEl.textContent=e.pe; tone(e.tone);
+      evT.textContent=e.t; evD.textContent=e.d;
+      evSeen[b.getAttribute('data-k')]=1;
+      evCount.textContent='Tried '+keys(evSeen)+' Of 4';
+      state('events', keys(evSeen)); postHeight();
+    });
+  });
+  var evR=root.querySelector('#vr-ev-reset');
+  if(evR) evR.addEventListener('click',function(){
+    root.querySelectorAll('#vr-events .vr-event').forEach(function(x){ x.classList.remove('on'); });
+    epsEl.textContent=BASE.eps; epsLab.textContent=BASE.lab; peEl.textContent=BASE.pe; tone(null);
+    evT.textContent='Four Events';
+    evD.textContent='Not one of them changes what the business is worth. Every one of them changes the ratio.';
+    postHeight();
+  });
+
+  /* 4 · three ratios */
+  var TOOL={
+    pe:['P/E Ratio — Blind To Growth','It compares price with one year of profit and says nothing about whether that profit is rising or collapsing. Two companies on the same multiple can be heading in opposite directions.'],
+    ey:['Earnings Yield — Blind To Safety','Flipping the ratio gives a percentage you can hold against a savings rate or a bond. What it hides is that a company’s earnings are not a promise, and a bank’s interest is.'],
+    pb:['Price-To-Book — Blind To The Intangible','It works where assets are real and measurable, like a bank’s loan book. It falls apart for a business whose value is its brand, its code and its people, none of which appear in the accounts.']
+  };
+  var tlSeen={}, tlT=root.querySelector('#vr-tl-t'), tlD=root.querySelector('#vr-tl-d'),
+      tlCount=root.querySelector('#vr-tl-count');
+  root.querySelectorAll('#vr-tools .vr-tool').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#vr-tools .vr-tool').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      tlT.textContent=TOOL[k][0]; tlD.textContent=TOOL[k][1];
+      tlSeen[k]=1; tlCount.textContent='Read '+keys(tlSeen)+' Of 3';
+      state('tools', keys(tlSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#vr-myth-count');
+  root.querySelectorAll('#vr-myth .vr-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.vr-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#vr-myth .vr-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#vr-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#vr-myth .vr-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · three-way cases */
+  var caseCount=root.querySelector('#vr-case-count');
+  root.querySelectorAll('#vr-cases .vr-case').forEach(function(c){
+    var ans=c.getAttribute('data-answer');
+    c.querySelectorAll('.vr-case-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        btn.classList.add('picked');
+        c.querySelectorAll('.vr-case-btns button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#vr-cases .vr-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 4';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#vr-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#vr-cases .vr-case').forEach(function(c){
+      c.classList.remove('done','correct','wrong');
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 4'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('vr-fin-arrow'), lead=document.getElementById('vr-fin-lead'), sub=document.getElementById('vr-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — first mention per slide, static prose only.
+   Headings and disclaimers are excluded: a green term in an <h2> is a
+   recurring bug, and a green underline in small grey legal copy pulls
+   the eye to the one line that should stay quiet.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-vr'); if(!root) return;
+  var ALT={
+    'p/e ratio':'p/e ratios?|p/e',
+    'earnings yield':'earnings yield',
+    'price-to-book':'price-to-book',
+    'value trap':'value traps?',
+    'forward p/e':'forward p/e'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#vr-vocab-chips .vr-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('(?:^|\\s)('+(ALT[t.toLowerCase()]||t.toLowerCase())+')(?=[\\s.,;:?!)]|$)','i')});
+  });
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.vr-p, .vr-sub, .vr-note, .vr-why, .vr-recap-item span, .vr-next-move, .vr-sort-row > span, .vr-case > span';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.vr-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var at=m.index+m[0].indexOf(m[1]);
+        var after=node.splitText(at);
+        after.nodeValue=after.nodeValue.slice(m[1].length);
+        var sp=document.createElement('span');
+        sp.className='vr-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[1]+' — definition');
+        sp.textContent=m[1];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='vr-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.vr-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.vr-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return;
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-vr'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#vr-bar'), labelEl=root.querySelector('#vr-slide-label'),
+      countEl=root.querySelector('#vr-slide-count'), prevBtn=root.querySelector('#vr-prev'),
+      nextBtn=root.querySelector('#vr-next'), hintEl=root.querySelector('#vr-nav-hint'),
+      disclaimer=root.querySelector('.vr-disclaimer');
+  var labels={1:'Start Here',2:'What It Means',3:'The Limits',4:'Three Tools',5:'Myth Or Fact',6:'Your Call',7:'Recap',8:'Complete'};
+  var reqHints={2:'Try all 4 levels to continue',3:'Try all 4 events to continue',4:'Read all 3 ratios to continue',5:'Answer all 5 to continue',6:'Answer all 4 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.vr-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('vr-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('vr-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'levels', need:4, hint:function(n){ return 'Counted '+n+' of 4 — try every level to continue'; }},
+    {step:3, key:'events', need:4, hint:function(n){ return 'Tried '+n+' of 4 — try every event to continue'; }},
+    {step:4, key:'tools',  need:3, hint:function(n){ return 'Read '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',   need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',  need:4, hint:function(n){ return 'Answered '+n+' of 4 — answer them all to continue'; }}
+  ];
+  root.addEventListener('vr-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

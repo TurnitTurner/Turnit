@@ -1,0 +1,731 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — REBALANCING: CALENDAR VS. BANDS
+     (Intermediate · Module 7 · Lesson 31)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-rc. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     VISUAL WORLD: an instrument and an order ticket. Slide 2 is a wide drift
+     gauge with a shaded tolerance band and a needle that trips it; slide 4 is a
+     brokerage rebalance order ticket. Neighbouring 30 was a dark trading
+     screen, so this one is light.
+       1  Title & Key Terms (never gated)  2  The Drift Gauge (creative)
+       3  Calendar vs Bands (comparison)   4  The Order Ticket (creative)
+       5  Myth Or Fact (5)                 6  Would You Rebalance? (3)
+       7  Recap (6)                        8  Complete
+     Creative widgets, 2 of 2: the drift gauge and the order ticket.
+
+     REAL DATA — Vanguard, "Best practices for portfolio rebalancing" (2010).
+     60% stocks / 40% bonds, annual data 1926-2009 (threshold-only analysis
+     1989-2009). Every figure on slides 2, 3 and 7 is from its tables:
+       strategy            avg equity   return   volatility   events   turnover
+       Monthly                 60.1%      8.5%       12.1%     1,008      2.7%
+       Quarterly               60.2%      8.6%       12.2%       335      2.2%
+       Annually                60.5%      8.6%       11.9%        83      1.7%
+       Never rebalanced        84.1%      9.1%       14.4%         0      0.0%
+       Annually,  5% band      60.7%      8.6%       11.8%        28      1.6%
+       Quarterly, 5% band      60.9%      8.8%       12.1%        50      1.7%
+       Monthly,  10% band      61.6%      8.8%       12.2%        20      1.3%
+     The paper's conclusion: risk-adjusted returns are not meaningfully
+     different across monthly, quarterly or annual rebalancing, while cost
+     rises sharply with frequency; annual or semiannual monitoring with
+     rebalancing at 5% thresholds is a reasonable balance of risk and cost.
+
+     THE SLIDE-4 PORTFOLIO IS A WORKED EXAMPLE, not a recommendation, and the
+     arithmetic is exact on a $100,000 60/40 target:
+       held   VTI 68,000 (68%)  BND 32,000 (32%)
+       sell 8,000 VTI, buy 8,000 BND -> 60,000 / 40,000 = 60/40
+       new money only: (32,000+X)/(100,000+X) = 0.40 -> X = 13,333
+         -> VTI 68,000 / BND 45,333 of 113,333 = 60.0% / 40.0%
+     VTI and BND are named because they are widely held and easy to look up,
+     not as recommendations.
+
+     COMPLIANCE — Module 7 is "what should I do" territory, so this lesson
+     describes trade-offs and never prescribes a schedule. Tax is touched only
+     to flag that selling in a taxable account can realize a gain; tax-loss
+     harvesting and asset location are Module 3 and are not taught here.
+
+     INTEGRATION FIX — this lesson was authored outside this session and
+     imported into the repo; its original prefix `rb` collided with
+     Foundations' `5-6-rebalancing-keeping-your-portfolio-on-track.html` and
+     was renamed to `rc` throughout (CSS, JS, and markup) before shipping,
+     consistent with the chip/prefix collision discipline already applied
+     throughout Modules 4-5.
+     ============================================================ -->
+<div id="tn-rc">
+  <div class="rc-wrap">
+    <div class="rc-top">
+      <div class="rc-topbar">
+        <div class="rc-brand"><span class="rc-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="rc-word">TURNIT</span><span class="rc-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="rc-progress"><span id="rc-bar"></span></div>
+      <div class="rc-meta"><span id="rc-slide-label">Start Here</span><span id="rc-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="rc-sec rc-center rc-reveal" data-step="1">
+      <p class="rc-kicker center">Running The Plan · 1 / 8</p>
+      <h1 class="rc-hero-title">REBALANCING: <span class="rc-hero-grad">CALENDAR VS. BANDS</span></h1>
+      <p class="rc-sub center">Left alone, a portfolio quietly becomes something you never chose. Here is what to do about it, and how little the schedule matters.</p>
+      <div class="rc-vocab">
+        <span class="rc-vocab-label">Key Terms In This Lesson</span>
+        <div class="rc-vocab-chips" id="rc-vocab-chips">
+          <button type="button" class="rc-vocab-chip" data-t="Rebalancing" data-def="Selling some of what has grown and buying what has lagged, to bring the mix back to the one you picked. It is a risk-control decision, not a way to earn more.">Rebalancing</button>
+          <button type="button" class="rc-vocab-chip" data-t="Drift" data-def="What happens on its own. Because stocks usually grow faster than bonds, the stock share of a portfolio keeps climbing unless something pulls it back.">Drift</button>
+          <button type="button" class="rc-vocab-chip" data-t="Tolerance Band" data-def="A margin either side of your target — say 60% stocks give or take 5 points — that you allow the mix to wander inside before doing anything.">Tolerance Band</button>
+          <button type="button" class="rc-vocab-chip" data-t="Calendar Method" data-def="Rebalancing on fixed dates regardless of what the market has done: every year, every quarter, every month. Simple to follow, and blind to how far things have actually moved.">Calendar Method</button>
+          <button type="button" class="rc-vocab-chip" data-t="Turnover" data-def="How much of a portfolio is bought and sold in a year. It is a direct proxy for cost — every trade carries a spread, possibly a commission, and possibly a tax bill.">Turnover</button>
+        </div>
+        <div class="rc-vocab-def" id="rc-vocab-def">Tap a term to see what it means.</div>
+        <span class="rc-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="rc-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE DRIFT GAUGE ========== -->
+    <section class="rc-sec rc-reveal" data-step="2">
+      <p class="rc-kicker">The Gauge · 2 / 8</p>
+      <h2 class="rc-h2">What You End Up Holding</h2>
+      <p class="rc-p">A 60/40 portfolio run from 1926 to 2009 under four rebalancing schedules. The needle is the stock share actually held on average — how far drift was allowed to carry it. Tap each.</p>
+      <div class="rc-gauge">
+        <div class="rc-g-scale">
+          <span class="rc-g-band"></span>
+          <span class="rc-g-target"></span>
+          <i class="rc-g-needle" id="rc-needle"></i>
+        </div>
+        <div class="rc-g-ticks"><span style="left:0%">50%</span><span style="left:25%">60%<br><b>target</b></span><span style="left:50%">70%</span><span style="left:75%">80%</span><span style="left:100%">90%</span></div>
+        <div class="rc-g-read">
+          <div class="rc-g-cell"><span>Stock share held</span><b id="rc-g-eq">—</b></div>
+          <div class="rc-g-cell"><span>Volatility</span><b id="rc-g-vol">—</b></div>
+          <div class="rc-g-cell"><span>Return</span><b id="rc-g-ret">—</b></div>
+        </div>
+      </div>
+      <div class="rc-modes" id="rc-modes">
+        <button type="button" class="rc-mode" data-k="m">Monthly</button>
+        <button type="button" class="rc-mode" data-k="q">Quarterly</button>
+        <button type="button" class="rc-mode" data-k="a">Annually</button>
+        <button type="button" class="rc-mode rc-danger" data-k="n">Never</button>
+      </div>
+      <div class="rc-reveal-box" id="rc-g-box"><b id="rc-g-t">Tap A Method</b><span id="rc-g-d">Three of these four land in almost exactly the same place. The fourth is a different portfolio altogether.</span></div>
+      <p class="rc-count" id="rc-g-count">Tried 0 Of 4</p>
+      <p class="rc-disclaimer-inline">Vanguard, <i>Best practices for portfolio rebalancing</i> (2010), 60% stocks / 40% bonds, 1926–2009. Figures are historical averages over one long period and are not a forecast. Past performance never guarantees future results.</p>
+    </section>
+
+    <!-- ========== 3 · CALENDAR VS BANDS ========== -->
+    <section class="rc-sec rc-reveal" data-step="3">
+      <p class="rc-kicker">The Comparison · 3 / 8</p>
+      <h2 class="rc-h2">Adding A Band Changes The Cost, Not The Result</h2>
+      <p class="rc-p">The same portfolio, now traded only when the mix strays outside a tolerance band. Watch the return column first, then watch what happens to turnover. Tap a row.</p>
+      <div class="rc-table">
+        <div class="rc-tr rc-head"><span>Method</span><span>Return</span><span>Vol.</span><span>Trades</span></div>
+        <button type="button" class="rc-tr" data-k="a0"><span>Annually, no band</span><span>8.6%</span><span>11.9%</span><span>83</span></button>
+        <button type="button" class="rc-tr" data-k="a5"><span>Annually, 5% band</span><span>8.6%</span><span>11.8%</span><span>28</span></button>
+        <button type="button" class="rc-tr" data-k="q5"><span>Quarterly, 5% band</span><span>8.8%</span><span>12.1%</span><span>50</span></button>
+        <button type="button" class="rc-tr" data-k="m10"><span>Monthly, 10% band</span><span>8.8%</span><span>12.2%</span><span>20</span></button>
+      </div>
+      <div class="rc-reveal-box" id="rc-t-box"><b id="rc-t-t">Tap A Row</b><span id="rc-t-d">Look down the return column before you look anywhere else. Then look at the trade count.</span></div>
+      <p class="rc-count" id="rc-t-count">Read 0 Of 4</p>
+      <div class="rc-note">Vanguard's own conclusion: check once or twice a year, and act when the mix is about 5 points out. A pure calendar method is not wrong — it just costs more to arrive in the same place.</div>
+      <p class="rc-disclaimer-inline">Same source and period. "Trades" is the number of rebalancing events over the period studied; threshold results draw on 1989–2009 daily data. Illustrative of the trade-off, not advice on what to pick.</p>
+    </section>
+
+    <!-- ========== 4 · THE ORDER TICKET ========== -->
+    <section class="rc-sec rc-reveal" data-step="4">
+      <p class="rc-kicker">Doing It · 4 / 8</p>
+      <h2 class="rc-h2">What It Actually Looks Like</h2>
+      <p class="rc-p">A $100,000 portfolio that has drifted to 68/32. Three ways to rebalance it, with very different turnover.</p>
+      <div class="rc-ticket">
+        <div class="rc-tk-head"><b>Rebalance</b><span>Target 60 / 40 · $100,000</span></div>
+        <div class="rc-tk-hold">
+          <div class="rc-hold"><span class="rc-h-sym">VTI</span><span class="rc-h-nm">US total market</span><b class="rc-h-amt">$68,000</b><span class="rc-h-pct rc-over">68%</span></div>
+          <div class="rc-hold"><span class="rc-h-sym">BND</span><span class="rc-h-nm">US total bond</span><b class="rc-h-amt">$32,000</b><span class="rc-h-pct rc-under">32%</span></div>
+        </div>
+        <div class="rc-tk-orders" id="rc-tk-orders">
+          <p class="rc-tk-empty" id="rc-tk-empty">Pick an approach below to see the orders.</p>
+        </div>
+      </div>
+      <div class="rc-ways" id="rc-ways">
+        <button type="button" class="rc-way" data-k="sell">Sell the winner, buy the laggard</button>
+        <button type="button" class="rc-way" data-k="add">Add new money instead</button>
+        <button type="button" class="rc-way" data-k="tax">What if it's a taxable account?</button>
+      </div>
+      <div class="rc-reveal-box" id="rc-w-box"><b id="rc-w-t">Three Approaches</b><span id="rc-w-d">All three end at the same mix. They differ in what they cost you to get there.</span></div>
+      <p class="rc-count" id="rc-w-count">Read 0 Of 3</p>
+      <p class="rc-disclaimer-inline">A worked example with round numbers, not a recommendation. VTI and BND are named because they are widely held and easy to look up. Tax treatment depends on your own situation — this is not tax advice.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="rc-sec rc-reveal" data-step="5">
+      <p class="rc-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="rc-h2">Myth Or Fact?</h2>
+      <p class="rc-p">Five claims. Tap your answer.</p>
+      <div class="rc-sort" id="rc-myth">
+        <div class="rc-sort-row" data-answer="myth"><span>Rebalancing more often produces better results.</span><div class="rc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rc-why"><b>Myth.</b> Monthly, quarterly and annual all landed within a tenth of a point of each other on return and volatility over eighty years. What rose sharply with frequency was the number of trades and the cost of making them.</p></div>
+        <div class="rc-sort-row" data-answer="fact"><span>Not rebalancing at all produced the highest return in that study.</span><div class="rc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rc-why"><b>Fact</b> — 9.1% against 8.6%. It also ended up 84% in stocks with volatility of 14.4%. You earned more because you were taking far more risk than you signed up for, and you would have found that out in a crash.</p></div>
+        <div class="rc-sort-row" data-answer="myth"><span>Rebalancing means selling your best investment, which is backwards.</span><div class="rc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rc-why"><b>Myth.</b> It means trimming a position that has grown past the share you decided it should have. You are not betting against it; you are refusing to let one holding quietly become the whole plan.</p></div>
+        <div class="rc-sort-row" data-answer="fact"><span>You can rebalance without selling anything.</span><div class="rc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rc-why"><b>Fact.</b> Point new contributions and dividends at whatever is below target. It is slower, and in a taxable account it avoids realizing a gain you did not have to realize.</p></div>
+        <div class="rc-sort-row" data-answer="myth"><span>A tolerance band means you check your portfolio less often.</span><div class="rc-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="rc-why"><b>Myth.</b> It means you <i>trade</i> less often. You still have to look, or you will not know the band has been breached. Checking and acting are two different decisions, and a band separates them.</p></div>
+      </div>
+      <p class="rc-count" id="rc-myth-count">Answered 0 Of 5</p>
+      <div class="rc-reset-row"><button type="button" class="rc-reset-btn" id="rc-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WOULD YOU REBALANCE? ========== -->
+    <section class="rc-sec rc-reveal" data-step="6">
+      <p class="rc-kicker">Your Call · 6 / 8</p>
+      <h2 class="rc-h2">Band Breached, Or Just Noise?</h2>
+      <p class="rc-p">Target is 60/40 with a 5-point band. Three situations.</p>
+      <div class="rc-cases" id="rc-cases">
+        <div class="rc-case" data-answer="no"><span>Stocks have run up. You are now at 63/37.</span><div class="rc-case-btns"><button type="button" data-p="yes">Rebalance</button><button type="button" data-p="no">Leave It</button></div><p class="rc-why"><b>Leave it.</b> Three points out is inside the band. The whole point of setting one is that you do not act on every wobble — otherwise you have a calendar method with extra steps.</p></div>
+        <div class="rc-case" data-answer="yes"><span>A long slide in stocks has left you at 52/48.</span><div class="rc-case-btns"><button type="button" data-p="yes">Rebalance</button><button type="button" data-p="no">Leave It</button></div><p class="rc-why"><b>Rebalance.</b> Eight points out, and on the uncomfortable side — it means buying stocks after they have fallen. This is the moment the rule exists for, and the moment almost nobody wants to follow it.</p></div>
+        <div class="rc-case" data-answer="no"><span>You are at 61/39, but it is January and you always rebalance in January.</span><div class="rc-case-btns"><button type="button" data-p="yes">Rebalance</button><button type="button" data-p="no">Leave It</button></div><p class="rc-why"><b>Leave it.</b> A date on the calendar is a prompt to <i>look</i>, not an instruction to trade. One point out is noise, and trading it just donates a spread to the market for no change in risk.</p></div>
+      </div>
+      <p class="rc-count" id="rc-case-count">Answered 0 Of 3</p>
+      <div class="rc-reset-row"><button type="button" class="rc-reset-btn" id="rc-case-reset">↺ Start Over</button></div>
+      <p class="rc-disclaimer-inline">Illustrations of how a band works, not guidance on what band to choose. The right answer for a real portfolio depends on account type, costs and your own situation.</p>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="rc-sec rc-reveal" data-step="7">
+      <p class="rc-kicker">Recap · 7 / 8</p>
+      <h2 class="rc-h2">Here's What You Now Know</h2>
+      <p class="rc-p">The whole lesson, in six lines.</p>
+      <div class="rc-recap">
+        <div class="rc-recap-item"><span class="rc-recap-check rc-c1">✓</span><span>Left alone, a 60/40 portfolio drifted to 84% stocks — the return rose, and so did the risk you never agreed to.</span></div>
+        <div class="rc-recap-item"><span class="rc-recap-check rc-c2">✓</span><span>Monthly, quarterly and annual rebalancing all landed in the same place. The schedule is not where the decision is.</span></div>
+        <div class="rc-recap-item"><span class="rc-recap-check rc-c3">✓</span><span>A tolerance band cuts the number of trades sharply while leaving return and volatility essentially unchanged.</span></div>
+        <div class="rc-recap-item"><span class="rc-recap-check rc-c1">✓</span><span>Checking and trading are separate decisions: look on a schedule, act when the band is breached.</span></div>
+        <div class="rc-recap-item"><span class="rc-recap-check rc-c2">✓</span><span>New contributions and dividends can do the work without selling anything, which matters in a taxable account.</span></div>
+        <div class="rc-recap-item"><span class="rc-recap-check rc-c3">✓</span><span>Rebalancing is risk control. If you are doing it to make more money, you have the wrong reason.</span></div>
+      </div>
+      <div class="rc-next-move">Your next move: <b>work out what your mix is right now</b> and compare it with what you meant it to be. Most people have not looked in over a year, and are further out than they expect.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="rc-sec rc-center rc-reveal" data-step="8">
+      <p class="rc-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="rc-hero-ico">🚀</span>
+      <h2 class="rc-h2 center">You've Finished The Lesson</h2>
+      <p class="rc-sub center">You can now tell the difference between a portfolio that moved and a portfolio that changed.</p>
+      <div class="rc-finish">
+        <span class="rc-finish-arrow" id="rc-fin-arrow" aria-hidden="true">↓</span>
+        <p class="rc-finish-lead" id="rc-fin-lead">Scroll Down To Continue</p>
+        <p class="rc-finish-sub" id="rc-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="rc-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="rc-pullquote">REBALANCING IS A RISK-CONTROL DECISION. <span class="rc-green">IF THE REASON IS A BIGGER NUMBER, IT'S THE WRONG REASON.</span><br><span class="rc-pullquote-by">— THE WHOLE LESSON, IN ONE LINE</span></p>
+    </section>
+
+    <p class="rc-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The historical figures come from Vanguard research covering 1926–2009 and describe one long period, not what any portfolio will do next. Funds are named because they are widely held and easy to look up, not as recommendations. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="rc-nav" id="rc-nav">
+      <button type="button" class="rc-nav-btn prev" id="rc-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="rc-nav-hint" id="rc-nav-hint"></span>
+      <button type="button" class="rc-nav-btn next" id="rc-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-rc{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --gold:#C8821B; --goldbg:#FBF2DF; --goldbd:#F0DCA9;
+    --c1:#1568AE; --c2:#209B73; --c3:#C8821B;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-rc *,#tn-rc *::before,#tn-rc *::after{box-sizing:border-box;}
+  #tn-rc .rc-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-rc .rc-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-rc .rc-reveal.in{opacity:1; transform:none;}
+  #tn-rc .rc-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-rc .rc-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-rc .rc-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-rc .rc-bico{display:flex;}
+  #tn-rc .rc-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-rc .rc-bsub{color:var(--ink2); font-weight:500;}
+  #tn-rc .rc-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-rc #rc-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-rc .rc-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-rc .rc-meta #rc-slide-label{color:var(--ink2);}
+  #tn-rc .rc-meta #rc-slide-count{color:var(--mut);}
+  #tn-rc .rc-sec{padding:16px 0 8px;}
+  #tn-rc .rc-sec.rc-hide{display:none;}
+  #tn-rc .rc-center{text-align:center;}
+  #tn-rc .rc-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-rc .rc-kicker.center{text-align:center;}
+  #tn-rc .rc-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-rc .rc-h2.center{text-align:center;}
+  #tn-rc .rc-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-rc .rc-p b{color:var(--ink); font-weight:700;}
+  #tn-rc .rc-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-rc .rc-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-rc .rc-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-rc .rc-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-rc .rc-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-rc .rc-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-rc .rc-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  #tn-rc .rc-c1{background:var(--c1);} #tn-rc .rc-c2{background:var(--c2);} #tn-rc .rc-c3{background:var(--c3);}
+  /* title */
+  #tn-rc .rc-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(25px,5.4vw,38px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-rc .rc-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-rc .rc-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-rc .rc-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-rc .rc-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-rc .rc-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-rc .rc-vocab-chip:hover{filter:brightness(.97);}
+  #tn-rc .rc-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-rc .rc-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-rc .rc-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-rc .rc-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-rc .rc-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-rc .rc-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-rc .rc-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-rc .rc-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-rc .rc-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · drift gauge */
+  #tn-rc .rc-gauge{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:18px 16px 14px;}
+  #tn-rc .rc-g-scale{position:relative; height:30px; border-radius:8px;
+    background:linear-gradient(90deg,#E6ECF2 0%,#E6ECF2 100%);}
+  /* band sits 55-65% on a 50-90 scale -> 12.5% to 37.5% */
+  #tn-rc .rc-g-band{position:absolute; left:12.5%; width:25%; top:0; bottom:0; background:rgba(32,155,115,.18); border-left:1.5px solid var(--g); border-right:1.5px solid var(--g);}
+  #tn-rc .rc-g-target{position:absolute; left:25%; top:-4px; bottom:-4px; width:2.5px; margin-left:-1.25px; background:var(--g); border-radius:2px;}
+  #tn-rc .rc-g-needle{position:absolute; top:-7px; bottom:-7px; width:4px; margin-left:-2px; left:25%;
+    background:var(--ink); border-radius:3px; box-shadow:0 0 0 3px rgba(22,32,43,.12);
+    transition:left .6s cubic-bezier(.2,.7,.2,1), background .3s, box-shadow .3s;}
+  #tn-rc .rc-g-needle.rc-trip{background:var(--no); box-shadow:0 0 0 3px rgba(192,57,43,.18);}
+  #tn-rc .rc-g-ticks{position:relative; height:30px; margin-top:11px;}
+  #tn-rc .rc-g-ticks span{position:absolute; transform:translateX(-50%); white-space:nowrap;
+    font-size:10px; color:var(--mut); font-weight:600; text-align:center; line-height:1.3;}
+  #tn-rc .rc-g-ticks span:first-child{transform:translateX(0);}
+  #tn-rc .rc-g-ticks span:last-child{transform:translateX(-100%);}
+  #tn-rc .rc-g-ticks b{color:var(--g); font-family:'Poppins',sans-serif; font-size:9px; letter-spacing:.06em; text-transform:uppercase;}
+  #tn-rc .rc-g-read{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px;}
+  #tn-rc .rc-g-cell{text-align:center; background:#fff; border:1px solid var(--cardbd); border-radius:11px; padding:9px 5px;}
+  #tn-rc .rc-g-cell span{display:block; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700; line-height:1.3;}
+  #tn-rc .rc-g-cell b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(16px,4.2vw,20px); margin-top:2px; font-variant-numeric:tabular-nums; transition:color .3s;}
+  #tn-rc .rc-g-cell b.rc-trip{color:var(--no);}
+  #tn-rc .rc-modes{display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin-top:12px;}
+  #tn-rc .rc-mode{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 3px; cursor:pointer; transition:all .16s;}
+  #tn-rc .rc-mode:hover{border-color:var(--selbd);}
+  #tn-rc .rc-mode.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  #tn-rc .rc-mode.rc-danger.on{background:var(--no); border-color:var(--no);}
+  /* 3 · comparison table */
+  #tn-rc .rc-table{border:1.5px solid var(--cardbd); border-radius:13px; overflow:hidden;}
+  #tn-rc .rc-tr{display:grid; grid-template-columns:1.7fr .8fr .8fr .8fr; gap:6px; width:100%; text-align:left;
+    font-family:inherit; background:#fff; border:none; border-bottom:1px solid var(--line);
+    padding:11px 13px; cursor:pointer; align-items:baseline; transition:background .16s;}
+  #tn-rc .rc-tr:last-child{border-bottom:none;}
+  #tn-rc .rc-tr span{font-size:13px; font-variant-numeric:tabular-nums;}
+  #tn-rc .rc-tr span:not(:first-child){text-align:right; font-family:'Poppins',sans-serif; font-weight:700;}
+  #tn-rc .rc-tr.rc-head{background:var(--cardbg); cursor:default; border-bottom:1.5px solid var(--cardbd);}
+  #tn-rc .rc-tr.rc-head span{font-family:'Poppins',sans-serif; font-weight:800; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut);}
+  #tn-rc .rc-tr:not(.rc-head):hover{background:var(--mist);}
+  #tn-rc .rc-tr.on{background:var(--tint); box-shadow:inset 3px 0 0 var(--g);}
+  /* 4 · the order ticket */
+  #tn-rc .rc-ticket{background:#fff; border:1.5px solid #D8E2EC; border-radius:13px; overflow:hidden;
+    box-shadow:0 16px 40px -26px rgba(22,32,43,.55);}
+  #tn-rc .rc-tk-head{padding:12px 15px 11px; border-bottom:2px solid var(--ink);}
+  #tn-rc .rc-tk-head b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px;}
+  #tn-rc .rc-tk-head span{display:block; font-size:10.5px; color:var(--mut); margin-top:1px;}
+  #tn-rc .rc-tk-hold{padding:4px 0;}
+  #tn-rc .rc-hold{display:grid; grid-template-columns:48px 1fr auto 46px; gap:8px; align-items:baseline; padding:9px 15px; border-bottom:1px solid var(--line);}
+  #tn-rc .rc-h-sym{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px;}
+  #tn-rc .rc-h-nm{font-size:11px; color:var(--mut);}
+  #tn-rc .rc-h-amt{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; font-variant-numeric:tabular-nums;}
+  #tn-rc .rc-h-pct{font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums;}
+  #tn-rc .rc-h-pct.rc-over{color:var(--no);}
+  #tn-rc .rc-h-pct.rc-under{color:var(--b);}
+  #tn-rc .rc-tk-orders{background:var(--mist); padding:12px 15px; min-height:74px;}
+  #tn-rc .rc-tk-empty{margin:0; font-size:12.5px; color:var(--mut); text-align:center; padding:8px 0;}
+  #tn-rc .rc-order{display:flex; align-items:baseline; gap:9px; padding:7px 0; border-bottom:1px dashed #D5DEE7; font-variant-numeric:tabular-nums;}
+  #tn-rc .rc-order:last-child{border-bottom:none;}
+  #tn-rc .rc-o-act{font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; letter-spacing:.08em; padding:3px 8px; border-radius:5px; flex:none;}
+  #tn-rc .rc-o-act.rc-sell{background:var(--nobg); color:var(--no);}
+  #tn-rc .rc-o-act.rc-buy{background:var(--tint); color:var(--g);}
+  #tn-rc .rc-o-act.rc-none{background:#E7EDF3; color:var(--ink2);}
+  #tn-rc .rc-o-txt{flex:1; font-size:13px; font-weight:500;}
+  #tn-rc .rc-o-txt b{font-family:'Poppins',sans-serif; font-weight:800;}
+  #tn-rc .rc-ways{display:flex; flex-direction:column; gap:7px; margin-top:12px;}
+  #tn-rc .rc-way{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 13px; cursor:pointer; transition:all .16s;}
+  #tn-rc .rc-way:hover{border-color:var(--selbd);}
+  #tn-rc .rc-way.on{background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  /* 5 · myth sorter + 6 · cases */
+  #tn-rc .rc-sort,#tn-rc .rc-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-rc .rc-sort-row,#tn-rc .rc-case{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-rc .rc-sort-row > span,#tn-rc .rc-case > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-rc .rc-sort-btns,#tn-rc .rc-case-btns{display:flex; gap:7px; flex:none; flex-wrap:wrap;}
+  #tn-rc .rc-sort-btns button,#tn-rc .rc-case-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 13px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-rc .rc-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-rc .rc-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-rc .rc-case-btns button[data-p="yes"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-rc .rc-case-btns button[data-p="no"]{border:1.5px solid #D9DFE6; color:var(--ink2);}
+  #tn-rc .rc-sort-row.correct,#tn-rc .rc-case.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-rc .rc-sort-row.wrong,#tn-rc .rc-case.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-rc .rc-sort-row.done .rc-sort-btns button,#tn-rc .rc-case.done .rc-case-btns button{opacity:.4; pointer-events:none;}
+  #tn-rc .rc-sort-row.done .rc-sort-btns button.picked,#tn-rc .rc-case.done .rc-case-btns button.picked{opacity:1;}
+  #tn-rc .rc-case.done .rc-case-btns button.answer{opacity:1; border-color:var(--g); color:var(--g); background:var(--tint);}
+  #tn-rc .rc-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-rc .rc-why b{font-family:'Poppins',sans-serif;}
+  #tn-rc .rc-sort-row .rc-why,#tn-rc .rc-case .rc-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-rc .rc-sort-row.done .rc-why,#tn-rc .rc-case.done .rc-why{display:block;}
+  /* recap + complete */
+  #tn-rc .rc-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-rc .rc-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-rc .rc-recap-check{flex:none; width:22px; height:22px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-rc .rc-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-rc .rc-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-rc .rc-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-rc .rc-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:rc-bob 1.6s ease-in-out infinite;}
+  #tn-rc .rc-finish-arrow.up{animation-name:rc-bob-up;}
+  @keyframes rc-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes rc-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-rc .rc-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-rc .rc-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-rc .rc-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-rc .rc-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-rc .rc-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-rc .rc-green{color:var(--g);}
+  #tn-rc .rc-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-rc .rc-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-rc .rc-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-rc .rc-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-rc .rc-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-rc .rc-nav-btn.prev{color:var(--ink2);}
+  #tn-rc .rc-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-rc .rc-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-rc .rc-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-rc .rc-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-rc .rc-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-rc .rc-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-rc .rc-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-rc .rc-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .rc-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .rc-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-rc .rc-wrap{padding:12px 14px 30px;}
+    #tn-rc .rc-modes{grid-template-columns:1fr 1fr;}
+    #tn-rc .rc-g-read{gap:6px;}
+    #tn-rc .rc-g-ticks span{font-size:9px;}
+    #tn-rc .rc-tr{grid-template-columns:1.5fr .7fr .7fr .7fr; gap:4px; padding:10px 11px;}
+    #tn-rc .rc-tr span{font-size:11.5px;}
+    #tn-rc .rc-hold{grid-template-columns:42px 1fr auto 42px; gap:6px; padding:9px 12px;}
+    #tn-rc .rc-h-nm{display:none;}
+    #tn-rc .rc-sort-row,#tn-rc .rc-case{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-rc .rc-bsub{display:none;}
+    #tn-rc .rc-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-rc .rc-nav{padding-top:10px; row-gap:0;}
+    #tn-rc .rc-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-rc .rc-reveal{opacity:1 !important; transform:none !important;}
+    #tn-rc #rc-bar,#tn-rc .rc-g-needle{transition:none;}
+    #tn-rc .rc-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-rc'); if(!root) return;
+  root.querySelectorAll('.rc-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('rc-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#rc-vocab-def');
+  root.querySelectorAll('#rc-vocab-chips .rc-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#rc-vocab-chips .rc-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the drift gauge (creative 1 of 2) — scale runs 50% to 90% */
+  var MODE={
+    m:{eq:60.1, vol:'12.1%', ret:'8.5%', trip:false, t:'Monthly — 60.1% In Stocks',
+       d:'Rebalanced every month for eighty-three years, the portfolio sat almost exactly on target. It also took 1,008 rounds of trading to keep it there, at the highest turnover of any method in the study.'},
+    q:{eq:60.2, vol:'12.2%', ret:'8.6%', trip:false, t:'Quarterly — 60.2% In Stocks',
+       d:'Four times a year instead of twelve, and the needle lands in the same place. 335 rebalancing events rather than 1,008, for a return and a volatility you could not tell apart.'},
+    a:{eq:60.5, vol:'11.9%', ret:'8.6%', trip:false, t:'Annually — 60.5% In Stocks',
+       d:'Once a year, 83 events, and the lowest volatility of the three. If the schedule were what mattered, these three rows would not look identical — and they do.'},
+    n:{eq:84.1, vol:'14.4%', ret:'9.1%', trip:true, t:'Never — 84.1% In Stocks',
+       d:'This is the one that is different. Left alone, the portfolio became 84% stocks. The return was higher, at 9.1%, because the risk was higher: volatility of 14.4% against about 12%. You did not choose that portfolio — it arrived.'}
+  };
+  var mSeen={}, needle=root.querySelector('#rc-needle'),
+      gEq=root.querySelector('#rc-g-eq'), gVol=root.querySelector('#rc-g-vol'), gRet=root.querySelector('#rc-g-ret'),
+      gT=root.querySelector('#rc-g-t'), gD=root.querySelector('#rc-g-d'), gCount=root.querySelector('#rc-g-count');
+  root.querySelectorAll('#rc-modes .rc-mode').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#rc-modes .rc-mode').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k'), m=MODE[k];
+      needle.style.left=((m.eq-50)/40*100)+'%';
+      needle.classList.toggle('rc-trip', m.trip);
+      gEq.textContent=m.eq.toFixed(1)+'%'; gVol.textContent=m.vol; gRet.textContent=m.ret;
+      gEq.classList.toggle('rc-trip', m.trip); gVol.classList.toggle('rc-trip', m.trip);
+      gT.textContent=m.t; gD.textContent=m.d;
+      mSeen[k]=1; gCount.textContent='Tried '+keys(mSeen)+' Of 4';
+      state('modes', keys(mSeen)); postHeight();
+    });
+  });
+
+  /* 3 · calendar vs bands */
+  var ROW={
+    a0:['Annually, No Band — 83 Trades','The plain calendar method. Every year you trade, whether the mix moved two points or twelve. Most of those 83 events were corrections nobody needed.'],
+    a5:['Annually, 5% Band — 28 Trades','Check once a year, act only if the mix is five points out. Two thirds of the trading disappears, and the return is identical at 8.6% — with the lowest volatility in the whole table.'],
+    q5:['Quarterly, 5% Band — 50 Trades','Checking four times a year catches breaches sooner, so you trade a bit more. The numbers barely move. This is the cost of a faster reaction, and it buys very little.'],
+    m10:['Monthly, 10% Band — 20 Trades','Look constantly, act almost never. The fewest trades of any method here, because a ten-point band is rarely breached — and the portfolio drifts further from target in between.']
+  };
+  var tSeen={}, tT=root.querySelector('#rc-t-t'), tD=root.querySelector('#rc-t-d'), tCount=root.querySelector('#rc-t-count');
+  root.querySelectorAll('.rc-table .rc-tr[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('.rc-table .rc-tr[data-k]').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      tT.textContent=ROW[k][0]; tD.textContent=ROW[k][1];
+      tSeen[k]=1; tCount.textContent='Read '+keys(tSeen)+' Of 4';
+      state('rows', keys(tSeen)); postHeight();
+    });
+  });
+
+  /* 4 · the order ticket (creative 2 of 2) */
+  var WAY={
+    sell:{t:'Sell The Winner, Buy The Laggard',
+      d:'The direct route. Eight thousand dollars moves across and the mix is back on target the same day. In a retirement account that is the end of it — no tax event, nothing to report.',
+      o:[['rc-sell','SELL','<b>$8,000</b> of VTI'],['rc-buy','BUY','<b>$8,000</b> of BND'],['rc-none','RESULT','$60,000 / $40,000 — back to <b>60 / 40</b>']]},
+    add:{t:'Add New Money Instead',
+      d:'Send contributions to whatever is below target and let the mix correct itself. Nothing is sold, so in a taxable account nothing is realized. It is slower, and it only works while you are still paying in.',
+      o:[['rc-buy','BUY','<b>$13,333</b> of BND with new contributions'],['rc-none','SELL','nothing'],['rc-none','RESULT','$68,000 / $45,333 of $113,333 — <b>60 / 40</b>']]},
+    tax:{t:'What If It’s A Taxable Account?',
+      d:'Selling $8,000 of VTI may realize a capital gain, and the bill depends on how long you held it and on your own tax situation. That is a real cost the first route carries and the second does not — which is why new money, and dividends, usually get pointed at the laggard first.',
+      o:[['rc-sell','SELL','$8,000 of VTI — <b>may realize a gain</b>'],['rc-buy','BUY','new money into BND — <b>realises nothing</b>'],['rc-none','NOTE','tax depends on your situation; this is not tax advice']]}
+  };
+  var wSeen={}, ordersEl=root.querySelector('#rc-tk-orders'),
+      wT=root.querySelector('#rc-w-t'), wD=root.querySelector('#rc-w-d'), wCount=root.querySelector('#rc-w-count');
+  root.querySelectorAll('#rc-ways .rc-way').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#rc-ways .rc-way').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k'), w=WAY[k], html='';
+      w.o.forEach(function(row){
+        html+='<div class="rc-order"><span class="rc-o-act '+row[0]+'">'+row[1]+'</span><span class="rc-o-txt">'+row[2]+'</span></div>';
+      });
+      ordersEl.innerHTML=html;
+      wT.textContent=w.t; wD.textContent=w.d;
+      wSeen[k]=1; wCount.textContent='Read '+keys(wSeen)+' Of 3';
+      state('ways', keys(wSeen)); postHeight();
+    });
+  });
+
+  /* 5 + 6 · two answer-and-explain sets */
+  function wireSort(wrapSel, rowSel, btnSel, total, countSel, key, markAnswer){
+    var cEl=root.querySelector(countSel);
+    root.querySelectorAll(wrapSel+' '+rowSel).forEach(function(row){
+      var ans=row.getAttribute('data-answer');
+      row.querySelectorAll(btnSel+' button').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          if(row.classList.contains('done')) return;
+          btn.classList.add('picked');
+          if(markAnswer){
+            row.querySelectorAll(btnSel+' button').forEach(function(o){
+              if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+            });
+          }
+          row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+          var n=root.querySelectorAll(wrapSel+' '+rowSel+'.done').length;
+          cEl.textContent='Answered '+n+' Of '+total;
+          state(key, n); postHeight();
+        });
+      });
+    });
+  }
+  function wireReset(btnSel, wrapSel, rowSel, total, countSel){
+    var r=root.querySelector(btnSel); if(!r) return;
+    r.addEventListener('click',function(){
+      root.querySelectorAll(wrapSel+' '+rowSel).forEach(function(x){
+        x.classList.remove('done','correct','wrong');
+        x.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+      });
+      root.querySelector(countSel).textContent='Answered 0 Of '+total; postHeight();
+    });
+  }
+  wireSort('#rc-myth','.rc-sort-row','.rc-sort-btns',5,'#rc-myth-count','myth',false);
+  wireReset('#rc-myth-reset','#rc-myth','.rc-sort-row',5,'#rc-myth-count');
+  wireSort('#rc-cases','.rc-case','.rc-case-btns',3,'#rc-case-count','cases',true);
+  wireReset('#rc-case-reset','#rc-cases','.rc-case',3,'#rc-case-count');
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('rc-fin-arrow'), lead=document.getElementById('rc-fin-lead'), sub=document.getElementById('rc-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — first mention per slide, static prose only.
+   Headings and disclaimers are excluded: a green term in an <h2> is a
+   recurring bug, and a green underline in small grey legal copy pulls
+   the eye to the one line that should stay quiet.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-rc'); if(!root) return;
+  var ALT={
+    'rebalancing':'rebalanc(?:ing|e|es|ed)',
+    'drift':'drift(?:s|ed|ing)?',
+    'tolerance band':'tolerance bands?',
+    'calendar method':'calendar method',
+    'turnover':'turnover'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#rc-vocab-chips .rc-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.rc-p, .rc-sub, .rc-note, .rc-why, .rc-recap-item span, .rc-next-move, .rc-sort-row > span, .rc-case > span';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.rc-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='rc-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='rc-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.rc-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.rc-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return;
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-rc'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#rc-bar'), labelEl=root.querySelector('#rc-slide-label'),
+      countEl=root.querySelector('#rc-slide-count'), prevBtn=root.querySelector('#rc-prev'),
+      nextBtn=root.querySelector('#rc-next'), hintEl=root.querySelector('#rc-nav-hint'),
+      disclaimer=root.querySelector('.rc-disclaimer');
+  var labels={1:'Start Here',2:'The Gauge',3:'The Comparison',4:'Doing It',5:'Myth Or Fact',6:'Your Call',7:'Recap',8:'Complete'};
+  var reqHints={2:'Try all 4 methods to continue',3:'Read all 4 rows to continue',4:'Read all 3 approaches to continue',5:'Answer all 5 to continue',6:'Answer all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.rc-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('rc-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('rc-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'modes', need:4, hint:function(n){ return 'Tried '+n+' of 4 — try them all to continue'; }},
+    {step:3, key:'rows',  need:4, hint:function(n){ return 'Read '+n+' of 4 — tap every row to continue'; }},
+    {step:4, key:'ways',  need:3, hint:function(n){ return 'Read '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',  need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases', need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('rc-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

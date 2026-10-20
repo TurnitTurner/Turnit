@@ -1,0 +1,821 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — WRITING AN INVESTMENT POLICY STATEMENT
+     (Intermediate · Module 7 · Lesson 32)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ps. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     VISUAL WORLD: a document the student writes. Slide 2 is a typed policy
+     page that composes itself from four choices; slide 4 then quotes THEIR OWN
+     sentences back at them under market stress. Distinct from lesson 27's
+     filed statement, which is a numeric ledger — this is prose assembling.
+       1  Title & Key Terms (never gated)  2  The Builder (creative)
+       3  Vague Or Usable (4)              4  The Stress Test (creative)
+       5  Myth Or Fact (5)                 6  Spot The Hole (3)
+       7  Recap (6)                        8  Complete
+     Creative widgets, 2 of 2: the composing document and the stress test.
+
+     SLIDE 4 READS SLIDE 2's STATE. The picks are held in `choice` and rendered
+     back on slide 4, so the stress test quotes the student's own wording. Slide
+     2 is gated on all four sections, so slide 4 can never run on empty state;
+     `clause()` still falls back to a neutral string if it somehow does.
+
+     NO DATA CLAIMS. This lesson asserts no statistics, so there is nothing to
+     source. The allocation figures in the builder are the student's menu of
+     choices, not recommendations, and the page says so. Rebalancing bands come
+     from Lesson 31 and are referenced, not re-taught. When to actually change
+     a plan is Lesson 35 and is deliberately left alone here.
+
+     COMPLIANCE — the heaviest-hedging module. Every option in the builder is
+     presented as a choice the student makes, never as advice, and the output
+     document is labelled as a draft to discuss with a professional.
+
+     INTEGRATION FIX — this lesson was authored outside this session and
+     imported into the repo. Its closing quote, Benjamin Graham's "the
+     investor's chief problem — and even his worst enemy — is likely to be
+     himself," is the exact quote already used twice elsewhere in this course
+     (intermediate Lessons 02 and 14) and, independently, the exact same
+     quote this same import batch's own Lesson 26 also used — replaced with
+     Dwight D. Eisenhower's "Plans are worthless, but planning is
+     indispensable," a genuinely well-documented line (a 1957 speech to the
+     National Defense Executive Reserve Conference) that fits this lesson's
+     actual thesis more precisely than Graham's line did: the point of
+     writing an Investment Policy Statement isn't the static document itself,
+     it's having done the thinking in advance. Checked for duplication across
+     the full repo before shipping — unique.
+     ============================================================ -->
+<div id="tn-ps">
+  <div class="ps-wrap">
+    <div class="ps-top">
+      <div class="ps-topbar">
+        <div class="ps-brand"><span class="ps-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="ps-word">TURNIT</span><span class="ps-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="ps-progress"><span id="ps-bar"></span></div>
+      <div class="ps-meta"><span id="ps-slide-label">Start Here</span><span id="ps-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="ps-sec ps-center ps-reveal" data-step="1">
+      <p class="ps-kicker center">Running The Plan · 1 / 8</p>
+      <h1 class="ps-hero-title">WRITING AN <span class="ps-hero-grad">INVESTMENT POLICY STATEMENT</span></h1>
+      <p class="ps-sub center">One page, written while you are calm, that tells you what to do when you are not. By the end of this lesson you will have drafted your own.</p>
+      <div class="ps-vocab">
+        <span class="ps-vocab-label">Key Terms In This Lesson</span>
+        <div class="ps-vocab-chips" id="ps-vocab-chips">
+          <button type="button" class="ps-vocab-chip" data-t="Investment Policy Statement" data-def="A short written document setting out what you are investing for, what you will hold, and what you will not do. Professionals write one for every portfolio they manage; almost no individual does.">Investment Policy Statement</button>
+          <button type="button" class="ps-vocab-chip" data-t="Commitment Device" data-def="Something you set up in advance precisely because you expect your future self to want to do the wrong thing. A written policy is one; so is an automatic transfer.">Commitment Device</button>
+          <button type="button" class="ps-vocab-chip" data-t="Constraint" data-def="A line you have decided not to cross, written before anything tempts you to. Good ones are specific enough that you can tell, in the moment, whether you are crossing it.">Constraint</button>
+          <button type="button" class="ps-vocab-chip" data-t="Rebalancing Rule" data-def="The sentence that says when you will act: how often you look, and how far out of line the mix has to be before you trade.">Rebalancing Rule</button>
+          <button type="button" class="ps-vocab-chip" data-t="Review Date" data-def="A fixed point in the year when you reread the document and may change it. Having one is what stops every market scare becoming a reason to rewrite the plan.">Review Date</button>
+        </div>
+        <div class="ps-vocab-def" id="ps-vocab-def">Tap a term to see what it means.</div>
+        <span class="ps-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="ps-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE BUILDER ========== -->
+    <section class="ps-sec ps-reveal" data-step="2">
+      <p class="ps-kicker">The Builder · 2 / 8</p>
+      <h2 class="ps-h2">Write Yours Now</h2>
+      <p class="ps-p">Four decisions turn into an investment policy statement — including your rebalancing rule and the one constraint you will hold yourself to. Pick what is closest to your own situation and watch the document write itself.</p>
+
+      <div class="ps-doc">
+        <div class="ps-doc-head"><b>Investment Policy Statement</b><span>draft</span></div>
+        <div class="ps-doc-body">
+          <p class="ps-clause"><span class="ps-cl-lab">Purpose</span><span class="ps-cl-txt" id="ps-c-why">I am investing for …</span></p>
+          <p class="ps-clause"><span class="ps-cl-lab">Allocation</span><span class="ps-cl-txt" id="ps-c-mix">My target mix is …</span></p>
+          <p class="ps-clause"><span class="ps-cl-lab">Rebalancing</span><span class="ps-cl-txt" id="ps-c-reb">I will check …</span></p>
+          <p class="ps-clause"><span class="ps-cl-lab">Constraints</span><span class="ps-cl-txt" id="ps-c-not">I will not …</span></p>
+          <p class="ps-clause ps-fixed"><span class="ps-cl-lab">Review</span><span class="ps-cl-txt">I will reread this document once a year on a date I set in advance, and I will not rewrite it in response to a market move.</span></p>
+        </div>
+      </div>
+
+      <div class="ps-picks">
+        <div class="ps-pick" data-sec="why">
+          <span class="ps-pk-q">1 · What is this money for?</span>
+          <div class="ps-pk-opts">
+            <button type="button" data-v="a">Retirement, 30+ years out</button>
+            <button type="button" data-v="b">A house deposit in about 5 years</button>
+            <button type="button" data-v="c">Long-term wealth, no fixed date</button>
+          </div>
+        </div>
+        <div class="ps-pick" data-sec="mix">
+          <span class="ps-pk-q">2 · What mix will you hold?</span>
+          <div class="ps-pk-opts">
+            <button type="button" data-v="a">90% stocks / 10% bonds</button>
+            <button type="button" data-v="b">70% stocks / 30% bonds</button>
+            <button type="button" data-v="c">60% stocks / 40% bonds</button>
+          </div>
+        </div>
+        <div class="ps-pick" data-sec="reb">
+          <span class="ps-pk-q">3 · When will you act on drift?</span>
+          <div class="ps-pk-opts">
+            <button type="button" data-v="a">Every January, if 5 points out</button>
+            <button type="button" data-v="b">Twice a year, if 5 points out</button>
+            <button type="button" data-v="c">Any time it goes 10 points out</button>
+          </div>
+        </div>
+        <div class="ps-pick" data-sec="not">
+          <span class="ps-pk-q">4 · What will you refuse to do?</span>
+          <div class="ps-pk-opts">
+            <button type="button" data-v="a">Sell into a falling market</button>
+            <button type="button" data-v="b">Put more than 5% in any single stock</button>
+            <button type="button" data-v="c">Change this document within 12 months</button>
+          </div>
+        </div>
+      </div>
+      <p class="ps-count" id="ps-b-count">Decided 0 Of 4</p>
+      <div class="ps-reset-row"><button type="button" class="ps-reset-btn" id="ps-b-reset">↺ Start Over</button></div>
+      <p class="ps-disclaimer-inline">These options are a menu for practice, not recommendations — the right mix and the right rules depend on your own circumstances. Treat what you produce here as a draft to think about and to discuss with a qualified professional.</p>
+    </section>
+
+    <!-- ========== 3 · VAGUE OR USABLE ========== -->
+    <section class="ps-sec ps-reveal" data-step="3">
+      <p class="ps-kicker">The Wording · 3 / 8</p>
+      <h2 class="ps-h2">Most Of These Fail On Wording</h2>
+      <p class="ps-p">A constraint only works if you can tell, under pressure, whether you are following it. Tap each line to see the usable version.</p>
+      <div class="ps-swaps" id="ps-swaps">
+        <button type="button" class="ps-swap" data-k="s1"><span class="ps-sw-tag">vague</span><span class="ps-sw-txt">"I will stay diversified."</span></button>
+        <button type="button" class="ps-swap" data-k="s2"><span class="ps-sw-tag">vague</span><span class="ps-sw-txt">"I will invest for the long term."</span></button>
+        <button type="button" class="ps-swap" data-k="s3"><span class="ps-sw-tag">vague</span><span class="ps-sw-txt">"I won't panic in a downturn."</span></button>
+        <button type="button" class="ps-swap" data-k="s4"><span class="ps-sw-tag">vague</span><span class="ps-sw-txt">"I'll review things periodically."</span></button>
+      </div>
+      <div class="ps-fix" id="ps-fix">
+        <span class="ps-fix-lab" id="ps-fix-lab">Usable version</span>
+        <p class="ps-fix-txt" id="ps-fix-txt">Tap one of the four lines above.</p>
+        <p class="ps-fix-why" id="ps-fix-why">Each of those sentences sounds like a plan and commits you to nothing.</p>
+      </div>
+      <p class="ps-count" id="ps-s-count">Fixed 0 Of 4</p>
+      <div class="ps-note">The test for every line: could someone else read it and tell whether you had broken it? If not, it is a sentiment, not a policy. The same test applies to your review date — "periodically" fails it, "the first weekend of February" passes.</div>
+    </section>
+
+    <!-- ========== 4 · THE STRESS TEST ========== -->
+    <section class="ps-sec ps-reveal" data-step="4">
+      <p class="ps-kicker">The Test · 4 / 8</p>
+      <h2 class="ps-h2">Now Let's Break It</h2>
+      <p class="ps-p">Three moments that make people abandon a plan. This is where a commitment device earns its keep — each one quotes your own constraint and rebalancing rule straight back at <b>you</b>.</p>
+      <div class="ps-events" id="ps-events">
+        <button type="button" class="ps-event" data-k="crash">Stocks fall 32% in four months</button>
+        <button type="button" class="ps-event" data-k="fomo">A friend has tripled their money</button>
+        <button type="button" class="ps-event" data-k="drift">A long rally leaves you far off target</button>
+      </div>
+      <div class="ps-stress" id="ps-stress">
+        <div class="ps-st-row ps-pull"><span class="ps-st-lab">The pull</span><p class="ps-st-txt" id="ps-st-pull">Tap an event above.</p></div>
+        <div class="ps-st-row ps-policy"><span class="ps-st-lab">Your policy says</span><p class="ps-st-txt" id="ps-st-policy">—</p></div>
+        <div class="ps-st-row ps-verdict"><span class="ps-st-lab">Which is why</span><p class="ps-st-txt" id="ps-st-why">The document exists so this decision was already made by someone calmer than you will be that week.</p></div>
+      </div>
+      <p class="ps-count" id="ps-e-count">Tested 0 Of 3</p>
+      <p class="ps-disclaimer-inline">Illustrative situations. A real policy should also say what happens if your circumstances change — a job loss, a new dependant — which is a different thing from a market move.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="ps-sec ps-reveal" data-step="5">
+      <p class="ps-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="ps-h2">Myth Or Fact?</h2>
+      <p class="ps-p">Five claims. Tap your answer.</p>
+      <div class="ps-sort" id="ps-myth">
+        <div class="ps-sort-row" data-answer="myth"><span>An investment policy statement is only worth it for large portfolios.</span><div class="ps-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ps-why"><b>Myth.</b> The document costs nothing and takes twenty minutes. Its value is behavioral, not financial, and the behavior it guards against — selling at the bottom — does proportionally the same damage at any size.</p></div>
+        <div class="ps-sort-row" data-answer="fact"><span>Writing it down works partly because it is awkward to contradict yourself.</span><div class="ps-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ps-why"><b>Fact.</b> That is the whole mechanism of a commitment device. An intention you only held in your head can be quietly revised; a sentence you wrote and dated has to be actively overruled, and that friction is the point.</p></div>
+        <div class="ps-sort-row" data-answer="myth"><span>A good policy covers every situation you might face.</span><div class="ps-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ps-why"><b>Myth.</b> A page that tries to cover everything gets read by nobody, including its author. Cover the handful of decisions you know you will get wrong under stress, and leave the rest to judgement.</p></div>
+        <div class="ps-sort-row" data-answer="fact"><span>The document should say what you will not do, not just what you will.</span><div class="ps-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ps-why"><b>Fact.</b> Nearly all the damage comes from actions taken, not omitted. A constraint is the part of the page doing the heaviest lifting, because it is the part that speaks when you most want to act.</p></div>
+        <div class="ps-sort-row" data-answer="myth"><span>If the market changes dramatically, you should rewrite your policy.</span><div class="ps-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ps-why"><b>Myth.</b> A market move is the one thing the document was written in advance to survive. Changes to <i>your</i> life — income, timeline, dependants — are the legitimate reasons, and they belong at your scheduled review date.</p></div>
+      </div>
+      <p class="ps-count" id="ps-myth-count">Answered 0 Of 5</p>
+      <div class="ps-reset-row"><button type="button" class="ps-reset-btn" id="ps-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · SPOT THE HOLE ========== -->
+    <section class="ps-sec ps-reveal" data-step="6">
+      <p class="ps-kicker">Your Call · 6 / 8</p>
+      <h2 class="ps-h2">What's Missing?</h2>
+      <p class="ps-p">Three real-looking drafts. Each is missing one thing that would matter on a bad day.</p>
+      <div class="ps-cases" id="ps-cases">
+        <div class="ps-case" data-answer="b">
+          <p class="ps-case-q">"Target 80/20. I will rebalance every January if the mix is more than 5 points out. I will not hold individual stocks."</p>
+          <div class="ps-copts"><button type="button" data-p="a">A rebalancing rule</button><button type="button" data-p="b">Why the money exists</button><button type="button" data-p="c">A constraint</button></div>
+          <p class="ps-why"><b>Why the money exists.</b> There is no purpose or horizon anywhere in it. Without that, nothing in the document can be argued with or defended — an 80/20 mix is sensible for a thirty-year goal and reckless for a two-year one, and the page cannot tell you which it is.</p>
+        </div>
+        <div class="ps-case" data-answer="c">
+          <p class="ps-case-q">"Retirement in 30 years. Target 90/10. I will check every January and rebalance if 5 points out."</p>
+          <div class="ps-copts"><button type="button" data-p="a">A target allocation</button><button type="button" data-p="b">A rebalancing rule</button><button type="button" data-p="c">Anything about what you won't do</button></div>
+          <p class="ps-why"><b>Anything about what you won't do.</b> It describes the portfolio perfectly and says nothing about behavior. The January rule survives a calm year easily; it is the March where stocks are down 30% that needed a sentence, and there isn't one.</p>
+        </div>
+        <div class="ps-case" data-answer="a">
+          <p class="ps-case-q">"Retirement in 30 years. Target 90/10. I will not sell in a downturn and will not chase individual stocks."</p>
+          <div class="ps-copts"><button type="button" data-p="a">When you will actually act</button><button type="button" data-p="b">Why the money exists</button><button type="button" data-p="c">A target allocation</button></div>
+          <p class="ps-why"><b>When you will actually act.</b> The purpose, the mix and the constraints are all there, but nothing says when you look or what triggers a trade — so the 90/10 target quietly becomes whatever drift makes it.</p>
+        </div>
+      </div>
+      <p class="ps-count" id="ps-case-count">Answered 0 Of 3</p>
+      <div class="ps-reset-row"><button type="button" class="ps-reset-btn" id="ps-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="ps-sec ps-reveal" data-step="7">
+      <p class="ps-kicker">Recap · 7 / 8</p>
+      <h2 class="ps-h2">Here's What You Now Know</h2>
+      <p class="ps-p">The whole lesson, in six lines.</p>
+      <div class="ps-recap">
+        <div class="ps-recap-item"><span class="ps-recap-check ps-k1">✓</span><span>An investment policy statement is one page written while calm, to be obeyed while not.</span></div>
+        <div class="ps-recap-item"><span class="ps-recap-check ps-k2">✓</span><span>Four things earn their place: why the money exists, what you'll hold, when you'll act, and what you refuse to do.</span></div>
+        <div class="ps-recap-item"><span class="ps-recap-check ps-k3">✓</span><span>It works as a commitment device — a written sentence has to be actively overruled, and that friction is the mechanism.</span></div>
+        <div class="ps-recap-item"><span class="ps-recap-check ps-k1">✓</span><span>Every line must be falsifiable. If nobody could tell you'd broken it, it is a sentiment, not a policy.</span></div>
+        <div class="ps-recap-item"><span class="ps-recap-check ps-k2">✓</span><span>The constraint section does the heaviest lifting, because the damage comes from actions taken, not omitted.</span></div>
+        <div class="ps-recap-item"><span class="ps-recap-check ps-k3">✓</span><span>A market move is never a reason to rewrite it. A change in your own life, at your review date, is.</span></div>
+      </div>
+      <div class="ps-next-move">Your next move: <b>actually write the page</b> — a note on your phone is fine. Date it. The version in your head does not work, and that is the entire finding.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="ps-sec ps-center ps-reveal" data-step="8">
+      <p class="ps-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="ps-hero-ico">🚀</span>
+      <h2 class="ps-h2 center">You've Finished The Lesson</h2>
+      <p class="ps-sub center">You have a draft policy and a reason to keep it. The next lesson asks whether it is actually working.</p>
+      <div class="ps-finish">
+        <span class="ps-finish-arrow" id="ps-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ps-finish-lead" id="ps-fin-lead">Scroll Down To Continue</p>
+        <p class="ps-finish-sub" id="ps-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ps-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ps-pullquote">"PLANS ARE WORTHLESS, <span class="ps-green">BUT PLANNING IS INDISPENSABLE.</span>"<br><span class="ps-pullquote-by">— DWIGHT D. EISENHOWER</span></p>
+    </section>
+
+    <p class="ps-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The options in the builder are a menu for practice, not recommendations, and anything you draft here is a starting point for your own thinking. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="ps-nav" id="ps-nav">
+      <button type="button" class="ps-nav-btn prev" id="ps-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ps-nav-hint" id="ps-nav-hint"></span>
+      <button type="button" class="ps-nav-btn next" id="ps-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ps{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --gold:#C8821B; --goldbg:#FBF2DF; --goldbd:#F0DCA9;
+    --k1:#1568AE; --k2:#209B73; --k3:#C8821B;
+    --docbg:#FCFBF7; --docbd:#E3DED1; --docrule:#EDE8DC;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-ps *,#tn-ps *::before,#tn-ps *::after{box-sizing:border-box;}
+  #tn-ps .ps-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ps .ps-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ps .ps-reveal.in{opacity:1; transform:none;}
+  #tn-ps .ps-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ps .ps-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ps .ps-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-ps .ps-bico{display:flex;}
+  #tn-ps .ps-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ps .ps-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ps .ps-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ps #ps-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ps .ps-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ps .ps-meta #ps-slide-label{color:var(--ink2);}
+  #tn-ps .ps-meta #ps-slide-count{color:var(--mut);}
+  #tn-ps .ps-sec{padding:16px 0 8px;}
+  #tn-ps .ps-sec.ps-hide{display:none;}
+  #tn-ps .ps-center{text-align:center;}
+  #tn-ps .ps-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ps .ps-kicker.center{text-align:center;}
+  #tn-ps .ps-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-ps .ps-h2.center{text-align:center;}
+  #tn-ps .ps-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ps .ps-p b{color:var(--ink); font-weight:700;}
+  #tn-ps .ps-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ps .ps-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-ps .ps-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ps .ps-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-ps .ps-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ps .ps-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ps .ps-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  #tn-ps .ps-k1{background:var(--k1);} #tn-ps .ps-k2{background:var(--k2);} #tn-ps .ps-k3{background:var(--k3);}
+  /* title */
+  #tn-ps .ps-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4.9vw,35px); line-height:1.14; text-align:center; margin:8px 0 14px;}
+  #tn-ps .ps-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ps .ps-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ps .ps-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ps .ps-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ps .ps-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ps .ps-vocab-chip:hover{filter:brightness(.97);}
+  #tn-ps .ps-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ps .ps-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ps .ps-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ps .ps-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-ps .ps-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-ps .ps-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  /* 2 · the composing document */
+  #tn-ps .ps-doc{background:var(--docbg); border:1.5px solid var(--docbd); border-radius:10px; overflow:hidden;
+    box-shadow:0 16px 40px -28px rgba(22,32,43,.5);}
+  #tn-ps .ps-doc-head{padding:14px 18px 12px; border-bottom:2px solid var(--ink); text-align:center;}
+  #tn-ps .ps-doc-head b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase;}
+  #tn-ps .ps-doc-head span{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); margin-top:3px;}
+  #tn-ps .ps-doc-body{padding:4px 18px 14px;}
+  #tn-ps .ps-clause{margin:0; padding:11px 0; border-bottom:1px solid var(--docrule);}
+  #tn-ps .ps-clause:last-child{border-bottom:none;}
+  #tn-ps .ps-cl-lab{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:3px;}
+  #tn-ps .ps-cl-txt{display:block; font-size:13.5px; line-height:1.55; color:var(--mut); transition:color .3s;}
+  #tn-ps .ps-cl-txt.ps-set{color:var(--ink); font-weight:500;}
+  #tn-ps .ps-clause.ps-fixed .ps-cl-txt{color:var(--ink2);}
+  #tn-ps .ps-picks{display:flex; flex-direction:column; gap:10px; margin-top:14px;}
+  #tn-ps .ps-pick{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:12px 14px; transition:border-color .2s;}
+  #tn-ps .ps-pick.done{border-color:var(--selbd);}
+  #tn-ps .ps-pk-q{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; margin-bottom:8px;}
+  #tn-ps .ps-pk-opts{display:flex; flex-wrap:wrap; gap:6px;}
+  #tn-ps .ps-pk-opts button{font-family:inherit; font-weight:600; font-size:12px; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:7px 13px; cursor:pointer; transition:all .15s;}
+  #tn-ps .ps-pk-opts button:hover{border-color:var(--selbd);}
+  #tn-ps .ps-pk-opts button.on{background:var(--g); border-color:var(--g); color:#fff;}
+  /* 3 · vague or usable */
+  #tn-ps .ps-swaps{display:flex; flex-direction:column; gap:7px;}
+  #tn-ps .ps-swap{display:flex; align-items:center; gap:10px; font-family:inherit; text-align:left;
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:10px 13px; cursor:pointer; transition:all .16s;}
+  #tn-ps .ps-swap:hover{border-color:var(--nobd);}
+  #tn-ps .ps-sw-tag{flex:none; font-family:'Poppins',sans-serif; font-weight:800; font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+    background:var(--nobg); color:var(--no); border-radius:5px; padding:3px 7px;}
+  #tn-ps .ps-sw-txt{flex:1; font-size:13.5px; font-style:italic; color:var(--ink2);}
+  #tn-ps .ps-swap.on{background:var(--nobg); border-color:var(--nobd);}
+  #tn-ps .ps-fix{margin-top:12px; background:var(--tint); border:1.5px solid var(--selbd); border-radius:13px; padding:14px 16px;}
+  #tn-ps .ps-fix-lab{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--g); margin-bottom:5px;}
+  #tn-ps .ps-fix-txt{margin:0 0 8px; font-size:14.5px; font-weight:600; line-height:1.5;}
+  #tn-ps .ps-fix-why{margin:0; font-size:12.5px; color:var(--ink2); line-height:1.5;}
+  /* 4 · the stress test */
+  #tn-ps .ps-events{display:flex; flex-direction:column; gap:7px; margin-bottom:12px;}
+  #tn-ps .ps-event{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 13px; cursor:pointer; transition:all .16s;}
+  #tn-ps .ps-event:hover{border-color:var(--selbd);}
+  #tn-ps .ps-event.on{background:var(--ink); border-color:var(--ink); color:#fff;}
+  #tn-ps .ps-stress{border:1.5px solid var(--cardbd); border-radius:13px; overflow:hidden;}
+  #tn-ps .ps-st-row{padding:12px 15px; border-bottom:1px solid var(--line);}
+  #tn-ps .ps-st-row:last-child{border-bottom:none;}
+  #tn-ps .ps-st-lab{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:4px;}
+  #tn-ps .ps-st-txt{margin:0; font-size:13.5px; line-height:1.5;}
+  #tn-ps .ps-st-row.ps-pull{background:var(--nobg);}
+  #tn-ps .ps-st-row.ps-pull .ps-st-lab{color:var(--no);}
+  #tn-ps .ps-st-row.ps-policy{background:var(--docbg);}
+  #tn-ps .ps-st-row.ps-policy .ps-st-lab{color:var(--gold);}
+  #tn-ps .ps-st-row.ps-policy .ps-st-txt{font-weight:600;}
+  #tn-ps .ps-st-row.ps-verdict{background:var(--tint);}
+  #tn-ps .ps-st-row.ps-verdict .ps-st-lab{color:var(--g);}
+  #tn-ps .ps-st-row.ps-verdict .ps-st-txt{color:var(--ink2); font-size:12.5px;}
+  /* 5 · myth sorter + 6 · cases */
+  #tn-ps .ps-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ps .ps-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ps .ps-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-ps .ps-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ps .ps-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ps .ps-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ps .ps-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ps .ps-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ps .ps-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ps .ps-sort-row.done .ps-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ps .ps-sort-row.done .ps-sort-btns button.picked{opacity:1;}
+  #tn-ps .ps-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-ps .ps-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px;}
+  #tn-ps .ps-case-q{font-size:13.5px; font-style:italic; color:var(--ink2); margin:0 0 10px; line-height:1.5;}
+  #tn-ps .ps-copts{display:flex; flex-direction:column; gap:7px;}
+  #tn-ps .ps-copts button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 13px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ps .ps-copts button:hover{border-color:var(--selbd);}
+  #tn-ps .ps-case.done .ps-copts button{opacity:.35; pointer-events:none;}
+  #tn-ps .ps-case.done .ps-copts button.picked{opacity:1;}
+  #tn-ps .ps-case.done .ps-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-ps .ps-case.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ps .ps-case.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ps .ps-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-ps .ps-why b{font-family:'Poppins',sans-serif;}
+  #tn-ps .ps-sort-row .ps-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-ps .ps-sort-row.done .ps-why,#tn-ps .ps-case.done .ps-why{display:block;}
+  /* recap + complete */
+  #tn-ps .ps-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ps .ps-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-ps .ps-recap-check{flex:none; width:22px; height:22px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ps .ps-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-ps .ps-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-ps .ps-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ps .ps-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ps-bob 1.6s ease-in-out infinite;}
+  #tn-ps .ps-finish-arrow.up{animation-name:ps-bob-up;}
+  @keyframes ps-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ps-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-ps .ps-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-ps .ps-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ps .ps-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ps .ps-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-ps .ps-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ps .ps-green{color:var(--g);}
+  #tn-ps .ps-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-ps .ps-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-ps .ps-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ps .ps-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-ps .ps-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ps .ps-nav-btn.prev{color:var(--ink2);}
+  #tn-ps .ps-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ps .ps-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-ps .ps-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ps .ps-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ps .ps-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ps .ps-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-ps .ps-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-ps .ps-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .ps-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .ps-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-ps .ps-wrap{padding:12px 14px 30px;}
+    #tn-ps .ps-doc-body{padding:4px 14px 12px;}
+    #tn-ps .ps-pk-opts button{font-size:11.5px; padding:7px 11px;}
+    #tn-ps .ps-swap{align-items:flex-start; flex-direction:column; gap:6px;}
+    #tn-ps .ps-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ps .ps-bsub{display:none;}
+    #tn-ps .ps-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ps .ps-nav{padding-top:10px; row-gap:0;}
+    #tn-ps .ps-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ps .ps-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ps #ps-bar,#tn-ps .ps-cl-txt{transition:none;}
+    #tn-ps .ps-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-ps'); if(!root) return;
+  root.querySelectorAll('.ps-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('ps-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#ps-vocab-def');
+  root.querySelectorAll('#ps-vocab-chips .ps-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ps-vocab-chips .ps-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the composing document (creative 1 of 2) */
+  var TEXT={
+    why:{
+      a:'I am investing for retirement, which is more than thirty years away. Money I will not need before then.',
+      b:'I am investing for a house deposit I expect to need in about five years. The date is close and close to fixed.',
+      c:'I am investing to build long-term wealth with no fixed date, and no plan to withdraw in the next decade.'
+    },
+    mix:{
+      a:'My target mix is 90% stocks and 10% bonds, held in broad, low-cost index funds.',
+      b:'My target mix is 70% stocks and 30% bonds, held in broad, low-cost index funds.',
+      c:'My target mix is 60% stocks and 40% bonds, held in broad, low-cost index funds.'
+    },
+    reb:{
+      a:'I will check the mix every January, and trade only if it is more than five points away from target.',
+      b:'I will check the mix twice a year, and trade only if it is more than five points away from target.',
+      c:'I will act whenever the mix moves more than ten points away from target, and otherwise leave it alone.'
+    },
+    not:{
+      a:'I will not sell into a falling market. A decline is not new information about my timeline.',
+      b:'I will not put more than 5% of this portfolio into any single company.',
+      c:'I will not change this document within twelve months of writing it, whatever happens in markets.'
+    }
+  };
+  var SHORT={
+    why:{a:'retirement, 30+ years out', b:'a house deposit in about five years', c:'long-term wealth, no fixed date'},
+    mix:{a:'90/10', b:'70/30', c:'60/40'},
+    reb:{a:'check every January, act at 5 points out', b:'check twice a year, act at 5 points out', c:'act at 10 points out'},
+    not:{a:'not sell into a falling market', b:'not put more than 5% in any one company', c:'not change the document within twelve months'}
+  };
+  var SLOT={why:'#ps-c-why', mix:'#ps-c-mix', reb:'#ps-c-reb', not:'#ps-c-not'};
+  var choice={}, bCount=root.querySelector('#ps-b-count');
+  function clause(sec){ return choice[sec] ? SHORT[sec][choice[sec]] : null; }
+  root.querySelectorAll('.ps-picks .ps-pick').forEach(function(pick){
+    var sec=pick.getAttribute('data-sec');
+    pick.querySelectorAll('.ps-pk-opts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        pick.querySelectorAll('.ps-pk-opts button').forEach(function(x){ x.classList.remove('on'); });
+        btn.classList.add('on'); pick.classList.add('done');
+        var v=btn.getAttribute('data-v');
+        choice[sec]=v;
+        var slot=root.querySelector(SLOT[sec]);
+        slot.textContent=TEXT[sec][v]; slot.classList.add('ps-set');
+        bCount.textContent='Decided '+keys(choice)+' Of 4';
+        state('built', keys(choice)); postHeight();
+      });
+    });
+  });
+  var bR=root.querySelector('#ps-b-reset');
+  if(bR) bR.addEventListener('click',function(){
+    choice={};
+    var blank={why:'I am investing for …', mix:'My target mix is …', reb:'I will check …', not:'I will not …'};
+    root.querySelectorAll('.ps-picks .ps-pick').forEach(function(p){
+      p.classList.remove('done');
+      p.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); });
+    });
+    Object.keys(SLOT).forEach(function(k){
+      var slot=root.querySelector(SLOT[k]);
+      slot.textContent=blank[k]; slot.classList.remove('ps-set');
+    });
+    bCount.textContent='Decided 0 Of 4'; postHeight();
+  });
+
+  /* 3 · vague or usable */
+  var SWAP={
+    s1:['My target mix is written down as a number, and I hold it in broad index funds rather than individual companies.',
+        '"Diversified" describes a feeling. A percentage describes a portfolio, and you can check it in thirty seconds.'],
+    s2:['I will not withdraw from this account before 2041, and I will not judge it on any period shorter than five years.',
+        'Everyone says they invest for the long term right up until the quarter they decide does not count. A date makes the claim testable.'],
+    s3:['If stocks fall more than 20%, my only permitted action is to rebalance toward target. I will not reduce my stock allocation.',
+        'Nobody plans to panic. The useful version names the trigger in advance and says what the single allowed response is.'],
+    s4:['I will reread this document on the first weekend of February each year, and at no other time unless my income or timeline changes.',
+        '"Periodically" means never, in practice. A named date is a commitment; an interval is an intention.']
+  };
+  var sSeen={}, fixTxt=root.querySelector('#ps-fix-txt'), fixWhy=root.querySelector('#ps-fix-why'),
+      sCount=root.querySelector('#ps-s-count');
+  root.querySelectorAll('#ps-swaps .ps-swap').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ps-swaps .ps-swap').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      fixTxt.textContent='“'+SWAP[k][0]+'”';
+      fixWhy.textContent=SWAP[k][1];
+      sSeen[k]=1; sCount.textContent='Fixed '+keys(sSeen)+' Of 4';
+      state('swaps', keys(sSeen)); postHeight();
+    });
+  });
+
+  /* 4 · the stress test (creative 2 of 2) — reads slide 2's choices */
+  var EVENT={
+    crash:{
+      pull:'Down a third in four months, and every headline explains why this one is different. Selling now would stop the bleeding, and you could always buy back lower.',
+      why:'A fall is not information about your timeline. The policy was written by someone who already knew this week would come, and it named the one permitted response in advance.',
+      /* Quote the clause that actually governs a falling market. If the student
+         chose a different constraint, say so — a policy with a gap here is the
+         most useful thing this slide can show them. */
+      policy:function(){
+        var w=clause('why')||'the goal you set out', r=clause('reb')||'act on drift, not on headlines';
+        if(choice.not==='a')
+          return 'You wrote: \u201CI will not sell into a falling market.\u201D This money is for '+w+', and your rule is to '+r+'.';
+        return 'Your constraints do not name this one \u2014 the clause that would is \u201CI will not sell into a falling market.\u201D What you did write still applies: this money is for '+w+', and your rule is to '+r+'.';
+      }
+    },
+    fomo:{
+      pull:'Someone you know has tripled their money on one company, and says so often. Your boring index funds are up nine percent and you have cash sitting idle.',
+      why:'This is the mirror image of the crash, and it moves more people than the crash does. The constraint section exists for exactly this, because the pull here feels like opportunity rather than fear.',
+      policy:function(){
+        var m=clause('mix')||'a written target mix';
+        if(choice.not==='b')
+          return 'You wrote: \u201CI will not put more than 5% of this portfolio into any single company.\u201D Your target is '+m+', and one stock is not in it.';
+        return 'Nothing in your constraints names this one \u2014 the clause that would is a cap on any single company. What you did write: a target of '+m+', which has no room for one.';
+      }
+    },
+    drift:{
+      pull:'Three strong years running. Stocks are now far above their share of the portfolio and it feels foolish to trim the thing that is working.',
+      why:'This is the one that is not emotional at all — it is just neglect. Nobody panics into drift; they simply never look, and a 60/40 quietly becomes something else.',
+      policy:function(){
+        var r=clause('reb')||'check on a schedule and act on drift', m=clause('mix')||'your written target';
+        var base='Your rule is to '+r+', back to '+m+'.';
+        if(choice.not==='c')
+          return base+' You also wrote that you would not change this document within twelve months \u2014 which rules out quietly raising the target to match the drift.';
+        return base+' The temptation here is to raise the target instead of trimming, and nothing in your constraints forbids that. Worth noticing.';
+      }
+    }
+  };
+  var eSeen={}, stPull=root.querySelector('#ps-st-pull'), stPolicy=root.querySelector('#ps-st-policy'),
+      stWhy=root.querySelector('#ps-st-why'), eCount=root.querySelector('#ps-e-count');
+  root.querySelectorAll('#ps-events .ps-event').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ps-events .ps-event').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k'), e=EVENT[k];
+      stPull.textContent=e.pull;
+      stPolicy.textContent=e.policy();
+      stWhy.textContent=e.why;
+      eSeen[k]=1; eCount.textContent='Tested '+keys(eSeen)+' Of 3';
+      state('events', keys(eSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#ps-myth-count');
+  root.querySelectorAll('#ps-myth .ps-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ps-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ps-myth .ps-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#ps-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#ps-myth .ps-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · spot the hole */
+  var caseCount=root.querySelector('#ps-case-count');
+  root.querySelectorAll('#ps-cases .ps-case').forEach(function(c){
+    var ans=c.getAttribute('data-answer');
+    c.querySelectorAll('.ps-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        btn.classList.add('picked');
+        c.querySelectorAll('.ps-copts button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ps-cases .ps-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 3';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#ps-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#ps-cases .ps-case').forEach(function(c){
+      c.classList.remove('done','correct','wrong');
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('ps-fin-arrow'), lead=document.getElementById('ps-fin-lead'), sub=document.getElementById('ps-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — first mention per slide, static prose only.
+   Headings and disclaimers are excluded: a green term in an <h2> is a
+   recurring bug, and a green underline in small grey legal copy pulls
+   the eye to the one line that should stay quiet.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-ps'); if(!root) return;
+  var ALT={
+    'investment policy statement':'investment policy statements?|policy statement',
+    'commitment device':'commitment devices?',
+    'constraint':'constraints?',
+    'rebalancing rule':'rebalancing rules?',
+    'review date':'review dates?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#ps-vocab-chips .ps-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.ps-p, .ps-sub, .ps-note, .ps-why, .ps-recap-item span, .ps-next-move, .ps-sort-row > span, .ps-case-q, .ps-fix-why';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.ps-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='ps-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='ps-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ps-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.ps-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return;
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ps'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#ps-bar'), labelEl=root.querySelector('#ps-slide-label'),
+      countEl=root.querySelector('#ps-slide-count'), prevBtn=root.querySelector('#ps-prev'),
+      nextBtn=root.querySelector('#ps-next'), hintEl=root.querySelector('#ps-nav-hint'),
+      disclaimer=root.querySelector('.ps-disclaimer');
+  var labels={1:'Start Here',2:'The Builder',3:'The Wording',4:'The Test',5:'Myth Or Fact',6:'Your Call',7:'Recap',8:'Complete'};
+  var reqHints={2:'Make all 4 decisions to continue',3:'Fix all 4 lines to continue',4:'Test all 3 events to continue',5:'Answer all 5 to continue',6:'Answer all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.ps-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ps-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ps-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'built',  need:4, hint:function(n){ return 'Decided '+n+' of 4 — finish the document to continue'; }},
+    {step:3, key:'swaps',  need:4, hint:function(n){ return 'Fixed '+n+' of 4 — tap them all to continue'; }},
+    {step:4, key:'events', need:3, hint:function(n){ return 'Tested '+n+' of 3 — try them all to continue'; }},
+    {step:5, key:'myth',   need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',  need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('ps-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

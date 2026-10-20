@@ -7,7 +7,7 @@ build standard, and the verification tooling.
 README.md          you are here
 BUILD-GUIDE.md     the complete standard — hand this to Claude Code
 LESSON-LIST.md     all 35 lessons, what's built, what's outlined, open decisions
-lessons/           25 files
+lessons/           35 files
 verify/            static + behavioural checks
 ```
 
@@ -84,9 +84,9 @@ Two things the tools can't judge — check them by eye on a 390px screenshot:
 
 | | |
 |---|---|
-| Built | 25 lessons — Modules 1, 2, 3, 4, and 5 complete |
-| Outlined | 10 lessons — Modules 6–7 |
-| Passing every check | all 25 (01–25), at desktop and phone widths |
+| Built | 35 lessons — all 7 modules complete |
+| Outlined | 0 lessons |
+| Passing every check | all 35 (01–35), at desktop and phone widths |
 | Intermediate quizzes | not built yet |
 
 The lesson-5 duplicate, the missing sticky nav on 01–05, the 5-line recaps, lesson 01's

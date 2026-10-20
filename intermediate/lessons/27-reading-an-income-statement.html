@@ -1,0 +1,750 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — READING AN INCOME STATEMENT
+     (Intermediate · Module 6 · Lesson 27)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ic. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     VISUAL WORLD: a real filed financial statement. Slide 2 is Apple's actual
+     FY2025 income statement set as a document with tappable lines; slide 3 is
+     a descending waterfall showing what each cost takes out of a dollar.
+       1  Title & Key Terms (never gated)  2  The Statement (annotated, creative)
+       3  Where The Dollar Goes (waterfall, creative)
+       4  The Three Margins               5  Myth Or Fact (5)
+       6  What The Change Means (3)       7  Recap (6)   8  Complete
+     Creative widgets, 2 of 2: the annotated statement and the waterfall.
+     REAL DATA — Apple Inc. fiscal 2025 (year ended 27 September 2025), from
+     Apple's Form 10-K MD&A and the Q4 FY2025 condensed consolidated
+     statements published on apple.com/newsroom. All figures $ millions:
+       Total net sales            416,161   (Products 307,003 / Services 109,158)
+       Total cost of sales        220,960
+       Gross margin               195,201   -> 46.9% of sales
+       Research and development    34,550
+       Selling, general & admin    27,601
+       Total operating expenses    62,151
+       Operating income           133,050   -> 32.0% of sales
+       Net income                 112,010   -> 26.9% of sales
+       Diluted EPS                  $7.46   -> implies ~15,015M diluted shares
+     The single line "Other income and taxes, net  (21,040)" is DERIVED exactly
+     as operating income minus net income. It combines other income/expense and
+     the provision for income taxes, which are separate lines on the real filing.
+     This is stated in the slide-2 disclaimer; nothing here is invented.
+     Valuation ratios are Lesson 29 and are not taught early here.
+     ============================================================ -->
+<div id="tn-ic">
+  <div class="ic-wrap">
+    <div class="ic-top">
+      <div class="ic-topbar">
+        <div class="ic-brand"><span class="ic-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="ic-word">TURNIT</span><span class="ic-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="ic-progress"><span id="ic-bar"></span></div>
+      <div class="ic-meta"><span id="ic-slide-label">Start Here</span><span id="ic-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="ic-sec ic-center ic-reveal" data-step="1">
+      <p class="ic-kicker center">Looking At Individual Companies · 1 / 8</p>
+      <h1 class="ic-hero-title">READING AN <span class="ic-hero-grad">INCOME STATEMENT</span></h1>
+      <p class="ic-sub center">One page tells you what a company sold, what it cost, and what was left. Here is how to read every line of it.</p>
+      <div class="ic-vocab">
+        <span class="ic-vocab-label">Key Terms In This Lesson</span>
+        <div class="ic-vocab-chips" id="ic-vocab-chips">
+          <button type="button" class="ic-vocab-chip" data-t="Revenue" data-def="Everything the company sold over the period, before a single cost is taken out. Also called net sales or the top line, because it sits at the top of the statement.">Revenue</button>
+          <button type="button" class="ic-vocab-chip" data-t="Cost Of Sales" data-def="What it cost to make or deliver the things that were sold — materials, manufacturing, the servers behind a service. It moves up and down with sales.">Cost Of Sales</button>
+          <button type="button" class="ic-vocab-chip" data-t="Gross Margin" data-def="Revenue minus cost of sales, in dollars or as a percentage. It is the clearest single measure of how much pricing power a business really has.">Gross Margin</button>
+          <button type="button" class="ic-vocab-chip" data-t="Operating Income" data-def="What is left after the costs of actually running the business, including research and overheads. It is profit from operations, before financing and tax.">Operating Income</button>
+          <button type="button" class="ic-vocab-chip" data-t="Net Income" data-def="The bottom line: what remains after every cost, including tax. It is the number headlines quote and the one most easily distorted by one-off items.">Net Income</button>
+          <button type="button" class="ic-vocab-chip" data-t="Earnings Per Share" data-def="Net income divided by the number of shares. It converts a company-sized number into a per-share one, which is what you own a piece of.">Earnings Per Share</button>
+        </div>
+        <div class="ic-vocab-def" id="ic-vocab-def">Tap a term to see what it means.</div>
+        <span class="ic-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="ic-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE STATEMENT ========== -->
+    <section class="ic-sec ic-reveal" data-step="2">
+      <p class="ic-kicker">The Document · 2 / 8</p>
+      <h2 class="ic-h2">A Real One, Line By Line</h2>
+      <p class="ic-p">Apple's income statement for its 2025 financial year. It opens with revenue, works down through every cost, and ends with net income and earnings per share. Tap any line to see what it is telling you.</p>
+      <div class="ic-doc">
+        <div class="ic-doc-head">
+          <b>Apple Inc.</b>
+          <span>Consolidated Statement Of Operations · Year Ended 27 September 2025 · $ millions</span>
+        </div>
+        <div class="ic-rows" id="ic-rows">
+          <button type="button" class="ic-row" data-k="rev"><span class="ic-r-lab">Total net sales</span><span class="ic-r-val">416,161</span></button>
+          <button type="button" class="ic-row sub" data-k="mix"><span class="ic-r-lab">Products 307,003 · Services 109,158</span><span class="ic-r-val"></span></button>
+          <button type="button" class="ic-row" data-k="cos"><span class="ic-r-lab">Total cost of sales</span><span class="ic-r-val">(220,960)</span></button>
+          <button type="button" class="ic-row tot" data-k="gm"><span class="ic-r-lab">Gross margin</span><span class="ic-r-val">195,201</span></button>
+          <button type="button" class="ic-row" data-k="rd"><span class="ic-r-lab">Research and development</span><span class="ic-r-val">(34,550)</span></button>
+          <button type="button" class="ic-row" data-k="sga"><span class="ic-r-lab">Selling, general and administrative</span><span class="ic-r-val">(27,601)</span></button>
+          <button type="button" class="ic-row tot" data-k="oi"><span class="ic-r-lab">Operating income</span><span class="ic-r-val">133,050</span></button>
+          <button type="button" class="ic-row" data-k="tax"><span class="ic-r-lab">Other income and taxes, net</span><span class="ic-r-val">(21,040)</span></button>
+          <button type="button" class="ic-row tot ic-big" data-k="ni"><span class="ic-r-lab">Net income</span><span class="ic-r-val">112,010</span></button>
+          <button type="button" class="ic-row eps" data-k="eps"><span class="ic-r-lab">Diluted earnings per share</span><span class="ic-r-val">$7.46</span></button>
+        </div>
+      </div>
+      <div class="ic-reveal-box" id="ic-row-box"><b id="ic-row-t">Tap A Line</b><span id="ic-row-d">Ten lines. Read top to bottom and the whole year is in front of you.</span></div>
+      <p class="ic-count" id="ic-row-count">Read 0 Of 10</p>
+      <p class="ic-disclaimer-inline">Figures as filed by Apple for fiscal 2025. The real statement separates other income from the tax provision; they are combined here into one line, calculated exactly as operating income minus net income, to keep the layout readable. Apple appears because its filings are easy to look up, not as a recommendation.</p>
+    </section>
+
+    <!-- ========== 3 · WHERE THE DOLLAR GOES ========== -->
+    <section class="ic-sec ic-reveal" data-step="3">
+      <p class="ic-kicker">The Waterfall · 3 / 8</p>
+      <h2 class="ic-h2">What Survives To The Bottom</h2>
+      <p class="ic-p">Take every dollar of revenue. Cost of sales comes out first, leaving gross margin, then everything else follows. Step down and watch what survives to net income.</p>
+      <div class="ic-fall">
+        <div class="ic-fall-row"><span class="ic-f-lab">Revenue</span><span class="ic-f-track"><i class="ic-f-bar b-rev" style="width:100%"></i></span><b class="ic-f-val">100.0%</b></div>
+        <div class="ic-fall-row off" data-f="1"><span class="ic-f-lab">Less cost of sales</span><span class="ic-f-track"><i class="ic-f-bar b-cut" id="ic-f-1" style="width:0"></i></span><b class="ic-f-val">−53.1%</b></div>
+        <div class="ic-fall-row off" data-f="2"><span class="ic-f-lab">Gross margin</span><span class="ic-f-track"><i class="ic-f-bar b-gm" id="ic-f-2" style="width:0"></i></span><b class="ic-f-val">46.9%</b></div>
+        <div class="ic-fall-row off" data-f="3"><span class="ic-f-lab">Less operating expenses</span><span class="ic-f-track"><i class="ic-f-bar b-cut" id="ic-f-3" style="width:0"></i></span><b class="ic-f-val">−14.9%</b></div>
+        <div class="ic-fall-row off" data-f="4"><span class="ic-f-lab">Operating income</span><span class="ic-f-track"><i class="ic-f-bar b-oi" id="ic-f-4" style="width:0"></i></span><b class="ic-f-val">32.0%</b></div>
+        <div class="ic-fall-row off" data-f="5"><span class="ic-f-lab">Less other items and tax</span><span class="ic-f-track"><i class="ic-f-bar b-cut" id="ic-f-5" style="width:0"></i></span><b class="ic-f-val">−5.1%</b></div>
+        <div class="ic-fall-row off" data-f="6"><span class="ic-f-lab">Net income</span><span class="ic-f-track"><i class="ic-f-bar b-ni" id="ic-f-6" style="width:0"></i></span><b class="ic-f-val">26.9%</b></div>
+      </div>
+      <div class="ic-steprow">
+        <button type="button" class="ic-step" id="ic-fall-step">Take The Next Step →</button>
+        <button type="button" class="ic-reset-btn" id="ic-fall-reset">↺ Start Over</button>
+      </div>
+      <div class="ic-note" id="ic-fall-note">Six steps from the top line to the bottom one.</div>
+      <p class="ic-count" id="ic-fall-count">Stepped 0 Of 6</p>
+      <p class="ic-disclaimer-inline">Percentages are Apple's fiscal 2025 figures divided by total net sales. Keeping this much of every dollar is unusual — most companies keep a far thinner slice, and some keep none.</p>
+    </section>
+
+    <!-- ========== 4 · THE THREE MARGINS ========== -->
+    <section class="ic-sec ic-reveal" data-step="4">
+      <p class="ic-kicker">The Margins · 4 / 8</p>
+      <h2 class="ic-h2">Three Numbers, Three Questions</h2>
+      <p class="ic-p">All three start from the same revenue. The first takes out only cost of sales, the next takes out more, the last takes out everything. Tap each to see which question it settles.</p>
+      <div class="ic-margins" id="ic-margins">
+        <button type="button" class="ic-margin m-a" data-k="gross"><span>Gross</span><b>46.9%</b><i>can it charge?</i></button>
+        <button type="button" class="ic-margin m-b" data-k="op"><span>Operating</span><b>32.0%</b><i>is it run well?</i></button>
+        <button type="button" class="ic-margin m-c" data-k="net"><span>Net</span><b>26.9%</b><i>what's left?</i></button>
+      </div>
+      <div class="ic-reveal-box" id="ic-mg-box"><b id="ic-mg-t">Tap A Margin</b><span id="ic-mg-d">All three are the same revenue, measured after different costs come out.</span></div>
+      <p class="ic-count" id="ic-mg-count">Read 0 Of 3</p>
+      <div class="ic-note">A margin on its own means little. Gross margin earns meaning next to a direct competitor's; operating income next to the same company a year earlier. Net income is the least comparable of the three, because tax and one-off items differ so much between companies.</div>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="ic-sec ic-reveal" data-step="5">
+      <p class="ic-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="ic-h2">Myth Or Fact?</h2>
+      <p class="ic-p">Five claims about the income statement. Tap your answer.</p>
+      <div class="ic-sort" id="ic-myth">
+        <div class="ic-sort-row" data-answer="myth"><span>Rising revenue means a company is doing better.</span><div class="ic-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ic-why"><b>Myth.</b> A company can grow the top line by discounting, by buying other businesses, or by selling more of something it barely profits on. Revenue up with gross margin down usually means it bought those sales.</p></div>
+        <div class="ic-sort-row" data-answer="fact"><span>Gross margin says more about pricing power than net income does.</span><div class="ic-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ic-why"><b>Fact.</b> Gross margin compares what customers pay against what the product costs to deliver, and nothing else. Net income has been through tax, financing and one-off items that have nothing to do with pricing.</p></div>
+        <div class="ic-sort-row" data-answer="myth"><span>Net income is cash the company now has.</span><div class="ic-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ic-why"><b>Myth.</b> It is an accounting result, counting sales that may not be paid for yet and costs that were paid years ago. The next lesson deals with the statement that tracks actual cash.</p></div>
+        <div class="ic-sort-row" data-answer="fact"><span>Earnings per share can rise while net income falls.</span><div class="ic-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ic-why"><b>Fact.</b> It is a fraction. If the company buys back enough of its own shares, the denominator shrinks faster than the numerator and the per-share figure rises on its own.</p></div>
+        <div class="ic-sort-row" data-answer="myth"><span>A company spending heavily on research must be struggling.</span><div class="ic-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ic-why"><b>Myth.</b> Research sits in operating expenses, so it does reduce this year's profit — deliberately. It is money spent on products that do not exist yet, which is what a company with a future tends to do.</p></div>
+      </div>
+      <p class="ic-count" id="ic-myth-count">Answered 0 Of 5</p>
+      <div class="ic-reset-row"><button type="button" class="ic-reset-btn" id="ic-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · WHAT THE CHANGE MEANS ========== -->
+    <section class="ic-sec ic-reveal" data-step="6">
+      <p class="ic-kicker">Reading The Move · 6 / 8</p>
+      <h2 class="ic-h2">What Would You Conclude?</h2>
+      <p class="ic-p">Three companies, one year later. Pick the most likely explanation.</p>
+      <div class="ic-cases" id="ic-cases">
+        <div class="ic-case" data-ans="1">
+          <p class="ic-case-q">Revenue up 18%. Gross margin down from 41% to 33%.</p>
+          <div class="ic-copts"><button type="button" data-i="0">Costs are under control</button><button type="button" data-i="1">It discounted to win those sales</button><button type="button" data-i="2">It raised prices successfully</button></div>
+          <p class="ic-why"></p>
+        </div>
+        <div class="ic-case" data-ans="2">
+          <p class="ic-case-q">Revenue flat. Gross margin flat. Operating income down a third.</p>
+          <div class="ic-copts"><button type="button" data-i="0">Customers stopped paying full price</button><button type="button" data-i="1">Its products got more expensive to make</button><button type="button" data-i="2">Spending on overheads or research jumped</button></div>
+          <p class="ic-why"></p>
+        </div>
+        <div class="ic-case" data-ans="0">
+          <p class="ic-case-q">Operating income flat. Net income doubled.</p>
+          <div class="ic-copts"><button type="button" data-i="0">Something below the operating line did it</button><button type="button" data-i="1">The business became twice as efficient</button><button type="button" data-i="2">It sold twice as much</button></div>
+          <p class="ic-why"></p>
+        </div>
+      </div>
+      <p class="ic-count" id="ic-case-count">Answered 0 Of 3</p>
+      <div class="ic-reset-row"><button type="button" class="ic-reset-btn" id="ic-case-reset">↺ Start Over</button></div>
+      <p class="ic-disclaimer-inline">Simplified illustrations. A real statement needs the footnotes and more than one year of history before you conclude anything.</p>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="ic-sec ic-reveal" data-step="7">
+      <p class="ic-kicker">Recap · 7 / 8</p>
+      <h2 class="ic-h2">Here's What You Now Know</h2>
+      <p class="ic-p">The whole lesson, in six lines.</p>
+      <div class="ic-recap">
+        <div class="ic-recap-item"><span class="ic-recap-check m-a">✓</span><span>The statement runs top to bottom: revenue first, every cost in order, what survives at the end.</span></div>
+        <div class="ic-recap-item"><span class="ic-recap-check m-b">✓</span><span>Revenue minus cost of sales gives gross margin — the cleanest read on pricing power.</span></div>
+        <div class="ic-recap-item"><span class="ic-recap-check m-c">✓</span><span>Research and overheads come out next, leaving operating income: profit from running the business.</span></div>
+        <div class="ic-recap-item"><span class="ic-recap-check m-a">✓</span><span>Below that sit financing, one-off items and tax, which is why net income can move when the business hasn't.</span></div>
+        <div class="ic-recap-item"><span class="ic-recap-check m-b">✓</span><span>Earnings per share is a fraction, so buybacks can lift it while profit falls.</span></div>
+        <div class="ic-recap-item"><span class="ic-recap-check m-c">✓</span><span>None of it is cash. That is a different statement, and it comes next.</span></div>
+      </div>
+      <div class="ic-next-move">Your next move: <b>pull up the income statement of a company you actually use</b> and find the three margins. They're on the first page of any annual report.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="ic-sec ic-center ic-reveal" data-step="8">
+      <p class="ic-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="ic-hero-ico">🚀</span>
+      <h2 class="ic-h2 center">You've Finished The Lesson</h2>
+      <p class="ic-sub center">You can now read any income statement and say what happened to the business.</p>
+      <div class="ic-finish">
+        <span class="ic-finish-arrow" id="ic-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ic-finish-lead" id="ic-fin-lead">Scroll Down To Continue</p>
+        <p class="ic-finish-sub" id="ic-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ic-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ic-pullquote">"YOU HAVE TO KNOW ACCOUNTING. <span class="ic-green">IT'S THE LANGUAGE OF PRACTICAL BUSINESS LIFE.</span>"<br><span class="ic-pullquote-by">— CHARLIE MUNGER</span></p>
+    </section>
+
+    <p class="ic-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Apple's figures are reproduced from its published fiscal 2025 filings as of the time of writing and are used to teach the format, not to suggest any view on the company. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="ic-nav" id="ic-nav">
+      <button type="button" class="ic-nav-btn prev" id="ic-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ic-nav-hint" id="ic-nav-hint"></span>
+      <button type="button" class="ic-nav-btn next" id="ic-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ic{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    /* margin palette */
+    --ma:#1568AE; --mabg:#EAF1FA; --mabd:#C5DBEF;
+    --mb:#12a08a; --mbbg:#E6F6F2; --mbbd:#BCE5DC;
+    --mc:#C8821B; --mcbg:#FBF2DF; --mcbd:#F0DCA9;
+    /* document paper */
+    --docbd:#D8E2EC; --docline:#EDF2F7;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-ic *,#tn-ic *::before,#tn-ic *::after{box-sizing:border-box;}
+  #tn-ic .ic-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ic .ic-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ic .ic-reveal.in{opacity:1; transform:none;}
+  #tn-ic .ic-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ic .ic-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ic .ic-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-ic .ic-bico{display:flex;}
+  #tn-ic .ic-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ic .ic-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ic .ic-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ic #ic-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ic .ic-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ic .ic-meta #ic-slide-label{color:var(--ink2);}
+  #tn-ic .ic-meta #ic-slide-count{color:var(--mut);}
+  #tn-ic .ic-sec{padding:16px 0 8px;}
+  #tn-ic .ic-sec.ic-hide{display:none;}
+  #tn-ic .ic-center{text-align:center;}
+  #tn-ic .ic-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ic .ic-kicker.center{text-align:center;}
+  #tn-ic .ic-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-ic .ic-h2.center{text-align:center;}
+  #tn-ic .ic-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ic .ic-p b{color:var(--ink); font-weight:700;}
+  #tn-ic .ic-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ic .ic-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-ic .ic-note b{color:var(--ink); font-weight:700;}
+  #tn-ic .ic-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ic .ic-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-ic .ic-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ic .ic-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ic .ic-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  /* margin colour helpers */
+  #tn-ic .m-a{--m:var(--ma); --mbg:var(--mabg); --mbd:var(--mabd);}
+  #tn-ic .m-b{--m:var(--mb); --mbg:var(--mbbg); --mbd:var(--mbbd);}
+  #tn-ic .m-c{--m:var(--mc); --mbg:var(--mcbg); --mbd:var(--mcbd);}
+  /* title */
+  #tn-ic .ic-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(27px,6.1vw,41px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-ic .ic-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ic .ic-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ic .ic-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ic .ic-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ic .ic-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ic .ic-vocab-chip:hover{filter:brightness(.97);}
+  #tn-ic .ic-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ic .ic-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ic .ic-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ic .ic-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-ic .ic-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-ic .ic-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-ic .ic-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ic .ic-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-ic .ic-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · the filed document */
+  #tn-ic .ic-doc{background:#fff; border:1.5px solid var(--docbd); border-radius:10px; overflow:hidden;
+    box-shadow:0 16px 40px -26px rgba(22,32,43,.55);}
+  #tn-ic .ic-doc-head{padding:13px 16px 12px; border-bottom:2px solid var(--ink);}
+  #tn-ic .ic-doc-head b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px;}
+  #tn-ic .ic-doc-head span{display:block; font-size:10.5px; color:var(--mut); margin-top:2px; line-height:1.4;}
+  #tn-ic .ic-row{display:flex; align-items:baseline; justify-content:space-between; gap:12px; width:100%; text-align:left;
+    font-family:inherit; background:#fff; border:none; border-bottom:1px solid var(--docline);
+    padding:10px 16px; cursor:pointer; transition:background .16s;}
+  #tn-ic .ic-row:hover{background:var(--mist);}
+  #tn-ic .ic-row.on{background:var(--tint); box-shadow:inset 3px 0 0 var(--g);}
+  #tn-ic .ic-r-lab{font-size:13.5px; color:var(--ink); line-height:1.35;}
+  #tn-ic .ic-r-val{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink); white-space:nowrap; font-variant-numeric:tabular-nums;}
+  #tn-ic .ic-row.sub{padding-top:5px; padding-bottom:9px;}
+  #tn-ic .ic-row.sub .ic-r-lab{font-size:11.5px; color:var(--mut); padding-left:14px;}
+  #tn-ic .ic-row.tot{border-top:1.5px solid var(--ink); background:var(--cardbg);}
+  #tn-ic .ic-row.tot .ic-r-lab,#tn-ic .ic-row.tot .ic-r-val{font-family:'Poppins',sans-serif; font-weight:800;}
+  #tn-ic .ic-row.tot.on{background:var(--tint);}
+  #tn-ic .ic-row.ic-big .ic-r-lab,#tn-ic .ic-row.ic-big .ic-r-val{font-size:16px;}
+  #tn-ic .ic-row.eps{border-bottom:none; background:var(--mist);}
+  #tn-ic .ic-row.eps .ic-r-lab{font-size:12.5px; color:var(--ink2);}
+  /* 3 · the waterfall */
+  #tn-ic .ic-fall{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:15px 16px;}
+  #tn-ic .ic-fall-row{display:flex; align-items:center; gap:10px; margin-bottom:10px; transition:opacity .4s;}
+  #tn-ic .ic-fall-row:last-child{margin-bottom:0;}
+  #tn-ic .ic-fall-row.off{opacity:.2;}
+  #tn-ic .ic-f-lab{flex:0 0 118px; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; color:var(--ink2); line-height:1.3;}
+  #tn-ic .ic-f-track{flex:1; height:19px; background:#E3EAF1; border-radius:5px; overflow:hidden; min-width:70px;}
+  #tn-ic .ic-f-bar{display:block; height:100%; border-radius:5px; transition:width .55s cubic-bezier(.2,.7,.2,1), margin-left .55s cubic-bezier(.2,.7,.2,1);}
+  #tn-ic .b-rev{background:var(--ink2);}
+  #tn-ic .b-cut{background:repeating-linear-gradient(45deg,#E79C96,#E79C96 5px,#DE8A83 5px,#DE8A83 10px);}
+  #tn-ic .b-gm{background:var(--ma);}
+  #tn-ic .b-oi{background:var(--mb);}
+  #tn-ic .b-ni{background:var(--g);}
+  #tn-ic .ic-f-val{flex:0 0 54px; text-align:right; font-family:'Poppins',sans-serif; font-weight:800; font-size:12.5px; color:var(--ink); font-variant-numeric:tabular-nums;}
+  #tn-ic .ic-steprow{display:flex; justify-content:center; align-items:center; gap:10px; margin-top:13px; flex-wrap:wrap;}
+  #tn-ic .ic-step{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:#fff;
+    background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:12px 22px; cursor:pointer; transition:all .18s;
+    box-shadow:0 12px 26px -16px rgba(21,104,174,.8);}
+  #tn-ic .ic-step:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-ic .ic-step:disabled{background:#E4E9EE; color:var(--mut); cursor:not-allowed; box-shadow:none;}
+  /* 4 · margins */
+  #tn-ic .ic-margins{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  #tn-ic .ic-margin{font-family:inherit; text-align:center; background:var(--mbg); border:1.5px solid var(--mbd); border-radius:15px; padding:14px 8px; cursor:pointer; transition:all .18s;}
+  #tn-ic .ic-margin span{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10px; letter-spacing:.07em; text-transform:uppercase; color:var(--m);}
+  #tn-ic .ic-margin b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(20px,5.2vw,27px); color:var(--ink); margin:4px 0 2px;}
+  #tn-ic .ic-margin i{display:block; font-style:normal; font-size:11px; color:var(--ink2);}
+  #tn-ic .ic-margin.on{box-shadow:0 0 0 3px var(--mbd); transform:translateY(-2px);}
+  /* 5 · myth sorter */
+  #tn-ic .ic-sort{display:flex; flex-direction:column; gap:10px;}
+  #tn-ic .ic-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ic .ic-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-ic .ic-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-ic .ic-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ic .ic-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ic .ic-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ic .ic-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ic .ic-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ic .ic-sort-row.done .ic-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-ic .ic-sort-row.done .ic-sort-btns button.picked{opacity:1;}
+  #tn-ic .ic-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-ic .ic-why b{font-family:'Poppins',sans-serif;}
+  #tn-ic .ic-sort-row .ic-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-ic .ic-sort-row.done .ic-why{display:block;}
+  /* 6 · scenarios */
+  #tn-ic .ic-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-ic .ic-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; transition:all .2s;}
+  #tn-ic .ic-case-q{font-size:14px; font-weight:600; margin:0 0 10px; font-variant-numeric:tabular-nums;}
+  #tn-ic .ic-copts{display:flex; flex-direction:column; gap:7px;}
+  #tn-ic .ic-copts button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 13px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ic .ic-copts button:hover{border-color:var(--selbd);}
+  #tn-ic .ic-case.done .ic-copts button{opacity:.35; pointer-events:none;}
+  #tn-ic .ic-case.done .ic-copts button.picked{opacity:1;}
+  #tn-ic .ic-case.done .ic-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-ic .ic-case.done .ic-copts button.answer::after{content:" ✓"; font-weight:800;}
+  #tn-ic .ic-case.right{border-color:var(--selbd); background:var(--tint);}
+  #tn-ic .ic-case.off{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ic .ic-case.done .ic-why{display:block;}
+  /* recap + complete */
+  #tn-ic .ic-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ic .ic-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-ic .ic-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--m,var(--g)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ic .ic-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-ic .ic-recap-item b{font-weight:700; color:var(--ink);}
+  #tn-ic .ic-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-ic .ic-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ic .ic-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ic-bob 1.6s ease-in-out infinite;}
+  #tn-ic .ic-finish-arrow.up{animation-name:ic-bob-up;}
+  @keyframes ic-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ic-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-ic .ic-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-ic .ic-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ic .ic-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ic .ic-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-ic .ic-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ic .ic-green{color:var(--g);}
+  #tn-ic .ic-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-ic .ic-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-ic .ic-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ic .ic-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-ic .ic-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ic .ic-nav-btn.prev{color:var(--ink2);}
+  #tn-ic .ic-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ic .ic-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-ic .ic-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ic .ic-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ic .ic-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ic .ic-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-ic .ic-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-ic .ic-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .ic-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .ic-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-ic .ic-wrap{padding:12px 14px 30px;}
+    #tn-ic .ic-margins{grid-template-columns:1fr;}
+    #tn-ic .ic-margin{display:flex; align-items:center; justify-content:space-between; gap:10px; text-align:left; flex-wrap:wrap; padding:11px 15px;}
+    #tn-ic .ic-margin span{flex:1 1 100%;}
+    #tn-ic .ic-margin b{margin:2px 0 0;}
+    #tn-ic .ic-f-lab{flex:0 0 94px; font-size:10px;}
+    #tn-ic .ic-f-val{flex:0 0 48px; font-size:11.5px;}
+    #tn-ic .ic-r-lab{font-size:12.5px;}
+    #tn-ic .ic-r-val{font-size:12.5px;}
+    #tn-ic .ic-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ic .ic-bsub{display:none;}
+    #tn-ic .ic-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ic .ic-nav{padding-top:10px; row-gap:0;}
+    #tn-ic .ic-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ic .ic-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ic #ic-bar,#tn-ic .ic-f-bar,#tn-ic .ic-fall-row{transition:none;}
+    #tn-ic .ic-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-ic'); if(!root) return;
+  root.querySelectorAll('.ic-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('ic-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#ic-vocab-def');
+  root.querySelectorAll('#ic-vocab-chips .ic-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ic-vocab-chips .ic-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the filed document (creative 1 of 2) */
+  var LINE={
+    rev:['The Top Line','$416.2 billion of sales in one year. It is the biggest number on the page and the least informative on its own — it says how much went through the business, not how much the business kept.'],
+    mix:['Where It Came From','Apple splits its sales into physical products and services. The split matters because the two cost wildly different amounts to deliver, which you will see two lines down.'],
+    cos:['What Those Sales Cost','$221.0 billion to make and deliver everything that was sold. This moves with sales: sell twice as many phones and you buy twice as many components.'],
+    gm:['Gross Margin','$195.2 billion, or 46.9% of sales. Nearly half of every dollar survives the cost of actually making the thing. That is a sign of real pricing power — customers pay far more than it costs to produce.'],
+    rd:['Research And Development','$34.6 billion on products that do not exist yet. It is a genuine cost of this year and an investment in later ones, which is why a cut here can flatter profit while hollowing out the future.'],
+    sga:['Selling And Admin','$27.6 billion on marketing, stores, salaries and the machinery of running a company. Unlike cost of sales, this does not rise and fall neatly with how much you sell.'],
+    oi:['Operating Income','$133.1 billion, or 32.0% of sales. This is profit from the actual business, before anything financial happens to it. For comparing two companies, it is usually the most honest line on the page.'],
+    tax:['Everything Below The Business','$21.0 billion covering tax and other items. It has little to do with how well the company sells things, which is why a big move here can change the bottom line while the business itself is unchanged.'],
+    ni:['The Bottom Line','$112.0 billion of net income, 26.9% of everything that came in. This is the headline figure, and it is the most easily distorted — one legal settlement or tax change moves it without touching the business.'],
+    eps:['Per Share','$7.46 of profit for each share. Dividing by roughly 15 billion shares turns a company-sized number into one you can compare with a share price. It is also a fraction, so buying back shares lifts it.']
+  };
+  var rSeen={}, rT=root.querySelector('#ic-row-t'), rD=root.querySelector('#ic-row-d'),
+      rCount=root.querySelector('#ic-row-count');
+  root.querySelectorAll('#ic-rows .ic-row').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ic-rows .ic-row').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      rT.textContent=LINE[k][0]; rD.textContent=LINE[k][1];
+      rSeen[k]=1; rCount.textContent='Read '+keys(rSeen)+' Of 10';
+      state('rows', keys(rSeen)); postHeight();
+    });
+  });
+
+  /* 3 · the waterfall (creative 2 of 2) */
+  /* A true waterfall: each deduction is offset to start exactly where the
+     survivor below it ends, so it visibly chips off the right-hand end.
+     off+w always equals the bar above: 46.9+53.1=100, 32.0+14.9=46.9, 26.9+5.1=32.0 */
+  var FALL=[
+    {off:46.9, w:53.1, note:'Cost of sales takes just over half of every dollar. Whatever is left is gross margin.'},
+    {off:0,    w:46.9, note:'46.9 cents survive. On a supermarket this figure would be nearer 25; on a software company, nearer 80.'},
+    {off:32.0, w:14.9, note:'Research and overheads take another 15 cents. These are the costs of running the company rather than making the product.'},
+    {off:0,    w:32.0, note:'32 cents of operating income. This is what the business itself earned before anything financial happened to it.'},
+    {off:26.9, w:5.1,  note:'Tax and other items take 5 more cents, and almost none of that reflects how well the company traded.'},
+    {off:0,    w:26.9, note:'26.9 cents of net income from every dollar of revenue. Very few companies of any size keep this much.'}
+  ];
+  var fStep=0, fRows=root.querySelectorAll('.ic-fall .ic-fall-row'),
+      fBtn=root.querySelector('#ic-fall-step'), fNote=root.querySelector('#ic-fall-note'),
+      fCount=root.querySelector('#ic-fall-count');
+  function fallReset(){
+    fStep=0;
+    for(var i=1;i<=6;i++){
+      var b0=root.querySelector('#ic-f-'+i); b0.style.width='0'; b0.style.marginLeft='0';
+      fRows[i].classList.add('off');
+    }
+    fBtn.disabled=false; fBtn.textContent='Take The Next Step →';
+    fNote.textContent='Six steps from the top line to the bottom one.';
+    fCount.textContent='Stepped 0 Of 6'; postHeight();
+  }
+  fBtn.addEventListener('click',function(){
+    if(fStep>=6) return;
+    fStep++;
+    var f=FALL[fStep-1];
+    var bar=root.querySelector('#ic-f-'+fStep);
+    bar.style.marginLeft=f.off+'%'; bar.style.width=f.w+'%';
+    fRows[fStep].classList.remove('off');
+    fNote.textContent=f.note;
+    fCount.textContent='Stepped '+fStep+' Of 6';
+    if(fStep>=6){ fBtn.disabled=true; fBtn.textContent='All The Way Down'; }
+    state('fall', fStep); postHeight();
+  });
+  var fR=root.querySelector('#ic-fall-reset');
+  if(fR) fR.addEventListener('click',fallReset);
+
+  /* 4 · the three margins */
+  var MG={
+    gross:['Gross Margin — Can It Charge?','46.9% means customers pay nearly twice what the product costs to make. A high and steady gross margin is the single best sign that a company has something competitors cannot easily copy.'],
+    op:['Operating Margin — Is It Run Well?','32.0% is what survives after research and overheads. Two companies can have identical gross margins and very different operating margins; the gap is how disciplined they are about everything else.'],
+    net:['Net Margin — What Is Left?','26.9% after tax and everything else. It is the most quoted and the least comparable, because tax rates, debt loads and one-off items differ enormously between companies.']
+  };
+  var mSeen={}, mgT=root.querySelector('#ic-mg-t'), mgD=root.querySelector('#ic-mg-d'),
+      mgCount=root.querySelector('#ic-mg-count');
+  root.querySelectorAll('#ic-margins .ic-margin').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ic-margins .ic-margin').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      mgT.textContent=MG[k][0]; mgD.textContent=MG[k][1];
+      mSeen[k]=1; mgCount.textContent='Read '+keys(mSeen)+' Of 3';
+      state('margins', keys(mSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#ic-myth-count');
+  root.querySelectorAll('#ic-myth .ic-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ic-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ic-myth .ic-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#ic-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#ic-myth .ic-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · what the change means */
+  var CWHY=[
+    'Selling more while keeping less of each sale is what discounting looks like on a statement. The top line flatters, the margin tells you what it cost to get there.',
+    'If revenue and gross margin both held, nothing changed about making or pricing the product. The money went somewhere between gross margin and operating income — overheads or research.',
+    'Operating income is the business. If that held still while the bottom line doubled, the cause sits below it: a tax change, an asset sale, an investment gain. None of those repeat.'
+  ];
+  var caseCount=root.querySelector('#ic-case-count');
+  root.querySelectorAll('#ic-cases .ic-case').forEach(function(c,ci){
+    var ans=+c.getAttribute('data-ans'), why=c.querySelector('.ic-why');
+    c.querySelectorAll('.ic-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        var ok=(+btn.getAttribute('data-i')===ans);
+        btn.classList.add('picked');
+        c.querySelectorAll('.ic-copts button').forEach(function(o){
+          if(+o.getAttribute('data-i')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', ok?'right':'off');
+        why.innerHTML='<b>'+(ok?'Right.':'Not quite.')+'</b> '+CWHY[ci];
+        var n=root.querySelectorAll('#ic-cases .ic-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 3';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#ic-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#ic-cases .ic-case').forEach(function(c){
+      c.classList.remove('done','right','off');
+      c.querySelector('.ic-why').innerHTML='';
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('ic-fin-arrow'), lead=document.getElementById('ic-fin-lead'), sub=document.getElementById('ic-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — first mention per slide, static prose only.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-ic'); if(!root) return;
+  var ALT={
+    'revenue':'revenues?|top line',
+    'cost of sales':'cost of sales',
+    'gross margin':'gross margins?',
+    'operating income':'operating income',
+    'net income':'net income|bottom line',
+    'earnings per share':'earnings per share'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#ic-vocab-chips .ic-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  /* Headings are deliberately excluded — a green term inside an <h2> has been a
+     recurring bug, and the verifier fails the lesson for it.
+     Disclaimers are excluded too: a green underline inside small grey legal copy
+     pulls the eye to exactly the line that should stay quiet. */
+  var PROSE='.ic-p, .ic-sub, .ic-note, .ic-why, .ic-recap-item span, .ic-next-move, .ic-sort-row > span, .ic-case-q';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.ic-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='ic-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='ic-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ic-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.ic-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return;
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ic'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#ic-bar'), labelEl=root.querySelector('#ic-slide-label'),
+      countEl=root.querySelector('#ic-slide-count'), prevBtn=root.querySelector('#ic-prev'),
+      nextBtn=root.querySelector('#ic-next'), hintEl=root.querySelector('#ic-nav-hint'),
+      disclaimer=root.querySelector('.ic-disclaimer');
+  var labels={1:'Start Here',2:'The Document',3:'The Waterfall',4:'The Margins',5:'Myth Or Fact',6:'Reading The Move',7:'Recap',8:'Complete'};
+  var reqHints={2:'Read all 10 lines to continue',3:'Step all the way down to continue',4:'Read all 3 margins to continue',5:'Answer all 5 to continue',6:'Answer all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.ic-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ic-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ic-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'rows',    need:10, hint:function(n){ return 'Read '+n+' of 10 — tap every line to continue'; }},
+    {step:3, key:'fall',    need:6,  hint:function(n){ return 'Stepped '+n+' of 6 — keep going to continue'; }},
+    {step:4, key:'margins', need:3,  hint:function(n){ return 'Read '+n+' of 3 — tap them all to continue'; }},
+    {step:5, key:'myth',    need:5,  hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',   need:3,  hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('ic-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

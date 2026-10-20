@@ -1,0 +1,722 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — WHAT HAPPENS ON EARNINGS DAY
+     (Intermediate · Module 6 · Lesson 30 — closes the module)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-ed. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     VISUAL WORLD: the after-hours screen. Slide 2 is a dark trading panel with
+     a price line that extends as the evening unfolds; slide 3 is a hurdle that
+     keeps rising. Lesson 26 also used a dark panel, but that was a dot-matrix
+     scoreboard — this is a price chart with a clock, and they sit four lessons
+     apart. Neighbouring lessons 27-29 are all light, so this reads as a break.
+       1  Title & Key Terms (never gated)  2  The Evening (price line, creative)
+       3  The Bar Keeps Moving (hurdle, creative)
+       4  What To Actually Read (4)       5  Myth Or Fact (5)
+       6  Call It (3)                     7  Recap (6)   8  Complete
+     Creative widgets, 2 of 2: the after-hours line and the rising hurdle.
+
+     REAL DATA — FactSet Earnings Insight, 7 August 2026:
+       · 5-year average share of S&P 500 companies beating EPS estimates: 78%
+       · 10-year average: 76%
+       · 5-year average magnitude of the beat: +7.0% above estimates
+       Stated in the lesson as "roughly three in four", which both averages support.
+       https://advantage.factset.com/hubfs/Website/Resources%20Section/Research%20Desk/Earnings%20Insight/EarningsInsight_080726.pdf
+
+     THE EVENING ON SLIDE 2 IS HYPOTHETICAL AND THE SLIDE SAYS SO. Attaching an
+     invented intraday price path to a real ticker would be fabricating a record.
+     Prices are chosen for legibility, from a $100.00 prior close:
+       4:00 close 100.00 (0.0%)   4:02 release 103.00 (+3.0%)
+       5:00 call  102.50 (+2.5%)  5:12 guidance 96.00 (-4.0%)
+       8:00 close  95.50 (-4.5%)
+
+     Valuation ratios are Lesson 29 and are not re-taught. Rebalancing and
+     benchmarking are Module 7 and are not taught early.
+     ============================================================ -->
+<div id="tn-ed">
+  <div class="ed-wrap">
+    <div class="ed-top">
+      <div class="ed-topbar">
+        <div class="ed-brand"><span class="ed-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="ed-word">TURNIT</span><span class="ed-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="ed-progress"><span id="ed-bar"></span></div>
+      <div class="ed-meta"><span id="ed-slide-label">Start Here</span><span id="ed-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="ed-sec ed-center ed-reveal" data-step="1">
+      <p class="ed-kicker center">Looking At Individual Companies · 1 / 8</p>
+      <h1 class="ed-hero-title">WHAT HAPPENS ON <span class="ed-hero-grad">EARNINGS DAY</span></h1>
+      <p class="ed-sub center">Four times a year a company reports, and the stock moves hard in a direction that often has nothing to do with the headline number.</p>
+      <div class="ed-vocab">
+        <span class="ed-vocab-label">Key Terms In This Lesson</span>
+        <div class="ed-vocab-chips" id="ed-vocab-chips">
+          <button type="button" class="ed-vocab-chip" data-t="Consensus Estimate" data-def="The average of what professional analysts expect the company to earn. It is published in advance, so by the time the result lands it is already reflected in the price.">Consensus Estimate</button>
+          <button type="button" class="ed-vocab-chip" data-t="Beat Rate" data-def="The share of companies whose reported earnings come in above the published estimate. Over the last decade that has run around three quarters of the S&amp;P 500 every quarter.">Beat Rate</button>
+          <button type="button" class="ed-vocab-chip" data-t="Guidance" data-def="The company's own forecast for the quarters ahead. It is the part of the release that describes the future, which is why it usually matters more than the result being reported.">Guidance</button>
+          <button type="button" class="ed-vocab-chip" data-t="Earnings Call" data-def="The hour after the release, when management explains the numbers and answers analysts' questions live. Stocks frequently reverse direction during it.">Earnings Call</button>
+          <button type="button" class="ed-vocab-chip" data-t="Whisper Number" data-def="The unpublished figure traders actually expect, usually higher than the official estimate. Nobody prints it, and a company can clear the published bar while missing this one.">Whisper Number</button>
+        </div>
+        <div class="ed-vocab-def" id="ed-vocab-def">Tap a term to see what it means.</div>
+        <span class="ed-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="ed-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE EVENING ========== -->
+    <section class="ed-sec ed-reveal" data-step="2">
+      <p class="ed-kicker">The Evening · 2 / 8</p>
+      <h2 class="ed-h2">Four Hours, One Reversal</h2>
+      <p class="ed-p">Markets close at 4pm. The release lands minutes later, the stock trades on anyway, and the earnings call starts an hour after that. Step through one evening.</p>
+      <div class="ed-screen">
+        <div class="ed-scr-head">
+          <span class="ed-scr-tick">AFTER HOURS</span>
+          <span class="ed-scr-clock" id="ed-clock">4:00 PM</span>
+        </div>
+        <div class="ed-chart">
+          <div class="ed-plot">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <line class="ed-base" x1="0" y1="40" x2="100" y2="40"></line>
+              <polyline class="ed-line" id="ed-line" points="6,40"></polyline>
+            </svg>
+            <i class="ed-dot" id="ed-dot"></i>
+            <span class="ed-baselab">prior close</span>
+          </div>
+        </div>
+        <div class="ed-scr-foot">
+          <div class="ed-scr-px"><b id="ed-px">$100.00</b><span id="ed-chg">0.00%</span></div>
+          <div class="ed-scr-ev" id="ed-ev">Markets just closed. Nothing has been published yet.</div>
+        </div>
+      </div>
+      <div class="ed-steprow">
+        <button type="button" class="ed-step" id="ed-step">Advance The Clock →</button>
+        <button type="button" class="ed-reset-btn" id="ed-step-reset">↺ Start Over</button>
+      </div>
+      <p class="ed-count" id="ed-step-count">Stepped 0 Of 4</p>
+      <p class="ed-disclaimer-inline">An illustration, not a real company and not a real evening. Prices are invented and chosen to be easy to read; the sequence — beat, pop, call, reversal — is the ordinary pattern, not a prediction of any particular stock.</p>
+    </section>
+
+    <!-- ========== 3 · THE BAR KEEPS MOVING ========== -->
+    <section class="ed-sec ed-reveal" data-step="3">
+      <p class="ed-kicker">The Real Bar · 3 / 8</p>
+      <h2 class="ed-h2">It Beat. It Still Lost.</h2>
+      <p class="ed-p">The company reported $1.24 a share, against a consensus estimate of $1.20. That number does not move. Every bar it has to clear does.</p>
+      <div class="ed-hurdle">
+        <div class="ed-hd-track">
+          <span class="ed-hd-actual"><i></i><b>reported $1.24</b></span>
+          <span class="ed-hd-bar" id="ed-hd-bar"><b id="ed-hd-lab">$1.20 published</b></span>
+        </div>
+        <div class="ed-hd-verdict" id="ed-hd-verdict">Cleared</div>
+      </div>
+      <div class="ed-raises" id="ed-raises">
+        <button type="button" class="ed-raise" data-k="r1">What the analysts published</button>
+        <button type="button" class="ed-raise" data-k="r2">...but three in four beat that</button>
+        <button type="button" class="ed-raise" data-k="r3">...and traders expected $1.28</button>
+        <button type="button" class="ed-raise" data-k="r4">...and next quarter was guided lower</button>
+      </div>
+      <div class="ed-reveal-box" id="ed-hd-box"><b id="ed-hd-t">Raise The Bar</b><span id="ed-hd-d">Tap each one in turn. The reported figure stays exactly where it is.</span></div>
+      <p class="ed-count" id="ed-hd-count">Raised 0 Of 4</p>
+      <p class="ed-disclaimer-inline">The beat rate is real: FactSet puts the five-year average at 78% of S&amp;P 500 companies beating the published estimate, and the ten-year average at 76%, with the average beat running about 7% above estimates. The $1.24 company is illustrative.</p>
+    </section>
+
+    <!-- ========== 4 · WHAT TO ACTUALLY READ ========== -->
+    <section class="ed-sec ed-reveal" data-step="4">
+      <p class="ed-kicker">The Release · 4 / 8</p>
+      <h2 class="ed-h2">Four Parts, Very Different Weights</h2>
+      <p class="ed-p">Every release has the same four pieces: the headline number, revenue, guidance, and the earnings call that follows. Tap each to see how much it moves the stock, and how much it tells you about the business.</p>
+      <div class="ed-parts" id="ed-parts">
+        <button type="button" class="ed-part ed-p1" data-k="eps"><span>Headline EPS</span><i>the number in the push alert</i></button>
+        <button type="button" class="ed-part ed-p2" data-k="rev"><span>Revenue</span><i>what actually got sold</i></button>
+        <button type="button" class="ed-part ed-p3" data-k="guid"><span>Guidance</span><i>the company's own forecast</i></button>
+        <button type="button" class="ed-part ed-p4" data-k="call"><span>The Call</span><i>an hour of questions</i></button>
+      </div>
+      <div class="ed-reveal-box" id="ed-pt-box"><b id="ed-pt-t">Tap A Part</b><span id="ed-pt-d">The piece that moves the price fastest and the piece that tells you most about the business are not the same piece.</span></div>
+      <p class="ed-count" id="ed-pt-count">Read 0 Of 4</p>
+      <div class="ed-note">Two things that move the price are in none of the four. The whisper number is never printed anywhere, and the beat rate that makes an ordinary beat unremarkable is something you have to know going in.</div>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="ed-sec ed-reveal" data-step="5">
+      <p class="ed-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="ed-h2">Myth Or Fact?</h2>
+      <p class="ed-p">Five claims. Tap your answer.</p>
+      <div class="ed-sort" id="ed-myth">
+        <div class="ed-sort-row" data-answer="myth"><span>Beating the estimate means the stock goes up.</span><div class="ed-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ed-why"><b>Myth.</b> Roughly three in four companies beat every quarter, so beating is the normal outcome and is already expected. What moves the price is the gap between the result and what people were really braced for.</p></div>
+        <div class="ed-sort-row" data-answer="fact"><span>Companies have an incentive to set a bar they can clear.</span><div class="ed-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ed-why"><b>Fact.</b> Management talks to analysts all quarter and nudges expectations toward something comfortably achievable. A beat against a bar the company helped set is a weaker signal than it looks.</p></div>
+        <div class="ed-sort-row" data-answer="myth"><span>The release is where the real information is.</span><div class="ed-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ed-why"><b>Myth.</b> The release is backward-looking and heavily polished. The earnings call is where management has to answer questions it did not choose, and that is where the useful detail usually comes out.</p></div>
+        <div class="ed-sort-row" data-answer="fact"><span>A miss can be punished far harder than a beat is rewarded.</span><div class="ed-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ed-why"><b>Fact.</b> When beating is the default, failing to beat says something genuinely new. The asymmetry is part of why holding a single stock through earnings feels so different from holding a fund through the same day.</p></div>
+        <div class="ed-sort-row" data-answer="myth"><span>If you hold index funds, earnings day is something to watch.</span><div class="ed-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="ed-why"><b>Myth.</b> Hundreds of companies report over a few weeks, and in a broad fund their surprises largely offset. Understanding earnings day is worth it so you can recognize the noise — not so you can trade it.</p></div>
+      </div>
+      <p class="ed-count" id="ed-myth-count">Answered 0 Of 5</p>
+      <div class="ed-reset-row"><button type="button" class="ed-reset-btn" id="ed-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · CALL IT ========== -->
+    <section class="ed-sec ed-reveal" data-step="6">
+      <p class="ed-kicker">Your Call · 6 / 8</p>
+      <h2 class="ed-h2">Which Way Does It Go?</h2>
+      <p class="ed-p">Three releases. Pick the most likely reaction.</p>
+      <div class="ed-cases" id="ed-cases">
+        <div class="ed-case" data-answer="flat"><span>Beats by 2%, roughly the usual margin. Revenue in line. Guidance unchanged.</span><div class="ed-case-btns"><button type="button" data-p="up">Rises</button><button type="button" data-p="down">Falls</button><button type="button" data-p="flat">Barely Moves</button></div><p class="ed-why"><b>Barely moves.</b> Everything landed where it was expected to land, so there is no new information to price. A beat this ordinary is already in the number.</p></div>
+        <div class="ed-case" data-answer="down"><span>Beats on earnings and revenue. Cuts next quarter's revenue guidance by 8%.</span><div class="ed-case-btns"><button type="button" data-p="up">Rises</button><button type="button" data-p="down">Falls</button><button type="button" data-p="flat">Barely Moves</button></div><p class="ed-why"><b>Falls.</b> The quarter being reported is finished and already owned. The guidance is about quarters nobody has priced yet, and an 8% cut rewrites all of them at once.</p></div>
+        <div class="ed-case" data-answer="up"><span>Misses on earnings because of a one-off legal charge. Raises guidance. Call is upbeat.</span><div class="ed-case-btns"><button type="button" data-p="up">Rises</button><button type="button" data-p="down">Falls</button><button type="button" data-p="flat">Barely Moves</button></div><p class="ed-why"><b>Rises.</b> The miss is a one-off that will not repeat, so the market looks straight past it to the raised forecast. This is the mirror image of the low-quality beat.</p></div>
+      </div>
+      <p class="ed-count" id="ed-case-count">Answered 0 Of 3</p>
+      <div class="ed-reset-row"><button type="button" class="ed-reset-btn" id="ed-case-reset">↺ Start Over</button></div>
+      <p class="ed-disclaimer-inline">Simplified illustrations of a common pattern. Real reactions depend on what was already priced in, and markets regularly do the opposite of the sensible thing.</p>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="ed-sec ed-reveal" data-step="7">
+      <p class="ed-kicker">Recap · 7 / 8</p>
+      <h2 class="ed-h2">Here's What You Now Know</h2>
+      <p class="ed-p">The whole lesson, in six lines.</p>
+      <div class="ed-recap">
+        <div class="ed-recap-item"><span class="ed-recap-check ed-p1">✓</span><span>Beating the consensus estimate is the normal outcome — roughly three in four companies do it every quarter.</span></div>
+        <div class="ed-recap-item"><span class="ed-recap-check ed-p2">✓</span><span>Because it is expected, a beat is already in the price. Only the surprise moves the stock.</span></div>
+        <div class="ed-recap-item"><span class="ed-recap-check ed-p3">✓</span><span>Guidance usually matters more than the result, because the reported quarter is already owned.</span></div>
+        <div class="ed-recap-item"><span class="ed-recap-check ed-p4">✓</span><span>The reversal often happens during the earnings call, not when the release lands.</span></div>
+        <div class="ed-recap-item"><span class="ed-recap-check ed-p1">✓</span><span>Where a beat came from matters: a one-off gain and real growth look identical in the headline.</span></div>
+        <div class="ed-recap-item"><span class="ed-recap-check ed-p2">✓</span><span>In a broad fund, hundreds of these offset each other. Knowing the pattern is for recognizing noise, not trading it.</span></div>
+      </div>
+      <div class="ed-next-move">Your next move: <b>read one earnings call transcript</b> for a company you already own or use. They're free on company investor-relations sites, and it's the fastest way to see how much the release leaves out.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="ed-sec ed-center ed-reveal" data-step="8">
+      <p class="ed-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="ed-hero-ico">🚀</span>
+      <h2 class="ed-h2 center">You've Finished The Module</h2>
+      <p class="ed-sub center">Five lessons on reading a single company — what the statements say, what the ratios hide, and what actually happens when the results land.</p>
+      <div class="ed-finish">
+        <span class="ed-finish-arrow" id="ed-fin-arrow" aria-hidden="true">↓</span>
+        <p class="ed-finish-lead" id="ed-fin-lead">Scroll Down To Continue</p>
+        <p class="ed-finish-sub" id="ed-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="ed-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="ed-pullquote">"THE STOCK MARKET IS A DEVICE FOR TRANSFERRING MONEY <span class="ed-green">FROM THE IMPATIENT TO THE PATIENT.</span>"<br><span class="ed-pullquote-by">— WARREN BUFFETT</span></p>
+    </section>
+
+    <p class="ed-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. Company examples and price paths in this lesson are illustrative and invented; the beat-rate figures are from FactSet Earnings Insight and were accurate at the time of writing. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="ed-nav" id="ed-nav">
+      <button type="button" class="ed-nav-btn prev" id="ed-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="ed-nav-hint" id="ed-nav-hint"></span>
+      <button type="button" class="ed-nav-btn next" id="ed-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-ed{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --up:#2ED39A; --down:#FF6B5B;
+    --scr:#101A24; --scr2:#1B2936; --scrink:#DCE6EF;
+    --p1:#1568AE; --p2:#209B73; --p3:#C8821B; --p4:#7A5BB5;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-ed *,#tn-ed *::before,#tn-ed *::after{box-sizing:border-box;}
+  #tn-ed .ed-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-ed .ed-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-ed .ed-reveal.in{opacity:1; transform:none;}
+  #tn-ed .ed-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-ed .ed-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-ed .ed-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-ed .ed-bico{display:flex;}
+  #tn-ed .ed-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-ed .ed-bsub{color:var(--ink2); font-weight:500;}
+  #tn-ed .ed-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-ed #ed-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-ed .ed-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-ed .ed-meta #ed-slide-label{color:var(--ink2);}
+  #tn-ed .ed-meta #ed-slide-count{color:var(--mut);}
+  #tn-ed .ed-sec{padding:16px 0 8px;}
+  #tn-ed .ed-sec.ed-hide{display:none;}
+  #tn-ed .ed-center{text-align:center;}
+  #tn-ed .ed-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-ed .ed-kicker.center{text-align:center;}
+  #tn-ed .ed-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(23px,4vw,31px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-ed .ed-h2.center{text-align:center;}
+  #tn-ed .ed-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-ed .ed-p b{color:var(--ink); font-weight:700;}
+  #tn-ed .ed-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-ed .ed-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-ed .ed-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-ed .ed-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-ed .ed-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-ed .ed-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-ed .ed-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  #tn-ed .ed-p1{--pc:var(--p1);} #tn-ed .ed-p2{--pc:var(--p2);} #tn-ed .ed-p3{--pc:var(--p3);} #tn-ed .ed-p4{--pc:var(--p4);}
+  /* title */
+  #tn-ed .ed-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(27px,6vw,40px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-ed .ed-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-ed .ed-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-ed .ed-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-ed .ed-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-ed .ed-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-ed .ed-vocab-chip:hover{filter:brightness(.97);}
+  #tn-ed .ed-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-ed .ed-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-ed .ed-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-ed .ed-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-ed .ed-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-ed .ed-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-ed .ed-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-ed .ed-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-ed .ed-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · the after-hours screen */
+  #tn-ed .ed-screen{background:var(--scr); border-radius:16px; overflow:hidden; box-shadow:0 22px 50px -28px rgba(16,26,36,.9);}
+  #tn-ed .ed-scr-head{display:flex; align-items:center; justify-content:space-between; padding:11px 15px 10px; border-bottom:1px solid #22313F;}
+  #tn-ed .ed-scr-tick{font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5px; letter-spacing:.16em; color:#6C8299;}
+  #tn-ed .ed-scr-clock{font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--scrink); font-variant-numeric:tabular-nums;}
+  /* .ed-plot is exactly the SVG's own box, so a percentage top on the marker
+     matches the polyline's y coordinate at any chart height. */
+  #tn-ed .ed-chart{height:184px; padding:10px 0;}
+  #tn-ed .ed-plot{position:relative; height:100%;}
+  #tn-ed .ed-plot svg{display:block; width:100%; height:100%;}
+  #tn-ed .ed-base{stroke:#3A4C5E; stroke-width:1; stroke-dasharray:3 3; vector-effect:non-scaling-stroke;}
+  #tn-ed .ed-line{fill:none; stroke:var(--up); stroke-width:2.5; stroke-linejoin:round; stroke-linecap:round; vector-effect:non-scaling-stroke; transition:stroke .3s;}
+  #tn-ed .ed-line.ed-neg{stroke:var(--down);}
+  #tn-ed .ed-dot{position:absolute; width:11px; height:11px; margin:-5.5px 0 0 -5.5px; border-radius:50%;
+    background:var(--up); box-shadow:0 0 0 4px rgba(46,211,154,.22); left:6%; top:40%;
+    transition:left .55s cubic-bezier(.2,.7,.2,1), top .55s cubic-bezier(.2,.7,.2,1), background .3s, box-shadow .3s;}
+  #tn-ed .ed-dot.ed-neg{background:var(--down); box-shadow:0 0 0 4px rgba(255,107,91,.22);}
+  #tn-ed .ed-baselab{position:absolute; right:10px; top:40%; transform:translateY(-140%); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#52677B; font-weight:700;}
+  #tn-ed .ed-scr-foot{display:flex; align-items:center; gap:13px; padding:12px 15px 14px; border-top:1px solid #22313F; flex-wrap:wrap;}
+  #tn-ed .ed-scr-px{flex:none;}
+  #tn-ed .ed-scr-px b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:21px; color:var(--scrink); line-height:1.1; font-variant-numeric:tabular-nums;}
+  #tn-ed .ed-scr-px span{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--up); font-variant-numeric:tabular-nums; transition:color .3s;}
+  #tn-ed .ed-scr-px span.ed-neg{color:var(--down);}
+  #tn-ed .ed-scr-ev{flex:1; min-width:150px; font-size:12.5px; color:#9FB3C6; line-height:1.45;}
+  #tn-ed .ed-steprow{display:flex; justify-content:center; align-items:center; gap:10px; margin-top:13px; flex-wrap:wrap;}
+  #tn-ed .ed-step{font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:#fff;
+    background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:12px; padding:12px 22px; cursor:pointer; transition:all .18s;
+    box-shadow:0 12px 26px -16px rgba(21,104,174,.8);}
+  #tn-ed .ed-step:hover:not(:disabled){transform:translateY(-2px);}
+  #tn-ed .ed-step:disabled{background:#E4E9EE; color:var(--mut); cursor:not-allowed; box-shadow:none;}
+  /* 3 · the rising hurdle */
+  #tn-ed .ed-hurdle{background:var(--cardbg); border:1px solid var(--cardbd); border-radius:16px; padding:16px 16px 14px;}
+  #tn-ed .ed-hd-track{position:relative; height:146px; border-bottom:2px solid #D3DCE5;}
+  #tn-ed .ed-hd-actual{position:absolute; left:0; right:0; bottom:46%; display:flex; align-items:center; gap:8px;}
+  #tn-ed .ed-hd-actual i{flex:1; height:0; border-top:2.5px solid var(--g); border-radius:2px;}
+  #tn-ed .ed-hd-actual b{flex:none; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; color:var(--g); white-space:nowrap;}
+  #tn-ed .ed-hd-bar{position:absolute; left:0; right:0; bottom:30%; display:flex; align-items:center; gap:8px;
+    transition:bottom .55s cubic-bezier(.2,.7,.2,1);}
+  #tn-ed .ed-hd-bar::before{content:""; flex:1; height:0; border-top:2.5px dashed #7C8CA0;}
+  #tn-ed .ed-hd-bar b{flex:none; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; color:var(--ink2); white-space:nowrap; transition:color .3s;}
+  #tn-ed .ed-hd-bar.ed-over b{color:var(--no);}
+  #tn-ed .ed-hd-verdict{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    margin-top:11px; padding:8px 10px; border-radius:10px; background:var(--tint); color:var(--g); transition:all .3s;}
+  #tn-ed .ed-hd-verdict.ed-over{background:var(--nobg); color:var(--no);}
+  #tn-ed .ed-raises{display:flex; flex-direction:column; gap:7px; margin-top:12px;}
+  #tn-ed .ed-raise{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 13px; cursor:pointer; transition:all .16s;}
+  #tn-ed .ed-raise:hover{border-color:var(--selbd);}
+  #tn-ed .ed-raise.on{background:var(--mist); border-color:#C3CEDA; color:var(--ink2);}
+  /* 4 · four parts */
+  #tn-ed .ed-parts{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  #tn-ed .ed-part{font-family:inherit; text-align:left; background:#fff; border:1.5px solid var(--cardbd);
+    border-radius:13px; padding:12px 14px; cursor:pointer; transition:all .18s;}
+  #tn-ed .ed-part span{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--pc); line-height:1.2;}
+  #tn-ed .ed-part i{display:block; font-style:normal; font-size:10.5px; color:var(--ink2); margin-top:2px; line-height:1.3;}
+  #tn-ed .ed-part.on{background:var(--mist); border-color:var(--pc); box-shadow:0 8px 20px -12px rgba(22,32,43,.45);}
+  /* 5 · myth sorter + 6 · cases */
+  #tn-ed .ed-sort,#tn-ed .ed-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-ed .ed-sort-row,#tn-ed .ed-case{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-ed .ed-sort-row > span,#tn-ed .ed-case > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-ed .ed-sort-btns,#tn-ed .ed-case-btns{display:flex; gap:7px; flex:none; flex-wrap:wrap;}
+  #tn-ed .ed-sort-btns button,#tn-ed .ed-case-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 13px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-ed .ed-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ed .ed-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ed .ed-case-btns button[data-p="up"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-ed .ed-case-btns button[data-p="down"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-ed .ed-case-btns button[data-p="flat"]{border:1.5px solid #D9DFE6; color:var(--ink2);}
+  #tn-ed .ed-sort-row.correct,#tn-ed .ed-case.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-ed .ed-sort-row.wrong,#tn-ed .ed-case.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-ed .ed-sort-row.done .ed-sort-btns button,#tn-ed .ed-case.done .ed-case-btns button{opacity:.4; pointer-events:none;}
+  #tn-ed .ed-sort-row.done .ed-sort-btns button.picked,#tn-ed .ed-case.done .ed-case-btns button.picked{opacity:1;}
+  #tn-ed .ed-case.done .ed-case-btns button.answer{opacity:1; border-color:var(--g); color:var(--g); background:var(--tint);}
+  #tn-ed .ed-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-ed .ed-why b{font-family:'Poppins',sans-serif;}
+  #tn-ed .ed-sort-row .ed-why,#tn-ed .ed-case .ed-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-ed .ed-sort-row.done .ed-why,#tn-ed .ed-case.done .ed-why{display:block;}
+  /* recap + complete */
+  #tn-ed .ed-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-ed .ed-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-ed .ed-recap-check{flex:none; width:22px; height:22px; border-radius:50%; background:var(--pc); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-ed .ed-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-ed .ed-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-ed .ed-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-ed .ed-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:ed-bob 1.6s ease-in-out infinite;}
+  #tn-ed .ed-finish-arrow.up{animation-name:ed-bob-up;}
+  @keyframes ed-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes ed-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-ed .ed-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-ed .ed-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-ed .ed-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-ed .ed-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-ed .ed-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-ed .ed-green{color:var(--g);}
+  #tn-ed .ed-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-ed .ed-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-ed .ed-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-ed .ed-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-ed .ed-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-ed .ed-nav-btn.prev{color:var(--ink2);}
+  #tn-ed .ed-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-ed .ed-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-ed .ed-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-ed .ed-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-ed .ed-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-ed .ed-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-ed .ed-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-ed .ed-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .ed-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .ed-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-ed .ed-wrap{padding:12px 14px 30px;}
+    #tn-ed .ed-parts{grid-template-columns:1fr;}
+    #tn-ed .ed-chart{height:158px;}
+    #tn-ed .ed-scr-px b{font-size:19px;}
+    #tn-ed .ed-sort-row,#tn-ed .ed-case{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-ed .ed-bsub{display:none;}
+    #tn-ed .ed-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-ed .ed-nav{padding-top:10px; row-gap:0;}
+    #tn-ed .ed-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-ed .ed-reveal{opacity:1 !important; transform:none !important;}
+    #tn-ed #ed-bar,#tn-ed .ed-dot,#tn-ed .ed-hd-bar{transition:none;}
+    #tn-ed .ed-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-ed'); if(!root) return;
+  root.querySelectorAll('.ed-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('ed-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#ed-vocab-def');
+  root.querySelectorAll('#ed-vocab-chips .ed-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#ed-vocab-chips .ed-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the after-hours screen (creative 1 of 2) */
+  /* x,y are SVG user units in a 0-100 box; y is inverted (0 = top). */
+  var PTS=[
+    {x:6,  y:40, clock:'4:00 PM', px:'$100.00', chg:'0.00%',  neg:false,
+     ev:'Markets just closed. Nothing has been published yet.'},
+    {x:29, y:10, clock:'4:02 PM', px:'$103.00', chg:'+3.00%', neg:false,
+     ev:'The release lands. Earnings beat the consensus estimate, and the stock jumps on thin after-hours volume.'},
+    {x:52, y:15, clock:'5:00 PM', px:'$102.50', chg:'+2.50%', neg:false,
+     ev:'The earnings call opens. Management reads a prepared statement; nothing much moves yet.'},
+    {x:75, y:80, clock:'5:12 PM', px:'$96.00',  chg:'−4.00%', neg:true,
+     ev:'Twelve minutes in, an analyst asks about next quarter. Guidance comes in below what the room expected, and the whole gain disappears.'},
+    {x:94, y:85, clock:'8:00 PM', px:'$95.50',  chg:'−4.50%', neg:true,
+     ev:'After-hours trading winds down. The company beat, and the stock is down four and a half percent.'}
+  ];
+  var sIdx=0, line=root.querySelector('#ed-line'), dot=root.querySelector('#ed-dot'),
+      clockEl=root.querySelector('#ed-clock'), pxEl=root.querySelector('#ed-px'),
+      chgEl=root.querySelector('#ed-chg'), evEl=root.querySelector('#ed-ev'),
+      stepBtn=root.querySelector('#ed-step'), stepCount=root.querySelector('#ed-step-count');
+  function paint(){
+    var pts=[], i;
+    for(i=0;i<=sIdx;i++) pts.push(PTS[i].x+','+PTS[i].y);
+    line.setAttribute('points', pts.join(' '));
+    var p=PTS[sIdx];
+    dot.style.left=p.x+'%';
+    dot.style.top=p.y+'%';
+    clockEl.textContent=p.clock; pxEl.textContent=p.px; chgEl.textContent=p.chg; evEl.textContent=p.ev;
+    line.classList.toggle('ed-neg', p.neg);
+    dot.classList.toggle('ed-neg', p.neg);
+    chgEl.classList.toggle('ed-neg', p.neg);
+    stepCount.textContent='Stepped '+sIdx+' Of 4';
+    if(sIdx>=4){ stepBtn.disabled=true; stepBtn.textContent='The Evening Is Over'; }
+    else { stepBtn.disabled=false; stepBtn.textContent='Advance The Clock →'; }
+    state('evening', sIdx); postHeight();
+  }
+  stepBtn.addEventListener('click',function(){ if(sIdx<4){ sIdx++; paint(); } });
+  var sR=root.querySelector('#ed-step-reset');
+  if(sR) sR.addEventListener('click',function(){ sIdx=0; paint(); });
+
+  /* 3 · the rising hurdle (creative 2 of 2) */
+  var RAISE={
+    r1:{bottom:'30%', lab:'$1.20 published', over:false, verdict:'Cleared',
+      t:'The Published Bar — $1.20','d':'The consensus estimate analysts put in writing. The company reported $1.24, so on this measure it beat, and the push alert will say exactly that.'},
+    r2:{bottom:'40%', lab:'$1.20 — and so does nearly everyone', over:false, verdict:'Cleared, Like Everyone Else',
+      t:'But Clearing It Is Normal','d':'FactSet puts the five-year average at 78% of S&P 500 companies beating the published figure, by about 7% on average. A bar three quarters of the field clears is not much of a test.'},
+    r3:{bottom:'62%', lab:'$1.28 whispered', over:true, verdict:'Missed',
+      t:'The Whisper Number — $1.28','d':'The figure traders actually positioned for. It is nowhere in print, and the reported $1.24 falls short of it. This is how a company "beats" and the stock still drops at 4:02.'},
+    r4:{bottom:'84%', lab:'$1.28 — plus a weaker outlook', over:true, verdict:'Missed, And The Future Got Worse',
+      t:'And Then Guidance','d':'Management guides the next quarter below expectations. The reported quarter is finished and already owned by whoever held it; the forecast rewrites every quarter still to come.'}
+  };
+  var rSeen={}, hdBar=root.querySelector('#ed-hd-bar'), hdLab=root.querySelector('#ed-hd-lab'),
+      hdVer=root.querySelector('#ed-hd-verdict'), hdT=root.querySelector('#ed-hd-t'),
+      hdD=root.querySelector('#ed-hd-d'), hdCount=root.querySelector('#ed-hd-count');
+  root.querySelectorAll('#ed-raises .ed-raise').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ed-raises .ed-raise').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var r=RAISE[b.getAttribute('data-k')];
+      hdBar.style.bottom=r.bottom; hdLab.textContent=r.lab;
+      hdBar.classList.toggle('ed-over', r.over);
+      hdVer.textContent=r.verdict; hdVer.classList.toggle('ed-over', r.over);
+      hdT.textContent=r.t; hdD.textContent=r.d;
+      rSeen[b.getAttribute('data-k')]=1;
+      hdCount.textContent='Raised '+keys(rSeen)+' Of 4';
+      state('hurdle', keys(rSeen)); postHeight();
+    });
+  });
+
+  /* 4 · the four parts of a release */
+  var PART={
+    eps:['Headline EPS — Moves Fast, Says Least','It is the first thing published and the only thing most alerts carry, so it sets the opening reaction. It is also a single number that a one-off gain or charge can swing completely.'],
+    rev:['Revenue — Harder To Dress Up','Sales are much more difficult to flatter with accounting choices than profit is. A beat on earnings with a miss on revenue usually means the profit came from cost-cutting rather than growth.'],
+    guid:['Guidance — The Part That Matters','It is the only forward-looking piece, and the reported quarter is already owned by whoever held the stock through it. Most large single-day moves trace back to this, not to the result.'],
+    call:['The Call — Where It Gets Interesting','Management chose every word of the release. On the earnings call they have to answer questions they did not choose, and tone, hesitation and what goes unanswered all get traded on.']
+  };
+  var pSeen={}, ptT=root.querySelector('#ed-pt-t'), ptD=root.querySelector('#ed-pt-d'),
+      ptCount=root.querySelector('#ed-pt-count');
+  root.querySelectorAll('#ed-parts .ed-part').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#ed-parts .ed-part').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      ptT.textContent=PART[k][0]; ptD.textContent=PART[k][1];
+      pSeen[k]=1; ptCount.textContent='Read '+keys(pSeen)+' Of 4';
+      state('parts', keys(pSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#ed-myth-count');
+  root.querySelectorAll('#ed-myth .ed-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.ed-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ed-myth .ed-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#ed-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#ed-myth .ed-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · call it */
+  var caseCount=root.querySelector('#ed-case-count');
+  root.querySelectorAll('#ed-cases .ed-case').forEach(function(c){
+    var ans=c.getAttribute('data-answer');
+    c.querySelectorAll('.ed-case-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        btn.classList.add('picked');
+        c.querySelectorAll('.ed-case-btns button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#ed-cases .ed-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 3';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#ed-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#ed-cases .ed-case').forEach(function(c){
+      c.classList.remove('done','correct','wrong');
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  paint();
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('ed-fin-arrow'), lead=document.getElementById('ed-fin-lead'), sub=document.getElementById('ed-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — first mention per slide, static prose only.
+   Headings and disclaimers are excluded: a green term in an <h2> is a
+   recurring bug, and a green underline in small grey legal copy pulls
+   the eye to the one line that should stay quiet.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-ed'); if(!root) return;
+  var ALT={
+    'consensus estimate':'consensus estimates?|consensus|estimates?',
+    'beat rate':'beat rate',
+    'guidance':'guidance',
+    'earnings call':'earnings calls?|the call',
+    'whisper number':'whisper numbers?'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#ed-vocab-chips .ed-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.ed-p, .ed-sub, .ed-note, .ed-why, .ed-recap-item span, .ed-next-move, .ed-sort-row > span, .ed-case > span';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.ed-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='ed-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='ed-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ed-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.ed-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return;
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-ed'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#ed-bar'), labelEl=root.querySelector('#ed-slide-label'),
+      countEl=root.querySelector('#ed-slide-count'), prevBtn=root.querySelector('#ed-prev'),
+      nextBtn=root.querySelector('#ed-next'), hintEl=root.querySelector('#ed-nav-hint'),
+      disclaimer=root.querySelector('.ed-disclaimer');
+  var labels={1:'Start Here',2:'The Evening',3:'The Real Bar',4:'The Release',5:'Myth Or Fact',6:'Your Call',7:'Recap',8:'Complete'};
+  var reqHints={2:'Step through the whole evening to continue',3:'Raise all 4 bars to continue',4:'Read all 4 parts to continue',5:'Answer all 5 to continue',6:'Answer all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.ed-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('ed-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('ed-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'evening', need:4, hint:function(n){ return 'Stepped '+n+' of 4 — keep going to continue'; }},
+    {step:3, key:'hurdle',  need:4, hint:function(n){ return 'Raised '+n+' of 4 — tap them all to continue'; }},
+    {step:4, key:'parts',   need:4, hint:function(n){ return 'Read '+n+' of 4 — tap them all to continue'; }},
+    {step:5, key:'myth',    need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',   need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('ed-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

@@ -337,6 +337,21 @@ live bond-quote calculator (verified present-value math, five price presets)
 multi-card dashboard where each tap opens in place and stays open (compare-all, not replace)
 dark-panel year-stepper: tap a checkpoint, two shared stats and a takeaway line update
 dark-panel live comparison: tap one of several options, two shared stats and a sourcing note update
+100-dot survival matrix: dots go dark as a horizon lengthens, dramatizing a shrinking-odds stat
+cumulative wealth divergence curve (two paths drawn from the same starting point)
+annotated real financial statement (filed 10-K figures), tappable line items
+descending cost waterfall against a filed income statement
+two-stack physical balance (assets vs. liabilities) with a cash-flow "tank"
+grid of year tiles leading into one large live fraction (type as the graphic)
+dark after-hours price line that extends in real time against a rising clock
+drift gauge: a needle sweeping a shaded tolerance band until it trips
+brokerage-style rebalance order ticket, line items generated from the gauge's trip
+self-composing document: a written page assembled live from the learner's own picks
+"quote your own words back" stress test reading an earlier slide's saved state
+ten-row contribution ledger compared against a flipping pass/fail verdict scorecard
+vesting staircase: tapping a leaving year splits an amount into kept vs. forfeited
+printed receipt facsimile itemizing a cash-out's costs
+tick-off review checklist paired with a "flip the reason" mirror test
 ```
 
 **Limit: 1–2 creative widgets per lesson.** The rest are standard formats, which are

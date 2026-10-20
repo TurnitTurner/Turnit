@@ -1,0 +1,805 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — BENCHMARKING: ARE YOU ACTUALLY DOING WELL?
+     (Intermediate · Module 7 · Lesson 33)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-bw. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+     VISUAL WORLD: a contribution ledger and a scorecard whose verdict flips.
+     Slide 2 is ten year-rows of deposits against the market; slide 4 is a
+     verdict card that swings from "well behind" to "comfortably ahead" while
+     the portfolio's return never changes.
+       1  Title & Key Terms (never gated)  2  The Two Returns (creative)
+       3  The Real Gap (4)                 4  The Wrong Yardstick (creative)
+       5  Myth Or Fact (5)                 6  Pick The Benchmark (3)
+       7  Recap (6)                        8  Complete
+     Creative widgets, 2 of 2: the deposit ledger and the flipping verdict.
+
+     REAL DATA — Morningstar, "Mind the Gap 2026", published August 2026,
+     covering the 10 years ended 31 December 2025:
+       investor return (dollar-weighted)      8.7% per year
+       fund total return (time-weighted)      9.9% per year
+       the gap                                1.2 percentage points per year
+       widest gap   alternative funds        -1.6 pp
+       narrowest    US equity funds          -0.4 pp
+       allocation (all-in-one) funds         -0.7 pp
+     https://www.morningstar.com/content/cs-assets/v3/assets/blt9415ea4cc4157833/blt852a4301adc2f5db/6a7373d51f7b5ae2da78e1e8/US_Mind_the_Gap_2026.pdf
+
+     SLIDE 2 IS A HYPOTHETICAL ILLUSTRATION and says so. It is NOT a replay of
+     any real market. The arithmetic was computed, not estimated, and is exact:
+       market path  +18 +12 -22 +26 +9 -8 +21 +14 +4 +16  (% per year)
+       fund time-weighted return            8.0% per year  (cumulative +117%)
+       Steady  $1,200 every year            ends $19,623   8.8% dollar-weighted
+       Chaser  deposits scaled to last
+               year's return                ends $18,657   7.9% dollar-weighted
+       Both contribute exactly $12,000, and BOTH HAVE THE SAME WEIGHTED-AVERAGE
+       HOLDING PERIOD (5.50 vs 5.51 years) — deliberately matched so the only
+       variable left is WHEN each dollar arrived, not how long it was invested.
+       Difference in ending value: $967.
+     Note the steady investor BEATS the fund's own 8.0%. That is real and is
+     said plainly on the slide: dollar-weighted return is not "always worse",
+     it is a different question. Paying in steadily through a mid-period dip
+     helps; performance chasing hurts.
+
+     SLIDE 4's one-year figures are hypothetical and labelled as such. The
+     blended benchmark is exact: 0.6(12%) + 0.4(2%) = 8.0%.
+
+     COMPLIANCE — no benchmark is recommended; the lesson teaches how to pick
+     one that matches what you actually hold. Index names appear because they
+     are widely quoted and easy to look up, not as recommendations.
+
+     INTEGRATION FIXES — this lesson was authored outside this session and
+     imported into the repo; three collisions were found and fixed before
+     shipping, consistent with the chip/prefix collision discipline already
+     applied throughout Modules 4-5:
+     (1) Prefix `bm` collided with Foundations' `4-2-common-beginner-mistakes.html`
+     — renamed to `bw` throughout (CSS, JS, and markup).
+     (2) This lesson's "Money-Weighted Return" and "Behavior Gap" chips
+     duplicated intermediate Lesson 20's "Dollar-Weighted Return" (the same
+     metric, different common name) and "Behavior Gap" (identical definition,
+     word for word in places). Lesson 20 already owns both terms, so this
+     lesson now uses "dollar-weighted return" throughout (the name this
+     lesson's own real-data header already used, at line 19, before the
+     surrounding copy was written) and references "behavior gap" by name only
+     without re-chipping it. "Time-Weighted Return" and "Blended Benchmark"
+     remain this lesson's own, since neither is covered elsewhere. Two new
+     chips — Performance Chasing (the specific behavior the "Chaser" investor
+     in slide 2's ledger dramatizes) and Persistent Shortfall (the "one year
+     is noise, a repeated gap is signal" point myth/fact row 5 already made) —
+     replace them, both drawn from content this lesson already taught rather
+     than bolted on.
+     (3) The closing quote, John Bogle's "Time is your friend; impulse is your
+     enemy," is the exact quote already used in this course's own Lesson 24,
+     built independently in the same session — replaced with Carl Richards'
+     "All investment mistakes are really investor mistakes" (The Behavior Gap,
+     2012; also the line opening a widely-cited 2013 "A Wealth of Common
+     Sense" piece on his work) — Richards coined the term "behavior gap"
+     itself, so this is a more on-topic closer for this specific lesson than
+     the line it replaced, not just a deduplication swap. Checked for
+     duplication (`grep -ril "investment mistakes are"` and
+     `grep -ril "Carl Richards"`) before shipping — unique.
+     ============================================================ -->
+<div id="tn-bw">
+  <div class="bw-wrap">
+    <div class="bw-top">
+      <div class="bw-topbar">
+        <div class="bw-brand"><span class="bw-bico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1568AE" stroke-width="2"><rect x="3" y="13" width="5" height="8" rx="1"/><rect x="10" y="8" width="5" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="bw-word">TURNIT</span><span class="bw-bsub">Intermediate Investing</span></div>
+      </div>
+      <div class="bw-progress"><span id="bw-bar"></span></div>
+      <div class="bw-meta"><span id="bw-slide-label">Start Here</span><span id="bw-slide-count">Slide 1 Of 8</span></div>
+    </div>
+
+    <!-- ========== 1 · TITLE & KEY TERMS ========== -->
+    <section class="bw-sec bw-center bw-reveal" data-step="1">
+      <p class="bw-kicker center">Running The Plan · 1 / 8</p>
+      <h1 class="bw-hero-title">ARE YOU <span class="bw-hero-grad">ACTUALLY DOING WELL?</span></h1>
+      <p class="bw-sub center">Two investors can hold the same fund for the same decade and earn different returns. And the yardstick you measure against decides the answer before you start.</p>
+      <div class="bw-vocab">
+        <span class="bw-vocab-label">Key Terms In This Lesson</span>
+        <div class="bw-vocab-chips" id="bw-vocab-chips">
+          <button type="button" class="bw-vocab-chip" data-t="Benchmark" data-def="The yardstick you compare your results against. Choosing one that does not match what you hold is the fastest way to reach a confident, wrong conclusion.">Benchmark</button>
+          <button type="button" class="bw-vocab-chip" data-t="Time-Weighted Return" data-def="The fund's own number, the one printed on its page. It ignores when money went in or out, so it measures the manager rather than the investor.">Time-Weighted Return</button>
+          <button type="button" class="bw-vocab-chip" data-t="Performance Chasing" data-def="Changing how much you invest based on how an investment just performed — pouring in more after a strong run, pulling back after a weak one. It's the specific behavior that creates a gap between what an investment returns and what its investors actually earn.">Performance Chasing</button>
+          <button type="button" class="bw-vocab-chip" data-t="Persistent Shortfall" data-def="Underperforming a benchmark repeatedly, year after year, rather than just once. A single year's gap is mostly noise; a shortfall that keeps showing up is the signal actually worth acting on.">Persistent Shortfall</button>
+          <button type="button" class="bw-vocab-chip" data-t="Blended Benchmark" data-def="A yardstick mixed in the same proportions as your portfolio — 60% of a stock index plus 40% of a bond index for a 60/40. It is the only fair comparison for a mixed portfolio.">Blended Benchmark</button>
+        </div>
+        <div class="bw-vocab-def" id="bw-vocab-def">Tap a term to see what it means.</div>
+        <span class="bw-vocab-note">Each is highlighted in green the first time it appears later on.</span>
+      </div>
+      <div class="bw-next-move">Nothing here is required — tap Next when you're ready.</div>
+    </section>
+
+    <!-- ========== 2 · THE TWO RETURNS ========== -->
+    <section class="bw-sec bw-reveal" data-step="2">
+      <p class="bw-kicker">Two Investors · 2 / 8</p>
+      <h2 class="bw-h2">Same Fund. Same Decade. Same $12,000.</h2>
+      <p class="bw-p">One pays in the same amount every year. One pays in more after a good year and goes quiet after a bad one — performance chasing, in miniature. The fund's own time-weighted return cannot tell them apart; their dollar-weighted return can. Tap through all three.</p>
+      <div class="bw-tabs" id="bw-tabs">
+        <button type="button" class="bw-tab" data-k="fund">The Fund</button>
+        <button type="button" class="bw-tab" data-k="steady">Steady</button>
+        <button type="button" class="bw-tab" data-k="chaser">Chaser</button>
+      </div>
+      <div class="bw-ledger">
+        <div class="bw-lg-head"><span>Year</span><span>Market</span><span>Paid in</span></div>
+        <div id="bw-rows"></div>
+        <div class="bw-lg-foot">
+          <div class="bw-lf-cell"><span>Paid in</span><b id="bw-in">—</b></div>
+          <div class="bw-lf-cell"><span>Ended with</span><b id="bw-out">—</b></div>
+          <div class="bw-lf-cell"><span>Per year</span><b id="bw-rate">—</b></div>
+        </div>
+      </div>
+      <div class="bw-reveal-box" id="bw-l-box"><b id="bw-l-t">Tap A Column</b><span id="bw-l-d">The market path is identical in all three. Only the timing of the money changes.</span></div>
+      <p class="bw-count" id="bw-l-count">Seen 0 Of 3</p>
+      <p class="bw-disclaimer-inline">An illustration, not a forecast and not a replay of history. Both investors pay in exactly $12,000 and — deliberately — hold it for the same average length of time, 5.5 years, so the only difference left is when each dollar arrived. Returns are rounded.</p>
+    </section>
+
+    <!-- ========== 3 · THE REAL GAP ========== -->
+    <section class="bw-sec bw-reveal" data-step="3">
+      <p class="bw-kicker">The Evidence · 3 / 8</p>
+      <h2 class="bw-h2">It Happens At Scale</h2>
+      <p class="bw-p">This behavior gap is measured every year across the whole US fund industry. Over the ten years to the end of 2025:</p>
+      <div class="bw-headline">
+        <div class="bw-hl-cell"><span>The funds returned</span><b>9.9%</b><i>per year</i></div>
+        <div class="bw-hl-arrow" aria-hidden="true">→</div>
+        <div class="bw-hl-cell bw-lower"><span>Their investors earned</span><b>8.7%</b><i>per year</i></div>
+      </div>
+      <div class="bw-gapline"><span>the gap</span><b>1.2 percentage points a year</b></div>
+      <p class="bw-p bw-mt">It is not the same everywhere, and the pattern says more about the funds people cannot leave alone than about the funds themselves. Tap each.</p>
+      <div class="bw-cats" id="bw-cats">
+        <button type="button" class="bw-cat" data-k="alt"><span>Alternatives</span><b>−1.6</b></button>
+        <button type="button" class="bw-cat" data-k="alloc"><span>All-in-one</span><b>−0.7</b></button>
+        <button type="button" class="bw-cat" data-k="useq"><span>US equity</span><b>−0.4</b></button>
+        <button type="button" class="bw-cat" data-k="why"><span>So what?</span><b>?</b></button>
+      </div>
+      <div class="bw-reveal-box" id="bw-c-box"><b id="bw-c-t">Tap A Category</b><span id="bw-c-d">There is a pattern in which funds have the widest gaps, and it is not the one most people would guess.</span></div>
+      <p class="bw-count" id="bw-c-count">Read 0 Of 4</p>
+      <p class="bw-disclaimer-inline">Morningstar, <i>Mind the Gap 2026</i>, covering the ten years ended 31 December 2025. Figures are averages across a very large number of funds and say nothing about any individual investor's result.</p>
+    </section>
+
+    <!-- ========== 4 · THE WRONG YARDSTICK ========== -->
+    <section class="bw-sec bw-reveal" data-step="4">
+      <p class="bw-kicker">The Yardstick · 4 / 8</p>
+      <h2 class="bw-h2">One Result, Four Verdicts</h2>
+      <p class="bw-p">A 60/40 portfolio returned <b>7.0%</b> last year. That number never changes below — only the benchmark does, and one of the four is a blended benchmark built to match what is actually held.</p>
+      <div class="bw-score">
+        <div class="bw-sc-top">
+          <div class="bw-sc-cell"><span>Your portfolio</span><b>7.0%</b></div>
+          <div class="bw-sc-cell"><span id="bw-sc-blab">Benchmark</span><b id="bw-sc-bval">—</b></div>
+        </div>
+        <div class="bw-verdict" id="bw-verdict">
+          <b id="bw-v-word">Pick a yardstick</b>
+          <span id="bw-v-sub">The same 7.0% is about to look excellent and then embarrassing.</span>
+        </div>
+      </div>
+      <div class="bw-marks" id="bw-marks">
+        <button type="button" class="bw-mark" data-k="sp">The S&amp;P 500</button>
+        <button type="button" class="bw-mark" data-k="bond">A total bond index</button>
+        <button type="button" class="bw-mark" data-k="cash">A savings account</button>
+        <button type="button" class="bw-mark" data-k="blend">A blended 60/40 index</button>
+      </div>
+      <div class="bw-reveal-box" id="bw-m-box"><b id="bw-m-t">Four Yardsticks</b><span id="bw-m-d">Three of these four tell you almost nothing. Work out which one is doing honest work.</span></div>
+      <p class="bw-count" id="bw-m-count">Tried 0 Of 4</p>
+      <p class="bw-disclaimer-inline">One-year figures chosen to make the point clearly; they are hypothetical and not any real year. Index names appear because they are widely quoted and easy to look up, not as recommendations.</p>
+    </section>
+
+    <!-- ========== 5 · MYTH OR FACT ========== -->
+    <section class="bw-sec bw-reveal" data-step="5">
+      <p class="bw-kicker">Myth Or Fact · 5 / 8</p>
+      <h2 class="bw-h2">Myth Or Fact?</h2>
+      <p class="bw-p">Five claims. Tap your answer.</p>
+      <div class="bw-sort" id="bw-myth">
+        <div class="bw-sort-row" data-answer="myth"><span>The return on your fund's page is the return you got.</span><div class="bw-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bw-why"><b>Myth.</b> That is the time-weighted return, and it assumes one lump sum sat there untouched for the whole period. If you paid in monthly — and almost everyone does — your own number is different, sometimes by a lot.</p></div>
+        <div class="bw-sort-row" data-answer="fact"><span>Your own return can be higher than the fund's.</span><div class="bw-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bw-why"><b>Fact.</b> It happens whenever more of your money happened to be invested through the good stretches — which steady monthly contributions into a market that dips halfway through will do for you automatically. The gap runs both ways.</p></div>
+        <div class="bw-sort-row" data-answer="myth"><span>Comparing your portfolio to the S&amp;P 500 is the standard test.</span><div class="bw-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bw-why"><b>Myth.</b> It is the standard test for a portfolio of US large-company stocks. Measuring anything else against it — a mixed portfolio, a global one, one holding bonds — tells you about the difference in what you hold, not about how well you did.</p></div>
+        <div class="bw-sort-row" data-answer="fact"><span>Simple all-in-one funds tend to have narrower gaps than complex ones.</span><div class="bw-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bw-why"><b>Fact.</b> Morningstar finds the widest gaps in the most specialised categories and some of the narrowest in plain, broad ones. A fund that gives you nothing to react to is a fund you are less likely to mistime.</p></div>
+        <div class="bw-sort-row" data-answer="myth"><span>A single year against the right benchmark tells you if your plan is working.</span><div class="bw-sort-btns"><button type="button" data-p="myth">Myth</button><button type="button" data-p="fact">Fact</button></div><p class="bw-why"><b>Myth.</b> One year is mostly noise even with a perfect yardstick. The useful version is the same comparison repeated over several years, where a persistent shortfall starts to mean something a single year never could.</p></div>
+      </div>
+      <p class="bw-count" id="bw-myth-count">Answered 0 Of 5</p>
+      <div class="bw-reset-row"><button type="button" class="bw-reset-btn" id="bw-myth-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 6 · PICK THE BENCHMARK ========== -->
+    <section class="bw-sec bw-reveal" data-step="6">
+      <p class="bw-kicker">Your Call · 6 / 8</p>
+      <h2 class="bw-h2">What Should They Measure Against?</h2>
+      <p class="bw-p">Three portfolios. Pick the benchmark that would actually tell them something about their own dollar-weighted return.</p>
+      <div class="bw-cases" id="bw-cases">
+        <div class="bw-case" data-answer="b">
+          <p class="bw-case-q">Everything in one US total-market index fund.</p>
+          <div class="bw-copts"><button type="button" data-p="a">A blended 60/40 index</button><button type="button" data-p="b">A US total-market index</button><button type="button" data-p="c">The S&amp;P 500</button></div>
+          <p class="bw-why"><b>A US total-market index.</b> Match the yardstick to what is actually held. The S&amp;P 500 is close but excludes smaller companies, so any difference would be telling you about those, not about the investor.</p>
+        </div>
+        <div class="bw-case" data-answer="c">
+          <p class="bw-case-q">70% global stocks, 30% bonds, rebalanced yearly.</p>
+          <div class="bw-copts"><button type="button" data-p="a">The S&amp;P 500</button><button type="button" data-p="b">A global stock index</button><button type="button" data-p="c">70% global stock index + 30% bond index</button></div>
+          <p class="bw-why"><b>The blended one.</b> A mixed portfolio needs a mixed yardstick, built in the same proportions. Measured against stocks alone it will look bad in every rising year and heroic in every falling one, which is just the bonds talking.</p>
+        </div>
+        <div class="bw-case" data-answer="a">
+          <p class="bw-case-q">Cash being saved for a house deposit in 18 months.</p>
+          <div class="bw-copts"><button type="button" data-p="a">A savings or money-market rate</button><button type="button" data-p="b">The S&amp;P 500</button><button type="button" data-p="c">A blended 60/40 index</button></div>
+          <p class="bw-why"><b>A savings or money-market rate.</b> The job of this money is to still be there in eighteen months. Comparing it to stocks would only tempt you into risking a deposit you cannot afford to lose — the right benchmark reflects the goal, not the ambition.</p>
+        </div>
+      </div>
+      <p class="bw-count" id="bw-case-count">Answered 0 Of 3</p>
+      <div class="bw-reset-row"><button type="button" class="bw-reset-btn" id="bw-case-reset">↺ Start Over</button></div>
+    </section>
+
+    <!-- ========== 7 · RECAP ========== -->
+    <section class="bw-sec bw-reveal" data-step="7">
+      <p class="bw-kicker">Recap · 7 / 8</p>
+      <h2 class="bw-h2">Here's What You Now Know</h2>
+      <p class="bw-p">The whole lesson, in six lines.</p>
+      <div class="bw-recap">
+        <div class="bw-recap-item"><span class="bw-recap-check bw-k1">✓</span><span>The number on a fund's page is its time-weighted return, and it assumes a lump sum nobody added to.</span></div>
+        <div class="bw-recap-item"><span class="bw-recap-check bw-k2">✓</span><span>Your dollar-weighted return counts when every dollar arrived, and it is the only one that paid for anything.</span></div>
+        <div class="bw-recap-item"><span class="bw-recap-check bw-k3">✓</span><span>The behavior gap between the two ran 1.2 points a year across the whole US fund industry over the last decade.</span></div>
+        <div class="bw-recap-item"><span class="bw-recap-check bw-k1">✓</span><span>The gap cuts both ways: paying in steadily through a dip can put you ahead of the fund's own figure, while performance chasing costs you the same gap in reverse.</span></div>
+        <div class="bw-recap-item"><span class="bw-recap-check bw-k2">✓</span><span>A benchmark must match what you actually hold, which for a mixed portfolio means a blended benchmark.</span></div>
+        <div class="bw-recap-item"><span class="bw-recap-check bw-k3">✓</span><span>One year against any yardstick is noise. A persistent shortfall — the same comparison repeated, year after year — is the signal.</span></div>
+      </div>
+      <div class="bw-next-move">Your next move: <b>find your own dollar-weighted return</b> — most brokerages show it as "personal rate of return" or "your return", separately from the fund's. Compare the two.</div>
+    </section>
+
+    <!-- ========== 8 · COMPLETE ========== -->
+    <section class="bw-sec bw-center bw-reveal" data-step="8">
+      <p class="bw-kicker center">Lesson Complete · 8 / 8</p>
+      <span class="bw-hero-ico">🚀</span>
+      <h2 class="bw-h2 center">You've Finished The Lesson</h2>
+      <p class="bw-sub center">You can now tell whether a result was good, and whether the comparison that produced it was fair.</p>
+      <div class="bw-finish">
+        <span class="bw-finish-arrow" id="bw-fin-arrow" aria-hidden="true">↓</span>
+        <p class="bw-finish-lead" id="bw-fin-lead">Scroll Down To Continue</p>
+        <p class="bw-finish-sub" id="bw-fin-sub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p>
+      </div>
+      <p class="bw-fs-note">Note: if this lesson is in full screen, exit it first (tap the ✕) to see those buttons.</p>
+      <p class="bw-pullquote">"ALL INVESTMENT MISTAKES ARE REALLY <span class="bw-green">INVESTOR MISTAKES.</span>"<br><span class="bw-pullquote-by">— CARL RICHARDS, THE BEHAVIOR GAP</span></p>
+    </section>
+
+    <p class="bw-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice. All investing carries risk, including the risk of loss, and past performance never guarantees future results. The ten-year illustration is hypothetical and is not a replay of any real market; the industry figures are from Morningstar research published at the time of writing. Index names appear because they are widely quoted and easy to look up, not as recommendations. Consider speaking with a qualified professional about your own situation.</p>
+
+    <div class="bw-nav" id="bw-nav">
+      <button type="button" class="bw-nav-btn prev" id="bw-prev"><span aria-hidden="true">←</span> Previous</button>
+      <span class="bw-nav-hint" id="bw-nav-hint"></span>
+      <button type="button" class="bw-nav-btn next" id="bw-next">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-bw{
+    --b:#1568AE; --g:#209B73; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --tint:#EAF7F1; --line:#E7EDF3;
+    --cardbg:#F6F9FC; --cardbd:#E8EEF4; --selbd:#BFE6D6;
+    --no:#C0392B; --nobg:#FDECEA; --nobd:#F5C6BE;
+    --gold:#C8821B; --goldbg:#FBF2DF; --goldbd:#F0DCA9;
+    --k1:#1568AE; --k2:#209B73; --k3:#C8821B;
+    all:initial; display:block; box-sizing:border-box; width:100%;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--paper);
+  }
+  #tn-bw *,#tn-bw *::before,#tn-bw *::after{box-sizing:border-box;}
+  #tn-bw .bw-wrap{max-width:720px; margin:0 auto; padding:14px 20px 40px;}
+  #tn-bw .bw-reveal{opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease;}
+  #tn-bw .bw-reveal.in{opacity:1; transform:none;}
+  #tn-bw .bw-top{padding:6px 2px 4px; margin-bottom:16px;}
+  #tn-bw .bw-topbar{display:flex; justify-content:flex-end; margin-bottom:12px;}
+  #tn-bw .bw-brand{display:flex; align-items:center; gap:7px; font-size:13px;}
+  #tn-bw .bw-bico{display:flex;}
+  #tn-bw .bw-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; padding-top:.08em; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  #tn-bw .bw-bsub{color:var(--ink2); font-weight:500;}
+  #tn-bw .bw-progress{width:100%; height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-bw #bw-bar{display:block; height:100%; width:12.5%; border-radius:99px; background:linear-gradient(90deg,var(--b),var(--g)); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-bw .bw-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600;}
+  #tn-bw .bw-meta #bw-slide-label{color:var(--ink2);}
+  #tn-bw .bw-meta #bw-slide-count{color:var(--mut);}
+  #tn-bw .bw-sec{padding:16px 0 8px;}
+  #tn-bw .bw-sec.bw-hide{display:none;}
+  #tn-bw .bw-center{text-align:center;}
+  #tn-bw .bw-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 12px;}
+  #tn-bw .bw-kicker.center{text-align:center;}
+  #tn-bw .bw-h2{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,3.9vw,30px); line-height:1.18; letter-spacing:-.02em; margin:0 0 12px;}
+  #tn-bw .bw-h2.center{text-align:center;}
+  #tn-bw .bw-p{font-size:16px; color:var(--ink2); margin:0 0 18px;}
+  #tn-bw .bw-p.bw-mt{margin-top:16px;}
+  #tn-bw .bw-p b{color:var(--ink); font-weight:700;}
+  #tn-bw .bw-sub{font-size:16px; color:var(--ink2); margin:0 auto 18px; max-width:560px;}
+  #tn-bw .bw-note{background:#EEF3F8; border-radius:12px; padding:12px 15px; font-size:13.5px; color:var(--ink2); text-align:center; margin-top:14px; line-height:1.5;}
+  #tn-bw .bw-count{text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; margin:14px 0 0;}
+  #tn-bw .bw-disclaimer-inline{text-align:center; font-size:11.5px; color:var(--mut); line-height:1.5; margin:14px auto 0; max-width:560px;}
+  #tn-bw .bw-reset-row{display:flex; justify-content:center; margin-top:14px;}
+  #tn-bw .bw-reset-btn{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink2); background:#fff; border:1.5px solid var(--cardbd); border-radius:99px; padding:8px 18px; cursor:pointer; transition:all .18s;}
+  #tn-bw .bw-reset-btn:hover{color:var(--ink); background:var(--mist); border-color:var(--selbd);}
+  #tn-bw .bw-k1{background:var(--k1);} #tn-bw .bw-k2{background:var(--k2);} #tn-bw .bw-k3{background:var(--k3);}
+  /* title */
+  #tn-bw .bw-hero-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,5.6vw,39px); line-height:1.12; text-align:center; margin:8px 0 14px;}
+  #tn-bw .bw-hero-grad{display:inline-block; background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-bw .bw-vocab{max-width:480px; margin:0 auto 18px; padding:16px 18px; background:var(--mist); border:1px solid var(--line); border-radius:16px;}
+  #tn-bw .bw-vocab-label{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:10px;}
+  #tn-bw .bw-vocab-chips{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:10px;}
+  #tn-bw .bw-vocab-chip{font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:var(--g); background:var(--tint); border:1px solid var(--selbd); border-radius:99px; padding:6px 12px; cursor:pointer; transition:all .15s;}
+  #tn-bw .bw-vocab-chip:hover{filter:brightness(.97);}
+  #tn-bw .bw-vocab-chip.on{background:var(--g); color:#fff; border-color:var(--g);}
+  #tn-bw .bw-vocab-def{background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 14px; font-size:12.5px; color:var(--ink2); text-align:center; line-height:1.5; margin-bottom:10px; min-height:18px;}
+  #tn-bw .bw-vocab-def b{color:var(--ink); font-family:'Poppins',sans-serif;}
+  #tn-bw .bw-vocab-note{display:block; font-size:12px; color:var(--mut); line-height:1.45;}
+  #tn-bw .bw-next-move{margin:16px auto 0; max-width:540px; background:var(--tint); border:1px solid var(--selbd); border-radius:12px; padding:14px 16px; text-align:center; font-size:14px; font-weight:500; line-height:1.5;}
+  #tn-bw .bw-next-move b{font-family:'Poppins',sans-serif; color:var(--g);}
+  #tn-bw .bw-reveal-box{background:var(--mist); border:1px solid var(--line); border-radius:13px; padding:15px 16px; margin-top:12px;}
+  #tn-bw .bw-reveal-box b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; margin-bottom:3px;}
+  #tn-bw .bw-reveal-box span{font-size:13.5px; color:var(--ink2); line-height:1.5;}
+  /* 2 · deposit ledger */
+  #tn-bw .bw-tabs{display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:12px;}
+  #tn-bw .bw-tab{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 4px; cursor:pointer; transition:all .16s;}
+  #tn-bw .bw-tab:hover{border-color:var(--selbd);}
+  #tn-bw .bw-tab.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  #tn-bw .bw-ledger{border:1.5px solid var(--cardbd); border-radius:13px; overflow:hidden;}
+  #tn-bw .bw-lg-head{display:grid; grid-template-columns:44px 1fr 86px; gap:8px; padding:9px 13px; background:var(--cardbg); border-bottom:1.5px solid var(--cardbd);}
+  #tn-bw .bw-lg-head span{font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--mut);}
+  #tn-bw .bw-lg-head span:last-child{text-align:right;}
+  #tn-bw .bw-lgr{display:grid; grid-template-columns:44px 1fr 86px; gap:8px; align-items:center; padding:6px 13px; border-bottom:1px solid var(--line);}
+  #tn-bw .bw-lg-yr{font-size:11.5px; color:var(--mut); font-weight:600;}
+  #tn-bw .bw-lg-mkt{display:flex; align-items:center; gap:7px;}
+  #tn-bw .bw-lg-chip{font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5px; padding:2px 7px; border-radius:5px; flex:none; font-variant-numeric:tabular-nums;}
+  #tn-bw .bw-lg-chip.bw-up{background:var(--tint); color:var(--g);}
+  #tn-bw .bw-lg-chip.bw-dn{background:var(--nobg); color:var(--no);}
+  #tn-bw .bw-lg-barwrap{flex:1; height:9px; background:#EDF2F7; border-radius:99px; overflow:hidden; min-width:30px;}
+  #tn-bw .bw-lg-bar{display:block; height:100%; border-radius:99px; background:var(--b); transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-bw .bw-lg-bar.bw-bad{background:var(--gold);}
+  #tn-bw .bw-lg-amt{text-align:right; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; font-variant-numeric:tabular-nums;}
+  #tn-bw .bw-lg-foot{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding:11px 13px; background:var(--cardbg); border-top:1.5px solid var(--cardbd);}
+  #tn-bw .bw-lf-cell{text-align:center;}
+  #tn-bw .bw-lf-cell span{display:block; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); font-weight:700;}
+  #tn-bw .bw-lf-cell b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(15px,4vw,19px); margin-top:2px; font-variant-numeric:tabular-nums;}
+  /* 3 · the real gap */
+  #tn-bw .bw-headline{display:flex; align-items:center; gap:10px;}
+  #tn-bw .bw-hl-cell{flex:1; text-align:center; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:14px; padding:13px 8px;}
+  #tn-bw .bw-hl-cell span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; line-height:1.3;}
+  #tn-bw .bw-hl-cell b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(24px,6.5vw,33px); color:var(--g); line-height:1.1; margin:3px 0 0;}
+  #tn-bw .bw-hl-cell i{display:block; font-style:normal; font-size:10.5px; color:var(--ink2);}
+  #tn-bw .bw-hl-cell.bw-lower b{color:var(--gold);}
+  #tn-bw .bw-hl-arrow{flex:none; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--mut);}
+  #tn-bw .bw-gapline{display:flex; align-items:center; justify-content:center; gap:10px; margin-top:10px;
+    background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 15px; text-align:center; flex-wrap:wrap;}
+  #tn-bw .bw-gapline span{font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8FA6BA;}
+  #tn-bw .bw-gapline b{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(14px,3.8vw,17px); color:#F2C566;}
+  #tn-bw .bw-cats{display:grid; grid-template-columns:repeat(4,1fr); gap:7px;}
+  #tn-bw .bw-cat{font-family:inherit; text-align:center; background:#fff; border:1.5px solid var(--cardbd); border-radius:12px; padding:10px 3px; cursor:pointer; transition:all .16s;}
+  #tn-bw .bw-cat span{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px; line-height:1.2;}
+  #tn-bw .bw-cat b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; color:var(--no); margin-top:3px; font-variant-numeric:tabular-nums;}
+  #tn-bw .bw-cat:hover{border-color:var(--selbd);}
+  #tn-bw .bw-cat.on{background:var(--mist); border-color:var(--ink);}
+  /* 4 · the flipping verdict */
+  #tn-bw .bw-score{border:1.5px solid var(--cardbd); border-radius:16px; overflow:hidden;}
+  #tn-bw .bw-sc-top{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--cardbd);}
+  #tn-bw .bw-sc-cell{background:#fff; text-align:center; padding:13px 8px;}
+  #tn-bw .bw-sc-cell span{display:block; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mut); font-weight:700; line-height:1.3;}
+  #tn-bw .bw-sc-cell b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(22px,6vw,30px); line-height:1.1; margin-top:2px; font-variant-numeric:tabular-nums;}
+  #tn-bw .bw-verdict{text-align:center; padding:15px 14px; background:var(--mist); transition:background .35s;}
+  #tn-bw .bw-verdict b{display:block; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(18px,5vw,25px); line-height:1.15; transition:color .35s;}
+  #tn-bw .bw-verdict span{display:block; font-size:12.5px; color:var(--ink2); line-height:1.5; margin-top:5px;}
+  #tn-bw .bw-verdict.bw-good{background:var(--tint);} #tn-bw .bw-verdict.bw-good b{color:var(--g);}
+  #tn-bw .bw-verdict.bw-bad{background:var(--nobg);} #tn-bw .bw-verdict.bw-bad b{color:var(--no);}
+  #tn-bw .bw-verdict.bw-mid{background:var(--goldbg);} #tn-bw .bw-verdict.bw-mid b{color:var(--gold);}
+  #tn-bw .bw-marks{display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:12px;}
+  #tn-bw .bw-mark{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; color:var(--ink);
+    background:#fff; border:1.5px solid var(--cardbd); border-radius:11px; padding:11px 10px; cursor:pointer; transition:all .16s;}
+  #tn-bw .bw-mark:hover{border-color:var(--selbd);}
+  #tn-bw .bw-mark.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  /* 5 · myth sorter + 6 · cases */
+  #tn-bw .bw-sort,#tn-bw .bw-cases{display:flex; flex-direction:column; gap:10px;}
+  #tn-bw .bw-sort-row{display:flex; align-items:center; gap:12px; background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px; flex-wrap:wrap;}
+  #tn-bw .bw-sort-row > span{flex:1; font-size:14px; font-weight:500; min-width:170px;}
+  #tn-bw .bw-sort-btns{display:flex; gap:7px; flex:none;}
+  #tn-bw .bw-sort-btns button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 14px; border-radius:99px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bw .bw-sort-btns button[data-p="myth"]{border:1.5px solid var(--nobd); color:var(--no);}
+  #tn-bw .bw-sort-btns button[data-p="fact"]{border:1.5px solid var(--selbd); color:var(--g);}
+  #tn-bw .bw-sort-row.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-bw .bw-sort-row.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bw .bw-sort-row.done .bw-sort-btns button{opacity:.4; pointer-events:none;}
+  #tn-bw .bw-sort-row.done .bw-sort-btns button.picked{opacity:1;}
+  #tn-bw .bw-case{background:var(--cardbg); border:1.5px solid var(--cardbd); border-radius:13px; padding:14px 16px;}
+  #tn-bw .bw-case-q{font-size:14px; font-weight:600; margin:0 0 10px;}
+  #tn-bw .bw-copts{display:flex; flex-direction:column; gap:7px;}
+  #tn-bw .bw-copts button{font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; text-align:left;
+    border:1.5px solid var(--cardbd); color:var(--ink); border-radius:11px; padding:10px 13px; cursor:pointer; background:#fff; transition:all .15s;}
+  #tn-bw .bw-copts button:hover{border-color:var(--selbd);}
+  #tn-bw .bw-case.done .bw-copts button{opacity:.35; pointer-events:none;}
+  #tn-bw .bw-case.done .bw-copts button.picked{opacity:1;}
+  #tn-bw .bw-case.done .bw-copts button.answer{opacity:1; background:var(--tint); border-color:var(--selbd); color:var(--g);}
+  #tn-bw .bw-case.correct{border-color:var(--selbd); background:var(--tint);}
+  #tn-bw .bw-case.wrong{border-color:var(--nobd); background:var(--nobg);}
+  #tn-bw .bw-why{font-size:12.5px; color:var(--ink2); line-height:1.5; margin:10px 0 0; display:none;}
+  #tn-bw .bw-why b{font-family:'Poppins',sans-serif;}
+  #tn-bw .bw-sort-row .bw-why{flex-basis:100%; width:100%; margin-top:4px;}
+  #tn-bw .bw-sort-row.done .bw-why,#tn-bw .bw-case.done .bw-why{display:block;}
+  /* recap + complete */
+  #tn-bw .bw-recap{display:flex; flex-direction:column; gap:9px; max-width:540px; margin:0 auto;}
+  #tn-bw .bw-recap-item{display:flex; align-items:flex-start; gap:11px; background:var(--cardbg); border:1px solid var(--cardbd); border-radius:12px; padding:13px 15px;}
+  #tn-bw .bw-recap-check{flex:none; width:22px; height:22px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px;}
+  #tn-bw .bw-recap-item span:last-child{font-size:14px; font-weight:500; line-height:1.45;}
+  #tn-bw .bw-hero-ico{display:block; font-size:44px; margin:6px 0 14px;}
+  #tn-bw .bw-finish{max-width:430px; margin:14px auto 0; padding:20px 22px 22px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-bw .bw-finish-arrow{display:block; font-size:32px; line-height:1; color:var(--g); animation:bw-bob 1.6s ease-in-out infinite;}
+  #tn-bw .bw-finish-arrow.up{animation-name:bw-bob-up;}
+  @keyframes bw-bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+  @keyframes bw-bob-up{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
+  #tn-bw .bw-finish-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:19px; margin:10px 0 6px;}
+  #tn-bw .bw-finish-sub{font-size:13.5px; color:var(--ink2); margin:0; line-height:1.55;}
+  #tn-bw .bw-fs-note{max-width:430px; margin:10px auto 0; font-size:11px; color:var(--mut); text-align:center; line-height:1.5;}
+  #tn-bw .bw-pullquote{text-align:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; letter-spacing:.02em; margin:26px 0 0; line-height:1.55;}
+  #tn-bw .bw-pullquote-by{font-size:12px; font-weight:700; color:var(--mut); letter-spacing:.1em;}
+  #tn-bw .bw-green{color:var(--g);}
+  #tn-bw .bw-disclaimer{font-size:11px; color:var(--mut); line-height:1.5; text-align:center; margin:24px auto 0; max-width:620px;}
+  /* nav */
+  #tn-bw .bw-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    position:sticky; bottom:0; z-index:40; margin-top:18px;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--paper); border-top:1px solid var(--line);
+    box-shadow:0 -10px 24px -18px rgba(22,32,43,.35);}
+  #tn-bw .bw-nav-hint{flex:1; text-align:center; font-size:12.5px; color:var(--mut); font-weight:600; padding:0 8px;}
+  #tn-bw .bw-nav-hint:not(:empty)::before{content:"\1F512\00a0";}
+  #tn-bw .bw-nav-btn{display:inline-flex; align-items:center; gap:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all .18s;}
+  #tn-bw .bw-nav-btn.prev{color:var(--ink2);}
+  #tn-bw .bw-nav-btn.prev:hover{color:var(--ink); background:var(--mist);}
+  #tn-bw .bw-nav-btn.prev.is-disabled{color:var(--mut); opacity:.45; pointer-events:none;}
+  #tn-bw .bw-nav-btn.next{color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-bw .bw-nav-btn.next:hover{transform:translateY(-2px);}
+  #tn-bw .bw-nav-btn.next.locked{background:#E4E9EE; color:var(--mut); box-shadow:none; cursor:not-allowed;}
+  #tn-bw .bw-nav-btn.next.locked:hover{transform:none;}
+  /* green hover terms */
+  #tn-bw .bw-term{color:var(--g); font-weight:600; border-bottom:1.5px dotted var(--g); cursor:help;}
+  #tn-bw .bw-term:focus-visible{outline:2px solid var(--g); outline-offset:2px;}
+  .bw-tip{box-sizing:border-box; position:fixed; z-index:9998; max-width:280px; background:#16202B; color:#E6EDF3; border-radius:12px; padding:11px 14px; font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); pointer-events:none;}
+  .bw-tip b{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:#8FE3C2; margin-bottom:3px;}
+  @media (max-width:540px){
+    #tn-bw .bw-wrap{padding:12px 14px 30px;}
+    #tn-bw .bw-headline{gap:6px;}
+    #tn-bw .bw-hl-arrow{font-size:16px;}
+    #tn-bw .bw-cats{grid-template-columns:1fr 1fr;}
+    #tn-bw .bw-marks{grid-template-columns:1fr;}
+    #tn-bw .bw-lg-head,#tn-bw .bw-lgr{grid-template-columns:34px 1fr 72px; gap:6px; padding-left:10px; padding-right:10px;}
+    #tn-bw .bw-lg-foot{gap:5px; padding-left:9px; padding-right:9px;}
+    #tn-bw .bw-sort-row{flex-direction:column; align-items:stretch; gap:10px;}
+    #tn-bw .bw-bsub{display:none;}
+    #tn-bw .bw-nav-hint{display:block; order:-1; flex:0 0 100%; text-align:center; padding:0 4px 8px; font-size:12.5px;}
+    #tn-bw .bw-nav{padding-top:10px; row-gap:0;}
+    #tn-bw .bw-nav-btn{padding:11px 16px; font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-bw .bw-reveal{opacity:1 !important; transform:none !important;}
+    #tn-bw #bw-bar,#tn-bw .bw-lg-bar,#tn-bw .bw-verdict{transition:none;}
+    #tn-bw .bw-finish-arrow{animation:none !important;}
+  }
+</style>
+<script>
+/* ---- CONTENT LOGIC — publishes progress on the container ---- */
+(function(){
+  var root=document.getElementById('tn-bw'); if(!root) return;
+  root.querySelectorAll('.bw-reveal').forEach(function(el){ el.classList.add('in'); });
+  function postHeight(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function state(k,v){ root.setAttribute('data-'+k,v); root.dispatchEvent(new CustomEvent('bw-state')); }
+  function keys(o){ return Object.keys(o).length; }
+
+  /* 1 · vocab chips */
+  var vdef=root.querySelector('#bw-vocab-def');
+  root.querySelectorAll('#bw-vocab-chips .bw-vocab-chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      root.querySelectorAll('#bw-vocab-chips .bw-vocab-chip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      vdef.innerHTML='<b>'+c.getAttribute('data-t')+':</b> '+c.getAttribute('data-def');
+      postHeight();
+    });
+  });
+
+  /* 2 · the deposit ledger (creative 1 of 2)
+     Market path and both deposit schedules are fixed; the figures in SUM were
+     computed from them, not estimated. See the header comment. */
+  var MKT=[18,12,-22,26,9,-8,21,14,4,16];
+  var DEP={
+    fund:   null,
+    steady: [1200,1200,1200,1200,1200,1200,1200,1200,1200,1200],
+    chaser: [300,1600,2400,200,1400,2200,300,1300,1100,1200]
+  };
+  var SUM={
+    fund:  {in:'—', out:'—', rate:'8.0%',
+            t:'The Fund Itself — 8.0% A Year',
+            d:'Ten years, ending 117% up in total. This is the number the fund prints on its own page, and it assumes one lump sum sat there untouched the whole time. Nobody actually invests like that.'},
+    steady:{in:'$12,000', out:'$19,623', rate:'8.8%',
+            t:'Steady — 8.8% A Year',
+            d:'The same amount every year, good years and bad. Notice this beats the fund’s own 8.0%: paying in steadily meant more of the money was buying during the weak years. A dollar-weighted return is not always worse — it answers a different question.'},
+    chaser:{in:'$12,000', out:'$18,657', rate:'7.9%',
+            t:'Chaser — 7.9% A Year',
+            d:'Deposits scaled to how last year went — textbook performance chasing: heavy after a run-up, almost nothing after a fall. Same $12,000, same fund, same average holding period — and $967 less at the end. The only thing that differed was when the money showed up.'}
+  };
+  var lSeen={}, rowsEl=root.querySelector('#bw-rows'),
+      inEl=root.querySelector('#bw-in'), outEl=root.querySelector('#bw-out'), rateEl=root.querySelector('#bw-rate'),
+      lT=root.querySelector('#bw-l-t'), lD=root.querySelector('#bw-l-d'), lCount=root.querySelector('#bw-l-count');
+  function renderRows(k){
+    var dep=DEP[k], max=2400, html='';
+    for(var i=0;i<10;i++){
+      var m=MKT[i], up=m>=0;
+      var amt = dep ? '$'+dep[i].toLocaleString('en-US') : '—';
+      var w = dep ? Math.round(dep[i]/max*100) : 0;
+      /* gold marks a deposit landing right before a down year */
+      var bad = dep && !up && dep[i]>1500;
+      html+='<div class="bw-lgr"><span class="bw-lg-yr">'+(i+1)+'</span>'
+          + '<span class="bw-lg-mkt"><span class="bw-lg-chip '+(up?'bw-up':'bw-dn')+'">'+(up?'+':'−')+Math.abs(m)+'%</span>'
+          + '<span class="bw-lg-barwrap"><i class="bw-lg-bar'+(bad?' bw-bad':'')+'" style="width:'+w+'%"></i></span></span>'
+          + '<span class="bw-lg-amt">'+amt+'</span></div>';
+    }
+    rowsEl.innerHTML=html;
+  }
+  renderRows('fund');
+  root.querySelectorAll('#bw-tabs .bw-tab').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#bw-tabs .bw-tab').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k'), s=SUM[k];
+      renderRows(k);
+      inEl.textContent=s.in; outEl.textContent=s.out; rateEl.textContent=s.rate;
+      lT.textContent=s.t; lD.textContent=s.d;
+      lSeen[k]=1; lCount.textContent='Seen '+keys(lSeen)+' Of 3';
+      state('ledger', keys(lSeen)); postHeight();
+    });
+  });
+
+  /* 3 · the real gap */
+  var CAT={
+    alt:['Alternatives — The Widest Gap, 1.6 Points','The most complicated, least familiar funds have the worst record of being held well. People buy them after a stretch of strong numbers and abandon them during the stretch that follows, which is the most expensive possible way to own anything.'],
+    alloc:['All-In-One Funds — 0.7 Points','Funds that hold a whole portfolio in one ticker do better than most, and the reason is boring: there is nothing inside to tinker with. You cannot rotate between the parts if you cannot see the parts.'],
+    useq:['US Equity — The Narrowest, 0.4 Points','The plainest, most widely held category has the smallest gap of all. Familiar and broad turns out to be easier to sit still in than clever and specialised.'],
+    why:['So What Does That Tell You?','That the gap is not really about the funds. It tracks how tempting a fund is to trade, which is why the simplest holdings produce the best investor outcomes even when they do not produce the best fund returns.']
+  };
+  var cSeen={}, cT=root.querySelector('#bw-c-t'), cD=root.querySelector('#bw-c-d'), cCount=root.querySelector('#bw-c-count');
+  root.querySelectorAll('#bw-cats .bw-cat').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#bw-cats .bw-cat').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k');
+      cT.textContent=CAT[k][0]; cD.textContent=CAT[k][1];
+      cSeen[k]=1; cCount.textContent='Read '+keys(cSeen)+' Of 4';
+      state('cats', keys(cSeen)); postHeight();
+    });
+  });
+
+  /* 4 · the flipping verdict (creative 2 of 2) */
+  var MARK={
+    sp:{lab:'The S&P 500', val:'12.0%', tone:'bw-bad', word:'Well behind',
+        d:'Five points short, and it means nothing. You hold 40% bonds; the S&P 500 holds none. In a strong year for stocks this comparison will always make a mixed portfolio look broken, and in a crash it will make it look brilliant. Neither is about you.'},
+    bond:{lab:'A total bond index', val:'2.0%', tone:'bw-good', word:'Far ahead',
+        d:'Five points clear, and equally meaningless — for the mirror-image reason. You hold 60% stocks and they are being compared to none. Picking the yardstick you beat is the oldest trick there is, and it is usually played on yourself.'},
+    cash:{lab:'A savings account', val:'4.0%', tone:'bw-good', word:'Comfortably ahead',
+        d:'Three points clear. This one is worth knowing — it is the return you gave up to take any risk at all — but it cannot tell you whether the risk you took was handled well. It only tells you it paid off this year.'},
+    blend:{lab:'60% stock + 40% bond index', val:'8.0%', tone:'bw-mid', word:'One point behind',
+        d:'0.6 × 12% plus 0.4 × 2% is 8.0%. This is the only honest one of the four, because it holds what you hold. One point behind is a real answer: probably costs, possibly timing — and worth asking about if it repeats.'}
+  };
+  var mSeen={}, vEl=root.querySelector('#bw-verdict'), vWord=root.querySelector('#bw-v-word'),
+      vSub=root.querySelector('#bw-v-sub'), bLab=root.querySelector('#bw-sc-blab'), bVal=root.querySelector('#bw-sc-bval'),
+      mT=root.querySelector('#bw-m-t'), mD=root.querySelector('#bw-m-d'), mCount=root.querySelector('#bw-m-count');
+  root.querySelectorAll('#bw-marks .bw-mark').forEach(function(b){
+    b.addEventListener('click',function(){
+      root.querySelectorAll('#bw-marks .bw-mark').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var k=b.getAttribute('data-k'), m=MARK[k];
+      bLab.textContent=m.lab; bVal.textContent=m.val;
+      vEl.classList.remove('bw-good','bw-bad','bw-mid'); vEl.classList.add(m.tone);
+      vWord.textContent=m.word;
+      vSub.textContent='Your 7.0% against '+m.val+'.';
+      mT.textContent=m.lab; mD.textContent=m.d;
+      mSeen[k]=1; mCount.textContent='Tried '+keys(mSeen)+' Of 4';
+      state('marks', keys(mSeen)); postHeight();
+    });
+  });
+
+  /* 5 · myth or fact */
+  var mythCount=root.querySelector('#bw-myth-count');
+  root.querySelectorAll('#bw-myth .bw-sort-row').forEach(function(row){
+    var ans=row.getAttribute('data-answer');
+    row.querySelectorAll('.bw-sort-btns button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(row.classList.contains('done')) return;
+        btn.classList.add('picked');
+        row.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#bw-myth .bw-sort-row.done').length;
+        mythCount.textContent='Answered '+n+' Of 5';
+        state('myth', n); postHeight();
+      });
+    });
+  });
+  var mythReset=root.querySelector('#bw-myth-reset');
+  if(mythReset) mythReset.addEventListener('click',function(){
+    root.querySelectorAll('#bw-myth .bw-sort-row').forEach(function(r){
+      r.classList.remove('done','correct','wrong');
+      r.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked'); });
+    });
+    mythCount.textContent='Answered 0 Of 5'; postHeight();
+  });
+
+  /* 6 · pick the benchmark */
+  var caseCount=root.querySelector('#bw-case-count');
+  root.querySelectorAll('#bw-cases .bw-case').forEach(function(c){
+    var ans=c.getAttribute('data-answer');
+    c.querySelectorAll('.bw-copts button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(c.classList.contains('done')) return;
+        btn.classList.add('picked');
+        c.querySelectorAll('.bw-copts button').forEach(function(o){
+          if(o.getAttribute('data-p')===ans) o.classList.add('answer');
+        });
+        c.classList.add('done', btn.getAttribute('data-p')===ans?'correct':'wrong');
+        var n=root.querySelectorAll('#bw-cases .bw-case.done').length;
+        caseCount.textContent='Answered '+n+' Of 3';
+        state('cases', n); postHeight();
+      });
+    });
+  });
+  var caseReset=root.querySelector('#bw-case-reset');
+  if(caseReset) caseReset.addEventListener('click',function(){
+    root.querySelectorAll('#bw-cases .bw-case').forEach(function(c){
+      c.classList.remove('done','correct','wrong');
+      c.querySelectorAll('button').forEach(function(b){ b.classList.remove('picked','answer'); });
+    });
+    caseCount.textContent='Answered 0 Of 3'; postHeight();
+  });
+
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight); setInterval(postHeight,1000);
+})();
+</script>
+<script>
+/* ---- FULL-SCREEN AWARE PROMPT (last slide) ---- */
+(function(){
+  var arrow=document.getElementById('bw-fin-arrow'), lead=document.getElementById('bw-fin-lead'), sub=document.getElementById('bw-fin-sub');
+  if(!arrow||!lead||!sub) return;
+  var COPY={ normal:{a:'↓',up:false,l:'Scroll Down To Continue',s:'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.'},
+             full:{a:'↑',up:true,l:'Close Full Screen To Continue',s:'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'} };
+  var last=null;
+  function isFull(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function apply(){
+    var k=isFull()?'full':'normal'; if(k===last) return; last=k;
+    var c=COPY[k]; arrow.textContent=c.a; arrow.classList.toggle('up',c.up); lead.textContent=c.l; sub.innerHTML=c.s;
+  }
+  window.addEventListener('resize',apply); document.addEventListener('fullscreenchange',apply);
+  setInterval(apply,700); apply();
+})();
+</script>
+<script>
+/* ============================================================
+   GREEN HOVER TERMS — first mention per slide, static prose only.
+   Headings and disclaimers are excluded: a green term in an <h2> is a
+   recurring bug, and a green underline in small grey legal copy pulls
+   the eye to the one line that should stay quiet.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-bw'); if(!root) return;
+  var ALT={
+    'benchmark':'benchmarks?',
+    'time-weighted return':'time-weighted returns?|time-weighted',
+    'performance chasing':'performance chasing',
+    'persistent shortfall':'persistent shortfalls?',
+    'blended benchmark':'blended benchmarks?|blended'
+  };
+  var TERMS=[];
+  root.querySelectorAll('#bw-vocab-chips .bw-vocab-chip').forEach(function(chip){
+    var t=chip.getAttribute('data-t');
+    TERMS.push({t:t, d:chip.getAttribute('data-def'), re:new RegExp('\\b('+(ALT[t.toLowerCase()]||t.toLowerCase())+')\\b','i')});
+  });
+  TERMS.sort(function(a,b){ return b.t.length-a.t.length; });
+  var PROSE='.bw-p, .bw-sub, .bw-note, .bw-why, .bw-recap-item span, .bw-next-move, .bw-sort-row > span, .bw-case-q';
+  var seen={};
+  function wrap(sec, term){
+    var step=sec.getAttribute('data-step'), key=term.t+'@'+step;
+    if(seen[key]) return;
+    var hosts=sec.querySelectorAll(PROSE);
+    for(var i=0;i<hosts.length;i++){
+      var el=hosts[i]; if(el.id) continue;
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while((node=walker.nextNode())){
+        if(node.parentNode.closest('.bw-term')) continue;
+        var m=term.re.exec(node.nodeValue); if(!m) continue;
+        var after=node.splitText(m.index);
+        after.nodeValue=after.nodeValue.slice(m[0].length);
+        var sp=document.createElement('span');
+        sp.className='bw-term'; sp.tabIndex=0; sp.setAttribute('role','button');
+        sp.setAttribute('data-t',term.t); sp.setAttribute('data-def',term.d);
+        sp.setAttribute('aria-label',m[0]+' — definition');
+        sp.textContent=m[0];
+        node.parentNode.insertBefore(sp, after);
+        bind(sp); seen[key]=1; return;
+      }
+    }
+  }
+  var tip=document.createElement('div'); tip.className='bw-tip'; tip.hidden=true;
+  document.body.appendChild(tip);
+  var pinned=null;
+  function place(el){
+    tip.innerHTML='<b>'+el.getAttribute('data-t')+'</b>'+el.getAttribute('data-def');
+    tip.hidden=false;
+    var r=el.getBoundingClientRect(), w=Math.min(280, innerWidth-24);
+    tip.style.maxWidth=w+'px';
+    tip.style.left=Math.min(Math.max(12, r.left+r.width/2-tip.offsetWidth/2), innerWidth-tip.offsetWidth-12)+'px';
+    var below=r.bottom+8, h=tip.offsetHeight;
+    tip.style.top=((below+h>innerHeight-8 && r.top-h-8>8) ? r.top-h-8 : below)+'px';
+  }
+  function hide(){ tip.hidden=true; pinned=null; }
+  function bind(el){
+    el.addEventListener('mouseenter',function(){ if(!pinned) place(el); });
+    el.addEventListener('mouseleave',function(){ if(!pinned) hide(); });
+    el.addEventListener('focus',function(){ place(el); });
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); if(pinned===el){ hide(); } else { pinned=el; place(el); } });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); pinned=el; place(el); } });
+  }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.bw-term')) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+  window.addEventListener('scroll',hide,true); window.addEventListener('resize',hide);
+  root.querySelectorAll('.bw-sec').forEach(function(sec){
+    if(sec.getAttribute('data-step')==='1') return;
+    TERMS.forEach(function(t){ wrap(sec,t); });
+  });
+})();
+</script>
+<!-- ============================================================
+     PAGINATION LAYER — one slide at a time, Next locked until done.
+     ============================================================ -->
+<script>
+(function(){
+  var root=document.getElementById('tn-bw'); if(!root) return;
+  var TOTAL=8, current=1;
+  var bar=root.querySelector('#bw-bar'), labelEl=root.querySelector('#bw-slide-label'),
+      countEl=root.querySelector('#bw-slide-count'), prevBtn=root.querySelector('#bw-prev'),
+      nextBtn=root.querySelector('#bw-next'), hintEl=root.querySelector('#bw-nav-hint'),
+      disclaimer=root.querySelector('.bw-disclaimer');
+  var labels={1:'Start Here',2:'Two Investors',3:'The Evidence',4:'The Yardstick',5:'Myth Or Fact',6:'Your Call',7:'Recap',8:'Complete'};
+  var reqHints={2:'See all 3 columns to continue',3:'Read all 4 to continue',4:'Try all 4 yardsticks to continue',5:'Answer all 5 to continue',6:'Answer all 3 to continue'};
+  var done={1:true,7:true,8:true};
+  var secByStep={};
+  root.querySelectorAll('.bw-sec').forEach(function(sec){ secByStep[+sec.getAttribute('data-step')]=sec; });
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function updateNav(){
+    prevBtn.classList.toggle('is-disabled', current<=1);
+    if(current>=TOTAL){ nextBtn.style.display='none'; hintEl.textContent=''; }
+    else {
+      nextBtn.style.display='';
+      var ok=!!done[current];
+      nextBtn.classList.toggle('locked', !ok);
+      hintEl.textContent = ok ? '' : (reqHints[current]||'');
+    }
+  }
+  function show(step){
+    current=Math.max(1,Math.min(TOTAL,step));
+    for(var k=1;k<=TOTAL;k++){
+      var sec=secByStep[k]; if(!sec) continue;
+      if(k===current){ sec.classList.remove('bw-hide'); sec.classList.remove('in'); void sec.offsetWidth; sec.classList.add('in'); }
+      else sec.classList.add('bw-hide');
+    }
+    labelEl.textContent=labels[current]||'';
+    countEl.textContent='Slide '+current+' Of '+TOTAL;
+    if(bar) bar.style.width=Math.round(current/TOTAL*100)+'%';
+    if(disclaimer) disclaimer.style.display=(current===TOTAL)?'block':'none';
+    updateNav(); toTop(); postH();
+  }
+  prevBtn.addEventListener('click',function(){ if(current>1) show(current-1); });
+  nextBtn.addEventListener('click',function(){ if(!nextBtn.classList.contains('locked') && current<TOTAL && done[current]) show(current+1); });
+  function markDone(step){ if(done[step]) return; done[step]=true; if(step===current) updateNav(); }
+  function liveHint(step,msg){ if(step===current && !done[step]) hintEl.textContent=msg; }
+  function num(k){ return +(root.getAttribute('data-'+k)||0); }
+  var GATES=[
+    {step:2, key:'ledger', need:3, hint:function(n){ return 'Seen '+n+' of 3 — tap all three to continue'; }},
+    {step:3, key:'cats',   need:4, hint:function(n){ return 'Read '+n+' of 4 — tap them all to continue'; }},
+    {step:4, key:'marks',  need:4, hint:function(n){ return 'Tried '+n+' of 4 — try them all to continue'; }},
+    {step:5, key:'myth',   need:5, hint:function(n){ return 'Answered '+n+' of 5 — answer them all to continue'; }},
+    {step:6, key:'cases',  need:3, hint:function(n){ return 'Answered '+n+' of 3 — answer them all to continue'; }}
+  ];
+  root.addEventListener('bw-state',function(){
+    GATES.forEach(function(g){
+      var n=num(g.key);
+      if(n>=g.need) markDone(g.step); else liveHint(g.step, g.hint(n));
+    });
+  });
+  show(1);
+})();
+</script>

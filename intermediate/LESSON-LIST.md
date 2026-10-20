@@ -1,6 +1,6 @@
 # TURNIT — Intermediate Investing · Lesson List
 
-7 modules · 35 lessons · **25 built** (Modules 1, 2, 3, 4, and 5 complete)
+7 modules · 35 lessons · **35 built** (all 7 modules complete)
 
 **Assumed entry point:** the learner already has an account open, money invested — probably
 in a broad index fund — and knows compounding, diversification, fees, dollar-cost averaging
@@ -66,25 +66,25 @@ and basic capital gains. Nothing in this course re-teaches those.
 | 24 | Bond Funds vs. Individual Bonds | `24-bond-funds-vs-individual-bonds.html` | 8 |
 | 25 | T-Bills, Money Market Funds, And HYSAs Compared | `25-t-bills-money-market-funds-and-hysas-compared.html` | 8 |
 
-## Module 6 — Looking At Individual Companies ⬜ not built
+## Module 6 — Looking At Individual Companies ✅ complete
 
-| # | Lesson |
-|---|---|
-| 26 | Should You Pick Stocks At All? |
-| 27 | Reading An Income Statement |
-| 28 | Reading A Balance Sheet And Cash Flow |
-| 29 | Valuation Ratios And Their Limits |
-| 30 | What Happens On Earnings Day |
+| # | Lesson | File | Slides |
+|---|---|---|---|
+| 26 | Should You Pick Stocks At All? | `26-should-you-pick-stocks-at-all.html` | 8 |
+| 27 | Reading An Income Statement | `27-reading-an-income-statement.html` | 8 |
+| 28 | Reading A Balance Sheet And Cash Flow | `28-reading-a-balance-sheet-and-cash-flow.html` | 8 |
+| 29 | Valuation Ratios And Their Limits | `29-valuation-ratios-and-their-limits.html` | 8 |
+| 30 | What Happens On Earnings Day | `30-what-happens-on-earnings-day.html` | 8 |
 
-## Module 7 — Running The Plan ⬜ not built
+## Module 7 — Running The Plan ✅ complete
 
-| # | Lesson |
-|---|---|
-| 31 | Rebalancing: Calendar vs. Bands |
-| 32 | Writing An Investment Policy Statement |
-| 33 | Benchmarking: Are You Actually Doing Well? |
-| 34 | Employer Plans In Depth: Vesting, Fees, Rollovers |
-| 35 | The Annual Review, And When To Change The Plan |
+| # | Lesson | File | Slides |
+|---|---|---|---|
+| 31 | Rebalancing: Calendar vs. Bands | `31-rebalancing-calendar-vs-bands.html` | 8 |
+| 32 | Writing An Investment Policy Statement | `32-writing-an-investment-policy-statement.html` | 8 |
+| 33 | Benchmarking: Are You Actually Doing Well? | `33-benchmarking-are-you-actually-doing-well.html` | 8 |
+| 34 | Employer Plans In Depth: Vesting, Fees, Rollovers | `34-employer-plans-in-depth.html` | 8 |
+| 35 | The Annual Review, And When To Change The Plan | `35-the-annual-review.html` | 8 |
 
 ---
 
@@ -95,21 +95,34 @@ asset location, tax-loss harvesting and bond duration are inherently "what shoul
 topics. Lessons 11, 14 and 23 need heavier hedging, and 14 should name the wash-sale rule's
 30-day window without walking anyone through executing a harvest.
 
-**Module 6 is the odd one out.** Everything else supports a long-term index approach; stock
-analysis points elsewhere. Keep lesson 26 as a genuine gut-check — *most people should not,
-and here's what it actually costs in time and outcomes* — rather than a throat-clearing
-intro. To stay purely index-focused, cut Module 6 and promote a Module 8 on withdrawals,
-HSAs and backdoor Roth.
+**Module 6 was kept as the odd one out, as planned.** Lesson 26 shipped as a genuine
+gut-check — real SPIVA and Bessembinder data make the case plainly, and the lesson never
+tells the learner what to do with their own money.
 
-**Some of these fight the format.** Reading a balance sheet in one interactive per slide is
-hard. It wants an annotated-document widget — which is on the allowed list, and lesson 8's
-fund page is a working example to copy. Budget accordingly, or split 27 and 28 into three
-shorter lessons.
+**27 and 28 did fight the format**, as anticipated, and were built around real Apple Inc.
+FY2025 10-K data presented as annotated documents (the lesson 8 fund-page pattern, applied to
+an income statement and a balance sheet/cash-flow statement respectively) rather than forced
+into generic tap-reveal cards.
 
-**Deliberately left out:** options, margin, crypto, day trading, leveraged ETFs. They're what
-people expect from "intermediate," and each raises a real risk of a beginner acting on a
-half-understanding. If they get covered, put them in one lesson called something like
-*"What We're Not Teaching, And Why"* — which doubles as a credibility signal.
+**Deliberately still left out:** options, margin, crypto, day trading, leveraged ETFs — none
+of Modules 6-7 reach into them.
+
+**Modules 6 and 7 (lessons 26-35) were authored outside this session and imported as a
+batch.** Three classes of integration issues were found and fixed before shipping, using the
+same collision-checking discipline already applied throughout Modules 4-5: two prefix
+collisions with Foundations-level lessons (`rb`→`rc` for lesson 31, `bm`→`bw` for lesson 33);
+one chip collision where lesson 33 independently re-chipped "Behavior Gap" and a synonym of
+intermediate lesson 20's "Dollar-Weighted Return" (resolved by having lesson 33 reference
+both by name and own two new chips — Performance Chasing and Persistent Shortfall — drawn
+from content it already taught); and five closing-quote duplicates, three of them against
+quotes already in this repo (Oscar Wilde and Paul Samuelson each duplicated a Foundations
+-level lesson; lesson 33's Bogle line duplicated this course's own lesson 24) and two of them
+internal to the import batch itself (lessons 26 and 32 both used the identical Benjamin
+Graham quote, itself already used twice elsewhere in this course). Each replacement quote is
+documented, with its sourcing and duplication check, in that lesson's own header comment.
+IRS 2026 contribution-limit figures in lesson 34 were independently re-verified via search
+before shipping and confirmed accurate ($24,500 401(k) limit, $7,500 IRA limit, per IRS
+Notice 2025-67).
 
 ---
 
