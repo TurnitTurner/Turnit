@@ -484,5 +484,6 @@ file and thin content.
 - **Lessons 01–05 lack the sticky-nav fix.** Only 06–10 have it. Worth a sweep.
 - **Five lessons have 5-line recaps** (03, 04, both 05s, 06) against the six-line standard.
 - **Lesson 01 has 7 key-term chips** against the 5–6 standard.
-- **No Intermediate quizzes exist yet.** The quiz files that exist are for the Beginner
-  course. The quiz format is a separate standalone funnel page, not part of a lesson.
+- **Intermediate quizzes are built.** All 7 module quizzes live in `quizzes/`, one per
+  module, verified with `verify/quiz-static-checks.py` and `verify/verify-quiz.js`. The
+  quiz format is a separate standalone funnel page, not part of a lesson.

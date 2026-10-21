@@ -87,7 +87,7 @@ Two things the tools can't judge — check them by eye on a 390px screenshot:
 | Built | 35 lessons — all 7 modules complete |
 | Outlined | 0 lessons |
 | Passing every check | all 35 (01–35), at desktop and phone widths |
-| Intermediate quizzes | not built yet |
+| Intermediate quizzes | all 7 modules built and verified |
 
 The lesson-5 duplicate, the missing sticky nav on 01–05, the 5-line recaps, lesson 01's
 7th chip, and a couple of bugs the harness itself was missing (see LESSON-LIST.md's

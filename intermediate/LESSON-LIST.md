@@ -928,4 +928,8 @@ What was fixed in the Module 1–2 backlog pass:
   10's growth race). All three are now handled generically, not lesson-specific
   hacks, so future lessons reusing these patterns are covered too.
 
-**No Intermediate quizzes built yet** — still open.
+**Intermediate quizzes: all 7 built.** `quizzes/module-1-quiz.html` through
+`module-7-quiz.html`, 10 questions each, grounded in that module's lesson chips
+and myth/fact content, verified with `verify/quiz-static-checks.py` (config
+shape, difficulty split, answer-letter spread) and `verify/verify-quiz.js`
+(Playwright walkthrough at desktop and phone widths).
