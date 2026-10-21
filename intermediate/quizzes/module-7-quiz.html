@@ -13,10 +13,15 @@
      10 questions, 2 per lesson, split 4 easy / 4 medium / 2 hard — the
      same ratio the Foundations-course quizzes (1-9 through 5-8) use.
      Answer key spread across all four letters (A:3 B:3 C:2 D:2) rather
-     than clustering on one letter, and option lengths kept comparable
-     so the correct answer isn't identifiable by being the longest —
-     both patterns were present in the Foundations quizzes and
-     deliberately avoided here.
+     than clustering on one letter. Option lengths are enforced, not just
+     eyeballed: quiz-static-checks.py fails a quiz where the correct
+     option is the strict longest (or shortest) in more than 3 of 10
+     questions, or where any option in a question is over 2x the length
+     of the shortest. An earlier pass claimed this was handled by eye and
+     wasn't — 69/70 questions across the first build of all 7 Intermediate
+     quizzes had the longest option be the correct one. This file was
+     rewritten to fix that, and the checker now exists so it can't recur
+     silently.
 
      NOT REPEATING FOUNDATIONS: the Foundations course's own
      `5-8-module-5-quiz.html` already tests calendar vs. threshold
@@ -189,53 +194,53 @@ var QUIZ = {
   lesson: "Module 7: Running The Plan",
   questions: [
     { topic:"What a tolerance band is", diff:"easy",
-      q:"What is a “tolerance band” in the context of rebalancing?",
-      o:["A margin either side of your target allocation — say 60% stocks give or take 5 points — that you allow the mix to wander inside before doing anything","The range of returns a portfolio is expected to produce in a typical year","A limit on how much any single stock can be worth in a portfolio","The number of days you must wait between trades"], a:0,
+      q:"What is a “tolerance band” in rebalancing?",
+      o:["A margin around your target you allow before acting","The expected range of yearly returns","A cap on any single stock's weight","Days you must wait between trades"], a:0,
       e:"A tolerance band is a deliberate margin of drift you allow before acting — the whole point is not reacting to every small wobble.",
       lesson:"31 · Rebalancing: Calendar vs. Bands" },
     { topic:"What turnover measures and why it matters", diff:"medium",
-      q:"What does “turnover” measure in a portfolio, and why does it matter?",
-      o:["How many different funds a portfolio holds at once","The percentage of a portfolio held in cash","How often a portfolio's target allocation itself changes","How much of a portfolio is bought and sold in a year — it's a direct proxy for cost, since every trade carries a spread and possibly a commission or tax bill"], a:3,
+      q:"What does “turnover” measure, and why does it matter?",
+      o:["How many funds a portfolio holds","The percent of the portfolio held in cash","How often the target allocation itself changes over time","How much is bought and sold — a cost signal"], a:3,
       e:"Turnover is a cost signal, not a quality signal — every trade behind it carries a spread, and possibly a commission or a tax bill.",
       lesson:"31 · Rebalancing: Calendar vs. Bands" },
     { topic:"What a commitment device is", diff:"easy",
       q:"What is a “commitment device”?",
-      o:["A legal contract between an investor and their brokerage","Something set up in advance specifically because you expect your future self to want to do the wrong thing — a written policy is one, so is an automatic transfer","A type of bond that can't be sold before maturity","A fee charged for closing an account early"], a:1,
+      o:["A legal contract with your brokerage","Something set up now so future-you can't derail it","A bond you're never allowed to sell before maturity","A fee for closing an account early"], a:1,
       e:"A commitment device works by making a future bad decision harder to act on — exactly what a written policy or an automatic transfer does.",
       lesson:"32 · Writing An Investment Policy Statement" },
     { topic:"Should a policy cover every situation", diff:"medium",
-      q:"Should a good investment policy statement try to cover every possible situation you might face?",
-      o:["Yes, a thorough policy statement anticipates every possible market scenario","Yes, but only for portfolios over a certain size","No — a page that tries to cover everything gets read by nobody, including its author; it should cover the handful of decisions you know you'll get wrong under stress","No, a policy statement shouldn't cover any specific decisions at all"], a:2,
+      q:"Should a policy statement try to cover every situation?",
+      o:["Yes, it should anticipate every scenario","Yes, but only for large portfolios","No — it should cover what you'll get wrong under stress","No, it shouldn't cover any specific decisions at all, ever"], a:2,
       e:"A policy that tries to anticipate everything becomes unreadable — the value is in covering the few decisions most likely to go wrong under pressure.",
       lesson:"32 · Writing An Investment Policy Statement" },
     { topic:"Time-weighted return vs. your own return", diff:"easy",
-      q:"What's the key difference between a fund's “time-weighted return” and the return an actual investor in it earned?",
-      o:["Time-weighted return assumes a lump sum sat untouched the whole period; an actual investor's return depends on when their money moved in and out, which can differ quite a bit","They're always exactly the same number, just calculated differently","Time-weighted return only applies to bond funds","The investor's return is always lower, never higher, than the fund's"], a:0,
+      q:"What's the key difference between “time-weighted return” and your own return?",
+      o:["Time-weighted ignores when your money moved in and out","They're always exactly the same number","Time-weighted only applies to bond funds","Your own return is always lower, not higher, than the fund's"], a:0,
       e:"Time-weighted return ignores the timing of deposits and withdrawals entirely — an investor's own return does not, which is exactly why the two numbers can diverge.",
       lesson:"33 · Benchmarking: Are You Actually Doing Well?" },
     { topic:"Is the S&P 500 always the right benchmark", diff:"medium",
-      q:"Is comparing your portfolio to the S&P 500 always the “standard test” for how well you're doing?",
-      o:["Yes, the S&P 500 is the universal benchmark for any portfolio","Yes, but only for portfolios held in a taxable account","No, because the S&P 500 is never an appropriate benchmark for anyone","No — it's the standard test specifically for a portfolio of US large-company stocks; measuring a mixed or global portfolio against it tells you about the difference in what you hold, not how well you did"], a:3,
+      q:"Is the S&P 500 always the right benchmark for your portfolio?",
+      o:["Yes, it's universal for any portfolio","Yes, but only in taxable accounts","No, it's never an appropriate benchmark","No — only for a US large-company portfolio"], a:3,
       e:"A benchmark has to match what you actually hold — the S&P 500 only does that for a US large-company stock portfolio.",
       lesson:"33 · Benchmarking: Are You Actually Doing Well?" },
     { topic:"What you lose by leaving before vesting", diff:"easy",
-      q:"If you leave a job before your employer's matching contributions are vested, what do you actually lose?",
-      o:["Everything in the account, including your own contributions","Only the unvested employer money — your own elective deferrals, and everything they've earned, are yours from day one regardless of vesting","Nothing — vesting schedules were eliminated by federal law","Only the earnings on your own contributions, not the principal"], a:1,
+      q:"Leaving a job before your match vests — what do you lose?",
+      o:["Everything, including your own contributions","Only the unvested employer money","Nothing, vesting was eliminated by law","Only the earnings on your contributions"], a:1,
       e:"Vesting only ever applies to employer money — your own contributions and their earnings are always fully yours.",
       lesson:"34 · Employer Plans In Depth: Vesting, Fees, Rollovers" },
     { topic:"Employee limit vs. employer match limit", diff:"hard",
-      q:"Is your own elective-deferral contribution limit the same limit that covers your employer's matching contributions?",
-      o:["No — your own elective deferrals have their own limit; employer money sits outside that limit, under a separate and much higher combined cap","Yes, employer and employee contributions always share one single limit","Yes, but only in a Roth-designated account","No, because employer contributions have no limit at all"], a:0,
+      q:"Does your deferral limit also cover employer matching?",
+      o:["No — employer money sits under its own higher cap","Yes, one shared limit covers both","Yes, but only in a Roth account","No, employer contributions have no limit at all, ever"], a:0,
       e:"These are two separate caps — your own deferral limit, and a much higher combined limit that employer money sits under.",
       lesson:"34 · Employer Plans In Depth: Vesting, Fees, Rollovers" },
     { topic:"Plan change vs. reaction", diff:"hard",
-      q:"According to this lesson, what's the actual difference between a “plan change” and a “reaction”?",
-      o:["A plan change is always written down, while a reaction never is","A reaction only happens during a bear market; a plan change can happen anytime","The same action can be either one — moving to more bonds is a reaction if stocks just fell, but a sound plan change if you just moved your target retirement date closer; only the reason behind it differs","There's no real difference — they're just two names for the same thing"], a:2,
+      q:"What's the real difference between a “plan change” and a “reaction”?",
+      o:["A plan change is always written down","A reaction only ever happens during a bear market decline","The same action can be either — only the reason differs","There's really no difference at all"], a:2,
       e:"The action can look identical from the outside — what separates a plan change from a reaction is entirely the reasoning behind it.",
       lesson:"35 · The Annual Review, And When To Change The Plan" },
     { topic:"Contribution rate vs. fund selection", diff:"medium",
-      q:"Does raising your contribution rate matter more than improving what you hold, especially early on?",
-      o:["No, fund selection matters far more than the contribution rate at any stage","Yes, by a wide margin — the gap between a decent portfolio and a perfect one is small, but the gap between saving 5% and saving 10% is large and entirely within your control","They matter exactly equally at every stage of investing","No, contribution rate only matters after a portfolio is already large"], a:1,
+      q:"Does raising your contribution rate matter more than fund selection early on?",
+      o:["No, fund selection matters far more","Yes — the savings-rate gap is large and controllable","They matter exactly equally across every investing stage","No, only after the portfolio is large"], a:1,
       e:"The gap between good and great fund selection is small; the gap between saving more and saving less is large — and fully within your control.",
       lesson:"35 · The Annual Review, And When To Change The Plan" }
   ]

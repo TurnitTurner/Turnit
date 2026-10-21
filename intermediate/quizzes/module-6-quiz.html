@@ -13,10 +13,15 @@
      10 questions, 2 per lesson, split 4 easy / 4 medium / 2 hard — the
      same ratio the Foundations-course quizzes (1-9 through 5-8) use.
      Answer key spread across all four letters (A:3 B:3 C:2 D:2) rather
-     than clustering on one letter, and option lengths kept comparable
-     so the correct answer isn't identifiable by being the longest —
-     both patterns were present in the Foundations quizzes and
-     deliberately avoided here.
+     than clustering on one letter. Option lengths are enforced, not just
+     eyeballed: quiz-static-checks.py fails a quiz where the correct
+     option is the strict longest (or shortest) in more than 3 of 10
+     questions, or where any option in a question is over 2x the length
+     of the shortest. An earlier pass claimed this was handled by eye and
+     wasn't — 69/70 questions across the first build of all 7 Intermediate
+     quizzes had the longest option be the correct one. This file was
+     rewritten to fix that, and the checker now exists so it can't recur
+     silently.
 
      ENGINE: this is the exact same shared `tn-qz` engine used by every
      Foundations module quiz (see e.g. `5-8-module-5-quiz.html` at the
@@ -183,53 +188,53 @@ var QUIZ = {
   lesson: "Module 6: Looking At Individual Companies",
   questions: [
     { topic:"What opportunity cost means here", diff:"easy",
-      q:"What is “opportunity cost” in the context of picking individual stocks instead of a broad index fund?",
-      o:["The brokerage commission charged on every trade","What the same money and time would have earned if put in the index instead — the index is what you're giving up to pick stocks","The tax owed when a stock position is sold","The risk that a single company goes to zero"], a:1,
+      q:"What is “opportunity cost” when picking stocks over an index fund?",
+      o:["The brokerage commission per trade","What the index would've earned instead","The tax owed when you sell","The risk one company goes to zero"], a:1,
       e:"Opportunity cost is what you gave up by not simply holding the index — the comparison every stock pick is implicitly making.",
       lesson:"26 · Should You Pick Stocks At All?" },
     { topic:"Good company vs. good investment", diff:"hard",
-      q:"Does picking a good company automatically mean picking a good investment?",
-      o:["Yes, good companies are always good investments at any price","Yes, as long as the company has been profitable for five or more years","No, because good companies never pay dividends","No — the price already reflects what's publicly known about a good company; you only profit if it does better than the market already expects"], a:3,
+      q:"Does picking a good company mean picking a good investment?",
+      o:["Yes, good companies at any price","Yes, if profitable for 5+ years","No, good companies never pay dividends","No — the price already reflects that"], a:3,
       e:"The market already prices in “good company.” Profiting requires it to beat expectations that are already set high.",
       lesson:"26 · Should You Pick Stocks At All?" },
     { topic:"Revenue vs. net income", diff:"easy",
-      q:"What's the key difference between revenue and net income on an income statement?",
-      o:["Revenue is everything sold before any costs are subtracted — the top line; net income is what's left after every cost, including tax — the bottom line","They're two names for the exact same number","Revenue only counts cash sales, while net income counts all sales","Net income is always larger than revenue"], a:0,
+      q:"What's the key difference between revenue and net income?",
+      o:["Revenue is the top line; net income is the bottom","They're really the same number twice","Revenue only counts the cash sales made","Net income is always larger than revenue, no exceptions"], a:0,
       e:"Revenue sits at the top of the statement before any costs; net income is what survives every cost below it, tax included.",
       lesson:"27 · Reading An Income Statement" },
     { topic:"EPS rising while net income falls", diff:"medium",
-      q:"Can earnings per share rise even while a company's total net income falls?",
-      o:["No, EPS and net income always move in the same direction","EPS can only rise if the company also raises its dividend","Yes — EPS is a fraction, so if the company buys back enough of its own shares, the shrinking denominator can push EPS up even as net income falls","Only for companies carrying no debt at all"], a:2,
+      q:"Can EPS rise even while net income falls?",
+      o:["No, they always move together","Only if the dividend also rises","Yes — buybacks shrink the share count","Only for debt-free companies"], a:2,
       e:"EPS is net income divided by share count — shrink the share count enough through buybacks, and EPS can rise even as the numerator falls.",
       lesson:"27 · Reading An Income Statement" },
     { topic:"Can a profitable company run out of cash", diff:"easy",
       q:"Can a profitable company still run out of cash?",
-      o:["No, profitability and cash are always the same thing","Yes — profit counts a sale when it's made, but cash arrives only when the customer actually pays; a fast-growing company can book record profits and still be unable to make payroll","Only if the company has no assets on its balance sheet","Only for companies that don't pay a dividend"], a:1,
+      o:["No, profit and cash are the same thing","Yes — profit books a sale before cash arrives","Only with absolutely no assets on the balance sheet at all","Only for companies with no dividend"], a:1,
       e:"Profit is an accounting result; cash is what actually arrived. A company can be profitable on paper and still run short of cash in hand.",
       lesson:"28 · Reading A Balance Sheet And Cash Flow" },
     { topic:"Does high equity mean high worth", diff:"medium",
-      q:"Does a high “equity” figure on the balance sheet mean the company is actually worth that much?",
-      o:["No — equity is an accounting leftover built from what assets originally cost, not what they're worth today; a valuable brand can appear nowhere on the balance sheet","Yes, equity is always an accurate measure of a company's true market value","Yes, but only for companies carrying no debt at all","No, because equity only reflects a company's cash holdings"], a:0,
+      q:"Does a high “equity” figure mean the company's worth that much?",
+      o:["No — equity is an accounting leftover","Yes, it's an accurate market value","Yes, but only for debt-free companies","No, equity only reflects cash holdings"], a:0,
       e:"Equity is assets minus liabilities at accounting cost — it can badly understate or overstate what a company is actually worth.",
       lesson:"28 · Reading A Balance Sheet And Cash Flow" },
     { topic:"What a low P/E necessarily means", diff:"easy",
       q:"What does a low P/E ratio necessarily tell you?",
-      o:["That the stock is definitely cheap and worth buying","That the company has no debt on its balance sheet","Only that the price is low relative to last year's profit — nothing about whether that profit is about to shrink, which is exactly how a value trap looks on the day you buy it","That the company's earnings are guaranteed to keep growing"], a:2,
+      o:["That the stock is definitely cheap","That the company definitely carries no debt at all","Only that last year's profit was low-priced","That earnings will keep growing"], a:2,
       e:"A low P/E describes the past year's profit, not the next one — it says nothing on its own about whether that profit will repeat.",
       lesson:"29 · Valuation Ratios And Their Limits" },
     { topic:"A P/E built on a one-off gain", diff:"hard",
-      q:"A company's P/E is only 7, but most of last year's profit came from a one-time sale of a warehouse. What should you conclude?",
-      o:["The stock is clearly cheap, since 7 is a low P/E ratio","The stock is clearly expensive, since one-time gains always inflate the price","The P/E ratio is meaningless for any company that owns real estate","You can't tell from the ratio alone — strip out the one-time gain and you don't know what the real, repeatable earnings actually are"], a:3,
+      q:"A low P/E is driven by a one-time asset sale, not ongoing profit. What's the takeaway?",
+      o:["The stock is clearly cheap","The stock is clearly expensive","P/E is meaningless for real estate owners","You can't tell without the real earnings"], a:3,
       e:"A ratio built on a non-repeating gain isn't describing the ongoing business at all — the “cheap” reading can't be trusted until that's stripped out.",
       lesson:"29 · Valuation Ratios And Their Limits" },
     { topic:"Does beating estimates guarantee a rally", diff:"medium",
-      q:"Does beating the consensus earnings estimate guarantee that a stock's price goes up?",
-      o:["Yes, beating the estimate always sends the stock higher","No — roughly three in four companies beat the estimate every quarter, so beating is the normal, already-expected outcome; what actually moves the price is the gap versus what people were really braced for","Yes, unless the company also cut its dividend that quarter","No, because earnings estimates are never publicly disclosed"], a:1,
+      q:"Does beating the earnings estimate guarantee the stock rises?",
+      o:["Yes, beating always sends it higher","No — beating is usually already expected","Yes, unless the dividend was cut","No, estimates are never disclosed"], a:1,
       e:"Beating is the default outcome most quarters, so it's already priced in — the real surprise is what moves the stock.",
       lesson:"30 · What Happens On Earnings Day" },
     { topic:"A beat paired with a guidance cut", diff:"medium",
-      q:"A company beats on both earnings and revenue for the quarter, but cuts its guidance for next quarter by a meaningful amount. What does this lesson say tends to happen to the stock?",
-      o:["It tends to fall — the reported quarter is already finished and already priced in, but guidance is about quarters nobody has priced yet, and a meaningful cut rewrites all of them at once","It reliably rises, since beating both numbers is what matters most","It stays flat, since one report can't offset another","It's automatically halted from trading until the next earnings call"], a:0,
+      q:"A company beats this quarter but cuts next quarter's guidance. What usually happens?",
+      o:["It tends to fall — the cut rewrites what's ahead","It reliably rises on the beat","It generally just stays completely flat regardless","It's halted until the next call"], a:0,
       e:"The backward-looking beat is already known; the forward-looking guidance cut rewrites what the market expects next — that's what actually moves the price.",
       lesson:"30 · What Happens On Earnings Day" }
   ]
