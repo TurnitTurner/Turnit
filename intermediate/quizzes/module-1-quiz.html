@@ -13,10 +13,15 @@
      10 questions, 2 per lesson, split 4 easy / 4 medium / 2 hard — the
      same ratio the Foundations-course quizzes (1-9 through 5-8) use.
      Answer key spread across all four letters (A:3 B:2 C:3 D:2) rather
-     than clustering on one letter, and option lengths kept comparable
-     so the correct answer isn't identifiable by being the longest —
-     both patterns were present in the Foundations quizzes and
-     deliberately avoided here.
+     than clustering on one letter. Option lengths are enforced, not just
+     eyeballed: quiz-static-checks.py fails a quiz where the correct
+     option is the strict longest (or shortest) in more than 3 of 10
+     questions, or where any option in a question is over 2x the length
+     of the shortest. An earlier pass claimed this was handled by eye and
+     wasn't — 69/70 questions across the first build of all 7 Intermediate
+     quizzes had the longest option be the correct one. This file was
+     rewritten to fix that, and the checker now exists so it can't recur
+     silently.
 
      ENGINE: this is the exact same shared `tn-qz` engine used by every
      Foundations module quiz (see e.g. `5-8-module-5-quiz.html` at the
@@ -178,53 +183,53 @@ var QUIZ = {
   lesson: "Module 1: Building A Real Portfolio",
   questions: [
     { topic:"What asset allocation means", diff:"easy",
-      q:"What does “asset allocation” actually refer to?",
-      o:["Which brokerage you use","How many individual stocks you own","The split of your money across different kinds of investments","The total dollar value of your portfolio"], a:2,
+      q:"What does “asset allocation” mean?",
+      o:["Which brokerage you use","How many stocks you own","How your money is split across asset classes","Your portfolio's total dollar value"], a:2,
       e:"Asset allocation is the split itself — stocks vs. bonds vs. cash — not which funds you used to get there.",
       lesson:"01 · From One Fund To An Allocation" },
     { topic:"Growth engines vs. stabilizers", diff:"medium",
-      q:"In this lesson's framework, which pairing is correct?",
-      o:["A total market stock fund is a growth engine","A money market fund is a growth engine","Short-term government bonds are a growth engine","An international stock fund is a stabilizer"], a:0,
-      e:"A total market stock fund and an international stock fund are both growth engines; money market funds and short-term government bonds are stabilizers.",
+      q:"Which of these is a growth engine, not a stabilizer?",
+      o:["A total market stock fund","A money market fund","Short-term government bonds","A high-yield savings account"], a:0,
+      e:"A total market stock fund is a growth engine; money market funds, short-term government bonds, and savings accounts are all stabilizers.",
       lesson:"01 · From One Fund To An Allocation" },
     { topic:"Risk capacity vs. risk tolerance", diff:"easy",
       q:"What's the difference between risk capacity and risk tolerance?",
-      o:["They're the same thing, just different names","Risk capacity only applies to retirees","Risk tolerance is measured in dollars, risk capacity in percentages","Risk capacity is how much loss your situation can absorb; risk tolerance is how much loss you can stomach emotionally"], a:3,
-      e:"Risk capacity is arithmetic — driven by your timeline and income. Risk tolerance is temperament — how much loss you can live through without selling.",
+      o:["They're basically the same thing","Capacity only applies to retirees","Tolerance is dollars, capacity is percentages","Capacity is arithmetic; tolerance is temperament"], a:3,
+      e:"Risk capacity is driven by your timeline and income — arithmetic. Risk tolerance is how much loss you can live through without selling — temperament.",
       lesson:"02 · Stocks And Bonds: Choosing Your Split" },
     { topic:"When capacity overrides tolerance", diff:"hard",
-      q:"Someone needs their invested money in three years, but says they can emotionally handle an aggressive, all-stock portfolio. What does this lesson say should guide their split?",
-      o:["Their stated risk tolerance, since that's what matters most","Their risk capacity, since a short timeline limits how much loss their situation can actually absorb, regardless of tolerance","Their age alone","Whichever split has historically returned the most"], a:1,
-      e:"Tolerance is only half of it — if the money is needed soon, capacity for loss is what actually binds, no matter how much risk someone feels comfortable with.",
+      q:"Money's needed in 3 years; they feel fine going all-stock. What should guide the split?",
+      o:["Their stated risk tolerance","Their risk capacity, not their tolerance","Their age, not their timeline","Whichever split returned most historically"], a:1,
+      e:"Tolerance is only half of it — a near-term goal means capacity for loss is what actually binds, no matter how comfortable someone feels with risk.",
       lesson:"02 · Stocks And Bonds: Choosing Your Split" },
     { topic:"What home bias means", diff:"easy",
       q:"What is “home bias”?",
-      o:["The tendency to hold far more of your own country's companies than their share of the world market would suggest","Preferring to invest in companies you've worked for","A tax benefit for domestic investments","The risk that a foreign currency will fall"], a:0,
-      e:"Home bias is holding disproportionately more of your home country's stocks than its actual share of the global market — common worldwide, not just in the US.",
+      o:["Overweighting your own country's stocks","Preferring companies you personally worked for","A tax break for domestic investments","The risk a foreign currency falls"], a:0,
+      e:"Home bias is holding more of your home country's stocks than its actual share of the global market — common everywhere, not just the US.",
       lesson:"03 · Why International Exposure Exists" },
     { topic:"Foreign revenue vs. foreign ownership", diff:"medium",
-      q:"A large US company gets a big share of its revenue from overseas. Does owning its stock give you the diversification benefit of international exposure?",
-      o:["Yes — foreign revenue is the same as foreign ownership","Yes, but only if the company is in a major index","No — the shares still trade on a US exchange, in dollars, and move with US sentiment, so you get some of the economics but none of the diversification","No, because foreign revenue is taxed differently"], a:2,
+      q:"A US company earns most revenue overseas. Does its stock diversify you internationally?",
+      o:["Yes — revenue abroad means ownership abroad","Yes, if it's in a major index","No — it still trades on a US exchange","No — foreign revenue is taxed differently"], a:2,
       e:"Foreign revenue isn't foreign ownership — the stock itself still trades on a US exchange and moves with US markets.",
       lesson:"03 · Why International Exposure Exists" },
     { topic:"What market cap measures", diff:"easy",
-      q:"How is a company's market cap calculated?",
-      o:["Its annual revenue","The number of employees it has","Its total debt minus its assets","Its share price multiplied by its number of shares outstanding"], a:3,
+      q:"How is market cap calculated?",
+      o:["A company's annual revenue","Its number of employees","Its total debt minus assets","Share price times shares outstanding"], a:3,
       e:"Market cap is share price times shares outstanding — the market's price tag on the whole business.",
       lesson:"04 · Large, Mid, And Small Companies" },
     { topic:"How spread out a cap-weighted fund really is", diff:"hard",
-      q:"A cap-weighted total market fund holds thousands of companies. What does this lesson say about how “spread out” that actually makes you?",
-      o:["Perfectly spread out — equal exposure to every company","Less spread out than it looks — weighting by size means the largest few companies drive most of the fund's movement","Spread out only across large-caps, since small-caps are excluded","Completely unrelated to company size"], a:1,
+      q:"A cap-weighted fund holds thousands of companies. How spread out are you really?",
+      o:["Perfectly — equal exposure to every company","Less than it looks — a few giants dominate","Only across large-cap companies","Not related to company size at all"], a:1,
       e:"Owning thousands of companies sounds broad, but cap-weighting means the biggest names dominate the fund's actual behavior — breadth of holdings isn't breadth of exposure.",
       lesson:"04 · Large, Mid, And Small Companies" },
     { topic:"What a glide path is", diff:"medium",
       q:"What is a “glide path”?",
-      o:["The historical return pattern of the stock market","A chart showing a fund's daily price movement","The pre-set schedule by which a target-date fund shifts from stocks toward bonds as the target year approaches","The order in which a brokerage executes your trades"], a:2,
+      o:["The overall market's historical return pattern","A chart of a fund's daily price","A target-date fund's bond-shift schedule","The order a broker executes trades"], a:2,
       e:"A glide path is the published schedule a target-date fund follows, reducing stocks and adding bonds over time — and it varies by provider.",
       lesson:"05 · Three Portfolio Models Compared" },
     { topic:"Sizing a satellite position", diff:"medium",
-      q:"In a core-and-satellite portfolio, what does this lesson say satellite positions should look like?",
-      o:["Small and deliberate — sized so that being wrong about one is an irritation, not a disaster","Roughly half the portfolio, to make a meaningful impact","Exactly equal in size to the core holding","Entirely in cash for safety"], a:0,
+      q:"In core-and-satellite investing, how big should a satellite position be?",
+      o:["Small — so being wrong doesn't hurt much","Roughly half of the total portfolio value","Equal in size to the core","All in cash, for safety"], a:0,
       e:"Satellites are kept deliberately small — the core is supposed to be most of the portfolio, and a satellite being wrong should sting, not sink you.",
       lesson:"05 · Three Portfolio Models Compared" }
   ]

@@ -13,10 +13,15 @@
      10 questions, 2 per lesson, split 4 easy / 4 medium / 2 hard — the
      same ratio the Foundations-course quizzes (1-9 through 5-8) use.
      Answer key spread across all four letters (A:2 B:2 C:3 D:3) rather
-     than clustering on one letter, and option lengths kept comparable
-     so the correct answer isn't identifiable by being the longest —
-     both patterns were present in the Foundations quizzes and
-     deliberately avoided here.
+     than clustering on one letter. Option lengths are enforced, not just
+     eyeballed: quiz-static-checks.py fails a quiz where the correct
+     option is the strict longest (or shortest) in more than 3 of 10
+     questions, or where any option in a question is over 2x the length
+     of the shortest. An earlier pass claimed this was handled by eye and
+     wasn't — 69/70 questions across the first build of all 7 Intermediate
+     quizzes had the longest option be the correct one. This file was
+     rewritten to fix that, and the checker now exists so it can't recur
+     silently.
 
      ENGINE: this is the exact same shared `tn-qz` engine used by every
      Foundations module quiz (see e.g. `5-8-module-5-quiz.html` at the
@@ -186,52 +191,52 @@ var QUIZ = {
   questions: [
     { topic:"What asset location means", diff:"easy",
       q:"What is “asset location”?",
-      o:["How much risk your overall portfolio is taking","The specific stocks and bonds you choose to own","Which account type — taxable, tax-deferred, or tax-exempt — holds an investment, a separate decision from asset allocation","How often you rebalance your portfolio"], a:2,
+      o:["Your overall portfolio risk level","The specific stocks and bonds you own","Which account type holds an investment","How often you rebalance"], a:2,
       e:"Asset location is about which account holds an investment, not what you own — a separate decision from asset allocation entirely.",
       lesson:"11 · Asset Location: What Belongs In Which Account" },
     { topic:"Does location change your risk level", diff:"medium",
-      q:"The exact same 70/30 stock-bond mix is split between a taxable account and an IRA in two different ways. Does the overall risk level change?",
-      o:["No — location changes which account holds each piece, not the overall mix itself; risk stays the same","Yes — moving bonds into an IRA automatically makes the portfolio safer","Yes — taxable accounts are inherently riskier than IRAs","No, but only for retirement accounts specifically"], a:0,
+      q:"A 70/30 mix is split two ways between a taxable account and an IRA. Does the risk change?",
+      o:["No — location just moves pieces, not the mix","Yes — bonds in an IRA get automatically safer","Yes — taxable accounts are inherently riskier","No, but only for retirement accounts"], a:0,
       e:"Location only moves pieces between accounts — it never changes the underlying mix, so the risk level is unchanged.",
       lesson:"11 · Asset Location: What Belongs In Which Account" },
     { topic:"What determines qualified vs. ordinary", diff:"easy",
-      q:"What actually determines whether a dividend is taxed as “qualified” (lower rate) rather than “ordinary” (regular income rate)?",
-      o:["Which company paid the dividend","How large the dividend payment is","Whether the dividend was paid in cash or automatically reinvested","Whether you held the stock long enough around its ex-dividend date — not which company paid it"], a:3,
+      q:"What determines whether a dividend is “qualified” (lower rate) vs. “ordinary”?",
+      o:["Which company paid it","How large the payment is","Whether it was reinvested","Whether you held the stock long enough"], a:3,
       e:"The holding-period rule is what matters — not the company's size, fame, or how the dividend was paid out.",
       lesson:"12 · Qualified vs. Ordinary Dividends" },
     { topic:"A one-day hold around the ex-dividend date", diff:"hard",
-      q:"A stock is bought the day before its ex-dividend date and sold the very next day. Does the resulting dividend qualify for the lower tax rate?",
-      o:["Yes, since it's a well-known, dividend-paying company","No — that's only about two days held, nowhere near the required holding period, so the dividend stays ordinary","Yes, because it was held across the ex-dividend date itself","It depends on whether the dividend was reinvested"], a:1,
+      q:"Bought the day before ex-dividend, sold the next day. Does the dividend qualify?",
+      o:["Yes, it's a well-known company","No — nowhere near the holding period","Yes, it crossed the ex-dividend date","Depends if it was reinvested"], a:1,
       e:"Roughly two days held is nowhere close to the required holding period — the dividend stays ordinary no matter how well-known the company is.",
       lesson:"12 · Qualified vs. Ordinary Dividends" },
     { topic:"Short-term vs. long-term capital gains", diff:"easy",
       q:"What's the difference between a short-term and a long-term capital gain?",
-      o:["Short-term gains are taxed at a flat 20% no matter what","There's no real difference — both are taxed identically","Short-term means held one year or less, taxed at ordinary income rates; long-term means held more than one year, taxed at the lower preferential rate","Long-term only applies inside retirement accounts"], a:2,
+      o:["Short-term is always a flat 20%","There's really no meaningful difference","Short-term is one year or less; long-term is more","Long-term gains only apply inside retirement accounts"], a:2,
       e:"The one-year line determines the rate: short-term gains are taxed like a paycheck, long-term gains get the lower 0/15/20% rates.",
       lesson:"13 · Holding Periods And The Capital Gains Brackets" },
     { topic:"Income stacking and partial brackets", diff:"medium",
-      q:"Part of someone's capital gain pushes them into the 20% capital-gains bracket. Is their entire gain taxed at 20%?",
-      o:["No — only the slice of the gain above the threshold gets the higher rate; the rest stays in the lower zone it already filled","Yes — once any part of a gain crosses into a bracket, the whole gain is taxed there","It depends on whether the asset sold was a stock or a fund","Yes, but only for gains over a set dollar amount"], a:0,
+      q:"Part of a gain pushes someone into the 20% bracket. Is the whole gain taxed at 20%?",
+      o:["No — only the slice above the threshold","Yes — the entire gain gets taxed at that rate","Depends on stock vs. fund","Yes, over a set dollar amount"], a:0,
       e:"That's income stacking — only the portion above each threshold gets that threshold's rate; the rest stays in the brackets it already filled.",
       lesson:"13 · Holding Periods And The Capital Gains Brackets" },
     { topic:"What the wash-sale rule actually covers", diff:"easy",
       q:"What is the wash-sale rule?",
-      o:["A rule capping how much investment loss you can claim per year","A rule requiring you to hold an investment at least one year before selling at a loss","A rule that only applies inside retirement accounts","A rule disallowing a loss if you buy the same or a substantially identical security within 30 days before or after the sale — a 61-day window in total"], a:3,
+      o:["A yearly cap on claimable losses","A full one-year hold before you can sell at a loss","A rule only for retirement accounts","No repurchase within 30 days, either side"], a:3,
       e:"The window runs both directions — 30 days before the sale and 30 days after, 61 days total including the sale date.",
       lesson:"14 · Tax-Loss Harvesting, And The Wash-Sale Rule" },
     { topic:"Buying the loss back inside an IRA", diff:"hard",
-      q:"Someone sells a stock at a loss in their taxable account, then immediately buys the same stock back inside their IRA. Does this avoid the wash-sale rule?",
-      o:["Yes, since IRAs are entirely exempt from the wash-sale rule","Yes, but only if the repurchase happens more than 15 days later","No — it still counts as a wash sale, and it's worse: there's no basis adjustment available inside an IRA, so the loss is permanently forfeited rather than deferred","No, but only because IRAs have their own separate $3,000 limit"], a:2,
+      q:"Sell at a loss, then rebuy the stock inside an IRA. Does that avoid the wash-sale rule?",
+      o:["Yes, IRAs are exempt from it","Yes, after 15 days it's fine","No — and the loss is forfeited for good","No, but IRAs also have their own separate $3,000 cap"], a:2,
       e:"The rule still applies across accounts — and losing the basis adjustment inside an IRA means the loss is gone for good, not just delayed.",
       lesson:"14 · Tax-Loss Harvesting, And The Wash-Sale Rule" },
     { topic:"Reading boxes 1a and 1b on a 1099-DIV", diff:"medium",
-      q:"On Form 1099-DIV, what's the relationship between box 1a (total ordinary dividends) and box 1b (qualified dividends)?",
-      o:["They're always two completely separate totals that never overlap","Box 1b is a slice of box 1a, not a separate total — the two can even be equal if every dividend happened to qualify","Box 1a only covers dividends paid in the first half of the year","Box 1b is always exactly half of box 1a"], a:1,
+      q:"On a 1099-DIV, how do box 1a (ordinary) and box 1b (qualified) relate?",
+      o:["They never overlap at all","Box 1b is a slice of box 1a","Box 1a only covers early-year dividends","Box 1b is always half of box 1a"], a:1,
       e:"Box 1b reports how much of box 1a's total was qualified — a subset, not an independent figure, so they can match exactly.",
       lesson:"15 · What A 1099 Actually Tells You" },
     { topic:"A blank cost-basis box", diff:"medium",
-      q:"Box 1e (cost basis) on a Form 1099-B is blank for one of your sales. What does that most likely mean?",
-      o:["You have no cost basis and the full proceeds are tax-free","The broker made an error that must be corrected before you can file","The shares were definitely received as a gift","The broker likely wasn't required to track the basis — often shares bought before 2012 — and you still need your own purchase records"], a:3,
+      q:"Box 1e (cost basis) is blank on a 1099-B for one sale. What does that likely mean?",
+      o:["No cost basis — proceeds are tax-free","The broker made an error","The shares were definitely a gift","The broker wasn't required to track it"], a:3,
       e:"A blank box usually just means the broker wasn't required to track that basis, not that none exists — you still need to supply it yourself.",
       lesson:"15 · What A 1099 Actually Tells You" }
   ]

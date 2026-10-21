@@ -13,10 +13,15 @@
      10 questions, 2 per lesson, split 4 easy / 4 medium / 2 hard — the
      same ratio the Foundations-course quizzes (1-9 through 5-8) use.
      Answer key spread across all four letters (A:3 B:3 C:2 D:2) rather
-     than clustering on one letter, and option lengths kept comparable
-     so the correct answer isn't identifiable by being the longest —
-     both patterns were present in the Foundations quizzes and
-     deliberately avoided here.
+     than clustering on one letter. Option lengths are enforced, not just
+     eyeballed: quiz-static-checks.py fails a quiz where the correct
+     option is the strict longest (or shortest) in more than 3 of 10
+     questions, or where any option in a question is over 2x the length
+     of the shortest. An earlier pass claimed this was handled by eye and
+     wasn't — 69/70 questions across the first build of all 7 Intermediate
+     quizzes had the longest option be the correct one. This file was
+     rewritten to fix that, and the checker now exists so it can't recur
+     silently.
 
      ENGINE: this is the exact same shared `tn-qz` engine used by every
      Foundations module quiz (see e.g. `5-8-module-5-quiz.html` at the
@@ -183,52 +188,52 @@ var QUIZ = {
   questions: [
     { topic:"Drawdown vs. permanent loss", diff:"easy",
       q:"What's the difference between a “drawdown” and a “permanent loss”?",
-      o:["They're the same thing, just different names for a market decline","A drawdown is a decline from a peak that can still recover — only a loss on paper until you sell; a permanent loss is capital that's actually gone for good","A drawdown only happens to individual stocks, never to diversified funds","A permanent loss is always smaller than a drawdown, by definition"], a:1,
+      o:["They're the same thing, just worded differently","A drawdown can recover; a permanent loss can't","Drawdowns only happen to individual stocks, not funds","A permanent loss is always smaller"], a:1,
       e:"A drawdown is unrealized until you sell. A permanent loss means the capital is genuinely gone — two very different things.",
       lesson:"16 · Volatility vs. Drawdown vs. Permanent Loss" },
     { topic:"Volatility vs. risk of permanent loss", diff:"medium",
-      q:"Is volatility basically the same thing as the risk of permanent loss?",
-      o:["Yes, they measure exactly the same thing","Yes, but only for individual stocks, not funds","No, because volatility only applies to bonds","No — a diversified fund can be volatile and still fundamentally sound; permanent loss is a separate question of whether the value is actually gone for good"], a:3,
+      q:"Is volatility basically the same as the risk of permanent loss?",
+      o:["Yes, they measure the same thing","Yes, but only for individual stocks","No, volatility only applies to bonds","No — a volatile fund can still be sound"], a:3,
       e:"A volatile, diversified fund can still be fine. Permanent loss asks a different question entirely — whether the money is actually gone.",
       lesson:"16 · Volatility vs. Drawdown vs. Permanent Loss" },
     { topic:"What a correlation of 0 means", diff:"easy",
-      q:"What does a correlation coefficient of 0 between two investments mean?",
-      o:["No relationship at all — knowing what one did tells you nothing about the other","They always move in exactly opposite directions","They always move in perfect lockstep","They're both guaranteed to have zero volatility"], a:0,
+      q:"What does a correlation of 0 between two investments mean?",
+      o:["No relationship at all","They move in exactly opposite directions","They move in perfect lockstep","Both are guaranteed zero volatility"], a:0,
       e:"Zero means no relationship. Moving in opposite directions is closer to -1, a very different number.",
       lesson:"17 · Correlation: Why “Diversified” Can Still Move Together" },
     { topic:"Can systematic risk be eliminated", diff:"hard",
-      q:"Can systematic risk be eliminated completely just by owning enough different stocks?",
-      o:["Yes, owning 50+ stocks across different industries eliminates it entirely","Yes, but only if the stocks span at least 10 different sectors","No — stocks alone, however many and different, are all still exposed to the same stock-market-wide risk; reducing it meaningfully takes genuinely different kinds of assets","No, because systematic risk only affects bonds, not stocks"], a:2,
+      q:"Can systematic risk be eliminated just by owning enough different stocks?",
+      o:["Yes, 50+ stocks across industries eliminates it","Yes, if they span 10+ sectors","No — stocks alone share market-wide risk","No, it only affects bonds"], a:2,
       e:"Owning more stocks reduces idiosyncratic risk, not systematic risk — that requires genuinely different asset types, not more tickers of the same kind.",
       lesson:"17 · Correlation: Why “Diversified” Can Still Move Together" },
     { topic:"What sequence-of-returns risk is", diff:"easy",
       q:"What is “sequence-of-returns risk”?",
-      o:["The risk that a portfolio's average return turns out lower than expected","The risk that the order in which returns occur — not just their average — determines how long a portfolio lasts once money is being withdrawn from it","The risk of picking funds in the wrong order when building a portfolio","A risk that only applies to bonds, never to stocks"], a:1,
+      o:["A portfolio's average return being too low","The order returns occur, not just their average","Picking funds in the wrong order","A risk that only applies to bonds"], a:1,
       e:"It's specifically about order, not average — the same average return can produce very different outcomes depending on when the bad years land.",
       lesson:"18 · Sequence-Of-Returns Risk" },
     { topic:"Timing of a retirement crash", diff:"hard",
-      q:"A market crash happens right after someone retires, versus the same-size crash ten years into retirement. Which is more dangerous to how long their money lasts?",
-      o:["The crash right after retirement — it forces withdrawals from a portfolio that hasn't had time to grow, and there's more time left for that damage to compound","They're equally dangerous, since the crash is the same size either way","The crash ten years in is more dangerous, since more money is at risk by then","Neither — sequence doesn't matter once withdrawals have started"], a:0,
+      q:"A crash hits right after retirement vs. 10 years in. Which is more damaging?",
+      o:["Right after — smaller base, more years to compound","Equally dangerous, regardless of timing","Ten years in — there's simply more money at risk by then","Neither — sequence doesn't matter"], a:0,
       e:"An early crash hits hardest — it forces selling from a smaller base, and there are more years left for that loss to compound.",
       lesson:"18 · Sequence-Of-Returns Risk" },
     { topic:"What double exposure means", diff:"easy",
-      q:"What is “double exposure” in the context of owning employer stock?",
-      o:["Owning the same stock in two different brokerage accounts","Being taxed twice on the same RSU vesting event","Holding employer stock in both a 401(k) and an IRA","Having both your paycheck and a large share of your savings depend on the same employer, so one company's problems can hit your income and net worth at the same time"], a:3,
+      q:"What is “double exposure” with employer stock?",
+      o:["Owning the same stock in two separate brokerage accounts","Being taxed twice on the same vesting","Holding it in both a 401(k) and an IRA","Your paycheck and savings both depend on one employer"], a:3,
       e:"The same bad news can hit your job and your portfolio simultaneously — that combined risk is what makes employer stock different from an ordinary single-stock bet.",
       lesson:"19 · Concentration Risk: Company Stock And RSUs" },
     { topic:"Whether RSUs are a fixed dollar amount", diff:"medium",
       q:"Are RSUs a fixed, guaranteed dollar amount, like a cash bonus?",
-      o:["Yes, RSUs are always worth a fixed, pre-determined dollar amount","Yes, but only at large, publicly traded companies","No — an RSU is a promise of shares, not cash; once it vests, it's worth whatever the stock is worth at that moment, which can be more or less than expected","No, RSUs are actually a type of stock option, not a stock grant"], a:2,
+      o:["Yes, always a fixed guaranteed amount","Yes, but only at public companies","No — worth whatever the stock is at vesting","No, RSUs are actually a type of stock option, not a grant"], a:2,
       e:"An RSU's value floats with the stock price at vesting — it's a promise of shares, not a locked-in dollar figure.",
       lesson:"19 · Concentration Risk: Company Stock And RSUs" },
     { topic:"Whether a questionnaire predicts real behavior", diff:"medium",
-      q:"Does a risk-tolerance questionnaire filled out in a calm market reliably predict what someone will actually do during a real crash?",
-      o:["Yes, that's exactly what these questionnaires are designed and proven to do","No — a questionnaire answer is a stated preference, made with nothing actually at stake; it's a reasonable starting point, not a guarantee of future behavior","Yes, as long as the questionnaire is updated annually","No, because questionnaires are only accurate for conservative investors"], a:1,
+      q:"Does a calm-market questionnaire reliably predict behavior during a real crash?",
+      o:["Yes, that's exactly what it's designed to do","No — a stated preference, not a guarantee","Yes, if updated annually","No, only for conservative investors"], a:1,
       e:"A questionnaire captures a stated preference. What someone actually does with real money on the line — their revealed preference — can differ sharply.",
       lesson:"20 · Your Real Risk Tolerance vs. Your Stated One" },
     { topic:"What loss aversion means", diff:"medium",
       q:"What does “loss aversion” mean?",
-      o:["The tendency to feel the pain of a loss more intensely than the pleasure of an equally-sized gain — a well-documented asymmetry, not just a mild preference","Avoiding any investment that has ever posted a loss in its history","A legal requirement for brokerages to warn clients about risk before they invest","The tendency to sell winning investments too early to lock in gains"], a:0,
+      o:["Losses feel worse than equal gains feel good","Avoiding anything that's ever posted a loss","A legal warning requirement for brokers","Selling winners too early to lock in gains"], a:0,
       e:"Loss aversion is a documented asymmetry in how losses and gains actually feel — not simply a preference for avoiding risk.",
       lesson:"20 · Your Real Risk Tolerance vs. Your Stated One" }
   ]

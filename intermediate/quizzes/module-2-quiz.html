@@ -13,10 +13,15 @@
      10 questions, 2 per lesson, split 4 easy / 4 medium / 2 hard — the
      same ratio the Foundations-course quizzes (1-9 through 5-8) use.
      Answer key spread across all four letters (A:3 B:3 C:2 D:2) rather
-     than clustering on one letter, and option lengths kept comparable
-     so the correct answer isn't identifiable by being the longest —
-     both patterns were present in the Foundations quizzes and
-     deliberately avoided here.
+     than clustering on one letter. Option lengths are enforced, not just
+     eyeballed: quiz-static-checks.py fails a quiz where the correct
+     option is the strict longest (or shortest) in more than 3 of 10
+     questions, or where any option in a question is over 2x the length
+     of the shortest. An earlier pass claimed this was handled by eye and
+     wasn't — 69/70 questions across the first build of all 7 Intermediate
+     quizzes had the longest option be the correct one. This file was
+     rewritten to fix that, and the checker now exists so it can't recur
+     silently.
 
      ENGINE: this is the exact same shared `tn-qz` engine used by every
      Foundations module quiz (see e.g. `5-8-module-5-quiz.html` at the
@@ -182,53 +187,53 @@ var QUIZ = {
   lesson: "Module 2: Funds Under The Hood",
   questions: [
     { topic:"What NAV means", diff:"easy",
-      q:"What does NAV stand for, and when is it set for a mutual fund?",
-      o:["National average valuation — updated every hour","Net asset value — worked out once a day after the market closes; every order placed that day fills at this one price","Net annual value — calculated at the start of trading each day","Net asset volume — the number of shares traded"], a:1,
-      e:"NAV is net asset value, worked out once a day after the close — every mutual fund order placed that day fills at that same price, no matter when it was placed.",
+      q:"What does NAV stand for, and when is it set?",
+      o:["National average valuation, hourly","Net asset value, set once daily after close","Net annual value, set at the open","Net asset volume — shares traded"], a:1,
+      e:"NAV is net asset value, worked out once a day after the close — every mutual fund order that day fills at that same price.",
       lesson:"06 · ETFs vs. Mutual Funds: What Actually Differs" },
     { topic:"What actually sets a fund's fee", diff:"medium",
-      q:"An ETF and a mutual fund tracking the same index charge nearly identical fees, while another ETF tracking that same index charges more than both. What does this tell you?",
-      o:["ETFs are always cheaper than mutual funds","Mutual funds always charge more than ETFs","The extra fee on a pricier fund pays for better stock picks","The wrapper — ETF vs. mutual fund — doesn't determine the expense ratio; cost varies fund to fund regardless"], a:3,
-      e:"The wrapper does not set the expense ratio. Cost comes down to the specific fund, not whether it happens to be structured as an ETF or a mutual fund.",
+      q:"Two funds track the same index but charge different fees. What does that tell you?",
+      o:["ETFs are always the cheaper option","Mutual funds always cost more than ETFs","The extra fee buys better stock picks","The wrapper doesn't set the fee"], a:3,
+      e:"The wrapper does not set the expense ratio — cost comes down to the specific fund, not whether it's an ETF or a mutual fund.",
       lesson:"06 · ETFs vs. Mutual Funds: What Actually Differs" },
     { topic:"What an index actually is", diff:"easy",
-      q:"What is an index, as this lesson defines it?",
-      o:["A published set of rules for which companies belong on a list and how much space each one gets","A list of companies a fund manager hand-picks each year","A single company's stock price history","A government-regulated list of tax-advantaged investments"], a:0,
+      q:"What is a market index?",
+      o:["A published rulebook for what's in it and how much","A list a manager hand-picks each year","One company's stock price history","A government list of tax-advantaged funds"], a:0,
       e:"An index is a published rulebook — eligibility tests and a weighting method — that a fund tracking it simply follows.",
       lesson:"07 · How An Index Is Built (And Why It Matters)" },
     { topic:"What it actually takes to join a major index", diff:"hard",
-      q:"Does a major index like the S&P 500 admit any company once it's simply big enough?",
-      o:["Yes — size alone is the only requirement","No — it requires a unanimous committee vote with no fixed rules at all","No — it also requires positive earnings (last quarter and the trailing four combined) and a minimum free float; size is only one of several tests","Yes, as long as the company has been public for at least ten years"], a:2,
+      q:"Does a major index admit any company once it's simply big enough?",
+      o:["Yes — size is the only requirement","No — it's a unanimous vote, no fixed rules","No — earnings and free float matter too","Yes, if it's been public ten years"], a:2,
       e:"Size is one test among several — profitability and free float requirements also have to be met before a company is eligible.",
       lesson:"07 · How An Index Is Built (And Why It Matters)" },
     { topic:"What net assets actually tells you", diff:"easy",
-      q:"What does a fund's “net assets” figure actually tell you?",
-      o:["How much the fund has returned historically","How big and heavily traded the fund is — nothing about how well it is run","The fund's expense ratio","How many individual companies it holds"], a:1,
+      q:"What does a fund's “net assets” figure tell you?",
+      o:["Its historical returns","How big and heavily traded it is","Its expense ratio","How many companies it holds"], a:1,
       e:"Net assets measures size and liquidity, not quality — a huge fund says nothing on its own about future returns.",
       lesson:"08 · How To Read A Fund Page" },
     { topic:"What a normal tracking difference means", diff:"medium",
-      q:"A fund trails its index by almost exactly its own expense ratio, year after year. What does this lesson say that means?",
-      o:["The fund is doing its job — that's the expected tracking difference, not a problem","The fund is broken and underperforming","The fund manager is skimming extra, undisclosed fees","The index itself must be poorly constructed"], a:0,
+      q:"A fund trails its index by about its own fee, every year. What does that mean?",
+      o:["It's doing its job, as expected","It's badly broken and underperforming","The manager is skimming extra fees","The index itself is poorly built"], a:0,
       e:"A tracking difference of roughly the expense ratio is the design working as intended — it's a fund beating its index by a wide margin that should raise questions.",
       lesson:"08 · How To Read A Fund Page" },
     { topic:"Whether more funds means more diversification", diff:"easy",
       q:"Does owning more funds automatically mean more diversification?",
-      o:["Yes, always — more funds spreads risk by definition","Yes, but only if each fund has a different ticker symbol","No — more funds always means more fees, with no benefit at all","No — a fund only widens what you own if it holds something new; three funds all buying large US companies is one bet bought three times"], a:3,
+      o:["Yes, always — more funds spreads risk","Yes, if each one has its own unique ticker symbol","No — more funds just means more fees","No — only if a fund holds something new"], a:3,
       e:"Diversification comes from holding something different, not from the number of tickers on your statement.",
       lesson:"09 · Fund Overlap: Owning The Same Thing Twice" },
     { topic:"What holding a total-market fund plus an S&P 500 fund means", diff:"hard",
-      q:"Someone holds both a total US market fund and an S&P 500 fund. What does this lesson say is actually true about those two holdings?",
-      o:["They hold completely different companies, with no overlap at all","Every company in the S&P 500 fund is already inside the total-market fund, so part of their money is counted twice","The S&P 500 fund holds companies the total-market fund excludes, so this is good diversification","This is double-counting that brokerages are required to block"], a:1,
+      q:"Someone holds a total-market fund and an S&P 500 fund. What's actually true?",
+      o:["No overlap between them at all","The S&P 500 is already inside the total-market fund","The S&P 500 fund adds meaningful real diversification","Brokerages are required to block this"], a:1,
       e:"A total US market fund already contains the entire S&P 500 — holding both means part of your money sits in the same companies through two different tickers.",
       lesson:"09 · Fund Overlap: Owning The Same Thing Twice" },
     { topic:"What happens on the ex-dividend date", diff:"medium",
       q:"What typically happens to a stock's price on its ex-dividend date?",
-      o:["It rises by roughly the amount of the dividend","It stays exactly the same","It typically falls by roughly the amount of the dividend, since that cash is now leaving the business","It becomes impossible to trade for 24 hours"], a:2,
+      o:["It rises by about the dividend","It stays exactly the same","It falls by about the dividend","It can't be traded for 24 hours"], a:2,
       e:"The price typically drops by about the payment amount — the money moved from the company to the shareholder, it wasn't created from nothing.",
       lesson:"10 · Dividends, Reinvestment, And Total Return" },
     { topic:"What the price-return vs. total-return gap represents", diff:"medium",
-      q:"This lesson cites a real, multi-decade gap between a broad index's price return and its total return. What does that gap represent?",
-      o:["Dividends — price return ignores every payment made along the way, while total return reinvests them","Inflation adjustments baked into the total-return figure","Trading commissions paid over the period","Currency conversion effects on a US-only index"], a:0,
+      q:"An index's price return trails its total return for decades. What explains the gap?",
+      o:["Dividends — total return reinvests them","Inflation adjustments","Trading commissions paid over the decades","Currency conversion effects"], a:0,
       e:"Price return tracks the share price alone; total return adds back every dividend paid and reinvested along the way — that gap compounds into a very large difference over decades.",
       lesson:"10 · Dividends, Reinvestment, And Total Return" }
   ]

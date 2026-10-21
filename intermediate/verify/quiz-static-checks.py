@@ -10,6 +10,17 @@ lesson referenced exactly twice, and an answer-key letter distribution
 that isn't lopsided (the Foundations quizzes' own flaw: 7 of 10 answers
 were B).
 
+It also checks for length, since raw option-length comparability was
+claimed but never measured and 69/70 questions across the first 7
+Intermediate quizzes turned out to have the longest option be the correct
+one (the correct option carried its own justification, distractors were
+bare claims). Checked per quiz: the correct option is the strict longest
+in at most 3 of 10 questions, the strict shortest in at most 3 of 10
+(so "shortest wins" doesn't become the new tell), and no option within a
+question is more than 2x the length of the shortest option in that
+question. Also flags (warns, non-fatal) any question stem over 90 chars
+or any option over 60 chars, as a concision nudge.
+
 Usage: python3 -I quiz-static-checks.py quizzes/module-1-quiz.html
 """
 import sys, re, json
@@ -49,9 +60,13 @@ def main():
     if len(qs) != 10:
         fail("expected exactly 10 questions, found %d" % len(qs))
 
+    L_PREVIEW = ['A', 'B', 'C', 'D']
     diffs = {}
     lessons = {}
     letters = {0: 0, 1: 0, 2: 0, 3: 0}
+    longest_correct = 0
+    shortest_correct = 0
+    warnings = []
     for i, q in enumerate(qs):
         n = i + 1
         opts = q.get('o', [])
@@ -73,6 +88,35 @@ def main():
         les = q.get('lesson')
         if les:
             lessons[les] = lessons.get(les, 0) + 1
+
+        if len(opts) == 4 and isinstance(a, int) and 0 <= a <= 3:
+            lens = [len(o) for o in opts]
+            if lens[a] == max(lens) and lens.count(max(lens)) == 1:
+                longest_correct += 1
+            if lens[a] == min(lens) and lens.count(min(lens)) == 1:
+                shortest_correct += 1
+            ratio = max(lens) / max(min(lens), 1)
+            if ratio > 2.0:
+                fail("Q%d: option length ratio %.1fx too wide (lens %s) — "
+                     "distractors look thin next to the answer" % (n, ratio, lens))
+        stem = q.get('q', '')
+        if len(stem) > 90:
+            warnings.append("Q%d: stem is %d chars (aim <=90) — %r" % (n, len(stem), stem))
+        for k, o in enumerate(opts):
+            if len(o) > 60:
+                warnings.append("Q%d option %s: %d chars (aim <=60) — %r" %
+                                 (n, L_PREVIEW[k], len(o), o))
+
+    print("  longest-opt-wins .... %d/%d (cap 3)" % (longest_correct, len(qs)))
+    if longest_correct > 3:
+        fail("correct option is the strict longest in %d/%d questions (cap 3) — "
+             "the answer is guessable by length" % (longest_correct, len(qs)))
+    print("  shortest-opt-wins ... %d/%d (cap 3)" % (shortest_correct, len(qs)))
+    if shortest_correct > 3:
+        fail("correct option is the strict shortest in %d/%d questions (cap 3) — "
+             "shortest-wins is just as guessable" % (shortest_correct, len(qs)))
+    for w in warnings:
+        print("  warn  " + w)
 
     want = {'easy': 4, 'medium': 4, 'hard': 2}
     if diffs != want:
