@@ -1,0 +1,409 @@
+<meta charset="utf-8">
+<!-- ============================================================
+     TURNIT — MODULE QUIZ (funnel page)
+     Paste into a GHL FUNNEL PAGE > Custom Code / HTML, then iframe it.
+     Scoped under #tn-qz. Brand: blue #1568AE -> green #209B73 | Poppins + Inter.
+
+     Covers INTERMEDIATE MODULE 5 — Bonds And Cash, Properly:
+       21 What You Actually Own When You Buy A Bond
+       22 Yield, Price, And Why They Move Opposite
+       23 Duration: How Much Rates Will Hurt
+       24 Bond Funds vs. Individual Bonds
+       25 T-Bills, Money Market Funds, And HYSAs Compared
+     10 questions, 2 per lesson, split 4 easy / 4 medium / 2 hard — the
+     same ratio the Foundations-course quizzes (1-9 through 5-8) use.
+     Answer key spread across all four letters (A:2 B:2 C:3 D:3) rather
+     than clustering on one letter, and option lengths kept comparable
+     so the correct answer isn't identifiable by being the longest —
+     both patterns were present in the Foundations quizzes and
+     deliberately avoided here.
+
+     ENGINE: this is the exact same shared `tn-qz` engine used by every
+     Foundations module quiz (see e.g. `5-8-module-5-quiz.html` at the
+     repo root), copied forward on purpose — quizzes are standalone
+     funnel pages, not lessons, so the usual per-lesson prefix-collision
+     rule doesn't apply here; all seven Intermediate module quizzes
+     share this same `tn-qz` prefix, exactly as all five Foundations
+     quizzes already do. One real bug fixed in the copied engine: the
+     intro screen used to hard-code "covering all 7 lessons in this
+     module" (true for every Foundations module, which all have 7
+     lessons). Every Intermediate module has 5 lessons, so left
+     unfixed, every one of these seven quizzes would have opened on a
+     false sentence. The lesson count is now computed from the
+     question set's own distinct `lesson` values instead of hard-coded.
+
+     Every question is drawn directly from this module's five shipped
+     lesson files — their title-chip definitions, their Myth/Fact rows
+     (verified true/false claims), and their sort-activity answer keys
+     — not from memory, and distractors are drawn from each lesson's
+     own myths (already verified wrong) rather than invented options.
+     This is the module most exposed to going stale: Lesson 25 shipped
+     with explicitly dated T-bill, money market fund, and HYSA rate
+     snapshots (already labeled in the lesson itself as rough and
+     dated). None of those rates appear anywhere in this quiz — every
+     Lesson 25 question tests a structural fact (how a T-bill's return
+     is generated, what FDIC insurance does and doesn't cover) that
+     doesn't change when the rate environment does. The FDIC $250,000 /
+     SIPC $500,000 coverage limits are also deliberately not tested as
+     numbers, even though they're comparatively stable, since the
+     point being tested is which protection applies to which product,
+     not a dollar figure to memorize.
+
+     TO MAKE A QUIZ FOR ANOTHER MODULE: edit only the QUIZ config in
+     the QUIZ CONFIG script block (title, lesson name, questions).
+     Everything else is shared and does not need to change.
+
+     Flow: intro screen -> one question at a time with instant feedback
+     -> one try per question -> results with a per-question review ->
+     scroll-down prompt pointing at GHL's own Mark As Complete / Next
+     buttons.
+     ============================================================ -->
+<div id="tn-qz">
+  <div class="qz-wrap">
+    <div class="qz-top">
+      <div class="qz-brand"><span class="qz-word">TURNIT</span><span class="qz-bsub">Module Quiz</span></div>
+      <div class="qz-progress"><span id="qz-bar"></span></div>
+      <div class="qz-meta"><span id="qz-meta-l">Ready when you are</span><span id="qz-meta-r"></span></div>
+    </div>
+    <div class="qz-card" id="qz-card"></div>
+    <p class="qz-disclaimer">TURNIT is for educational purposes only and is not financial, tax, or legal advice.</p>
+  </div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  #tn-qz{
+    --b:#1568AE; --g:#209B73; --gold:#E0A93C; --no:#C0392B; --ink:#16202B; --ink2:#56657a; --mut:#9AA8B6;
+    --paper:#fff; --mist:#F5F8FB; --line:#E7EDF3;
+    all:initial; display:block; box-sizing:border-box; width:100%; background:var(--paper); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  #tn-qz *,#tn-qz *::before,#tn-qz *::after{box-sizing:border-box;}
+  #tn-qz .qz-wrap{max-width:640px; margin:0 auto; padding:16px 18px 32px;}
+  #tn-qz .qz-top{margin-bottom:16px;}
+  #tn-qz .qz-brand{display:flex; justify-content:flex-end; align-items:center; gap:8px; font-size:13px; margin-bottom:10px;}
+  #tn-qz .qz-word{font-family:'Poppins',sans-serif; font-weight:800; font-style:italic; background:linear-gradient(90deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; color:transparent; padding-top:.08em;}
+  #tn-qz .qz-bsub{color:var(--ink2); font-weight:500;}
+  #tn-qz .qz-progress{height:7px; background:#E9EFF4; border-radius:99px; overflow:hidden;}
+  #tn-qz #qz-bar{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--b),var(--g)); border-radius:99px; transition:width .5s cubic-bezier(.2,.7,.2,1);}
+  #tn-qz .qz-meta{display:flex; justify-content:space-between; margin-top:8px; font-size:12.5px; font-weight:600; color:var(--mut);}
+  #tn-qz #qz-meta-l{color:var(--ink2);}
+
+  #tn-qz .qz-card{background:linear-gradient(180deg,#F7FAFC,#fff); border:1px solid var(--line); border-radius:20px; padding:24px 20px; box-shadow:0 18px 44px -32px rgba(21,104,174,.55); animation:qz-in .35s ease;}
+  @keyframes qz-in{from{opacity:0; transform:translateY(10px);}to{opacity:1; transform:none;}}
+
+  /* intro */
+  #tn-qz .qz-kicker{font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--g); margin:0 0 8px; text-align:center;}
+  #tn-qz .qz-title{font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(26px,6vw,36px); line-height:1.15; text-align:center; margin:0 0 12px;}
+  #tn-qz .qz-grad{background:linear-gradient(95deg,var(--b),var(--g)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  #tn-qz .qz-sub{font-size:15.5px; color:var(--ink2); text-align:center; margin:0 auto 18px; max-width:460px;}
+  #tn-qz .qz-rule{background:#EEF3F8; border-radius:12px; padding:11px 14px; font-size:13.5px; color:var(--ink2); text-align:center; margin-bottom:18px;}
+
+  /* buttons */
+  #tn-qz .qz-btn{display:block; width:100%; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px; color:#fff; background:linear-gradient(135deg,var(--b),var(--g)); border:none; border-radius:13px; padding:14px; cursor:pointer; transition:transform .15s; box-shadow:0 12px 26px -14px rgba(21,104,174,.7);}
+  #tn-qz .qz-btn:hover{transform:translateY(-2px);}
+  #tn-qz .qz-btn.ghost{background:#fff; color:var(--ink2); border:1.5px solid #E1E8EF; box-shadow:none; font-size:13.5px; padding:11px; margin-top:10px;}
+
+  /* question */
+  #tn-qz .qz-qhead{display:flex; justify-content:center; align-items:center; margin-bottom:14px; gap:10px;}
+  #tn-qz .qz-dots{display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;}
+  #tn-qz .qz-dot{width:18px; height:6px; border-radius:99px; background:#E4E9EE; transition:all .25s;}
+  #tn-qz .qz-dot.cur{background:var(--b); width:26px;}
+  #tn-qz .qz-dot.ok{background:var(--g);}
+  #tn-qz .qz-dot.miss{background:var(--no);}
+  #tn-qz .qz-retry{display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; color:#8a5a12; background:#FBF1DE; border:1px solid #F0DBA8; border-radius:99px; padding:4px 11px; margin-bottom:10px;}
+  #tn-qz .qz-q{font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; line-height:1.4; margin:0 0 16px;}
+  #tn-qz .qz-opts{display:flex; flex-direction:column; gap:9px;}
+  #tn-qz .qz-opt{display:flex; align-items:center; gap:12px; width:100%; text-align:left; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:var(--ink); background:#fff; border:1.5px solid #E1E8EF; border-radius:13px; padding:13px 14px; cursor:pointer; transition:all .16s;}
+  #tn-qz .qz-opt:hover:not(:disabled){border-color:var(--b); background:#F3F8FD; transform:translateX(2px);}
+  #tn-qz .qz-opt:disabled{cursor:default;}
+  #tn-qz .qz-l{flex:none; width:30px; height:30px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:var(--b); background:#EAF1FA;}
+  #tn-qz .qz-opt.right{border-color:var(--g); background:#EAF7F1;}
+  #tn-qz .qz-opt.right .qz-l{background:var(--g); color:#fff;}
+  #tn-qz .qz-opt.wrong{border-color:var(--no); background:#FDECEA; animation:qz-shake .35s;}
+  #tn-qz .qz-opt.wrong .qz-l{background:var(--no); color:#fff;}
+  #tn-qz .qz-opt.dim{opacity:.45;}
+  @keyframes qz-shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+  #tn-qz .qz-fb{margin-top:14px; border-radius:13px; padding:14px 16px; font-size:14.5px; line-height:1.55; animation:qz-in .3s ease;}
+  #tn-qz .qz-fb.ok{background:#EAF7F1; border:1px solid #BFE6D6;}
+  #tn-qz .qz-fb.no{background:#FDF3F1; border:1px solid #F5C6BE;}
+  #tn-qz .qz-fb b{font-family:'Poppins',sans-serif;}
+  #tn-qz .qz-fb.ok b{color:var(--g);} #tn-qz .qz-fb.no b{color:var(--no);}
+  #tn-qz .qz-fbnote{display:block; margin-top:6px; font-size:12.5px; font-weight:600; color:var(--ink2);}
+  #tn-qz .qz-fb .qz-btn{margin-top:14px;}
+
+  #tn-qz .qz-timer{display:block; height:4px; margin-top:10px; background:#CFEADF; border-radius:99px; overflow:hidden;}
+  #tn-qz .qz-timer span{display:block; height:100%; width:100%; background:var(--g); border-radius:99px; transform-origin:left; animation:qz-timer 1.8s linear forwards;}
+  @keyframes qz-timer{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  /* results */
+  #tn-qz .qz-ringwrap{position:relative; width:150px; height:150px; margin:4px auto 10px;}
+  #tn-qz .qz-ring{width:150px; height:150px; transform:rotate(-90deg);}
+  #tn-qz .qz-ring circle{fill:none; stroke-width:8; stroke-linecap:round;}
+  #tn-qz .qz-ring .bg{stroke:#E8EEF4;}
+  #tn-qz .qz-ring .fg{stroke:url(#qz-grad); transition:stroke-dashoffset 1.2s cubic-bezier(.2,.7,.2,1);}
+  #tn-qz .qz-score{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+  #tn-qz .qz-score b{font-family:'Poppins',sans-serif; font-weight:800; font-size:34px; line-height:1;}
+  #tn-qz .qz-score span{font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin-top:5px;}
+  #tn-qz .qz-lead{font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; text-align:center; margin:0 0 4px;}
+  #tn-qz .qz-leadsub{font-size:14.5px; color:var(--ink2); text-align:center; margin:0 0 18px;}
+  #tn-qz .qz-review{display:flex; flex-direction:column; gap:7px; margin-bottom:18px;}
+  #tn-qz .qz-rv{display:flex; align-items:flex-start; gap:10px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px 13px; font-size:13.5px; line-height:1.45;}
+  #tn-qz .qz-rvi{flex:none; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:#fff; margin-top:1px;}
+  #tn-qz .qz-rvi.ok{background:var(--g);} #tn-qz .qz-rvi.miss{background:var(--no);}
+  #tn-qz .qz-rv b{font-family:'Poppins',sans-serif; font-weight:700;}
+  #tn-qz .qz-rv small{display:block; color:var(--ink2); font-size:12.5px;}
+  #tn-qz .qz-revisit{color:var(--b); font-weight:600; margin-top:3px;}
+  #tn-qz .qz-why{color:var(--ink2); margin-top:3px;}
+
+  /* finish prompt (matches lesson standard) */
+  #tn-qz .qz-finish{margin-top:18px; padding:18px 20px; border-radius:16px; background:linear-gradient(135deg,#EAF2F9,#EAF7F1); border:1.5px solid #CDE3DA; text-align:center;}
+  #tn-qz .qz-arrow{display:block; font-size:30px; line-height:1; color:var(--g); animation:qz-bob 1.6s ease-in-out infinite;}
+  #tn-qz .qz-arrow.up{animation-name:qz-bob-up;}
+  @keyframes qz-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+  @keyframes qz-bob-up{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  #tn-qz .qz-flead{font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; margin:8px 0 4px;}
+  #tn-qz .qz-fsub{font-size:13.5px; color:var(--ink2); margin:0;}
+  #tn-qz .qz-disclaimer{font-size:11px; color:var(--mut); text-align:center; margin:18px auto 0; max-width:520px;}
+
+  @media (max-width:480px){
+    #tn-qz .qz-card{padding:20px 16px;}
+    #tn-qz .qz-q{font-size:16.5px;}
+    #tn-qz .qz-opt{font-size:14.5px; padding:12px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #tn-qz .qz-card,#tn-qz .qz-fb{animation:none;} #tn-qz .qz-opt.wrong{animation:none;}
+    #tn-qz .qz-arrow{animation:none;} #tn-qz .qz-ring .fg{transition:none;} #tn-qz #qz-bar{transition:none;}
+  }
+</style>
+<script>
+/* ============================================================
+   QUIZ CONFIG — the only part to edit per module.
+   a = index of the correct option (0 = A, 1 = B, ...).
+   topic = short label shown in the results review.
+   lesson = which lesson to revisit, shown for missed questions.
+   diff = easy / medium / hard — 4 easy, 4 medium, 2 hard per quiz.
+   ============================================================ */
+var QUIZ = {
+  lesson: "Module 5: Bonds And Cash, Properly",
+  questions: [
+    { topic:"Is a bondholder an owner?", diff:"easy",
+      q:"Is a bondholder a part-owner of the company, the same way a stockholder is?",
+      o:["Yes, bondholders and stockholders have identical ownership rights","Yes, but only for bonds issued directly by the company rather than through an underwriter","No — a bondholder is a creditor, not an owner; that's exactly why bondholders get paid before stockholders if the company runs out of money","No, because bondholders can never lose money"], a:2,
+      e:"A bondholder has loaned the company money, not bought a piece of it — that creditor status is exactly why bondholders rank ahead of stockholders if things go wrong.",
+      lesson:"21 · What You Actually Own When You Buy A Bond" },
+    { topic:"Who gets paid first in bankruptcy", diff:"medium",
+      q:"If a company goes bankrupt, who generally gets paid first — bondholders or stockholders?",
+      o:["Bondholders — that's seniority; creditors, including bondholders, rank ahead of owners","Stockholders, since they took on more risk by investing in equity","Whoever filed their claim first, regardless of bond or stock","Both are paid at exactly the same time, in proportion to their holdings"], a:0,
+      e:"Seniority puts creditors ahead of owners in the payment line — bondholders are creditors, stockholders are owners.",
+      lesson:"21 · What You Actually Own When You Buy A Bond" },
+    { topic:"Does the coupon rate change with interest rates", diff:"easy",
+      q:"Does a bond's coupon rate change as prevailing interest rates change, to keep its payment competitive?",
+      o:["Yes, the coupon rate adjusts automatically to match new bonds","Yes, but only for government bonds, not corporate ones","It depends on whether the bond is callable","No — the coupon rate is fixed for the bond's entire life; it's the price that adjusts to stay competitive, not the coupon"], a:3,
+      e:"The coupon never moves once a bond is issued — the bond's market price does all the adjusting instead.",
+      lesson:"22 · Yield, Price, And Why They Move Opposite" },
+    { topic:"What rising rates do to existing bond prices", diff:"medium",
+      q:"When interest rates rise, what typically happens to the price of an existing, fixed-coupon bond?",
+      o:["It tends to rise, since bonds become more attractive when rates rise","It tends to fall — new bonds pay more, so the older, lower-coupon bond's price has to drop to stay competitive","It stays exactly the same, since the coupon payment never changes","It becomes impossible to sell until maturity"], a:1,
+      e:"That's interest rate risk — an older bond's price has to fall so its fixed coupon still looks competitive against newly issued bonds.",
+      lesson:"22 · Yield, Price, And Why They Move Opposite" },
+    { topic:"Does duration just mean years to maturity", diff:"easy",
+      q:"Does duration just tell you how many years until a bond matures?",
+      o:["Yes, duration and maturity are always exactly the same number","Yes, but only for bonds that don't pay a coupon","No — duration also weighs every coupon payment received along the way, which is why a coupon-paying bond's duration is almost always shorter than its maturity","No, duration has nothing to do with time at all"], a:2,
+      e:"Maturity is one input into duration, but duration also accounts for coupons received earlier — which pulls it shorter than the maturity date.",
+      lesson:"23 · Duration: How Much Rates Will Hurt" },
+    { topic:"Zero-coupon bond duration", diff:"hard",
+      q:"Does a zero-coupon bond's duration equal its time to maturity exactly?",
+      o:["Yes — with no coupon payments along the way, all cash flow arrives in one lump at maturity, so nothing pulls the duration shorter","No, a zero-coupon bond has no duration at all","No, its duration is always longer than its maturity","It depends entirely on the bond's credit rating"], a:0,
+      e:"With every dollar arriving at maturity and nothing paid earlier, a zero-coupon bond's duration lines up exactly with its maturity.",
+      lesson:"23 · Duration: How Much Rates Will Hurt" },
+    { topic:"Does holding to maturity erase every cost", diff:"medium",
+      q:"If you hold an individual bond to maturity, does a rate rise along the way ever actually cost you anything?",
+      o:["No, holding to maturity means rising rates truly never cost you a thing","No, because the coupon payments increase automatically to match new rates","It only costs you something if the bond defaults before maturity","Yes, in a real sense — you still earn below-market income while rates are up, and you'd take a real loss selling before maturity, even though you get face value back at the end"], a:3,
+      e:"Pulling to par erases the price drop by maturity, but it doesn't erase the below-market income earned along the way or the loss an early sale would have locked in.",
+      lesson:"24 · Bond Funds vs. Individual Bonds" },
+    { topic:"Is a bond fund's yield locked in at purchase", diff:"hard",
+      q:"Is a bond fund's yield locked in when you buy it, the same way an individual bond's purchase yield is?",
+      o:["Yes, a fund's yield is fixed the moment you buy shares","No — a fund's yield reflects whatever bonds it currently holds, which keeps changing as old bonds roll off and new ones are bought","Yes, but only for funds that hold exclusively Treasury bonds","No, because bond funds don't have a yield figure at all"], a:1,
+      e:"A fund's yield floats with its current holdings — there's no single locked-in number the way there is when you buy one specific bond.",
+      lesson:"24 · Bond Funds vs. Individual Bonds" },
+    { topic:"What makes a T-bill's return different", diff:"easy",
+      q:"What makes a Treasury bill's “interest” different from a typical coupon-paying bond's?",
+      o:["It pays a much higher coupon rate than typical bonds","It can only be bought directly from the issuing government","It's sold at a discount to its face value instead of paying a separate coupon — the gap between what you pay and what you get back is the return","It has no maturity date at all"], a:2,
+      e:"A T-bill has no coupon payments — its entire return is the gap between its discounted purchase price and the face value paid at maturity.",
+      lesson:"25 · T-Bills, Money Market Funds, And HYSAs Compared" },
+    { topic:"Does FDIC cover a money market fund", diff:"medium",
+      q:"Is a money market fund covered by FDIC insurance, the same way a bank savings account is?",
+      o:["Yes, every money market fund is FDIC-insured up to the standard limit","Yes, but only money market funds sold directly by banks","It depends on whether the fund holds Treasury securities or corporate debt","No — a money market FUND is a security, not a bank deposit, so FDIC insurance doesn't apply (a bank's money market ACCOUNT, a different product, is FDIC-insured)"], a:3,
+      e:"The fund/account naming is the trap here — a money market fund is a security with no FDIC backing, while a bank's money market account is an ordinary insured deposit.",
+      lesson:"25 · T-Bills, Money Market Funds, And HYSAs Compared" }
+  ]
+};
+</script>
+<script>
+/* ============================================================
+   QUIZ ENGINE — shared; no edits needed per module.
+   One try per question. Correct answers move on automatically;
+   wrong answers show why, then wait for the learner to continue.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('tn-qz'); if(!root || !window.QUIZ) return;
+  var card=root.querySelector('#qz-card'), bar=root.querySelector('#qz-bar'),
+      metaL=root.querySelector('#qz-meta-l'), metaR=root.querySelector('#qz-meta-r');
+  var Q=QUIZ.questions, N=Q.length, L=['A','B','C','D','E'];
+  var idx, result, correct;               /* result[i] = true / false once answered */
+  var ADVANCE_MS=1800, advanceTimer=null;
+  function clearAdvance(){ if(advanceTimer){ clearTimeout(advanceTimer); advanceTimer=null; } }
+
+  /* distinct lessons this question set actually covers, computed rather than
+     hard-coded — a fixed "7 lessons" string (true for every Foundations
+     module) would be wrong for every Intermediate module, which has 5 */
+  var LESSON_COUNT=(function(){ var seen={}, n=0; Q.forEach(function(q){ if(!seen[q.lesson]){ seen[q.lesson]=1; n++; } }); return n; })();
+
+  function postH(){ var h=root.scrollHeight+40; if(window.parent) window.parent.postMessage({turnitLessonHeight:h},'*'); }
+  function toTop(){ if(window.parent) window.parent.postMessage({turnitScrollTop:1},'*'); try{ window.scrollTo(0,0); }catch(e){} }
+  function paint(html){ card.innerHTML=html; card.style.animation='none'; void card.offsetWidth; card.style.animation=''; postH(); }
+
+  function intro(){
+    metaL.textContent='Ready when you are'; metaR.textContent=''; bar.style.width='0%';
+    paint(
+      '<p class="qz-kicker">Module Quiz</p>'+
+      '<h1 class="qz-title">'+QUIZ.lesson.replace(/ (\S+)$/,' <span class="qz-grad">$1</span>')+'</h1>'+
+      '<p class="qz-sub">See how well this module’s big ideas stuck — '+N+' questions covering all '+LESSON_COUNT+' lessons in this module.</p>'+
+      '<div class="qz-rule">Get one wrong and you’ll see why before moving on.</div>'+
+      '<button type="button" class="qz-btn" id="qz-start">Start the Quiz →</button>');
+    card.querySelector('#qz-start').addEventListener('click',start);
+  }
+
+  function start(){ clearAdvance(); idx=0; correct=0; result=Q.map(function(){return null;}); toTop(); ask(); }
+
+  function dots(cur){
+    return '<div class="qz-dots">'+Q.map(function(_,i){
+      var c=result[i]===true?'ok':(result[i]===false?'miss':'');
+      return '<span class="qz-dot '+c+(i===cur?' cur':'')+'"></span>'; }).join('')+'</div>';
+  }
+
+  function ask(){
+    clearAdvance();
+    if(idx>=N) return results();
+    var q=Q[idx];
+    metaL.textContent='Question '+(idx+1)+' of '+N;
+    metaR.textContent=correct+' correct';
+    bar.style.width=Math.round(idx/N*100)+'%';
+    paint(
+      '<div class="qz-qhead">'+dots(idx)+'</div>'+
+      '<p class="qz-q">'+q.q+'</p>'+
+      '<div class="qz-opts">'+q.o.map(function(t,k){
+        return '<button type="button" class="qz-opt" data-k="'+k+'"><span class="qz-l">'+L[k]+'</span><span>'+t+'</span></button>'; }).join('')+'</div>'+
+      '<div class="qz-fb" hidden></div>');
+    card.querySelectorAll('.qz-opt').forEach(function(b){
+      b.addEventListener('click',function(){ pick(+b.getAttribute('data-k')); });
+    });
+  }
+
+  function pick(k){
+    var q=Q[idx], ok=(k===q.a);
+    card.querySelectorAll('.qz-opt').forEach(function(b){
+      var kk=+b.getAttribute('data-k'); b.disabled=true;
+      b.classList.add(kk===q.a?'right':(kk===k?'wrong':'dim'));
+    });
+    result[idx]=ok; if(ok) correct++;
+    card.querySelector('.qz-dots').outerHTML=dots(-1);
+    metaR.textContent=correct+' correct';
+    bar.style.width=Math.round((idx+1)/N*100)+'%';
+    idx++;
+    var last=idx>=N, fb=card.querySelector('.qz-fb'); fb.hidden=false; fb.className='qz-fb '+(ok?'ok':'no');
+    if(ok){
+      fb.innerHTML='<b>Correct!</b> '+(last?'Getting your results…':'Moving to the next question…')+'<span class="qz-timer"><span></span></span>';
+      advanceTimer=setTimeout(ask, ADVANCE_MS);
+    } else {
+      fb.innerHTML='<b>Not quite — the answer is '+L[q.a]+'.</b> '+q.e+
+        '<button type="button" class="qz-btn" id="qz-go">'+(last?'See My Results →':'Next Question →')+'</button>';
+      fb.querySelector('#qz-go').addEventListener('click',ask);
+    }
+    postH();
+  }
+
+  function results(){
+    metaL.textContent='Quiz complete'; metaR.textContent=correct+' of '+N+' correct'; bar.style.width='100%';
+    var pct=correct/N, C=2*Math.PI*62, off=C*(1-pct);
+    var lead=pct===1?'Perfect score.':(pct>=.7?'Strong work.':(pct>=.4?'Good start.':'Worth another look.'));
+    var sub=pct===1?'Every idea in this module landed.':
+      'You got '+correct+' of '+N+'. The ones marked below are worth revisiting in the lesson.';
+    paint(
+      '<div class="qz-ringwrap"><svg class="qz-ring" viewBox="0 0 150 150"><defs><linearGradient id="qz-grad" x1="0" x2="1">'+
+      '<stop offset="0" stop-color="#1568AE"/><stop offset="1" stop-color="#209B73"/></linearGradient></defs>'+
+      '<circle cx="75" cy="75" r="62" class="bg"/><circle cx="75" cy="75" r="62" class="fg" style="stroke-dasharray:'+C+';stroke-dashoffset:'+C+'"/></svg>'+
+      '<div class="qz-score"><b>'+correct+'/'+N+'</b><span>Correct</span></div></div>'+
+      '<p class="qz-lead">'+lead+'</p><p class="qz-leadsub">'+sub+'</p>'+
+      '<div class="qz-review">'+Q.map(function(q,i){
+        var hit=result[i]===true;
+        return '<div class="qz-rv"><span class="qz-rvi '+(hit?'ok':'miss')+'">'+(hit?'✓':'✕')+'</span><div><b>'+q.topic+'</b>'+
+          (hit?'<small>Got it</small>':'<small>Answer: '+q.o[q.a]+'</small><small class="qz-why">'+q.e+'</small><small class="qz-revisit">↺ Revisit '+q.lesson+'</small>')+'</div></div>'; }).join('')+'</div>'+
+      '<div class="qz-finish"><span class="qz-arrow" id="qz-arrow">↓</span>'+
+      '<p class="qz-flead" id="qz-flead">Scroll Down To Continue</p>'+
+      '<p class="qz-fsub" id="qz-fsub">Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.</p></div>');
+    var fg=card.querySelector('.fg');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ fg.style.strokeDashoffset=off; }); });
+    fsApply(true);
+    confetti();
+  }
+
+  /* ---- celebration: confetti falls from the top of the screen ----
+     Canvas is attached to <body>, not the quiz card: the card animates with a
+     transform, which would trap a fixed-position overlay inside it.
+     Skipped entirely for learners who have reduced motion turned on. */
+  function confetti(){
+    try{ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+    var old=document.getElementById('qz-confetti'); if(old) old.remove();
+    var cv=document.createElement('canvas'); cv.id='qz-confetti';
+    cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx=cv.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2), W, H;
+    function size(){ W=innerWidth; H=innerHeight; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+    size(); window.addEventListener('resize',size);
+    var COLORS=['#1568AE','#209B73','#E0A93C','#12a08a','#5AA9E6','#F2C14E'];
+    var P=[], COUNT=Math.min(160, Math.round(W/3));
+    for(var i=0;i<COUNT;i++){
+      P.push({ x:Math.random()*W, y:-20-Math.random()*H*0.6,
+        w:6+Math.random()*6, h:8+Math.random()*8, c:COLORS[i%COLORS.length],
+        vy:2.2+Math.random()*2.8, vx:-1.2+Math.random()*2.4,
+        rot:Math.random()*Math.PI, vr:-0.12+Math.random()*0.24,
+        sway:Math.random()*Math.PI*2, round:Math.random()<0.25 });
+    }
+    var start=performance.now(), LIFE=4200;
+    (function frame(now){
+      var t=now-start; ctx.clearRect(0,0,W,H);
+      var fade=t>LIFE-900?Math.max(0,(LIFE-t)/900):1;
+      P.forEach(function(p){
+        p.sway+=0.05; p.x+=p.vx+Math.sin(p.sway)*0.8; p.y+=p.vy; p.rot+=p.vr;
+        ctx.save(); ctx.globalAlpha=fade; ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.fillStyle=p.c;
+        if(p.round){ ctx.beginPath(); ctx.arc(0,0,p.w/2,0,Math.PI*2); ctx.fill(); }
+        else ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h*Math.abs(Math.cos(p.sway)));  /* flutter */
+        ctx.restore();
+      });
+      if(t<LIFE) requestAnimationFrame(frame);
+      else { window.removeEventListener('resize',size); cv.remove(); }
+    })(start);
+  }
+
+
+  /* full-screen aware finish prompt, same behavior as the lessons */
+  var lastFs=null;
+  function isFs(){
+    try{ if(document.fullscreenElement||document.webkitFullscreenElement) return true; }catch(e){}
+    try{ var s=window.screen; return innerHeight>=(s.availHeight||s.height)-130 && innerWidth>=(s.availWidth||s.width)-60; }catch(e){ return false; }
+  }
+  function fsApply(force){
+    var a=card.querySelector('#qz-arrow'); if(!a) return;
+    var fs=isFs(); if(!force && fs===lastFs) return; lastFs=fs;
+    a.textContent=fs?'↑':'↓'; a.classList.toggle('up',fs);
+    card.querySelector('#qz-flead').textContent=fs?'Close Full Screen To Continue':'Scroll Down To Continue';
+    card.querySelector('#qz-fsub').innerHTML=fs?'Tap the <b>✕</b> in the top corner, then click <b>Mark As Complete</b> and <b>Next Lesson</b>.'
+      :'Just below this window, click <b>Mark As Complete</b>, then <b>Next Lesson</b>.';
+  }
+  window.addEventListener('resize',function(){ fsApply(false); });
+  document.addEventListener('fullscreenchange',function(){ fsApply(false); });
+
+  window.addEventListener('load',postH); window.addEventListener('resize',postH);
+  intro();
+})();
+</script>
